@@ -1,0 +1,62 @@
+@import '../colors';
+@import '../box-shadows';
+
+.btn {
+    border: 1px solid transparent;
+    min-width: 80px;
+    padding: 5px 0px;
+
+    background-color: $grey;
+    position: relative;
+    @include shadow-darkgrey-grey;
+
+    &::first-letter {
+        text-decoration: underline;
+    }
+
+    &::before, &::after {
+        position: absolute;
+        display: block;
+        content: '';
+    }
+
+    &::before {
+        top: 0px;
+        left: 0px;
+    }
+
+    &::after{
+        top: -1px;
+        left: -1px;
+        width: calc(100% + 2px);
+        height: calc(100% + 2px);
+        @include shadow-black-white;
+    }
+
+    &:focus {
+        outline: black;
+        outline-style: dotted;
+        outline-offset: -5px;
+        outline-width: 1px;
+        -moz-outline-radius: 2px;
+
+        border: 1px solid black;
+        box-shadow:  inset -1px -1px 0px $black;
+
+        &::after {
+            box-shadow: inset 1px 1px 0px 0px $black, 
+        }
+        &::before {
+            box-shadow: inset 1px 1px 0px 0px white, inset -1px -1px 0px $darkgrey;
+            width: calc(100% - 1px);
+            height: calc(100% - 1px);
+        }
+    }
+    &:active:focus {
+        padding: 6px 0px 4px 3px;
+        box-shadow: inset 1px 1px 0px 0px $darkgrey, inset -1px -1px 0px $darkgrey;
+        &:before {
+            box-shadow: none;
+        }
+    }
+}

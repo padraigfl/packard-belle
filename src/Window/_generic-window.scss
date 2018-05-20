@@ -1,0 +1,77 @@
+@import '../colors';
+@import '../box-shadows';
+
+.window {
+    position: relative;
+    background-color: $grey;
+    padding: 3px;
+    @include shadow-darkgrey-white;
+
+    &::before, &::after {
+        position: absolute;
+        display: block;
+        content: '';
+    }
+
+    &::before {
+        top: -1px;
+        left: -1px;
+        width: calc(100% + 2px);
+        height: calc(100% + 2px);
+        @include shadow-black-grey;
+    }
+
+    &__heading {
+        display: flex;
+        background-color: $blue;
+        color: white;
+        padding: 3px;
+        align-items: center;
+    }
+    &__title {
+        display: flex;
+    }
+    &__actions {
+        margin-left: auto;
+
+        .btn {
+            padding: 0px;
+            min-width: initial;
+            width: 19px;
+            height: 19px;
+            margin-left: 2px;
+
+            &:before {
+                @include shadow-darkgrey-grey;
+            }
+
+            &:focus {
+                outline: none;
+                border: none;
+                @include shadow-black-white;
+                &:before {
+                    @include shadow-darkgrey-white;
+                }
+                &:after {
+                    box-shadow: none;
+                }
+            }
+            &:active:focus {
+                height: 18px;
+                padding-top: 2px;
+                padding-bottom: 1px;
+                padding-left: 7px;
+                padding-right: 5px;
+                
+                @include shadow-white-black;
+                &:before {
+                    top: 1px;
+                    left: 1px;
+                    width: calc(100% - 2px);
+                    height: calc(100% - 2px);
+                    @include shadow-grey-darkgrey;
+                }
+            }
+        }
+    }
+}
