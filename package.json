@@ -54,7 +54,7 @@
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom",
     "storybook": "start-storybook -p 9001 -c .storybook",
-    "start": "npm run storybook",
+    "start": "npm run storybook"
   },
   "jest": {
     "collectCoverageFrom": [
