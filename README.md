@@ -4,7 +4,7 @@ Todo:
 - [ ] Start Menu
 - [ ] Desktop
 - [ ] Desktop Icons
-- [ ] Right Click menu
+- [ ] Right Click menu (onContextMenu ??)
 - [ ] File Explorer
 - [ ] Explorer buttons
 - [ ] Alert windows

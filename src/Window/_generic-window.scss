@@ -35,52 +35,5 @@
         margin-left: auto;
         display: flex;
         align-items: center;
-
-        .btn {
-            padding: 0px;
-            min-width: initial;
-            width: 19px;
-            height: 19px;
-            margin-left: 2px;
-            image-rendering: pixelated;
-
-            img {
-                height: 14px;
-                width: 14px;
-            }
-
-            &:before {
-                @include shadow-darkgrey-grey;
-            }
-
-            &:focus {
-                outline: none;
-                border: none;
-                @include shadow-black-white;
-                &:before {
-                    @include shadow-darkgrey-white;
-                }
-                &:after {
-                    box-shadow: none;
-                }
-            }
-            &:active:focus {
-                height: 18px;
-                padding-top: 2px;
-                padding-bottom: 1px;
-                padding-left: 4px;
-                padding-right: 8px;
-                margin-top: -1px;
-                
-                @include shadow-white-black;
-                &:before {
-                    top: 1px;
-                    left: 1px;
-                    width: calc(100% - 2px);
-                    height: calc(100% - 2px);
-                    @include shadow-grey-darkgrey;
-                }
-            }
-        }
     }
 }

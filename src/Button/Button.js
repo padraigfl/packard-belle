@@ -16,7 +16,7 @@ Button.propTypes = {
     children: PropTypes.oneOfType([
         PropTypes.string,
         PropTypes.node,
-    ]).isRequired,
+    ]),
     onClick: PropTypes.func,
     className: PropTypes.string,
     isActive: PropTypes.bool,

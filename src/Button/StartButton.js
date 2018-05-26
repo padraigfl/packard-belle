@@ -4,24 +4,20 @@ import classnames from 'classnames';
 import Button from './Button';
 import './_button';
 
-const NavButton = props => (
+const StartButton = props => (
     <Button
-        className={ classnames('btn--nav', props.className) }
+        className={ classnames('btn--start', props.className) }
         onClick={ props.onClick }
     >
-        { props.children }
+        Start
     </Button>
 );
 
-NavButton.propTypes = {
-    children: PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.node,
-    ]).isRequired,
+StartButton.propTypes = {
     onClick: PropTypes.func,
     className: PropTypes.string,
     isActive: PropTypes.bool,
 };
 
 
-export default NavButton;
+export default StartButton;

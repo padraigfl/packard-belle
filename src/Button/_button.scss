@@ -2,16 +2,13 @@
 @import '../box-shadows';
 
 .btn {
-    border: 1px solid transparent;
-    min-width: 80px;
-    padding: 5px 0px;
+    border: 0px solid transparent;
 
     background-color: $grey;
     position: relative;
-    @include shadow-darkgrey-grey;
 
-    &::first-letter {
-        text-decoration: underline;
+    &:active, &:focus, &:active:focus {
+        outline: none;
     }
 
     &::before, &::after {
@@ -21,8 +18,10 @@
     }
 
     &::before {
-        top: 0px;
-        left: 0px;
+        top: 1px;
+        left: 1px;
+        width: calc(100% - 2px);
+        height: calc(100% - 2px);
     }
 
     &::after{
@@ -30,33 +29,95 @@
         left: -1px;
         width: calc(100% + 2px);
         height: calc(100% + 2px);
+    }
+
+
+    &--form{
+        min-width: 80px;
+        padding: 5px 0px;
         @include shadow-black-white;
-    }
 
-    &:focus {
-        outline: black;
-        outline-style: dotted;
-        outline-offset: -5px;
-        outline-width: 1px;
-        -moz-outline-radius: 2px;
-
-        border: 1px solid black;
-        box-shadow:  inset -1px -1px 0px $black;
-
-        &::after {
-            box-shadow: inset 1px 1px 0px 0px $black, 
-        }
         &::before {
-            box-shadow: inset 1px 1px 0px 0px white, inset -1px -1px 0px $darkgrey;
-            width: calc(100% - 1px);
-            height: calc(100% - 1px);
+            @include shadow-darkgrey-grey;
+        }
+
+        &:focus {
+            outline: black;
+            outline-style: dotted;
+            outline-offset: -5px;
+            outline-width: 1px;
+            -moz-outline-radius: 2px;
+            @include shadow-black-white;
+ 
+            &::after {
+                @include shadow-black;
+            }
+            &::before {
+                @include shadow-darkgrey-grey;
+            }
+        }
+        &:active:focus {
+            padding: 6px 0px 4px 3px;
+            @include shadow-black;
+
+            &::before{
+                @include shadow-darkgrey;
+            }
+            &::after {
+                box-shadow: none;
+            }
         }
     }
-    &:active:focus {
-        padding: 6px 0px 4px 3px;
-        box-shadow: inset 1px 1px 0px 0px $darkgrey, inset -1px -1px 0px $darkgrey;
+    &--nav{
+        padding: 0px;
+        min-width: initial;
+        width: 19px;
+        height: 19px;
+        margin-left: 2px;
+        image-rendering: pixelated;
+
+        img {
+            height: 14px;
+            width: 14px;
+        }
+        @include shadow-black-white;
         &:before {
-            box-shadow: none;
+            @include shadow-darkgrey-grey;
+        }
+
+        &:focus {
+            outline: none;
+            border: none;
+            &:after {
+                box-shadow: none;
+            }
+        }
+        &:active:focus {
+            height: 18px;
+            padding-top: 2px;
+            padding-bottom: 1px;
+            padding-left: 4px;
+            padding-right: 8px;
+            margin-top: -1px;
+            
+            @include shadow-white-black;
+            &:before {
+                @include shadow-grey-darkgrey;
+            }
+        }
+    }
+    &--start{
+        @include shadow-black-white;
+        
+        &::before {
+            @include shadow-darkgrey-grey;
+        }
+
+        &:active{
+            &::before {
+                @include shadow-grey-darkgrey;
+            }
+            @include shadow-white-black;
         }
     }
 }

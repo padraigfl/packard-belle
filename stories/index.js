@@ -2,6 +2,9 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import Button from '../src/Button/Button';
+import FormButton from '../src/Button/FormButton';
+import NavButton from '../src/Button/NavButton';
+import StartButton from '../src/Button/StartButton';
 import GenericWindow from '../src/Window/GenericWindow';
 import StaticWindow from '../src/Window/StaticWindow';
 import ExplorerIcon from '../src/Icon/ExplorerIcon';
@@ -12,7 +15,10 @@ const noop = () => {
 };
 
 storiesOf('Button', module)
-  .add('button', () => <Button>Button</Button>);
+  .add('button', () => <Button>Button</Button>)
+  .add('form button', () => <FormButton>Button</FormButton>)
+  .add('nav button', () => <NavButton>_</NavButton>)
+  .add('start button', () => <StartButton>Button</StartButton>);
 
 storiesOf('Windows', module)
   .add('Generic window', () => <GenericWindow>Window</GenericWindow>)
