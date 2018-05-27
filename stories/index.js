@@ -8,6 +8,7 @@ import StartButton from '../src/Button/StartButton';
 import GenericWindow from '../src/Window/GenericWindow';
 import StaticWindow from '../src/Window/StaticWindow';
 import ExplorerIcon from '../src/Icon/ExplorerIcon';
+import Notifications from '../src/TaskBar/Notifications';
 import img from '../src/Icon/images/directory_closed.png';
 
 const noop = () => {
@@ -41,5 +42,11 @@ storiesOf('Icons', module)
       alt="Testing this testing some more"
       src={ img }
       title="Testing this testing some more"
+    />
+  ));
+
+storiesOf('TaskBar', module)
+  .add('Notifications', () => (
+    <Notifications
     />
   ))

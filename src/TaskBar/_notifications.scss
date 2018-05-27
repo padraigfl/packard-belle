@@ -1,0 +1,11 @@
+@import '../colors';
+@import '../box-shadows';
+@import '../vars';
+
+
+.taskbar-notifications {
+    background-color: $grey;
+    height: 30px;
+
+    @include shadow-white-darkgrey;
+}
