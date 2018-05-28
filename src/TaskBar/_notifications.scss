@@ -2,10 +2,16 @@
 @import '../box-shadows';
 @import '../vars';
 
-
 .taskbar-notifications {
     background-color: $grey;
-    height: 30px;
+    display: flex;
+    align-items: center;
+    height: 24px;
 
     @include shadow-white-darkgrey;
+
+    &__time {
+        margin-left: auto;
+        padding: 0px 8px;
+    }
 }

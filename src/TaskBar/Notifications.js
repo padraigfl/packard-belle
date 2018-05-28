@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import Notifier from './Notifier';
 import './_notifications.scss';
 
 const INTERVALS = 20000;
@@ -47,8 +49,25 @@ class Time extends React.Component {
 
 const Notifications = props => (
     <div className="taskbar-notifications">
+        {
+            props.notifiers.map( notifier => (
+                <Notifier
+                    src={notifier.src}
+                    onClick={notifier.onClick}
+                    title={notifier.title}
+                />
+            ))
+        }
         <Time />
     </div>
-)
+);
+
+Notifications.propsTypes = {
+    notifiers: PropTypes.arrayOf(PropTypes.shape(Notifier.propTypes))
+};
+
+Notifications.defaultProps = {
+    notifiers: [],
+};
 
 export default Notifications;
