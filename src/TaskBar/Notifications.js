@@ -49,6 +49,8 @@ class Time extends React.Component {
 
 const Notifications = props => (
     <div className="taskbar-notifications">
+        <Notifier
+        />
         {
             props.notifiers.map( notifier => (
                 <Notifier

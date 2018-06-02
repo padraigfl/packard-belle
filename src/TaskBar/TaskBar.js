@@ -1,4 +1,7 @@
 import React from 'react';
+import Notifiations from './Notifications';
+
+import './_task-bar';
 
 const TaskBar = (props) => {
     return (
@@ -12,9 +15,14 @@ const TaskBar = (props) => {
                         onClick={ props.onClick }
                     />
                 )
-            }
-            <Notifiations>
-            </Notifiations> */}
+            } */}
+            <div>
+                Test
+            </div>
+            <div>
+                Test
+            </div>
+            <Notifiations />
         </div>
     )
 };

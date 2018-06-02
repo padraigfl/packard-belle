@@ -1,13 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import defaultIcon from '../Icon/images/directory_closed.png';
 
 const Notifier = props => (
     <button
-        class="taskbar-notifications__notifier"
+        className="taskbar-notifications__notifier"
         title={props.title}
-    >
-    x
-    </button>
+        onClick={props.onClick}
+        style={{ backgroundImage: `url("${props.src}")` }}
+    />
 );
 
 Notifier.propTypes = {
@@ -18,6 +19,7 @@ Notifier.propTypes = {
 
 Notifier.defaultProps = {
     onClick: () => {},
+    src: defaultIcon,
 };
 
 export default Notifier;

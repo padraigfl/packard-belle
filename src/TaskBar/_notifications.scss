@@ -5,13 +5,30 @@
 .taskbar-notifications {
     background-color: $grey;
     display: flex;
+    flex: none;
+    margin-left: auto;
     align-items: center;
     height: 24px;
+    padding: 0px 12px 0px 4px;
 
     @include shadow-white-darkgrey;
 
     &__time {
-        margin-left: auto;
-        padding: 0px 8px;
+        margin-left: 4px;
+    }
+
+    &__notifier {
+        height: 18px;
+        width: 18px;
+        background-color: $grey;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        border: none;
+        &:active, &:focus, &:active:focus {
+            outline: none;
+            border: none;
+        }
+
     }
 }

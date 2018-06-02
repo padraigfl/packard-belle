@@ -9,6 +9,7 @@ import GenericWindow from '../src/Window/GenericWindow';
 import StaticWindow from '../src/Window/StaticWindow';
 import ExplorerIcon from '../src/Icon/ExplorerIcon';
 import Notifications from '../src/TaskBar/Notifications';
+import TaskBar from '../src/TaskBar/TaskBar';
 import img from '../src/Icon/images/directory_closed.png';
 
 const noop = () => {
@@ -46,6 +47,10 @@ storiesOf('Icons', module)
   ));
 
 storiesOf('TaskBar', module)
+  .add('TaskBar', () => (
+    <TaskBar
+    />
+  ))
   .add('Notifications', () => (
     <Notifications
     />

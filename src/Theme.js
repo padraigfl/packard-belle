@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import './_theme.scss';
 
 const Theme = props => (
-    <div class="w98-theme">
+    <div className="w98-theme">
         {props.children}
     </div>
 );
