@@ -34,6 +34,10 @@
 @mixin shadow-white-black { // button focus
     @include shadow-double-color-border(white, $black);
 }
+
+@mixin shadow-white-black-start { // button focus
+    box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px 0px $black, 0px -1px 0px $black;
+}
 @mixin shadow-white-darkgrey { //shadow-hollow
     @include shadow-double-color-border(white, $darkgrey);
 }

@@ -2,9 +2,6 @@
 @import '../box-shadows';
 @import '../vars';
 
-html{
-    font-size: $base-font-size;
-}
 .btn {
     border: 0px solid transparent;
 
@@ -115,10 +112,14 @@ html{
         height: 24px;
         display: flex;
         align-content: center;
-        padding-left: 24px;
+        width: 58px;
         padding-right: 6px;
+        background-image: url('./start-trans.png');
+        background-size: auto 20px;
+        background-repeat: no-repeat;
+        background-position: 2px 1px;
         &__text {
-            font-size: 1.3rem;
+            font-size: 1rem;
             font-weight: bold;
         }
         
@@ -126,11 +127,14 @@ html{
             @include shadow-darkgrey-grey;
         }
 
-        &:active{
+        &:active, &:focus, &:active:focus {
             &::before {
                 @include shadow-grey-darkgrey;
             }
-            @include shadow-white-black;
+            @include shadow-white-black-start;
+            background-position: 3px 2px;
+            outline: 1px dotted black;
+            outline-offset: -4px;
         }
     }
 }

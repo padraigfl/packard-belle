@@ -8,9 +8,7 @@ const StartButton = props => (
     <Button
         className={ classnames('btn--start', props.className) }
         onClick={ props.onClick }
-    >
-        <div className="btn--start__text">Start</div>
-    </Button>
+    />
 );
 
 StartButton.propTypes = {
