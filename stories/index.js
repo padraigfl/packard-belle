@@ -20,7 +20,7 @@ storiesOf('Button', module)
   .add('button', () => <Button>Button</Button>)
   .add('form button', () => <FormButton>Button</FormButton>)
   .add('nav button', () => <NavButton>_</NavButton>)
-  .add('start button', () => <StartButton>Button</StartButton>);
+  .add('start button', () => <StartButton/>);
 
 storiesOf('Windows', module)
   .add('Generic window', () => <GenericWindow>Window</GenericWindow>)
@@ -29,7 +29,7 @@ storiesOf('Windows', module)
       title="Title"
       onClose={ noop }
       onMinimize={ noop }
-      onHide={ noop }
+      onMaximize={ noop }
     >
       Windows
     </StaticWindow>

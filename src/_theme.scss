@@ -2,7 +2,8 @@
 @import './colors';
 
 html{
-    font-size: $base-font-size;
-    width: 200px;
-    background-color: $grey;
+  font-size: $base-font-size;
+  width: 200px;
+  background-color: $grey;
+  image-rendering: pixelated;
 }

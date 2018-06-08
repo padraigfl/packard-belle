@@ -3,138 +3,138 @@
 @import '../vars';
 
 .btn {
-    border: 0px solid transparent;
+  border: 0px solid transparent;
 
-    background-color: $grey;
-    position: relative;
+  background-color: $grey;
+  position: relative;
 
-    &:active, &:focus, &:active:focus {
-        outline: none;
+  &:active, &:focus, &:active:focus {
+    outline: none;
+  }
+
+  &::before, &::after {
+    position: absolute;
+    display: block;
+    content: '';
+  }
+
+  &::before {
+    top: 1px;
+    left: 1px;
+    width: calc(100% - 2px);
+    height: calc(100% - 2px);
+  }
+
+  &::after{
+    top: -1px;
+    left: -1px;
+    width: calc(100% + 2px);
+    height: calc(100% + 2px);
+  }
+
+
+  &--form{
+    min-width: 80px;
+    padding: 5px 0px;
+    @include shadow-black-white;
+
+    &::before {
+      @include shadow-darkgrey-grey;
     }
 
-    &::before, &::after {
-        position: absolute;
-        display: block;
-        content: '';
+    &:focus {
+      outline: black;
+      outline-style: dotted;
+      outline-offset: -5px;
+      outline-width: 1px;
+      -moz-outline-radius: 2px;
+      @include shadow-black-white;
+
+      &::after {
+          @include shadow-black;
+      }
+      &::before {
+          @include shadow-darkgrey-grey;
+      }
+    }
+    &:active:focus {
+      padding: 6px 0px 4px 3px;
+      @include shadow-black;
+
+      &::before{
+        @include shadow-darkgrey;
+      }
+      &::after {
+        box-shadow: none;
+      }
+    }
+  }
+  &--nav{
+    padding: 0px;
+    min-width: initial;
+    width: 19px;
+    height: 19px;
+    margin-left: 2px;
+    image-rendering: pixelated;
+
+    img {
+      height: 14px;
+      width: 14px;
+    }
+    @include shadow-black-white;
+    &:before {
+      @include shadow-darkgrey-grey;
+    }
+
+    &:focus {
+      outline: none;
+      border: none;
+      &:after {
+        box-shadow: none;
+      }
+    }
+    &:active:focus {
+      height: 18px;
+      padding-top: 2px;
+      padding-bottom: 1px;
+      padding-left: 4px;
+      padding-right: 8px;
+      margin-top: -1px;
+
+      @include shadow-white-black;
+      &:before {
+        @include shadow-grey-darkgrey;
+      }
+    }
+  }
+  &--start{
+    @include shadow-black-white;
+    height: 24px;
+    display: flex;
+    align-content: center;
+    width: 58px;
+    padding-right: 6px;
+    background-image: url('./start-trans.png');
+    background-size: auto 20px;
+    background-repeat: no-repeat;
+    background-position: 2px 1px;
+    &__text {
+      font-size: 1rem;
+      font-weight: bold;
     }
 
     &::before {
-        top: 1px;
-        left: 1px;
-        width: calc(100% - 2px);
-        height: calc(100% - 2px);
+      @include shadow-darkgrey-grey;
     }
 
-    &::after{
-        top: -1px;
-        left: -1px;
-        width: calc(100% + 2px);
-        height: calc(100% + 2px);
+    &:active, &:focus, &:active:focus {
+      &::before {
+        @include shadow-grey-darkgrey;
+      }
+      @include shadow-white-black-start;
+      background-position: 3px 2px;
+      outline: 1px dotted black;
+      outline-offset: -4px;
     }
-
-
-    &--form{
-        min-width: 80px;
-        padding: 5px 0px;
-        @include shadow-black-white;
-
-        &::before {
-            @include shadow-darkgrey-grey;
-        }
-
-        &:focus {
-            outline: black;
-            outline-style: dotted;
-            outline-offset: -5px;
-            outline-width: 1px;
-            -moz-outline-radius: 2px;
-            @include shadow-black-white;
- 
-            &::after {
-                @include shadow-black;
-            }
-            &::before {
-                @include shadow-darkgrey-grey;
-            }
-        }
-        &:active:focus {
-            padding: 6px 0px 4px 3px;
-            @include shadow-black;
-
-            &::before{
-                @include shadow-darkgrey;
-            }
-            &::after {
-                box-shadow: none;
-            }
-        }
-    }
-    &--nav{
-        padding: 0px;
-        min-width: initial;
-        width: 19px;
-        height: 19px;
-        margin-left: 2px;
-        image-rendering: pixelated;
-
-        img {
-            height: 14px;
-            width: 14px;
-        }
-        @include shadow-black-white;
-        &:before {
-            @include shadow-darkgrey-grey;
-        }
-
-        &:focus {
-            outline: none;
-            border: none;
-            &:after {
-                box-shadow: none;
-            }
-        }
-        &:active:focus {
-            height: 18px;
-            padding-top: 2px;
-            padding-bottom: 1px;
-            padding-left: 4px;
-            padding-right: 8px;
-            margin-top: -1px;
-            
-            @include shadow-white-black;
-            &:before {
-                @include shadow-grey-darkgrey;
-            }
-        }
-    }
-    &--start{
-        @include shadow-black-white;
-        height: 24px;
-        display: flex;
-        align-content: center;
-        width: 58px;
-        padding-right: 6px;
-        background-image: url('./start-trans.png');
-        background-size: auto 20px;
-        background-repeat: no-repeat;
-        background-position: 2px 1px;
-        &__text {
-            font-size: 1rem;
-            font-weight: bold;
-        }
-        
-        &::before {
-            @include shadow-darkgrey-grey;
-        }
-
-        &:active, &:focus, &:active:focus {
-            &::before {
-                @include shadow-grey-darkgrey;
-            }
-            @include shadow-white-black-start;
-            background-position: 3px 2px;
-            outline: 1px dotted black;
-            outline-offset: -4px;
-        }
-    }
+  }
 }

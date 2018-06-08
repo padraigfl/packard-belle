@@ -5,22 +5,16 @@ import Button from './Button';
 import './_button';
 
 const NavButton = props => (
-    <Button
-        className={ classnames('btn--nav', props.className) }
-        onClick={ props.onClick }
-    >
-        { props.children }
-    </Button>
+  <Button
+    className={ classnames('btn--nav', props.className) }
+    onClick={ props.onClick }
+  />
 );
 
 NavButton.propTypes = {
-    children: PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.node,
-    ]).isRequired,
-    onClick: PropTypes.func,
-    className: PropTypes.string,
-    isActive: PropTypes.bool,
+  onClick: PropTypes.func,
+  className: PropTypes.string,
+  isActive: PropTypes.bool,
 };
 
 

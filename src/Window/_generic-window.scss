@@ -2,38 +2,64 @@
 @import '../box-shadows';
 
 .window {
-    position: relative;
-    background-color: $grey;
+  position: relative;
+  background-color: $grey;
+  padding: 3px;
+  @include shadow-darkgrey-white;
+
+  &::before, &::after {
+    position: absolute;
+    display: block;
+    content: '';
+  }
+
+  &::before {
+    top: -1px;
+    left: -1px;
+    width: calc(100% + 1.5px);
+    height: calc(100% + 2px);
+    @include shadow-black-grey;
+  }
+
+  &__heading {
+    display: flex;
+    background-color: $blue;
+    color: white;
     padding: 3px;
-    @include shadow-darkgrey-white;
+    align-items: center;
+  }
+  &__title {
+    display: flex;
+  }
+  &__actions {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
 
-    &::before, &::after {
-        position: absolute;
-        display: block;
-        content: '';
-    }
+    .btn--nav {
+      background-size: 18px;
+      background-repeat: no-repeat;
+      background-position: 0px 2px;
 
-    &::before {
-        top: -1px;
-        left: -1px;
-        width: calc(100% + 2px);
-        height: calc(100% + 2px);
-        @include shadow-black-grey;
-    }
+      &:not(.window__close) {
+        margin-left: 0px;
+      }
 
-    &__heading {
-        display: flex;
-        background-color: $blue;
-        color: white;
-        padding: 3px;
-        align-items: center;
+    &:active, &:active:focus {
+        background-position: 2px 3px;
+      }
     }
-    &__title {
-        display: flex;
-    }
-    &__actions {
-        margin-left: auto;
-        display: flex;
-        align-items: center;
-    }
+  }
+  &__close {
+    background-image: url('./images/close_.png');
+  }
+  &__restore {
+    background-image: url('./images/restore_.png');
+  }
+  &__minimize {
+    background-image: url('./images/minimize_.png');
+  }
+  &__maximize {
+    background-image: url('./images/maximize_.png');
+  }
 }

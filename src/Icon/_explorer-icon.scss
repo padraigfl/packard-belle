@@ -1,42 +1,42 @@
 @import '../colors';
 
 .explorer-icon {
-    position: relative;
-    display: block;
-    width: 100px;
-    height: 112px;
-    text-align: center;
+  position: relative;
+  display: block;
+  width: 100px;
+  height: 112px;
+  text-align: center;
 
+  outline: none;
+  background: none;
+  border: none;
+
+  &__img {
+    margin: 12px 8px 4px;
+  }
+
+  &__text {
+    position: absolute;
+    top: 84px;
+    left: 0px;
+    max-height: 40px;
+    overflow-y: hidden;
+    display: inline-block;
+    font-size: 0.9rem;
+    margin: 4px;
+  }
+  &:focus, &:active {
     outline: none;
-    background: none;
-    border: none;
-
-    &__img {
-        margin: 12px 8px 4px;
+    .explorer-icon{
+      &__img{
+        filter: hue-rotate(70deg);
+      }
+      &__text{
+        background-color: $blue;
+        color: white;
+        outline: 1px dotted $blue;
+        max-height: initial;
+      }
     }
-
-    &__text {
-        position: absolute;
-        top: 84px;
-        left: 0px;
-        max-height: 40px;
-        overflow-y: hidden;
-        display: inline-block;
-        font-size: 0.9rem;
-        margin: 4px;
-    }
-    &:focus, &:active {
-        outline: none;
-        .explorer-icon{
-            &__img{
-                filter: hue-rotate(70deg);
-            }
-            &__text{
-                background-color: $blue;
-                color: white;
-                outline: 1px dotted $blue;
-                max-height: initial;
-            }
-        }
-    }
+  }
 }

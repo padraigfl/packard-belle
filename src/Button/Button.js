@@ -4,25 +4,25 @@ import classnames from 'classnames';
 import './_button';
 
 const Button = props => (
-    <button
-        className={ classnames('btn', props.className) }
-        onClick={ props.onClick }
-    >
-        { props.children }
-    </button>
+  <button
+    className={ classnames('btn', props.className) }
+    onClick={ props.onClick }
+  >
+    { props.children }
+  </button>
 );
 
 Button.propTypes = {
-    children: PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.node,
-    ]),
-    onClick: PropTypes.func,
-    className: PropTypes.string,
-    isActive: PropTypes.bool,
+  children: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.node,
+  ]),
+  onClick: PropTypes.func,
+  className: PropTypes.string,
+  isActive: PropTypes.bool,
 };
 
-// title, click, 
+// title, click,
 // onAppearSound
 // canClose?
 // scrollbar style
