@@ -1,6 +1,7 @@
 import React from 'react';
 import Notifiations from './Notifications';
 import StartButton from '../Button/StartButton';
+import ProgramButton from '../Button/ProgramButton';
 
 import './_task-bar';
 
@@ -10,21 +11,25 @@ const TaskBar = (props) => {
       <div>
         <StartButton />
       </div>
-      {/*
-        props.openWindows.map(openWindow =>
-          <ProgramButton
-              title={ openWindow.title }
-              isActive={ props.isActive }
-              onClick={ props.onClick }
-          />
+      <div>
+        Test
+      </div>
+      {
+        props.openWindows && (
+          <div className="task-bar__programs">
+            {
+              props.openWindows.map(openWindow =>
+                <ProgramButton
+                    title={ openWindow.title }
+                    isActive={ openWindow.isActive }
+                    onClick={ openWindow.onClick }
+                    icon={ openWindow.icon }
+                />
+              )
+            }
+          </div>
         )
-      } */}
-      <div>
-        Test
-      </div>
-      <div>
-        Test
-      </div>
+      }
       <Notifiations />
     </div>
   )

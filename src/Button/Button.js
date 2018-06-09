@@ -7,6 +7,7 @@ const Button = props => (
   <button
     className={ classnames('btn', props.className) }
     onClick={ props.onClick }
+    style={ props.style }
   >
     { props.children }
   </button>
@@ -20,6 +21,7 @@ Button.propTypes = {
   onClick: PropTypes.func,
   className: PropTypes.string,
   isActive: PropTypes.bool,
+  style: PropTypes.shape(), // Todo: Needs custom prop
 };
 
 // title, click,

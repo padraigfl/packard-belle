@@ -2,9 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import GenericWindow from './GenericWindow';
 import Button from '../Button/NavButton';
-import _close from './images/close_.png';
-import _maximize from './images/maximize_.png';
-import _minimize from './images/minimize_.png';
 
 const StaticWindow = props => (
   <GenericWindow>

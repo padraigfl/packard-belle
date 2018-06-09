@@ -137,4 +137,38 @@
       outline-offset: -4px;
     }
   }
+  &--program {
+    height: 24px;
+    display: flex;
+    align-content: center;
+    padding: 0px 8px 2px 22px;
+    margin-right: 4px;
+    background-size: 16px;
+    background-repeat: no-repeat;
+    background-position: 3px 4px;
+    @include shadow-black-white;
+
+    flex: 1 1 140px;
+    max-width: 140px;
+
+    &__text {
+      // width: 100px;
+      text-align: left;
+    }
+    &:before {
+      @include shadow-darkgrey-grey;
+    }
+    &:focus, &:active:focus, &.btn--is-active {
+      background-color: white;
+      background-position: 5px 5px;
+      @include shadow-white-black;
+      &:before {
+        @include shadow-grey-darkgrey;
+        background-image: url('../images/rgba-204-204-204-50.png');
+        background-size: 2px;
+      }
+
+      padding: 1px 6px 1px 24px;
+    }
+  }
 }

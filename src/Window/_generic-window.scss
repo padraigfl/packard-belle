@@ -46,20 +46,20 @@
       }
 
     &:active, &:active:focus {
-        background-position: 2px 3px;
+        background-position: 1px 3px;
       }
     }
   }
   &__close {
-    background-image: url('./images/close_.png');
+    background-image: url('./images/close.png');
   }
   &__restore {
-    background-image: url('./images/restore_.png');
+    background-image: url('./images/restore.png');
   }
   &__minimize {
-    background-image: url('./images/minimize_.png');
+    background-image: url('./images/minimize.png');
   }
   &__maximize {
-    background-image: url('./images/maximize_.png');
+    background-image: url('./images/maximize.png');
   }
 }

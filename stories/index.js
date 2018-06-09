@@ -5,6 +5,7 @@ import Button from '../src/Button/Button';
 import FormButton from '../src/Button/FormButton';
 import NavButton from '../src/Button/NavButton';
 import StartButton from '../src/Button/StartButton';
+import ProgramButton from '../src/Button/ProgramButton';
 import GenericWindow from '../src/Window/GenericWindow';
 import StaticWindow from '../src/Window/StaticWindow';
 import ExplorerIcon from '../src/Icon/ExplorerIcon';
@@ -20,7 +21,14 @@ storiesOf('Button', module)
   .add('button', () => <Button>Button</Button>)
   .add('form button', () => <FormButton>Button</FormButton>)
   .add('nav button', () => <NavButton>_</NavButton>)
-  .add('start button', () => <StartButton/>);
+  .add('start button', () => <StartButton/>)
+  .add('program button', () => (
+    <ProgramButton
+      title="Active"
+      icon={img}
+      onClick={noop}
+    />
+  ));
 
 storiesOf('Windows', module)
   .add('Generic window', () => <GenericWindow>Window</GenericWindow>)
@@ -49,6 +57,24 @@ storiesOf('Icons', module)
 storiesOf('TaskBar', module)
   .add('TaskBar', () => (
     <TaskBar
+      openWindows={[
+        {
+          title: 'Program1',
+          onClick: noop,
+          icon: img,
+        },
+        {
+          title: 'Program2',
+          onClick: noop,
+          icon: img,
+        },
+        {
+          title: 'Program3',
+          onClick: noop,
+          icon: img,
+          isActive: true,
+        },
+      ]}
     />
   ))
   .add('Notifications', () => (

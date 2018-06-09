@@ -6,9 +6,9 @@ import './_button';
 
 const ProgramButton = props => (
   <Button
-    className={ classnames('btn--program', props.className) }
+    className={ classnames('btn--program', props.className, { 'btn--is-active': props.isActive }) }
     onClick={ props.onClick }
-    style={ { backgroundImage: `url(${props.image})`}}
+    style={ { backgroundImage: `url(${props.icon})`}}
   >
     <div className="btn--program__text">{props.title}</div>
   </Button>
