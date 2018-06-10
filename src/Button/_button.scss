@@ -152,7 +152,9 @@
     max-width: 140px;
 
     &__text {
-      // width: 100px;
+      width: calc(100% - 30px);
+      white-space: nowrap;
+      text-overflow: ellipsis;
       text-align: left;
     }
     &:before {

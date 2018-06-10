@@ -42,6 +42,7 @@ storiesOf('Windows', module)
   .add('Static window', () => (
     <StaticWindow
       title="Title"
+      icon={img}
       onClose={ noop }
       onMinimize={ noop }
       onMaximize={ noop }

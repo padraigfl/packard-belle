@@ -18,6 +18,7 @@ const TaskBar = (props) => {
             {
               props.quickLaunch.map(qlEntry =>
                 <QuickLaunchButton
+                    key={ `${qlEntry.icon}-QuickLaunch` }
                     alt={ qlEntry.alt }
                     onClick={ qlEntry.onClick }
                     icon={ qlEntry.icon }
@@ -37,6 +38,7 @@ const TaskBar = (props) => {
                     isActive={ openWindow.isActive }
                     onClick={ openWindow.onClick }
                     icon={ openWindow.icon }
+                    key={ `${openWindow.icon}-ProgramButton-${openWindow.title}` }
                 />
               )
             }

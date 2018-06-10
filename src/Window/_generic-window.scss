@@ -28,6 +28,13 @@
     padding: 3px;
     align-items: center;
   }
+  &__icon {
+    padding: 10px 12px;
+    display: flex;
+    background-size: 20px;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
   &__title {
     display: flex;
   }

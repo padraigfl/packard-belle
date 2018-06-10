@@ -6,7 +6,15 @@ import Button from '../Button/NavButton';
 const StaticWindow = props => (
   <GenericWindow>
     <div className="window__heading">
-      <div className="window__title">
+      { props.icon && (
+        <div
+          className="window__icon"
+          style={ { backgroundImage: `url('${props.icon}')` } }
+        />
+      )}
+      <div
+        className="window__title"
+      >
         { props.title }
       </div>
       <div className="window__actions">
@@ -46,6 +54,7 @@ StaticWindow.propTypes = {
     className: PropTypes.string,
     isActive: PropTypes.bool,
     isMaximized: PropTypes.bool,
+    icon: PropTypes.string,
 };
 
 export default StaticWindow;
