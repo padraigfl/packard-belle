@@ -171,4 +171,18 @@
       padding: 1px 6px 1px 24px;
     }
   }
+  &--quick-launch {
+    height: 24px;
+    width: 24px;
+    &:hover {
+      @include shadow-darkgrey-white;
+    }
+    background-size: 16px;
+    background-repeat: no-repeat;
+    background-position: 4px 4px;
+    &:focus, &:active:focus {
+      @include shadow-white-darkgrey;
+      background-position: 5px 5px;
+    }
+  }
 }

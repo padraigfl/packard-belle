@@ -10,11 +10,13 @@
   max-width: 100%;
   z-index: 10;
   box-shadow: 0px -1px 0px white;
-  padding: 2px;
+  padding: 2px 0px;
   display: flex;
 
   >div{
     position: relative;
+    height: 24px;
+    margin: 0px 2px;
   }
   &__programs {
     display: flex;

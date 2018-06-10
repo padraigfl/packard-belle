@@ -2,6 +2,7 @@ import React from 'react';
 import Notifiations from './Notifications';
 import StartButton from '../Button/StartButton';
 import ProgramButton from '../Button/ProgramButton';
+import QuickLaunchButton from '../Button/QuickLaunchButton';
 
 import './_task-bar';
 
@@ -11,9 +12,21 @@ const TaskBar = (props) => {
       <div>
         <StartButton />
       </div>
-      <div>
-        Test
-      </div>
+      {
+        props.quickLaunch && (
+          <div className="task-bar__quick-launch">
+            {
+              props.quickLaunch.map(qlEntry =>
+                <QuickLaunchButton
+                    alt={ qlEntry.alt }
+                    onClick={ qlEntry.onClick }
+                    icon={ qlEntry.icon }
+                />
+              )
+            }
+          </div>
+        )
+      }
       {
         props.openWindows && (
           <div className="task-bar__programs">

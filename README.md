@@ -47,9 +47,18 @@ General
 - [ ] State sharing
 - [ ] Loading
 - [ ] Shut down
+- [ ] Font substitution
 
 W98 Toolbar
 
 - [ ] Interactive start menu, validated inputs
 - [ ] Only one active window
 - [ ] Network notifications icon
+
+
+## Performance
+
+- [ ] Tests
+- [ ] Snapshots (only when finished with core components)
+- [x] Linting
+- [ ] PropTypes

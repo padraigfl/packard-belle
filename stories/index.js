@@ -6,6 +6,7 @@ import FormButton from '../src/Button/FormButton';
 import NavButton from '../src/Button/NavButton';
 import StartButton from '../src/Button/StartButton';
 import ProgramButton from '../src/Button/ProgramButton';
+import QuickLaunchButton from '../src/Button/QuickLaunchButton';
 import GenericWindow from '../src/Window/GenericWindow';
 import StaticWindow from '../src/Window/StaticWindow';
 import ExplorerIcon from '../src/Icon/ExplorerIcon';
@@ -25,6 +26,12 @@ storiesOf('Button', module)
   .add('program button', () => (
     <ProgramButton
       title="Active"
+      icon={img}
+      onClick={noop}
+    />
+  ))
+  .add('quick launch button', () => (
+    <QuickLaunchButton
       icon={img}
       onClick={noop}
     />
@@ -57,6 +64,13 @@ storiesOf('Icons', module)
 storiesOf('TaskBar', module)
   .add('TaskBar', () => (
     <TaskBar
+      quickLaunch={[
+        {
+          alt: 'Quick1',
+          onClick: noop,
+          icon: img,
+        },
+      ]}
       openWindows={[
         {
           title: 'Program1',
