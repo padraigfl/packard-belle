@@ -1,9 +1,85 @@
 @import './vars';
 @import './colors';
+@import './box-shadows';
+
+@mixin scrollbar-button-shadowing {
+  background: $grey;
+  box-shadow: inset -1px -1px 0px $darkgrey, inset 1px 1px 0px 0px white;
+  border: 1px solid $black;
+  border-top: 1px solid $grey;
+  border-left: 1px solid $grey;
+}
 
 html{
   font-size: $base-font-size;
   width: 200px;
   background-color: $grey;
   image-rendering: pixelated;
+
+  ::-webkit-scrollbar {
+    width: 16px;
+    height: 16px;
+    background-color: white;
+    background-image: url('./images/rgba-204-204-204-75.png');
+
+    &-track {
+      position: relative;
+    }
+
+    &-thumb {
+      @include scrollbar-button-shadowing();
+    }
+
+    &-button{
+      @include scrollbar-button-shadowing();
+      &:start:decrement, &:end:increment {
+        height: 16px;
+        width: 16px;
+        display: block;
+        background-repeat: no-repeat;
+        background-color: $grey;
+        &:active {
+          border: 1px solid $darkgrey;
+          box-shadow: none;
+          background-color: $grey;
+        }
+      }
+
+      &:horizontal:decrement {
+        background-image: url('./images/arrow-left.gif');
+        background-position: 4px 3px;
+        &:active {
+          background-position: 5px 4px;
+        }
+      }
+      &:horizontal:increment {
+        background-image: url('./images/arrow-right.gif');
+        background-position: 5px 3px;
+        &:active {
+          background-position: 6px 4px;
+        }
+      }
+      &:vertical:decrement {
+        background-image: url('./images/arrow-up.gif');
+        background-position: 3px 5px;
+        &:active {
+          background-position: 4px 6px;
+        }
+      }
+      &:vertical:increment{
+        background-image: url('./images/arrow-down.gif');
+        background-position: 3px 5px;
+        &:active {
+          background-position: 4px 6px;
+        }
+      }
+    }
+    &-corner {
+      /*
+      background-image: url(resources/corner.png);
+      background-repeat: no-repeat;
+      */
+      background-color: $grey;
+    }
+  }
 }
