@@ -1,0 +1,113 @@
+@import '../colors';
+
+@mixin onDisplay($direction: 'right') {
+  >button{
+    word-wrap: none;
+    white-space: nowrap;
+    text-overflow: clip;
+    >.window {
+      position: absolute;
+      overflow: hidden;
+      visibility: hidden;
+      transition: max-width cubic-bezier(0.38, 0.01, 0, 1) 200ms,
+        max-height cubic-bezier(0.38, 0.01, 0, 1) 200ms;
+    }
+    &:hover {
+      >.window {
+        visibility: visible;
+        display: block;
+      }
+    }
+    @if $direction  == 'right' {
+      >.window {
+        left: 100%;
+        top: 0px;
+        width: 100%;
+        max-width: 0%;
+      }
+      &:hover {
+        >.window {
+          max-width: 100%;
+        }
+      }
+    } @else if $direction  == 'left' {
+      >.window {
+        left: calc(-100%);
+        top: 0px;
+        width: 100%;
+        max-width: 0%;
+      }
+      &:hover {
+        >.window {
+          max-width: 100%;
+        }
+      }
+    } @else if $direction  == 'top' {
+      >.window {
+        top: 0px;
+        height: 0px;
+        max-height: 0%;
+      }
+      &:hover {
+        >.window {
+          height: initial;
+          max-height: 100%;
+        }
+      }
+    } @else if $direction  == 'bottom' {
+      >.window {
+        bottom: 0px;
+        max-height: 0%;
+      }
+      &:hover {
+        >.window {
+          height: initial;
+          max-height: 100%;
+        }
+      }
+    }
+  }
+}
+
+.ListMenu {
+  @include onDisplay('right');
+  &__sub-menu--top { @include onDisplay('top'); }
+  &__sub-menu--bottom { @include onDisplay('bottom'); }
+  &__sub-menu--left { @include onDisplay('left'); }
+
+  button {
+    position: relative;
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 4px;
+    background-repeat: no-repeat;
+    background-color: rgba(0,0,0,0);
+    border: none;
+    outline: none;
+    &:hover, &:active, &:focus, &:focus:active {
+      background-color: $blue;
+      color: white;
+    }
+    &.ListItem__child {
+      visibility: hidden;
+    }
+    &.ListItem--has-options:before {
+      content: '>';
+      position: absolute;
+      right: 0px;
+      height: 100%;
+    }
+  }
+
+  .divider {
+    position: relative;
+    width: 93%;
+    margin: 0 auto;
+    border: 1px solid $darkgrey;
+  }
+  .divider + div {
+    display: none;
+  }
+}
+
