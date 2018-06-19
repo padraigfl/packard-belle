@@ -1,0 +1,6 @@
+{
+  "root": ".out",
+  "routes": {
+    "/**": "index.html"
+  }
+}

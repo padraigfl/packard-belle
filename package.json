@@ -1,5 +1,5 @@
 {
-  "name": "packard-hell",
+  "name": "packard-belle",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -51,9 +51,9 @@
     "sass-loader": "^7.0.1"
   },
   "scripts": {
-    "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom",
     "storybook": "start-storybook -p 9001 -c .storybook",
+    "build": "build-storybook -c .storybook -o .out",
     "start": "npm run storybook"
   },
   "jest": {
