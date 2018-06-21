@@ -57,7 +57,7 @@
           @include shadow-darkgrey-grey;
       }
     }
-    &:active:focus {
+    &:active:focus, &:focus:hover {
       padding: 6px 0px 4px 3px;
       @include shadow-black;
 
@@ -163,6 +163,7 @@
     &:focus, &:active:focus, &.btn--is-active {
       background-color: white;
       background-position: 5px 5px;
+      font-weight: bold;
       @include shadow-white-black;
       &:before {
         @include shadow-grey-darkgrey;
