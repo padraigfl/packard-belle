@@ -1,113 +1,127 @@
 @import '../colors';
 
 @mixin onDisplay($direction: 'right') {
-  >button{
-    word-wrap: none;
-    white-space: nowrap;
-    text-overflow: clip;
+  >.window {
+    position: absolute;
+    visibility: hidden;
+    transition: max-width cubic-bezier(0.38, 0.01, 0, 1) 200ms,
+      max-height cubic-bezier(0.38, 0.01, 0, 1) 200ms;
+  }
+  &:hover {
     >.window {
-      position: absolute;
-      overflow: hidden;
-      visibility: hidden;
-      transition: max-width cubic-bezier(0.38, 0.01, 0, 1) 200ms,
-        max-height cubic-bezier(0.38, 0.01, 0, 1) 200ms;
+      visibility: visible;
+      display: block;
+    }
+  }
+  @if $direction  == 'right' {
+    >.window {
+      left: 100%;
+      top: -1px;
+      width: 100%;
+      max-width: 0%;
     }
     &:hover {
       >.window {
-        visibility: visible;
-        display: block;
+        max-width: 100%;
       }
     }
-    @if $direction  == 'right' {
+  } @else if $direction  == 'left' {
+    >.window {
+      left: calc(-100%);
+      top: -1px;
+      width: 100%;
+      max-width: 0%;
+    }
+    &:hover {
       >.window {
-        left: 100%;
-        top: 0px;
-        width: 100%;
-        max-width: 0%;
+        max-width: 100%;
       }
-      &:hover {
-        >.window {
-          max-width: 100%;
-        }
-      }
-    } @else if $direction  == 'left' {
+    }
+  } @else if $direction  == 'top' {
+    >.window {
+      top: 0px;
+      height: 0px;
+      max-height: 0%;
+    }
+    &:hover {
       >.window {
-        left: calc(-100%);
-        top: 0px;
-        width: 100%;
-        max-width: 0%;
+        height: initial;
+        max-height: 100%;
       }
-      &:hover {
-        >.window {
-          max-width: 100%;
-        }
-      }
-    } @else if $direction  == 'top' {
+    }
+  } @else if $direction  == 'bottom' {
+    >.window {
+      bottom: 0px;
+      max-height: 0%;
+    }
+    &:hover {
       >.window {
-        top: 0px;
-        height: 0px;
-        max-height: 0%;
-      }
-      &:hover {
-        >.window {
-          height: initial;
-          max-height: 100%;
-        }
-      }
-    } @else if $direction  == 'bottom' {
-      >.window {
-        bottom: 0px;
-        max-height: 0%;
-      }
-      &:hover {
-        >.window {
-          height: initial;
-          max-height: 100%;
-        }
+        height: initial;
+        max-height: 100%;
       }
     }
   }
 }
 
 .ListMenu {
-  @include onDisplay('right');
-  &__sub-menu--top { @include onDisplay('top'); }
-  &__sub-menu--bottom { @include onDisplay('bottom'); }
-  &__sub-menu--left { @include onDisplay('left'); }
-
-  button {
+  word-wrap: none;
+  white-space: nowrap;
+  text-overflow: clip;
+  .ListItem {
     position: relative;
-    display: block;
-    width: 100%;
-    text-align: left;
-    padding: 4px;
-    background-repeat: no-repeat;
-    background-color: rgba(0,0,0,0);
-    border: none;
-    outline: none;
+    &__button {
+      position: relative;
+      display: block;
+      width: 100%;
+      text-align: left;
+      padding: 4px;
+      background-repeat: no-repeat;
+      background-color: rgba(0,0,0,0);
+      border: none;
+      outline: none;
+    }
+    &--has-options{
+      &:after {
+        content: '';
+        position: absolute;
+        background-image: url('../images/arrow-right.gif');
+        left: 80%;
+        top: 0px;
+        height: 100%;
+        width: 22px;
+        background-position: right center;
+        background-repeat: no-repeat;
+      }
+      &:hover{
+        &:after {
+          background-image: url('../images/arrow-right-inverted.png');
+        }
+      }
+    }
+    @include onDisplay('right');
+    &__sub-menu--top { @include onDisplay('top'); }
+    &__sub-menu--bottom { @include onDisplay('bottom'); }
+    &__sub-menu--left { @include onDisplay('left'); }
     &:hover, &:active, &:focus, &:focus:active {
       background-color: $blue;
       color: white;
-    }
-    &.ListItem__child {
-      visibility: hidden;
-    }
-    &.ListItem--has-options:before {
-      content: '>';
-      position: absolute;
-      right: 0px;
-      height: 100%;
+      >.ListItem__button {
+        color: white;
+      }
     }
   }
 
   .divider {
     position: relative;
     width: 93%;
-    margin: 0 auto;
-    border: 1px solid $darkgrey;
-  }
-  .divider + div {
+    margin: 2px auto;
+    border-top: 1px solid $darkgrey;
+    border-bottom: 1px solid white;
     display: none;
   }
+  .ListItem + .divider {
+    &:not(:last-child):not(:first-child) {
+      display: block;
+    }
+  }
 }
-
