@@ -11,8 +11,10 @@ addDecorator(story => (
 ));
 
 function loadStories() {
-  require('../stories/index.js');
-  // You can require as many stories as you need.
+  require('../stories/taskbar.js');
+  require('../stories/buttons.js');
+  require('../stories/windows.js');
+  require('../stories/icons.js');
 }
 
 configure(loadStories, module);
