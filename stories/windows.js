@@ -3,10 +3,12 @@ import { storiesOf } from '@storybook/react';
 import GenericWindow from '../src/Window/GenericWindow';
 import StaticWindow from '../src/Window/StaticWindow';
 import WindowToolbar from '../src/Window/WindowToolbar';
+import ListMenu from '../src/ListMenu/ListMenu';
+import ListMenuSimple from '../src/ListMenu/ListMenuSimple';
 
 import img from '../src/Icon/images/directory_closed.png';
 
-const options = [
+const optionsSample = [
   {
     onClick: noop,
     title: 'New',
@@ -22,15 +24,15 @@ const options = [
         },
         {
           onClick: noop,
-          title: 'Edit',
+          title: 'spin it',
           options: [
             {
               onClick: noop,
-              title: 'undo?',
+              title: 'twist it?',
             },
             {
               onClick: noop,
-              title: 'redo',
+              title: 'fly it',
             },
           ],
         },
@@ -39,46 +41,81 @@ const options = [
   ],
   {
     onClick: noop,
-    title: 'Close',
+    title: 'quit',
   },
 ];
+
 
 const noop = () => {};
 
 storiesOf('Windows', module)
-.add('Generic window', () => <GenericWindow>Window</GenericWindow>)
-.add('Static window', () => (
-  <StaticWindow
-    title="Title"
-    icon={img}
-    onClose={ noop }
-    onMinimize={ noop }
-    onMaximize={ noop }
-  >
-    Windows
-  </StaticWindow>
-))
-.add('Window toolbar', () => (
-  <StaticWindow
-    title="Title"
-    icon={img}
-    onClose={ noop }
-    onMinimize={ noop }
-    onMaximize={ noop }
-  >
-    <WindowToolbar
-      toolbarSections={[
+  .add('ListMenuSimple', () => (
+    <ListMenuSimple
+      options={[
         {
-          title: 'File',
-          options,
+          onClick: noop,
+          title: 'New',
         },
+        [
+          {
+            onClick: noop,
+            title: 'Open',
+          },
+          {
+            onClick: noop,
+            title: 'Two in section',
+          },
+        ],
+        [
+          {
+            onClick: noop,
+            title: 'Single section',
+          },
+        ],
         {
-          title: 'Edit',
-          options,
-        }
-      ]}
-      options={[options[1]]}
+          onClick: noop,
+          title: 'Close',
+        },
+    ]}
     />
-    Windows
-  </StaticWindow>
-));
+  ))
+  .add('ListMenu', () => (
+    <ListMenu
+      options={optionsSample}
+    />
+  ))
+  .add('Generic window', () => <GenericWindow>Window</GenericWindow>)
+  .add('Static window', () => (
+    <StaticWindow
+      title="Title"
+      icon={img}
+      onClose={ noop }
+      onMinimize={ noop }
+      onMaximize={ noop }
+    >
+      Windows
+    </StaticWindow>
+  ))
+  .add('Window toolbar', () => (
+    <StaticWindow
+      title="Title"
+      icon={img}
+      onClose={ noop }
+      onMinimize={ noop }
+      onMaximize={ noop }
+    >
+      <WindowToolbar
+        toolbarSections={[
+          {
+            title: 'File',
+            options: optionsSample,
+          },
+          {
+            title: 'Edit',
+            options: optionsSample,
+          }
+        ]}
+      />
+      Windows
+    </StaticWindow>
+  ));
