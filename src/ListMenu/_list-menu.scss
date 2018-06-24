@@ -1,17 +1,13 @@
 @import '../colors';
+@import '../box-shadows';
 
 @mixin onDisplay($direction: 'right') {
   >.window {
     position: absolute;
     visibility: hidden;
+    width: 100%;
     transition: max-width cubic-bezier(0.38, 0.01, 0, 1) 200ms,
       max-height cubic-bezier(0.38, 0.01, 0, 1) 200ms;
-  }
-  &:hover {
-    >.window {
-      visibility: visible;
-      display: block;
-    }
   }
   @if $direction  == 'right' {
     >.window {
@@ -39,9 +35,11 @@
     }
   } @else if $direction  == 'top' {
     >.window {
-      top: 0px;
+      bottom: 100%;
+      left: 0px;
       height: 0px;
       max-height: 0%;
+      max-width: 100%;
     }
     &:hover {
       >.window {
@@ -51,8 +49,10 @@
     }
   } @else if $direction  == 'bottom' {
     >.window {
-      bottom: 0px;
+      top: 100%;
+      left: 0px;
       max-height: 0%;
+      max-width: 100%;
     }
     &:hover {
       >.window {
@@ -79,6 +79,9 @@
       background-color: rgba(0,0,0,0);
       border: none;
       outline: none;
+      &:hover {
+        color: white;
+      }
     }
     &--has-options{
       &:after {
@@ -98,19 +101,14 @@
         }
       }
     }
-    @include onDisplay('right');
-    &__sub-menu--top { @include onDisplay('top'); }
-    &__sub-menu--bottom { @include onDisplay('bottom'); }
-    &__sub-menu--left { @include onDisplay('left'); }
-    &:hover, &:active, &:focus, &:focus:active {
-      background-color: $blue;
+    &:hover, &:active, &:focus {
       color: white;
+      background-color: $blue;
       >.ListItem__button {
         color: white;
       }
     }
   }
-
   .divider {
     position: relative;
     width: 93%;
@@ -122,6 +120,24 @@
   .ListItem + .divider {
     &:not(:last-child):not(:first-child) {
       display: block;
+    }
+  }
+}
+
+.ListMenu--css {
+  .ListItem {
+    @include onDisplay('right');
+    &__sub-menu--top { @include onDisplay('top'); }
+    &__sub-menu--bottom { @include onDisplay('bottom'); }
+    &__sub-menu--left { @include onDisplay('left'); }
+    &:active {
+      display: none;
+    }
+    &:hover {
+      >.window {
+        visibility: visible;
+        display: block;
+      }
     }
   }
 }

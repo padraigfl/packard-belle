@@ -1,42 +1,22 @@
 import React from 'react';
 import classnames from 'classnames';
-import Window from '../Window/GenericWindow';
-import ListItem from './ListItem';
+import ListMenuSimple from './ListMenuSimple';
 import './_list-menu.scss';
 
 const ListMenu = props => {
+  const classes = classnames('ListMenu--css', props.className)
   if (props.children) {
     return (
-      <Window
-        className={
-          classnames('ListMenu ListMenu--custom', props.className, props.direction)
-        }
-      >
-        { props.children }
-      </Window>
-    )
+      <ListMenuSimple className={classes}>
+        {props.children}
+      </ListMenuSimple>
+    );
   }
   return (
-    <Window
-      className={
-        classnames('ListMenu', props.className, props.direction)
-      }
-    >
-      { props.options.map(option => {
-        if (Array.isArray(option)) {
-          return (
-            <React.Fragment>
-              <div className="divider divider--start"/>
-              {option.map(subOption => (
-                <ListItem {...subOption} />
-              ))}
-              <div className="divider divider--end"/>
-            </React.Fragment>
-          )
-        }
-        return <ListItem {...option} />;
-      })}
-    </Window>
+    <ListMenuSimple
+      className={classes}
+      options={props.options}
+    />
   );
 };
 

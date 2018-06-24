@@ -6,6 +6,43 @@ import WindowToolbar from '../src/Window/WindowToolbar';
 
 import img from '../src/Icon/images/directory_closed.png';
 
+const options = [
+  {
+    onClick: noop,
+    title: 'New',
+  },
+  [
+    {
+      onClick: noop,
+      title: 'Open',
+      options: [
+        {
+          onClick: noop,
+          title: 'open file?',
+        },
+        {
+          onClick: noop,
+          title: 'Edit',
+          options: [
+            {
+              onClick: noop,
+              title: 'undo?',
+            },
+            {
+              onClick: noop,
+              title: 'redo',
+            },
+          ],
+        },
+      ]
+    },
+  ],
+  {
+    onClick: noop,
+    title: 'Close',
+  },
+];
+
 const noop = () => {};
 
 storiesOf('Windows', module)
@@ -31,9 +68,16 @@ storiesOf('Windows', module)
   >
     <WindowToolbar
       toolbarSections={[
-        { name: 'File', content: 'Text' },
-        { name: 'Edit', content: 'Content' },
+        {
+          title: 'File',
+          options,
+        },
+        {
+          title: 'Edit',
+          options,
+        }
       ]}
+      options={[options[1]]}
     />
     Windows
   </StaticWindow>

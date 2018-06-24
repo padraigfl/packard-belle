@@ -41,7 +41,7 @@ class ExplorerIcon extends Component {
 }
 
 ExplorerIcon.propTypes = {
-  onClick: PropTypes.onClick,
+  onClick: PropTypes.func,
   className: PropTypes.string,
   src: PropTypes.string,
   alt: PropTypes.string,
