@@ -27,6 +27,11 @@
   @include shadow-double-color-border($grey, $darkgrey);
 }
 
+@mixin shadow-grey-black {
+  // button-inner, button inner focus inverse
+  @include shadow-double-color-border($grey, $black);
+}
+
 @mixin shadow-darkgrey {
   // button-active
   @include shadow-double-color-border($darkgrey, $darkgrey);
@@ -55,4 +60,8 @@
 @mixin shadow-white-darkgrey {
   //shadow-hollow
   @include shadow-double-color-border(white, $darkgrey);
+}
+
+@mixin shadow-input {
+  box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px 0px $darkgrey, inset -2px -2px 0px $grey, inset 2px 2px 0px 0px $black;
 }

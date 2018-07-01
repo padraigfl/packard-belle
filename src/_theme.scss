@@ -12,9 +12,14 @@
 
 html{
   font-size: $base-font-size;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   width: 200px;
   background-color: $grey;
   image-rendering: pixelated;
+
+  button {
+    font-size: $base-font-size;
+  }
 
   ::-webkit-scrollbar {
     width: 16px;

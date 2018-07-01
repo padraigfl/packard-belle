@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import GenericWindow from '../src/Window/GenericWindow';
 import StaticWindow from '../src/Window/StaticWindow';
-import WindowToolbar from '../src/Window/WindowToolbar';
+import MenuBar from '../src/MenuBar/MenuBar';
 import ListMenu from '../src/ListMenu/ListMenu';
 import ListMenuSimple from '../src/ListMenu/ListMenuSimple';
 
@@ -104,7 +104,7 @@ storiesOf('Windows', module)
       onMinimize={ noop }
       onMaximize={ noop }
     >
-      <WindowToolbar
+      <MenuBar
         toolbarSections={[
           {
             title: 'File',

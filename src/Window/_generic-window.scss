@@ -26,13 +26,13 @@
     background-color: $blue;
     font-weight: bold;
     color: white;
-    padding: 3px;
+    padding: 0px 3px;
     align-items: center;
   }
   &__icon {
-    padding: 10px 12px;
+    padding: 8px;
     display: flex;
-    background-size: 20px;
+    background-size: 14px;
     background-repeat: no-repeat;
     background-position: center;
   }
@@ -45,16 +45,15 @@
     align-items: center;
 
     .btn--nav {
-      background-size: 18px;
       background-repeat: no-repeat;
-      background-position: 0px 2px;
+      background-position: 1px 1px;
 
       &:not(.window__close) {
         margin-left: 0px;
       }
 
     &:active, &:active:focus {
-        background-position: 1px 3px;
+        background-position: 2px 2px;
       }
     }
   }
