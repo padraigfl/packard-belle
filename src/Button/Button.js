@@ -9,7 +9,9 @@ const Button = props => (
     onClick={ props.onClick }
     style={ props.style }
   >
-    { props.children }
+    { props.text && (
+      <div className="btn__text" data-text={props.text} />
+    )}
   </button>
 );
 
@@ -18,6 +20,7 @@ Button.propTypes = {
     PropTypes.string,
     PropTypes.node,
   ]),
+  text: PropTypes.string,
   onClick: PropTypes.func,
   className: PropTypes.string,
   isActive: PropTypes.bool,

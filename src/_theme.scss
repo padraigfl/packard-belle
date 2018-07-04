@@ -1,6 +1,7 @@
 @import './vars';
 @import './colors';
 @import './box-shadows';
+@import './images/uris';
 
 @mixin scrollbar-button-shadowing {
   background: $grey;
@@ -16,6 +17,10 @@ html{
   width: 200px;
   background-color: $grey;
   image-rendering: pixelated;
+  .disabled {
+    color: $darkgrey;
+  }
+
 
   button {
     font-size: $base-font-size;
@@ -25,7 +30,7 @@ html{
     width: 16px;
     height: 16px;
     background-color: white;
-    background-image: url('./images/rgba-204-204-204-75.png');
+    background-image: url($grey-checkered);
 
     &-track {
       position: relative;
@@ -51,28 +56,28 @@ html{
       }
 
       &:horizontal:decrement {
-        background-image: url('./images/arrow-left.gif');
+        background-image: url($arrow-left);
         background-position: 4px 3px;
         &:active {
           background-position: 5px 4px;
         }
       }
       &:horizontal:increment {
-        background-image: url('./images/arrow-right.gif');
+        background-image: url($arrow-right);
         background-position: 5px 3px;
         &:active {
           background-position: 6px 4px;
         }
       }
       &:vertical:decrement {
-        background-image: url('./images/arrow-up.gif');
+        background-image: url($arrow-up);
         background-position: 3px 5px;
         &:active {
           background-position: 4px 6px;
         }
       }
       &:vertical:increment{
-        background-image: url('./images/arrow-down.gif');
+        background-image: url($arrow-down);
         background-position: 3px 5px;
         &:active {
           background-position: 4px 6px;

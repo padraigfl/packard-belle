@@ -75,11 +75,19 @@
       display: block;
       width: 100%;
       text-align: left;
-      padding: 4px;
       background-repeat: no-repeat;
       background-color: rgba(0,0,0,0);
       border: none;
       outline: none;
+      height: 16px;
+      >div:after {
+        position: absolute;
+        padding: 1px 4px;
+        right: 0px;
+        top: 0px;
+        width: calc(100% - 8px);
+        content: attr(data-text);
+      }
       &:hover {
         color: white;
       }
@@ -113,7 +121,7 @@
   .divider {
     position: relative;
     width: 93%;
-    margin: 2px auto;
+    margin: 1px auto;
     border-top: 1px solid $darkgrey;
     border-bottom: 1px solid white;
     display: none;
@@ -131,9 +139,11 @@
     &__sub-menu--top { @include onDisplay('top'); }
     &__sub-menu--bottom { @include onDisplay('bottom'); }
     &__sub-menu--left { @include onDisplay('left'); }
+
     &:active {
       display: none;
     }
+
     &:hover {
       >.window {
         visibility: visible;

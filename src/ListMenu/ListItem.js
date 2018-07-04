@@ -18,7 +18,7 @@ const ListItem = props => (
       onClick={props.onClick}
       style={ props.icon ? { backgroundImage: `url('${props.icon}')` } : undefined }
     >
-      { props.title }
+      <div data-text={props.title} />
     </button>
     { props.options && (
       <ListMenu

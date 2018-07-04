@@ -8,9 +8,8 @@ const FormButton = props => (
   <Button
     className={ classnames('btn--form', props.className) }
     onClick={ props.onClick }
-  >
-    { props.children }
-  </Button>
+    text={ props.children }
+  />
 );
 
 Button.propTypes = {
@@ -18,6 +17,7 @@ Button.propTypes = {
     PropTypes.string,
     PropTypes.node,
   ]),
+  text: PropTypes.string,
   onClick: PropTypes.func,
   className: PropTypes.string,
   isActive: PropTypes.bool,

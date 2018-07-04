@@ -26,12 +26,12 @@ input[type=checkbox], input[type=radio] {
     + label {
       border-bottom-left-radius: 2px;
       border-bottom-right-radius: 2px;
-      &:before {
-      }
     }
-    &:active &:focus, &:active:focus {
-      >span, >div {
-        border: 1px dotted black;
+    &:active, &:focus, &:active:focus {
+      + label {
+        >span, >div {
+          border: 1px dotted black;
+        }
       }
     }
   }

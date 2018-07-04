@@ -8,15 +8,21 @@
   &__section{
     position: relative;
     >button {
+      padding: 0px 4px;
       outline: none;
       border: none;
       user-select: none;
       color: $black;
       display: inline-block;
       background-color: rgba(0,0,0,0);
-      padding: 3px 6px;
-      >div:after {
-        content: attr(data-before);
+      .btn__text:after {
+        display: inline-block;
+        width: 100%;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        text-align: left;
+        padding: 1px 3px 1px 3px;
       }
       + .MenuBar__dropdown{
         visibility: hidden;
@@ -32,7 +38,9 @@
       }
       &:active, &:focus, &:active:focus {
         @include shadow-white-darkgrey;
-        padding: 4px 5px 2px 7px;
+        .btn__text:after {
+          padding: 2px 2px 0px 4px;
+        }
         + .MenuBar__dropdown {
           visibility: visible;
           max-height: 480px;

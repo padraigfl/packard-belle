@@ -34,11 +34,11 @@ const TaskBar = (props) => {
             {
               props.openWindows.map(openWindow =>
                 <ProgramButton
-                    title={ openWindow.title }
-                    isActive={ openWindow.isActive }
-                    onClick={ openWindow.onClick }
-                    icon={ openWindow.icon }
-                    key={ `${openWindow.icon}-ProgramButton-${openWindow.title}` }
+                  isActive={ openWindow.isActive }
+                  onClick={ openWindow.onClick }
+                  icon={ openWindow.icon }
+                  key={ `${openWindow.icon}-ProgramButton-${openWindow.title}` }
+                  text={ openWindow.title }
                 />
               )
             }
