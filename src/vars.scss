@@ -1,6 +1,16 @@
-$scale: 1;
+$scaled: 1;
 
-$window-padding: 3px * $scale;
-$px: 1px * $scale;
+$window-padding: 3px * $scaled;
+$base-font-size: 10px * $scaled;
 
-$base-font-size: 10px;
+@function px($scale, $a, $b: '', $c: '', $d: '') {
+  @if ($b == '') {
+    @return $a*$scale*1px;
+  } @else if ($c == '') {
+    @return $a*$scale*1px $b*$scale*1px;
+  } @else if ($d == ''){
+    @return $a*$scale*1px $b*$scale*1px $c*$scale*1px;
+  } @else {
+    @return $a*$scale*1px $b*$scale*1px $c*$scale*1px $d*$scale*1px;
+  }
+}

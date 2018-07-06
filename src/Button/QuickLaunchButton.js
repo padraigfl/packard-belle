@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import Button from './Button';
+import Button from './AbstractButton';
 import './_button';
 
 const NavButton = props => (

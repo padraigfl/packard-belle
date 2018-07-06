@@ -1,15 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import Button from './Button';
+import Button from './AbstractButton';
 import './_button';
 
 const FormButton = props => (
   <Button
     className={ classnames('btn--form', props.className) }
     onClick={ props.onClick }
-    text={ props.children }
-  />
+    isActive={ props.isActive }
+  >
+    { props.children }
+  </Button>
 );
 
 Button.propTypes = {

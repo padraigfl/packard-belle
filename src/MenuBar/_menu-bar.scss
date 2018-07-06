@@ -5,8 +5,10 @@
   display: flex;
   padding: 2px 0px;
   font-size: 1rem;
+
   &__section{
     position: relative;
+
     >button {
       padding: 0px 4px;
       outline: none;
@@ -15,15 +17,13 @@
       color: $black;
       display: inline-block;
       background-color: rgba(0,0,0,0);
-      .btn__text:after {
-        display: inline-block;
-        width: 100%;
-        overflow: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        text-align: left;
-        padding: 1px 3px 1px 3px;
-      }
+      width: 100%;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      text-align: left;
+      padding: 1px 3px 1px 3px;
+
       + .MenuBar__dropdown{
         visibility: hidden;
         position: absolute;
@@ -33,14 +33,15 @@
         width: 128px;
         transition: max-height linear 750ms;
       }
+
       &:hover {
         @include shadow-darkgrey-white;
       }
+
       &:active, &:focus, &:active:focus {
         @include shadow-white-darkgrey;
-        .btn__text:after {
-          padding: 2px 2px 0px 4px;
-        }
+        padding: 2px 2px 0px 4px;
+
         + .MenuBar__dropdown {
           visibility: visible;
           max-height: 480px;

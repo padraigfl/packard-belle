@@ -1,42 +1,30 @@
 @import '../colors';
 
 .explorer-icon {
-  position: relative;
-  display: block;
-  width: 100px;
-  height: 112px;
+  width: 58px;
+  height: 44px;
+  padding: 6px 5px;
   text-align: center;
 
-  outline: none;
-  background: none;
-  border: none;
-
-  &__img {
-    margin: 12px 8px 4px;
+  .icon__icon {
+    width: 100%;
+    height: 100%;
   }
 
-  &__text {
+  .icon__text {
     position: absolute;
-    top: 84px;
+    top: 40px;
     left: 0px;
-    max-height: 40px;
+    padding: 2px;
+    max-height: 22px;
+    width: calc(100% - 4px);
     overflow-y: hidden;
     display: inline-block;
-    font-size: 0.9rem;
-    margin: 4px;
   }
+
   &:focus, &:active {
-    outline: none;
-    .explorer-icon{
-      &__img{
-        filter: hue-rotate(70deg);
-      }
-      &__text{
-        background-color: $blue;
-        color: white;
-        outline: 1px dotted $blue;
-        max-height: initial;
-      }
+    .icon__text{
+      max-height: initial;
     }
   }
 }

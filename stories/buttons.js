@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import Button from '../src/Button/Button';
+import Button from '../src/Button/AbstractButton';
 import FormButton from '../src/Button/FormButton';
 import NavButton from '../src/Button/NavButton';
 import StartButton from '../src/Button/StartButton';
@@ -14,14 +14,24 @@ const noop = () => {
 
 storiesOf('Button', module)
   .add('form button', () => <FormButton>Button</FormButton>)
-  .add('nav button', () => <NavButton>_</NavButton>)
-  .add('start button', () => <StartButton/>)
+  .add('nav button', () => <NavButton />)
+  .add('start button', () => <StartButton />)
   .add('program button', () => (
-    <ProgramButton
-      title="Active"
-      icon={img}
-      onClick={noop}
-    />
+    <div>
+      <ProgramButton
+        icon={img}
+        onClick={noop}
+      >
+        Inactive
+      </ProgramButton>
+      <ProgramButton
+        icon={img}
+        onClick={noop}
+        isActive
+      >
+        Active
+      </ProgramButton>
+    </div>
   ))
   .add('quick launch button', () => (
     <QuickLaunchButton

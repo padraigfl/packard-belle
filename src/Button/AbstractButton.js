@@ -3,19 +3,17 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import './_button';
 
-const Button = props => (
+const AbstractButton = props => (
   <button
-    className={ classnames('btn', props.className) }
+    className={ classnames('btn', props.className, { 'btn--is-active': props.isActive }) }
     onClick={ props.onClick }
     style={ props.style }
   >
-    { props.text && (
-      <div className="btn__text" data-text={props.text} />
-    )}
+    { props.children }
   </button>
 );
 
-Button.propTypes = {
+AbstractButton.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.node,
@@ -32,4 +30,4 @@ Button.propTypes = {
 // canClose?
 // scrollbar style
 
-export default Button;
+export default AbstractButton;

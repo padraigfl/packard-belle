@@ -8,7 +8,7 @@
     visibility: hidden;
     width: 100%;
     transition: max-width cubic-bezier(0.38, 0.01, 0, 1) 200ms,
-      max-height cubic-bezier(0.38, 0.01, 0, 1) 200ms;
+    max-height cubic-bezier(0.38, 0.01, 0, 1) 200ms;
   }
   @if $direction  == 'right' {
     >.window {

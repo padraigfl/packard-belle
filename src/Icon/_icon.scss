@@ -1,0 +1,34 @@
+@import '../colors';
+
+.icon {
+  position: relative;
+  display: block;
+  outline: none;
+  background: none;
+  border: none;
+
+  &__icon {
+    display: block;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  &__text {
+  }
+
+  &:focus, &:active {
+    outline: none;
+
+    .icon__icon{
+      filter: hue-rotate(70deg);
+    }
+
+    .icon__text{
+      background-color: $blue;
+      color: white;
+      outline: 1px dotted white;
+      outline-offset: -1px;
+    }
+  }
+}
