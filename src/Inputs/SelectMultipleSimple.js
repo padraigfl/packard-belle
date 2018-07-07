@@ -46,7 +46,7 @@ class Select extends Component {
   render() {
     const { props } = this;
     return (
-      <div className="SelectMultiple">
+      <div className="SelectMultipleSimple">
         <select value={this.state.value} onChange={this.handleChange} multiple>
           { props.options.map(option => (
             <option

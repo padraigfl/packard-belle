@@ -32,9 +32,9 @@
   }
 
   >div:not(:last-child){
-    padding: 0px 8px;
+    padding: 0px 6px;
     &:first-child {
-      padding: 0px 3px;
+      padding: 0px 3px 0px 0px;
     }
     &::after{
       position: absolute;
@@ -56,5 +56,12 @@
       content: '';
       @include shadow-darkgrey-white
     }
+  }
+}
+
+
+@media screen and (max-width: 600px){
+  .task-bar__quick-launch {
+    display: none;
   }
 }

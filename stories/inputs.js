@@ -2,8 +2,12 @@ import React, { Component } from 'react';
 import { storiesOf } from '@storybook/react';
 import Checkbox from '../src/Inputs/Checkbox';
 import InputText from '../src/Inputs/InputText';
-import SelectMultiple from '../src/Inputs/SelectMultiple';
+import SelectMultiple from '../src/Inputs/SelectMultipleSimple';
 import Select from '../src/Inputs/Select';
+import SelectBox from '../src/Inputs/SelectBox';
+import img from '../src/Icon/images/directory_closed.png';
+
+const noop = () => {};
 
 class RadioTest extends Component {
   constructor(props) {
@@ -58,6 +62,81 @@ class CheckboxTest extends Component {
         {...props}
       />
     )
+  }
+}
+
+class SelectBoxState extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      selected: [],
+    }
+  }
+
+  handleChange(val) {
+    if (!this.props.multiple) {
+      this.setState({ selected: val });
+      return;
+    }
+
+    if (this.state.selected.some(selectedEntry => selectedEntry === val )) {
+      this.setState({
+        selected: this.state.selected.filter(selectedEntry => selectedEntry !== val),
+      });
+      return;
+    }
+
+    this.setState({
+      selected: [...this.state.selected, val],
+    });
+  }
+
+  render() {
+    return (
+      <div>
+        <SelectBox
+          onClick={(val) => this.handleChange(val)}
+          options={[
+            {
+              title: 'Testing6 test',
+              icon: img,
+              value: 'TestValue1',
+              onClick: noop,
+              alt: 'test',
+            },
+            {
+              title: 'Testing7 Testing Test another test ohhhh right',
+              icon: img,
+              value: 'TestValue2',
+              onClick: noop,
+              alt: 'test'
+            },
+            {
+              title: 'Testing8',
+              icon: img,
+              value: 'TestValue3',
+              onClick: noop,
+              alt: 'test'
+            },
+            {
+              title: 'Testing9 Test Test',
+              value: 'TestValue4',
+              onClick: noop,
+              alt: 'test'
+            },
+            {
+              title: 'Testing0',
+              icon: img,
+              value: 'TestValue5',
+              onClick: noop,
+              alt: 'test'
+            },
+          ]}
+          selected={this.state.selected}
+          hasIcons={this.props.hasIcons}
+        />
+      </div>
+    );
   }
 }
 
@@ -140,4 +219,10 @@ storiesOf('Inputs', module)
       value="option1"
       useIcons
     />
+  ))
+  .add('selectbox', () => (
+    <SelectBoxState multiple />
+  ))
+  .add('selectbox with icons', () => (
+    <SelectBoxState multiple hasIcons />
   ));

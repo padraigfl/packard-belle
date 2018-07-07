@@ -17,11 +17,11 @@
   &__text {
   }
 
-  &:focus, &:active {
+  &:focus, &:active, &:active:focus, &.is-active {
     outline: none;
 
     .icon__icon{
-      filter: hue-rotate(70deg);
+      filter: hue-rotate(70deg) contrast(0.3) saturate(2);
     }
 
     .icon__text{

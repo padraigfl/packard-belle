@@ -2,27 +2,29 @@
 
 .explorer-icon {
   width: 58px;
-  height: 44px;
-  padding: 6px 5px;
+  height: 70px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   .icon__icon {
-    width: 100%;
-    height: 100%;
+    width: 42px;
+    height: 42px;
+    margin: 0 auto;
   }
 
   .icon__text {
     position: absolute;
-    top: 40px;
+    top: 45px;
     left: 0px;
-    padding: 2px;
-    max-height: 22px;
-    width: calc(100% - 4px);
+    max-height: 24px;
+    width: 100%;
     overflow-y: hidden;
     display: inline-block;
   }
 
-  &:focus, &:active {
+  &:focus, &:active, &:active:focus {
     .icon__text{
       max-height: initial;
     }

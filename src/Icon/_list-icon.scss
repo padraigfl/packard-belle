@@ -22,6 +22,7 @@
     white-space: nowrap;
     text-overflow: ellipsis;
     width: calc(100% - 20px);
+    padding-bottom: 3px;
   }
 
   &:focus, &:active {

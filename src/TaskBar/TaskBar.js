@@ -1,6 +1,6 @@
 import React from 'react';
 import Notifiations from './Notifications';
-import StartButton from '../Button/StartButton';
+import StartMenu from '../StartMenu/StartMenu';
 import ProgramButton from '../Button/ProgramButton';
 import QuickLaunchButton from '../Button/QuickLaunchButton';
 
@@ -10,7 +10,9 @@ const TaskBar = (props) => {
   return (
     <div className="task-bar">
       <div>
-        <StartButton />
+        <StartMenu
+          options={props.options}
+        />
       </div>
       {
         props.quickLaunch && (

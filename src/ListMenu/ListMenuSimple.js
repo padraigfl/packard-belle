@@ -31,6 +31,7 @@ const ListMenuSimple = props => {
                 <ListItem
                   key={`menu-divider-${subOption.title}`}
                   {...subOption}
+                  value={[ ...props.value, subOption.title ]}
                 />
               ))}
               <div className="divider divider--end"/>
@@ -38,11 +39,20 @@ const ListMenuSimple = props => {
           )
         }
         else {
-          return <ListItem key={`menu-item-${option.title}`} {...option} />;
+          return (
+            <ListItem
+              key={`menu-item-${option.title}`}
+              {...option}
+              value={[ ...props.value, option.title ]}/>
+          );
         }
       })}
     </Window>
   );
+};
+
+ListMenuSimple.defaultProps = {
+  value: [],
 };
 
 export default ListMenuSimple;

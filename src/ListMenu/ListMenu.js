@@ -7,7 +7,10 @@ const ListMenu = props => {
   const classes = classnames('ListMenu--css', props.className)
   if (props.children) {
     return (
-      <ListMenuSimple className={classes}>
+      <ListMenuSimple
+        className={classes}
+        value={props.value}
+      >
         {props.children}
       </ListMenuSimple>
     );
@@ -16,8 +19,13 @@ const ListMenu = props => {
     <ListMenuSimple
       className={classes}
       options={props.options}
+      value={props.value}
     />
   );
+};
+
+ListMenu.defaultProps = {
+  value: [],
 };
 
 export default ListMenu;

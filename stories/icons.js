@@ -8,13 +8,17 @@ const noop = () => {
   console.log('run')
 };
 
+const alertIt = () => {
+  window.alert('DoubleClick');
+};
+
 storiesOf('Icons', module)
   .add('ExplorerIcon', () => (
     <ExplorerIcon
       className="test"
-      onClick={ noop }
+      onDoubleClick={ alertIt }
       alt="Testing this testing some more"
-      src={ img }
+      icon={ img }
       title="Testing this testing some more"
     />
   ))
@@ -22,23 +26,26 @@ storiesOf('Icons', module)
     <div>
       <ListIcon
         className="test"
-        onClick={ noop }
+        onClick={ () => noop() }
+        onDoubleClick={ alertIt }
         alt="Testing this testing some more"
-        src={ img }
+        icon={ img }
         title="Testing this testing some more"
       />
       <ListIcon
         className="test"
         onClick={ noop }
+        onDoubleClick={ alertIt }
         alt="Testing entry 2"
-        src={ img }
+        icon={ img }
         title="Testing entry 2"
       />
       <ListIcon
         className="test"
         onClick={ noop }
+        onDoubleClick={ alertIt }
         alt="Testing again"
-        src={ img }
+        icon={ img }
         title="Testing this test"
       />
     </div>

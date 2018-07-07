@@ -15,8 +15,9 @@ function loadStories() {
   require('../stories/buttons.js');
   require('../stories/windows.js');
   require('../stories/icons.js');
-  require('../stories/scrollbar.js')
+  require('../stories/scrollbar.js');
   require('../stories/inputs.js');
+  require('../stories/start.js');
 }
 
 configure(loadStories, module);
