@@ -136,7 +136,7 @@ $select-height: 16px;
     content: '';
   }
 
-  button:not(.list-icon) {
+  button:not(.icon) {
     display: block;
     outline: none;
     background: transparent;
@@ -157,6 +157,17 @@ $select-height: 16px;
     }
   }
 
+  &--ExplorerIcon {
+    >div {
+      display: flex;
+      flex-direction: row;
+      overflow-y: hidden;
+      padding-bottom: 20px;
+      .explorer-icon {
+        margin: 2px 8px;
+      }
+    }
+  }
   .list-icon {
     margin: 0px;
     padding: 1px;

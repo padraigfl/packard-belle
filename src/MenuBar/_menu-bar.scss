@@ -22,7 +22,7 @@
       white-space: nowrap;
       text-overflow: ellipsis;
       text-align: left;
-      padding: 1px 3px 1px 3px;
+      padding: 3px 6px;
 
       + .MenuBar__dropdown{
         visibility: hidden;
@@ -40,7 +40,7 @@
 
       &:active, &:focus, &:active:focus {
         @include shadow-white-darkgrey;
-        padding: 2px 2px 0px 4px;
+        padding: 4px 5px 2px 7px;
 
         + .MenuBar__dropdown {
           visibility: visible;

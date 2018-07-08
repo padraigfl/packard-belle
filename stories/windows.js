@@ -5,6 +5,7 @@ import StaticWindow from '../src/Window/StaticWindow';
 import MenuBar from '../src/MenuBar/MenuBar';
 import ListMenu from '../src/ListMenu/ListMenu';
 import ListMenuSimple from '../src/ListMenu/ListMenuSimple';
+import DetailsSection from '../src/Window/DetailsSection';
 
 import img from '../src/Icon/images/directory_closed.png';
 
@@ -96,9 +97,25 @@ storiesOf('Windows', module)
       Windows
     </StaticWindow>
   ))
+  .add('Window with DetailsSection', () => (
+    <StaticWindow
+      title="Settings w/Sections"
+      icon={img}
+      onClose={ noop }
+      onMinimize={ noop }
+      onMaximize={ noop }
+    >
+      <DetailsSection title="First Detail">
+        <p>Here's a load of stuff</p>
+      </DetailsSection>
+      <DetailsSection title="Second Detail">
+        <p>Here's a load of stuff</p>
+      </DetailsSection>
+    </StaticWindow>
+  ))
   .add('Window toolbar', () => (
     <StaticWindow
-      title="Title"
+      title="Window with MenuBar"
       icon={img}
       onClose={ noop }
       onMinimize={ noop }

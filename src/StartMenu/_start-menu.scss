@@ -12,6 +12,10 @@
     visibility: hidden;
     max-height: 0px;
     padding-left: 22px;
+    >.divider {
+      margin-left: 24px;
+      width: calc(100% - 26px);
+    }
     &:after {
       display: block;
       position: absolute;
