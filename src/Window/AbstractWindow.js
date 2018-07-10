@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import GenericWindow from './GenericWindow';
+import WindowFrame from './WindowFrame';
 import Button from '../Button/NavButton';
 
 const StaticWindow = props => (
-  <GenericWindow>
+  <WindowFrame>
     <div className="window__heading">
       { props.icon && (
         <div
@@ -41,7 +41,7 @@ const StaticWindow = props => (
       </div>
     </div>
     { props.children }
-  </GenericWindow>
+  </WindowFrame>
 );
 
 StaticWindow.propTypes = {

@@ -1,3 +1,5 @@
+@import './colors';
+
 @mixin shadow-double-color-border($color1, $color2) {
   box-shadow: inset -1px -1px 0px $color1, inset 1px 1px 0px 0px $color2;
 }

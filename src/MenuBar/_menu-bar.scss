@@ -5,6 +5,9 @@
   display: flex;
   padding: 2px 0px;
   font-size: 1rem;
+  position: relative;
+  overflow-y: visible;
+  z-index: 10;
 
   &__section{
     position: relative;

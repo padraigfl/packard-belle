@@ -6,8 +6,8 @@ import ListMenu from '../ListMenu/ListMenu';
 
 const MenuBar = props => (
   <div className="MenuBar">
-    { props.toolbarSections && (
-        props.toolbarSections.map( section => (
+    { props.options && (
+        props.options.map( section => (
           <div className="MenuBar__section" key={`MenuBar-section-${section.title}`}>
             <Button>{section.title}</Button>
             { section.options && <ListMenu className="MenuBar__dropdown" options={section.options} /> }

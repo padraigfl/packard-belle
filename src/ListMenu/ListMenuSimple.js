@@ -1,6 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
-import Window from '../Window/GenericWindow';
+import Window from '../Window/WindowFrame';
 import ListItem from './ListItem';
 import './_list-menu.scss';
 

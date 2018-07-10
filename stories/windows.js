@@ -1,7 +1,8 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import GenericWindow from '../src/Window/GenericWindow';
-import StaticWindow from '../src/Window/StaticWindow';
+import WindowFrame from '../src/Window/WindowFrame';
+import AbstractWindow from '../src/Window/AbstractWindow';
+import ExplorerWindow from '../src/Window/ExplorerWindow';
 import MenuBar from '../src/MenuBar/MenuBar';
 import ListMenu from '../src/ListMenu/ListMenu';
 import ListMenuSimple from '../src/ListMenu/ListMenuSimple';
@@ -85,9 +86,9 @@ storiesOf('Windows', module)
       options={optionsSample}
     />
   ))
-  .add('Generic window', () => <GenericWindow>Window</GenericWindow>)
+  .add('Generic window', () => <WindowFrame>Window</WindowFrame>)
   .add('Static window', () => (
-    <StaticWindow
+    <AbstractWindow
       title="Title"
       icon={img}
       onClose={ noop }
@@ -95,10 +96,10 @@ storiesOf('Windows', module)
       onMaximize={ noop }
     >
       Windows
-    </StaticWindow>
+    </AbstractWindow>
   ))
   .add('Window with DetailsSection', () => (
-    <StaticWindow
+    <AbstractWindow
       title="Settings w/Sections"
       icon={img}
       onClose={ noop }
@@ -111,10 +112,10 @@ storiesOf('Windows', module)
       <DetailsSection title="Second Detail">
         <p>Here's a load of stuff</p>
       </DetailsSection>
-    </StaticWindow>
+    </AbstractWindow>
   ))
   .add('Window toolbar', () => (
-    <StaticWindow
+    <AbstractWindow
       title="Window with MenuBar"
       icon={img}
       onClose={ noop }
@@ -122,7 +123,7 @@ storiesOf('Windows', module)
       onMaximize={ noop }
     >
       <MenuBar
-        toolbarSections={[
+        options={[
           {
             title: 'File',
             options: optionsSample,
@@ -134,5 +135,25 @@ storiesOf('Windows', module)
         ]}
       />
       Windows
-    </StaticWindow>
+    </AbstractWindow>
+  ))
+  .add('ExplorerWindow', () => (
+    <ExplorerWindow
+      title="ExplorerWindow"
+      menuOptions={[
+        {
+          title: 'File',
+          options: optionsSample,
+        },
+        {
+          title: 'Edit',
+          options: optionsSample,
+        }
+      ]}
+      icon={img}
+      onClose={ noop }
+      onMinimize={ noop }
+      onMaximize={ noop }
+    />
   ));
+
