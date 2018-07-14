@@ -1,12 +1,12 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import Button from '../src/Button/AbstractButton';
-import FormButton from '../src/Button/FormButton';
-import NavButton from '../src/Button/NavButton';
-import StartButton from '../src/Button/StartButton';
-import ProgramButton from '../src/Button/ProgramButton';
-import QuickLaunchButton from '../src/Button/QuickLaunchButton';
-import img from '../src/Icon/images/directory_closed.png';
+import Button from '../src/components/Button/AbstractButton';
+import FormButton from '../src/components/Button/FormButton';
+import NavButton from '../src/components/Button/NavButton';
+import StartButton from '../src/components/Button/StartButton';
+import ProgramButton from '../src/components/Button/ProgramButton';
+import QuickLaunchButton from '../src/components/Button/QuickLaunchButton';
+import img from './directory_closed.png';
 
 const noop = () => {
   console.log('run')

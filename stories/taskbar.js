@@ -1,8 +1,8 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import Notifications from '../src/TaskBar/Notifications';
-import TaskBar from '../src/TaskBar/TaskBar';
-import img from '../src/Icon/images/directory_closed.png';
+import Notifications from '../src/components/TaskBar/Notifications';
+import TaskBar from '../src/components/TaskBar/TaskBar';
+import img from './directory_closed.png';
 
 const optionsSample = [
   {

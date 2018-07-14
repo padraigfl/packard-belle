@@ -1,14 +1,13 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import WindowFrame from '../src/Window/WindowFrame';
-import AbstractWindow from '../src/Window/AbstractWindow';
-import ExplorerWindow from '../src/Window/ExplorerWindow';
-import MenuBar from '../src/MenuBar/MenuBar';
-import ListMenu from '../src/ListMenu/ListMenu';
-import ListMenuSimple from '../src/ListMenu/ListMenuSimple';
-import DetailsSection from '../src/Window/DetailsSection';
+import WindowFrame from '../src/components/Window/WindowFrame';
+import AbstractWindow from '../src/components/Window/AbstractWindow';
+import ExplorerWindow from '../src/components/Window/ExplorerWindow';
+import MenuBar from '../src/components/MenuBar/MenuBar';
+import ListMenu from '../src/components/ListMenu/ListMenu';
+import DetailsSection from '../src/components/Window/DetailsSection';
 
-import img from '../src/Icon/images/directory_closed.png';
+import img from './directory_closed.png';
 
 const optionsSample = [
   {
@@ -23,6 +22,10 @@ const optionsSample = [
         {
           onClick: noop,
           title: 'open file?',
+        },
+        {
+          onClick: noop,
+          title: 'open drv file?',
         },
         {
           onClick: noop,
@@ -52,7 +55,8 @@ const noop = () => {};
 
 storiesOf('Windows', module)
   .add('ListMenuSimple', () => (
-    <ListMenuSimple
+    <ListMenu
+      className="ListMenu--css"
       options={[
         {
           onClick: noop,
@@ -83,6 +87,7 @@ storiesOf('Windows', module)
   ))
   .add('ListMenu', () => (
     <ListMenu
+      className="ListMenu--css"
       options={optionsSample}
     />
   ))

@@ -1,8 +1,8 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import StartMenu from '../src/StartMenu/StartMenu';
+import StartMenu from '../src/components/StartMenu/StartMenu';
 
-import img from '../src/Icon/images/directory_closed.png';
+import img from './directory_closed.png';
 
 const optionsSample = [
   {

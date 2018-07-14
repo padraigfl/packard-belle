@@ -1,0 +1,136 @@
+@import './var/colors';
+@import './mixins/box-shadows';
+@import './var/var';
+@import './var/uris';
+
+.w98 .form {
+  input[type=checkbox], input[type=radio] {
+    opacity: 0;
+    display: none;
+    cursor: pointer;
+    + label {
+      position: relative;
+      padding-left: 16px;
+      padding-top: 2px;
+      >span, >div {
+        display: inline-block;
+        border: 1px solid rgba(0,0,0,0);
+      }
+      &:before {
+        content: '';
+        position: absolute;
+        left: 0px;
+        width: 20px;
+        height: 16px;
+        background-repeat: no-repeat;
+      }
+    }
+    &:checked {
+      + label {
+        border-bottom-left-radius: 2px;
+        border-bottom-right-radius: 2px;
+      }
+      &:active, &:focus, &:active:focus {
+        + label {
+          >span, >div {
+            border: 1px dotted black;
+          }
+        }
+      }
+    }
+    &:disabled {
+      +label {
+        color: $darkgrey;
+      }
+    }
+  }
+  input[type=checkbox] {
+    + label:before {
+      width: 13px;
+      height: 13px;
+      background-color: white;
+      @include shadow-input
+    }
+    &:checked +label:before {
+      background-image: url($menu-checked);
+      background-position: center;
+      background-size: 8px;
+    }
+    &:disabled {
+      +label:before {
+        background-color: $grey;
+      }
+      &:checked +label:before {
+        background-image: url($menu-checked-disabled);
+      }
+    }
+  }
+  input[type=radio] {
+    + label:before {
+      background-image: url($radio-off);
+    }
+    &:checked {
+      + label {
+        &:before {
+          background-image: url($radio-on);
+        }
+      }
+    }
+    &:disabled {
+      + label:before {
+        background-image: url($radio-off-disabled);
+      }
+      &:checked {
+        + label {
+          &:before {
+            background-image: url($radio-on-disabled);
+          }
+        }
+      }
+    }
+  }
+
+  input[type=text] {
+    position: relative;
+    padding: 3px 3px 6px 3px;
+    font-size: $base-font-size;
+    border: none;
+    @include shadow-input;
+
+    &:active, &:focus {
+      outline: none;
+    }
+    &:disabled{
+      background-color: $grey;
+    }
+  }
+
+  @mixin select-hover {
+    outline: 1px dotted white;
+    outline-offset: -1px;
+    background-color: $blue;
+    color: white;
+  }
+
+  select[multiple] {
+    position: relative;
+    border: none;
+    background-color: white;
+    border-radius: 0px;
+    outline: none;
+    padding: 2px;
+    @include shadow-input;
+
+    &:active, &:focus {
+      outline: none;
+    }
+    option{
+      &:active, &:focus, &:checked {
+        outline: 1px dotted white;
+        outline-offset: -1px;
+        background-color: $blue;
+        color: white;
+      }
+    }
+  }
+}

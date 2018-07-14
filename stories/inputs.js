@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { storiesOf } from '@storybook/react';
-import Checkbox from '../src/Inputs/Checkbox';
-import InputText from '../src/Inputs/InputText';
-import SelectMultiple from '../src/Inputs/SelectMultipleSimple';
-import Select from '../src/Inputs/Select';
-import SelectBox from '../src/Inputs/SelectBox';
-import ListIcon from '../src/Icon/ListIcon';
-import ExplorerIcon from '../src/Icon/ExplorerIcon';
-import img from '../src/Icon/images/directory_closed.png';
+import Checkbox from '../src/components/Inputs/Checkbox';
+import InputText from '../src/components/Inputs/InputText';
+import SelectMultiple from '../src/components/Inputs/SelectMultipleSimple';
+import Select from '../src/components/Inputs/Select';
+import SelectBox from '../src/components/Inputs/SelectBox';
+import ListIcon from '../src/components/Icon/ListIcon';
+import ExplorerIcon from '../src/components/Icon/ExplorerIcon';
+import img from './directory_closed.png';
 
 const noop = () => {};
 
@@ -24,7 +24,7 @@ class RadioTest extends Component {
   render() {
     const { props } = this;
     return (
-      <div>
+      <div className="form">
         { props.options.map(option =>(
           <div key={`${option.value}`}>
             <Checkbox
@@ -56,6 +56,7 @@ class CheckboxTest extends Component {
     const { props } = this;
     return (
       <Checkbox
+        className="form"
         key={`${props.value}`}
         name={props.name}
         type={props.type}
@@ -95,7 +96,7 @@ class SelectBoxState extends Component {
 
   render() {
     return (
-      <div>
+      <div className="form">
         <SelectBox
           onClick={(val) => this.handleChange(val)}
           options={[
@@ -139,7 +140,7 @@ class SelectBoxState extends Component {
 
 storiesOf('Inputs', module)
   .add('checkbox', () => (
-    <div>
+    <div className="form">
       <CheckboxTest
         type="checkbox"
         label="Label"
@@ -156,7 +157,7 @@ storiesOf('Inputs', module)
     </div>
   ))
   .add('radio', () => (
-    <div>
+    <div className="form">
       <RadioTest
         name="radio"
         value='option3'
@@ -181,48 +182,58 @@ storiesOf('Inputs', module)
     </div>
   ))
   .add('text', () => (
-    <InputText />
+    <div className="form">
+      <InputText />
+    </div>
   ))
   .add('select multiple basic', () => (
-    <SelectMultiple
-      options={[{
-        name: 'option1',
-        value: 'option1',
-      }, {
-        name: 'option2',
-        value: 'option2',
-      }, {
-        name: 'option3',
-        value: 'option3',
-      }]}
-      multiple
-    />
+    <div className="form">
+      <SelectMultiple
+        options={[{
+          name: 'option1',
+          value: 'option1',
+        }, {
+          name: 'option2',
+          value: 'option2',
+        }, {
+          name: 'option3',
+          value: 'option3',
+        }]}
+        multiple
+      />
+    </div>
   ))
   .add('select', () => (
-    <Select
-      options={[{
-        label: 'option1',
-        value: 'option1',
-      }, {
-        label: 'option2',
-        value: 'option2',
-      }, {
-        label: 'option3',
-        value: 'option3',
-      }, {
-        label: 'Option4',
-        value: 'option4',
-      }]}
-      value="option1"
-      useIcons
-    />
+    <div className="form">
+      <Select
+        options={[{
+          label: 'option1',
+          value: 'option1',
+        }, {
+          label: 'option2',
+          value: 'option2',
+        }, {
+          label: 'option3',
+          value: 'option3',
+        }, {
+          label: 'Option4',
+          value: 'option4',
+        }]}
+        value="option1"
+        useIcons
+      />
+    </div>
   ))
-  .add('selectbox', () => (
+  .add('selectbox simple', () => (
     <SelectBoxState multiple />
   ))
   .add('selectbox with icons', () => (
-    <SelectBoxState multiple component={ListIcon} />
+    <div className="form">
+      <SelectBoxState multiple component={ListIcon} />
+    </div>
   ))
   .add('selectbox with other icon type', () => (
-    <SelectBoxState multiple component={ExplorerIcon} />
+    <div className="form">
+      <SelectBoxState multiple component={ExplorerIcon} />
+    </div>
   ));;

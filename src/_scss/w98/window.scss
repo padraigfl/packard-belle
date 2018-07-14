@@ -1,0 +1,168 @@
+@import './var/colors';
+@import './mixins/box-shadows';
+@import './var/var';
+
+.w98 .window {
+  position: relative;
+  background-color: $grey;
+  padding: 3px;
+  @include shadow-darkgrey-white;
+
+  &::before, &::after {
+    position: absolute;
+    display: block;
+    content: '';
+  }
+
+  &::before {
+    top: -1px;
+    left: -1px;
+    width: calc(100% + 1.5px);
+    height: calc(100% + 2px);
+    @include shadow-black-grey;
+  }
+
+  &__heading {
+    display: flex;
+    background-color: $blue;
+    font-weight: bold;
+    color: white;
+    padding: 0px 3px;
+    align-items: center;
+  }
+  &__icon {
+    padding: 8px;
+    display: flex;
+    background-size: 14px;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  &__title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex-grow: 1;
+    min-width: 0px;
+  }
+  &__close, &__restore, &__minimize, &__maximize {
+    padding: 0px;
+    min-width: initial;
+    width: 16px;
+    height: 14px;
+    margin-left: 1px;
+    image-rendering: pixelated;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    background-repeat: no-repeat;
+    background-position: 1px 1px;
+    @include shadow-black-white;
+
+    &:before {
+      @include shadow-darkgrey-grey;
+    }
+
+    &:focus {
+      outline: none;
+      border: none;
+
+      &:after {
+        box-shadow: none;
+      }
+    }
+
+    &:active:focus {
+      padding-top: 2px;
+      padding-bottom: 1px;
+      padding-left: 4px;
+      padding-right: 8px;
+      @include shadow-white-black;
+      background-position: 2px 2px;
+
+      &:before {
+        @include shadow-grey-darkgrey;
+      }
+    }
+  }
+  &__close {
+    margin-left: 2px;
+    background-image: url('../../images/close.png');
+  }
+  &__restore {
+    background-image: url('../../images/restore.png');
+  }
+  &__minimize {
+    background-image: url('../../images/minimize.png');
+  }
+  &__maximize {
+    background-image: url('../../images/maximize.png');
+  }
+
+  &__menu {
+    display: flex;
+    padding: 2px 0px;
+    font-size: 1rem;
+    position: relative;
+    overflow-y: visible;
+    z-index: 10;
+
+    &__section{
+      position: relative;
+
+      >button {
+        padding: 0px 4px;
+        outline: none;
+        border: none;
+        user-select: none;
+        color: $black;
+        display: inline-block;
+        background-color: rgba(0,0,0,0);
+        width: 100%;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        text-align: left;
+        padding: 3px 6px;
+
+        + .window__menu__dropdown{
+          visibility: hidden;
+          position: absolute;
+          max-height: 0px;
+          top: calc(100% + 1px);
+          left: 0px;
+          width: 128px;
+          transition: max-height linear 750ms;
+        }
+
+        &:hover {
+          @include shadow-darkgrey-white;
+        }
+
+        &:active, &:focus, &:active:focus {
+          @include shadow-white-darkgrey;
+          padding: 4px 5px 2px 7px;
+
+          + .window__menu__dropdown {
+            visibility: visible;
+            max-height: 480px;
+          }
+        }
+      }
+    }
+  }
+
+  &__details {
+    position: relative;
+    border: 1px solid white;
+    outline: 1px solid darkgrey;
+    padding: 5px;
+    margin: 16px 8px 8px;
+
+    &__title {
+      position: absolute;
+      top: -10px;
+      padding: 2px 4px;
+      background-color: $grey;
+    }
+  }
+}
