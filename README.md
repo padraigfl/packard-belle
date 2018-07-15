@@ -71,5 +71,5 @@ W98 Toolbar
 - [ ] Use svg filter for icon highlighting (checkered blue pixel)
 - [ ] Refactor various list option groups
 - [ ] Blue selected areas grey when parent not active
-- [ ] Radio and checkbox for ListMenus
+- [ ] Radio and checkbox for ContextMenus
 - [ ] Custom font

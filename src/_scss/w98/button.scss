@@ -2,6 +2,8 @@
 @import './mixins/box-shadows';
 @import './var/var';
 
+$start: 'data:image/gif;base64,R0lGODlhNAATAKIAAAAAAP///wAA/wD/AP//AP8AAP///wAAACH5BAEAAAYALAAAAAA0ABMAAAOPaLrc/jDKSaudIIPLu95dKH2fGIKLVmSDxpTms83qCgwtmik7j46/BglQsOF6BuQrCFEuCkLiJ5diJnswl6sB7dqGSpjPscNaFcWiRpAhbKPVqhbkVAiiAjaA4LYizWOADneEenltfXFXioCCD3mHAHptYW9jV3OKL1FgZzEySZiVnp8yYkKlFyRNqa2uEgkAOw==';
+
 .btn:not(.no-style) {
   border: 0px solid transparent;
   background-color: $grey;
@@ -11,8 +13,9 @@
   -ms-user-select: none;
   user-select: none;
 
-  &:active, &:focus, &:active:focus {
+  &:active, &:focus, &:active:focus, &.active, &.clicked {
     outline: none;
+    color: inherit;
   }
 
   &::before, &::after {
@@ -59,7 +62,7 @@
       @include shadow-darkgrey-grey;
     }
 
-    &:active:focus, &.btn--is-active {
+    &:active:focus, &.btn--active {
       background-position: 5px 5px;
       @include shadow-white-black;
       padding-top: 3px;
@@ -77,7 +80,7 @@
       }
     }
 
-    &.btn--is-active {
+    &.btn--active {
       background-color: transparent;
       font-weight: bold;
 
@@ -98,7 +101,7 @@
     &:hover {
       @include shadow-darkgrey-white;
 
-      &:focus:active, &:active {
+      &:focus:active, &:active, &.active, &.clicked {
         @include shadow-white-darkgrey;
         background-position: 4px 4px;
       }
@@ -112,7 +115,7 @@
     align-content: center;
     width: 52px;
     padding-right: 6px;
-    background-image: url('../../images/start-trans.png');
+    background-image: url($start);
     background-size: auto 18px;
     background-repeat: no-repeat;
     background-position: 2px 1px;
@@ -126,7 +129,7 @@
       @include shadow-darkgrey-grey;
     }
 
-    &:active, &:focus, &:active:focus {
+    &:active, &:focus, &:active:focus, &.active, &.clicked {
       @include shadow-white-black-start;
       background-position: 3px 2px;
       outline: 1px dotted black;
@@ -143,7 +146,7 @@
     min-width: initial;
     width: 16px;
     height: 14px;
-    margin-left: 2px;
+    margin-left: 1px;
     image-rendering: pixelated;
     @include shadow-black-white;
 
@@ -165,7 +168,7 @@
       }
     }
 
-    &:active:focus {
+    &:active:focus, &.clicked {
       padding-top: 2px;
       padding-bottom: 1px;
       padding-left: 4px;
@@ -175,6 +178,9 @@
       &:before {
         @include shadow-grey-darkgrey;
       }
+    }
+    &.window__close {
+      margin-left: 2px;
     }
   }
 
@@ -200,7 +206,7 @@
       }
     }
 
-    &:active:focus, &:active{
+    &:active:focus, &:active, .active, .clicked{
       padding: 6px 0px 4px 3px;
       @include shadow-darkgrey;
 

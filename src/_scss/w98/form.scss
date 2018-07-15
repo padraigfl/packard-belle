@@ -30,7 +30,7 @@
         border-bottom-left-radius: 2px;
         border-bottom-right-radius: 2px;
       }
-      &:active, &:focus, &:active:focus {
+      &:active, &:focus, &:active:focus, &.active, &.clicked {
         + label {
           >span, >div {
             border: 1px dotted black;
@@ -38,7 +38,7 @@
         }
       }
     }
-    &:disabled {
+    &:disabled, &.disabled {
       +label {
         color: $darkgrey;
       }
@@ -56,7 +56,7 @@
       background-position: center;
       background-size: 8px;
     }
-    &:disabled {
+    &:disabled, &.disabled {
       +label:before {
         background-color: $grey;
       }
@@ -76,7 +76,7 @@
         }
       }
     }
-    &:disabled {
+    &:disabled, &.disabled {
       + label:before {
         background-image: url($radio-off-disabled);
       }
@@ -97,10 +97,10 @@
     border: none;
     @include shadow-input;
 
-    &:active, &:focus {
+    &:active, &:focus, &:active:focus, &.clicked {
       outline: none;
     }
-    &:disabled{
+    &:disabled, &.disabled {
       background-color: $grey;
     }
   }
@@ -121,11 +121,11 @@
     padding: 2px;
     @include shadow-input;
 
-    &:active, &:focus {
+    &:active, &:focus, &:active:focus, &.active, &.clicked {
       outline: none;
     }
     option{
-      &:active, &:focus, &:checked {
+      &:active, &:focus, &:checked, &.checked {
         outline: 1px dotted white;
         outline-offset: -1px;
         background-color: $blue;

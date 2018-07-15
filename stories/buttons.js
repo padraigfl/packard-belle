@@ -13,7 +13,7 @@ const noop = () => {
 };
 
 storiesOf('Button', module)
-  .add('form button', () => <FormButton>Button</FormButton>)
+  .add('form button', () => <FormButton onClick={noop}>Button</FormButton>)
   .add('nav button', () => <NavButton />)
   .add('start button', () => <StartButton />)
   .add('program button', () => (

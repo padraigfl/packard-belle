@@ -13,7 +13,7 @@ $windowPadding: 3px;
     transition: max-width cubic-bezier(0.38, 0.01, 0, 1) 200ms,
     max-height cubic-bezier(0.38, 0.01, 0, 1) 200ms;
   }
-  &:hover {
+  &:hover, &.active {
     .window {
       width: auto;
     }
@@ -24,7 +24,7 @@ $windowPadding: 3px;
       top: -$windowPadding;
       max-width: 0%;
     }
-    &:hover {
+    &:hover, &.active {
       >.window {
         max-width: 400%;
       }
@@ -35,7 +35,7 @@ $windowPadding: 3px;
       top: -$windowPadding;
       max-width: 0%;
     }
-    &:hover {
+    &:hover, &.active {
       >.window {
         max-width: 100%;
       }
@@ -48,7 +48,7 @@ $windowPadding: 3px;
       max-height: 0%;
       max-width: 100%;
     }
-    &:hover {
+    &:hover, &.active {
       >.window {
         height: initial;
         max-height: 100%;
@@ -61,7 +61,7 @@ $windowPadding: 3px;
       max-height: 0%;
       max-width: 100%;
     }
-    &:hover {
+    &:hover, &.active {
       >.window {
         height: initial;
         max-height: 100%;
@@ -70,7 +70,7 @@ $windowPadding: 3px;
   }
 }
 
-.list-menu {
+.context-menu {
   display: inline-flex;
   flex-direction: column;
   word-wrap: none;
@@ -101,7 +101,7 @@ $windowPadding: 3px;
         background-repeat: no-repeat;
         background-position: center;
       }
-      .ListItem__text {
+      .ContextMenuItem__text {
         padding: 0px 20px 0px 0px;
       }
       &:not(:only-child) {
@@ -135,7 +135,7 @@ $windowPadding: 3px;
         }
       }
     }
-    &:hover, &:active, &:focus {
+    &:hover, &:active, &:focus, &:active:focus, &.active, &.clicked {
       color: white;
       background-color: $blue;
       >button {
@@ -164,14 +164,14 @@ $windowPadding: 3px;
   }
 }
 
-.ListMenu--css {
+.ContextMenu--css {
   >div {
     @include onDisplay('right');
     &__sub-menu--top { @include onDisplay('top'); }
     &__sub-menu--bottom { @include onDisplay('bottom'); }
     &__sub-menu--left { @include onDisplay('left'); }
 
-    &:active {
+    &:active, .active {
       display: none;
     }
 

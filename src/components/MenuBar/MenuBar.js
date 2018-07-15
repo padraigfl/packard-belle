@@ -1,7 +1,7 @@
 
 import React from 'react';
 import Button from '../Button/AbstractButton';
-import ListMenu from '../ListMenu/ListMenu';
+import ContextMenu from '../ContextMenu/ContextMenu';
 import '../../_scss/w98/window.scss';
 
 const MenuBar = props => (
@@ -10,7 +10,7 @@ const MenuBar = props => (
         props.options.map( section => (
           <div className="window__menu__section MenuBar__section" key={`MenuBar-section-${section.title}`}>
             <Button>{section.title}</Button>
-            { section.options && <ListMenu className="window__menu__dropdown" options={section.options} /> }
+            { section.options && <ContextMenu className="window__menu__dropdown" options={section.options} /> }
           </div>
         ))
       )

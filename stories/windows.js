@@ -4,7 +4,7 @@ import WindowFrame from '../src/components/Window/WindowFrame';
 import AbstractWindow from '../src/components/Window/AbstractWindow';
 import ExplorerWindow from '../src/components/Window/ExplorerWindow';
 import MenuBar from '../src/components/MenuBar/MenuBar';
-import ListMenu from '../src/components/ListMenu/ListMenu';
+import ContextMenu from '../src/components/ContextMenu/ContextMenu';
 import DetailsSection from '../src/components/Window/DetailsSection';
 
 import img from './directory_closed.png';
@@ -54,9 +54,9 @@ const optionsSample = [
 const noop = () => {};
 
 storiesOf('Windows', module)
-  .add('ListMenuSimple', () => (
-    <ListMenu
-      className="ListMenu--css"
+  .add('ContextMenuSimple', () => (
+    <ContextMenu
+      className="ContextMenu--css"
       options={[
         {
           onClick: noop,
@@ -85,9 +85,9 @@ storiesOf('Windows', module)
     ]}
     />
   ))
-  .add('ListMenu', () => (
-    <ListMenu
-      className="ListMenu--css"
+  .add('ContextMenu', () => (
+    <ContextMenu
+      className="ContextMenu--css"
       options={optionsSample}
     />
   ))

@@ -57,7 +57,7 @@ const optionsSample = [
 const noop = () => {};
 
 storiesOf('StartMenu', module)
-  .add('ListMenuSimple', () => (
+  .add('StartMenu', () => (
     <div style={{ position: 'fixed', bottom: '0px', width: '100%' }}>
       <StartMenu
         options={optionsSample}

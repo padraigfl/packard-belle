@@ -30,17 +30,25 @@ class AbstractIcon extends Component {
     }
   }
 
+  handleClick = () => {
+    this.icon.focus();
+    if (this.props.onClick) {
+      this.props.onClick();
+    }
+  }
+
   render() {
     const { props } = this;
 
     const iconProps = {
-      onClick: () => this.checkDoubleClick(),
+      onDoubleClick: props.onDoubleClick,
+      onClick: this.handleClick,
       className: classnames('icon', props.className),
       title: props.alt,
       value: props.value,
+      ref: (icon) => { this.icon = icon; },
     };
 
-    // Fragmented approach prevents unnecessary rerenders of Icon (which remove css pseudoclasses)
     const contents = (
       <React.Fragment>
         <div
@@ -54,7 +62,10 @@ class AbstractIcon extends Component {
 
     if (this.props.onClick || this.props.onDoubleClick) {
       return (
-        <button {...iconProps}>
+        <button
+          ref={(icon) => { this.icon = icon; }}
+          {...iconProps}
+        >
           { contents }
         </button>
       )

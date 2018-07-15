@@ -1,15 +1,15 @@
 import React from 'react';
 import classnames from 'classnames';
 import Window from '../Window/WindowFrame';
-import ListItem from './ListItem';
-import './_list-menu.scss';
+import ContextMenuItem from './ContextMenuItem';
+import '../../_scss/w98/context-menu.scss';
 
-const ListMenuSimple = props => {
+const ContextMenuSimple = props => {
   if (props.children) {
     return (
       <Window
         className={
-          classnames('ListMenu ListMenu--custom', props.className, props.direction)
+          classnames('context-menu ContextMenu ContextMenu--custom', props.className, props.direction)
         }
       >
         { props.children }
@@ -19,7 +19,7 @@ const ListMenuSimple = props => {
   return (
     <Window
       className={
-        classnames('list-menu ListMenu ListMenu--css', props.className, props.direction)
+        classnames('context-menu ContextMenu ContextMenu--css', props.className, props.direction)
       }
     >
       { props.options.map(option => {
@@ -28,7 +28,7 @@ const ListMenuSimple = props => {
             <React.Fragment key={`menu-subset-${option[0].title}`}>
               <div className="divider divider--start"/>
               {option.map(subOption => (
-                <ListItem
+                <ContextMenuItem
                   key={`menu-divider-${subOption.title}`}
                   {...subOption}
                   value={[ ...props.value, subOption.title ]}
@@ -40,8 +40,8 @@ const ListMenuSimple = props => {
         }
         else {
           return (
-            <ListItem
-              key={`menu-item-${option.title}`}
+            <ContextMenuItem
+              key={`context-menu-item-${option.title}`}
               {...option}
               value={[ ...props.value, option.title ]}/>
           );
@@ -51,8 +51,8 @@ const ListMenuSimple = props => {
   );
 };
 
-ListMenuSimple.defaultProps = {
+ContextMenuSimple.defaultProps = {
   value: [],
 };
 
-export default ListMenuSimple;
+export default ContextMenuSimple;

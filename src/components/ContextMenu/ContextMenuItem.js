@@ -1,15 +1,15 @@
 import React from 'react';
 import classnames from 'classnames';
-import ListMenu from './ListMenu';
+import ContextMenu from './ContextMenu';
 
-const ListItem = props => (
+const ContextMenuItem = props => (
   <div
     className={
       classnames(
-        'ListItem',
+        'ContextMenuItem',
         props.className,
         props.type,
-        { 'ListItem--has-options': props.options, 'ListItem--is-active': props.isActive },
+        { 'ContextMenuItem--has-options': props.options, 'ContextMenuItem--is-active': props.isActive },
       )
     }
     onMouseEnter={(e) => {
@@ -22,7 +22,7 @@ const ListItem = props => (
     }}
   >
     <button
-      className="ListItem__button"
+      className="ContextMenuItem__button"
       onClick={props.onClick}
       style={ props.icon ? { backgroundImage: `url('${props.icon}')` } : undefined }
       value={props.value}
@@ -30,8 +30,8 @@ const ListItem = props => (
       {props.title}
     </button>
     { props.options && (
-      <ListMenu
-        className="ListItem__child"
+      <ContextMenu
+        className="ContextMenuItem__child"
         options={props.options}
         value={props.value}
       />
@@ -39,9 +39,9 @@ const ListItem = props => (
   </div>
 );
 
-ListItem.defaultProps = {
+ContextMenuItem.defaultProps = {
   onClick: () => {},
   value: [],
 };
 
-export default ListItem;
+export default ContextMenuItem;

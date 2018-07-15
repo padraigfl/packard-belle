@@ -62,7 +62,7 @@
       @include shadow-darkgrey-grey;
     }
 
-    &:focus {
+    &:focus, &.clicked {
       outline: none;
       border: none;
 
@@ -71,7 +71,7 @@
       }
     }
 
-    &:active:focus {
+    &:active:focus, &.clicked {
       padding-top: 2px;
       padding-bottom: 1px;
       padding-left: 4px;
@@ -124,7 +124,7 @@
         text-align: left;
         padding: 3px 6px;
 
-        + .window__menu__dropdown{
+        + .window__menu__dropdown {
           visibility: hidden;
           position: absolute;
           max-height: 0px;
@@ -138,7 +138,7 @@
           @include shadow-darkgrey-white;
         }
 
-        &:active, &:focus, &:active:focus {
+        &:active, &:focus, &:active:focus, &.active, &.clicked {
           @include shadow-white-darkgrey;
           padding: 4px 5px 2px 7px;
 
@@ -159,6 +159,21 @@
     margin: 16px 8px 8px;
 
     &__title {
+      position: absolute;
+      top: -10px;
+      padding: 2px 4px;
+      background-color: $grey;
+    }
+  }
+
+  >section {
+    position: relative;
+    border: 1px solid white;
+    outline: 1px solid darkgrey;
+    padding: 5px;
+    margin: 16px 8px 8px;
+
+    .title {
       position: absolute;
       top: -10px;
       padding: 2px 4px;

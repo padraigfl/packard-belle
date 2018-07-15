@@ -50,7 +50,7 @@
         font-weight: bold;
       }
 
-      + .StartMenu__primary {
+      + div {
         transition: max-width cubic-bezier(0.38, 0.01, 0, 1) 200ms,
         max-height cubic-bezier(0.38, 0.01, 0, 1) 200ms;
         position: absolute;
@@ -72,17 +72,17 @@
           width: 20px;
           background-color: $blue;
         }
-        >.ListItem {
+        >div {
           display: flex;
           align-items: center;
           margin-left: 20px;
-          >.ListItem__button {
+          >button {
             height: 24px;
             padding-left: 28px;
             background-size: 22px;
             background-position: 4px center;
           }
-          .ListMenu {
+          .window {
             display: none;
           }
         }
@@ -92,7 +92,7 @@
         @include shadow-darkgrey-grey;
       }
 
-      &:active, &:focus, &:active:focus {
+      &:active, &:focus, &:active:focus, &.active, &.clicked {
         @include shadow-white-black-start;
         background-position: 3px 2px;
         outline: 1px dotted black;
@@ -101,11 +101,11 @@
         &::before {
           @include shadow-grey-darkgrey;
         }
-        + .StartMenu__primary {
+        + div {
           visibility: visible;
           max-height: 100vh;
           padding: 3px;
-          .ListItem .ListItem, .ListItem .ListMenu {
+          div {
             display: flex;
           }
         }
@@ -136,7 +136,7 @@
       background-position: center;
       background-repeat: no-repeat;
       border: none;
-      &:active, &:focus, &:active:focus {
+      &:active, &:focus, &:active:focus, &.active, &.clicked {
         outline: none;
         border: none;
       }

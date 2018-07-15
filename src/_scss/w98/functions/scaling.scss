@@ -11,3 +11,7 @@
     @return $a*$scale*1px $b*$scale*1px $c*$scale*1px $d*$scale*1px;
   }
 }
+
+@function getShadowVal($px, $color) {
+  @return inset $px $px 0px $color;
+}

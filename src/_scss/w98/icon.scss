@@ -58,7 +58,7 @@
       display: inline-block;
     }
 
-    &:focus, &:active, &:active:focus {
+    &:focus, &:active, &:active:focus, &.active, &.clicked {
       .icon__text{
         max-height: initial;
       }
@@ -90,7 +90,7 @@
       padding-bottom: 3px;
     }
 
-    &:focus, &:active {
+    &:focus, &:active, &:active:focus, &.active, &.clicked {
       .icon__text{
         max-height: initial;
       }
