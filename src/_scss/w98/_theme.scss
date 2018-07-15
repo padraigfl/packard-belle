@@ -95,6 +95,9 @@ html{
 }
 
 .w98 {
+  *, & {
+    cursor: url($cursor), default;
+  }
   button {
     border: 0px solid transparent;
     background-color: $grey;

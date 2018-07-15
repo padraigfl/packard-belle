@@ -18,7 +18,15 @@ class AbstractButton extends Component {
 
   handleClick = (e) => {
     this.button.focus();
-    this.props.onClick(e);
+    if (this.props.onClick) {
+      this.props.onClick(e);
+    }
+  }
+
+  handleDoubleClick = (e) => {
+    if (this.props.onDoubleClick) {
+      this.props.onDoubleClick(e);
+    }
   }
 
   render() {
@@ -36,7 +44,7 @@ class AbstractButton extends Component {
           },
         )}
         onClick={ (e) => this.handleClick(e) }
-        onDoubleClick={(e) => props.onDoubleClick(e) }
+        onDoubleClick={(e) => this.handleDoubleClick(e) }
         onMouseDown={() => this.handleMouse(props.onMouseDown, true)}
         onMouseUp={() => this.handleMouse(props.onMouseUp, false)}
 
