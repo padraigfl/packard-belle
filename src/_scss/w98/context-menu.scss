@@ -21,7 +21,7 @@ $windowPadding: 3px;
   }
   @if $direction  == 'right' {
     >.window {
-      left: 100%;
+      left: calc(100%  - 3px);
       top: -$windowPadding;
       max-width: 0%;
     }
@@ -32,7 +32,7 @@ $windowPadding: 3px;
     }
   } @else if $direction  == 'left' {
     >.window {
-      left: calc(-100%);
+      left: -100%;
       top: -$windowPadding;
       max-width: 0%;
     }
@@ -87,12 +87,12 @@ $windowPadding: 3px;
       padding: 0px 20px 0px 20px;
       text-align: left;
       background-repeat: no-repeat;
-      background-size: 14px;
+      background-size: 16px;
       background-position: 3px center;
       background-color: rgba(0,0,0,0);
       border: none;
       outline: none;
-      height: 16px;
+      height: 20px;
       &:before {
         content: '';
         position: absolute;
