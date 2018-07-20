@@ -30,7 +30,7 @@
     >div{
       position: relative;
       min-height: 16px;
-      padding-left: 8px;
+      padding-left: 12px;
       &:before {
         position: absolute;
         top: 3px;
@@ -53,7 +53,7 @@
     overflow-y: visible;
     &__title {
       align-self: center;
-      margin: auto 4px;
+      margin-right: 4px;
       padding-bottom: 2px;
     }
     .Select {

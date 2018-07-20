@@ -47,6 +47,7 @@ class AbstractButton extends Component {
         onDoubleClick={(e) => this.handleDoubleClick(e) }
         onMouseDown={() => this.handleMouse(props.onMouseDown, true)}
         onMouseUp={() => this.handleMouse(props.onMouseUp, false)}
+        onBlur={() => this.props.onBlur() }
 
         style={ props.style }
       >

@@ -24,7 +24,7 @@
 
   &__heading {
     display: flex;
-    background-color: $blue;
+    background: linear-gradient(to right, $blue, #126fc2);
     font-weight: bold;
     color: white;
     padding: 0px 3px;

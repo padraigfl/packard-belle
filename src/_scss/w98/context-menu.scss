@@ -13,9 +13,10 @@ $windowPadding: 3px;
     transition: max-width cubic-bezier(0.38, 0.01, 0, 1) 200ms,
     max-height cubic-bezier(0.38, 0.01, 0, 1) 200ms;
   }
-  &:hover, &.active {
-    .window {
+  &.active {
+    >.window {
       width: auto;
+      visibility: visible;
     }
   }
   @if $direction  == 'right' {
@@ -78,6 +79,7 @@ $windowPadding: 3px;
   text-overflow: clip;
   >div {
     position: relative;
+    @include onDisplay('right');
     >button {
       position: relative;
       display: block;
@@ -164,9 +166,8 @@ $windowPadding: 3px;
   }
 }
 
-.ContextMenu--css {
+.context-menu--css {
   >div {
-    @include onDisplay('right');
     &__sub-menu--top { @include onDisplay('top'); }
     &__sub-menu--bottom { @include onDisplay('bottom'); }
     &__sub-menu--left { @include onDisplay('left'); }

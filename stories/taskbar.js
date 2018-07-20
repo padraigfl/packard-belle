@@ -31,6 +31,11 @@ const optionsSample = [
               title: 'fly it',
               icon: img,
             },
+            {
+              onClick: noop,
+              title: 'Minesweeper',
+              icon: img,
+            },
           ],
         },
         {

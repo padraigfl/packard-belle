@@ -32,6 +32,7 @@ const ContextMenuSimple = props => {
                   key={`menu-divider-${subOption.title}`}
                   {...subOption}
                   value={[ ...props.value, subOption.title ]}
+                  mouseEnterItem={(e) => props.mouseEnterItem(e)}
                 />
               ))}
               <div className="divider divider--end"/>
@@ -43,7 +44,9 @@ const ContextMenuSimple = props => {
             <ContextMenuItem
               key={`context-menu-item-${option.title}`}
               {...option}
-              value={[ ...props.value, option.title ]}/>
+              value={[ ...props.value, option.title ]}
+              mouseEnterItem={(e) => props.mouseEnterItem(e)}
+            />
           );
         }
       })}

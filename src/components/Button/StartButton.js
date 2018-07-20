@@ -7,6 +7,7 @@ const StartButton = props => (
   <Button
     className={ classnames('btn--start', props.className) }
     onClick={ props.onClick }
+    onBlur={ props.onBlur }
     isActive={ props.isActive }
   />
 );

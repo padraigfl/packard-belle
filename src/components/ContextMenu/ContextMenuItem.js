@@ -9,17 +9,12 @@ const ContextMenuItem = props => (
         'ContextMenuItem',
         props.className,
         props.type,
-        { 'ContextMenuItem--has-options': props.options, 'ContextMenuItem--is-active': props.isActive },
+        { 'ContextMenuItem--has-options': props.options, 'ContextMenuItem--is-active active': props.isActive },
       )
     }
-    onMouseEnter={(e) => {
-      if(typeof e.target.value === 'string')
-        console.log(e.target.value.split(','));
-      else{
-        console.log('FAILED')
-        console.log(e.target)
-      }
-    }}
+    onMouseEnter={(e) => props.mouseEnterItem(e)}
+    onMouseLeave={() => {}}
+    onMouseOut={() => {}}
   >
     <button
       className="ContextMenuItem__button"
@@ -34,6 +29,7 @@ const ContextMenuItem = props => (
         className="ContextMenuItem__child"
         options={props.options}
         value={props.value}
+        mouseEnterItem={props.mouseEnterItem}
       />
     )}
   </div>
