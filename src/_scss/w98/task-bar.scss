@@ -1,6 +1,7 @@
 @import './var/colors';
 @import './mixins/box-shadows';
 @import './var/var';
+@import './var/uris';
 
 .w98 .task-bar {
   position: fixed;
@@ -69,7 +70,9 @@
           top: 3px;
           height: calc(100% - 6px);
           width: 20px;
-          background: linear-gradient($blue, #126fc2);;
+          background: $blue;
+          background: linear-gradient($blue, #126fc2);
+          background: url($w98-text) no-repeat bottom 3px center, linear-gradient($blue, #126fc2);
         }
         >div {
           display: flex;
