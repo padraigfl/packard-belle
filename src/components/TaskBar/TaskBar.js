@@ -2,7 +2,7 @@ import React from 'react';
 import Notifiations from './Notifications';
 import StartMenu from '../StartMenu/StartMenu';
 import ProgramButton from '../Button/ProgramButton';
-import QuickLaunchButton from '../Button/QuickLaunchButton';
+import SmallIconButton from '../Button/SmallIconButton';
 
 import '../../_scss/w98/task-bar';
 
@@ -17,7 +17,7 @@ const TaskBar = (props) => {
           <div className="task-bar__quick-launch">
             {
               props.quickLaunch.map(qlEntry =>
-                <QuickLaunchButton
+                <SmallIconButton
                   key={ `${qlEntry.icon}-QuickLaunch` }
                   alt={ qlEntry.alt }
                   onClick={ qlEntry.onClick }

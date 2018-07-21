@@ -47,6 +47,21 @@
 
   .Select {
     position: relative;
+    &.is-disabled {
+      pointer-events: none;
+      .Select-control{
+        .Select-multi-value-wrapper {
+          .Select-value, .Select-placeholder {
+            background-color: $grey;
+          }
+        }
+        .Select-arrow-zone {
+          &:after {
+            background-image: url($arrow-down-disabled);
+          }
+        }
+      }
+    }
     .Select-control {
       width: 100%;
       .Select-multi-value-wrapper {
@@ -122,6 +137,21 @@
     width: 100%;
     background-color: white;
     padding: 2px;
+
+    &:disabled, &.disabled {
+      pointer-events: none;
+      >div {
+
+        overflow: hidden;
+      }
+      background-color: $grey;
+      button {
+        color: $darkgrey !important;
+      }
+      .icon {
+        filter: grayscale(1);
+      }
+    }
     >div {
       position: relative;
       overflow: auto;

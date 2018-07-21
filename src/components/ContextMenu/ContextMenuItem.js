@@ -17,10 +17,16 @@ const ContextMenuItem = props => (
     onMouseOut={() => {}}
   >
     <button
-      className="ContextMenuItem__button"
+      className={
+        classnames(
+          'ContextMenuItem__button',
+          { disabled: props.disabled },
+        )
+      }
       onClick={props.onClick}
       style={ props.icon ? { backgroundImage: `url('${props.icon}')` } : undefined }
       value={props.value}
+      disabled={props.disabled}
     >
       {props.title}
     </button>

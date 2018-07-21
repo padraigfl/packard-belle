@@ -106,6 +106,11 @@ $windowPadding: 3px;
       .ContextMenuItem__text {
         padding: 0px 20px 0px 0px;
       }
+
+      &:disabled, &.disabled {
+        color: $darkgrey;
+      }
+
       &:not(:only-child) {
         &:after {
           content: '';
@@ -139,8 +144,7 @@ $windowPadding: 3px;
     }
     &:hover, &:active, &:focus, &:active:focus, &.active, &.clicked {
       color: white;
-      background-color: $blue;
-      >button {
+      >button:not(.disabled) {
         color: white;
         background-color: $blue;
         &:not(:only-child) {
@@ -167,7 +171,7 @@ $windowPadding: 3px;
 }
 
 .context-menu--css {
-  >div {
+  div {
     &__sub-menu--top { @include onDisplay('top'); }
     &__sub-menu--bottom { @include onDisplay('bottom'); }
     &__sub-menu--left { @include onDisplay('left'); }

@@ -15,7 +15,7 @@ class RadioTest extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: 'checked',
+      value: 'option1',
     }
   }
   onChange = (e) => {
@@ -45,7 +45,7 @@ class CheckboxTest extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: false,
+      value: 'Checked',
     }
   }
   onChange = (e) => {
@@ -132,6 +132,7 @@ class SelectBoxState extends Component {
           ]}
           selected={this.state.selected}
           component={this.props.component}
+          disabled={this.props.disabled}
         />
       </div>
     );
@@ -143,13 +144,21 @@ storiesOf('Inputs', module)
     <div className="form">
       <CheckboxTest
         type="checkbox"
-        label="Label"
+        label="Checked"
         id="ID"
-        value="checkit"
+        value="Checked"
       />
+      <br />
       <CheckboxTest
         type="checkbox"
-        label="Label2"
+        label="Label"
+        id="ID2"
+        value="checkit"
+      />
+      <br />
+      <CheckboxTest
+        type="checkbox"
+        label="Disabled"
         id="ID2s"
         value="checkit"
         disabled
@@ -160,7 +169,7 @@ storiesOf('Inputs', module)
     <div className="form">
       <RadioTest
         name="radio"
-        value='option3'
+        value='option1'
         options={[{
           label: 'Option 1',
           id: 'option1',
@@ -172,7 +181,7 @@ storiesOf('Inputs', module)
           value: 'option2',
           type: 'radio',
         }, {
-          label: 'Option 3',
+          label: 'Option 3 (Disabled)',
           id: 'option3',
           value: 'option3',
           type: 'radio',
@@ -183,7 +192,14 @@ storiesOf('Inputs', module)
   ))
   .add('text', () => (
     <div className="form">
-      <InputText />
+      <InputText />: Active
+      <br />
+      <InputText value="default value"/>: initial value
+      <br />
+      <InputText
+        value="Disabled"
+        disabled
+      />: Disabled
     </div>
   ))
   .add('select multiple basic', () => (
@@ -205,6 +221,7 @@ storiesOf('Inputs', module)
   ))
   .add('select', () => (
     <div className="form">
+      Active select box
       <Select
         options={[{
           label: 'option1',
@@ -222,14 +239,42 @@ storiesOf('Inputs', module)
         value="option1"
         useIcons
       />
+      <br/><br/>
+      Disabled select box
+      <Select
+        options={[{
+          label: 'option1',
+          value: 'option1',
+        }, {
+          label: 'option2',
+          value: 'option2',
+        }, {
+          label: 'option3',
+          value: 'option3',
+        }, {
+          label: 'Option4',
+          value: 'option4',
+        }]}
+        value="option1"
+        useIcons
+        disabled
+      />
     </div>
   ))
   .add('selectbox simple', () => (
-    <SelectBoxState multiple />
+    <div className="form">
+      <SelectBoxState multiple />
+      <br />
+      Disabled
+      <SelectBoxState multiple disabled />
+    </div>
   ))
   .add('selectbox with icons', () => (
     <div className="form">
       <SelectBoxState multiple component={ListIcon} />
+      <br />
+      Disabled
+      <SelectBoxState multiple disabled component={ListIcon} />
     </div>
   ))
   .add('selectbox with other icon type', () => (

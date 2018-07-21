@@ -7,7 +7,12 @@ const isSelected = (selected, val) => selected.some(selectedEntry => selectedEnt
 const Select = (props) => {
   const Comp = props.component ? props.component : 'button';
   return (
-    <div className={classnames('SelectBox', props.component ? `SelectBox--${props.component.name}` : 'SelectBox--simple',)}>
+    <div className={
+      classnames(
+        'SelectBox',
+        props.component ? `SelectBox--${props.component.name}` : 'SelectBox--simple',
+        { disabled: props.disabled },
+      )}>
       <div>
         { props.options.map(option => (
           <Comp

@@ -14,6 +14,11 @@ const optionsSample = [
     onClick: noop,
     title: 'New',
   },
+  {
+    onClick: noop,
+    title: 'Disabled',
+    disabled: true,
+  },
   [
     {
       onClick: noop,
@@ -87,7 +92,7 @@ storiesOf('Windows', module)
   ))
   .add('ContextMenu', () => (
     <ContextMenu
-      className="ContextMenu--css"
+      className="context-menu--css"
       options={optionsSample}
     />
   ))

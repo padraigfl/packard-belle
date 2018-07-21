@@ -1,11 +1,11 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import Button from '../src/components/Button/AbstractButton';
 import FormButton from '../src/components/Button/FormButton';
 import NavButton from '../src/components/Button/NavButton';
 import StartButton from '../src/components/Button/StartButton';
 import ProgramButton from '../src/components/Button/ProgramButton';
-import QuickLaunchButton from '../src/components/Button/QuickLaunchButton';
+import SmallIconButton from '../src/components/Button/SmallIconButton';
+import LargeIconButton from '../src/components/Button/LargeIconButton';
 import img from './directory_closed.png';
 
 const noop = () => {
@@ -13,7 +13,13 @@ const noop = () => {
 };
 
 storiesOf('Button', module)
-  .add('form button', () => <FormButton onClick={noop}>Button</FormButton>)
+  .add('form button', () => (
+    <div>
+      <p><FormButton onClick={noop}>Button</FormButton> Regular</p>
+      <p><FormButton className="active" onClick={noop}>Button</FormButton>Disabled</p>
+      <p><FormButton onClick={noop} disabled>Button</FormButton>Disabled</p>
+    </div>
+  ))
   .add('nav button', () => <NavButton />)
   .add('start button', () => <StartButton />)
   .add('program button', () => (
@@ -31,12 +37,51 @@ storiesOf('Button', module)
       >
         Active
       </ProgramButton>
+      <ProgramButton
+        icon={img}
+        onClick={noop}
+        className="clicked"
+      >
+        Clicked
+      </ProgramButton>
     </div>
   ))
-  .add('quick launch button', () => (
-    <QuickLaunchButton
-      icon={img}
-      onClick={noop}
-    />
+  .add('small icon button', () => (
+    <div>
+      <SmallIconButton
+        icon={img}
+        onClick={noop}
+      /> Regular
+      <br />
+      <SmallIconButton
+        icon={img}
+        onClick={noop}
+        disabled
+      /> Disabled
+      <br />
+      <SmallIconButton
+        icon={img}
+        onClick={noop}
+        isActive
+        className="clicked"
+      /> Active
+    </div>
   ))
-  .add('button', () => <Button>Button</Button>);
+  .add('large icon button', () => (
+      <div>
+        <LargeIconButton
+          onClick={noop}
+          icon={img}
+        >
+          Button
+        </LargeIconButton>
+        <LargeIconButton
+          onClick={noop}
+          icon={img}
+          disabled
+        >
+          Disabled
+        </LargeIconButton>
+      </div>
+    )
+  );

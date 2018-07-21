@@ -41,6 +41,7 @@ class AbstractButton extends Component {
           {
             'clicked': this.state.mouseDown,
             'btn--active': props.isActive,
+            'btn--disabled': props.disabled,
           },
         )}
         onClick={ (e) => this.handleClick(e) }
@@ -48,7 +49,7 @@ class AbstractButton extends Component {
         onMouseDown={() => this.handleMouse(props.onMouseDown, true)}
         onMouseUp={() => this.handleMouse(props.onMouseUp, false)}
         onBlur={() => this.props.onBlur() }
-
+        disabled={props.disabled}
         style={ props.style }
       >
         { props.children }

@@ -8,6 +8,7 @@ const FormButton = props => (
     className={ classnames('btn--form', props.className) }
     onClick={ props.onClick }
     isActive={ props.isActive }
+    disabled={props.disabled}
   >
     { props.children }
   </Button>
@@ -22,6 +23,7 @@ Button.propTypes = {
   onClick: PropTypes.func,
   className: PropTypes.string,
   isActive: PropTypes.bool,
+  disabled: PropTypes.bool,
 };
 
 // title, click,

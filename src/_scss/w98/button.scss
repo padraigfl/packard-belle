@@ -13,6 +13,10 @@ $start: 'data:image/gif;base64,R0lGODlhNAATAKIAAAAAAP///wAA/wD/AP//AP8AAP///wAAA
   -ms-user-select: none;
   user-select: none;
 
+  &:disabled, &.disabled {
+    pointer-events: none;
+  }
+
   &:active, &:focus, &:active:focus, &.active, &.clicked {
     outline: none;
     color: inherit;
@@ -62,7 +66,7 @@ $start: 'data:image/gif;base64,R0lGODlhNAATAKIAAAAAAP///wAA/wD/AP//AP8AAP///wAAA
       @include shadow-darkgrey-grey;
     }
 
-    &:active:focus, &.btn--active {
+    &:active:focus, &.btn--active, &.clicked {
       background-position: 5px 5px;
       @include shadow-white-black;
       padding-top: 3px;
@@ -91,7 +95,7 @@ $start: 'data:image/gif;base64,R0lGODlhNAATAKIAAAAAAP///wAA/wD/AP//AP8AAP///wAAA
     }
   }
 
-  &.btn--quick-launch {
+  &.btn--small-icon {
     height: 22px;
     width: 22px;
     background-size: 16px;
@@ -100,11 +104,10 @@ $start: 'data:image/gif;base64,R0lGODlhNAATAKIAAAAAAP///wAA/wD/AP//AP8AAP///wAAA
 
     &:hover {
       @include shadow-darkgrey-white;
-
-      &:focus:active, &:active, &.active, &.clicked {
-        @include shadow-white-darkgrey;
-        background-position: 4px 4px;
-      }
+    }
+    &:hover:focus:active, &:hover:active, &.active, &.clicked {
+      @include shadow-white-darkgrey;
+      background-position: 4px 4px;
     }
   }
 
@@ -206,13 +209,41 @@ $start: 'data:image/gif;base64,R0lGODlhNAATAKIAAAAAAP///wAA/wD/AP//AP8AAP///wAAA
       }
     }
 
-    &:active:focus, &:active, .active, .clicked{
+    &:active:focus, &:active, &.active, &.clicked{
       padding: 6px 0px 4px 3px;
       @include shadow-darkgrey;
 
       &::after {
         @include shadow-black;
       }
+    }
+  }
+
+  &.btn--large-icon {
+    background-size: 20px;
+    background-position: 50% 25%;
+    background-repeat: no-repeat;
+    padding: 24px 2px 2px;
+    width: 48px;
+    filter: grayscale(1);
+
+    &:disabled, &.disabled {
+      color: $darkgrey;
+      &:hover {
+        filter: grayscale(1);
+        box-shadow: none;
+      }
+    }
+
+    &:hover {
+      filter: grayscale(0);
+      @include shadow-black-white();
+    }
+
+    &:active:focus {
+      background-position: calc(50% + 1px) calc(25% + 1px);
+      @include shadow-white-black;
+      padding: 25px 1px 1px 3px;
     }
   }
 }
