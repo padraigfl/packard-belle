@@ -15,13 +15,10 @@ class ContextMenuSimple extends Component {
     else return null;
   }
 
-  constructor(props){
-    super(props);
-    this.state = {
-      options: props.options,
-      isActive: props.isActive
-    };
-  }
+  state = {
+    options: this.props.options,
+    isActive: this.props.isActive
+  };
 
   updateActive(activeFields, newOptions, idx = 0) {
     if (idx === 0) {
