@@ -2,7 +2,7 @@
 @import '../../_scss/w98/mixins/box-shadows';
 @import '../../_scss/w98/var/var';
 
-.ExplorerWindow {
+.ExplorerWindow, .explorer-window {
   &__view {
     min-height: 20px;
     padding: 6px;
@@ -18,32 +18,45 @@
       height: 16px;
 
       &:not(:last-child) {
-        margin-right: 2px;
+        margin: 2px;
       }
     }
   }
-  &__headings {
+  >div:not(:last-child):not(:first-child){
     position: relative;
-    box-shadow: inset 0px -1px 0px white, inset 0px -2px 0px $darkgrey, inset 1px 1px 0px $darkgrey, inset -1px -1px 0px $darkgrey, inset 2px 2px 0px white, inset -2px -2px 0px white;
-    padding: 1px 3px 0px;
-    margin: 2px 0px;
-    >div{
-      position: relative;
-      min-height: 16px;
-      padding-left: 12px;
-      &:before {
+    min-height: 16px;
+    padding-left: 12px;
+    &:before {
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      height: calc(100% - 6px);
+      width: 3px;
+      background-color: $grey;
+      content: '';
+      @include shadow-darkgrey-white
+    }
+    &:nth-child(2):after {
+      box-shadow: inset 0px 1px 0px #808088, inset -1px 0px 0px #808088,
+        inset 1px 2px 0px white, inset -1px 0px 0px #808088,
+        inset 0px -1px 0px white,
+        inset 0px -2px 0px #808088;
+     border-right: 1px solid white;
+    }
+    &:not(:last-child):not(:first-child){
+      &:after {
+        pointer-events: none;
         position: absolute;
-        top: 3px;
-        left: 2px;
-        height: calc(100% - 6px);
-        width: 3px;
-        background-color: $grey;
+        width: calc(100% - 2px);
+        left: 0px;
+        top: 0px;
+        height: 100%;
+        border-right: 1px solid white;
+        border-left: 1px solid $darkgrey;
         content: '';
-        @include shadow-darkgrey-white
       }
-      &:not(:last-child) {
-        border-bottom: 1px solid $darkgrey;
-        box-shadow: inset 0px -1px 0px white;
+      &:not(:nth-child(2)):after {
+        box-shadow: inset 1px 0px 0px white, inset -1px 0px 0px #808088, inset 1px -1px 0px white, inset 1px -2px 0px #808088;
       }
     }
   }
@@ -58,6 +71,11 @@
     }
     .Select {
       flex-grow: 1;
+      z-index: 5;
+      margin-right: 4px;
     }
+  }
+  >div:last-child {
+    margin-top: 2px;
   }
 }

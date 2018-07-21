@@ -14,19 +14,17 @@ const ExplorerWindow = props => (
     onMinimize={props.onMaximize}
     title={props.title}
   >
-    <div className="ExplorerWindow__headings">
-      <MenuBar className="ExplorerWindow__menu" options={props.menuOptions} />
-      <div className="ExplorerWindow__options">Options</div>
-      <div className="ExplorerWindow__address">
-        <div className="ExplorerWindow__address__title">Address</div>
-        <Select />
-      </div>
+    <MenuBar className="ExplorerWindow__menu" options={props.menuOptions} />
+    <div className="ExplorerWindow__options">Options</div>
+    <div className="ExplorerWindow__address">
+      <div className="ExplorerWindow__address__title">Address</div>
+      <Select />
     </div>
     <div className="ExplorerWindow__view">Icons</div>
-    <div className="ExplorerWindow__details">
+    {/* <div className="ExplorerWindow__details">
       <div className="ExplorerWindow__details__section" />
       <div className="ExplorerWindow__details__section" />
-    </div>
+    </div> */}
   </Window>
 );
 

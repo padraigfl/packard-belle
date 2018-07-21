@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames'
 import WindowFrame from './WindowFrame';
 import Button from '../Button/NavButton';
 
 const StaticWindow = props => (
-  <WindowFrame>
+  <WindowFrame className={props.className}>
     <div className="window__heading">
       { props.icon && (
         <div

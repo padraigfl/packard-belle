@@ -27,6 +27,7 @@
     background: linear-gradient(to right, $blue, #126fc2);
     font-weight: bold;
     color: white;
+    margin-bottom: 2px;
     padding: 0px 3px;
     align-items: center;
   }
@@ -104,7 +105,7 @@
     font-size: 1rem;
     position: relative;
     overflow-y: visible;
-    z-index: 10;
+    z-index: 20;
 
     &__section{
       position: relative;
