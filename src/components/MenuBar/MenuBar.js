@@ -5,12 +5,12 @@ import ContextMenu from '../ContextMenu/ContextMenu';
 import '../../_scss/w98/window.scss';
 
 const MenuBar = props => (
-  <div className="window__menu MenuBar">
+  <div className="window__menu menu-bar">
     { props.options && (
         props.options.map( section => (
-          <div className="window__menu__section MenuBar__section" key={`MenuBar-section-${section.title}`}>
+          <div className="window__menu__section menu-bar__section" key={`menu-bar-section-${section.title}`}>
             <Button>{section.title}</Button>
-            { section.options && <ContextMenu className="window__menu__dropdown" options={section.options} /> }
+            { section.options && <ContextMenu className="menu-bar__section__dropdown" options={section.options} /> }
           </div>
         ))
       )

@@ -6,7 +6,8 @@
   position: relative;
   background-color: $grey;
   padding: 3px;
-  @include shadow-darkgrey-white;
+  box-shadow: inset -1px -1px 0px #0c0c0c, inset 1px 1px 0px 0px #bbc3c4,
+    inset -2px -2px 0px #80809A, inset 2px 2px 0px 0px white;
 
   &::before, &::after {
     position: absolute;
@@ -19,7 +20,6 @@
     left: -1px;
     width: calc(100% + 1.5px);
     height: calc(100% + 2px);
-    @include shadow-black-grey;
   }
 
   &__heading {
@@ -27,7 +27,7 @@
     background: linear-gradient(to right, $blue, #126fc2);
     font-weight: bold;
     color: white;
-    margin-bottom: 2px;
+    margin-bottom: 1px;
     padding: 0px 3px;
     align-items: center;
   }
@@ -99,9 +99,9 @@
     background-image: url('../../images/maximize.png');
   }
 
-  &__menu {
+  &__menu, .menu-bar {
     display: flex;
-    padding: 2px 0px;
+    padding: 0px;
     font-size: 1rem;
     position: relative;
     overflow-y: visible;
@@ -112,6 +112,7 @@
 
       >button {
         padding: 0px 4px;
+        margin: 1px;
         outline: none;
         border: none;
         user-select: none;
@@ -125,11 +126,12 @@
         text-align: left;
         padding: 3px 6px;
 
-        + .window__menu__dropdown {
+        + .menu-bar__section__dropdown {
+          z-index: 20;
           visibility: hidden;
           position: absolute;
           max-height: 0px;
-          top: calc(100% + 1px);
+          top: calc(100% - 1px);
           left: 0px;
           width: 128px;
           transition: max-height linear 750ms;
@@ -143,7 +145,7 @@
           @include shadow-white-darkgrey;
           padding: 4px 5px 2px 7px;
 
-          + .window__menu__dropdown {
+          + .menu-bar__section__dropdown {
             visibility: visible;
             max-height: 480px;
           }

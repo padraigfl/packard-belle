@@ -6,10 +6,10 @@ const ContextMenuItem = props => (
   <div
     className={
       classnames(
-        'ContextMenuItem',
+        'context-menu__item',
         props.className,
         props.type,
-        { 'ContextMenuItem--has-options': props.options, 'ContextMenuItem--is-active active': props.isActive },
+        { 'context-menu__item--has-options': props.options, 'active': props.isActive },
       )
     }
     onMouseEnter={(e) => props.mouseEnterItem(e)}
@@ -19,7 +19,7 @@ const ContextMenuItem = props => (
     <button
       className={
         classnames(
-          'ContextMenuItem__button',
+          'context-menu__item__button',
           { disabled: props.disabled },
         )
       }
@@ -32,7 +32,7 @@ const ContextMenuItem = props => (
     </button>
     { props.options && (
       <ContextMenu
-        className="ContextMenuItem__child"
+        className="context-menu__item__child"
         options={props.options}
         value={props.value}
         mouseEnterItem={props.mouseEnterItem}

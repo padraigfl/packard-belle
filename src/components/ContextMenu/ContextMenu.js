@@ -9,7 +9,7 @@ const ContextMenuSimple = props => {
     return (
       <Window
         className={
-          classnames('context-menu ContextMenu ContextMenu--custom', props.className, props.direction)
+          classnames('context-menu context-menu--custom', props.className, props.direction)
         }
       >
         { props.children }
@@ -19,7 +19,7 @@ const ContextMenuSimple = props => {
   return (
     <Window
       className={
-        classnames('context-menu ContextMenu ContextMenu--css', props.className, props.direction)
+        classnames('context-menu', props.className, props.direction)
       }
     >
       { props.options.map(option => {

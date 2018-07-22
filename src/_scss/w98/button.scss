@@ -109,6 +109,9 @@ $start: 'data:image/gif;base64,R0lGODlhNAATAKIAAAAAAP///wAA/wD/AP//AP8AAP///wAAA
       @include shadow-white-darkgrey;
       background-position: 4px 4px;
     }
+    &.btn--disabled {
+      filter: grayscale(1);
+    }
   }
 
   &.btn--start{
@@ -116,7 +119,7 @@ $start: 'data:image/gif;base64,R0lGODlhNAATAKIAAAAAAP///wAA/wD/AP//AP8AAP///wAAA
     height: 22px;
     display: flex;
     align-content: center;
-    width: 52px;
+    width: 54px;
     padding-right: 6px;
     background-image: url($start);
     background-size: auto 18px;

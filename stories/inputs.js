@@ -163,10 +163,19 @@ storiesOf('Inputs', module)
         value="checkit"
         disabled
       />
+      <br />
+      <CheckboxTest
+        type="checkbox"
+        label="Checked and disabled"
+        id="ID2s"
+        value="Checked"
+        disabled
+      />
     </div>
   ))
   .add('radio', () => (
     <div className="form">
+      <p>Sample Radio</p>
       <RadioTest
         name="radio"
         value='option1'
@@ -188,6 +197,19 @@ storiesOf('Inputs', module)
           disabled: true,
         }]}
       />
+
+      <p>Additional states</p>
+      <RadioTest
+        name="radio2"
+        value='option1'
+        options={[{
+          label: 'Disabled and selected',
+          id: 'option5',
+          value: 'option1',
+          type: 'radio',
+          disabled: true,
+        }]}
+      />
     </div>
   ))
   .add('text', () => (
@@ -197,7 +219,6 @@ storiesOf('Inputs', module)
       <InputText value="default value"/>: initial value
       <br />
       <InputText
-        value="Disabled"
         disabled
       />: Disabled
     </div>
@@ -217,6 +238,9 @@ storiesOf('Inputs', module)
         }]}
         multiple
       />
+      <p>
+        This implementation only works on chrome and uses the DOM Select multiple field
+      </p>
     </div>
   ))
   .add('select', () => (
@@ -259,6 +283,11 @@ storiesOf('Inputs', module)
         useIcons
         disabled
       />
+      <p>
+        <strong>Note:</strong>
+        These select boxes use <a href="https://github.com/JedWatson/react-select">React-Select</a>;
+        writing, styling and debugger a framework agnostic select field seemed like a lot more work than everything else here combined
+      </p>
     </div>
   ))
   .add('selectbox simple', () => (

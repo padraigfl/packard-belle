@@ -23,7 +23,7 @@ const measureFileSizesBeforeBuild =
   FileSizeReporter.measureFileSizesBeforeBuild;
 
 const config = {
-    entry: ['./src/_theme.scss'],
+    entry: ['./src/_scss/w98/index.scss'],
     output: {
       filename: './build/theme-build.js'
     },
@@ -36,11 +36,11 @@ const config = {
 							loader: 'file-loader',
 							options: {
 								name: '[name].css',
-								outputPath: './assets/'
+								outputPath: './assets/',
 							}
 						},
 						{
-							loader: 'sass-loader'
+              loader: 'sass-loader',
 						}
 					]
 				}

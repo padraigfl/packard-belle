@@ -12,12 +12,12 @@ const noop = () => {
   console.log('run')
 };
 
-storiesOf('Button', module)
+storiesOf('Buttons', module)
   .add('form button', () => (
     <div>
-      <p><FormButton onClick={noop}>Button</FormButton> Regular</p>
-      <p><FormButton className="active" onClick={noop}>Button</FormButton>Disabled</p>
-      <p><FormButton onClick={noop} disabled>Button</FormButton>Disabled</p>
+      <p><FormButton onClick={noop}>Regular</FormButton></p>
+      <p><FormButton className="active" onClick={noop}>Pressed</FormButton></p>
+      <p><FormButton onClick={noop} disabled>Disabled</FormButton></p>
     </div>
   ))
   .add('nav button', () => <NavButton />)

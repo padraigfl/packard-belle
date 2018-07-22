@@ -14,6 +14,7 @@ function loadStories() {
   require('../stories/taskbar.js');
   require('../stories/buttons.js');
   require('../stories/windows.js');
+  require('../stories/contextMenu.js');
   require('../stories/icons.js');
   require('../stories/scrollbar.js');
   require('../stories/inputs.js');

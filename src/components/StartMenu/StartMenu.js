@@ -26,13 +26,13 @@ class StartMenu extends Component {
     const { props } = this;
 
     return (
-      <div className="StartMenu task-bar__start">
+      <div className="start-menu task-bar__start">
         <Start
           onBlur={(e) => this.handleBlur(e)}
           onClick={(e) => this.handleClick(e)}
         />
         <ContextMenuWrapper
-          className={classnames('StartMenu__primary', props.className)}
+          className={classnames('start-menu__root', props.className)}
           options={props.options}
           isActive={this.state.isOpen}
         />

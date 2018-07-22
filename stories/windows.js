@@ -4,7 +4,6 @@ import WindowFrame from '../src/components/Window/WindowFrame';
 import AbstractWindow from '../src/components/Window/AbstractWindow';
 import ExplorerWindow from '../src/components/Window/ExplorerWindow';
 import MenuBar from '../src/components/MenuBar/MenuBar';
-import ContextMenu from '../src/components/ContextMenu/ContextMenu';
 import DetailsSection from '../src/components/Window/DetailsSection';
 
 import img from './directory_closed.png';
@@ -59,43 +58,6 @@ const optionsSample = [
 const noop = () => {};
 
 storiesOf('Windows', module)
-  .add('ContextMenuSimple', () => (
-    <ContextMenu
-      className="ContextMenu--css"
-      options={[
-        {
-          onClick: noop,
-          title: 'New',
-        },
-        [
-          {
-            onClick: noop,
-            title: 'Open',
-          },
-          {
-            onClick: noop,
-            title: 'Two in section',
-          },
-        ],
-        [
-          {
-            onClick: noop,
-            title: 'Single section',
-          },
-        ],
-        {
-          onClick: noop,
-          title: 'Close',
-        },
-    ]}
-    />
-  ))
-  .add('ContextMenu', () => (
-    <ContextMenu
-      className="context-menu--css"
-      options={optionsSample}
-    />
-  ))
   .add('Generic window', () => <WindowFrame>Window</WindowFrame>)
   .add('Static window', () => (
     <AbstractWindow

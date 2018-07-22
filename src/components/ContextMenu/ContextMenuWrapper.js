@@ -72,7 +72,7 @@ class ContextMenuSimple extends Component {
       <ContextMenu
         options={this.state.options}
         className={classnames(
-          'context-menu__wrapper context-menu--css',
+          'context-menu__wrapper',
           props.className,
         )}
         mouseEnterItem={(e) => this.mouseEnterItem(e)}

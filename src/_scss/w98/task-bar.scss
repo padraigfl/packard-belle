@@ -54,12 +54,12 @@
       + div {
         transition: max-height linear 200ms;
         position: fixed;
-        bottom: 28px;
-        left: 3px;
+        bottom: 25px;
+        left: 2px;
         visibility: hidden;
         max-height: 0px;
         padding-left: 22px;
-        >.divider {
+        >.divider, >div:empty {
           margin-left: 24px;
           width: calc(100% - 26px);
         }

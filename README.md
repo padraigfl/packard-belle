@@ -73,3 +73,8 @@ W98 Toolbar
 - [ ] Blue selected areas grey when parent not active
 - [ ] Radio and checkbox for ContextMenus
 - [ ] Custom font
+- [ ] Start menu animation on iOS
+- [ ] Selected sections grey when not focus
+- [ ] Filter overhauls
+- [ ] Redundant CSS clearout
+- [ ] ContextMenuWrapper as HOC?

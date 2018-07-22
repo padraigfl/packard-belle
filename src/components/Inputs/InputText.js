@@ -1,20 +1,8 @@
 // @flow
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
 
 import '../../_scss/w98/form.scss';
-
-const propTypes = {
-  className: PropTypes.string,
-  disabled: PropTypes.bool,
-  value: PropTypes.string,
-  id: PropTypes.string,
-  onBlur: PropTypes.func.isRequired,
-  onChange: PropTypes.func.isRequired,
-  onKeyDown: PropTypes.func.isRequired,
-  onFocus: PropTypes.func.isRequired,
-};
 
 class InputText extends Component {
   static defaultProps = {
@@ -44,6 +32,7 @@ class InputText extends Component {
     return (
       <input
         type="text"
+        className={this.props.className}
         value={this.state.value}
         id={this.props.id}
         name={this.props.id}
@@ -56,5 +45,16 @@ class InputText extends Component {
     );
   }
 }
+
+InputText.propTypes = {
+  className: PropTypes.string,
+  disabled: PropTypes.bool,
+  value: PropTypes.string,
+  id: PropTypes.string,
+  onBlur: PropTypes.func.isRequired,
+  onChange: PropTypes.func.isRequired,
+  onKeyDown: PropTypes.func.isRequired,
+  onFocus: PropTypes.func.isRequired,
+};
 
 export default InputText;
