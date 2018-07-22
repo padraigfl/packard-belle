@@ -1,26 +1,13 @@
 @import './var/colors';
-@import './mixins/box-shadows';
+@import './functions/box-shadows';
 @import './var/var';
+@import './var/uris';
 
 .w98 .window {
   position: relative;
   background-color: $grey;
   padding: 3px;
-  box-shadow: inset -1px -1px 0px #0c0c0c, inset 1px 1px 0px 0px #bbc3c4,
-    inset -2px -2px 0px #80809A, inset 2px 2px 0px 0px white;
-
-  &::before, &::after {
-    position: absolute;
-    display: block;
-    content: '';
-  }
-
-  &::before {
-    top: -1px;
-    left: -1px;
-    width: calc(100% + 1.5px);
-    height: calc(100% + 2px);
-  }
+  box-shadow: dualShadow($grey, $black), dualShadow(white, $darkgrey, 2);
 
   &__heading {
     display: flex;
@@ -57,19 +44,11 @@
     flex-shrink: 0;
     background-repeat: no-repeat;
     background-position: 1px 1px;
-    @include shadow-black-white;
 
-    &:before {
-      @include shadow-darkgrey-grey;
-    }
 
     &:focus, &.clicked {
       outline: none;
       border: none;
-
-      &:after {
-        box-shadow: none;
-      }
     }
 
     &:active:focus, &.clicked {
@@ -77,26 +56,21 @@
       padding-bottom: 1px;
       padding-left: 4px;
       padding-right: 8px;
-      @include shadow-white-black;
       background-position: 2px 2px;
-
-      &:before {
-        @include shadow-grey-darkgrey;
-      }
     }
   }
   &__close {
     margin-left: 2px;
-    background-image: url('../../images/close.png');
+    background-image: url($close);
   }
   &__restore {
-    background-image: url('../../images/restore.png');
+    background-image: url($restore);
   }
   &__minimize {
-    background-image: url('../../images/minimize.png');
+    background-image: url($minimize);
   }
   &__maximize {
-    background-image: url('../../images/maximize.png');
+    background-image: url($maximize);
   }
 
   &__menu, .menu-bar {
@@ -112,7 +86,6 @@
 
       >button {
         padding: 0px 4px;
-        margin: 1px;
         outline: none;
         border: none;
         user-select: none;
@@ -131,18 +104,17 @@
           visibility: hidden;
           position: absolute;
           max-height: 0px;
-          top: calc(100% - 1px);
+          top: 100%;
           left: 0px;
-          width: 128px;
           transition: max-height linear 750ms;
         }
 
         &:hover {
-          @include shadow-darkgrey-white;
+          box-shadow: dualShadow(white, $darkgrey);
         }
 
         &:active, &:focus, &:active:focus, &.active, &.clicked {
-          @include shadow-white-darkgrey;
+          box-shadow: dualShadow($darkgrey, white);
           padding: 4px 5px 2px 7px;
 
           + .menu-bar__section__dropdown {

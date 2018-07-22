@@ -1,5 +1,6 @@
 @import '../../_scss/w98/var/colors';
 @import '../../_scss/w98/mixins/box-shadows';
+@import '../../_scss/w98/functions/box-shadows';
 @import '../../_scss/w98/var/var';
 @import '../../_scss/w98/var/uris';
 
@@ -47,21 +48,6 @@
 
   .Select {
     position: relative;
-    &.is-disabled {
-      pointer-events: none;
-      .Select-control{
-        .Select-multi-value-wrapper {
-          .Select-value, .Select-placeholder {
-            background-color: $grey;
-          }
-        }
-        .Select-arrow-zone {
-          &:after {
-            background-image: url($arrow-down-disabled);
-          }
-        }
-      }
-    }
     .Select-control {
       width: 100%;
       .Select-multi-value-wrapper {
@@ -92,24 +78,15 @@
       }
       .Select-arrow-zone {
         position: absolute;
-        @include shadow-black-grey;
+        box-shadow: dualShadow($grey, $black), dualShadow(white, $darkgrey, 2);
         height: $select-height;
         width: $select-height;
         left: calc(100% - 18px);
         top: 2px;
         background-color: $grey;
-        &:after {
-          content: '';
-          position: absolute;
-          top: 1px;
-          left: 1px;
-          height: calc(100% - 2px);
-          width: calc(100% - 2px);
-          @include shadow-darkgrey-white;
-          background-repeat: no-repeat;
-          background-position: 3px 4px;
-          background-image: url($arrow-down);
-        }
+        background-repeat: no-repeat;
+        background-position: center;
+        background-image: url($arrow-down);
       }
       .Select-clear-zone {
         display: none;
@@ -126,6 +103,21 @@
           }
           .is-focused {
 
+          }
+        }
+      }
+    }
+    &.is-disabled {
+      pointer-events: none;
+      .Select-control{
+        .Select-multi-value-wrapper {
+          .Select-value, .Select-placeholder {
+            background-color: $grey;
+          }
+        }
+        .Select-arrow-zone {
+          &:after {
+            background-image: url($arrow-down-disabled);
           }
         }
       }

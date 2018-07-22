@@ -1,6 +1,5 @@
 @import './var/colors';
-@import './mixins/box-shadows';
-@import './var/var';
+@import './functions/box-shadows';
 @import './var/uris';
 
 .w98 .task-bar {
@@ -35,22 +34,6 @@
   &__start {
     position: relative;
     >button {
-      @include shadow-black-white;
-      height: 22px;
-      display: flex;
-      align-content: center;
-      width: 52px;
-      padding-right: 6px;
-      background-image: url('../../images/start-trans.png');
-      background-size: auto 18px;
-      background-repeat: no-repeat;
-      background-position: 2px 1px;
-
-      &__text {
-        font-size: 1rem;
-        font-weight: bold;
-      }
-
       + div {
         transition: max-height linear 200ms;
         position: fixed;
@@ -64,6 +47,7 @@
           width: calc(100% - 26px);
         }
         &:after {
+          content: '';
           display: block;
           position: absolute;
           left: 3px;
@@ -90,19 +74,11 @@
         }
       }
 
-      &::before {
-        @include shadow-darkgrey-grey;
-      }
-
       &:active, &:focus, &:active:focus, &.active, &.clicked {
-        @include shadow-white-black-start;
         background-position: 3px 2px;
         outline: 1px dotted black;
         outline-offset: -4px;
 
-        &::before {
-          @include shadow-grey-darkgrey;
-        }
         + div {
           visibility: visible;
           max-height: 100vh;
@@ -123,8 +99,7 @@
     align-items: center;
     height: 22px;
     padding: 0px 8px 0px 4px;
-
-    @include shadow-white-darkgrey;
+    box-shadow: dualShadow($darkgrey, white);
 
     &__time {
       margin-left: 4px;
@@ -150,7 +125,7 @@
     &:first-child {
       padding: 0px 3px 0px 0px;
     }
-    &::after{
+    &:after{
       position: absolute;
       top: 1px;
       right: 0px;
@@ -160,7 +135,7 @@
       content: '';
       box-shadow: 1px 0px 0px white;
     }
-    &::before{
+    &:before{
       position: absolute;
       top: 3px;
       right: -6px;
@@ -168,7 +143,7 @@
       width: 3px;
       background-color: $grey;
       content: '';
-      @include shadow-darkgrey-white
+      box-shadow: dualShadow(white, $darkgrey);
     }
   }
 }

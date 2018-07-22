@@ -34,7 +34,7 @@
       width: 3px;
       background-color: $grey;
       content: '';
-      @include shadow-darkgrey-white
+      box-shadow: dualShadow(white, $darkgrey);
     }
     &:nth-child(2){
       padding: 3px 0px 3px 12px;

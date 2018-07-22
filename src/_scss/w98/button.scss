@@ -1,5 +1,6 @@
 @import './var/colors';
 @import './mixins/box-shadows';
+@import './functions/box-shadows';
 @import './var/var';
 
 $start: 'data:image/gif;base64,R0lGODlhNAATAKIAAAAAAP///wAA/wD/AP//AP8AAP///wAAACH5BAEAAAYALAAAAAA0ABMAAAOPaLrc/jDKSaudIIPLu95dKH2fGIKLVmSDxpTms83qCgwtmik7j46/BglQsOF6BuQrCFEuCkLiJ5diJnswl6sB7dqGSpjPscNaFcWiRpAhbKPVqhbkVAiiAjaA4LYizWOADneEenltfXFXioCCD3mHAHptYW9jV3OKL1FgZzEySZiVnp8yYkKlFyRNqa2uEgkAOw==';
@@ -22,24 +23,13 @@ $start: 'data:image/gif;base64,R0lGODlhNAATAKIAAAAAAP///wAA/wD/AP//AP8AAP///wAAA
     color: inherit;
   }
 
-  &::before, &::after {
+  &:before {
     position: absolute;
     display: block;
-    content: '';
-  }
-
-  &::before {
     top: 1px;
     left: 1px;
     width: calc(100% - 2px);
     height: calc(100% - 2px);
-  }
-
-  &::after{
-    top: -1px;
-    left: -1px;
-    width: calc(100% + 2px);
-    height: calc(100% + 2px);
   }
 
   &.btn--program {
@@ -60,24 +50,17 @@ $start: 'data:image/gif;base64,R0lGODlhNAATAKIAAAAAAP///wAA/wD/AP//AP8AAP///wAAA
     background-size: 16px;
     background-repeat: no-repeat;
     background-position: 4px 4px;
-    @include shadow-black-white;
-
-    &:before {
-      @include shadow-darkgrey-grey;
-    }
+    box-shadow: dualShadow(white, $black), dualShadow($grey, $darkgrey, 2);
 
     &:active:focus, &.btn--active, &.clicked {
       background-position: 5px 5px;
-      @include shadow-white-black;
+      box-shadow: dualShadow($black, white), dualShadow($darkgrey, $grey, 2);
       padding-top: 3px;
       padding-left: 23px;
       padding-right: 2px;
 
-      &::before {
-        @include shadow-grey-darkgrey;
-      }
-
       &:before {
+        content: '';
         background-size: 2px;
         z-index: -1;
         box-shadow: none;
@@ -89,6 +72,7 @@ $start: 'data:image/gif;base64,R0lGODlhNAATAKIAAAAAAP///wAA/wD/AP//AP8AAP///wAAA
       font-weight: bold;
 
       &:before {
+        content: '';
         background-color: white;
         background-image: url('../../images/rgba-204-204-204-85.png');
       }
@@ -103,10 +87,10 @@ $start: 'data:image/gif;base64,R0lGODlhNAATAKIAAAAAAP///wAA/wD/AP//AP8AAP///wAAA
     background-position: 3px 3px;
 
     &:hover {
-      @include shadow-darkgrey-white;
+      box-shadow: dualShadow(white, $darkgrey);
     }
     &:hover:focus:active, &:hover:active, &.active, &.clicked {
-      @include shadow-white-darkgrey;
+      box-shadow: dualShadow($darkgrey, white);
       background-position: 4px 4px;
     }
     &.btn--disabled {
@@ -115,7 +99,6 @@ $start: 'data:image/gif;base64,R0lGODlhNAATAKIAAAAAAP///wAA/wD/AP//AP8AAP///wAAA
   }
 
   &.btn--start{
-    @include shadow-black-white;
     height: 22px;
     display: flex;
     align-content: center;
@@ -126,24 +109,21 @@ $start: 'data:image/gif;base64,R0lGODlhNAATAKIAAAAAAP///wAA/wD/AP//AP8AAP///wAAA
     background-repeat: no-repeat;
     background-position: 2px 1px;
 
+
     &__text {
       font-size: 1rem;
       font-weight: bold;
     }
 
-    &::before {
-      @include shadow-darkgrey-grey;
-    }
+    box-shadow: dualShadow(white, $black), dualShadow($grey, $darkgrey, 2);
 
     &:active, &:focus, &:active:focus, &.active, &.clicked {
-      @include shadow-white-black-start;
+      box-shadow: dualShadow($black, white),
+        shadow($black, 0, 1), dualShadow($darkgrey, $grey, 2),
+        0px -1px 0px $black;
       background-position: 3px 2px;
       outline: 1px dotted black;
       outline-offset: -4px;
-
-      &::before {
-        @include shadow-grey-darkgrey;
-      }
     }
   }
 
@@ -154,11 +134,7 @@ $start: 'data:image/gif;base64,R0lGODlhNAATAKIAAAAAAP///wAA/wD/AP//AP8AAP///wAAA
     height: 14px;
     margin-left: 1px;
     image-rendering: pixelated;
-    @include shadow-black-white;
-
-    &:before {
-      @include shadow-darkgrey-grey;
-    }
+    box-shadow: dualShadow(white, $black), dualShadow($grey, $darkgrey, 2);
 
     img {
       height: 14px;
@@ -168,10 +144,6 @@ $start: 'data:image/gif;base64,R0lGODlhNAATAKIAAAAAAP///wAA/wD/AP//AP8AAP///wAAA
     &:focus {
       outline: none;
       border: none;
-
-      &:after {
-        box-shadow: none;
-      }
     }
 
     &:active:focus, &.clicked {
@@ -179,11 +151,7 @@ $start: 'data:image/gif;base64,R0lGODlhNAATAKIAAAAAAP///wAA/wD/AP//AP8AAP///wAAA
       padding-bottom: 1px;
       padding-left: 4px;
       padding-right: 8px;
-      @include shadow-white-black;
-
-      &:before {
-        @include shadow-grey-darkgrey;
-      }
+      box-shadow: dualShadow($black, white), dualShadow($darkgrey, $grey, 2);
     }
     &.window__close {
       margin-left: 2px;
@@ -193,11 +161,7 @@ $start: 'data:image/gif;base64,R0lGODlhNAATAKIAAAAAAP///wAA/wD/AP//AP8AAP///wAAA
   &.btn--form{
     min-width: 80px;
     padding: 5px 0px;
-    @include shadow-darkgrey-grey;
-
-    &:after{
-      @include shadow-black-white;
-    }
+    box-shadow: dualShadow(white, $black), dualShadow($grey, $darkgrey, 2);
 
     &:focus {
       outline: black;
@@ -205,20 +169,12 @@ $start: 'data:image/gif;base64,R0lGODlhNAATAKIAAAAAAP///wAA/wD/AP//AP8AAP///wAAA
       outline-offset: -5px;
       outline-width: 1px;
       -moz-outline-radius: 2px;
-      @include shadow-black-white;
-
-      &:after {
-        @include shadow-black;
-      }
+      box-shadow: dualShadow($black, $black), dualShadow(white, $black, 2);
     }
 
     &:active:focus, &:active, &.active, &.clicked{
       padding: 6px 0px 4px 3px;
-      @include shadow-darkgrey;
-
-      &::after {
-        @include shadow-black;
-      }
+      box-shadow: dualShadow($black, $black), dualShadow($darkgrey, $darkgrey, 2);
     }
   }
 
@@ -240,12 +196,12 @@ $start: 'data:image/gif;base64,R0lGODlhNAATAKIAAAAAAP///wAA/wD/AP//AP8AAP///wAAA
 
     &:hover {
       filter: grayscale(0);
-      @include shadow-black-white();
+      box-shadow: dualShadow(white, $black);
     }
 
     &:active:focus {
       background-position: calc(50% + 1px) calc(25% + 1px);
-      @include shadow-white-black;
+      box-shadow: dualShadow($black, white);
       padding: 25px 1px 1px 3px;
     }
   }

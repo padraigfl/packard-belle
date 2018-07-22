@@ -110,25 +110,5 @@ html{
     &:active, &:focus, &:active:focus {
       outline: none;
     }
-
-    &::before, &::after {
-      position: absolute;
-      display: block;
-      content: '';
-    }
-
-    &::before {
-      top: 1px;
-      left: 1px;
-      width: calc(100% - 2px);
-      height: calc(100% - 2px);
-    }
-
-    &::after{
-      top: -1px;
-      left: -1px;
-      width: calc(100% + 2px);
-      height: calc(100% + 2px);
-    }
   }
 }
