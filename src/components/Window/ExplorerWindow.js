@@ -3,7 +3,7 @@ import classnames from 'classnames';
 import Window from './AbstractWindow';
 import MenuBar from '../MenuBar/MenuBar';
 import Select from '../Inputs/Select';
-import './_explorer-window';
+import './_explorer-window.scss';
 
 const ExplorerWindow = props => (
   <Window

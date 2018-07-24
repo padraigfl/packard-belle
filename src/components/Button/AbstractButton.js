@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import '../../_scss/w98/button';
+import '../../_scss/w98/button.scss';
 
 
 class AbstractButton extends Component {
