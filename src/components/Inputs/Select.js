@@ -109,6 +109,7 @@ class Select extends Component {
         placeholder={props.placeholder}
         onChange={this.onChange}
         isOpen
+        isDisabled={this.props.isDisabled}
         searchable={this.props.searchable}
         menuRenderer={this.props.useIcons ? menuRenderer : undefined}
         valueRenderer={ValueRenderer}

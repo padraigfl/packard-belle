@@ -79,25 +79,6 @@ $start: 'data:image/gif;base64,R0lGODlhNAATAKIAAAAAAP///wAA/wD/AP//AP8AAP///wAAA
     }
   }
 
-  &.btn--small-icon {
-    height: 22px;
-    width: 22px;
-    background-size: 16px;
-    background-repeat: no-repeat;
-    background-position: 3px 3px;
-
-    &:hover {
-      box-shadow: dualShadow(white, $darkgrey);
-    }
-    &:hover:focus:active, &:hover:active, &.active, &.clicked {
-      box-shadow: dualShadow($darkgrey, white);
-      background-position: 4px 4px;
-    }
-    &.btn--disabled {
-      filter: grayscale(1);
-    }
-  }
-
   &.btn--start{
     height: 22px;
     display: flex;
@@ -133,6 +114,8 @@ $start: 'data:image/gif;base64,R0lGODlhNAATAKIAAAAAAP///wAA/wD/AP//AP8AAP///wAAA
     width: 16px;
     height: 14px;
     margin-left: 1px;
+    margin-top: 1px;
+    margin-bottom: 2px;
     image-rendering: pixelated;
     box-shadow: dualShadow(white, $black), dualShadow($grey, $darkgrey, 2);
 
@@ -159,50 +142,90 @@ $start: 'data:image/gif;base64,R0lGODlhNAATAKIAAAAAAP///wAA/wD/AP//AP8AAP///wAAA
   }
 
   &.btn--form{
-    min-width: 80px;
-    padding: 5px 0px;
+    min-width: 48px;
+    outline-width: 1px;
+    outline-offset: -5px;
+    padding: 5px 1px;
     box-shadow: dualShadow(white, $black), dualShadow($grey, $darkgrey, 2);
 
     &:focus {
       outline: black;
       outline-style: dotted;
-      outline-offset: -5px;
-      outline-width: 1px;
-      -moz-outline-radius: 2px;
       box-shadow: dualShadow($black, $black), dualShadow(white, $black, 2);
     }
 
     &:active:focus, &:active, &.active, &.clicked{
-      padding: 6px 0px 4px 3px;
+      padding: 6px 0px 4px 2px;
       box-shadow: dualShadow($black, $black), dualShadow($darkgrey, $darkgrey, 2);
     }
   }
 
+  &.btn--small-icon {
+    height: 22px;
+    width: 22px;
+    padding: 0px;
+    // background-size: 16px;
+    // background-repeat: no-repeat;
+    // background-position: 3px 3px;
+    img {
+      margin: 3px;
+      max-height: 16px;
+      max-width: 16px;
+    }
+
+    &:hover {
+      box-shadow: dualShadow(white, $darkgrey);
+    }
+    &:hover:focus:active, &:hover:active, &.active, &.clicked {
+      box-shadow: dualShadow($darkgrey, white);
+      // background-position: 4px 4px;
+      img {
+        margin: 4px 2px 2px 4px;
+      }
+    }
+    &.btn--disabled {
+      img {
+        filter: grayscale(1);
+      }
+    }
+  }
+
   &.btn--large-icon {
-    background-size: 20px;
-    background-position: 50% 25%;
-    background-repeat: no-repeat;
-    padding: 24px 2px 2px;
+    // background-size: 20px;
+    // background-position: 50% 25%;
+    // background-repeat: no-repeat;
+    padding: 2px;
     width: 48px;
-    filter: grayscale(1);
+
+    img {
+      display: block;
+      margin: 0 auto;
+      filter: grayscale(1);
+      height: 20px;
+      max-width: 20px;
+    }
 
     &:disabled, &.disabled {
       color: $darkgrey;
       &:hover {
-        filter: grayscale(1);
+        img {
+          filter: grayscale(1);
+        }
         box-shadow: none;
       }
     }
 
     &:hover {
-      filter: grayscale(0);
+      img {
+        filter: grayscale(0);
+      }
       box-shadow: dualShadow(white, $black);
     }
 
     &:active:focus {
-      background-position: calc(50% + 1px) calc(25% + 1px);
+      // background-position: calc(50% + 1px) calc(25% + 1px);
       box-shadow: dualShadow($black, white);
-      padding: 25px 1px 1px 3px;
+      padding: 3px 1px 1px 3px;
     }
   }
 }

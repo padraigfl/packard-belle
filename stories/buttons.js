@@ -72,16 +72,14 @@ storiesOf('Buttons', module)
         <LargeIconButton
           onClick={noop}
           icon={img}
-        >
-          Button
-        </LargeIconButton>
+          title="Button"
+        />
         <LargeIconButton
           onClick={noop}
           icon={img}
+          title="Disabled"
           disabled
-        >
-          Disabled
-        </LargeIconButton>
+        />
       </div>
     )
   );

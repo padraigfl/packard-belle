@@ -141,7 +141,7 @@
     }
   }
 
-  >section {
+  &.form >section, .form & >section {
     position: relative;
     border: 1px solid white;
     outline: 1px solid darkgrey;
@@ -153,6 +153,30 @@
       top: -10px;
       padding: 2px 4px;
       background-color: $grey;
+    }
+  }
+
+  &--alert {
+    max-width: 320px;
+    &__message {
+      display: flex;
+      align-items: center;
+      &.has-icon {
+        background-size: 28px 28px;
+        background-repeat: no-repeat;
+        background-position: 6px 6px;
+        padding: 6px 2px 6px 44px;
+      }
+      min-height: 28px;
+      padding: 10px 2px 6px;
+    }
+    &__actions {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      .btn--form {
+        margin: 0px 4px 8px;
+      }
     }
   }
 }

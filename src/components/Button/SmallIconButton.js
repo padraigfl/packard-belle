@@ -7,10 +7,11 @@ const NavButton = props => (
   <Button
     className={ classnames('btn--small-icon', props.className) }
     onClick={ props.onClick }
-    style={ { backgroundImage: `url(${props.icon})` }}
     disabled={ props.disabled }
     isActive={ props.isActive }
-  />
+  >
+    <img src={props.icon} />
+  </Button>
 );
 
 NavButton.propTypes = {

@@ -3,6 +3,7 @@ import { storiesOf } from '@storybook/react';
 import WindowFrame from '../src/components/Window/WindowFrame';
 import AbstractWindow from '../src/components/Window/AbstractWindow';
 import ExplorerWindow from '../src/components/Window/ExplorerWindow';
+import AlertWindow from '../src/components/Window/AlertWindow';
 import MenuBar from '../src/components/MenuBar/MenuBar';
 import DetailsSection from '../src/components/Window/DetailsSection';
 
@@ -126,6 +127,33 @@ storiesOf('Windows', module)
       onClose={ noop }
       onMinimize={ noop }
       onMaximize={ noop }
+      explorerOptions={[
+        {
+          icon: img,
+          title: 'Back',
+          onClick: noop,
+        },
+        {
+          icon: img,
+          title: 'Forward',
+          onClick: noop,
+        },
+        {
+          icon: img,
+          title: 'View',
+        }
+      ]}
     />
+  ))
+  .add('AlertWindow', () => (
+    <AlertWindow
+      title="AlertWindow"
+      icon={img}
+      onClose={ noop }
+      onOK={ noop }
+      onCancel={ noop }
+    >
+      This is an error message.
+    </AlertWindow>
   ));
 

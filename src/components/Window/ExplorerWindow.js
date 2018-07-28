@@ -3,6 +3,7 @@ import classnames from 'classnames';
 import Window from './AbstractWindow';
 import MenuBar from '../MenuBar/MenuBar';
 import Select from '../Inputs/Select';
+import LargeIconButton from '../Button/LargeIconButton';
 import './_explorer-window.scss';
 
 const ExplorerWindow = props => (
@@ -14,17 +15,29 @@ const ExplorerWindow = props => (
     onMinimize={props.onMaximize}
     title={props.title}
   >
-    <MenuBar className="window--explorer__menu" options={props.menuOptions} />
-    <div className="window--explorer__options">Options</div>
-    <div className="window--explorer__address">
+    <section>
+      <MenuBar
+        className="window--explorer__menu"
+        options={props.menuOptions}
+      />
+    </section>
+    { props.explorerOptions && (
+      <section className="window--explorer__options">
+        { props.explorerOptions.map( option => (
+          <LargeIconButton
+            icon={ option.icon }
+            title={ option.title }
+            onClick={ option.onClick }
+            disabled={ !option.onClick }
+          />
+        ))}
+      </section>
+    )}
+    <section className="window--explorer__address">
       <div className="window--explorer__address__title">Address</div>
-      <Select />
-    </div>
+      <Select placeholder="title" isDisabled/>
+    </section>
     <div className="window--explorer__view">Icons</div>
-    {/* <div className="ExplorerWindow__details">
-      <div className="ExplorerWindow__details__section" />
-      <div className="ExplorerWindow__details__section" />
-    </div> */}
   </Window>
 );
 
