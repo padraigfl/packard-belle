@@ -143,6 +143,14 @@ storiesOf('Windows', module)
           title: 'View',
         }
       ]}
+      footer={[
+        <div>
+          Test
+        </div>,
+        <div>
+          Oh
+        </div>,
+      ]}
     />
   ))
   .add('AlertWindow', () => (

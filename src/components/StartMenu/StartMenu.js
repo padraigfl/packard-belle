@@ -1,44 +1,20 @@
-import React, { Component } from 'react';
+import React from 'react';
 import classnames from 'classnames';
 import Start from '../Button/StartButton';
-import ContextMenuWrapper from '../ContextMenu/ContextMenuWrapper';
+import contextMenuWrapper from '../ContextMenu/withContextMenuWrapper';
 
-class StartMenu extends Component {
-  state = {
-    isOpen: this.props.options,
-  }
+const Started = contextMenuWrapper(Start);
 
-  handleClick = (e) => {
-    if (this.props.onClick) {
-      this.props.onClick(e);
-    }
-    this.setState({ isOpen: true });
-  }
-
-  handleBlur(e) {
-    if(this.props.onBlur) {
-      this.props.onBlur(e);
-    }
-    this.setState({ isOpen: false });
-  }
-
-  render() {
-    const { props } = this;
-
-    return (
-      <div className="start-menu task-bar__start">
-        <Start
-          onBlur={(e) => this.handleBlur(e)}
-          onClick={(e) => this.handleClick(e)}
-        />
-        <ContextMenuWrapper
-          className={classnames('start-menu__root', props.className)}
-          options={props.options}
-          isActive={this.state.isOpen}
-        />
-      </div>
-    );
-  }
+const StartMenu = (props) => {
+  const { className, ...otherProps } = props;
+  return (
+    <Started
+      className={
+        classnames('start-menu task-bar__start', props.className)
+      }
+      {...otherProps}
+    />
+  );
 }
 
 export default StartMenu;

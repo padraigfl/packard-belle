@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import ContextMenu from '../src/components/ContextMenu/ContextMenu';
-import ContextMenuWrapper from '../src/components/ContextMenu/ContextMenuWrapper';
+//import ContextMenuWrapper from '../src/components/ContextMenu/ContextMenuWrapper';
 
 const optionsSample = [
   {
@@ -96,9 +96,9 @@ storiesOf('ContextMenu', module)
       <p>
         Children display handled via JavaScript wrapper component
       </p>
-      <ContextMenuWrapper
+      {/* <ContextMenuWrapper
         options={optionsSample}
         isActive
-      />
+      /> */}
     </div>
   ));

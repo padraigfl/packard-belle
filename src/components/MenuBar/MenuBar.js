@@ -1,21 +1,32 @@
 
 import React from 'react';
+import classnames from 'classnames';
 import Button from '../Button/AbstractButton';
-import ContextMenu from '../ContextMenu/ContextMenu';
+import withContextWrapper from '../ContextMenu/withContextMenuWrapper';
 import '../../_scss/w98/window.scss';
 
+const MenuEntry = withContextWrapper(Button)
+
 const MenuBar = props => (
-  <div className="window__menu menu-bar">
+  <menu className="window__menu menu-bar">
     { props.options && (
         props.options.map( section => (
-          <div className="window__menu__section menu-bar__section" key={`menu-bar-section-${section.title}`}>
-            <Button>{section.title}</Button>
-            { section.options && <ContextMenu className="menu-bar__section__dropdown" options={section.options} /> }
-          </div>
+          <MenuEntry
+            className={
+              classnames(
+                'window__menu__section menu-bar__section',
+                props.className,
+              )
+            }
+            key={`menu-bar-section-${section.title}`}
+            options={section.options}
+          >
+            { section.title }
+          </MenuEntry>
         ))
       )
     }
-  </div>
+  </menu>
 );
 
 export default MenuBar;

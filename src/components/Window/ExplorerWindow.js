@@ -15,29 +15,43 @@ const ExplorerWindow = props => (
     onMinimize={props.onMaximize}
     title={props.title}
   >
-    <section>
-      <MenuBar
-        className="window--explorer__menu"
-        options={props.menuOptions}
-      />
-    </section>
+    <MenuBar
+      className="window--explorer__menu"
+      options={props.menuOptions}
+    />
     { props.explorerOptions && (
-      <section className="window--explorer__options">
+      <menu className="window--explorer__options">
         { props.explorerOptions.map( option => (
           <LargeIconButton
+            key={`large-button-${option.title}`}
             icon={ option.icon }
             title={ option.title }
             onClick={ option.onClick }
             disabled={ !option.onClick }
           />
         ))}
-      </section>
+      </menu>
     )}
-    <section className="window--explorer__address">
+    <menu className="window--explorer__address">
       <div className="window--explorer__address__title">Address</div>
-      <Select placeholder="title" isDisabled/>
-    </section>
-    <div className="window--explorer__view">Icons</div>
+      <Select placeholder={<span>Test</span>} isDisabled/>
+    </menu>
+    <div
+      className="window--explorer__view"
+      style={ props.backgroundColor && ({
+        backgroundColor: props.backgroundColor,
+      })}
+    >
+      { props.children }
+    </div>
+    { props.footer && (
+      <footer>
+        { Array.isArray(props.footer) ?
+            props.footer.map(entry => entry ) :
+            props.footer
+        }
+      </footer>
+    )}
   </Window>
 );
 

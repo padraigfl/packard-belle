@@ -75,6 +75,11 @@
             }
           }
         }
+        .Select-placeholder {
+          .window--explorer & {
+            padding: 4px 2px 1px;
+          }
+        }
       }
       .Select-arrow-zone {
         position: absolute;

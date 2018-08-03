@@ -99,7 +99,7 @@
         text-align: left;
         padding: 3px 6px;
 
-        + .menu-bar__section__dropdown {
+        + .context-menu, + .menu-bar__section__dropdown {
           z-index: 20;
           visibility: hidden;
           position: absolute;
@@ -117,7 +117,7 @@
           box-shadow: dualShadow($darkgrey, white);
           padding: 4px 5px 2px 7px;
 
-          + .menu-bar__section__dropdown {
+          + .context-menu {
             visibility: visible;
             max-height: 480px;
           }
@@ -141,7 +141,7 @@
     }
   }
 
-  &.form >section, .form & >section {
+  section {
     position: relative;
     border: 1px solid white;
     outline: 1px solid darkgrey;

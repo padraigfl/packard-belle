@@ -18,6 +18,11 @@ html{
     font-size: $base-font-size;
   }
 
+  menu {
+    padding: 0px;
+    margin: 0px;
+  }
+
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   width: 200px;
   background-color: $grey;

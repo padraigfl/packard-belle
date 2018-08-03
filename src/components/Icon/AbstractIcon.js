@@ -37,6 +37,15 @@ class AbstractIcon extends Component {
     }
   }
 
+  handleContextMenu = (e) => {
+    e.preventDefault();
+    this.icon.focus();
+    if (this.props.onContextMenu) {
+      this.props.onContextMenu(e);
+    }
+    return false;
+  }
+
   render() {
     const { props } = this;
 
@@ -64,6 +73,7 @@ class AbstractIcon extends Component {
       return (
         <button
           ref={(icon) => { this.icon = icon; }}
+          onContextMenu={this.handleContextMenu}
           {...iconProps}
         >
           { contents }

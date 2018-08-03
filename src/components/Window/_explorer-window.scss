@@ -1,11 +1,18 @@
 @import '../../_scss/w98/var/colors';
+@import '../../_scss/w98/functions/box-shadows';
 @import '../../_scss/w98/mixins/box-shadows';
 @import '../../_scss/w98/var/var';
+
+@function nav-box-shadow(){
+  @return 0px 1px 0px white, inset 0px -1px 0px $darkgrey,
+  -1px 0px 0px $darkgrey, inset 1px 0px 0px white,
+    1px 0px 0px white, inset -1px 0px 0px $darkgrey;
+}
 
 .w98 .window--explorer {
   &__view {
     min-height: 20px;
-    padding: 6px;
+    margin: 2px auto 1px;
     background-color: white;
     @include shadow-input;
   }
@@ -22,54 +29,47 @@
       }
     }
   }
-  >section {
+
+  .menu-bar {
+    padding: 2px 1px 2px 12px;
+  }
+  >div + menu {
+    margin-top: 2px;
+    box-shadow: nav-box-shadow(),
+      -1px -1px 0px $darkgrey, 0px -1px 0px $darkgrey,
+      inset 0px 1px 0px white, 1px -1px 0px white;
+  }
+  >menu {
     position: relative;
-    box-shadow: inset 1px 0px 0px white, inset -1px 0px 0px #808088,
-    inset 1px -1px 0px white, inset 1px -2px 0px #808088;
+
+    min-height: 16px;
+    padding-left: 12px;
+    margin: 0px 1px;
+    display: flex;
+    // border-bottom: 1px solid $darkgrey;
+    // border-top: 1px solid white;
+    box-shadow: nav-box-shadow();
+    // box-shadow: -1px 0px 0px $darkgrey, inset 1px 0px 0px white,
+    //   inset -1px 0px 0px $darkgrey, 1px 0px 0px white;
     &:before {
       position: absolute;
-      top: 3px;
+      top: 2px;
       left: 5px;
-      height: calc(100% - 6px);
+      height: calc(100% - 4px);
       width: 3px;
       background-color: $grey;
       content: '';
       box-shadow: dualShadow(white, $darkgrey);
     }
-    &:after {
-      pointer-events: none;
-      position: absolute;
-      width: calc(100% - 2px);
-      left: 0px;
-      top: 0px;
-      height: 100%;
-      border-right: 1px solid white;
-      border-left: 1px solid $darkgrey;
-      content: '';
-    }
-    &:nth-child(2){
-      margin-top: 1px;
-      >div {
-        padding: 3px 0px 3px 12px;
-      }
-      &:after {
-        box-shadow: inset 0px 1px 0px #808088, inset -1px 0px 0px #808088,
-          inset 1px 2px 0px white, inset -1px 0px 0px #808088,
-          inset 0px -1px 0px white,
-          inset 0px -2px 0px #808088;
-        border-right: 1px solid white;
-      }
-    }
-    &:not(:nth-child(2)){
-      position: relative;
-      min-height: 16px;
-      padding-left: 12px;
-      display: flex;
-      border-left: 1px solid $darkgrey;
-      border-right: 1px solid white;
-      &:after {
-        border-right: 1px solid #808088;
-        border-left: 1px solid white;
+  }
+  >footer {
+    display: flex;
+    >div {
+      flex-grow: 1;
+      padding: 2px 4px;
+      box-shadow: dualShadow($black, white);
+      &:not(:last-child) {
+        margin-right: 4px;
       }
     }
   }
@@ -86,6 +86,7 @@
       flex-grow: 1;
       z-index: 5;
       margin-right: 4px;
+      margin-top: 1px;
     }
   }
   &__options {
