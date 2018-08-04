@@ -285,8 +285,9 @@ storiesOf('Inputs', module)
       />
       <p>
         <strong>Note:</strong>
-        These select boxes use <a href="https://github.com/JedWatson/react-select">React-Select</a>;
+        These select boxes use <a href="https://github.com/JedWatson/react-select">React-Select</a> v1.2;
         writing, styling and debugger a framework agnostic select field seemed like a lot more work than everything else here combined
+        A total rewrite will be required to update
       </p>
     </div>
   ))

@@ -31,7 +31,7 @@ export default {
 
   plugins: [
     postcss({
-      modules: true
+      modules: true,
     }),
     resolve(),
     babel({
