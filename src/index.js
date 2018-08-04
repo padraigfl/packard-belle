@@ -1,3 +1,5 @@
+export { default as Theme } from './components/Theme';
+
 export { default as FormButton } from './components/Button/FormButton';
 export { default as NavButton } from './components/Button/NavButton';
 export { default as ProgramButton } from './components/Button/ProgramButton';

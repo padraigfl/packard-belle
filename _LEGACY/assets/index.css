@@ -6,6 +6,9 @@ html {
   image-rendering: pixelated; }
   html button {
     font-size: 10px; }
+  html menu {
+    padding: 0px;
+    margin: 0px; }
   html .disabled {
     color: #808088; }
   html ::-webkit-scrollbar {
@@ -65,7 +68,7 @@ html {
       background-color: #bbc3c4; }
 
 .w98 *, .w98 {
-  cursor: url("data:image/gif;base64,R0lGODlhDAAUAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAMABQAAAIyhI4pYJoQmlshTlrlq9lBbm1geHyjZJ7lCBppxsQZp0EujTBrVz6flvtdMMAcb6ITFAAAOw=="), default; }
+  cursor: url("data:image/gif;base64,R0lGODlhFgAmAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAWACYAAAJzBISpu8b/jINUHgpNCBMrzV1eAm6dV4YjkppiBWyyisazfDIt/ur2zcv8gDQf8ZYT7IDJJfHkZL6izwtVyhpKLVwtssudpZJZ8ZCstE3GvbSrHGxIPue2hW72CfOkNvy9wrbiFjcoGFhnmIjIp4iGcZdQAAA7"), default; }
 
 .w98 button {
   border: 0px solid transparent;
@@ -135,19 +138,6 @@ html {
         content: '';
         background-color: white;
         background-image: url("../../images/rgba-204-204-204-85.png"); }
-  .btn:not(.no-style).btn--small-icon {
-    height: 22px;
-    width: 22px;
-    background-size: 16px;
-    background-repeat: no-repeat;
-    background-position: 3px 3px; }
-    .btn:not(.no-style).btn--small-icon:hover {
-      box-shadow: inset -1px -1px 0px #808088, inset 1px 1px 0px white; }
-    .btn:not(.no-style).btn--small-icon:hover:focus:active, .btn:not(.no-style).btn--small-icon:hover:active, .btn:not(.no-style).btn--small-icon.active, .btn:not(.no-style).btn--small-icon.clicked {
-      box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px #808088;
-      background-position: 4px 4px; }
-    .btn:not(.no-style).btn--small-icon.btn--disabled {
-      filter: grayscale(1); }
   .btn:not(.no-style).btn--start {
     height: 22px;
     display: flex;
@@ -173,6 +163,8 @@ html {
     width: 16px;
     height: 14px;
     margin-left: 1px;
+    margin-top: 1px;
+    margin-bottom: 2px;
     image-rendering: pixelated;
     box-shadow: inset -1px -1px 0px #0c0c0c, inset 1px 1px 0px white, inset -2px -2px 0px #808088, inset 2px 2px 0px #bbc3c4; }
     .btn:not(.no-style).btn--nav img {
@@ -190,38 +182,56 @@ html {
     .btn:not(.no-style).btn--nav.window__close {
       margin-left: 2px; }
   .btn:not(.no-style).btn--form {
-    min-width: 80px;
-    padding: 5px 0px;
+    min-width: 48px;
+    outline-width: 1px;
+    outline-offset: -5px;
+    padding: 5px 1px;
     box-shadow: inset -1px -1px 0px #0c0c0c, inset 1px 1px 0px white, inset -2px -2px 0px #808088, inset 2px 2px 0px #bbc3c4; }
     .btn:not(.no-style).btn--form:focus {
       outline: black;
       outline-style: dotted;
-      outline-offset: -5px;
-      outline-width: 1px;
-      -moz-outline-radius: 2px;
       box-shadow: inset -1px -1px 0px #0c0c0c, inset 1px 1px 0px #0c0c0c, inset -2px -2px 0px #0c0c0c, inset 2px 2px 0px white; }
     .btn:not(.no-style).btn--form:active:focus, .btn:not(.no-style).btn--form:active, .btn:not(.no-style).btn--form.active, .btn:not(.no-style).btn--form.clicked {
-      padding: 6px 0px 4px 3px;
+      padding: 6px 0px 4px 2px;
       box-shadow: inset -1px -1px 0px #0c0c0c, inset 1px 1px 0px #0c0c0c, inset -2px -2px 0px #808088, inset 2px 2px 0px #808088; }
+  .btn:not(.no-style).btn--small-icon {
+    height: 22px;
+    width: 22px;
+    padding: 0px; }
+    .btn:not(.no-style).btn--small-icon img {
+      margin: 3px;
+      max-height: 16px;
+      max-width: 16px; }
+    .btn:not(.no-style).btn--small-icon:hover {
+      box-shadow: inset -1px -1px 0px #808088, inset 1px 1px 0px white; }
+    .btn:not(.no-style).btn--small-icon:hover:focus:active, .btn:not(.no-style).btn--small-icon:hover:active, .btn:not(.no-style).btn--small-icon.active, .btn:not(.no-style).btn--small-icon.clicked {
+      box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px #808088; }
+      .btn:not(.no-style).btn--small-icon:hover:focus:active img, .btn:not(.no-style).btn--small-icon:hover:active img, .btn:not(.no-style).btn--small-icon.active img, .btn:not(.no-style).btn--small-icon.clicked img {
+        margin: 4px 2px 2px 4px; }
+    .btn:not(.no-style).btn--small-icon.btn--disabled img {
+      filter: grayscale(1); }
   .btn:not(.no-style).btn--large-icon {
-    background-size: 20px;
-    background-position: 50% 25%;
-    background-repeat: no-repeat;
-    padding: 24px 2px 2px;
-    width: 48px;
-    filter: grayscale(1); }
+    padding: 2px;
+    width: 48px; }
+    .btn:not(.no-style).btn--large-icon img {
+      display: block;
+      margin: 0 auto;
+      filter: grayscale(1);
+      height: 20px;
+      max-width: 20px; }
     .btn:not(.no-style).btn--large-icon:disabled, .btn:not(.no-style).btn--large-icon.disabled {
       color: #808088; }
       .btn:not(.no-style).btn--large-icon:disabled:hover, .btn:not(.no-style).btn--large-icon.disabled:hover {
-        filter: grayscale(1);
         box-shadow: none; }
+        .btn:not(.no-style).btn--large-icon:disabled:hover img, .btn:not(.no-style).btn--large-icon.disabled:hover img {
+          filter: grayscale(1); }
     .btn:not(.no-style).btn--large-icon:hover {
-      filter: grayscale(0);
       box-shadow: inset -1px -1px 0px #0c0c0c, inset 1px 1px 0px white; }
+      .btn:not(.no-style).btn--large-icon:hover img {
+        filter: grayscale(0); }
     .btn:not(.no-style).btn--large-icon:active:focus {
-      background-position: calc(50% + 1px) calc(25% + 1px);
       box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px #0c0c0c;
-      padding: 25px 1px 1px 3px; }
+      padding: 3px 1px 1px 3px; }
 
 .context-menu {
   display: inline-flex;
@@ -709,7 +719,7 @@ html {
         text-overflow: ellipsis;
         text-align: left;
         padding: 3px 6px; }
-        .w98 .window__menu__section > button + .menu-bar__section__dropdown, .w98 .window .menu-bar__section > button + .menu-bar__section__dropdown {
+        .w98 .window__menu__section > button + .context-menu, .w98 .window__menu__section > button + .menu-bar__section__dropdown, .w98 .window .menu-bar__section > button + .context-menu, .w98 .window .menu-bar__section > button + .menu-bar__section__dropdown {
           z-index: 20;
           visibility: hidden;
           position: absolute;
@@ -722,7 +732,7 @@ html {
         .w98 .window__menu__section > button:active, .w98 .window__menu__section > button:focus, .w98 .window__menu__section > button:active:focus, .w98 .window__menu__section > button.active, .w98 .window__menu__section > button.clicked, .w98 .window .menu-bar__section > button:active, .w98 .window .menu-bar__section > button:focus, .w98 .window .menu-bar__section > button:active:focus, .w98 .window .menu-bar__section > button.active, .w98 .window .menu-bar__section > button.clicked {
           box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px #808088;
           padding: 4px 5px 2px 7px; }
-          .w98 .window__menu__section > button:active + .menu-bar__section__dropdown, .w98 .window__menu__section > button:focus + .menu-bar__section__dropdown, .w98 .window__menu__section > button:active:focus + .menu-bar__section__dropdown, .w98 .window__menu__section > button.active + .menu-bar__section__dropdown, .w98 .window__menu__section > button.clicked + .menu-bar__section__dropdown, .w98 .window .menu-bar__section > button:active + .menu-bar__section__dropdown, .w98 .window .menu-bar__section > button:focus + .menu-bar__section__dropdown, .w98 .window .menu-bar__section > button:active:focus + .menu-bar__section__dropdown, .w98 .window .menu-bar__section > button.active + .menu-bar__section__dropdown, .w98 .window .menu-bar__section > button.clicked + .menu-bar__section__dropdown {
+          .w98 .window__menu__section > button:active + .context-menu, .w98 .window__menu__section > button:focus + .context-menu, .w98 .window__menu__section > button:active:focus + .context-menu, .w98 .window__menu__section > button.active + .context-menu, .w98 .window__menu__section > button.clicked + .context-menu, .w98 .window .menu-bar__section > button:active + .context-menu, .w98 .window .menu-bar__section > button:focus + .context-menu, .w98 .window .menu-bar__section > button:active:focus + .context-menu, .w98 .window .menu-bar__section > button.active + .context-menu, .w98 .window .menu-bar__section > button.clicked + .context-menu {
             visibility: visible;
             max-height: 480px; }
   .w98 .window__details {
@@ -736,14 +746,32 @@ html {
       top: -10px;
       padding: 2px 4px;
       background-color: #bbc3c4; }
-  .w98 .window > section {
+  .w98 .window section {
     position: relative;
     border: 1px solid white;
     outline: 1px solid darkgrey;
     padding: 5px;
     margin: 16px 8px 8px; }
-    .w98 .window > section .title {
+    .w98 .window section .title {
       position: absolute;
       top: -10px;
       padding: 2px 4px;
       background-color: #bbc3c4; }
+  .w98 .window--alert {
+    max-width: 320px; }
+    .w98 .window--alert__message {
+      display: flex;
+      align-items: center;
+      min-height: 28px;
+      padding: 10px 2px 6px; }
+      .w98 .window--alert__message.has-icon {
+        background-size: 28px 28px;
+        background-repeat: no-repeat;
+        background-position: 6px 6px;
+        padding: 6px 2px 6px 44px; }
+    .w98 .window--alert__actions {
+      width: 100%;
+      display: flex;
+      justify-content: center; }
+      .w98 .window--alert__actions .btn--form {
+        margin: 0px 4px 8px; }

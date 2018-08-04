@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import ExplorerIcon from '../src/components/Icon/ExplorerIcon';
-import ListIcon from '../src/components/Icon/ListIcon';
+import ExplorerIcon from '../../src/components/Icon/ExplorerIcon';
+import ListIcon from '../../src/components/Icon/ListIcon';
 import img from './directory_closed.png';
 
 const noop = () => {

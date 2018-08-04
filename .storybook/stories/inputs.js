@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { storiesOf } from '@storybook/react';
-import Checkbox from '../src/components/Inputs/Checkbox';
-import InputText from '../src/components/Inputs/InputText';
-import SelectMultiple from '../src/components/Inputs/SelectMultipleSimple';
-import Select from '../src/components/Inputs/Select';
-import SelectBox from '../src/components/Inputs/SelectBox';
-import ListIcon from '../src/components/Icon/ListIcon';
-import ExplorerIcon from '../src/components/Icon/ExplorerIcon';
+import Checkbox from '../../src/components/Inputs/Checkbox';
+import InputText from '../../src/components/Inputs/InputText';
+import SelectMultiple from '../../src/components/Inputs/SelectMultipleSimple';
+import Select from '../../src/components/Inputs/Select';
+import SelectBox from '../../src/components/Inputs/SelectBox';
+import ListIcon from '../../src/components/Icon/ListIcon';
+import ExplorerIcon from '../../src/components/Icon/ExplorerIcon';
 import img from './directory_closed.png';
 
 const noop = () => {};

@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import ContextMenu from '../src/components/ContextMenu/ContextMenu';
-//import ContextMenuWrapper from '../src/components/ContextMenu/ContextMenuWrapper';
+import ContextMenu from '../../src/components/ContextMenu/ContextMenu';
+//import ContextMenuWrapper from '../../src/components/ContextMenu/ContextMenuWrapper';
 
 const optionsSample = [
   {
