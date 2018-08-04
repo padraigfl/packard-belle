@@ -6,7 +6,7 @@ export { default as LargeIconButton } from './components/Button/LargeIconButton'
 export { default as SmallIconButton } from './components/Button/SmallIconButton';
 
 export { default as ContextMenu } from './components/ContextMenu/ContextMenu';
-export { default as ContextMenuWrapper } from './components/ContextMenu/ContextMenuWrapper';
+export { default as withContextMenuWrapper } from './components/ContextMenu/withContextMenuWrapper';
 
 export { default as ExplorerIcon } from './components/Icon/ExplorerIcon';
 export { default as ListIcon } from './components/Icon/ListIcon';
