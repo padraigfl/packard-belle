@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Button from './AbstractButton';
 
+import '../../_scss/w98/buttons/btn--start.scss';
+
 const StartButton = props => (
   <Button
     className={ classnames('btn--start', props.className) }

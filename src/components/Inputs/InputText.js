@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import '../../_scss/w98/form.scss';
+import '../../_scss/w98/inputs/input.scss';
 
 class InputText extends Component {
   static defaultProps = {

@@ -1,0 +1,21 @@
+@import '../var/colors';
+@import '../functions/box-shadows';
+
+.btn.btn--form{
+  min-width: 48px;
+  outline-width: 1px;
+  outline-offset: -5px;
+  padding: 5px 1px;
+  box-shadow: dualShadow(white, $black), dualShadow($grey, $darkgrey, 2);
+
+  &:focus {
+    outline: black;
+    outline-style: dotted;
+    box-shadow: dualShadow($black, $black), dualShadow(white, $black, 2);
+  }
+
+  &:active:focus, &:active, &.active, &.clicked{
+    padding: 6px 0px 4px 2px;
+    box-shadow: dualShadow($black, $black), dualShadow($darkgrey, $darkgrey, 2);
+  }
+}

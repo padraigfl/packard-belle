@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import '../../_scss/w98/form.scss';
+
+import '../../_scss/w98/inputs/select.scss';
 
 class Select extends Component {
   static defaultProps = {

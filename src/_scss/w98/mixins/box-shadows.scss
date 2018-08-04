@@ -2,5 +2,6 @@
 @import '../functions/box-shadows';
 
 @mixin shadow-input {
-  box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px 0px $darkgrey, inset -2px -2px 0px $grey, inset 2px 2px 0px 0px $black;
+  box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px 0px $darkgrey,
+    inset -2px -2px 0px $grey, inset 2px 2px 0px 0px $black;
 }

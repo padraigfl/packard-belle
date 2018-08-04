@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import classnames from 'classnames';
 import clone from 'clone';
 import ContextMenu from './ContextMenu';
-import '../../_scss/w98/context-menu.scss';
 
 const withContextLogic = ContextButton => {
   return class ContextMenuSimple extends Component {

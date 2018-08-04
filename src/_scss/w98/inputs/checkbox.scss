@@ -1,0 +1,27 @@
+@import '../var/uris';
+@import '../mixins/box-shadows';
+
+
+.w98 {
+  input[type=checkbox] {
+    + label:before {
+      width: 13px;
+      height: 13px;
+      background-color: white;
+      @include shadow-input
+    }
+    &:checked +label:before {
+      background-image: url($menu-checked);
+      background-position: center;
+      background-size: 8px;
+    }
+    &:disabled, &.disabled {
+      +label:before {
+        background-color: $grey;
+      }
+      &:checked +label:before {
+        background-image: url($menu-checked-disabled);
+      }
+    }
+  }
+}

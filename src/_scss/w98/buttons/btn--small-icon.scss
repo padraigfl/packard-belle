@@ -1,0 +1,32 @@
+@import '../var/colors';
+@import '../functions/box-shadows';
+
+.btn.btn--small-icon {
+  height: 22px;
+  width: 22px;
+  padding: 0px;
+  // background-size: 16px;
+  // background-repeat: no-repeat;
+  // background-position: 3px 3px;
+  img {
+    margin: 3px;
+    max-height: 16px;
+    max-width: 16px;
+  }
+
+  &:hover {
+    box-shadow: dualShadow(white, $darkgrey);
+  }
+  &:hover:focus:active, &:hover:active, &.active, &.clicked {
+    box-shadow: dualShadow($darkgrey, white);
+    // background-position: 4px 4px;
+    img {
+      margin: 4px 2px 2px 4px;
+    }
+  }
+  &.btn--disabled {
+    img {
+      filter: grayscale(1);
+    }
+  }
+}

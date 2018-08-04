@@ -1,0 +1,31 @@
+@import '../var/colors';
+@import '../mixins/box-shadows';
+
+select[multiple] {
+  position: relative;
+  border: none;
+  background-color: white;
+  border-radius: 0px;
+  outline: none;
+  padding: 2px;
+  @include shadow-input;
+
+  &:active, &:focus, &:active:focus, &.active, &.clicked {
+    outline: none;
+  }
+  option{
+    &:active, &:focus, &:checked, &.checked {
+      outline: 1px dotted white;
+      outline-offset: -1px;
+      background-color: $blue;
+      color: white;
+    }
+  }
+}
+
+@mixin select-hover {
+  outline: 1px dotted white;
+  outline-offset: -1px;
+  background-color: $blue;
+  color: white;
+}

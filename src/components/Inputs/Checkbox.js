@@ -1,5 +1,7 @@
 import React from 'react';
-import '../../_scss/w98/form.scss';
+import '../../_scss/w98/inputs/toggle.scss';
+import '../../_scss/w98/inputs/checkbox.scss';
+import '../../_scss/w98/inputs/radio.scss';
 
 const Checkbox = props => (
   <React.Fragment>

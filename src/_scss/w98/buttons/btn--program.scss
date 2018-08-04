@@ -1,0 +1,49 @@
+@import '../var/colors';
+@import '../functions/box-shadows';
+
+.btn.btn--program {
+  flex: 1;
+  margin: 0px 1px;
+  height: 22px;
+  max-width: 140px;
+  min-width: 40px;
+  display: inline-block;
+  width: 100%;
+  padding-top: 2px;
+  padding-left: 22px;
+  padding-right: 3px;
+  text-align: left;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  background-size: 16px;
+  background-repeat: no-repeat;
+  background-position: 4px 4px;
+  box-shadow: dualShadow(white, $black), dualShadow($grey, $darkgrey, 2);
+
+  &:active:focus, &.btn--active, &.clicked {
+    background-position: 5px 5px;
+    box-shadow: dualShadow($black, white), dualShadow($darkgrey, $grey, 2);
+    padding-top: 3px;
+    padding-left: 23px;
+    padding-right: 2px;
+
+    &:before {
+      content: '';
+      background-size: 2px;
+      z-index: -1;
+      box-shadow: none;
+    }
+  }
+
+  &.btn--active {
+    background-color: transparent;
+    font-weight: bold;
+
+    &:before {
+      content: '';
+      background-color: white;
+      background-image: url('../../../images/rgba-204-204-204-85.png');
+    }
+  }
+}

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import '../../_scss/w98/icon.scss';
+import '../../_scss/w98/icons/icon.scss';
 
 class AbstractIcon extends Component {
   state = {

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import '../../_scss/w98/button.scss';
 
+import '../../_scss/w98/buttons/btn.scss';
 
 class AbstractButton extends Component {
   state = {
@@ -20,6 +20,12 @@ class AbstractButton extends Component {
     this.button.focus();
     if (this.props.onClick) {
       this.props.onClick(e);
+    }
+  }
+
+  handleBlur = (e) => {
+    if (this.props.onBlur) {
+      this.props.onBlur(e);
     }
   }
 

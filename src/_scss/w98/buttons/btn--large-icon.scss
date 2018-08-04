@@ -1,0 +1,37 @@
+@import '../var/colors';
+@import '../functions/box-shadows';
+
+.btn.btn--large-icon {
+  padding: 2px;
+  width: 48px;
+
+  img {
+    display: block;
+    margin: 0 auto;
+    filter: grayscale(1);
+    height: 20px;
+    max-width: 20px;
+  }
+
+  &:disabled, &.disabled {
+    color: $darkgrey;
+    &:hover {
+      img {
+        filter: grayscale(1);
+      }
+      box-shadow: none;
+    }
+  }
+
+  &:hover {
+    img {
+      filter: grayscale(0);
+    }
+    box-shadow: dualShadow(white, $black);
+  }
+
+  &:active:focus {
+    box-shadow: dualShadow($black, white);
+    padding: 3px 1px 1px 3px;
+  }
+}

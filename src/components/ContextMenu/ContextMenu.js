@@ -2,7 +2,7 @@ import React from 'react';
 import classnames from 'classnames';
 import Window from '../Window/WindowFrame';
 import ContextMenuItem from './ContextMenuItem';
-import '../../_scss/w98/context-menu.scss';
+import '../../_scss/w98/menu/index.scss';
 
 const ContextMenuSimple = props => {
   if (props.children) {
