@@ -30,9 +30,11 @@ export default {
   ],
 
   plugins: [
-    postcss({
-      modules: true,
-    }),
+    postcss(
+      // {
+      //   modules: true,
+      // }
+    ),
     resolve(),
     babel({
       exclude: 'node_modules/**',
