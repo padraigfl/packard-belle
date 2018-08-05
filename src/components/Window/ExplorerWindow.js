@@ -1,7 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 import Window from './AbstractWindow';
-import MenuBar from '../MenuBar/MenuBar';
+import MenuBar from '../MenuBar';
 import Select from '../Inputs/Select';
 import LargeIconButton from '../Button/LargeIconButton';
 import './_explorer-window.scss';

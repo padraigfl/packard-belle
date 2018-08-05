@@ -1,6 +1,6 @@
 import React from 'react';
 import Notifiations from './Notifications';
-import StartMenu from '../StartMenu/StartMenu';
+import StartMenu from '../StartMenu';
 import ProgramButton from '../Button/ProgramButton';
 import SmallIconButton from '../Button/SmallIconButton';
 

@@ -101,19 +101,12 @@ html{
 
 .w98 {
   *, & {
-    cursor: url($cursorX2), default;
+    cursor: url($cursor), default;
   }
-  button {
-    border: 0px solid transparent;
-    background-color: $grey;
-    position: relative;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-
-    &:active, &:focus, &:active:focus {
-      outline: none;
+  &.x2 {
+    *, & {
+      cursor: url($cursorX2), default;
     }
+    transform: scale(2);
   }
 }

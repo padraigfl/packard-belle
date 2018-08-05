@@ -14,16 +14,17 @@ export { default as ExplorerIcon } from './components/Icon/ExplorerIcon';
 export { default as ListIcon } from './components/Icon/ListIcon';
 
 export { default as Checkbox } from './components/Inputs/Checkbox';
+export { default as Radio } from './components/Inputs/Radio';
 export { default as InputText } from './components/Inputs/InputText';
 export { default as Select } from './components/Inputs/Select';
 export { default as SelectBox } from './components/Inputs/SelectBox';
 export { default as SelectMultipleSimple } from './components/Inputs/SelectMultipleSimple';
 
-export { default as MenuBar } from './components/MenuBar/MenuBar';
+export { default as MenuBar } from './components/MenuBar';
 
-export { default as StartMenu } from './components/StartMenu/StartMenu';
+export { default as StartMenu } from './components/StartMenu';
 
-export { default as TaskBar } from './components/TaskBar/TaskBar';
+export { default as TaskBar } from './components/TaskBar';
 
 export { default as AbstractWindow } from './components/Window/AbstractWindow';
 export { default as ExplorerWindow } from './components/Window/ExplorerWindow';

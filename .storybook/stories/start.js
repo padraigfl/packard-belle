@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import StartMenu from '../../src/components/StartMenu/StartMenu';
+import StartMenu from '../../src/components/StartMenu';
 
 import img from './directory_closed.png';
 

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { storiesOf } from '@storybook/react';
 import Checkbox from '../../src/components/Inputs/Checkbox';
+import Radio from '../../src/components/Inputs/Radio';
 import InputText from '../../src/components/Inputs/InputText';
 import SelectMultiple from '../../src/components/Inputs/SelectMultipleSimple';
 import Select from '../../src/components/Inputs/Select';
@@ -27,7 +28,7 @@ class RadioTest extends Component {
       <div className="form">
         { props.options.map(option =>(
           <div key={`${option.value}`}>
-            <Checkbox
+            <Radio
               name={props.name}
               type={props.type}
               onChange={this.onChange}
