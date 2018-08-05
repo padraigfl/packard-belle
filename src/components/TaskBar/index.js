@@ -46,7 +46,7 @@ const TaskBar = (props) => {
           </div>
         )
       }
-      <Notifiations />
+      <Notifiations notifiers={props.notifiers} />
     </div>
   )
 };

@@ -32,10 +32,10 @@ class AbstractButton extends Component {
   handleContextMenu = (e) => {
     e.preventDefault();
     e.stopPropagation();
+    this.button.focus();
     if (this.props.onContextMenu) {
       this.props.onContextMenu(e);
     }
-    return false;
   }
 
   handleDoubleClick = (e) => {
@@ -63,8 +63,10 @@ class AbstractButton extends Component {
         onDoubleClick={(e) => this.handleDoubleClick(e) }
         onMouseDown={() => this.handleMouse(props.onMouseDown, true)}
         onMouseUp={() => this.handleMouse(props.onMouseUp, false)}
-        onBlur={() => this.props.onBlur() }
-        onContextMenu={(e) => this.handleContextMenu(e)}
+        onBlur={(e) => this.handleBlur(e) }
+        onContextMenu={
+          this.props.onContextMenu && (e => this.handleContextMenu(e))
+        }
         disabled={props.disabled}
         style={ props.style }
       >

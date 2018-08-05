@@ -71,7 +71,7 @@ $windowPadding: 3px;
   }
 }
 
-.context-menu {
+.standard-menu {
   display: inline-flex;
   flex-direction: column;
   word-wrap: none;
@@ -103,7 +103,7 @@ $windowPadding: 3px;
         background-repeat: no-repeat;
         background-position: center;
       }
-      .context-menu__item__text {
+      .standard-menu__item__text {
         padding: 0px 20px 0px 0px;
       }
 
@@ -170,7 +170,7 @@ $windowPadding: 3px;
   }
 }
 
-.context-menu--css {
+.standard-menu--css {
   div {
     &__sub-menu--top { @include onDisplay('top'); }
     &__sub-menu--bottom { @include onDisplay('bottom'); }

@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import classnames from 'classnames';
 import clone from 'clone';
-import ContextMenu from './ContextMenu';
+import StandardMenu from './StandardMenu';
 
 const withContextLogic = ContextButton => {
-  return class ContextMenuSimple extends Component {
+  return class StandardMenuSimple extends Component {
     static defaultProps = {
       value: [],
     };
@@ -17,6 +17,10 @@ const withContextLogic = ContextButton => {
         };
       }
       else return null;
+    }
+
+    constructor(props) {
+      super(props);
     }
 
     state = {
@@ -35,7 +39,6 @@ const withContextLogic = ContextButton => {
         if (Array.isArray(option)) {
           const subIdx = option.findIndex( opt => opt.title === activeFields[idx]);
           if ( subIdx !== -1) {
-            console.log(`${optIdx}, ${subIdx}`);
             newOptions[optIdx][subIdx].isActive = true;
             if (newOptions[optIdx][subIdx].options) {
               newOptions[optIdx][subIdx].options = this.updateActive(
@@ -50,7 +53,6 @@ const withContextLogic = ContextButton => {
         return option.title === activeFields[idx];
       });
       if (changeIdx !== -1) {
-        console.log(changeIdx);
         newOptions[changeIdx].isActive = true;
         newOptions[changeIdx].options = this.updateActive(activeFields, newOptions[changeIdx].options, idx + 1);
       }
@@ -64,8 +66,6 @@ const withContextLogic = ContextButton => {
           clone(this.props.options),
           0,
         );
-        console.log(newOptions);
-        console.log(this.props.options);
         this.setState({ options: newOptions });
       }
     }
@@ -75,7 +75,13 @@ const withContextLogic = ContextButton => {
         this.props.onClick(e);
       }
       this.setState({ isOpen: true });
-      return false
+    }
+
+    handleContextMenu = (e) => {
+      if (this.props.onContextMenu) {
+        this.props.onContextMenu(e);
+      }
+      this.setState({ isOpen: true });
     }
 
     handleBlur(e) {
@@ -90,25 +96,36 @@ const withContextLogic = ContextButton => {
 
     render() {
       const { options, onClick, ...props } = this.props;
-      return (
-        <div
-          className={
-            classnames('context-menu-wrapper', props.className)
-          }
-        >
-          <ContextButton
-            {...props}
-            onBlur={(e) => this.handleBlur(e)}
-            onClick={(e) => this.handleClick(e)}
+      if (ContextButton) {
+        return (
+          <div
+            className={
+              classnames('standard-menu-wrapper', props.className)
+            }
           >
-            { props.children }
-          </ContextButton>
-          <ContextMenu
-            options={this.state.options}
-            className="context-menu__wrapper"
-            mouseEnterItem={(e) => this.mouseEnterItem(e)}
-          />
-        </div>
+            <ContextButton
+              {...props}
+              className={classnames({ 'active': this.state.isOpen })}
+              onBlur={(e) => this.handleBlur(e)}
+              onClick={!this.props.onContextMenu && (e => this.handleClick(e))}
+              onContextMenu={this.props.onContextMenu && (e => this.handleContextMenu(e))}
+            >
+              { props.children }
+            </ContextButton>
+            <StandardMenu
+              options={this.state.options}
+              className="standard-menu__wrapper"
+              mouseEnterItem={(e) => this.mouseEnterItem(e)}
+            />
+          </div>
+        );
+      }
+      return (
+        <StandardMenu
+          options={this.state.options}
+          className="standard-menu__wrapper"
+          mouseEnterItem={(e) => this.mouseEnterItem(e)}
+        />
       );
     };
   };

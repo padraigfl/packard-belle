@@ -2,10 +2,10 @@
 import React from 'react';
 import classnames from 'classnames';
 import Button from '../Button/AbstractButton';
-import withContextWrapper from '../ContextMenu/withContextMenuWrapper';
+import withMenuWrapper from '../StandardMenu/withMenuWrapper';
 import '../../_scss/w98/window.scss';
 
-const MenuEntry = withContextWrapper(Button)
+const MenuEntry = withMenuWrapper(Button)
 
 const MenuBar = props => (
   <menu className="window__menu menu-bar">

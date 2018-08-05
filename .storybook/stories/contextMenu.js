@@ -1,6 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import ContextMenu from '../../src/components/ContextMenu/ContextMenu';
+import ContextMenu from '../../src/components/StandardMenu/StandardMenu';
+import withMenuWrapper from '../../src/components/StandardMenu/withMenuWrapper';
 //import ContextMenuWrapper from '../../src/components/ContextMenu/ContextMenuWrapper';
 
 const optionsSample = [
@@ -52,6 +53,8 @@ const optionsSample = [
 
 const noop = () => {};
 
+const MenuWithLogic = withMenuWrapper();
+
 storiesOf('ContextMenu', module)
   .add('ContextMenu Single Field', () => (
     <ContextMenu
@@ -90,15 +93,15 @@ storiesOf('ContextMenu', module)
         Children display handled via CSS :hover
       </p>
       <ContextMenu
-        className="context-menu--css"
+        className="standard-menu--css"
         options={optionsSample}
       />
       <p>
         Children display handled via JavaScript wrapper component
       </p>
-      {/* <ContextMenuWrapper
+      <MenuWithLogic
         options={optionsSample}
         isActive
-      /> */}
+      />
     </div>
   ));

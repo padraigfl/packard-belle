@@ -47,8 +47,9 @@ const ExplorerWindow = props => (
     { props.footer && (
       <footer>
         { Array.isArray(props.footer) ?
-            props.footer.map(entry => entry ) :
-            props.footer
+            props.footer.map(entry => (
+              <div key={entry.text}>{entry.text || 'Default'}</div>
+            )) : props.footer
         }
       </footer>
     )}

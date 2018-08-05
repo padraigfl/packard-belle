@@ -788,7 +788,7 @@ function styleInject(css, ref) {
   }
 }
 
-var css = "html {\n  font-size: 10px;\n  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;\n  width: 200px;\n  background-color: #bbc3c4;\n  image-rendering: pixelated; }\n  html button {\n    font-size: 10px; }\n  html menu {\n    padding: 0px;\n    margin: 0px; }\n  html .disabled {\n    color: #808088; }\n  html ::-webkit-scrollbar {\n    width: 16px;\n    height: 16px;\n    background-color: white;\n    background-image: url(\"data:image/gif;base64,R0lGODlhAgACAJEAAAAAAP///8zMzP///yH5BAEAAAMALAAAAAACAAIAAAID1CYFADs=\"); }\n    html ::-webkit-scrollbar-track {\n      position: relative; }\n    html ::-webkit-scrollbar-thumb {\n      background: #bbc3c4;\n      box-shadow: inset -1px -1px 0px #808088, inset 1px 1px 0px 0px white;\n      border: 1px solid #0c0c0c;\n      border-top: 1px solid #bbc3c4;\n      border-left: 1px solid #bbc3c4; }\n    html ::-webkit-scrollbar-button {\n      background: #bbc3c4;\n      box-shadow: inset -1px -1px 0px #808088, inset 1px 1px 0px 0px white;\n      border: 1px solid #0c0c0c;\n      border-top: 1px solid #bbc3c4;\n      border-left: 1px solid #bbc3c4; }\n      html ::-webkit-scrollbar-button:start:decrement, html ::-webkit-scrollbar-button:end:increment {\n        height: 16px;\n        width: 16px;\n        display: block;\n        background-repeat: no-repeat;\n        background-color: #bbc3c4; }\n        html ::-webkit-scrollbar-button:start:decrement:active, html ::-webkit-scrollbar-button:end:increment:active {\n          border: 1px solid #808088;\n          box-shadow: none;\n          background-color: #bbc3c4; }\n      html ::-webkit-scrollbar-button:horizontal:decrement {\n        background-image: url(\"data:image/gif;base64,R0lGODlhBAAHAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAEAAcAAAIIlHEIy7ppBCgAOw==\");\n        background-position: 4px 3px; }\n        html ::-webkit-scrollbar-button:horizontal:decrement:active {\n          background-position: 5px 4px; }\n      html ::-webkit-scrollbar-button:horizontal:increment {\n        background-image: url(\"data:image/gif;base64,R0lGODlhBAAHAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAEAAcAAAIIhA4maeyrlCgAOw==\");\n        background-position: 5px 3px; }\n        html ::-webkit-scrollbar-button:horizontal:increment:active {\n          background-position: 6px 4px; }\n      html ::-webkit-scrollbar-button:vertical:decrement {\n        background-image: url(\"data:image/gif;base64,R0lGODlhBwAEAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAHAAQAAAIHlGEJq8sOCwA7\");\n        background-position: 3px 5px; }\n        html ::-webkit-scrollbar-button:vertical:decrement:active {\n          background-position: 4px 6px; }\n      html ::-webkit-scrollbar-button:vertical:increment {\n        background-image: url(\"data:image/gif;base64,R0lGODlhBwAEAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAHAAQAAAIIhA+CKWoNmSgAOw==\");\n        background-position: 3px 5px; }\n        html ::-webkit-scrollbar-button:vertical:increment:active {\n          background-position: 4px 6px; }\n    html ::-webkit-scrollbar-corner {\n      /*\n      background-image: url(resources/corner.png);\n      background-repeat: no-repeat;\n      */\n      background-color: #bbc3c4; }\n\n.w98 *, .w98 {\n  cursor: url(\"data:image/gif;base64,R0lGODlhFgAmAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAWACYAAAJzBISpu8b/jINUHgpNCBMrzV1eAm6dV4YjkppiBWyyisazfDIt/ur2zcv8gDQf8ZYT7IDJJfHkZL6izwtVyhpKLVwtssudpZJZ8ZCstE3GvbSrHGxIPue2hW72CfOkNvy9wrbiFjcoGFhnmIjIp4iGcZdQAAA7\"), default; }\n\n.w98 button {\n  border: 0px solid transparent;\n  background-color: #bbc3c4;\n  position: relative;\n  -webkit-user-select: none;\n  -moz-user-select: none;\n  -ms-user-select: none;\n  user-select: none; }\n  .w98 button:active, .w98 button:focus, .w98 button:active:focus {\n    outline: none; }\n";
+var css = "html {\n  font-size: 10px;\n  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;\n  width: 200px;\n  background-color: #bbc3c4;\n  image-rendering: pixelated; }\n  html button {\n    font-size: 10px; }\n  html menu {\n    padding: 0px;\n    margin: 0px; }\n  html .disabled {\n    color: #808088; }\n  html ::-webkit-scrollbar {\n    width: 16px;\n    height: 16px;\n    background-color: white;\n    background-image: url(\"data:image/gif;base64,R0lGODlhAgACAJEAAAAAAP///8zMzP///yH5BAEAAAMALAAAAAACAAIAAAID1CYFADs=\"); }\n    html ::-webkit-scrollbar-track {\n      position: relative; }\n    html ::-webkit-scrollbar-thumb {\n      background: #bbc3c4;\n      box-shadow: inset -1px -1px 0px #808088, inset 1px 1px 0px 0px white;\n      border: 1px solid #0c0c0c;\n      border-top: 1px solid #bbc3c4;\n      border-left: 1px solid #bbc3c4; }\n    html ::-webkit-scrollbar-button {\n      background: #bbc3c4;\n      box-shadow: inset -1px -1px 0px #808088, inset 1px 1px 0px 0px white;\n      border: 1px solid #0c0c0c;\n      border-top: 1px solid #bbc3c4;\n      border-left: 1px solid #bbc3c4; }\n      html ::-webkit-scrollbar-button:start:decrement, html ::-webkit-scrollbar-button:end:increment {\n        height: 16px;\n        width: 16px;\n        display: block;\n        background-repeat: no-repeat;\n        background-color: #bbc3c4; }\n        html ::-webkit-scrollbar-button:start:decrement:active, html ::-webkit-scrollbar-button:end:increment:active {\n          border: 1px solid #808088;\n          box-shadow: none;\n          background-color: #bbc3c4; }\n      html ::-webkit-scrollbar-button:horizontal:decrement {\n        background-image: url(\"data:image/gif;base64,R0lGODlhBAAHAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAEAAcAAAIIlHEIy7ppBCgAOw==\");\n        background-position: 4px 3px; }\n        html ::-webkit-scrollbar-button:horizontal:decrement:active {\n          background-position: 5px 4px; }\n      html ::-webkit-scrollbar-button:horizontal:increment {\n        background-image: url(\"data:image/gif;base64,R0lGODlhBAAHAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAEAAcAAAIIhA4maeyrlCgAOw==\");\n        background-position: 5px 3px; }\n        html ::-webkit-scrollbar-button:horizontal:increment:active {\n          background-position: 6px 4px; }\n      html ::-webkit-scrollbar-button:vertical:decrement {\n        background-image: url(\"data:image/gif;base64,R0lGODlhBwAEAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAHAAQAAAIHlGEJq8sOCwA7\");\n        background-position: 3px 5px; }\n        html ::-webkit-scrollbar-button:vertical:decrement:active {\n          background-position: 4px 6px; }\n      html ::-webkit-scrollbar-button:vertical:increment {\n        background-image: url(\"data:image/gif;base64,R0lGODlhBwAEAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAHAAQAAAIIhA+CKWoNmSgAOw==\");\n        background-position: 3px 5px; }\n        html ::-webkit-scrollbar-button:vertical:increment:active {\n          background-position: 4px 6px; }\n    html ::-webkit-scrollbar-corner {\n      /*\n      background-image: url(resources/corner.png);\n      background-repeat: no-repeat;\n      */\n      background-color: #bbc3c4; }\n\n.w98 *, .w98 {\n  cursor: url(\"data:image/gif;base64,R0lGODlhCwATAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAALABMAAAIrhI4JlhrcBAgvSlrbxPBs7mAU9IlMaV7mwo6jY2zk+Xphh8iWint1tDgUAAA7\"), default; }\n\n.w98.x2 {\n  transform: scale(2); }\n  .w98.x2 *, .w98.x2 {\n    cursor: url(\"data:image/gif;base64,R0lGODlhFgAmAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAWACYAAAJzBISpu8b/jINUHgpNCBMrzV1eAm6dV4YjkppiBWyyisazfDIt/ur2zcv8gDQf8ZYT7IDJJfHkZL6izwtVyhpKLVwtssudpZJZ8ZCstE3GvbSrHGxIPue2hW72CfOkNvy9wrbiFjcoGFhnmIjIp4iGcZdQAAA7\"), default; }\n";
 styleInject(css);
 
 var Theme = function Theme(props) {
@@ -987,10 +987,10 @@ var AbstractButton = function (_Component) {
     }, _this.handleContextMenu = function (e) {
       e.preventDefault();
       e.stopPropagation();
+      _this.button.focus();
       if (_this.props.onContextMenu) {
         _this.props.onContextMenu(e);
       }
-      return false;
     }, _this.handleDoubleClick = function (e) {
       if (_this.props.onDoubleClick) {
         _this.props.onDoubleClick(e);
@@ -1029,10 +1029,10 @@ var AbstractButton = function (_Component) {
           onMouseUp: function onMouseUp() {
             return _this2.handleMouse(props.onMouseUp, false);
           },
-          onBlur: function onBlur() {
-            return _this2.props.onBlur();
+          onBlur: function onBlur(e) {
+            return _this2.handleBlur(e);
           },
-          onContextMenu: function onContextMenu(e) {
+          onContextMenu: this.props.onContextMenu && function (e) {
             return _this2.handleContextMenu(e);
           },
           disabled: props.disabled,
@@ -1186,7 +1186,7 @@ NavButton$2.propTypes = {
   isActive: propTypes.bool
 };
 
-var css$8 = ".w98 .window {\n  position: relative;\n  background-color: #bbc3c4;\n  padding: 3px;\n  box-shadow: inset -1px -1px 0px #0c0c0c, inset 1px 1px 0px #bbc3c4, inset -2px -2px 0px #808088, inset 2px 2px 0px white; }\n  .w98 .window__heading {\n    display: flex;\n    background: linear-gradient(to right, #0000a2, #126fc2);\n    font-weight: bold;\n    color: white;\n    margin-bottom: 1px;\n    padding: 0px 3px;\n    align-items: center; }\n  .w98 .window__icon {\n    padding: 8px;\n    display: flex;\n    background-size: 14px;\n    background-repeat: no-repeat;\n    background-position: center; }\n  .w98 .window__title {\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    flex-grow: 1;\n    min-width: 0px; }\n  .w98 .window__close, .w98 .window__restore, .w98 .window__minimize, .w98 .window__maximize {\n    padding: 0px;\n    min-width: initial;\n    width: 16px;\n    height: 14px;\n    margin-left: 1px;\n    image-rendering: pixelated;\n    display: flex;\n    align-items: center;\n    flex-shrink: 0;\n    background-repeat: no-repeat;\n    background-position: 1px 1px; }\n    .w98 .window__close:focus, .w98 .window__close.clicked, .w98 .window__restore:focus, .w98 .window__restore.clicked, .w98 .window__minimize:focus, .w98 .window__minimize.clicked, .w98 .window__maximize:focus, .w98 .window__maximize.clicked {\n      outline: none;\n      border: none; }\n    .w98 .window__close:active:focus, .w98 .window__close.clicked, .w98 .window__restore:active:focus, .w98 .window__restore.clicked, .w98 .window__minimize:active:focus, .w98 .window__minimize.clicked, .w98 .window__maximize:active:focus, .w98 .window__maximize.clicked {\n      padding-top: 2px;\n      padding-bottom: 1px;\n      padding-left: 4px;\n      padding-right: 8px;\n      background-position: 2px 2px; }\n  .w98 .window__close {\n    margin-left: 2px;\n    background-image: url(\"data:image/gif;base64,R0lGODlhDQALAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAANAAsAAAIUlI+pKwDoVGxvucmwvblqo33MqBQAOw==\"); }\n  .w98 .window__restore {\n    background-image: url(\"data:image/gif;base64,R0lGODlhDQALAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAANAAsAAAIZlI9pwK3SnAKI1kjtwTlpyHjV830b9qRHAQA7\"); }\n  .w98 .window__minimize {\n    background-image: url(\"data:image/gif;base64,R0lGODlhDQALAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAANAAsAAAIOlI+py+0PozSg2mXvFAUAOw==\"); }\n  .w98 .window__maximize {\n    background-image: url(\"data:image/gif;base64,R0lGODlhDQALAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAANAAsAAAIXlI8Jy4wNXzJAznqwsjtPoYFfCDXfWQAAOw==\"); }\n  .w98 .window__menu, .w98 .window .menu-bar {\n    display: flex;\n    padding: 0px;\n    font-size: 1rem;\n    position: relative;\n    overflow-y: visible;\n    z-index: 20; }\n    .w98 .window__menu__section, .w98 .window .menu-bar__section {\n      position: relative; }\n      .w98 .window__menu__section > button, .w98 .window .menu-bar__section > button {\n        padding: 0px 4px;\n        outline: none;\n        border: none;\n        user-select: none;\n        color: #0c0c0c;\n        display: inline-block;\n        background-color: rgba(0, 0, 0, 0);\n        width: 100%;\n        overflow: hidden;\n        white-space: nowrap;\n        text-overflow: ellipsis;\n        text-align: left;\n        padding: 3px 6px; }\n        .w98 .window__menu__section > button + .context-menu, .w98 .window__menu__section > button + .menu-bar__section__dropdown, .w98 .window .menu-bar__section > button + .context-menu, .w98 .window .menu-bar__section > button + .menu-bar__section__dropdown {\n          z-index: 20;\n          visibility: hidden;\n          position: absolute;\n          max-height: 0px;\n          top: 100%;\n          left: 0px;\n          transition: max-height linear 750ms; }\n        .w98 .window__menu__section > button:hover, .w98 .window .menu-bar__section > button:hover {\n          box-shadow: inset -1px -1px 0px #808088, inset 1px 1px 0px white; }\n        .w98 .window__menu__section > button:active, .w98 .window__menu__section > button:focus, .w98 .window__menu__section > button:active:focus, .w98 .window__menu__section > button.active, .w98 .window__menu__section > button.clicked, .w98 .window .menu-bar__section > button:active, .w98 .window .menu-bar__section > button:focus, .w98 .window .menu-bar__section > button:active:focus, .w98 .window .menu-bar__section > button.active, .w98 .window .menu-bar__section > button.clicked {\n          box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px #808088;\n          padding: 4px 5px 2px 7px; }\n          .w98 .window__menu__section > button:active + .context-menu, .w98 .window__menu__section > button:focus + .context-menu, .w98 .window__menu__section > button:active:focus + .context-menu, .w98 .window__menu__section > button.active + .context-menu, .w98 .window__menu__section > button.clicked + .context-menu, .w98 .window .menu-bar__section > button:active + .context-menu, .w98 .window .menu-bar__section > button:focus + .context-menu, .w98 .window .menu-bar__section > button:active:focus + .context-menu, .w98 .window .menu-bar__section > button.active + .context-menu, .w98 .window .menu-bar__section > button.clicked + .context-menu {\n            visibility: visible;\n            max-height: 480px; }\n  .w98 .window__details {\n    position: relative;\n    border: 1px solid white;\n    outline: 1px solid darkgrey;\n    padding: 5px;\n    margin: 16px 8px 8px; }\n    .w98 .window__details__title {\n      position: absolute;\n      top: -10px;\n      padding: 2px 4px;\n      background-color: #bbc3c4; }\n  .w98 .window section {\n    position: relative;\n    border: 1px solid white;\n    outline: 1px solid darkgrey;\n    padding: 5px;\n    margin: 16px 8px 8px; }\n    .w98 .window section .title {\n      position: absolute;\n      top: -10px;\n      padding: 2px 4px;\n      background-color: #bbc3c4; }\n  .w98 .window--alert {\n    max-width: 320px; }\n    .w98 .window--alert__message {\n      display: flex;\n      align-items: center;\n      min-height: 28px;\n      padding: 10px 2px 6px; }\n      .w98 .window--alert__message.has-icon {\n        background-size: 28px 28px;\n        background-repeat: no-repeat;\n        background-position: 6px 6px;\n        padding: 6px 2px 6px 44px; }\n    .w98 .window--alert__actions {\n      width: 100%;\n      display: flex;\n      justify-content: center; }\n      .w98 .window--alert__actions .btn--form {\n        margin: 0px 4px 8px; }\n";
+var css$8 = ".w98 .window {\n  position: relative;\n  background-color: #bbc3c4;\n  padding: 3px;\n  box-shadow: inset -1px -1px 0px #0c0c0c, inset 1px 1px 0px #bbc3c4, inset -2px -2px 0px #808088, inset 2px 2px 0px white; }\n  .w98 .window__heading {\n    display: flex;\n    background: linear-gradient(to right, #0000a2, #126fc2);\n    font-weight: bold;\n    color: white;\n    margin-bottom: 1px;\n    padding: 0px 3px;\n    align-items: center; }\n  .w98 .window__icon {\n    padding: 8px;\n    display: flex;\n    background-size: 14px;\n    background-repeat: no-repeat;\n    background-position: center; }\n  .w98 .window__title {\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    flex-grow: 1;\n    min-width: 0px; }\n  .w98 .window__close, .w98 .window__restore, .w98 .window__minimize, .w98 .window__maximize {\n    padding: 0px;\n    min-width: initial;\n    width: 16px;\n    height: 14px;\n    margin-left: 1px;\n    image-rendering: pixelated;\n    display: flex;\n    align-items: center;\n    flex-shrink: 0;\n    background-repeat: no-repeat;\n    background-position: 1px 1px; }\n    .w98 .window__close:focus, .w98 .window__close.clicked, .w98 .window__restore:focus, .w98 .window__restore.clicked, .w98 .window__minimize:focus, .w98 .window__minimize.clicked, .w98 .window__maximize:focus, .w98 .window__maximize.clicked {\n      outline: none;\n      border: none; }\n    .w98 .window__close:active:focus, .w98 .window__close.clicked, .w98 .window__restore:active:focus, .w98 .window__restore.clicked, .w98 .window__minimize:active:focus, .w98 .window__minimize.clicked, .w98 .window__maximize:active:focus, .w98 .window__maximize.clicked {\n      padding-top: 2px;\n      padding-bottom: 1px;\n      padding-left: 4px;\n      padding-right: 8px;\n      background-position: 2px 2px; }\n  .w98 .window__close {\n    margin-left: 2px;\n    background-image: url(\"data:image/gif;base64,R0lGODlhDQALAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAANAAsAAAIUlI+pKwDoVGxvucmwvblqo33MqBQAOw==\"); }\n  .w98 .window__restore {\n    background-image: url(\"data:image/gif;base64,R0lGODlhDQALAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAANAAsAAAIZlI9pwK3SnAKI1kjtwTlpyHjV830b9qRHAQA7\"); }\n  .w98 .window__minimize {\n    background-image: url(\"data:image/gif;base64,R0lGODlhDQALAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAANAAsAAAIOlI+py+0PozSg2mXvFAUAOw==\"); }\n  .w98 .window__maximize {\n    background-image: url(\"data:image/gif;base64,R0lGODlhDQALAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAANAAsAAAIXlI8Jy4wNXzJAznqwsjtPoYFfCDXfWQAAOw==\"); }\n  .w98 .window__menu, .w98 .window .menu-bar {\n    display: flex;\n    padding: 0px;\n    font-size: 1rem;\n    position: relative;\n    overflow-y: visible;\n    z-index: 20; }\n    .w98 .window__menu__section, .w98 .window .menu-bar__section {\n      position: relative; }\n      .w98 .window__menu__section > button, .w98 .window .menu-bar__section > button {\n        padding: 0px 4px;\n        outline: none;\n        border: none;\n        user-select: none;\n        color: #0c0c0c;\n        display: inline-block;\n        background-color: rgba(0, 0, 0, 0);\n        width: 100%;\n        overflow: hidden;\n        white-space: nowrap;\n        text-overflow: ellipsis;\n        text-align: left;\n        padding: 3px 6px; }\n        .w98 .window__menu__section > button + .standard-menu, .w98 .window__menu__section > button + .menu-bar__section__dropdown, .w98 .window .menu-bar__section > button + .standard-menu, .w98 .window .menu-bar__section > button + .menu-bar__section__dropdown {\n          z-index: 20;\n          visibility: hidden;\n          position: absolute;\n          max-height: 0px;\n          top: 100%;\n          left: 0px;\n          transition: max-height linear 750ms; }\n        .w98 .window__menu__section > button:hover, .w98 .window .menu-bar__section > button:hover {\n          box-shadow: inset -1px -1px 0px #808088, inset 1px 1px 0px white; }\n        .w98 .window__menu__section > button:active, .w98 .window__menu__section > button:focus, .w98 .window__menu__section > button:active:focus, .w98 .window__menu__section > button.active, .w98 .window__menu__section > button.clicked, .w98 .window .menu-bar__section > button:active, .w98 .window .menu-bar__section > button:focus, .w98 .window .menu-bar__section > button:active:focus, .w98 .window .menu-bar__section > button.active, .w98 .window .menu-bar__section > button.clicked {\n          box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px #808088;\n          padding: 4px 5px 2px 7px; }\n          .w98 .window__menu__section > button:active + .standard-menu, .w98 .window__menu__section > button:focus + .standard-menu, .w98 .window__menu__section > button:active:focus + .standard-menu, .w98 .window__menu__section > button.active + .standard-menu, .w98 .window__menu__section > button.clicked + .standard-menu, .w98 .window .menu-bar__section > button:active + .standard-menu, .w98 .window .menu-bar__section > button:focus + .standard-menu, .w98 .window .menu-bar__section > button:active:focus + .standard-menu, .w98 .window .menu-bar__section > button.active + .standard-menu, .w98 .window .menu-bar__section > button.clicked + .standard-menu {\n            visibility: visible;\n            max-height: 480px; }\n  .w98 .window__details {\n    position: relative;\n    border: 1px solid white;\n    outline: 1px solid darkgrey;\n    padding: 5px;\n    margin: 16px 8px 8px; }\n    .w98 .window__details__title {\n      position: absolute;\n      top: -10px;\n      padding: 2px 4px;\n      background-color: #bbc3c4; }\n  .w98 .window section {\n    position: relative;\n    border: 1px solid white;\n    outline: 1px solid darkgrey;\n    padding: 5px;\n    margin: 16px 8px 8px; }\n    .w98 .window section .title {\n      position: absolute;\n      top: -10px;\n      padding: 2px 4px;\n      background-color: #bbc3c4; }\n  .w98 .window--alert {\n    max-width: 320px; }\n    .w98 .window--alert__message {\n      display: flex;\n      align-items: center;\n      min-height: 28px;\n      padding: 10px 2px 6px; }\n      .w98 .window--alert__message.has-icon {\n        background-size: 28px 28px;\n        background-repeat: no-repeat;\n        background-position: 6px 6px;\n        padding: 6px 2px 6px 44px; }\n    .w98 .window--alert__actions {\n      width: 100%;\n      display: flex;\n      justify-content: center; }\n      .w98 .window--alert__actions .btn--form {\n        margin: 0px 4px 8px; }\n";
 styleInject(css$8);
 
 var WindowFrame = function WindowFrame(props) {
@@ -1202,21 +1202,19 @@ WindowFrame.propTypes = {
   className: propTypes.string
 };
 
-var ContextMenuItem = function ContextMenuItem(props) {
+var StandardMenuItem = function StandardMenuItem(props) {
   return React.createElement(
     'div',
     {
-      className: classnames('context-menu__item', props.className, props.type, { 'context-menu__item--has-options': props.options, 'active': props.isActive }),
-      onMouseEnter: function onMouseEnter(e) {
-        return props.mouseEnterItem(e);
-      },
+      className: classnames('standard-menu__item', props.className, props.type, { 'standard-menu__item--has-options': props.options, 'active': props.isActive }),
+      onMouseEnter: props.mouseEnterItem,
       onMouseLeave: function onMouseLeave() {},
       onMouseOut: function onMouseOut() {}
     },
     React.createElement(
       'button',
       {
-        className: classnames('context-menu__item__button', { disabled: props.disabled }),
+        className: classnames('standard-menu__item__button', { disabled: props.disabled }),
         onClick: props.onClick,
         style: props.icon ? { backgroundImage: 'url(\'' + props.icon + '\')' } : undefined,
         value: props.value,
@@ -1224,8 +1222,8 @@ var ContextMenuItem = function ContextMenuItem(props) {
       },
       props.title
     ),
-    props.options && React.createElement(ContextMenuSimple, {
-      className: 'context-menu__item__child',
+    props.options && React.createElement(StandardMenuSimple, {
+      className: 'standard-menu__item__child',
       options: props.options,
       value: props.value,
       mouseEnterItem: props.mouseEnterItem
@@ -1233,28 +1231,21 @@ var ContextMenuItem = function ContextMenuItem(props) {
   );
 };
 
-ContextMenuItem.defaultProps = {
+StandardMenuItem.defaultProps = {
   onClick: function onClick() {},
   value: []
 };
 
-var css$9 = ".context-menu {\n  display: inline-flex;\n  flex-direction: column;\n  word-wrap: none;\n  white-space: nowrap;\n  text-overflow: clip; }\n  .context-menu > div {\n    position: relative; }\n    .context-menu > div > .window {\n      position: absolute;\n      visibility: hidden;\n      width: auto;\n      transition: max-width cubic-bezier(0.38, 0.01, 0, 1) 200ms, max-height cubic-bezier(0.38, 0.01, 0, 1) 200ms; }\n    .context-menu > div.active > .window {\n      width: auto;\n      visibility: visible; }\n    .context-menu > div > .window {\n      left: calc(100%  - 3px);\n      top: -3px;\n      max-width: 0%; }\n    .context-menu > div:hover > .window, .context-menu > div.active > .window {\n      max-width: 400%; }\n    .context-menu > div > button {\n      position: relative;\n      display: block;\n      width: 100%;\n      padding: 0px 20px 0px 20px;\n      text-align: left;\n      background-repeat: no-repeat;\n      background-size: 16px;\n      background-position: 3px center;\n      background-color: rgba(0, 0, 0, 0);\n      border: none;\n      outline: none;\n      height: 20px; }\n      .context-menu > div > button:before {\n        content: '';\n        position: absolute;\n        left: 0px;\n        top: 0px;\n        height: 16px;\n        width: 16px;\n        background-repeat: no-repeat;\n        background-position: center; }\n      .context-menu > div > button .context-menu__item__text {\n        padding: 0px 20px 0px 0px; }\n      .context-menu > div > button:disabled, .context-menu > div > button.disabled {\n        color: #808088; }\n      .context-menu > div > button:not(:only-child):after {\n        content: '';\n        position: absolute;\n        background-image: url(\"data:image/gif;base64,R0lGODlhBAAHAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAEAAcAAAIIhA4maeyrlCgAOw==\");\n        top: 0px;\n        left: 0px;\n        height: 100%;\n        width: calc(100% - 8px);\n        background-position: right center;\n        background-repeat: no-repeat; }\n    .context-menu > div.radio-selected > button:before {\n      background-image: url(\"data:image/gif;base64,R0lGODlhBgAGAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAGAAYAAAIIFA6Gy816RAEAOw==\"); }\n    .context-menu > div.checked > button:before {\n      background-image: url(\"data:image/gif;base64,R0lGODlhBwAHAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAHAAcAAAIMlA9nwMj9xGuLIlUAADs=\"); }\n    .context-menu > div.checked.disabled > button:before {\n      background-image: url(\"data:image/gif;base64,R0lGODlhBwAHAJEAAAAAAP///5mZmf///yH5BAEAAAMALAAAAAAHAAcAAAIMnC9nwsj9xmuLIlUAADs=\"); }\n    .context-menu > div:hover, .context-menu > div:active, .context-menu > div:focus, .context-menu > div:active:focus, .context-menu > div.active, .context-menu > div.clicked {\n      color: white; }\n      .context-menu > div:hover > button:not(.disabled), .context-menu > div:active > button:not(.disabled), .context-menu > div:focus > button:not(.disabled), .context-menu > div:active:focus > button:not(.disabled), .context-menu > div.active > button:not(.disabled), .context-menu > div.clicked > button:not(.disabled) {\n        color: white;\n        background-color: #0000a2; }\n        .context-menu > div:hover > button:not(.disabled):not(:only-child):after, .context-menu > div:active > button:not(.disabled):not(:only-child):after, .context-menu > div:focus > button:not(.disabled):not(:only-child):after, .context-menu > div:active:focus > button:not(.disabled):not(:only-child):after, .context-menu > div.active > button:not(.disabled):not(:only-child):after, .context-menu > div.clicked > button:not(.disabled):not(:only-child):after {\n          background-image: url(\"data:image/gif;base64,R0lGODlhBAAHAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAEAAcAAAIIjB4maeyrlCgAOw==\"); }\n  .context-menu div:empty {\n    position: relative;\n    width: 95%;\n    margin: 2px auto;\n    border-top: 1px solid #808088;\n    border-bottom: 1px solid white;\n    display: none; }\n  .context-menu :not(:empty) + div:empty:not(:last-child):not(:first-child) {\n    display: block; }\n\n.context-menu--css div__sub-menu--top > .window {\n  position: absolute;\n  visibility: hidden;\n  width: auto;\n  transition: max-width cubic-bezier(0.38, 0.01, 0, 1) 200ms, max-height cubic-bezier(0.38, 0.01, 0, 1) 200ms; }\n\n.context-menu--css div__sub-menu--top.active > .window {\n  width: auto;\n  visibility: visible; }\n\n.context-menu--css div__sub-menu--top > .window {\n  bottom: calc(100% + $windowPadding);\n  left: 0px;\n  height: 0px;\n  max-height: 0%;\n  max-width: 100%; }\n\n.context-menu--css div__sub-menu--top:hover > .window, .context-menu--css div__sub-menu--top.active > .window {\n  height: initial;\n  max-height: 100%; }\n\n.context-menu--css div__sub-menu--bottom > .window {\n  position: absolute;\n  visibility: hidden;\n  width: auto;\n  transition: max-width cubic-bezier(0.38, 0.01, 0, 1) 200ms, max-height cubic-bezier(0.38, 0.01, 0, 1) 200ms; }\n\n.context-menu--css div__sub-menu--bottom.active > .window {\n  width: auto;\n  visibility: visible; }\n\n.context-menu--css div__sub-menu--bottom > .window {\n  top: calc(100% + $windowPadding);\n  left: 0px;\n  max-height: 0%;\n  max-width: 100%; }\n\n.context-menu--css div__sub-menu--bottom:hover > .window, .context-menu--css div__sub-menu--bottom.active > .window {\n  height: initial;\n  max-height: 100%; }\n\n.context-menu--css div__sub-menu--left > .window {\n  position: absolute;\n  visibility: hidden;\n  width: auto;\n  transition: max-width cubic-bezier(0.38, 0.01, 0, 1) 200ms, max-height cubic-bezier(0.38, 0.01, 0, 1) 200ms; }\n\n.context-menu--css div__sub-menu--left.active > .window {\n  width: auto;\n  visibility: visible; }\n\n.context-menu--css div__sub-menu--left > .window {\n  left: -100%;\n  top: -3px;\n  max-width: 0%; }\n\n.context-menu--css div__sub-menu--left:hover > .window, .context-menu--css div__sub-menu--left.active > .window {\n  max-width: 100%; }\n\n.context-menu--css div:active, .context-menu--css div .active {\n  display: none; }\n\n.context-menu--css div:hover > .window {\n  width: auto;\n  visibility: visible;\n  display: block; }\n";
+var css$9 = ".standard-menu {\n  display: inline-flex;\n  flex-direction: column;\n  word-wrap: none;\n  white-space: nowrap;\n  text-overflow: clip; }\n  .standard-menu > div {\n    position: relative; }\n    .standard-menu > div > .window {\n      position: absolute;\n      visibility: hidden;\n      width: auto;\n      transition: max-width cubic-bezier(0.38, 0.01, 0, 1) 200ms, max-height cubic-bezier(0.38, 0.01, 0, 1) 200ms; }\n    .standard-menu > div.active > .window {\n      width: auto;\n      visibility: visible; }\n    .standard-menu > div > .window {\n      left: calc(100%  - 3px);\n      top: -3px;\n      max-width: 0%; }\n    .standard-menu > div:hover > .window, .standard-menu > div.active > .window {\n      max-width: 400%; }\n    .standard-menu > div > button {\n      position: relative;\n      display: block;\n      width: 100%;\n      padding: 0px 20px 0px 20px;\n      text-align: left;\n      background-repeat: no-repeat;\n      background-size: 16px;\n      background-position: 3px center;\n      background-color: rgba(0, 0, 0, 0);\n      border: none;\n      outline: none;\n      height: 20px; }\n      .standard-menu > div > button:before {\n        content: '';\n        position: absolute;\n        left: 0px;\n        top: 0px;\n        height: 16px;\n        width: 16px;\n        background-repeat: no-repeat;\n        background-position: center; }\n      .standard-menu > div > button .standard-menu__item__text {\n        padding: 0px 20px 0px 0px; }\n      .standard-menu > div > button:disabled, .standard-menu > div > button.disabled {\n        color: #808088; }\n      .standard-menu > div > button:not(:only-child):after {\n        content: '';\n        position: absolute;\n        background-image: url(\"data:image/gif;base64,R0lGODlhBAAHAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAEAAcAAAIIhA4maeyrlCgAOw==\");\n        top: 0px;\n        left: 0px;\n        height: 100%;\n        width: calc(100% - 8px);\n        background-position: right center;\n        background-repeat: no-repeat; }\n    .standard-menu > div.radio-selected > button:before {\n      background-image: url(\"data:image/gif;base64,R0lGODlhBgAGAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAGAAYAAAIIFA6Gy816RAEAOw==\"); }\n    .standard-menu > div.checked > button:before {\n      background-image: url(\"data:image/gif;base64,R0lGODlhBwAHAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAHAAcAAAIMlA9nwMj9xGuLIlUAADs=\"); }\n    .standard-menu > div.checked.disabled > button:before {\n      background-image: url(\"data:image/gif;base64,R0lGODlhBwAHAJEAAAAAAP///5mZmf///yH5BAEAAAMALAAAAAAHAAcAAAIMnC9nwsj9xmuLIlUAADs=\"); }\n    .standard-menu > div:hover, .standard-menu > div:active, .standard-menu > div:focus, .standard-menu > div:active:focus, .standard-menu > div.active, .standard-menu > div.clicked {\n      color: white; }\n      .standard-menu > div:hover > button:not(.disabled), .standard-menu > div:active > button:not(.disabled), .standard-menu > div:focus > button:not(.disabled), .standard-menu > div:active:focus > button:not(.disabled), .standard-menu > div.active > button:not(.disabled), .standard-menu > div.clicked > button:not(.disabled) {\n        color: white;\n        background-color: #0000a2; }\n        .standard-menu > div:hover > button:not(.disabled):not(:only-child):after, .standard-menu > div:active > button:not(.disabled):not(:only-child):after, .standard-menu > div:focus > button:not(.disabled):not(:only-child):after, .standard-menu > div:active:focus > button:not(.disabled):not(:only-child):after, .standard-menu > div.active > button:not(.disabled):not(:only-child):after, .standard-menu > div.clicked > button:not(.disabled):not(:only-child):after {\n          background-image: url(\"data:image/gif;base64,R0lGODlhBAAHAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAEAAcAAAIIjB4maeyrlCgAOw==\"); }\n  .standard-menu div:empty {\n    position: relative;\n    width: 95%;\n    margin: 2px auto;\n    border-top: 1px solid #808088;\n    border-bottom: 1px solid white;\n    display: none; }\n  .standard-menu :not(:empty) + div:empty:not(:last-child):not(:first-child) {\n    display: block; }\n\n.standard-menu--css div__sub-menu--top > .window {\n  position: absolute;\n  visibility: hidden;\n  width: auto;\n  transition: max-width cubic-bezier(0.38, 0.01, 0, 1) 200ms, max-height cubic-bezier(0.38, 0.01, 0, 1) 200ms; }\n\n.standard-menu--css div__sub-menu--top.active > .window {\n  width: auto;\n  visibility: visible; }\n\n.standard-menu--css div__sub-menu--top > .window {\n  bottom: calc(100% + $windowPadding);\n  left: 0px;\n  height: 0px;\n  max-height: 0%;\n  max-width: 100%; }\n\n.standard-menu--css div__sub-menu--top:hover > .window, .standard-menu--css div__sub-menu--top.active > .window {\n  height: initial;\n  max-height: 100%; }\n\n.standard-menu--css div__sub-menu--bottom > .window {\n  position: absolute;\n  visibility: hidden;\n  width: auto;\n  transition: max-width cubic-bezier(0.38, 0.01, 0, 1) 200ms, max-height cubic-bezier(0.38, 0.01, 0, 1) 200ms; }\n\n.standard-menu--css div__sub-menu--bottom.active > .window {\n  width: auto;\n  visibility: visible; }\n\n.standard-menu--css div__sub-menu--bottom > .window {\n  top: calc(100% + $windowPadding);\n  left: 0px;\n  max-height: 0%;\n  max-width: 100%; }\n\n.standard-menu--css div__sub-menu--bottom:hover > .window, .standard-menu--css div__sub-menu--bottom.active > .window {\n  height: initial;\n  max-height: 100%; }\n\n.standard-menu--css div__sub-menu--left > .window {\n  position: absolute;\n  visibility: hidden;\n  width: auto;\n  transition: max-width cubic-bezier(0.38, 0.01, 0, 1) 200ms, max-height cubic-bezier(0.38, 0.01, 0, 1) 200ms; }\n\n.standard-menu--css div__sub-menu--left.active > .window {\n  width: auto;\n  visibility: visible; }\n\n.standard-menu--css div__sub-menu--left > .window {\n  left: -100%;\n  top: -3px;\n  max-width: 0%; }\n\n.standard-menu--css div__sub-menu--left:hover > .window, .standard-menu--css div__sub-menu--left.active > .window {\n  max-width: 100%; }\n\n.standard-menu--css div:active, .standard-menu--css div .active {\n  display: none; }\n\n.standard-menu--css div:hover > .window {\n  width: auto;\n  visibility: visible;\n  display: block; }\n";
 styleInject(css$9);
 
-var ContextMenuSimple = function ContextMenuSimple(props) {
-  if (props.children) {
-    return React.createElement(
-      WindowFrame,
-      {
-        className: classnames('context-menu context-menu--custom', props.className, props.direction)
-      },
-      props.children
-    );
-  }
+var StandardMenuSimple = function StandardMenuSimple(props) {
   return React.createElement(
     WindowFrame,
     {
-      className: classnames('context-menu', props.className, props.direction)
+      className: classnames('standard-menu', props.className, props.direction, {
+        'standard-menu--visible': props.visible
+      })
     },
     props.options.map(function (option) {
       if (Array.isArray(option)) {
@@ -1263,32 +1254,28 @@ var ContextMenuSimple = function ContextMenuSimple(props) {
           { key: 'menu-subset-' + option[0].title },
           React.createElement('div', { className: 'divider divider--start' }),
           option.map(function (subOption) {
-            return React.createElement(ContextMenuItem, _extends({
+            return React.createElement(StandardMenuItem, _extends({
               key: 'menu-divider-' + subOption.title
             }, subOption, {
               value: [].concat(toConsumableArray(props.value), [subOption.title]),
-              mouseEnterItem: function mouseEnterItem(e) {
-                return props.mouseEnterItem(e);
-              }
+              mouseEnterItem: props.mouseEnterItem
             }));
           }),
           React.createElement('div', { className: 'divider divider--end' })
         );
       } else {
-        return React.createElement(ContextMenuItem, _extends({
-          key: 'context-menu-item-' + option.title
+        return React.createElement(StandardMenuItem, _extends({
+          key: 'standard-menu-item-' + option.title
         }, option, {
           value: [].concat(toConsumableArray(props.value), [option.title]),
-          mouseEnterItem: function mouseEnterItem(e) {
-            return props.mouseEnterItem(e);
-          }
+          mouseEnterItem: props.mouseEnterItem
         }));
       }
     })
   );
 };
 
-ContextMenuSimple.defaultProps = {
+StandardMenuSimple.defaultProps = {
   value: []
 };
 
@@ -1552,42 +1539,57 @@ if (module.exports) {
 });
 
 var withContextLogic = function withContextLogic(ContextButton) {
-  var _class, _temp2;
+  var _class, _temp;
 
-  return _temp2 = _class = function (_Component) {
-    inherits(ContextMenuSimple$$1, _Component);
-
-    function ContextMenuSimple$$1() {
-      var _ref;
-
-      var _temp, _this, _ret;
-
-      classCallCheck(this, ContextMenuSimple$$1);
-
-      for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-        args[_key] = arguments[_key];
+  return _temp = _class = function (_Component) {
+    inherits(StandardMenuSimple$$1, _Component);
+    createClass(StandardMenuSimple$$1, null, [{
+      key: 'getDerivedStateFromProps',
+      value: function getDerivedStateFromProps(nextProps, prevState) {
+        if (nextProps.isActive !== prevState.isActive) {
+          return {
+            options: nextProps.options,
+            isActive: nextProps.isActive
+          };
+        } else return null;
       }
+    }]);
 
-      return _ret = (_temp = (_this = possibleConstructorReturn(this, (_ref = ContextMenuSimple$$1.__proto__ || Object.getPrototypeOf(ContextMenuSimple$$1)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+    function StandardMenuSimple$$1(props) {
+      classCallCheck(this, StandardMenuSimple$$1);
+
+      var _this = possibleConstructorReturn(this, (StandardMenuSimple$$1.__proto__ || Object.getPrototypeOf(StandardMenuSimple$$1)).call(this, props));
+
+      _this.state = {
         options: _this.props.options,
         isActive: _this.props.isActive
-      }, _this.mouseEnterItem = function (e) {
+      };
+
+      _this.mouseEnterItem = function (e) {
         if (e.target.value) {
           var newOptions = _this.updateActive(e.target.value.split(','), clone_1(_this.props.options), 0);
-          console.log(newOptions);
-          console.log(_this.props.options);
           _this.setState({ options: newOptions });
         }
-      }, _this.handleClick = function (e) {
+      };
+
+      _this.handleClick = function (e) {
         if (_this.props.onClick) {
           _this.props.onClick(e);
         }
         _this.setState({ isOpen: true });
-        return false;
-      }, _temp), possibleConstructorReturn(_this, _ret);
+      };
+
+      _this.handleContextMenu = function (e) {
+        if (_this.props.onContextMenu) {
+          _this.props.onContextMenu(e);
+        }
+        _this.setState({ isOpen: true });
+      };
+
+      return _this;
     }
 
-    createClass(ContextMenuSimple$$1, [{
+    createClass(StandardMenuSimple$$1, [{
       key: 'updateActive',
       value: function updateActive(activeFields, newOptions) {
         var _this2 = this;
@@ -1606,7 +1608,6 @@ var withContextLogic = function withContextLogic(ContextButton) {
               return opt.title === activeFields[idx];
             });
             if (subIdx !== -1) {
-              console.log(optIdx + ', ' + subIdx);
               newOptions[optIdx][subIdx].isActive = true;
               if (newOptions[optIdx][subIdx].options) {
                 newOptions[optIdx][subIdx].options = _this2.updateActive(activeFields, newOptions[optIdx][subIdx].options, idx + 1);
@@ -1617,7 +1618,6 @@ var withContextLogic = function withContextLogic(ContextButton) {
           return option.title === activeFields[idx];
         });
         if (changeIdx !== -1) {
-          console.log(changeIdx);
           newOptions[changeIdx].isActive = true;
           newOptions[changeIdx].options = this.updateActive(activeFields, newOptions[changeIdx].options, idx + 1);
         }
@@ -1644,47 +1644,50 @@ var withContextLogic = function withContextLogic(ContextButton) {
             onClick = _props.onClick,
             props = objectWithoutProperties(_props, ['options', 'onClick']);
 
-        return React.createElement(
-          'div',
-          {
-            className: classnames('context-menu-wrapper', props.className)
-          },
-          React.createElement(
-            ContextButton,
-            _extends({}, props, {
-              onBlur: function onBlur(e) {
-                return _this3.handleBlur(e);
-              },
-              onClick: function onClick(e) {
-                return _this3.handleClick(e);
+        if (ContextButton) {
+          return React.createElement(
+            'div',
+            {
+              className: classnames('standard-menu-wrapper', props.className)
+            },
+            React.createElement(
+              ContextButton,
+              _extends({}, props, {
+                className: classnames({ 'active': this.state.isOpen }),
+                onBlur: function onBlur(e) {
+                  return _this3.handleBlur(e);
+                },
+                onClick: !this.props.onContextMenu && function (e) {
+                  return _this3.handleClick(e);
+                },
+                onContextMenu: this.props.onContextMenu && function (e) {
+                  return _this3.handleContextMenu(e);
+                }
+              }),
+              props.children
+            ),
+            React.createElement(StandardMenuSimple, {
+              options: this.state.options,
+              className: 'standard-menu__wrapper',
+              mouseEnterItem: function mouseEnterItem(e) {
+                return _this3.mouseEnterItem(e);
               }
-            }),
-            props.children
-          ),
-          React.createElement(ContextMenuSimple, {
-            options: this.state.options,
-            className: 'context-menu__wrapper',
-            mouseEnterItem: function mouseEnterItem(e) {
-              return _this3.mouseEnterItem(e);
-            }
-          })
-        );
-      }
-    }], [{
-      key: 'getDerivedStateFromProps',
-      value: function getDerivedStateFromProps(nextProps, prevState) {
-        if (nextProps.isActive !== prevState.isActive) {
-          return {
-            options: nextProps.options,
-            isActive: nextProps.isActive
-          };
-        } else return null;
+            })
+          );
+        }
+        return React.createElement(StandardMenuSimple, {
+          options: this.state.options,
+          className: 'standard-menu__wrapper',
+          mouseEnterItem: function mouseEnterItem(e) {
+            return _this3.mouseEnterItem(e);
+          }
+        });
       }
     }]);
-    return ContextMenuSimple$$1;
+    return StandardMenuSimple$$1;
   }(Component), _class.defaultProps = {
     value: []
-  }, _temp2;
+  }, _temp;
 };
 
 var css$a = ".icon {\n  position: relative;\n  display: block;\n  outline: none;\n  background: none;\n  border: none; }\n  .icon__icon {\n    display: block;\n    background-size: contain;\n    background-position: center;\n    background-repeat: no-repeat; }\n  .icon:focus, .icon:active, .icon:active:focus, .icon.is-active {\n    outline: none; }\n    .icon:focus .icon__icon, .icon:active .icon__icon, .icon:active:focus .icon__icon, .icon.is-active .icon__icon {\n      filter: hue-rotate(70deg) contrast(0.3) saturate(2); }\n    .icon:focus .icon__text, .icon:active .icon__text, .icon:active:focus .icon__text, .icon.is-active .icon__text {\n      background-color: #0000a2;\n      color: white;\n      outline: 1px dotted white;\n      outline-offset: -1px; }\n";
@@ -1856,13 +1859,7 @@ ListIcon.propTypes = {
 var css$d = "input[type=checkbox], input[type=radio] {\n  opacity: 0;\n  display: none;\n  cursor: pointer; }\n  input[type=checkbox] + label, input[type=radio] + label {\n    position: relative;\n    padding: 1px 0px;\n    padding-left: 16px; }\n    input[type=checkbox] + label > span, input[type=checkbox] + label > div, input[type=radio] + label > span, input[type=radio] + label > div {\n      display: inline-block;\n      border: 1px solid rgba(0, 0, 0, 0); }\n    input[type=checkbox] + label:before, input[type=radio] + label:before {\n      content: '';\n      position: absolute;\n      left: 0px;\n      top: 1px;\n      width: 20px;\n      height: 12px;\n      background-repeat: no-repeat; }\n  input[type=checkbox]:checked + label, input[type=radio]:checked + label {\n    border-bottom-left-radius: 2px;\n    border-bottom-right-radius: 2px; }\n  input[type=checkbox]:checked:active + label > span, input[type=checkbox]:checked:active + label > div, input[type=checkbox]:checked:focus + label > span, input[type=checkbox]:checked:focus + label > div, input[type=checkbox]:checked:active:focus + label > span, input[type=checkbox]:checked:active:focus + label > div, input[type=checkbox]:checked.active + label > span, input[type=checkbox]:checked.active + label > div, input[type=checkbox]:checked.clicked + label > span, input[type=checkbox]:checked.clicked + label > div, input[type=radio]:checked:active + label > span, input[type=radio]:checked:active + label > div, input[type=radio]:checked:focus + label > span, input[type=radio]:checked:focus + label > div, input[type=radio]:checked:active:focus + label > span, input[type=radio]:checked:active:focus + label > div, input[type=radio]:checked.active + label > span, input[type=radio]:checked.active + label > div, input[type=radio]:checked.clicked + label > span, input[type=radio]:checked.clicked + label > div {\n    border: 1px dotted black; }\n  input[type=checkbox]:disabled + label, input[type=checkbox].disabled + label, input[type=radio]:disabled + label, input[type=radio].disabled + label {\n    color: #808088; }\n";
 styleInject(css$d);
 
-var css$e = ".w98 input[type=checkbox] + label:before {\n  width: 13px;\n  height: 13px;\n  background-color: white;\n  box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px 0px #808088, inset -2px -2px 0px #bbc3c4, inset 2px 2px 0px 0px #0c0c0c; }\n\n.w98 input[type=checkbox]:checked + label:before {\n  background-image: url(\"data:image/gif;base64,R0lGODlhBwAHAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAHAAcAAAIMlA9nwMj9xGuLIlUAADs=\");\n  background-position: center;\n  background-size: 8px; }\n\n.w98 input[type=checkbox]:disabled + label:before, .w98 input[type=checkbox].disabled + label:before {\n  background-color: #bbc3c4; }\n\n.w98 input[type=checkbox]:disabled:checked + label:before, .w98 input[type=checkbox].disabled:checked + label:before {\n  background-image: url(\"data:image/gif;base64,R0lGODlhBwAHAJEAAAAAAP///5mZmf///yH5BAEAAAMALAAAAAAHAAcAAAIMnC9nwsj9xmuLIlUAADs=\"); }\n";
-styleInject(css$e);
-
-var css$f = ".w98 input[type=radio] + label:before {\n  background-image: url(\"data:image/gif;base64,R0lGODlhDAAMAKIAAAAAAP///8zMzJmZmf///wAAAAAAAAAAACH5BAEAAAQALAAAAAAMAAwAAAMqSErTs6uBCVqcIQesBtCaEDAfGAaeeaZqILKqyLQyI4hhTWT3nUEKECQBADs=\"); }\n\n.w98 input[type=radio]:checked + label:before {\n  background-image: url(\"data:image/gif;base64,R0lGODlhDAAMAKIAAAAAAP///8zMzJmZmf///wAAAAAAAAAAACH5BAEAAAQALAAAAAAMAAwAAAMtSErTs6uBCVqcIQesBtCaEDBfhmWiZ1JooG5skJZwOA6g3QliKC4oXg+iAEESADs=\"); }\n\n.w98 input[type=radio]:disabled + label:before, .w98 input[type=radio].disabled + label:before {\n  background-image: url(\"data:image/gif;base64,R0lGODlhDAAMAKIAAAAAAP///8zMzJmZmf///wAAAAAAAAAAACH5BAEAAAQALAAAAAAMAAwAAAMpSErTs6uBCVqccAY1AFTC1n1LOJKE6aEqmorsxggCRMtEENA3vug6SAIAOw==\"); }\n\n.w98 input[type=radio]:disabled:checked + label:before, .w98 input[type=radio].disabled:checked + label:before {\n  background-image: url(\"data:image/gif;base64,R0lGODlhDAAMAKIAAAAAAP///8zMzJmZmf///wAAAAAAAAAAACH5BAEAAAQALAAAAAAMAAwAAAMtSErTs6uBCVqccAY1AFTC1i0YGIwE5REhqppourLiZ3KCAOWbEgQ5Xg/y+0ESADs=\"); }\n";
-styleInject(css$f);
-
-var Checkbox = function Checkbox(props) {
+var Toggle = function Toggle(props) {
   return React.createElement(
     React.Fragment,
     null,
@@ -1886,6 +1883,28 @@ var Checkbox = function Checkbox(props) {
     )
   );
 };
+
+var css$e = ".w98 input[type=checkbox] + label:before {\n  width: 13px;\n  height: 13px;\n  background-color: white;\n  box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px 0px #808088, inset -2px -2px 0px #bbc3c4, inset 2px 2px 0px 0px #0c0c0c; }\n\n.w98 input[type=checkbox]:checked + label:before {\n  background-image: url(\"data:image/gif;base64,R0lGODlhBwAHAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAHAAcAAAIMlA9nwMj9xGuLIlUAADs=\");\n  background-position: center;\n  background-size: 8px; }\n\n.w98 input[type=checkbox]:disabled + label:before, .w98 input[type=checkbox].disabled + label:before {\n  background-color: #bbc3c4; }\n\n.w98 input[type=checkbox]:disabled:checked + label:before, .w98 input[type=checkbox].disabled:checked + label:before {\n  background-image: url(\"data:image/gif;base64,R0lGODlhBwAHAJEAAAAAAP///5mZmf///yH5BAEAAAMALAAAAAAHAAcAAAIMnC9nwsj9xmuLIlUAADs=\"); }\n";
+styleInject(css$e);
+
+var Checkbox = function Checkbox(props) {
+  return React.createElement(Toggle, _extends({}, props, {
+    type: 'checkbox'
+  }));
+};
+
+Checkbox.propTypes = Toggle.propTypes;
+
+var css$f = ".w98 input[type=radio] + label:before {\n  background-image: url(\"data:image/gif;base64,R0lGODlhDAAMAKIAAAAAAP///8zMzJmZmf///wAAAAAAAAAAACH5BAEAAAQALAAAAAAMAAwAAAMqSErTs6uBCVqcIQesBtCaEDAfGAaeeaZqILKqyLQyI4hhTWT3nUEKECQBADs=\"); }\n\n.w98 input[type=radio]:checked + label:before {\n  background-image: url(\"data:image/gif;base64,R0lGODlhDAAMAKIAAAAAAP///8zMzJmZmf///wAAAAAAAAAAACH5BAEAAAQALAAAAAAMAAwAAAMtSErTs6uBCVqcIQesBtCaEDBfhmWiZ1JooG5skJZwOA6g3QliKC4oXg+iAEESADs=\"); }\n\n.w98 input[type=radio]:disabled + label:before, .w98 input[type=radio].disabled + label:before {\n  background-image: url(\"data:image/gif;base64,R0lGODlhDAAMAKIAAAAAAP///8zMzJmZmf///wAAAAAAAAAAACH5BAEAAAQALAAAAAAMAAwAAAMpSErTs6uBCVqccAY1AFTC1n1LOJKE6aEqmorsxggCRMtEENA3vug6SAIAOw==\"); }\n\n.w98 input[type=radio]:disabled:checked + label:before, .w98 input[type=radio].disabled:checked + label:before {\n  background-image: url(\"data:image/gif;base64,R0lGODlhDAAMAKIAAAAAAP///8zMzJmZmf///wAAAAAAAAAAACH5BAEAAAQALAAAAAAMAAwAAAMtSErTs6uBCVqccAY1AFTC1i0YGIwE5REhqppourLiZ3KCAOWbEgQ5Xg/y+0ESADs=\"); }\n";
+styleInject(css$f);
+
+var Radio = function Radio(props) {
+  return React.createElement(Toggle, _extends({}, props, {
+    type: 'radio'
+  }));
+};
+
+Radio.propTypes = Toggle.propTypes;
 
 var css$g = "input[type=text] {\n  position: relative;\n  padding: 3px 3px 6px 3px;\n  font-size: 10px;\n  border: none;\n  box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px 0px #808088, inset -2px -2px 0px #bbc3c4, inset 2px 2px 0px 0px #0c0c0c; }\n  input[type=text]:active, input[type=text]:focus, input[type=text]:active:focus, input[type=text].clicked {\n    outline: none; }\n  input[type=text]:disabled, input[type=text].disabled {\n    background-color: #bbc3c4; }\n";
 styleInject(css$g);
@@ -5062,15 +5081,15 @@ var StartMenu = function StartMenu(props) {
 
 var Notifier = function Notifier(props) {
   return React.createElement('button', {
-    className: 'btn taskbar-notifications__notifier',
+    className: 'btn task-bar--notifications__notifier',
     title: props.title,
     onClick: props.onClick,
-    style: { backgroundImage: 'url("' + props.src + '")' }
+    style: { backgroundImage: 'url("' + props.icon + '")' }
   });
 };
 
 Notifier.propTypes = {
-  src: propTypes.string,
+  icon: propTypes.string,
   onClick: propTypes.func,
   title: propTypes.string
 };
@@ -5154,12 +5173,12 @@ var Notifications = function Notifications(props) {
   return React.createElement(
     'div',
     { className: 'task-bar--notifications' },
-    React.createElement(Notifier, null),
     props.notifiers.map(function (notifier) {
       return React.createElement(Notifier, {
-        src: notifier.src,
+        key: notifier.alt,
+        icon: notifier.icon,
         onClick: notifier.onClick,
-        title: notifier.title
+        title: notifier.alt
       });
     }),
     React.createElement(Time, null)
@@ -5212,7 +5231,7 @@ var TaskBar = function TaskBar(props) {
         );
       })
     ),
-    React.createElement(Notifications, null)
+    React.createElement(Notifications, { notifiers: props.notifiers })
   );
 };
 
@@ -5256,7 +5275,7 @@ StaticWindow.propTypes = {
   icon: propTypes.string
 };
 
-var css$k = ".w98 .window--explorer__view {\n  min-height: 20px;\n  margin: 2px auto 1px;\n  background-color: white;\n  box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px 0px #808088, inset -2px -2px 0px #bbc3c4, inset 2px 2px 0px 0px #0c0c0c; }\n\n.w98 .window--explorer__details {\n  display: flex; }\n  .w98 .window--explorer__details__section {\n    box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px #808088;\n    flex-grow: 1;\n    margin-top: 2px;\n    height: 16px; }\n    .w98 .window--explorer__details__section:not(:last-child) {\n      margin: 2px; }\n\n.w98 .window--explorer .menu-bar {\n  padding: 2px 1px 2px 12px; }\n\n.w98 .window--explorer > div + menu {\n  margin-top: 2px;\n  box-shadow: 0px 1px 0px white, inset 0px -1px 0px #808088, -1px 0px 0px #808088, inset 1px 0px 0px white, 1px 0px 0px white, inset -1px 0px 0px #808088, -1px -1px 0px #808088, 0px -1px 0px #808088, inset 0px 1px 0px white, 1px -1px 0px white; }\n\n.w98 .window--explorer > menu {\n  position: relative;\n  min-height: 16px;\n  padding-left: 12px;\n  margin: 0px 1px;\n  display: flex;\n  box-shadow: 0px 1px 0px white, inset 0px -1px 0px #808088, -1px 0px 0px #808088, inset 1px 0px 0px white, 1px 0px 0px white, inset -1px 0px 0px #808088; }\n  .w98 .window--explorer > menu:before {\n    position: absolute;\n    top: 2px;\n    left: 5px;\n    height: calc(100% - 4px);\n    width: 3px;\n    background-color: #bbc3c4;\n    content: '';\n    box-shadow: inset -1px -1px 0px #808088, inset 1px 1px 0px white; }\n\n.w98 .window--explorer > footer {\n  display: flex; }\n  .w98 .window--explorer > footer > div {\n    flex-grow: 1;\n    padding: 2px 4px;\n    box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px #0c0c0c; }\n    .w98 .window--explorer > footer > div:not(:last-child) {\n      margin-right: 4px; }\n\n.w98 .window--explorer__address {\n  display: flex;\n  height: 22px;\n  overflow-y: visible; }\n  .w98 .window--explorer__address__title {\n    align-self: center;\n    margin-right: 4px;\n    padding-bottom: 2px; }\n  .w98 .window--explorer__address .Select {\n    flex-grow: 1;\n    z-index: 5;\n    margin-right: 4px;\n    margin-top: 1px; }\n\n.w98 .window--explorer__options {\n  display: flex;\n  padding: 2px 4px 2px 12px; }\n\n.w98 .window--explorer > div:last-child {\n  margin-top: 2px; }\n";
+var css$k = ".w98 .window--explorer__view {\n  min-height: 20px;\n  margin: 2px auto 1px;\n  background-color: white;\n  box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px 0px #808088, inset -2px -2px 0px #bbc3c4, inset 2px 2px 0px 0px #0c0c0c; }\n\n.w98 .window--explorer__details {\n  display: flex; }\n  .w98 .window--explorer__details__section {\n    box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px #808088;\n    flex-grow: 1;\n    margin-top: 2px;\n    height: 16px; }\n    .w98 .window--explorer__details__section:not(:last-child) {\n      margin: 2px; }\n\n.w98 .window--explorer .menu-bar {\n  padding: 2px 1px 2px 12px; }\n\n.w98 .window--explorer > div + menu {\n  margin-top: 2px;\n  box-shadow: 0px 1px 0px white, inset 0px -1px 0px #808088, -1px 0px 0px #808088, inset 1px 0px 0px white, 1px 0px 0px white, inset -1px 0px 0px #808088, -1px -1px 0px #808088, 0px -1px 0px #808088, inset 0px 1px 0px white, 1px -1px 0px white; }\n\n.w98 .window--explorer > menu {\n  position: relative;\n  min-height: 16px;\n  padding-left: 12px;\n  margin: 0px 1px;\n  display: flex;\n  box-shadow: 0px 1px 0px white, inset 0px -1px 0px #808088, -1px 0px 0px #808088, inset 1px 0px 0px white, 1px 0px 0px white, inset -1px 0px 0px #808088; }\n  .w98 .window--explorer > menu:before {\n    position: absolute;\n    top: 3px;\n    left: 5px;\n    height: calc(100% - 6px);\n    width: 3px;\n    background-color: #bbc3c4;\n    content: '';\n    box-shadow: inset -1px -1px 0px #808088, inset 1px 1px 0px white; }\n\n.w98 .window--explorer > footer {\n  display: flex; }\n  .w98 .window--explorer > footer > div {\n    flex-grow: 1;\n    padding: 2px 4px;\n    box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px #0c0c0c; }\n    .w98 .window--explorer > footer > div:not(:last-child) {\n      margin-right: 4px; }\n\n.w98 .window--explorer__address {\n  display: flex;\n  height: 22px;\n  overflow-y: visible; }\n  .w98 .window--explorer__address__title {\n    align-self: center;\n    margin-right: 4px;\n    padding-bottom: 2px; }\n  .w98 .window--explorer__address .Select {\n    flex-grow: 1;\n    z-index: 5;\n    margin-right: 4px;\n    margin-top: 1px; }\n\n.w98 .window--explorer__options {\n  display: flex;\n  padding: 2px 4px 2px 12px; }\n\n.w98 .window--explorer > div:last-child {\n  margin-top: 2px; }\n";
 styleInject(css$k);
 
 var ExplorerWindow = function ExplorerWindow(props) {
@@ -5339,5 +5358,5 @@ DetailsSection.propTypes = {
   children: propTypes.node
 };
 
-export { Theme, FormButton, NavButton, ProgramButton, StartButton, NavButton$1 as LargeIconButton, NavButton$2 as SmallIconButton, ContextMenuSimple as ContextMenu, withContextLogic as withContextMenuWrapper, ExplorerIcon, ListIcon, Checkbox, InputText, Select, Select$2 as SelectBox, Select$3 as SelectMultipleSimple, MenuBar, StartMenu, TaskBar, StaticWindow as AbstractWindow, ExplorerWindow, WindowFrame, DetailsSection };
+export { Theme, FormButton, NavButton, ProgramButton, StartButton, NavButton$1 as LargeIconButton, NavButton$2 as SmallIconButton, StandardMenuSimple as StandardMenu, withContextLogic as withStandardMenuWrapper, ExplorerIcon, ListIcon, Checkbox, Radio, InputText, Select, Select$2 as SelectBox, Select$3 as SelectMultipleSimple, MenuBar, StartMenu, TaskBar, StaticWindow as AbstractWindow, ExplorerWindow, WindowFrame, DetailsSection };
 //# sourceMappingURL=pb.module.js.map

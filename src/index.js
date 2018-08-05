@@ -7,8 +7,8 @@ export { default as StartButton } from './components/Button/StartButton';
 export { default as LargeIconButton } from './components/Button/LargeIconButton';
 export { default as SmallIconButton } from './components/Button/SmallIconButton';
 
-export { default as ContextMenu } from './components/ContextMenu/ContextMenu';
-export { default as withContextMenuWrapper } from './components/ContextMenu/withContextMenuWrapper';
+export { default as StandardMenu } from './components/StandardMenu/StandardMenu';
+export { default as withStandardMenuWrapper } from './components/StandardMenu/withMenuWrapper';
 
 export { default as ExplorerIcon } from './components/Icon/ExplorerIcon';
 export { default as ListIcon } from './components/Icon/ListIcon';

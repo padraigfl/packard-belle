@@ -99,7 +99,7 @@
         text-align: left;
         padding: 3px 6px;
 
-        + .context-menu, + .menu-bar__section__dropdown {
+        + .standard-menu, + .menu-bar__section__dropdown {
           z-index: 20;
           visibility: hidden;
           position: absolute;
@@ -117,7 +117,7 @@
           box-shadow: dualShadow($darkgrey, white);
           padding: 4px 5px 2px 7px;
 
-          + .context-menu {
+          + .standard-menu {
             visibility: visible;
             max-height: 480px;
           }

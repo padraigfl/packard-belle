@@ -1,25 +1,21 @@
 import React from 'react';
 import classnames from 'classnames';
 import Window from '../Window/WindowFrame';
-import ContextMenuItem from './ContextMenuItem';
+import StandardMenuItem from './StandardMenuItem';
 import '../../_scss/w98/menu/index.scss';
 
-const ContextMenuSimple = props => {
-  if (props.children) {
-    return (
-      <Window
-        className={
-          classnames('context-menu context-menu--custom', props.className, props.direction)
-        }
-      >
-        { props.children }
-      </Window>
-    )
-  }
+const StandardMenuSimple = props => {
   return (
     <Window
       className={
-        classnames('context-menu', props.className, props.direction)
+        classnames(
+          'standard-menu',
+          props.className,
+          props.direction,
+          {
+            'standard-menu--visible': props.visible,
+          }
+        )
       }
     >
       { props.options.map(option => {
@@ -28,11 +24,11 @@ const ContextMenuSimple = props => {
             <React.Fragment key={`menu-subset-${option[0].title}`}>
               <div className="divider divider--start"/>
               {option.map(subOption => (
-                <ContextMenuItem
+                <StandardMenuItem
                   key={`menu-divider-${subOption.title}`}
                   {...subOption}
                   value={[ ...props.value, subOption.title ]}
-                  mouseEnterItem={(e) => props.mouseEnterItem(e)}
+                  mouseEnterItem={props.mouseEnterItem}
                 />
               ))}
               <div className="divider divider--end"/>
@@ -41,11 +37,11 @@ const ContextMenuSimple = props => {
         }
         else {
           return (
-            <ContextMenuItem
-              key={`context-menu-item-${option.title}`}
+            <StandardMenuItem
+              key={`standard-menu-item-${option.title}`}
               {...option}
               value={[ ...props.value, option.title ]}
-              mouseEnterItem={(e) => props.mouseEnterItem(e)}
+              mouseEnterItem={props.mouseEnterItem}
             />
           );
         }
@@ -54,8 +50,8 @@ const ContextMenuSimple = props => {
   );
 };
 
-ContextMenuSimple.defaultProps = {
+StandardMenuSimple.defaultProps = {
   value: [],
 };
 
-export default ContextMenuSimple;
+export default StandardMenuSimple;

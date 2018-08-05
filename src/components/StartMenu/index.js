@@ -1,9 +1,9 @@
 import React from 'react';
 import classnames from 'classnames';
 import Start from '../Button/StartButton';
-import contextMenuWrapper from '../ContextMenu/withContextMenuWrapper';
+import standardMenuWrapper from '../StandardMenu/withMenuWrapper';
 
-const Started = contextMenuWrapper(Start);
+const Started = standardMenuWrapper(Start);
 
 const StartMenu = (props) => {
   const { className, ...otherProps } = props;

@@ -48,14 +48,13 @@ class Time extends React.Component {
 
 const Notifications = props => (
   <div className="task-bar--notifications">
-    <Notifier
-    />
     {
       props.notifiers.map( notifier => (
         <Notifier
-          src={notifier.src}
+          key={notifier.alt}
+          icon={notifier.icon}
           onClick={notifier.onClick}
-          title={notifier.title}
+          title={notifier.alt}
         />
       ))
     }

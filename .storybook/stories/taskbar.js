@@ -91,6 +91,13 @@ storiesOf('TaskBar', module)
         },
       ]}
       options={optionsSample}
+      notifiers={[
+        {
+          alt: 'Quick1',
+          onClick: noop,
+          icon: img,
+        },
+      ]}
     />
   ))
   .add('Notifications', () => (

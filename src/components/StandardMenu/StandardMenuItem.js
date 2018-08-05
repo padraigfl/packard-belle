@@ -1,25 +1,25 @@
 import React from 'react';
 import classnames from 'classnames';
-import ContextMenu from './ContextMenu';
+import StandardMenu from './StandardMenu';
 
-const ContextMenuItem = props => (
+const StandardMenuItem = props => (
   <div
     className={
       classnames(
-        'context-menu__item',
+        'standard-menu__item',
         props.className,
         props.type,
-        { 'context-menu__item--has-options': props.options, 'active': props.isActive },
+        { 'standard-menu__item--has-options': props.options, 'active': props.isActive },
       )
     }
-    onMouseEnter={(e) => props.mouseEnterItem(e)}
+    onMouseEnter={props.mouseEnterItem}
     onMouseLeave={() => {}}
     onMouseOut={() => {}}
   >
     <button
       className={
         classnames(
-          'context-menu__item__button',
+          'standard-menu__item__button',
           { disabled: props.disabled },
         )
       }
@@ -31,8 +31,8 @@ const ContextMenuItem = props => (
       {props.title}
     </button>
     { props.options && (
-      <ContextMenu
-        className="context-menu__item__child"
+      <StandardMenu
+        className="standard-menu__item__child"
         options={props.options}
         value={props.value}
         mouseEnterItem={props.mouseEnterItem}
@@ -41,9 +41,9 @@ const ContextMenuItem = props => (
   </div>
 );
 
-ContextMenuItem.defaultProps = {
+StandardMenuItem.defaultProps = {
   onClick: () => {},
   value: [],
 };
 
-export default ContextMenuItem;
+export default StandardMenuItem;

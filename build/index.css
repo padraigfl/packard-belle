@@ -75,17 +75,6 @@ html {
   .w98.x2 *, .w98.x2 {
     cursor: url("data:image/gif;base64,R0lGODlhFgAmAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAWACYAAAJzBISpu8b/jINUHgpNCBMrzV1eAm6dV4YjkppiBWyyisazfDIt/ur2zcv8gDQf8ZYT7IDJJfHkZL6izwtVyhpKLVwtssudpZJZ8ZCstE3GvbSrHGxIPue2hW72CfOkNvy9wrbiFjcoGFhnmIjIp4iGcZdQAAA7"), default; }
 
-.w98 button {
-  border: 0px solid transparent;
-  background-color: #bbc3c4;
-  position: relative;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none; }
-  .w98 button:active, .w98 button:focus, .w98 button:active:focus {
-    outline: none; }
-
 .btn:not(.no-style) {
   border: 0px solid transparent;
   background-color: #bbc3c4;
@@ -244,29 +233,29 @@ html {
   .btn.btn--small-icon.btn--disabled img {
     filter: grayscale(1); }
 
-.context-menu {
+.standard-menu {
   display: inline-flex;
   flex-direction: column;
   word-wrap: none;
   white-space: nowrap;
   text-overflow: clip; }
-  .context-menu > div {
+  .standard-menu > div {
     position: relative; }
-    .context-menu > div > .window {
+    .standard-menu > div > .window {
       position: absolute;
       visibility: hidden;
       width: auto;
       transition: max-width cubic-bezier(0.38, 0.01, 0, 1) 200ms, max-height cubic-bezier(0.38, 0.01, 0, 1) 200ms; }
-    .context-menu > div.active > .window {
+    .standard-menu > div.active > .window {
       width: auto;
       visibility: visible; }
-    .context-menu > div > .window {
+    .standard-menu > div > .window {
       left: calc(100%  - 3px);
       top: -3px;
       max-width: 0%; }
-    .context-menu > div:hover > .window, .context-menu > div.active > .window {
+    .standard-menu > div:hover > .window, .standard-menu > div.active > .window {
       max-width: 400%; }
-    .context-menu > div > button {
+    .standard-menu > div > button {
       position: relative;
       display: block;
       width: 100%;
@@ -279,7 +268,7 @@ html {
       border: none;
       outline: none;
       height: 20px; }
-      .context-menu > div > button:before {
+      .standard-menu > div > button:before {
         content: '';
         position: absolute;
         left: 0px;
@@ -288,11 +277,11 @@ html {
         width: 16px;
         background-repeat: no-repeat;
         background-position: center; }
-      .context-menu > div > button .context-menu__item__text {
+      .standard-menu > div > button .standard-menu__item__text {
         padding: 0px 20px 0px 0px; }
-      .context-menu > div > button:disabled, .context-menu > div > button.disabled {
+      .standard-menu > div > button:disabled, .standard-menu > div > button.disabled {
         color: #808088; }
-      .context-menu > div > button:not(:only-child):after {
+      .standard-menu > div > button:not(:only-child):after {
         content: '';
         position: absolute;
         background-image: url("data:image/gif;base64,R0lGODlhBAAHAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAEAAcAAAIIhA4maeyrlCgAOw==");
@@ -302,92 +291,92 @@ html {
         width: calc(100% - 8px);
         background-position: right center;
         background-repeat: no-repeat; }
-    .context-menu > div.radio-selected > button:before {
+    .standard-menu > div.radio-selected > button:before {
       background-image: url("data:image/gif;base64,R0lGODlhBgAGAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAGAAYAAAIIFA6Gy816RAEAOw=="); }
-    .context-menu > div.checked > button:before {
+    .standard-menu > div.checked > button:before {
       background-image: url("data:image/gif;base64,R0lGODlhBwAHAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAHAAcAAAIMlA9nwMj9xGuLIlUAADs="); }
-    .context-menu > div.checked.disabled > button:before {
+    .standard-menu > div.checked.disabled > button:before {
       background-image: url("data:image/gif;base64,R0lGODlhBwAHAJEAAAAAAP///5mZmf///yH5BAEAAAMALAAAAAAHAAcAAAIMnC9nwsj9xmuLIlUAADs="); }
-    .context-menu > div:hover, .context-menu > div:active, .context-menu > div:focus, .context-menu > div:active:focus, .context-menu > div.active, .context-menu > div.clicked {
+    .standard-menu > div:hover, .standard-menu > div:active, .standard-menu > div:focus, .standard-menu > div:active:focus, .standard-menu > div.active, .standard-menu > div.clicked {
       color: white; }
-      .context-menu > div:hover > button:not(.disabled), .context-menu > div:active > button:not(.disabled), .context-menu > div:focus > button:not(.disabled), .context-menu > div:active:focus > button:not(.disabled), .context-menu > div.active > button:not(.disabled), .context-menu > div.clicked > button:not(.disabled) {
+      .standard-menu > div:hover > button:not(.disabled), .standard-menu > div:active > button:not(.disabled), .standard-menu > div:focus > button:not(.disabled), .standard-menu > div:active:focus > button:not(.disabled), .standard-menu > div.active > button:not(.disabled), .standard-menu > div.clicked > button:not(.disabled) {
         color: white;
         background-color: #0000a2; }
-        .context-menu > div:hover > button:not(.disabled):not(:only-child):after, .context-menu > div:active > button:not(.disabled):not(:only-child):after, .context-menu > div:focus > button:not(.disabled):not(:only-child):after, .context-menu > div:active:focus > button:not(.disabled):not(:only-child):after, .context-menu > div.active > button:not(.disabled):not(:only-child):after, .context-menu > div.clicked > button:not(.disabled):not(:only-child):after {
+        .standard-menu > div:hover > button:not(.disabled):not(:only-child):after, .standard-menu > div:active > button:not(.disabled):not(:only-child):after, .standard-menu > div:focus > button:not(.disabled):not(:only-child):after, .standard-menu > div:active:focus > button:not(.disabled):not(:only-child):after, .standard-menu > div.active > button:not(.disabled):not(:only-child):after, .standard-menu > div.clicked > button:not(.disabled):not(:only-child):after {
           background-image: url("data:image/gif;base64,R0lGODlhBAAHAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAEAAcAAAIIjB4maeyrlCgAOw=="); }
-  .context-menu div:empty {
+  .standard-menu div:empty {
     position: relative;
     width: 95%;
     margin: 2px auto;
     border-top: 1px solid #808088;
     border-bottom: 1px solid white;
     display: none; }
-  .context-menu :not(:empty) + div:empty:not(:last-child):not(:first-child) {
+  .standard-menu :not(:empty) + div:empty:not(:last-child):not(:first-child) {
     display: block; }
 
-.context-menu--css div__sub-menu--top > .window {
+.standard-menu--css div__sub-menu--top > .window {
   position: absolute;
   visibility: hidden;
   width: auto;
   transition: max-width cubic-bezier(0.38, 0.01, 0, 1) 200ms, max-height cubic-bezier(0.38, 0.01, 0, 1) 200ms; }
 
-.context-menu--css div__sub-menu--top.active > .window {
+.standard-menu--css div__sub-menu--top.active > .window {
   width: auto;
   visibility: visible; }
 
-.context-menu--css div__sub-menu--top > .window {
+.standard-menu--css div__sub-menu--top > .window {
   bottom: calc(100% + $windowPadding);
   left: 0px;
   height: 0px;
   max-height: 0%;
   max-width: 100%; }
 
-.context-menu--css div__sub-menu--top:hover > .window, .context-menu--css div__sub-menu--top.active > .window {
+.standard-menu--css div__sub-menu--top:hover > .window, .standard-menu--css div__sub-menu--top.active > .window {
   height: initial;
   max-height: 100%; }
 
-.context-menu--css div__sub-menu--bottom > .window {
+.standard-menu--css div__sub-menu--bottom > .window {
   position: absolute;
   visibility: hidden;
   width: auto;
   transition: max-width cubic-bezier(0.38, 0.01, 0, 1) 200ms, max-height cubic-bezier(0.38, 0.01, 0, 1) 200ms; }
 
-.context-menu--css div__sub-menu--bottom.active > .window {
+.standard-menu--css div__sub-menu--bottom.active > .window {
   width: auto;
   visibility: visible; }
 
-.context-menu--css div__sub-menu--bottom > .window {
+.standard-menu--css div__sub-menu--bottom > .window {
   top: calc(100% + $windowPadding);
   left: 0px;
   max-height: 0%;
   max-width: 100%; }
 
-.context-menu--css div__sub-menu--bottom:hover > .window, .context-menu--css div__sub-menu--bottom.active > .window {
+.standard-menu--css div__sub-menu--bottom:hover > .window, .standard-menu--css div__sub-menu--bottom.active > .window {
   height: initial;
   max-height: 100%; }
 
-.context-menu--css div__sub-menu--left > .window {
+.standard-menu--css div__sub-menu--left > .window {
   position: absolute;
   visibility: hidden;
   width: auto;
   transition: max-width cubic-bezier(0.38, 0.01, 0, 1) 200ms, max-height cubic-bezier(0.38, 0.01, 0, 1) 200ms; }
 
-.context-menu--css div__sub-menu--left.active > .window {
+.standard-menu--css div__sub-menu--left.active > .window {
   width: auto;
   visibility: visible; }
 
-.context-menu--css div__sub-menu--left > .window {
+.standard-menu--css div__sub-menu--left > .window {
   left: -100%;
   top: -3px;
   max-width: 0%; }
 
-.context-menu--css div__sub-menu--left:hover > .window, .context-menu--css div__sub-menu--left.active > .window {
+.standard-menu--css div__sub-menu--left:hover > .window, .standard-menu--css div__sub-menu--left.active > .window {
   max-width: 100%; }
 
-.context-menu--css div:active, .context-menu--css div .active {
+.standard-menu--css div:active, .standard-menu--css div .active {
   display: none; }
 
-.context-menu--css div:hover > .window {
+.standard-menu--css div:hover > .window {
   width: auto;
   visibility: visible;
   display: block; }
@@ -732,7 +721,7 @@ select[multiple] {
         text-overflow: ellipsis;
         text-align: left;
         padding: 3px 6px; }
-        .w98 .window__menu__section > button + .context-menu, .w98 .window__menu__section > button + .menu-bar__section__dropdown, .w98 .window .menu-bar__section > button + .context-menu, .w98 .window .menu-bar__section > button + .menu-bar__section__dropdown {
+        .w98 .window__menu__section > button + .standard-menu, .w98 .window__menu__section > button + .menu-bar__section__dropdown, .w98 .window .menu-bar__section > button + .standard-menu, .w98 .window .menu-bar__section > button + .menu-bar__section__dropdown {
           z-index: 20;
           visibility: hidden;
           position: absolute;
@@ -745,7 +734,7 @@ select[multiple] {
         .w98 .window__menu__section > button:active, .w98 .window__menu__section > button:focus, .w98 .window__menu__section > button:active:focus, .w98 .window__menu__section > button.active, .w98 .window__menu__section > button.clicked, .w98 .window .menu-bar__section > button:active, .w98 .window .menu-bar__section > button:focus, .w98 .window .menu-bar__section > button:active:focus, .w98 .window .menu-bar__section > button.active, .w98 .window .menu-bar__section > button.clicked {
           box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px #808088;
           padding: 4px 5px 2px 7px; }
-          .w98 .window__menu__section > button:active + .context-menu, .w98 .window__menu__section > button:focus + .context-menu, .w98 .window__menu__section > button:active:focus + .context-menu, .w98 .window__menu__section > button.active + .context-menu, .w98 .window__menu__section > button.clicked + .context-menu, .w98 .window .menu-bar__section > button:active + .context-menu, .w98 .window .menu-bar__section > button:focus + .context-menu, .w98 .window .menu-bar__section > button:active:focus + .context-menu, .w98 .window .menu-bar__section > button.active + .context-menu, .w98 .window .menu-bar__section > button.clicked + .context-menu {
+          .w98 .window__menu__section > button:active + .standard-menu, .w98 .window__menu__section > button:focus + .standard-menu, .w98 .window__menu__section > button:active:focus + .standard-menu, .w98 .window__menu__section > button.active + .standard-menu, .w98 .window__menu__section > button.clicked + .standard-menu, .w98 .window .menu-bar__section > button:active + .standard-menu, .w98 .window .menu-bar__section > button:focus + .standard-menu, .w98 .window .menu-bar__section > button:active:focus + .standard-menu, .w98 .window .menu-bar__section > button.active + .standard-menu, .w98 .window .menu-bar__section > button.clicked + .standard-menu {
             visibility: visible;
             max-height: 480px; }
   .w98 .window__details {
