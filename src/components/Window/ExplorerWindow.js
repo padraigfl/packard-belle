@@ -19,37 +19,44 @@ const ExplorerWindow = props => (
       className="window--explorer__menu"
       options={props.menuOptions}
     />
-    { props.explorerOptions && (
+    {props.explorerOptions && (
       <menu className="window--explorer__options">
-        { props.explorerOptions.map( option => (
+        {props.explorerOptions.map(option => (
           <LargeIconButton
             key={`large-button-${option.title}`}
-            icon={ option.icon }
-            title={ option.title }
-            onClick={ option.onClick }
-            disabled={ !option.onClick }
+            icon={option.icon}
+            title={option.title}
+            onClick={option.onClick}
+            disabled={!option.onClick}
           />
         ))}
       </menu>
     )}
     <menu className="window--explorer__address">
       <div className="window--explorer__address__title">Address</div>
-      <Select placeholder={<span>Test</span>} isDisabled/>
+      <Select placeholder={<span>Test</span>} isDisabled />
     </menu>
     <div
       className="window--explorer__view"
-      style={ props.backgroundColor && ({
+      style={props.backgroundColor && ({
         backgroundColor: props.backgroundColor,
       })}
     >
-      { props.children }
+      {props.children}
     </div>
-    { props.footer && (
+    {props.footer && (
       <footer>
-        { Array.isArray(props.footer) ?
-            props.footer.map(entry => (
-              <div key={entry.text}>{entry.text || 'Default'}</div>
-            )) : props.footer
+        {Array.isArray(props.footer) ?
+          props.footer.map(entry => (
+            <div
+              key={entry.text}
+              style={entry.icon && {
+                backgroundImage: `url(${entry.icon})`
+              }}
+            >
+              {entry.text || 'Default'}
+            </div>
+          )) : props.footer
         }
       </footer>
     )}

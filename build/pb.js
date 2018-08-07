@@ -5339,7 +5339,16 @@
 	      'footer',
 	      null,
 	      Array.isArray(props.footer) ? props.footer.map(function (entry) {
-	        return entry;
+	        return React__default.createElement(
+	          'div',
+	          {
+	            key: entry.text,
+	            style: entry.icon && {
+	              backgroundImage: 'url(' + entry.icon + ')'
+	            }
+	          },
+	          entry.text || 'Default'
+	        );
 	      }) : props.footer
 	    )
 	  );

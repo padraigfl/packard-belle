@@ -5334,7 +5334,16 @@ var ExplorerWindow = function ExplorerWindow(props) {
       'footer',
       null,
       Array.isArray(props.footer) ? props.footer.map(function (entry) {
-        return entry;
+        return React.createElement(
+          'div',
+          {
+            key: entry.text,
+            style: entry.icon && {
+              backgroundImage: 'url(' + entry.icon + ')'
+            }
+          },
+          entry.text || 'Default'
+        );
       }) : props.footer
     )
   );
