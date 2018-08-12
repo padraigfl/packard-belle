@@ -11,6 +11,7 @@
   &:focus {
     outline: black;
     outline-style: dotted;
+    outline-width: 1px;
     box-shadow: dualShadow($black, $black), dualShadow(white, $black, 2);
   }
 

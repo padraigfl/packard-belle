@@ -105,6 +105,7 @@ html {
   .btn.btn--form:focus {
     outline: black;
     outline-style: dotted;
+    outline-width: 1px;
     box-shadow: inset -1px -1px 0px #0c0c0c, inset 1px 1px 0px #0c0c0c, inset -2px -2px 0px #0c0c0c, inset 2px 2px 0px white; }
   .btn.btn--form:active:focus, .btn.btn--form:active, .btn.btn--form.active, .btn.btn--form.clicked {
     padding: 6px 0px 4px 2px;

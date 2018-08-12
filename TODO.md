@@ -67,6 +67,8 @@ W98 Toolbar
 ## Performance
 
 - [ ] Tests
+- [ ] Travis.yml
+- [ ] Coverage
 - [ ] Snapshots (only when finished with core components)
 - [ ] Linting
 - [ ] PropTypes
@@ -82,4 +84,4 @@ W98 Toolbar
 - [ ] Selected sections grey when not focus
 - [ ] Filter overhauls
 - [ ] Redundant CSS clearout
-- [ ] ContextMenuWrapper as HOC?
+- [x] ContextMenuWrapper as HOC?
