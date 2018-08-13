@@ -11,7 +11,7 @@ const Toggle = props => (
       checked={props.checked}
       onChange={props.onChange}
       name={props.name}
-      disabled={props.disabled}
+      isDisabled={props.isDisabled}
     />
     <label htmlFor={props.id}>
       <span>

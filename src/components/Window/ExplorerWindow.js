@@ -51,7 +51,7 @@ const ExplorerWindow = props => (
             <div
               key={entry.text}
               style={entry.icon && {
-                backgroundImage: `url(${entry.icon})`
+                backgroundImage: `url(${entry.icon})`,
               }}
             >
               {entry.text || 'Default'}

@@ -4,84 +4,86 @@ import PropTypes from 'prop-types';
 import RSelect from 'react-select';
 import './_select.scss';
 
+const DefaultOptionComponent = props => <div {...props} />;
+
 // copied straight from react select demos with slight changes
 const menuRenderer = ({
-	focusedOption,
-	focusOption,
-	inputValue,
-	instancePrefix,
-	onFocus,
-	onOptionRef,
-	onSelect,
-	optionClassName,
-	optionComponent,
-	options,
-	removeValue,
-	selectValue,
-	valueArray,
-	valueKey,
+  focusedOption,
+  focusOption,
+  inputValue,
+  instancePrefix,
+  onFocus,
+  onOptionRef,
+  onSelect,
+  optionClassName,
+  optionComponent,
+  options,
+  removeValue,
+  selectValue,
+  valueArray,
+  valueKey,
 }) => {
-  let Option = optionComponent || (props => <div {...props}/>);
+  let Option = optionComponent || DefaultOptionComponent;
 
-	return options.map((option, i) => {
-		let isSelected = valueArray && valueArray.some(x => x[valueKey] === option[valueKey]);
-		let isFocused = option === focusedOption;
-		let optionClass = classNames(optionClassName, {
-			'Select-option': true,
-			'is-selected': isSelected,
-			'is-focused': isFocused,
-			'is-disabled': option.disabled,
-		});
+  return options.map((option, i) => {
+    let isSelected = valueArray && valueArray.some(x => x[valueKey] === option[valueKey]);
+    let isFocused = option === focusedOption;
+    let optionClass = classNames(optionClassName, {
+      'Select-option': true,
+      'is-selected': isSelected,
+      'is-focused': isFocused,
+      'is-disabled': option.disabled,
+    });
 
-		return (
-			<Option
-				className={optionClass}
-				focusOption={focusOption}
-				inputValue={inputValue}
-				instancePrefix={instancePrefix}
-				isDisabled={option.disabled}
-				isFocused={isFocused}
-				isSelected={isSelected}
-				key={`option-${i}-${option[valueKey]}`}
-				onFocus={onFocus}
-				onSelect={onSelect}
-				option={option}
-				optionIndex={i}
-				ref={ref => { onOptionRef(ref, isFocused); }}
-				removeValue={removeValue}
+    return (
+      <Option
+        className={optionClass}
+        focusOption={focusOption}
+        inputValue={inputValue}
+        instancePrefix={instancePrefix}
+        isDisabled={option.disabled}
+        isFocused={isFocused}
+        isSelected={isSelected}
+        key={`option-${i}-${option[valueKey]}`}
+        onFocus={onFocus}
+        onSelect={onSelect}
+        option={option}
+        optionIndex={i}
+        ref={ref => { onOptionRef(ref, isFocused); }}
+        removeValue={removeValue}
         selectValue={selectValue}
         backgroundImage={option.icon}
-			>
+      >
         <span>
           {option.label}
         </span>
-			</Option>
-		);
-	});
+      </Option>
+    );
+  });
 };
 menuRenderer.propTypes = {
-	focusOption: PropTypes.func,
-	focusedOption: PropTypes.object,
-	inputValue: PropTypes.string,
-	instancePrefix: PropTypes.string,
-	onFocus: PropTypes.func,
-	onOptionRef: PropTypes.func,
-	onSelect: PropTypes.func,
-	optionClassName: PropTypes.string,
-	optionComponent: PropTypes.func,
-	optionRenderer: PropTypes.func,
-	options: PropTypes.array,
-	removeValue: PropTypes.func,
-	selectValue: PropTypes.func,
-	valueArray: PropTypes.array,
-	valueKey: PropTypes.string,
+  focusOption: PropTypes.func,
+  focusedOption: PropTypes.object,
+  inputValue: PropTypes.string,
+  instancePrefix: PropTypes.string,
+  onFocus: PropTypes.func,
+  onOptionRef: PropTypes.func,
+  onSelect: PropTypes.func,
+  optionClassName: PropTypes.string,
+  optionComponent: PropTypes.func,
+  optionRenderer: PropTypes.func,
+  options: PropTypes.array,
+  removeValue: PropTypes.func,
+  selectValue: PropTypes.func,
+  valueArray: PropTypes.array,
+  valueKey: PropTypes.string,
 };
 
 const ValueRenderer = props => (
   <div style={{ backgroundImage: props.icon ? `url('${props.icon}')` : 'none' }}>
     {props.label}
   </div>
-)
+);
 
 class Select extends Component {
   static defaultProps = {

@@ -7,7 +7,6 @@ import AbstractButton from '../AbstractButton';
 describe('AbstractButton', () => {
   it('renders', () => {
     const wrapper = shallow(<AbstractButton />);
-
     expect(wrapper.find('button').length).toBeTruthy();
-  })
+  });
 });

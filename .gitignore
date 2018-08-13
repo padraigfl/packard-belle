@@ -61,3 +61,4 @@ typings/
 # customs
 **/.DS_Store
 /.nyc_output/
+/.vscode/

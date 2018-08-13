@@ -33,6 +33,6 @@ const Select = (props) => {
       </div>
     </div>
   );
-}
+};
 
 export default Select;

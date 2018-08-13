@@ -1,7 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import AbstractIcon from './AbstractIcon';
+import AbstractIcon, { iconProps } from './AbstractIcon';
 import '../../_scss/w98/icons/icon--explorer.scss';
 
 const ExplorerIcon = props => (
@@ -15,13 +14,6 @@ const ExplorerIcon = props => (
   />
 );
 
-ExplorerIcon.propTypes = {
-  onClick: PropTypes.func,
-  onDoubleClick: PropTypes.func,
-  className: PropTypes.string,
-  icon: PropTypes.string,
-  alt: PropTypes.string,
-  title: PropTypes.string,
-};
+ExplorerIcon.propTypes = iconProps;
 
 export default ExplorerIcon;

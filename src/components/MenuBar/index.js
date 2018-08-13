@@ -5,7 +5,7 @@ import Button from '../Button/AbstractButton';
 import withMenuWrapper from '../StandardMenu/withMenuWrapper';
 import '../../_scss/w98/window.scss';
 
-const MenuEntry = withMenuWrapper(Button)
+const MenuEntry = withMenuWrapper(Button);
 
 const MenuBar = props => (
   <menu className="window__menu menu-bar">

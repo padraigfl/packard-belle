@@ -25,13 +25,10 @@ const withContextLogic = ContextButton => {
 
     state = {
       options: this.props.options,
-      isActive: this.props.isActive
+      isActive: this.props.isActive,
     };
 
     updateActive(activeFields, newOptions, idx = 0) {
-      if (idx === 0) {
-        console.log(newOptions)
-      }
       if (activeFields.length <= idx) {
         return newOptions;
       }
@@ -95,7 +92,7 @@ const withContextLogic = ContextButton => {
     }
 
     render() {
-      const { options, onClick, ...props } = this.props;
+      const { options, onClick, ...props } = this.props; //eslint-disable-line
       if (ContextButton) {
         return (
           <div
@@ -127,8 +124,8 @@ const withContextLogic = ContextButton => {
           mouseEnterItem={(e) => this.mouseEnterItem(e)}
         />
       );
-    };
+    }
   };
-}
+};
 
 export default withContextLogic;

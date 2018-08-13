@@ -33,7 +33,7 @@ const StandardMenuSimple = props => {
               ))}
               <div className="divider divider--end"/>
             </React.Fragment>
-          )
+          );
         }
         else {
           return (

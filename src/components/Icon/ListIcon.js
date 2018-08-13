@@ -1,7 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import AbstractIcon from './AbstractIcon';
+import AbstractIcon, { iconProps } from './AbstractIcon';
 import '../../_scss/w98/icons/icon--list.scss';
 
 const ListIcon = props => (
@@ -16,14 +15,6 @@ const ListIcon = props => (
   />
 );
 
-ListIcon.propTypes = {
-  onClick: PropTypes.func,
-  onDoubleClick: PropTypes.func,
-  className: PropTypes.string,
-  icon: PropTypes.string,
-  alt: PropTypes.string,
-  title: PropTypes.string,
-  value: PropTypes.any,
-};
+ListIcon.propTypes = iconProps;
 
 export default ListIcon;

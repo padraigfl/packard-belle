@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames'
 import WindowFrame from './WindowFrame';
 import Button from '../Button/NavButton';
 
@@ -44,16 +43,17 @@ const StaticWindow = props => (
 );
 
 StaticWindow.propTypes = {
-    children: PropTypes.node,
-    title: PropTypes.string,
-    onClose: PropTypes.func,
-    onMinimize: PropTypes.func,
-    onMaximize: PropTypes.func,
-    onRestore: PropTypes.func,
-    className: PropTypes.string,
-    isActive: PropTypes.bool,
-    isMaximized: PropTypes.bool,
-    icon: PropTypes.string,
+  children: PropTypes.node,
+  title: PropTypes.string,
+  className: PropTypes.string,
+  isActive: PropTypes.bool,
+  isMaximized: PropTypes.bool,
+  icon: PropTypes.string,
+
+  onClose: PropTypes.func,
+  onMinimize: PropTypes.func,
+  onMaximize: PropTypes.func,
+  onRestore: PropTypes.func,
 };
 
 export default StaticWindow;

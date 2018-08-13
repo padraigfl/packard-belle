@@ -8,18 +8,18 @@ const formatTime = date => {
   let hour = date.getHours();
   let min = date.getMinutes();
 
-  if (hour < 10) { hour = '0'+hour }
-  if (min < 10) { min = '0'+min }
+  if (hour < 10) { hour = '0' + hour; }
+  if (min < 10) { min = '0' + min; }
 
   return hour+':'+min;
-}
+};
 
 class Time extends React.Component {
   state = {
     time: this.props.time? new Date(this.props.time) : new Date(),
   }
 
-  componentWillMount() {
+  componentDidMount() {
     if (!this.props.fixedTime) {
       this.timerId = setInterval(() => {
         this.getDate();
@@ -63,11 +63,11 @@ const Notifications = props => (
 );
 
 Notifications.propsTypes = {
-    notifiers: PropTypes.arrayOf(PropTypes.shape(Notifier.propTypes))
+  notifiers: PropTypes.arrayOf(PropTypes.shape(Notifier.propTypes)),
 };
 
 Notifications.defaultProps = {
-    notifiers: [],
+  notifiers: [],
 };
 
 export default Notifications;

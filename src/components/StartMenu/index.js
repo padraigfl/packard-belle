@@ -10,11 +10,11 @@ const StartMenu = (props) => {
   return (
     <Started
       className={
-        classnames('start-menu task-bar__start', props.className)
+        classnames('start-menu task-bar__start', className)
       }
       {...otherProps}
     />
   );
-}
+};
 
 export default StartMenu;

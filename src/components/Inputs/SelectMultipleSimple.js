@@ -20,7 +20,6 @@ class Select extends Component {
   }
 
   handleChange = (event) => {
-    console.log(event.target.value)
     if (this.props.multiple) {
       const selectedIndex = this.state.value.findIndex(val => val === event.target.value);
       const isSelected = selectedIndex !== -1;
@@ -29,13 +28,13 @@ class Select extends Component {
         return;
       }
       if (!isSelected) {
-        this.updateValue([event.target.value])
+        this.updateValue([event.target.value]);
         return;
       }
       if (isSelected) {
         this.updateValue([
           ...this.state.value.slice(0, selectedIndex),
-          ...this.state.value.slice(selectedIndex + 1)
+          ...this.state.value.slice(selectedIndex + 1),
         ]);
         return;
       }

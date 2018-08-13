@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import Button from './AbstractButton';
+import Button, { commonButtonPropTypes } from './AbstractButton';
 
 import '../../_scss/w98/buttons/btn--small-icon.scss';
 
@@ -9,7 +9,7 @@ const NavButton = props => (
   <Button
     className={ classnames('btn--small-icon', props.className) }
     onClick={ props.onClick }
-    disabled={ props.disabled }
+    isDisabled={ props.isDisabled }
     isActive={ props.isActive }
   >
     <img src={props.icon} />
@@ -17,11 +17,8 @@ const NavButton = props => (
 );
 
 NavButton.propTypes = {
-  onClick: PropTypes.func,
-  className: PropTypes.string,
+  ...commonButtonPropTypes,
   icon: PropTypes.string,
-  disabled: PropTypes.bool,
-  isActive: PropTypes.bool,
 };
 
 

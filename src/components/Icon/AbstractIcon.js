@@ -65,7 +65,6 @@ class AbstractIcon extends Component {
           style={ { backgroundImage: `url('${props.icon}')` } }
         />
         <div className="icon__text">{ props.title }</div>
-        { props.children }
       </React.Fragment>
     );
 
@@ -78,24 +77,28 @@ class AbstractIcon extends Component {
         >
           { contents }
         </button>
-      )
+      );
     }
     return (
       <div {...iconProps}>
         { contents }
       </div>
-    )
+    );
   }
 }
 
-AbstractIcon.propTypes = {
-  children: PropTypes.node,
-  onClick: PropTypes.func,
-  className: PropTypes.string,
-  icon: PropTypes.string,
-  alt: PropTypes.string,
+export const iconProps = {
   title: PropTypes.string,
+  icon: PropTypes.string,
+  children: PropTypes.node,
+  className: PropTypes.string,
+  alt: PropTypes.string,
   value: PropTypes.any,
+  onClick: PropTypes.func,
+  onDoubleClick: PropTypes.func,
+  onContextMenu: PropTypes.func,
 };
+
+AbstractIcon.propTypes = iconProps;
 
 export default AbstractIcon;

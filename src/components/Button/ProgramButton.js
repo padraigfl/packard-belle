@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import Button from './AbstractButton';
+import Button, { commonButtonPropTypes } from './AbstractButton';
 
 import '../../_scss/w98/buttons/btn--program.scss';
 
@@ -12,16 +12,13 @@ const ProgramButton = props => (
     isActive={ props.isActive }
     style={ { backgroundImage: `url(${props.icon})`, ...props.style }}
   >
-   { props.children }
+    { props.children }
   </Button>
 );
 
 ProgramButton.propTypes = {
-  children: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
+  ...commonButtonPropTypes,
   icon: PropTypes.any,
-  onClick: PropTypes.func,
-  className: PropTypes.string,
-  isActive: PropTypes.bool,
 };
 
 export default ProgramButton;

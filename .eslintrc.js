@@ -37,5 +37,6 @@ module.exports = {
       'error',
       'always-multiline',
     ],
+    'react/prop-types': [0], // imported props fail
   },
 };

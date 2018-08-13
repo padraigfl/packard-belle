@@ -1,7 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import Button from './AbstractButton';
+import Button, { commonButtonPropTypes } from './AbstractButton';
 
 import '../../_scss/w98/buttons/btn--nav.scss';
 
@@ -10,14 +9,11 @@ const NavButton = props => (
     className={ classnames('btn--nav', props.className) }
     onClick={ props.onClick }
     isActive={ props.isActive }
+    isDisabled={ props.isDisabled }
   />
 );
 
-NavButton.propTypes = {
-  onClick: PropTypes.func,
-  className: PropTypes.string,
-  isActive: PropTypes.bool,
-};
+NavButton.propTypes = commonButtonPropTypes;
 
 
 export default NavButton;

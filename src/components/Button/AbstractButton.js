@@ -56,7 +56,7 @@ class AbstractButton extends Component {
           {
             'clicked': this.state.mouseDown,
             'btn--active': props.isActive,
-            'btn--disabled': props.disabled,
+            'btn--disabled': props.isDisabled,
           },
         )}
         onClick={ (e) => this.handleClick(e) }
@@ -67,30 +67,36 @@ class AbstractButton extends Component {
         onContextMenu={
           this.props.onContextMenu && (e => this.handleContextMenu(e))
         }
-        disabled={props.disabled}
+        isDisabled={props.isDisabled}
         style={ props.style }
       >
         { props.children }
       </button>
     );
   }
-};
+}
 
-AbstractButton.propTypes = {
+export const commonButtonPropTypes = {
   children: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.node,
   ]),
-  text: PropTypes.string,
-  onClick: PropTypes.func,
+
   className: PropTypes.string,
   isActive: PropTypes.bool,
-  style: PropTypes.shape(), // Todo: Needs custom prop
+  isDisabled: PropTypes.bool,
+
+  onBlur: PropTypes.func,
+  onClick: PropTypes.func,
 };
 
-// title, click,
-// onAppearSound
-// canClose?
-// scrollbar style
+AbstractButton.propTypes = {
+  ...commonButtonPropTypes,
+  onDoubleClick: PropTypes.func,
+  onContextMenu: PropTypes.func,
+  onMouseDown: PropTypes.func,
+  onMouseUp: PropTypes.func,
+  style: PropTypes.shape(), // Todo: Needs custom prop
+};
 
 export default AbstractButton;
