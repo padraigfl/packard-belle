@@ -1,12 +1,19 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import clone from 'clone';
-import StandardMenu from './StandardMenu';
+import StandardMenu, { standardMenuProps } from './StandardMenu';
 
 const withContextLogic = ContextButton => {
   return class StandardMenuSimple extends Component {
     static defaultProps = {
       value: [],
+    };
+    static propTypes = {
+      ...standardMenuProps,
+      onClick: PropTypes.func,
+      onBlur: PropTypes.func,
+      onContextMenu: PropTypes.func,
     };
 
     static getDerivedStateFromProps(nextProps, prevState){

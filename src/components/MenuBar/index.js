@@ -1,5 +1,6 @@
 
 import React from 'react';
+import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Button from '../Button/AbstractButton';
 import withMenuWrapper from '../StandardMenu/withMenuWrapper';
@@ -27,5 +28,10 @@ const MenuBar = props => (
     )}
   </menu>
 );
+
+MenuBar.propTypes = {
+  options: PropTypes.arrayOf(PropTypes.shape()),
+  className: PropTypes.string,
+};
 
 export default MenuBar;

@@ -42,7 +42,7 @@ const StaticWindow = props => (
   </WindowFrame>
 );
 
-StaticWindow.propTypes = {
+export const windowProps = {
   children: PropTypes.node,
   title: PropTypes.string,
   className: PropTypes.string,
@@ -55,5 +55,7 @@ StaticWindow.propTypes = {
   onMaximize: PropTypes.func,
   onRestore: PropTypes.func,
 };
+
+StaticWindow.propTypes = windowProps;
 
 export default StaticWindow;

@@ -1,17 +1,18 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import './_select.scss';
 
 const isSelected = (selected, val) => selected.some(selectedEntry => selectedEntry === val);
 
-const Select = (props) => {
+const SelectBox = (props) => {
   const Comp = props.component ? props.component : 'button';
   return (
     <div className={
       classnames(
         'SelectBox',
         props.component ? `SelectBox--${props.component.name}` : 'SelectBox--simple',
-        { disabled: props.disabled },
+        { disabled: props.isDisabled },
       )}>
       <div>
         { props.options.map(option => (
@@ -35,4 +36,19 @@ const Select = (props) => {
   );
 };
 
-export default Select;
+SelectBox.propTypes = {
+  component: PropTypes.func,
+  className: PropTypes.string,
+  title: PropTypes.string,
+  selected: PropTypes.array,
+  isDisabled: PropTypes.bool,
+  options: PropTypes.arrayOf(PropTypes.shape({
+    value: PropTypes.any,
+    title: PropTypes.string,
+    icon: PropTypes.string,
+    alt: PropTypes.string,
+    className: PropTypes.string,
+  })),
+};
+
+export default SelectBox;

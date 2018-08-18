@@ -35,12 +35,12 @@ class InputText extends Component {
         className={this.props.className}
         value={this.state.value}
         id={this.props.id}
-        name={this.props.id}
+        isDisabled={this.props.isDisabled}
+        name={this.props.name || this.props.id}
         onBlur={this.handleBlur}
         onChange={this.handleChange}
         onKeyDown={this.props.onKeyDown}
         onFocus={this.props.onFocus}
-        disabled={this.props.disabled}
       />
     );
   }
@@ -48,13 +48,14 @@ class InputText extends Component {
 
 InputText.propTypes = {
   className: PropTypes.string,
-  disabled: PropTypes.bool,
   value: PropTypes.string,
+  isDisabled: PropTypes.bool,
   id: PropTypes.string,
+  name: PropTypes.string,
   onBlur: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired,
-  onKeyDown: PropTypes.func.isRequired,
   onFocus: PropTypes.func.isRequired,
+  onKeyDown: PropTypes.func.isRequired,
 };
 
 export default InputText;

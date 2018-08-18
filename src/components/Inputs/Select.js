@@ -61,22 +61,23 @@ const menuRenderer = ({
     );
   });
 };
+
 menuRenderer.propTypes = {
-  focusOption: PropTypes.func,
   focusedOption: PropTypes.object,
   inputValue: PropTypes.string,
   instancePrefix: PropTypes.string,
+  optionClassName: PropTypes.string,
+  options: PropTypes.array,
+  valueArray: PropTypes.array,
+  valueKey: PropTypes.string,
+  focusOption: PropTypes.func,
   onFocus: PropTypes.func,
   onOptionRef: PropTypes.func,
   onSelect: PropTypes.func,
-  optionClassName: PropTypes.string,
   optionComponent: PropTypes.func,
   optionRenderer: PropTypes.func,
-  options: PropTypes.array,
   removeValue: PropTypes.func,
   selectValue: PropTypes.func,
-  valueArray: PropTypes.array,
-  valueKey: PropTypes.string,
 };
 
 const ValueRenderer = props => (
@@ -84,6 +85,10 @@ const ValueRenderer = props => (
     {props.label}
   </div>
 );
+ValueRenderer.propTypes = {
+  icon: PropTypes.string,
+  label: PropTypes.string,
+};
 
 class Select extends Component {
   static defaultProps = {

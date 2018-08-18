@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Window from './AbstractWindow';
 import MenuBar from '../MenuBar';
@@ -27,7 +28,7 @@ const ExplorerWindow = props => (
             icon={option.icon}
             title={option.title}
             onClick={option.onClick}
-            disabled={!option.onClick}
+            isDisabled={!option.onClick}
           />
         ))}
       </menu>
@@ -49,12 +50,12 @@ const ExplorerWindow = props => (
         {Array.isArray(props.footer) ?
           props.footer.map(entry => (
             <div
-              key={entry.text}
+              key={Math.random()}
               style={entry.icon && {
                 backgroundImage: `url(${entry.icon})`,
               }}
             >
-              {entry.text || 'Default'}
+              {entry.text || ''}
             </div>
           )) : props.footer
         }
@@ -62,5 +63,24 @@ const ExplorerWindow = props => (
     )}
   </Window>
 );
+
+const footerType = {
+  text: PropTypes.string,
+  icon: PropTypes.string,
+};
+
+ExplorerWindow.propTypes = {
+  ...Window.propTypes,
+  menuOptions: PropTypes.arrayOf(
+    PropTypes.any,
+  ),
+  explorerOptions: PropTypes.arrayOf(
+    PropTypes.shape(LargeIconButton.propTypes),
+  ),
+  footer: PropTypes.oneOfType([
+    PropTypes.shape(footerType),
+    PropTypes.arrayOf(PropTypes.shape(footerType)),
+  ]),
+};
 
 export default ExplorerWindow;

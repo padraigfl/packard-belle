@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import '../../_scss/w98/inputs/select.scss';
 
-class Select extends Component {
+class SelectMultipleSimple extends Component {
   static defaultProps = {
     onChange: () => {},
   }
@@ -52,7 +53,7 @@ class Select extends Component {
             <option
               key={option.value.toString()}
               value={option.value}
-              disabled={option.disabled}
+              disabled={option.isDisabled}
             >
               <div>{option.name}<div>ppp</div></div>
             </option>
@@ -63,4 +64,15 @@ class Select extends Component {
   }
 }
 
-export default Select;
+SelectMultipleSimple.propTypes = {
+  multiple: PropTypes.bool,
+  onChange: PropTypes.func,
+  value: PropTypes.any,
+  options: PropTypes.arrayOf(PropTypes.shape({
+    name: PropTypes.string,
+    value: PropTypes.any,
+    isDisabled: PropTypes.bool,
+  })),
+};
+
+export default SelectMultipleSimple;

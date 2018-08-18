@@ -17,4 +17,6 @@ const StartMenu = (props) => {
   );
 };
 
+StartMenu.propTypes = Started.propTypes;
+
 export default StartMenu;

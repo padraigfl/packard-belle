@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Notifiations from './Notifications';
 import StartMenu from '../StartMenu';
 import ProgramButton from '../Button/ProgramButton';
@@ -48,5 +49,18 @@ const TaskBar = (props) => (
     <Notifiations notifiers={props.notifiers} />
   </div>
 );
+
+TaskBar.propTypes = {
+  options: PropTypes.shape(StartMenu.propTypes),
+  quickLaunch: PropTypes.arrayOf(PropTypes.shape(
+    SmallIconButton.propTypes,
+  )),
+  openWindows: PropTypes.arrayOf(PropTypes.shape(
+    ProgramButton.propTypes,
+  )),
+  notifiers: PropTypes.arrayOf(PropTypes.shape(
+    Notifiations.propsTypes,
+  )),
+};
 
 export default TaskBar;

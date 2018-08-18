@@ -15,5 +15,4 @@ const NavButton = props => (
 
 NavButton.propTypes = commonButtonPropTypes;
 
-
 export default NavButton;

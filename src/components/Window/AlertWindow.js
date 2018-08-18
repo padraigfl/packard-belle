@@ -1,6 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import AbstractWindow from './AbstractWindow';
+import AbstractWindow, { windowProps } from './AbstractWindow';
 import FormButton from '../Button/FormButton';
 
 const AlertWindow = props => (
@@ -40,5 +41,13 @@ const AlertWindow = props => (
     </div>
   </AbstractWindow>
 );
+
+AlertWindow.propTypes = {
+  ...windowProps,
+  onOK: PropTypes.func,
+  onCancel: PropTypes.func,
+  children: PropTypes.node,
+  icon: PropTypes.string,
+};
 
 export default AlertWindow;

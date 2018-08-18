@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import '../../_scss/w98/inputs/toggle.scss';
 
 const Toggle = props => (
@@ -6,12 +7,11 @@ const Toggle = props => (
     <input
       type={props.type}
       id={props.id}
-      disabled={props.disabled}
+      isDisabled={props.isDisabled}
       value={props.value}
       checked={props.checked}
       onChange={props.onChange}
       name={props.name}
-      isDisabled={props.isDisabled}
     />
     <label htmlFor={props.id}>
       <span>
@@ -20,5 +20,17 @@ const Toggle = props => (
     </label>
   </React.Fragment>
 );
+
+const toggleProps = {
+  label: PropTypes.string,
+  type: PropTypes.string,
+  id: PropTypes.string,
+  name: PropTypes.string,
+  checked: PropTypes.bool,
+  onChange: PropTypes.func,
+  isDisabled: PropTypes.bool,
+};
+
+Toggle.propTypes = toggleProps;
 
 export default Toggle;

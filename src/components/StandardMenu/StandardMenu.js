@@ -1,10 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Window from '../Window/WindowFrame';
 import StandardMenuItem from './StandardMenuItem';
 import '../../_scss/w98/menu/index.scss';
 
-const StandardMenuSimple = props => {
+const StandardMenu = props => {
   return (
     <Window
       className={
@@ -13,7 +14,7 @@ const StandardMenuSimple = props => {
           props.className,
           props.direction,
           {
-            'standard-menu--visible': props.visible,
+            'standard-menu--visible': props.isVisible,
           }
         )
       }
@@ -50,8 +51,19 @@ const StandardMenuSimple = props => {
   );
 };
 
-StandardMenuSimple.defaultProps = {
+StandardMenu.defaultProps = {
   value: [],
 };
 
-export default StandardMenuSimple;
+export const standardMenuProps = {
+  value: PropTypes.arrayOf(PropTypes.string),
+  mouseEnterItem: PropTypes.func,
+  className: PropTypes.string,
+  direction: PropTypes.oneOf(['up', 'down', 'left', 'right']),
+  options: PropTypes.any,
+  isVisible: PropTypes.bool,
+};
+
+StandardMenu.propTypes = standardMenuProps;
+
+export default StandardMenu;

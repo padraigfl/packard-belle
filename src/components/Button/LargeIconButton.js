@@ -5,7 +5,7 @@ import Button, { commonButtonPropTypes } from './AbstractButton';
 
 import '../../_scss/w98/buttons/btn--large-icon.scss';
 
-const NavButton = props => (
+const LargeIconButton = props => (
   <Button
     className={ classnames('btn--large-icon', props.className) }
     onClick={ props.onClick }
@@ -16,11 +16,11 @@ const NavButton = props => (
   </Button>
 );
 
-NavButton.propTypes = {
+LargeIconButton.propTypes = {
   ...commonButtonPropTypes,
   icon: PropTypes.string,
-  title: PropTypes.title,
+  title: PropTypes.string,
 };
 
 
-export default NavButton;
+export default LargeIconButton;

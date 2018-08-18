@@ -879,21 +879,6 @@ var createClass = function () {
   };
 }();
 
-var defineProperty = function (obj, key, value) {
-  if (key in obj) {
-    Object.defineProperty(obj, key, {
-      value: value,
-      enumerable: true,
-      configurable: true,
-      writable: true
-    });
-  } else {
-    obj[key] = value;
-  }
-
-  return obj;
-};
-
 var _extends = Object.assign || function (target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = arguments[i];
@@ -1015,7 +1000,7 @@ var AbstractButton = function (_Component) {
           className: classnames('btn', props.className, {
             'clicked': this.state.mouseDown,
             'btn--active': props.isActive,
-            'btn--disabled': props.disabled
+            'btn--disabled': props.isDisabled
           }),
           onClick: function onClick(e) {
             return _this2.handleClick(e);
@@ -1035,7 +1020,7 @@ var AbstractButton = function (_Component) {
           onContextMenu: this.props.onContextMenu && function (e) {
             return _this2.handleContextMenu(e);
           },
-          disabled: props.disabled,
+          isDisabled: props.isDisabled,
           style: props.style
         },
         props.children
@@ -1045,14 +1030,24 @@ var AbstractButton = function (_Component) {
   return AbstractButton;
 }(Component);
 
-AbstractButton.propTypes = {
+var commonButtonPropTypes = {
   children: propTypes.oneOfType([propTypes.string, propTypes.node]),
-  text: propTypes.string,
-  onClick: propTypes.func,
+
   className: propTypes.string,
   isActive: propTypes.bool,
-  style: propTypes.shape() // Todo: Needs custom prop
+  isDisabled: propTypes.bool,
+
+  onBlur: propTypes.func,
+  onClick: propTypes.func
 };
+
+AbstractButton.propTypes = _extends({}, commonButtonPropTypes, {
+  onDoubleClick: propTypes.func,
+  onContextMenu: propTypes.func,
+  onMouseDown: propTypes.func,
+  onMouseUp: propTypes.func,
+  style: propTypes.shape() // Todo: Needs custom prop
+});
 
 var css$2 = ".btn.btn--form {\n  min-width: 48px;\n  outline-width: 1px;\n  outline-offset: -5px;\n  padding: 5px 1px;\n  box-shadow: inset -1px -1px 0px #0c0c0c, inset 1px 1px 0px white, inset -2px -2px 0px #808088, inset 2px 2px 0px #bbc3c4; }\n  .btn.btn--form:focus {\n    outline: black;\n    outline-style: dotted;\n    outline-width: 1px;\n    box-shadow: inset -1px -1px 0px #0c0c0c, inset 1px 1px 0px #0c0c0c, inset -2px -2px 0px #0c0c0c, inset 2px 2px 0px white; }\n  .btn.btn--form:active:focus, .btn.btn--form:active, .btn.btn--form.active, .btn.btn--form.clicked {\n    padding: 6px 0px 4px 2px;\n    box-shadow: inset -1px -1px 0px #0c0c0c, inset 1px 1px 0px #0c0c0c, inset -2px -2px 0px #808088, inset 2px 2px 0px #808088; }\n";
 styleInject(css$2);
@@ -1064,20 +1059,13 @@ var FormButton = function FormButton(props) {
       className: classnames('btn--form', props.className),
       onClick: props.onClick,
       isActive: props.isActive,
-      disabled: props.disabled
+      isDisabled: props.isDisabled
     },
     props.children
   );
 };
 
-AbstractButton.propTypes = {
-  children: propTypes.oneOfType([propTypes.string, propTypes.node]),
-  text: propTypes.string,
-  onClick: propTypes.func,
-  className: propTypes.string,
-  isActive: propTypes.bool,
-  disabled: propTypes.bool
-};
+AbstractButton.propTypes = _extends({}, commonButtonPropTypes);
 
 var css$3 = ".btn.btn--nav {\n  padding: 0px;\n  min-width: initial;\n  width: 16px;\n  height: 14px;\n  margin-left: 1px;\n  margin-top: 1px;\n  margin-bottom: 2px;\n  image-rendering: pixelated;\n  box-shadow: inset -1px -1px 0px #0c0c0c, inset 1px 1px 0px white, inset -2px -2px 0px #808088, inset 2px 2px 0px #bbc3c4; }\n  .btn.btn--nav img {\n    height: 14px;\n    width: 14px; }\n  .btn.btn--nav:focus {\n    outline: none;\n    border: none; }\n  .btn.btn--nav:active:focus, .btn.btn--nav.clicked {\n    padding-top: 2px;\n    padding-bottom: 1px;\n    padding-left: 4px;\n    padding-right: 8px;\n    box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px #0c0c0c, inset -2px -2px 0px #bbc3c4, inset 2px 2px 0px #808088; }\n  .btn.btn--nav.window__close {\n    margin-left: 2px; }\n";
 styleInject(css$3);
@@ -1086,15 +1074,12 @@ var NavButton = function NavButton(props) {
   return React.createElement(AbstractButton, {
     className: classnames('btn--nav', props.className),
     onClick: props.onClick,
-    isActive: props.isActive
+    isActive: props.isActive,
+    isDisabled: props.isDisabled
   });
 };
 
-NavButton.propTypes = {
-  onClick: propTypes.func,
-  className: propTypes.string,
-  isActive: propTypes.bool
-};
+NavButton.propTypes = commonButtonPropTypes;
 
 var css$4 = ".btn.btn--program {\n  flex: 1;\n  margin: 0px 1px;\n  height: 22px;\n  max-width: 140px;\n  min-width: 40px;\n  display: inline-block;\n  width: 100%;\n  padding-top: 2px;\n  padding-left: 22px;\n  padding-right: 3px;\n  text-align: left;\n  overflow: hidden;\n  white-space: nowrap;\n  text-overflow: ellipsis;\n  background-size: 16px;\n  background-repeat: no-repeat;\n  background-position: 4px 4px;\n  box-shadow: inset -1px -1px 0px #0c0c0c, inset 1px 1px 0px white, inset -2px -2px 0px #808088, inset 2px 2px 0px #bbc3c4; }\n  .btn.btn--program:active:focus, .btn.btn--program.btn--active, .btn.btn--program.clicked {\n    background-position: 5px 5px;\n    box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px #0c0c0c, inset -2px -2px 0px #bbc3c4, inset 2px 2px 0px #808088;\n    padding-top: 3px;\n    padding-left: 23px;\n    padding-right: 2px; }\n    .btn.btn--program:active:focus:before, .btn.btn--program.btn--active:before, .btn.btn--program.clicked:before {\n      content: '';\n      background-size: 2px;\n      z-index: -1;\n      box-shadow: none; }\n  .btn.btn--program.btn--active {\n    background-color: transparent;\n    font-weight: bold; }\n    .btn.btn--program.btn--active:before {\n      content: '';\n      background-color: white;\n      background-image: url(\"../../../images/rgba-204-204-204-85.png\"); }\n";
 styleInject(css$4);
@@ -1112,13 +1097,9 @@ var ProgramButton = function ProgramButton(props) {
   );
 };
 
-ProgramButton.propTypes = {
-  children: propTypes.oneOfType([propTypes.string, propTypes.node]),
-  icon: propTypes.any,
-  onClick: propTypes.func,
-  className: propTypes.string,
-  isActive: propTypes.bool
-};
+ProgramButton.propTypes = _extends({}, commonButtonPropTypes, {
+  icon: propTypes.any
+});
 
 var css$5 = ".btn.btn--start {\n  height: 22px;\n  display: flex;\n  align-content: center;\n  width: 54px;\n  padding-right: 6px;\n  background-image: url(\"data:image/gif;base64,R0lGODlhNAATAKIAAAAAAP///wAA/wD/AP//AP8AAP///wAAACH5BAEAAAYALAAAAAA0ABMAAAOPaLrc/jDKSaudIIPLu95dKH2fGIKLVmSDxpTms83qCgwtmik7j46/BglQsOF6BuQrCFEuCkLiJ5diJnswl6sB7dqGSpjPscNaFcWiRpAhbKPVqhbkVAiiAjaA4LYizWOADneEenltfXFXioCCD3mHAHptYW9jV3OKL1FgZzEySZiVnp8yYkKlFyRNqa2uEgkAOw==\");\n  background-size: auto 18px;\n  background-repeat: no-repeat;\n  background-position: 2px 1px;\n  box-shadow: inset -1px -1px 0px #0c0c0c, inset 1px 1px 0px white, inset -2px -2px 0px #808088, inset 2px 2px 0px #bbc3c4; }\n  .btn.btn--start__text {\n    font-size: 1rem;\n    font-weight: bold; }\n  .btn.btn--start:active, .btn.btn--start:focus, .btn.btn--start:active:focus, .btn.btn--start.active, .btn.btn--start.clicked {\n    box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px #0c0c0c, inset 0px 1px 0px #0c0c0c, inset -2px -2px 0px #bbc3c4, inset 2px 2px 0px #808088, 0px -1px 0px #0c0c0c;\n    background-position: 3px 2px;\n    outline: 1px dotted black;\n    outline-offset: -4px; }\n";
 styleInject(css$5);
@@ -1132,11 +1113,7 @@ var StartButton = function StartButton(props) {
   });
 };
 
-StartButton.propTypes = {
-  onClick: propTypes.func,
-  className: propTypes.string,
-  isActive: propTypes.bool
-};
+StartButton.propTypes = commonButtonPropTypes;
 
 var css$6 = ".btn.btn--large-icon {\n  padding: 2px;\n  width: 48px; }\n  .btn.btn--large-icon img {\n    display: block;\n    margin: 0 auto;\n    filter: grayscale(1);\n    height: 20px;\n    max-width: 20px; }\n  .btn.btn--large-icon:disabled, .btn.btn--large-icon.disabled {\n    color: #808088; }\n    .btn.btn--large-icon:disabled:hover, .btn.btn--large-icon.disabled:hover {\n      box-shadow: none; }\n      .btn.btn--large-icon:disabled:hover img, .btn.btn--large-icon.disabled:hover img {\n        filter: grayscale(1); }\n  .btn.btn--large-icon:hover {\n    box-shadow: inset -1px -1px 0px #0c0c0c, inset 1px 1px 0px white; }\n    .btn.btn--large-icon:hover img {\n      filter: grayscale(0); }\n  .btn.btn--large-icon:active:focus {\n    box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px #0c0c0c;\n    padding: 3px 1px 1px 3px; }\n";
 styleInject(css$6);
@@ -1147,20 +1124,17 @@ var NavButton$1 = function NavButton(props) {
     {
       className: classnames('btn--large-icon', props.className),
       onClick: props.onClick,
-      disabled: props.disabled
+      isDisabled: props.isDisabled
     },
     React.createElement('img', { src: props.icon }),
     props.title
   );
 };
 
-NavButton$1.propTypes = {
-  children: propTypes.string,
-  onClick: propTypes.func,
-  className: propTypes.string,
+NavButton$1.propTypes = _extends({}, commonButtonPropTypes, {
   icon: propTypes.string,
-  disabled: propTypes.bool
-};
+  title: propTypes.title
+});
 
 var css$7 = ".btn.btn--small-icon {\n  height: 22px;\n  width: 22px;\n  padding: 0px; }\n  .btn.btn--small-icon img {\n    margin: 3px;\n    max-height: 16px;\n    max-width: 16px; }\n  .btn.btn--small-icon:hover {\n    box-shadow: inset -1px -1px 0px #808088, inset 1px 1px 0px white; }\n  .btn.btn--small-icon:hover:focus:active, .btn.btn--small-icon:hover:active, .btn.btn--small-icon.active, .btn.btn--small-icon.clicked {\n    box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px #808088; }\n    .btn.btn--small-icon:hover:focus:active img, .btn.btn--small-icon:hover:active img, .btn.btn--small-icon.active img, .btn.btn--small-icon.clicked img {\n      margin: 4px 2px 2px 4px; }\n  .btn.btn--small-icon.btn--disabled img {\n    filter: grayscale(1); }\n";
 styleInject(css$7);
@@ -1171,20 +1145,16 @@ var NavButton$2 = function NavButton(props) {
     {
       className: classnames('btn--small-icon', props.className),
       onClick: props.onClick,
-      disabled: props.disabled,
+      isDisabled: props.isDisabled,
       isActive: props.isActive
     },
     React.createElement('img', { src: props.icon })
   );
 };
 
-NavButton$2.propTypes = {
-  onClick: propTypes.func,
-  className: propTypes.string,
-  icon: propTypes.string,
-  disabled: propTypes.bool,
-  isActive: propTypes.bool
-};
+NavButton$2.propTypes = _extends({}, commonButtonPropTypes, {
+  icon: propTypes.string
+});
 
 var css$8 = ".w98 .window {\n  position: relative;\n  background-color: #bbc3c4;\n  padding: 3px;\n  box-shadow: inset -1px -1px 0px #0c0c0c, inset 1px 1px 0px #bbc3c4, inset -2px -2px 0px #808088, inset 2px 2px 0px white; }\n  .w98 .window__heading {\n    display: flex;\n    background: linear-gradient(to right, #0000a2, #126fc2);\n    font-weight: bold;\n    color: white;\n    margin-bottom: 1px;\n    padding: 0px 3px;\n    align-items: center; }\n  .w98 .window__icon {\n    padding: 8px;\n    display: flex;\n    background-size: 14px;\n    background-repeat: no-repeat;\n    background-position: center; }\n  .w98 .window__title {\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    flex-grow: 1;\n    min-width: 0px; }\n  .w98 .window__close, .w98 .window__restore, .w98 .window__minimize, .w98 .window__maximize {\n    padding: 0px;\n    min-width: initial;\n    width: 16px;\n    height: 14px;\n    margin-left: 1px;\n    image-rendering: pixelated;\n    display: flex;\n    align-items: center;\n    flex-shrink: 0;\n    background-repeat: no-repeat;\n    background-position: 1px 1px; }\n    .w98 .window__close:focus, .w98 .window__close.clicked, .w98 .window__restore:focus, .w98 .window__restore.clicked, .w98 .window__minimize:focus, .w98 .window__minimize.clicked, .w98 .window__maximize:focus, .w98 .window__maximize.clicked {\n      outline: none;\n      border: none; }\n    .w98 .window__close:active:focus, .w98 .window__close.clicked, .w98 .window__restore:active:focus, .w98 .window__restore.clicked, .w98 .window__minimize:active:focus, .w98 .window__minimize.clicked, .w98 .window__maximize:active:focus, .w98 .window__maximize.clicked {\n      padding-top: 2px;\n      padding-bottom: 1px;\n      padding-left: 4px;\n      padding-right: 8px;\n      background-position: 2px 2px; }\n  .w98 .window__close {\n    margin-left: 2px;\n    background-image: url(\"data:image/gif;base64,R0lGODlhDQALAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAANAAsAAAIUlI+pKwDoVGxvucmwvblqo33MqBQAOw==\"); }\n  .w98 .window__restore {\n    background-image: url(\"data:image/gif;base64,R0lGODlhDQALAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAANAAsAAAIZlI9pwK3SnAKI1kjtwTlpyHjV830b9qRHAQA7\"); }\n  .w98 .window__minimize {\n    background-image: url(\"data:image/gif;base64,R0lGODlhDQALAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAANAAsAAAIOlI+py+0PozSg2mXvFAUAOw==\"); }\n  .w98 .window__maximize {\n    background-image: url(\"data:image/gif;base64,R0lGODlhDQALAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAANAAsAAAIXlI8Jy4wNXzJAznqwsjtPoYFfCDXfWQAAOw==\"); }\n  .w98 .window__menu, .w98 .window .menu-bar {\n    display: flex;\n    padding: 0px;\n    font-size: 1rem;\n    position: relative;\n    overflow-y: visible;\n    z-index: 20; }\n    .w98 .window__menu__section, .w98 .window .menu-bar__section {\n      position: relative; }\n      .w98 .window__menu__section > button, .w98 .window .menu-bar__section > button {\n        padding: 0px 4px;\n        outline: none;\n        border: none;\n        user-select: none;\n        color: #0c0c0c;\n        display: inline-block;\n        background-color: rgba(0, 0, 0, 0);\n        width: 100%;\n        overflow: hidden;\n        white-space: nowrap;\n        text-overflow: ellipsis;\n        text-align: left;\n        padding: 3px 6px; }\n        .w98 .window__menu__section > button + .standard-menu, .w98 .window__menu__section > button + .menu-bar__section__dropdown, .w98 .window .menu-bar__section > button + .standard-menu, .w98 .window .menu-bar__section > button + .menu-bar__section__dropdown {\n          z-index: 20;\n          visibility: hidden;\n          position: absolute;\n          max-height: 0px;\n          top: 100%;\n          left: 0px;\n          transition: max-height linear 750ms; }\n        .w98 .window__menu__section > button:hover, .w98 .window .menu-bar__section > button:hover {\n          box-shadow: inset -1px -1px 0px #808088, inset 1px 1px 0px white; }\n        .w98 .window__menu__section > button:active, .w98 .window__menu__section > button:focus, .w98 .window__menu__section > button:active:focus, .w98 .window__menu__section > button.active, .w98 .window__menu__section > button.clicked, .w98 .window .menu-bar__section > button:active, .w98 .window .menu-bar__section > button:focus, .w98 .window .menu-bar__section > button:active:focus, .w98 .window .menu-bar__section > button.active, .w98 .window .menu-bar__section > button.clicked {\n          box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px #808088;\n          padding: 4px 5px 2px 7px; }\n          .w98 .window__menu__section > button:active + .standard-menu, .w98 .window__menu__section > button:focus + .standard-menu, .w98 .window__menu__section > button:active:focus + .standard-menu, .w98 .window__menu__section > button.active + .standard-menu, .w98 .window__menu__section > button.clicked + .standard-menu, .w98 .window .menu-bar__section > button:active + .standard-menu, .w98 .window .menu-bar__section > button:focus + .standard-menu, .w98 .window .menu-bar__section > button:active:focus + .standard-menu, .w98 .window .menu-bar__section > button.active + .standard-menu, .w98 .window .menu-bar__section > button.clicked + .standard-menu {\n            visibility: visible;\n            max-height: 480px; }\n  .w98 .window__details {\n    position: relative;\n    border: 1px solid white;\n    outline: 1px solid darkgrey;\n    padding: 5px;\n    margin: 16px 8px 8px; }\n    .w98 .window__details__title {\n      position: absolute;\n      top: -10px;\n      padding: 2px 4px;\n      background-color: #bbc3c4; }\n  .w98 .window section {\n    position: relative;\n    border: 1px solid white;\n    outline: 1px solid darkgrey;\n    padding: 5px;\n    margin: 16px 8px 8px; }\n    .w98 .window section .title {\n      position: absolute;\n      top: -10px;\n      padding: 2px 4px;\n      background-color: #bbc3c4; }\n  .w98 .window--alert {\n    max-width: 320px; }\n    .w98 .window--alert__message {\n      display: flex;\n      align-items: center;\n      min-height: 28px;\n      padding: 10px 2px 6px; }\n      .w98 .window--alert__message.has-icon {\n        background-size: 28px 28px;\n        background-repeat: no-repeat;\n        background-position: 6px 6px;\n        padding: 6px 2px 6px 44px; }\n    .w98 .window--alert__actions {\n      width: 100%;\n      display: flex;\n      justify-content: center; }\n      .w98 .window--alert__actions .btn--form {\n        margin: 0px 4px 8px; }\n";
 styleInject(css$8);
@@ -1596,9 +1566,6 @@ var withContextLogic = function withContextLogic(ContextButton) {
 
         var idx = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 0;
 
-        if (idx === 0) {
-          console.log(newOptions);
-        }
         if (activeFields.length <= idx) {
           return newOptions;
         }
@@ -1642,7 +1609,7 @@ var withContextLogic = function withContextLogic(ContextButton) {
         var _props = this.props,
             options = _props.options,
             onClick = _props.onClick,
-            props = objectWithoutProperties(_props, ['options', 'onClick']);
+            props = objectWithoutProperties(_props, ['options', 'onClick']); //eslint-disable-line
 
         if (ContextButton) {
           return React.createElement(
@@ -1772,8 +1739,7 @@ var AbstractIcon = function (_Component) {
           'div',
           { className: 'icon__text' },
           props.title
-        ),
-        props.children
+        )
       );
 
       if (this.props.onClick || this.props.onDoubleClick) {
@@ -1798,15 +1764,19 @@ var AbstractIcon = function (_Component) {
   return AbstractIcon;
 }(Component);
 
-AbstractIcon.propTypes = {
-  children: propTypes.node,
-  onClick: propTypes.func,
-  className: propTypes.string,
-  icon: propTypes.string,
-  alt: propTypes.string,
+var iconProps = {
   title: propTypes.string,
-  value: propTypes.any
+  icon: propTypes.string,
+  children: propTypes.node,
+  className: propTypes.string,
+  alt: propTypes.string,
+  value: propTypes.any,
+  onClick: propTypes.func,
+  onDoubleClick: propTypes.func,
+  onContextMenu: propTypes.func
 };
+
+AbstractIcon.propTypes = iconProps;
 
 var css$b = ".icon.icon--explorer {\n  width: 58px;\n  height: 70px;\n  text-align: center;\n  display: flex;\n  flex-direction: column;\n  align-items: center; }\n  .icon.icon--explorer .icon__icon {\n    width: 42px;\n    height: 42px;\n    margin: 0 auto; }\n  .icon.icon--explorer .icon__text {\n    position: absolute;\n    top: 45px;\n    left: 0px;\n    max-height: 24px;\n    width: 100%;\n    overflow-y: hidden;\n    display: inline-block; }\n  .icon.icon--explorer:focus .icon__text, .icon.icon--explorer:active .icon__text, .icon.icon--explorer:active:focus .icon__text, .icon.icon--explorer.active .icon__text, .icon.icon--explorer.clicked .icon__text {\n    max-height: initial; }\n";
 styleInject(css$b);
@@ -1822,14 +1792,7 @@ var ExplorerIcon = function ExplorerIcon(props) {
   });
 };
 
-ExplorerIcon.propTypes = {
-  onClick: propTypes.func,
-  onDoubleClick: propTypes.func,
-  className: propTypes.string,
-  icon: propTypes.string,
-  alt: propTypes.string,
-  title: propTypes.string
-};
+ExplorerIcon.propTypes = iconProps;
 
 var css$c = ".icon.icon--list {\n  height: 18px;\n  margin: 2px;\n  text-align: left;\n  display: flex;\n  align-items: center; }\n  .icon.icon--list .icon__icon {\n    display: inline-block;\n    width: 16px;\n    height: 16px;\n    margin-right: 2px; }\n  .icon.icon--list .icon__text {\n    position: relative;\n    padding: 2px;\n    display: inline-block;\n    overflow: hidden;\n    white-space: nowrap;\n    text-overflow: ellipsis;\n    width: calc(100% - 20px);\n    padding-bottom: 3px; }\n  .icon.icon--list:focus .icon__text, .icon.icon--list:active .icon__text, .icon.icon--list:active:focus .icon__text, .icon.icon--list.active .icon__text, .icon.icon--list.clicked .icon__text {\n    max-height: initial; }\n";
 styleInject(css$c);
@@ -1846,15 +1809,7 @@ var ListIcon = function ListIcon(props) {
   });
 };
 
-ListIcon.propTypes = {
-  onClick: propTypes.func,
-  onDoubleClick: propTypes.func,
-  className: propTypes.string,
-  icon: propTypes.string,
-  alt: propTypes.string,
-  title: propTypes.string,
-  value: propTypes.any
-};
+ListIcon.propTypes = iconProps;
 
 var css$d = "input[type=checkbox], input[type=radio] {\n  opacity: 0;\n  display: none;\n  cursor: pointer; }\n  input[type=checkbox] + label, input[type=radio] + label {\n    position: relative;\n    padding: 1px 0px;\n    padding-left: 16px; }\n    input[type=checkbox] + label > span, input[type=checkbox] + label > div, input[type=radio] + label > span, input[type=radio] + label > div {\n      display: inline-block;\n      border: 1px solid rgba(0, 0, 0, 0); }\n    input[type=checkbox] + label:before, input[type=radio] + label:before {\n      content: '';\n      position: absolute;\n      left: 0px;\n      top: 1px;\n      width: 20px;\n      height: 12px;\n      background-repeat: no-repeat; }\n  input[type=checkbox]:checked + label, input[type=radio]:checked + label {\n    border-bottom-left-radius: 2px;\n    border-bottom-right-radius: 2px; }\n  input[type=checkbox]:checked:active + label > span, input[type=checkbox]:checked:active + label > div, input[type=checkbox]:checked:focus + label > span, input[type=checkbox]:checked:focus + label > div, input[type=checkbox]:checked:active:focus + label > span, input[type=checkbox]:checked:active:focus + label > div, input[type=checkbox]:checked.active + label > span, input[type=checkbox]:checked.active + label > div, input[type=checkbox]:checked.clicked + label > span, input[type=checkbox]:checked.clicked + label > div, input[type=radio]:checked:active + label > span, input[type=radio]:checked:active + label > div, input[type=radio]:checked:focus + label > span, input[type=radio]:checked:focus + label > div, input[type=radio]:checked:active:focus + label > span, input[type=radio]:checked:active:focus + label > div, input[type=radio]:checked.active + label > span, input[type=radio]:checked.active + label > div, input[type=radio]:checked.clicked + label > span, input[type=radio]:checked.clicked + label > div {\n    border: 1px dotted black; }\n  input[type=checkbox]:disabled + label, input[type=checkbox].disabled + label, input[type=radio]:disabled + label, input[type=radio].disabled + label {\n    color: #808088; }\n";
 styleInject(css$d);
@@ -1863,15 +1818,16 @@ var Toggle = function Toggle(props) {
   return React.createElement(
     React.Fragment,
     null,
-    React.createElement('input', defineProperty({
+    React.createElement('input', {
       type: props.type,
       id: props.id,
       disabled: props.disabled,
       value: props.value,
       checked: props.checked,
       onChange: props.onChange,
-      name: props.name
-    }, 'disabled', props.disabled)),
+      name: props.name,
+      isDisabled: props.isDisabled
+    }),
     React.createElement(
       'label',
       { htmlFor: props.id },
@@ -4796,137 +4752,139 @@ Select$1.Option = Option;
 var css$h = ".w98 select[multiple] {\n  position: relative;\n  border: none;\n  background-color: white;\n  border-radius: 0px;\n  outline: none;\n  padding: 2px;\n  box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px 0px #808088, inset -2px -2px 0px #bbc3c4, inset 2px 2px 0px 0px #0c0c0c; }\n  .w98 select[multiple]:active, .w98 select[multiple]:focus {\n    outline: none; }\n  .w98 select[multiple] option:active, .w98 select[multiple] option:focus, .w98 select[multiple] option:checked {\n    outline: 1px dotted white;\n    outline-offset: -1px;\n    background-color: #0000a2;\n    color: white; }\n\n.w98 .SelectMultiple {\n  display: inline-block;\n  padding: 2px;\n  box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px 0px #808088, inset -2px -2px 0px #bbc3c4, inset 2px 2px 0px 0px #0c0c0c; }\n  .w98 .SelectMultiple > select[multiple] {\n    padding: 0px;\n    box-shadow: none; }\n  .w98 .SelectMultiple ::-webkit-scrollbar {\n    display: none; }\n\n.w98 .Select {\n  position: relative; }\n  .w98 .Select .Select-control {\n    width: 100%; }\n    .w98 .Select .Select-control .Select-multi-value-wrapper .Select-input, .w98 .Select .Select-control .Select-multi-value-wrapper .Select-placeholder, .w98 .Select .Select-control .Select-multi-value-wrapper .Select-value {\n      width: calc(100% - 4px); }\n    .w98 .Select .Select-control .Select-multi-value-wrapper .Select-input {\n      display: none !important; }\n    .w98 .Select .Select-control .Select-multi-value-wrapper .Select-value, .w98 .Select .Select-control .Select-multi-value-wrapper .Select-placeholder {\n      height: 16px;\n      background-color: white;\n      border: none;\n      box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px 0px #808088, inset -2px -2px 0px #bbc3c4, inset 2px 2px 0px 0px #0c0c0c;\n      padding: 2px; }\n      .w98 .Select .Select-control .Select-multi-value-wrapper .Select-value .Select-value-label > div, .w98 .Select .Select-control .Select-multi-value-wrapper .Select-placeholder .Select-value-label > div {\n        margin: 1px;\n        margin-right: 17px;\n        padding-left: 1px;\n        outline: 1px dotted rgba(0, 0, 0, 0); }\n      .w98 .Select .Select-control .Select-multi-value-wrapper .Select-value:active .Select-value-label > div, .w98 .Select .Select-control .Select-multi-value-wrapper .Select-value:focus .Select-value-label > div, .w98 .Select .Select-control .Select-multi-value-wrapper .Select-placeholder:active .Select-value-label > div, .w98 .Select .Select-control .Select-multi-value-wrapper .Select-placeholder:focus .Select-value-label > div {\n        outline: 1px dotted white;\n        outline-offset: -1px;\n        background-color: #0000a2;\n        color: white; }\n    .window--explorer .w98 .Select .Select-control .Select-multi-value-wrapper .Select-placeholder {\n      padding: 4px 2px 1px; }\n    .w98 .Select .Select-control .Select-arrow-zone {\n      position: absolute;\n      box-shadow: inset -1px -1px 0px #0c0c0c, inset 1px 1px 0px #bbc3c4, inset -2px -2px 0px #808088, inset 2px 2px 0px white;\n      height: 16px;\n      width: 16px;\n      left: calc(100% - 18px);\n      top: 2px;\n      background-color: #bbc3c4;\n      background-repeat: no-repeat;\n      background-position: center;\n      background-image: url(\"data:image/gif;base64,R0lGODlhBwAEAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAHAAQAAAIIhA+CKWoNmSgAOw==\"); }\n    .w98 .Select .Select-control .Select-clear-zone {\n      display: none; }\n  .w98 .Select .Select-menu-outer {\n    border: 1px solid black;\n    background-color: white; }\n    .w98 .Select .Select-menu-outer .Select-menu .Select-option {\n      padding: 1px; }\n      .w98 .Select .Select-menu-outer .Select-menu .Select-option:hover {\n        outline: 1px dotted white;\n        outline-offset: -1px;\n        background-color: #0000a2;\n        color: white; }\n  .w98 .Select.is-disabled {\n    pointer-events: none; }\n    .w98 .Select.is-disabled .Select-control .Select-multi-value-wrapper .Select-value, .w98 .Select.is-disabled .Select-control .Select-multi-value-wrapper .Select-placeholder {\n      background-color: #bbc3c4; }\n    .w98 .Select.is-disabled .Select-control .Select-arrow-zone:after {\n      background-image: url(\"data:image/gif;base64,R0lGODlhCAAFAJEAAAAAAP///5mZmf///yH5BAEAAAMALAAAAAAIAAUAAAIMlC8zKBF6nIJyqqcKADs=\"); }\n\n.w98 .SelectBox {\n  position: relative;\n  width: 100%;\n  background-color: white;\n  padding: 2px; }\n  .w98 .SelectBox:disabled, .w98 .SelectBox.disabled {\n    pointer-events: none;\n    background-color: #bbc3c4; }\n    .w98 .SelectBox:disabled > div, .w98 .SelectBox.disabled > div {\n      overflow: hidden; }\n    .w98 .SelectBox:disabled button, .w98 .SelectBox.disabled button {\n      color: #808088 !important; }\n    .w98 .SelectBox:disabled .icon, .w98 .SelectBox.disabled .icon {\n      filter: grayscale(1); }\n  .w98 .SelectBox > div {\n    position: relative;\n    overflow: auto; }\n  .w98 .SelectBox:after {\n    position: absolute;\n    top: 0px;\n    left: 0px;\n    width: 100%;\n    height: 100%;\n    box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px 0px #808088, inset -2px -2px 0px #bbc3c4, inset 2px 2px 0px 0px #0c0c0c;\n    pointer-events: none;\n    content: ''; }\n  .w98 .SelectBox button:not(.icon) {\n    display: block;\n    outline: none;\n    background: transparent;\n    border: none;\n    white-space: nowrap;\n    overflow: hidden;\n    color: #0c0c0c;\n    width: 100%;\n    text-align: left; }\n    .w98 .SelectBox button:not(.icon):after {\n      content: attr(title);\n      position: initial; }\n    .w98 .SelectBox button:not(.icon).is-active {\n      background-color: #0000a2;\n      color: white;\n      outline-offset: -1px;\n      outline: 1px dotted white; }\n  .w98 .SelectBox--ExplorerIcon > div {\n    display: flex;\n    flex-direction: row;\n    overflow-y: hidden;\n    padding-bottom: 20px; }\n    .w98 .SelectBox--ExplorerIcon > div .explorer-icon {\n      margin: 2px 8px; }\n  .w98 .SelectBox .icon--list {\n    margin: 0px;\n    padding: 1px; }\n    .w98 .SelectBox .icon--list .icon__text {\n      width: initial; }\n    .w98 .SelectBox .icon--list:focus:not(.is-active) .icon__text, .w98 .SelectBox .icon--list:active:not(.is-active) .icon__text {\n      background-color: transparent;\n      color: #0c0c0c;\n      outline: none;\n      outline-offset: -1px; }\n";
 styleInject(css$h);
 
+var DefaultOptionComponent = function DefaultOptionComponent(props) {
+  return React.createElement('div', props);
+};
+
 // copied straight from react select demos with slight changes
 var menuRenderer$1 = function menuRenderer$$1(_ref) {
-		var focusedOption = _ref.focusedOption,
-		    focusOption = _ref.focusOption,
-		    inputValue = _ref.inputValue,
-		    instancePrefix = _ref.instancePrefix,
-		    onFocus = _ref.onFocus,
-		    onOptionRef = _ref.onOptionRef,
-		    onSelect = _ref.onSelect,
-		    optionClassName = _ref.optionClassName,
-		    optionComponent = _ref.optionComponent,
-		    options = _ref.options,
-		    removeValue = _ref.removeValue,
-		    selectValue = _ref.selectValue,
-		    valueArray = _ref.valueArray,
-		    valueKey = _ref.valueKey;
+  var focusedOption = _ref.focusedOption,
+      focusOption = _ref.focusOption,
+      inputValue = _ref.inputValue,
+      instancePrefix = _ref.instancePrefix,
+      onFocus = _ref.onFocus,
+      onOptionRef = _ref.onOptionRef,
+      onSelect = _ref.onSelect,
+      optionClassName = _ref.optionClassName,
+      optionComponent = _ref.optionComponent,
+      options = _ref.options,
+      removeValue = _ref.removeValue,
+      selectValue = _ref.selectValue,
+      valueArray = _ref.valueArray,
+      valueKey = _ref.valueKey;
 
-		var Option$$1 = optionComponent || function (props) {
-				return React.createElement('div', props);
-		};
+  var Option$$1 = optionComponent || DefaultOptionComponent;
 
-		return options.map(function (option, i) {
-				var isSelected = valueArray && valueArray.some(function (x) {
-						return x[valueKey] === option[valueKey];
-				});
-				var isFocused = option === focusedOption;
-				var optionClass = classnames(optionClassName, {
-						'Select-option': true,
-						'is-selected': isSelected,
-						'is-focused': isFocused,
-						'is-disabled': option.disabled
-				});
+  return options.map(function (option, i) {
+    var isSelected = valueArray && valueArray.some(function (x) {
+      return x[valueKey] === option[valueKey];
+    });
+    var isFocused = option === focusedOption;
+    var optionClass = classnames(optionClassName, {
+      'Select-option': true,
+      'is-selected': isSelected,
+      'is-focused': isFocused,
+      'is-disabled': option.disabled
+    });
 
-				return React.createElement(
-						Option$$1,
-						{
-								className: optionClass,
-								focusOption: focusOption,
-								inputValue: inputValue,
-								instancePrefix: instancePrefix,
-								isDisabled: option.disabled,
-								isFocused: isFocused,
-								isSelected: isSelected,
-								key: 'option-' + i + '-' + option[valueKey],
-								onFocus: onFocus,
-								onSelect: onSelect,
-								option: option,
-								optionIndex: i,
-								ref: function ref(_ref2) {
-										onOptionRef(_ref2, isFocused);
-								},
-								removeValue: removeValue,
-								selectValue: selectValue,
-								backgroundImage: option.icon
-						},
-						React.createElement(
-								'span',
-								null,
-								option.label
-						)
-				);
-		});
+    return React.createElement(
+      Option$$1,
+      {
+        className: optionClass,
+        focusOption: focusOption,
+        inputValue: inputValue,
+        instancePrefix: instancePrefix,
+        isDisabled: option.disabled,
+        isFocused: isFocused,
+        isSelected: isSelected,
+        key: 'option-' + i + '-' + option[valueKey],
+        onFocus: onFocus,
+        onSelect: onSelect,
+        option: option,
+        optionIndex: i,
+        ref: function ref(_ref2) {
+          onOptionRef(_ref2, isFocused);
+        },
+        removeValue: removeValue,
+        selectValue: selectValue,
+        backgroundImage: option.icon
+      },
+      React.createElement(
+        'span',
+        null,
+        option.label
+      )
+    );
+  });
 };
 menuRenderer$1.propTypes = {
-		focusOption: propTypes.func,
-		focusedOption: propTypes.object,
-		inputValue: propTypes.string,
-		instancePrefix: propTypes.string,
-		onFocus: propTypes.func,
-		onOptionRef: propTypes.func,
-		onSelect: propTypes.func,
-		optionClassName: propTypes.string,
-		optionComponent: propTypes.func,
-		optionRenderer: propTypes.func,
-		options: propTypes.array,
-		removeValue: propTypes.func,
-		selectValue: propTypes.func,
-		valueArray: propTypes.array,
-		valueKey: propTypes.string
+  focusOption: propTypes.func,
+  focusedOption: propTypes.object,
+  inputValue: propTypes.string,
+  instancePrefix: propTypes.string,
+  onFocus: propTypes.func,
+  onOptionRef: propTypes.func,
+  onSelect: propTypes.func,
+  optionClassName: propTypes.string,
+  optionComponent: propTypes.func,
+  optionRenderer: propTypes.func,
+  options: propTypes.array,
+  removeValue: propTypes.func,
+  selectValue: propTypes.func,
+  valueArray: propTypes.array,
+  valueKey: propTypes.string
 };
 
 var ValueRenderer = function ValueRenderer(props) {
-		return React.createElement(
-				'div',
-				{ style: { backgroundImage: props.icon ? 'url(\'' + props.icon + '\')' : 'none' } },
-				props.label
-		);
+  return React.createElement(
+    'div',
+    { style: { backgroundImage: props.icon ? 'url(\'' + props.icon + '\')' : 'none' } },
+    props.label
+  );
 };
 
 var Select = function (_Component) {
-		inherits(Select, _Component);
+  inherits(Select, _Component);
 
-		function Select(props) {
-				classCallCheck(this, Select);
+  function Select(props) {
+    classCallCheck(this, Select);
 
-				var _this = possibleConstructorReturn(this, (Select.__proto__ || Object.getPrototypeOf(Select)).call(this, props));
+    var _this = possibleConstructorReturn(this, (Select.__proto__ || Object.getPrototypeOf(Select)).call(this, props));
 
-				_this.onChange = function (e) {
-						_this.setState({ value: e.value });
-				};
+    _this.onChange = function (e) {
+      _this.setState({ value: e.value });
+    };
 
-				_this.state = {
-						value: _this.props.value || null
-				};
-				return _this;
-		}
+    _this.state = {
+      value: _this.props.value || null
+    };
+    return _this;
+  }
 
-		createClass(Select, [{
-				key: 'render',
-				value: function render() {
-						var props = this.props;
+  createClass(Select, [{
+    key: 'render',
+    value: function render() {
+      var props = this.props;
 
-						return React.createElement(Select$1, _extends({}, props, {
-								className: 'Select',
-								placeholder: props.placeholder,
-								onChange: this.onChange,
-								isOpen: true,
-								isDisabled: this.props.isDisabled,
-								searchable: this.props.searchable,
-								menuRenderer: this.props.useIcons ? menuRenderer$1 : undefined,
-								valueRenderer: ValueRenderer,
-								value: this.state.value
-						}));
-				}
-		}]);
-		return Select;
+      return React.createElement(Select$1, _extends({}, props, {
+        className: 'Select',
+        placeholder: props.placeholder,
+        onChange: this.onChange,
+        isOpen: true,
+        isDisabled: this.props.isDisabled,
+        searchable: this.props.searchable,
+        menuRenderer: this.props.useIcons ? menuRenderer$1 : undefined,
+        valueRenderer: ValueRenderer,
+        value: this.state.value
+      }));
+    }
+  }]);
+  return Select;
 }(Component);
 
 Select.defaultProps = {
-		placeholder: '',
-		searchable: false
+  placeholder: '',
+  searchable: false
 };
 
 var isSelected = function isSelected(selected, val) {
@@ -4977,7 +4935,6 @@ var Select$3 = function (_Component) {
     };
 
     _this.handleChange = function (event) {
-      console.log(event.target.value);
       if (_this.props.multiple) {
         var selectedIndex = _this.state.value.findIndex(function (val) {
           return val === event.target.value;
@@ -5075,7 +5032,7 @@ var StartMenu = function StartMenu(props) {
       otherProps = objectWithoutProperties(props, ['className']);
 
   return React.createElement(Started, _extends({
-    className: classnames('start-menu task-bar__start', props.className)
+    className: classnames('start-menu task-bar__start', className)
   }, otherProps));
 };
 
@@ -5134,8 +5091,8 @@ var Time = function (_React$Component) {
   }
 
   createClass(Time, [{
-    key: 'componentWillMount',
-    value: function componentWillMount() {
+    key: 'componentDidMount',
+    value: function componentDidMount() {
       var _this2 = this;
 
       if (!this.props.fixedTime) {
@@ -5265,14 +5222,15 @@ var StaticWindow = function StaticWindow(props) {
 StaticWindow.propTypes = {
   children: propTypes.node,
   title: propTypes.string,
-  onClose: propTypes.func,
-  onMinimize: propTypes.func,
-  onMaximize: propTypes.func,
-  onRestore: propTypes.func,
   className: propTypes.string,
   isActive: propTypes.bool,
   isMaximized: propTypes.bool,
-  icon: propTypes.string
+  icon: propTypes.string,
+
+  onClose: propTypes.func,
+  onMinimize: propTypes.func,
+  onMaximize: propTypes.func,
+  onRestore: propTypes.func
 };
 
 var css$k = ".w98 .window--explorer__view {\n  min-height: 20px;\n  margin: 2px auto 1px;\n  background-color: white;\n  box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px 0px #808088, inset -2px -2px 0px #bbc3c4, inset 2px 2px 0px 0px #0c0c0c; }\n\n.w98 .window--explorer__details {\n  display: flex; }\n  .w98 .window--explorer__details__section {\n    box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px #808088;\n    flex-grow: 1;\n    margin-top: 2px;\n    height: 16px; }\n    .w98 .window--explorer__details__section:not(:last-child) {\n      margin: 2px; }\n\n.w98 .window--explorer .menu-bar {\n  padding: 2px 1px 2px 12px; }\n\n.w98 .window--explorer > div + menu {\n  margin-top: 2px;\n  box-shadow: 0px 1px 0px white, inset 0px -1px 0px #808088, -1px 0px 0px #808088, inset 1px 0px 0px white, 1px 0px 0px white, inset -1px 0px 0px #808088, -1px -1px 0px #808088, 0px -1px 0px #808088, inset 0px 1px 0px white, 1px -1px 0px white; }\n\n.w98 .window--explorer > menu {\n  position: relative;\n  min-height: 16px;\n  padding-left: 12px;\n  margin: 0px 1px;\n  display: flex;\n  box-shadow: 0px 1px 0px white, inset 0px -1px 0px #808088, -1px 0px 0px #808088, inset 1px 0px 0px white, 1px 0px 0px white, inset -1px 0px 0px #808088; }\n  .w98 .window--explorer > menu:before {\n    position: absolute;\n    top: 3px;\n    left: 5px;\n    height: calc(100% - 6px);\n    width: 3px;\n    background-color: #bbc3c4;\n    content: '';\n    box-shadow: inset -1px -1px 0px #808088, inset 1px 1px 0px white; }\n\n.w98 .window--explorer > footer {\n  display: flex; }\n  .w98 .window--explorer > footer > div {\n    flex-grow: 1;\n    padding: 2px 4px;\n    box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px #0c0c0c; }\n    .w98 .window--explorer > footer > div:not(:last-child) {\n      margin-right: 4px; }\n\n.w98 .window--explorer__address {\n  display: flex;\n  height: 22px;\n  overflow-y: visible; }\n  .w98 .window--explorer__address__title {\n    align-self: center;\n    margin-right: 4px;\n    padding-bottom: 2px; }\n  .w98 .window--explorer__address .Select {\n    flex-grow: 1;\n    z-index: 5;\n    margin-right: 4px;\n    margin-top: 1px; }\n\n.w98 .window--explorer__options {\n  display: flex;\n  padding: 2px 4px 2px 12px; }\n\n.w98 .window--explorer > div:last-child {\n  margin-top: 2px; }\n";

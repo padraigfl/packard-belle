@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import StandardMenu from './StandardMenu';
 
@@ -13,20 +14,18 @@ const StandardMenuItem = props => (
       )
     }
     onMouseEnter={props.mouseEnterItem}
-    onMouseLeave={() => {}}
-    onMouseOut={() => {}}
   >
     <button
       className={
         classnames(
           'standard-menu__item__button',
-          { disabled: props.disabled },
+          { disabled: props.isDisabled },
         )
       }
       onClick={props.onClick}
       style={ props.icon ? { backgroundImage: `url('${props.icon}')` } : undefined }
       value={props.value}
-      disabled={props.disabled}
+      disabled={props.isDisabled}
     >
       {props.title}
     </button>
@@ -44,6 +43,19 @@ const StandardMenuItem = props => (
 StandardMenuItem.defaultProps = {
   onClick: () => {},
   value: [],
+};
+
+export const standardMenuItemProps = {
+  className: PropTypes.string,
+  title: PropTypes.string.isRequired,
+  icon: PropTypes.string,
+  value: PropTypes.arrayOf(PropTypes.string),
+  mouseEnterItem: PropTypes.func,
+  options: PropTypes.shape(),
+  isDisabled: PropTypes.bool,
+  isActive: PropTypes.bool,
+  onClick: PropTypes.func,
+  type: PropTypes.string,
 };
 
 export default StandardMenuItem;
