@@ -28,3 +28,5 @@ To be done, I hope to do this in the next few weeks and expand and refine the ne
 3. `npm run build:module` For building ES and CJS outputs
 
 Build tools largely created with help of https://hackernoon.com/making-of-a-component-library-for-react-e6421ea4e6c7
+
+Font created using http://www.pentacom.jp/pentacom/bitfontmaker2/

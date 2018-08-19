@@ -788,7 +788,7 @@ function styleInject(css, ref) {
   }
 }
 
-var css = "html {\n  font-size: 10px;\n  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;\n  width: 200px;\n  background-color: #bbc3c4;\n  image-rendering: pixelated; }\n  html button {\n    font-size: 10px; }\n  html menu {\n    padding: 0px;\n    margin: 0px; }\n  html .disabled {\n    color: #808088; }\n  html ::-webkit-scrollbar {\n    width: 16px;\n    height: 16px;\n    background-color: white;\n    background-image: url(\"data:image/gif;base64,R0lGODlhAgACAJEAAAAAAP///8zMzP///yH5BAEAAAMALAAAAAACAAIAAAID1CYFADs=\"); }\n    html ::-webkit-scrollbar-track {\n      position: relative; }\n    html ::-webkit-scrollbar-thumb {\n      background: #bbc3c4;\n      box-shadow: inset -1px -1px 0px #808088, inset 1px 1px 0px 0px white;\n      border: 1px solid #0c0c0c;\n      border-top: 1px solid #bbc3c4;\n      border-left: 1px solid #bbc3c4; }\n    html ::-webkit-scrollbar-button {\n      background: #bbc3c4;\n      box-shadow: inset -1px -1px 0px #808088, inset 1px 1px 0px 0px white;\n      border: 1px solid #0c0c0c;\n      border-top: 1px solid #bbc3c4;\n      border-left: 1px solid #bbc3c4; }\n      html ::-webkit-scrollbar-button:start:decrement, html ::-webkit-scrollbar-button:end:increment {\n        height: 16px;\n        width: 16px;\n        display: block;\n        background-repeat: no-repeat;\n        background-color: #bbc3c4; }\n        html ::-webkit-scrollbar-button:start:decrement:active, html ::-webkit-scrollbar-button:end:increment:active {\n          border: 1px solid #808088;\n          box-shadow: none;\n          background-color: #bbc3c4; }\n      html ::-webkit-scrollbar-button:horizontal:decrement {\n        background-image: url(\"data:image/gif;base64,R0lGODlhBAAHAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAEAAcAAAIIlHEIy7ppBCgAOw==\");\n        background-position: 4px 3px; }\n        html ::-webkit-scrollbar-button:horizontal:decrement:active {\n          background-position: 5px 4px; }\n      html ::-webkit-scrollbar-button:horizontal:increment {\n        background-image: url(\"data:image/gif;base64,R0lGODlhBAAHAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAEAAcAAAIIhA4maeyrlCgAOw==\");\n        background-position: 5px 3px; }\n        html ::-webkit-scrollbar-button:horizontal:increment:active {\n          background-position: 6px 4px; }\n      html ::-webkit-scrollbar-button:vertical:decrement {\n        background-image: url(\"data:image/gif;base64,R0lGODlhBwAEAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAHAAQAAAIHlGEJq8sOCwA7\");\n        background-position: 3px 5px; }\n        html ::-webkit-scrollbar-button:vertical:decrement:active {\n          background-position: 4px 6px; }\n      html ::-webkit-scrollbar-button:vertical:increment {\n        background-image: url(\"data:image/gif;base64,R0lGODlhBwAEAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAHAAQAAAIIhA+CKWoNmSgAOw==\");\n        background-position: 3px 5px; }\n        html ::-webkit-scrollbar-button:vertical:increment:active {\n          background-position: 4px 6px; }\n    html ::-webkit-scrollbar-corner {\n      /*\n      background-image: url(resources/corner.png);\n      background-repeat: no-repeat;\n      */\n      background-color: #bbc3c4; }\n\n.w98 *, .w98 {\n  cursor: url(\"data:image/gif;base64,R0lGODlhCwATAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAALABMAAAIrhI4JlhrcBAgvSlrbxPBs7mAU9IlMaV7mwo6jY2zk+Xphh8iWint1tDgUAAA7\"), default; }\n\n.w98.x2 {\n  transform: scale(2); }\n  .w98.x2 *, .w98.x2 {\n    cursor: url(\"data:image/gif;base64,R0lGODlhFgAmAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAWACYAAAJzBISpu8b/jINUHgpNCBMrzV1eAm6dV4YjkppiBWyyisazfDIt/ur2zcv8gDQf8ZYT7IDJJfHkZL6izwtVyhpKLVwtssudpZJZ8ZCstE3GvbSrHGxIPue2hW72CfOkNvy9wrbiFjcoGFhnmIjIp4iGcZdQAAA7\"), default; }\n";
+var css = "@font-face {\n  font-family: 'MSFont';\n  src: url(./ms98_11.ttf); }\n\nhtml {\n  font-size: 10px;\n  width: 200px;\n  background-color: #bbc3c4;\n  image-rendering: pixelated; }\n  html button {\n    font-size: 10px; }\n  html menu {\n    padding: 0px;\n    margin: 0px; }\n  html * {\n    font-family: 'MSFont', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }\n  html .disabled {\n    color: #808088; }\n  html ::-webkit-scrollbar {\n    width: 16px;\n    height: 16px;\n    background-color: white;\n    background-image: url(\"data:image/gif;base64,R0lGODlhAgACAJEAAAAAAP///8zMzP///yH5BAEAAAMALAAAAAACAAIAAAID1CYFADs=\"); }\n    html ::-webkit-scrollbar-track {\n      position: relative; }\n    html ::-webkit-scrollbar-thumb {\n      background: #bbc3c4;\n      box-shadow: inset -1px -1px 0px #808088, inset 1px 1px 0px 0px white;\n      border: 1px solid #0c0c0c;\n      border-top: 1px solid #bbc3c4;\n      border-left: 1px solid #bbc3c4; }\n    html ::-webkit-scrollbar-button {\n      background: #bbc3c4;\n      box-shadow: inset -1px -1px 0px #808088, inset 1px 1px 0px 0px white;\n      border: 1px solid #0c0c0c;\n      border-top: 1px solid #bbc3c4;\n      border-left: 1px solid #bbc3c4; }\n      html ::-webkit-scrollbar-button:start:decrement, html ::-webkit-scrollbar-button:end:increment {\n        height: 16px;\n        width: 16px;\n        display: block;\n        background-repeat: no-repeat;\n        background-color: #bbc3c4; }\n        html ::-webkit-scrollbar-button:start:decrement:active, html ::-webkit-scrollbar-button:end:increment:active {\n          border: 1px solid #808088;\n          box-shadow: none;\n          background-color: #bbc3c4; }\n      html ::-webkit-scrollbar-button:horizontal:decrement {\n        background-image: url(\"data:image/gif;base64,R0lGODlhBAAHAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAEAAcAAAIIlHEIy7ppBCgAOw==\");\n        background-position: 4px 3px; }\n        html ::-webkit-scrollbar-button:horizontal:decrement:active {\n          background-position: 5px 4px; }\n      html ::-webkit-scrollbar-button:horizontal:increment {\n        background-image: url(\"data:image/gif;base64,R0lGODlhBAAHAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAEAAcAAAIIhA4maeyrlCgAOw==\");\n        background-position: 5px 3px; }\n        html ::-webkit-scrollbar-button:horizontal:increment:active {\n          background-position: 6px 4px; }\n      html ::-webkit-scrollbar-button:vertical:decrement {\n        background-image: url(\"data:image/gif;base64,R0lGODlhBwAEAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAHAAQAAAIHlGEJq8sOCwA7\");\n        background-position: 3px 5px; }\n        html ::-webkit-scrollbar-button:vertical:decrement:active {\n          background-position: 4px 6px; }\n      html ::-webkit-scrollbar-button:vertical:increment {\n        background-image: url(\"data:image/gif;base64,R0lGODlhBwAEAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAHAAQAAAIIhA+CKWoNmSgAOw==\");\n        background-position: 3px 5px; }\n        html ::-webkit-scrollbar-button:vertical:increment:active {\n          background-position: 4px 6px; }\n    html ::-webkit-scrollbar-corner {\n      /*\n      background-image: url(resources/corner.png);\n      background-repeat: no-repeat;\n      */\n      background-color: #bbc3c4; }\n\n.w98 *, .w98 {\n  cursor: url(\"data:image/gif;base64,R0lGODlhCwATAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAALABMAAAIrhI4JlhrcBAgvSlrbxPBs7mAU9IlMaV7mwo6jY2zk+Xphh8iWint1tDgUAAA7\"), default; }\n\n.w98.x2 {\n  transform: scale(2); }\n  .w98.x2 *, .w98.x2 {\n    cursor: url(\"data:image/gif;base64,R0lGODlhFgAmAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAWACYAAAJzBISpu8b/jINUHgpNCBMrzV1eAm6dV4YjkppiBWyyisazfDIt/ur2zcv8gDQf8ZYT7IDJJfHkZL6izwtVyhpKLVwtssudpZJZ8ZCstE3GvbSrHGxIPue2hW72CfOkNvy9wrbiFjcoGFhnmIjIp4iGcZdQAAA7\"), default; }\n";
 styleInject(css);
 
 var Theme = function Theme(props) {
@@ -1115,7 +1115,7 @@ var StartButton = function StartButton(props) {
 
 StartButton.propTypes = commonButtonPropTypes;
 
-var css$6 = ".btn.btn--large-icon {\n  padding: 2px;\n  width: 48px; }\n  .btn.btn--large-icon img {\n    display: block;\n    margin: 0 auto;\n    filter: grayscale(1);\n    height: 20px;\n    max-width: 20px; }\n  .btn.btn--large-icon:disabled, .btn.btn--large-icon.disabled {\n    color: #808088; }\n    .btn.btn--large-icon:disabled:hover, .btn.btn--large-icon.disabled:hover {\n      box-shadow: none; }\n      .btn.btn--large-icon:disabled:hover img, .btn.btn--large-icon.disabled:hover img {\n        filter: grayscale(1); }\n  .btn.btn--large-icon:hover {\n    box-shadow: inset -1px -1px 0px #0c0c0c, inset 1px 1px 0px white; }\n    .btn.btn--large-icon:hover img {\n      filter: grayscale(0); }\n  .btn.btn--large-icon:active:focus {\n    box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px #0c0c0c;\n    padding: 3px 1px 1px 3px; }\n";
+var css$6 = ".btn.btn--large-icon {\n  padding: 2px;\n  width: 48px;\n  min-width: 48px; }\n  .btn.btn--large-icon img {\n    display: block;\n    margin: 0 auto;\n    filter: grayscale(1);\n    height: 20px;\n    max-width: 20px; }\n  .btn.btn--large-icon:disabled, .btn.btn--large-icon.disabled {\n    color: #808088; }\n    .btn.btn--large-icon:disabled:hover, .btn.btn--large-icon.disabled:hover {\n      box-shadow: none; }\n      .btn.btn--large-icon:disabled:hover img, .btn.btn--large-icon.disabled:hover img {\n        filter: grayscale(1); }\n  .btn.btn--large-icon:hover {\n    box-shadow: inset -1px -1px 0px #0c0c0c, inset 1px 1px 0px white; }\n    .btn.btn--large-icon:hover img {\n      filter: grayscale(0); }\n  .btn.btn--large-icon:active:focus {\n    box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px #0c0c0c;\n    padding: 3px 1px 1px 3px; }\n";
 styleInject(css$6);
 
 var LargeIconButton = function LargeIconButton(props) {
@@ -1847,7 +1847,7 @@ var Toggle = function Toggle(props) {
     React.createElement('input', {
       type: props.type,
       id: props.id,
-      isDisabled: props.isDisabled,
+      disabled: props.isDisabled,
       value: props.value,
       checked: props.checked,
       onChange: props.onChange,
@@ -1937,7 +1937,7 @@ var InputText = function (_Component) {
         className: this.props.className,
         value: this.state.value,
         id: this.props.id,
-        isDisabled: this.props.isDisabled,
+        disabled: this.props.isDisabled,
         name: this.props.name || this.props.id,
         onBlur: this.handleBlur,
         onChange: this.handleChange,
@@ -4787,7 +4787,7 @@ Select$1.Creatable = CreatableSelect;
 Select$1.Value = Value;
 Select$1.Option = Option;
 
-var css$h = ".w98 select[multiple] {\n  position: relative;\n  border: none;\n  background-color: white;\n  border-radius: 0px;\n  outline: none;\n  padding: 2px;\n  box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px 0px #808088, inset -2px -2px 0px #bbc3c4, inset 2px 2px 0px 0px #0c0c0c; }\n  .w98 select[multiple]:active, .w98 select[multiple]:focus {\n    outline: none; }\n  .w98 select[multiple] option:active, .w98 select[multiple] option:focus, .w98 select[multiple] option:checked {\n    outline: 1px dotted white;\n    outline-offset: -1px;\n    background-color: #0000a2;\n    color: white; }\n\n.w98 .SelectMultiple {\n  display: inline-block;\n  padding: 2px;\n  box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px 0px #808088, inset -2px -2px 0px #bbc3c4, inset 2px 2px 0px 0px #0c0c0c; }\n  .w98 .SelectMultiple > select[multiple] {\n    padding: 0px;\n    box-shadow: none; }\n  .w98 .SelectMultiple ::-webkit-scrollbar {\n    display: none; }\n\n.w98 .Select {\n  position: relative; }\n  .w98 .Select .Select-control {\n    width: 100%; }\n    .w98 .Select .Select-control .Select-multi-value-wrapper .Select-input, .w98 .Select .Select-control .Select-multi-value-wrapper .Select-placeholder, .w98 .Select .Select-control .Select-multi-value-wrapper .Select-value {\n      width: calc(100% - 4px); }\n    .w98 .Select .Select-control .Select-multi-value-wrapper .Select-input {\n      display: none !important; }\n    .w98 .Select .Select-control .Select-multi-value-wrapper .Select-value, .w98 .Select .Select-control .Select-multi-value-wrapper .Select-placeholder {\n      height: 16px;\n      background-color: white;\n      border: none;\n      box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px 0px #808088, inset -2px -2px 0px #bbc3c4, inset 2px 2px 0px 0px #0c0c0c;\n      padding: 2px; }\n      .w98 .Select .Select-control .Select-multi-value-wrapper .Select-value .Select-value-label > div, .w98 .Select .Select-control .Select-multi-value-wrapper .Select-placeholder .Select-value-label > div {\n        margin: 1px;\n        margin-right: 17px;\n        padding-left: 1px;\n        outline: 1px dotted rgba(0, 0, 0, 0); }\n      .w98 .Select .Select-control .Select-multi-value-wrapper .Select-value:active .Select-value-label > div, .w98 .Select .Select-control .Select-multi-value-wrapper .Select-value:focus .Select-value-label > div, .w98 .Select .Select-control .Select-multi-value-wrapper .Select-placeholder:active .Select-value-label > div, .w98 .Select .Select-control .Select-multi-value-wrapper .Select-placeholder:focus .Select-value-label > div {\n        outline: 1px dotted white;\n        outline-offset: -1px;\n        background-color: #0000a2;\n        color: white; }\n    .window--explorer .w98 .Select .Select-control .Select-multi-value-wrapper .Select-placeholder {\n      padding: 4px 2px 1px; }\n    .w98 .Select .Select-control .Select-arrow-zone {\n      position: absolute;\n      box-shadow: inset -1px -1px 0px #0c0c0c, inset 1px 1px 0px #bbc3c4, inset -2px -2px 0px #808088, inset 2px 2px 0px white;\n      height: 16px;\n      width: 16px;\n      left: calc(100% - 18px);\n      top: 2px;\n      background-color: #bbc3c4;\n      background-repeat: no-repeat;\n      background-position: center;\n      background-image: url(\"data:image/gif;base64,R0lGODlhBwAEAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAHAAQAAAIIhA+CKWoNmSgAOw==\"); }\n    .w98 .Select .Select-control .Select-clear-zone {\n      display: none; }\n  .w98 .Select .Select-menu-outer {\n    border: 1px solid black;\n    background-color: white; }\n    .w98 .Select .Select-menu-outer .Select-menu .Select-option {\n      padding: 1px; }\n      .w98 .Select .Select-menu-outer .Select-menu .Select-option:hover {\n        outline: 1px dotted white;\n        outline-offset: -1px;\n        background-color: #0000a2;\n        color: white; }\n  .w98 .Select.is-disabled {\n    pointer-events: none; }\n    .w98 .Select.is-disabled .Select-control .Select-multi-value-wrapper .Select-value, .w98 .Select.is-disabled .Select-control .Select-multi-value-wrapper .Select-placeholder {\n      background-color: #bbc3c4; }\n    .w98 .Select.is-disabled .Select-control .Select-arrow-zone:after {\n      background-image: url(\"data:image/gif;base64,R0lGODlhCAAFAJEAAAAAAP///5mZmf///yH5BAEAAAMALAAAAAAIAAUAAAIMlC8zKBF6nIJyqqcKADs=\"); }\n\n.w98 .SelectBox {\n  position: relative;\n  width: 100%;\n  background-color: white;\n  padding: 2px; }\n  .w98 .SelectBox:disabled, .w98 .SelectBox.disabled {\n    pointer-events: none;\n    background-color: #bbc3c4; }\n    .w98 .SelectBox:disabled > div, .w98 .SelectBox.disabled > div {\n      overflow: hidden; }\n    .w98 .SelectBox:disabled button, .w98 .SelectBox.disabled button {\n      color: #808088 !important; }\n    .w98 .SelectBox:disabled .icon, .w98 .SelectBox.disabled .icon {\n      filter: grayscale(1); }\n  .w98 .SelectBox > div {\n    position: relative;\n    overflow: auto; }\n  .w98 .SelectBox:after {\n    position: absolute;\n    top: 0px;\n    left: 0px;\n    width: 100%;\n    height: 100%;\n    box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px 0px #808088, inset -2px -2px 0px #bbc3c4, inset 2px 2px 0px 0px #0c0c0c;\n    pointer-events: none;\n    content: ''; }\n  .w98 .SelectBox button:not(.icon) {\n    display: block;\n    outline: none;\n    background: transparent;\n    border: none;\n    white-space: nowrap;\n    overflow: hidden;\n    color: #0c0c0c;\n    width: 100%;\n    text-align: left; }\n    .w98 .SelectBox button:not(.icon):after {\n      content: attr(title);\n      position: initial; }\n    .w98 .SelectBox button:not(.icon).is-active {\n      background-color: #0000a2;\n      color: white;\n      outline-offset: -1px;\n      outline: 1px dotted white; }\n  .w98 .SelectBox--ExplorerIcon > div {\n    display: flex;\n    flex-direction: row;\n    overflow-y: hidden;\n    padding-bottom: 20px; }\n    .w98 .SelectBox--ExplorerIcon > div .explorer-icon {\n      margin: 2px 8px; }\n  .w98 .SelectBox .icon--list {\n    margin: 0px;\n    padding: 1px; }\n    .w98 .SelectBox .icon--list .icon__text {\n      width: initial; }\n    .w98 .SelectBox .icon--list:focus:not(.is-active) .icon__text, .w98 .SelectBox .icon--list:active:not(.is-active) .icon__text {\n      background-color: transparent;\n      color: #0c0c0c;\n      outline: none;\n      outline-offset: -1px; }\n";
+var css$h = ".w98 select[multiple] {\n  position: relative;\n  border: none;\n  background-color: white;\n  border-radius: 0px;\n  outline: none;\n  padding: 2px;\n  box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px 0px #808088, inset -2px -2px 0px #bbc3c4, inset 2px 2px 0px 0px #0c0c0c; }\n  .w98 select[multiple]:active, .w98 select[multiple]:focus {\n    outline: none; }\n  .w98 select[multiple] option:active, .w98 select[multiple] option:focus, .w98 select[multiple] option:checked {\n    outline: 1px dotted white;\n    outline-offset: -1px;\n    background-color: #0000a2;\n    color: white; }\n\n.w98 .SelectMultiple {\n  display: inline-block;\n  padding: 2px;\n  box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px 0px #808088, inset -2px -2px 0px #bbc3c4, inset 2px 2px 0px 0px #0c0c0c; }\n  .w98 .SelectMultiple > select[multiple] {\n    padding: 0px;\n    box-shadow: none; }\n  .w98 .SelectMultiple ::-webkit-scrollbar {\n    display: none; }\n\n.w98 .Select {\n  position: relative; }\n  .w98 .Select .Select-control {\n    width: 100%; }\n    .w98 .Select .Select-control .Select-multi-value-wrapper .Select-input, .w98 .Select .Select-control .Select-multi-value-wrapper .Select-placeholder, .w98 .Select .Select-control .Select-multi-value-wrapper .Select-value {\n      width: calc(100% - 4px); }\n    .w98 .Select .Select-control .Select-multi-value-wrapper .Select-input {\n      display: none !important; }\n    .w98 .Select .Select-control .Select-multi-value-wrapper .Select-value, .w98 .Select .Select-control .Select-multi-value-wrapper .Select-placeholder {\n      height: 16px;\n      background-color: white;\n      border: none;\n      box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px 0px #808088, inset -2px -2px 0px #bbc3c4, inset 2px 2px 0px 0px #0c0c0c;\n      padding: 2px; }\n      .w98 .Select .Select-control .Select-multi-value-wrapper .Select-value .Select-value-label > div, .w98 .Select .Select-control .Select-multi-value-wrapper .Select-placeholder .Select-value-label > div {\n        margin: 1px;\n        margin-right: 17px;\n        padding-left: 1px;\n        outline: 1px dotted rgba(0, 0, 0, 0); }\n      .w98 .Select .Select-control .Select-multi-value-wrapper .Select-value:active .Select-value-label > div, .w98 .Select .Select-control .Select-multi-value-wrapper .Select-value:focus .Select-value-label > div, .w98 .Select .Select-control .Select-multi-value-wrapper .Select-placeholder:active .Select-value-label > div, .w98 .Select .Select-control .Select-multi-value-wrapper .Select-placeholder:focus .Select-value-label > div {\n        outline: 1px dotted white;\n        outline-offset: -1px;\n        background-color: #0000a2;\n        color: white; }\n    .w98 .Select .Select-control .Select-multi-value-wrapper .Select-placeholder {\n      display: flex;\n      align-items: center;\n      padding: 2px 0px 2px 4px; }\n    .w98 .Select .Select-control .Select-arrow-zone {\n      position: absolute;\n      box-shadow: inset -1px -1px 0px #0c0c0c, inset 1px 1px 0px #bbc3c4, inset -2px -2px 0px #808088, inset 2px 2px 0px white;\n      height: 16px;\n      width: 16px;\n      left: calc(100% - 18px);\n      top: 2px;\n      background-color: #bbc3c4;\n      background-repeat: no-repeat;\n      background-position: center;\n      background-image: url(\"data:image/gif;base64,R0lGODlhBwAEAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAHAAQAAAIIhA+CKWoNmSgAOw==\"); }\n    .w98 .Select .Select-control .Select-clear-zone {\n      display: none; }\n  .w98 .Select .Select-menu-outer {\n    border: 1px solid black;\n    background-color: white; }\n    .w98 .Select .Select-menu-outer .Select-menu .Select-option {\n      padding: 1px; }\n      .w98 .Select .Select-menu-outer .Select-menu .Select-option:hover {\n        outline: 1px dotted white;\n        outline-offset: -1px;\n        background-color: #0000a2;\n        color: white; }\n  .w98 .Select.is-disabled {\n    pointer-events: none; }\n    .w98 .Select.is-disabled .Select-control .Select-multi-value-wrapper .Select-value, .w98 .Select.is-disabled .Select-control .Select-multi-value-wrapper .Select-placeholder {\n      background-color: #bbc3c4; }\n    .w98 .Select.is-disabled .Select-control .Select-arrow-zone:after {\n      background-image: url(\"data:image/gif;base64,R0lGODlhCAAFAJEAAAAAAP///5mZmf///yH5BAEAAAMALAAAAAAIAAUAAAIMlC8zKBF6nIJyqqcKADs=\"); }\n\n.w98 .SelectBox {\n  position: relative;\n  width: 100%;\n  background-color: white;\n  padding: 2px; }\n  .w98 .SelectBox:disabled, .w98 .SelectBox.disabled {\n    pointer-events: none;\n    background-color: #bbc3c4; }\n    .w98 .SelectBox:disabled > div, .w98 .SelectBox.disabled > div {\n      overflow: hidden; }\n    .w98 .SelectBox:disabled button, .w98 .SelectBox.disabled button {\n      color: #808088 !important; }\n    .w98 .SelectBox:disabled .icon, .w98 .SelectBox.disabled .icon {\n      filter: grayscale(1); }\n  .w98 .SelectBox > div {\n    position: relative;\n    overflow: auto; }\n  .w98 .SelectBox:after {\n    position: absolute;\n    top: 0px;\n    left: 0px;\n    width: 100%;\n    height: 100%;\n    box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px 0px #808088, inset -2px -2px 0px #bbc3c4, inset 2px 2px 0px 0px #0c0c0c;\n    pointer-events: none;\n    content: ''; }\n  .w98 .SelectBox button:not(.icon) {\n    display: block;\n    outline: none;\n    background: transparent;\n    border: none;\n    white-space: nowrap;\n    overflow: hidden;\n    color: #0c0c0c;\n    width: 100%;\n    text-align: left; }\n    .w98 .SelectBox button:not(.icon):after {\n      content: attr(title);\n      position: initial; }\n    .w98 .SelectBox button:not(.icon).is-active {\n      background-color: #0000a2;\n      color: white;\n      outline-offset: -1px;\n      outline: 1px dotted white; }\n  .w98 .SelectBox--ExplorerIcon > div {\n    display: flex;\n    flex-direction: row;\n    overflow-y: hidden;\n    padding-bottom: 20px; }\n    .w98 .SelectBox--ExplorerIcon > div .explorer-icon {\n      margin: 2px 8px; }\n  .w98 .SelectBox .icon--list {\n    margin: 0px;\n    padding: 1px; }\n    .w98 .SelectBox .icon--list .icon__text {\n      width: initial; }\n    .w98 .SelectBox .icon--list:focus:not(.is-active) .icon__text, .w98 .SelectBox .icon--list:active:not(.is-active) .icon__text {\n      background-color: transparent;\n      color: #0c0c0c;\n      outline: none;\n      outline-offset: -1px; }\n";
 styleInject(css$h);
 
 var DefaultOptionComponent = function DefaultOptionComponent(props) {
@@ -4914,9 +4914,9 @@ var Select = function (_Component) {
         placeholder: props.placeholder,
         onChange: this.onChange,
         isOpen: true,
-        isDisabled: this.props.isDisabled,
-        searchable: this.props.searchable,
-        menuRenderer: this.props.useIcons ? menuRenderer$1 : undefined,
+        disabled: props.isDisabled,
+        searchable: props.searchable,
+        menuRenderer: props.useIcons ? menuRenderer$1 : undefined,
         valueRenderer: ValueRenderer,
         value: this.state.value
       }));
@@ -4928,6 +4928,14 @@ var Select = function (_Component) {
 Select.defaultProps = {
   placeholder: '',
   searchable: false
+};
+
+
+Select.propTypes = {
+  placeholder: propTypes.any,
+  isDisabled: propTypes.bool,
+  searchable: propTypes.bool,
+  useIcons: propTypes.bool
 };
 
 var isSelected = function isSelected(selected, val) {
@@ -5319,8 +5327,100 @@ var windowProps = {
 
 StaticWindow.propTypes = windowProps;
 
-var css$k = ".w98 .window--explorer__view {\n  min-height: 20px;\n  margin: 2px auto 1px;\n  background-color: white;\n  box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px 0px #808088, inset -2px -2px 0px #bbc3c4, inset 2px 2px 0px 0px #0c0c0c; }\n\n.w98 .window--explorer__details {\n  display: flex; }\n  .w98 .window--explorer__details__section {\n    box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px #808088;\n    flex-grow: 1;\n    margin-top: 2px;\n    height: 16px; }\n    .w98 .window--explorer__details__section:not(:last-child) {\n      margin: 2px; }\n\n.w98 .window--explorer .menu-bar {\n  padding: 2px 1px 2px 12px; }\n\n.w98 .window--explorer > div + menu {\n  margin-top: 2px;\n  box-shadow: 0px 1px 0px white, inset 0px -1px 0px #808088, -1px 0px 0px #808088, inset 1px 0px 0px white, 1px 0px 0px white, inset -1px 0px 0px #808088, -1px -1px 0px #808088, 0px -1px 0px #808088, inset 0px 1px 0px white, 1px -1px 0px white; }\n\n.w98 .window--explorer > menu {\n  position: relative;\n  min-height: 16px;\n  padding-left: 12px;\n  margin: 0px 1px;\n  display: flex;\n  box-shadow: 0px 1px 0px white, inset 0px -1px 0px #808088, -1px 0px 0px #808088, inset 1px 0px 0px white, 1px 0px 0px white, inset -1px 0px 0px #808088; }\n  .w98 .window--explorer > menu:before {\n    position: absolute;\n    top: 3px;\n    left: 5px;\n    height: calc(100% - 6px);\n    width: 3px;\n    background-color: #bbc3c4;\n    content: '';\n    box-shadow: inset -1px -1px 0px #808088, inset 1px 1px 0px white; }\n\n.w98 .window--explorer > footer {\n  display: flex; }\n  .w98 .window--explorer > footer > div {\n    flex-grow: 1;\n    padding: 2px 4px;\n    box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px #0c0c0c; }\n    .w98 .window--explorer > footer > div:not(:last-child) {\n      margin-right: 4px; }\n\n.w98 .window--explorer__address {\n  display: flex;\n  height: 22px;\n  overflow-y: visible; }\n  .w98 .window--explorer__address__title {\n    align-self: center;\n    margin-right: 4px;\n    padding-bottom: 2px; }\n  .w98 .window--explorer__address .Select {\n    flex-grow: 1;\n    z-index: 5;\n    margin-right: 4px;\n    margin-top: 1px; }\n\n.w98 .window--explorer__options {\n  display: flex;\n  padding: 2px 4px 2px 12px; }\n\n.w98 .window--explorer > div:last-child {\n  margin-top: 2px; }\n";
+var css$k = ".options-list__dropdown {\n  position: absolute;\n  right: 2px;\n  top: 2px;\n  height: calc(100% - 4px); }\n  .options-list__dropdown--empty {\n    display: none; }\n  .options-list__dropdown__button {\n    height: 100%;\n    border: none;\n    background-color: #bbc3c4;\n    padding: 0px 3px 0px 1px;\n    font-size: 0.70rem;\n    user-select: none;\n    letter-spacing: -2px;\n    display: flex;\n    flex-direction: column; }\n    .options-list__dropdown__button:hover {\n      box-shadow: inset -1px -1px 0px #808088, inset 1px 1px 0px white; }\n    .options-list__dropdown__button:active, .options-list__dropdown__button:focus, .options-list__dropdown__button:active:focus {\n      box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px #808088; }\n      .options-list__dropdown__button:active + .options-list__dropdown__list, .options-list__dropdown__button:focus + .options-list__dropdown__list, .options-list__dropdown__button:active:focus + .options-list__dropdown__list {\n        position: absolute;\n        top: 100%;\n        right: 0px;\n        display: block;\n        z-index: 10; }\n    .options-list__dropdown__button:active, .options-list__dropdown__button:focus, .options-list__dropdown__button:active:focus {\n      outline: none; }\n  .options-list__dropdown .options-list__dropdown__list {\n    display: none; }\n";
 styleInject(css$k);
+
+var OptionsList = function (_Component) {
+  inherits(OptionsList, _Component);
+
+  function OptionsList() {
+    var _ref;
+
+    var _temp, _this, _ret;
+
+    classCallCheck(this, OptionsList);
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = possibleConstructorReturn(this, (_ref = OptionsList.__proto__ || Object.getPrototypeOf(OptionsList)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+      displayedIcons: [],
+      dropdown: []
+    }, _this.openList = function () {
+      _this.dropdownButton.focus();
+    }, _temp), possibleConstructorReturn(_this, _ret);
+  }
+
+  createClass(OptionsList, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      var entriesInView = (this.section.clientWidth - 20) / 50;
+      this.setState({
+        displayedIcons: this.props.options.slice(0, entriesInView),
+        dropdown: this.props.options.slice(entriesInView)
+      });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _this2 = this;
+
+      return React.createElement(
+        'menu',
+        {
+          ref: function ref(section) {
+            _this2.section = section;
+          },
+          className: classnames(this.props.className, 'options-list')
+        },
+        this.state.displayedIcons.map(function (option) {
+          return React.createElement(LargeIconButton, {
+            key: 'large-button-' + option.title,
+            icon: option.icon,
+            title: option.title,
+            onClick: option.onClick,
+            isDisabled: !option.onClick
+          });
+        }),
+        React.createElement(
+          'div',
+          {
+            className: classnames('options-list__dropdown', { 'options-list__dropdown--empty': this.state.dropdown.length < 1 })
+          },
+          React.createElement(
+            'button',
+            {
+              ref: function ref(btn) {
+                _this2.dropdownButton = btn;
+              },
+              onClick: this.openList,
+              className: 'options-list__dropdown__button'
+            },
+            React.createElement(
+              'span',
+              null,
+              '>>'
+            )
+          ),
+          React.createElement(StandardMenu, {
+            className: 'options-list__dropdown__list',
+            options: this.state.dropdown
+          })
+        )
+      );
+    }
+  }]);
+  return OptionsList;
+}(Component);
+
+OptionsList.propTypes = {
+  options: propTypes.arrayOf(propTypes.shape(LargeIconButton.propTypes)),
+  className: propTypes.string
+};
+
+var css$l = ".w98 .window--explorer__view {\n  min-height: 20px;\n  margin: 2px auto 1px;\n  background-color: white;\n  box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px 0px #808088, inset -2px -2px 0px #bbc3c4, inset 2px 2px 0px 0px #0c0c0c; }\n\n.w98 .window--explorer__details {\n  display: flex; }\n  .w98 .window--explorer__details__section {\n    box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px #808088;\n    flex-grow: 1;\n    margin-top: 2px;\n    height: 16px; }\n    .w98 .window--explorer__details__section:not(:last-child) {\n      margin: 2px; }\n\n.w98 .window--explorer .menu-bar {\n  padding: 2px 1px 2px 12px; }\n\n.w98 .window--explorer > div + menu {\n  margin-top: 2px;\n  box-shadow: 0px 1px 0px white, inset 0px -1px 0px #808088, -1px 0px 0px #808088, inset 1px 0px 0px white, 1px 0px 0px white, inset -1px 0px 0px #808088, -1px -1px 0px #808088, 0px -1px 0px #808088, inset 0px 1px 0px white, 1px -1px 0px white; }\n\n.w98 .window--explorer > menu {\n  position: relative;\n  min-height: 16px;\n  padding-left: 12px;\n  margin: 0px 1px;\n  display: flex;\n  box-shadow: 0px 1px 0px white, inset 0px -1px 0px #808088, -1px 0px 0px #808088, inset 1px 0px 0px white, 1px 0px 0px white, inset -1px 0px 0px #808088; }\n  .w98 .window--explorer > menu:before {\n    position: absolute;\n    top: 3px;\n    left: 5px;\n    height: calc(100% - 6px);\n    width: 3px;\n    background-color: #bbc3c4;\n    content: '';\n    box-shadow: inset -1px -1px 0px #808088, inset 1px 1px 0px white; }\n\n.w98 .window--explorer > footer {\n  display: flex; }\n  .w98 .window--explorer > footer > div {\n    flex-grow: 1;\n    padding: 2px 4px;\n    height: 12px;\n    box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px #0c0c0c; }\n    .w98 .window--explorer > footer > div:not(:last-child) {\n      margin-right: 4px; }\n\n.w98 .window--explorer__address {\n  display: flex;\n  height: 22px;\n  overflow-y: visible; }\n  .w98 .window--explorer__address__title {\n    align-self: center;\n    margin-right: 4px;\n    padding-bottom: 2px; }\n  .w98 .window--explorer__address .Select {\n    flex-grow: 1;\n    z-index: 5;\n    margin-right: 4px;\n    margin-top: 1px; }\n\n.w98 .window--explorer__options {\n  display: flex;\n  padding: 2px 8px 2px 12px; }\n\n.w98 .window--explorer > div:last-child {\n  margin-top: 2px; }\n";
+styleInject(css$l);
 
 var ExplorerWindow = function ExplorerWindow(props) {
   return React.createElement(
@@ -5337,19 +5437,10 @@ var ExplorerWindow = function ExplorerWindow(props) {
       className: 'window--explorer__menu',
       options: props.menuOptions
     }),
-    props.explorerOptions && React.createElement(
-      'menu',
-      { className: 'window--explorer__options' },
-      props.explorerOptions.map(function (option) {
-        return React.createElement(LargeIconButton, {
-          key: 'large-button-' + option.title,
-          icon: option.icon,
-          title: option.title,
-          onClick: option.onClick,
-          isDisabled: !option.onClick
-        });
-      })
-    ),
+    props.explorerOptions && React.createElement(OptionsList, {
+      className: 'window--explorer__options',
+      options: props.explorerOptions
+    }),
     React.createElement(
       'menu',
       { className: 'window--explorer__address' },
@@ -5400,7 +5491,7 @@ var footerType = {
 
 ExplorerWindow.propTypes = _extends({}, StaticWindow.propTypes, {
   menuOptions: propTypes.arrayOf(propTypes.any),
-  explorerOptions: propTypes.arrayOf(propTypes.shape(LargeIconButton.propTypes)),
+  explorerOptions: propTypes.shape(OptionsList.propTypes.options),
   footer: propTypes.oneOfType([propTypes.shape(footerType), propTypes.arrayOf(propTypes.shape(footerType))])
 });
 

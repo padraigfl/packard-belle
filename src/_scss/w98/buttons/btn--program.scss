@@ -1,4 +1,5 @@
 @import '../var/colors';
+@import '../var/uris';
 @import '../functions/box-shadows';
 
 .btn.btn--program {
@@ -43,7 +44,7 @@
     &:before {
       content: '';
       background-color: white;
-      background-image: url('../../../images/rgba-204-204-204-85.png');
+      background-image: url($grey-checkered);
     }
   }
 }

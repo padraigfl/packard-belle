@@ -67,11 +67,20 @@ W98 Toolbar
 ## Performance
 
 - [ ] Tests
-- [ ] Travis.yml
+- [ ] CI
 - [ ] Coverage
 - [ ] Snapshots (only when finished with core components)
 - [x] Linting
 - [x] PropTypes
+
+# Necessary Refactorings
+
+- [ ] Decouple CSS build from React build (i.e. style everything within mixins, include where appropriate)
+- [ ] Reimplement CSS Modules
+- [ ] Make dummy Select component for places where aesthetically needed
+- [ ] Group options collections in explorer
+- [ ] Figure out what to do with footers in explorer
+- [ ] Pixel near perfect (leave to last)
 
 ## To fix later
 
@@ -85,3 +94,4 @@ W98 Toolbar
 - [ ] Filter overhauls
 - [ ] Redundant CSS clearout
 - [x] ContextMenuWrapper as HOC?
+- [ ] Gradient improvements

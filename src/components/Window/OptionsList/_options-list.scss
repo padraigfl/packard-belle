@@ -1,5 +1,6 @@
 @import '../../../_scss/w98/functions/box-shadows';
 @import '../../../_scss/w98/var/colors';
+@import '../../../_scss/w98/var/uris';
 
 .options-list {
   &__dropdown {
@@ -14,7 +15,10 @@
       height: 100%;
       border: none;
       background-color: $grey;
-      padding: 0px 3px 0px 1px;
+      background-image: url($more-options);
+      background-repeat: no-repeat;
+      background-position: 2px 3px;
+      padding: 0px 6px;
       font-size: 0.70rem;
       user-select: none;
       letter-spacing: -2px;
@@ -24,6 +28,7 @@
         box-shadow: dualShadow(white, $darkgrey);
       }
       &:active, &:focus, &:active:focus {
+        background-position: 3px 4px;
         box-shadow: dualShadow($darkgrey, white);
         + .options-list__dropdown__list {
           position: absolute;

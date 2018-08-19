@@ -4,7 +4,7 @@ module.exports = {
   collectCoverageFrom: [
     'src/**/*.js',
   ],
-  testEnvironment: 'node',
+  testEnvironment: 'jsdom',
   transform: {
     '^.+\\.js?$': 'babel-jest'
   },

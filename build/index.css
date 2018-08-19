@@ -1,6 +1,9 @@
+@font-face {
+  font-family: 'MSFont';
+  src: url(./ms98_11.ttf); }
+
 html {
   font-size: 10px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   width: 200px;
   background-color: #bbc3c4;
   image-rendering: pixelated; }
@@ -9,6 +12,8 @@ html {
   html menu {
     padding: 0px;
     margin: 0px; }
+  html * {
+    font-family: 'MSFont', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
   html .disabled {
     color: #808088; }
   html ::-webkit-scrollbar {
@@ -196,7 +201,8 @@ html {
 
 .btn.btn--large-icon {
   padding: 2px;
-  width: 48px; }
+  width: 48px;
+  min-width: 48px; }
   .btn.btn--large-icon img {
     display: block;
     margin: 0 auto;

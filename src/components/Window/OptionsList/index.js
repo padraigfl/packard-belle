@@ -52,9 +52,7 @@ class OptionsList extends Component {
             ref={(btn) => { this.dropdownButton = btn; }}
             onClick={this.openList}
             className="options-list__dropdown__button"
-          >
-            <span>&gt;&gt;</span>
-          </button>
+          />
           <StandardMenu
             className="options-list__dropdown__list"
             options={this.state.dropdown}
