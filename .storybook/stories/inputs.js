@@ -133,7 +133,7 @@ class SelectBoxState extends Component {
           ]}
           selected={this.state.selected}
           component={this.props.component}
-          disabled={this.props.disabled}
+          isDisabled={this.props.isDisabled}
         />
       </div>
     );
@@ -162,7 +162,7 @@ storiesOf('Inputs', module)
         label="Disabled"
         id="ID2s"
         value="checkit"
-        disabled
+        isDisabled
       />
       <br />
       <CheckboxTest
@@ -170,7 +170,7 @@ storiesOf('Inputs', module)
         label="Checked and disabled"
         id="ID2s"
         value="Checked"
-        disabled
+        isDisabled
       />
     </div>
   ))
@@ -195,7 +195,7 @@ storiesOf('Inputs', module)
           id: 'option3',
           value: 'option3',
           type: 'radio',
-          disabled: true,
+          isDisabled: true,
         }]}
       />
 
@@ -208,7 +208,7 @@ storiesOf('Inputs', module)
           id: 'option5',
           value: 'option1',
           type: 'radio',
-          disabled: true,
+          isDisabled: true,
         }]}
       />
     </div>
@@ -220,7 +220,7 @@ storiesOf('Inputs', module)
       <InputText value="default value"/>: initial value
       <br />
       <InputText
-        disabled
+        isDisabled
       />: Disabled
     </div>
   ))
@@ -282,7 +282,7 @@ storiesOf('Inputs', module)
         }]}
         value="option1"
         useIcons
-        disabled
+        isDisabled
       />
       <p>
         <strong>Note:</strong>
@@ -297,7 +297,7 @@ storiesOf('Inputs', module)
       <SelectBoxState multiple />
       <br />
       Disabled
-      <SelectBoxState multiple disabled />
+      <SelectBoxState multiple isDisabled />
     </div>
   ))
   .add('selectbox with icons', () => (
@@ -305,7 +305,7 @@ storiesOf('Inputs', module)
       <SelectBoxState multiple component={ListIcon} />
       <br />
       Disabled
-      <SelectBoxState multiple disabled component={ListIcon} />
+      <SelectBoxState multiple isDisabled component={ListIcon} />
     </div>
   ))
   .add('selectbox with other icon type', () => (

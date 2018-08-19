@@ -140,8 +140,23 @@ storiesOf('Windows', module)
         },
         {
           icon: img,
+          title: 'Forward',
+          onClick: noop,
+        },
+        {
+          icon: img,
+          title: 'Forward',
+          onClick: noop,
+        },
+        {
+          icon: img,
           title: 'View',
-        }
+        },
+        {
+          icon: img,
+          title: 'Forward',
+          onClick: noop,
+        },
       ]}
       footer={[
         <div>

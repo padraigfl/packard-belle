@@ -17,7 +17,7 @@ storiesOf('Buttons', module)
     <div>
       <p><FormButton onClick={noop}>Regular</FormButton></p>
       <p><FormButton className="active" onClick={noop}>Pressed</FormButton></p>
-      <p><FormButton onClick={noop} disabled>Disabled</FormButton></p>
+      <p><FormButton onClick={noop} isDisabled>Disabled</FormButton></p>
     </div>
   ))
   .add('nav button', () => <NavButton />)
@@ -56,7 +56,7 @@ storiesOf('Buttons', module)
       <SmallIconButton
         icon={img}
         onClick={noop}
-        disabled
+        isDisabled
       /> Disabled
       <br />
       <SmallIconButton
@@ -78,7 +78,7 @@ storiesOf('Buttons', module)
           onClick={noop}
           icon={img}
           title="Disabled"
-          disabled
+          isDisabled
         />
       </div>
     )

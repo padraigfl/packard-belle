@@ -67,6 +67,7 @@
     >div {
       flex-grow: 1;
       padding: 2px 4px;
+      height: 12px;
       box-shadow: dualShadow($black, white);
       &:not(:last-child) {
         margin-right: 4px;
@@ -91,7 +92,7 @@
   }
   &__options {
     display: flex;
-    padding: 2px 4px 2px 12px;
+    padding: 2px 8px 2px 12px;
   }
   >div:last-child {
     margin-top: 2px;

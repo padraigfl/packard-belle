@@ -116,14 +116,21 @@ class Select extends Component {
         placeholder={props.placeholder}
         onChange={this.onChange}
         isOpen
-        isDisabled={this.props.isDisabled}
-        searchable={this.props.searchable}
-        menuRenderer={this.props.useIcons ? menuRenderer : undefined}
+        disabled={props.isDisabled}
+        searchable={props.searchable}
+        menuRenderer={props.useIcons ? menuRenderer : undefined}
         valueRenderer={ValueRenderer}
         value={this.state.value}
       />
     );
   }
 }
+
+Select.propTypes = {
+  placeholder: PropTypes.any,
+  isDisabled: PropTypes.bool,
+  searchable: PropTypes.bool,
+  useIcons: PropTypes.bool,
+};
 
 export default Select;

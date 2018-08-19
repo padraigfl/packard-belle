@@ -35,7 +35,7 @@ class InputText extends Component {
         className={this.props.className}
         value={this.state.value}
         id={this.props.id}
-        isDisabled={this.props.isDisabled}
+        disabled={this.props.isDisabled}
         name={this.props.name || this.props.id}
         onBlur={this.handleBlur}
         onChange={this.handleChange}

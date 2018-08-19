@@ -12,7 +12,7 @@ const optionsSample = [
   {
     onClick: noop,
     title: 'Disabled',
-    disabled: true,
+    isDisabled: true,
   },
   [
     {

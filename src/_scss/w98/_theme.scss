@@ -3,6 +3,11 @@
 @import './mixins/box-shadows';
 @import './var/uris';
 
+@font-face {
+  font-family: 'MSFont';
+  src: url(./ms98_11.ttf);
+}
+
 @mixin scrollbar-button-shadowing {
   background: $grey;
   box-shadow: inset -1px -1px 0px $darkgrey, inset 1px 1px 0px 0px white;
@@ -23,7 +28,10 @@ html{
     margin: 0px;
   }
 
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  * {
+    font-family: 'MSFont', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
   width: 200px;
   background-color: $grey;
   image-rendering: pixelated;

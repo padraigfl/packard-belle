@@ -40,10 +40,10 @@ Explorer/Program
 - [x] Standard view icons
 - [x] close/minimize/restore/help
 - [x] File/Edit/etc toolbar
-- [ ] Options (needs overflow handling)
+- [x] Options (needs sections handling and see more icon)
 - [x] Explorer input (cosmetic only)
 - [ ] Explorer input (working)
-- [ ] Status footer (partially done)
+- [ ] Status footer (partially done, logic not figured out)
 - [ ] Explorer views (?)
 
 ## Interactive
@@ -60,7 +60,7 @@ General
 
 W98 Toolbar
 
-- [ ] Interactive start menu, validated inputs
+- [x] Interactive start menu, validated inputs
 - [ ] Only one active window
 - [ ] Network notifications icon
 
@@ -70,8 +70,8 @@ W98 Toolbar
 - [ ] Travis.yml
 - [ ] Coverage
 - [ ] Snapshots (only when finished with core components)
-- [ ] Linting
-- [ ] PropTypes
+- [x] Linting
+- [x] PropTypes
 
 ## To fix later
 
@@ -80,7 +80,7 @@ W98 Toolbar
 - [ ] Blue selected areas grey when parent not active
 - [ ] Radio and checkbox for ContextMenus
 - [ ] Custom font
-- [ ] Start menu animation on iOS
+- [ ] Start menu animation on iOS (absolute transitions issue, considering disabling on mobile)
 - [ ] Selected sections grey when not focus
 - [ ] Filter overhauls
 - [ ] Redundant CSS clearout

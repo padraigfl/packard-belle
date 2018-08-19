@@ -7,7 +7,7 @@ const Toggle = props => (
     <input
       type={props.type}
       id={props.id}
-      isDisabled={props.isDisabled}
+      disabled={props.isDisabled}
       value={props.value}
       checked={props.checked}
       onChange={props.onChange}

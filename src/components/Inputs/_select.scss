@@ -76,9 +76,9 @@
           }
         }
         .Select-placeholder {
-          .window--explorer & {
-            padding: 4px 2px 1px;
-          }
+          display: flex;
+          align-items: center;
+          padding: 2px 0px 2px 4px;
         }
       }
       .Select-arrow-zone {

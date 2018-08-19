@@ -4,7 +4,7 @@ import classnames from 'classnames';
 import Window from './AbstractWindow';
 import MenuBar from '../MenuBar';
 import Select from '../Inputs/Select';
-import LargeIconButton from '../Button/LargeIconButton';
+import OptionsList from './OptionsList';
 import './_explorer-window.scss';
 
 const ExplorerWindow = props => (
@@ -21,17 +21,10 @@ const ExplorerWindow = props => (
       options={props.menuOptions}
     />
     {props.explorerOptions && (
-      <menu className="window--explorer__options">
-        {props.explorerOptions.map(option => (
-          <LargeIconButton
-            key={`large-button-${option.title}`}
-            icon={option.icon}
-            title={option.title}
-            onClick={option.onClick}
-            isDisabled={!option.onClick}
-          />
-        ))}
-      </menu>
+      <OptionsList
+        className="window--explorer__options"
+        options={props.explorerOptions}
+      />
     )}
     <menu className="window--explorer__address">
       <div className="window--explorer__address__title">Address</div>
@@ -74,9 +67,7 @@ ExplorerWindow.propTypes = {
   menuOptions: PropTypes.arrayOf(
     PropTypes.any,
   ),
-  explorerOptions: PropTypes.arrayOf(
-    PropTypes.shape(LargeIconButton.propTypes),
-  ),
+  explorerOptions: PropTypes.shape(OptionsList.propTypes.options),
   footer: PropTypes.oneOfType([
     PropTypes.shape(footerType),
     PropTypes.arrayOf(PropTypes.shape(footerType)),

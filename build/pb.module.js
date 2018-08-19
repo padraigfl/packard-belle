@@ -1020,7 +1020,7 @@ var AbstractButton = function (_Component) {
           onContextMenu: this.props.onContextMenu && function (e) {
             return _this2.handleContextMenu(e);
           },
-          isDisabled: props.isDisabled,
+          disabled: props.isDisabled,
           style: props.style
         },
         props.children
@@ -1118,7 +1118,7 @@ StartButton.propTypes = commonButtonPropTypes;
 var css$6 = ".btn.btn--large-icon {\n  padding: 2px;\n  width: 48px; }\n  .btn.btn--large-icon img {\n    display: block;\n    margin: 0 auto;\n    filter: grayscale(1);\n    height: 20px;\n    max-width: 20px; }\n  .btn.btn--large-icon:disabled, .btn.btn--large-icon.disabled {\n    color: #808088; }\n    .btn.btn--large-icon:disabled:hover, .btn.btn--large-icon.disabled:hover {\n      box-shadow: none; }\n      .btn.btn--large-icon:disabled:hover img, .btn.btn--large-icon.disabled:hover img {\n        filter: grayscale(1); }\n  .btn.btn--large-icon:hover {\n    box-shadow: inset -1px -1px 0px #0c0c0c, inset 1px 1px 0px white; }\n    .btn.btn--large-icon:hover img {\n      filter: grayscale(0); }\n  .btn.btn--large-icon:active:focus {\n    box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px #0c0c0c;\n    padding: 3px 1px 1px 3px; }\n";
 styleInject(css$6);
 
-var NavButton$1 = function NavButton(props) {
+var LargeIconButton = function LargeIconButton(props) {
   return React.createElement(
     AbstractButton,
     {
@@ -1131,15 +1131,15 @@ var NavButton$1 = function NavButton(props) {
   );
 };
 
-NavButton$1.propTypes = _extends({}, commonButtonPropTypes, {
+LargeIconButton.propTypes = _extends({}, commonButtonPropTypes, {
   icon: propTypes.string,
-  title: propTypes.title
+  title: propTypes.string
 });
 
 var css$7 = ".btn.btn--small-icon {\n  height: 22px;\n  width: 22px;\n  padding: 0px; }\n  .btn.btn--small-icon img {\n    margin: 3px;\n    max-height: 16px;\n    max-width: 16px; }\n  .btn.btn--small-icon:hover {\n    box-shadow: inset -1px -1px 0px #808088, inset 1px 1px 0px white; }\n  .btn.btn--small-icon:hover:focus:active, .btn.btn--small-icon:hover:active, .btn.btn--small-icon.active, .btn.btn--small-icon.clicked {\n    box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px #808088; }\n    .btn.btn--small-icon:hover:focus:active img, .btn.btn--small-icon:hover:active img, .btn.btn--small-icon.active img, .btn.btn--small-icon.clicked img {\n      margin: 4px 2px 2px 4px; }\n  .btn.btn--small-icon.btn--disabled img {\n    filter: grayscale(1); }\n";
 styleInject(css$7);
 
-var NavButton$2 = function NavButton(props) {
+var NavButton$1 = function NavButton(props) {
   return React.createElement(
     AbstractButton,
     {
@@ -1152,7 +1152,7 @@ var NavButton$2 = function NavButton(props) {
   );
 };
 
-NavButton$2.propTypes = _extends({}, commonButtonPropTypes, {
+NavButton$1.propTypes = _extends({}, commonButtonPropTypes, {
   icon: propTypes.string
 });
 
@@ -1177,22 +1177,20 @@ var StandardMenuItem = function StandardMenuItem(props) {
     'div',
     {
       className: classnames('standard-menu__item', props.className, props.type, { 'standard-menu__item--has-options': props.options, 'active': props.isActive }),
-      onMouseEnter: props.mouseEnterItem,
-      onMouseLeave: function onMouseLeave() {},
-      onMouseOut: function onMouseOut() {}
+      onMouseEnter: props.mouseEnterItem
     },
     React.createElement(
       'button',
       {
-        className: classnames('standard-menu__item__button', { disabled: props.disabled }),
+        className: classnames('standard-menu__item__button', { disabled: props.isDisabled }),
         onClick: props.onClick,
         style: props.icon ? { backgroundImage: 'url(\'' + props.icon + '\')' } : undefined,
         value: props.value,
-        disabled: props.disabled
+        disabled: props.isDisabled
       },
       props.title
     ),
-    props.options && React.createElement(StandardMenuSimple, {
+    props.options && React.createElement(StandardMenu, {
       className: 'standard-menu__item__child',
       options: props.options,
       value: props.value,
@@ -1206,15 +1204,28 @@ StandardMenuItem.defaultProps = {
   value: []
 };
 
+var standardMenuItemProps = {
+  className: propTypes.string,
+  title: propTypes.string.isRequired,
+  icon: propTypes.string,
+  value: propTypes.arrayOf(propTypes.string),
+  mouseEnterItem: propTypes.func,
+  options: propTypes.shape(),
+  isDisabled: propTypes.bool,
+  isActive: propTypes.bool,
+  onClick: propTypes.func,
+  type: propTypes.string
+};
+
 var css$9 = ".standard-menu {\n  display: inline-flex;\n  flex-direction: column;\n  word-wrap: none;\n  white-space: nowrap;\n  text-overflow: clip; }\n  .standard-menu > div {\n    position: relative; }\n    .standard-menu > div > .window {\n      position: absolute;\n      visibility: hidden;\n      width: auto;\n      transition: max-width cubic-bezier(0.38, 0.01, 0, 1) 200ms, max-height cubic-bezier(0.38, 0.01, 0, 1) 200ms; }\n    .standard-menu > div.active > .window {\n      width: auto;\n      visibility: visible; }\n    .standard-menu > div > .window {\n      left: calc(100%  - 3px);\n      top: -3px;\n      max-width: 0%; }\n    .standard-menu > div:hover > .window, .standard-menu > div.active > .window {\n      max-width: 400%; }\n    .standard-menu > div > button {\n      position: relative;\n      display: block;\n      width: 100%;\n      padding: 0px 20px 0px 20px;\n      text-align: left;\n      background-repeat: no-repeat;\n      background-size: 16px;\n      background-position: 3px center;\n      background-color: rgba(0, 0, 0, 0);\n      border: none;\n      outline: none;\n      height: 20px; }\n      .standard-menu > div > button:before {\n        content: '';\n        position: absolute;\n        left: 0px;\n        top: 0px;\n        height: 16px;\n        width: 16px;\n        background-repeat: no-repeat;\n        background-position: center; }\n      .standard-menu > div > button .standard-menu__item__text {\n        padding: 0px 20px 0px 0px; }\n      .standard-menu > div > button:disabled, .standard-menu > div > button.disabled {\n        color: #808088; }\n      .standard-menu > div > button:not(:only-child):after {\n        content: '';\n        position: absolute;\n        background-image: url(\"data:image/gif;base64,R0lGODlhBAAHAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAEAAcAAAIIhA4maeyrlCgAOw==\");\n        top: 0px;\n        left: 0px;\n        height: 100%;\n        width: calc(100% - 8px);\n        background-position: right center;\n        background-repeat: no-repeat; }\n    .standard-menu > div.radio-selected > button:before {\n      background-image: url(\"data:image/gif;base64,R0lGODlhBgAGAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAGAAYAAAIIFA6Gy816RAEAOw==\"); }\n    .standard-menu > div.checked > button:before {\n      background-image: url(\"data:image/gif;base64,R0lGODlhBwAHAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAHAAcAAAIMlA9nwMj9xGuLIlUAADs=\"); }\n    .standard-menu > div.checked.disabled > button:before {\n      background-image: url(\"data:image/gif;base64,R0lGODlhBwAHAJEAAAAAAP///5mZmf///yH5BAEAAAMALAAAAAAHAAcAAAIMnC9nwsj9xmuLIlUAADs=\"); }\n    .standard-menu > div:hover, .standard-menu > div:active, .standard-menu > div:focus, .standard-menu > div:active:focus, .standard-menu > div.active, .standard-menu > div.clicked {\n      color: white; }\n      .standard-menu > div:hover > button:not(.disabled), .standard-menu > div:active > button:not(.disabled), .standard-menu > div:focus > button:not(.disabled), .standard-menu > div:active:focus > button:not(.disabled), .standard-menu > div.active > button:not(.disabled), .standard-menu > div.clicked > button:not(.disabled) {\n        color: white;\n        background-color: #0000a2; }\n        .standard-menu > div:hover > button:not(.disabled):not(:only-child):after, .standard-menu > div:active > button:not(.disabled):not(:only-child):after, .standard-menu > div:focus > button:not(.disabled):not(:only-child):after, .standard-menu > div:active:focus > button:not(.disabled):not(:only-child):after, .standard-menu > div.active > button:not(.disabled):not(:only-child):after, .standard-menu > div.clicked > button:not(.disabled):not(:only-child):after {\n          background-image: url(\"data:image/gif;base64,R0lGODlhBAAHAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAEAAcAAAIIjB4maeyrlCgAOw==\"); }\n  .standard-menu div:empty {\n    position: relative;\n    width: 95%;\n    margin: 2px auto;\n    border-top: 1px solid #808088;\n    border-bottom: 1px solid white;\n    display: none; }\n  .standard-menu :not(:empty) + div:empty:not(:last-child):not(:first-child) {\n    display: block; }\n\n.standard-menu--css div__sub-menu--top > .window {\n  position: absolute;\n  visibility: hidden;\n  width: auto;\n  transition: max-width cubic-bezier(0.38, 0.01, 0, 1) 200ms, max-height cubic-bezier(0.38, 0.01, 0, 1) 200ms; }\n\n.standard-menu--css div__sub-menu--top.active > .window {\n  width: auto;\n  visibility: visible; }\n\n.standard-menu--css div__sub-menu--top > .window {\n  bottom: calc(100% + $windowPadding);\n  left: 0px;\n  height: 0px;\n  max-height: 0%;\n  max-width: 100%; }\n\n.standard-menu--css div__sub-menu--top:hover > .window, .standard-menu--css div__sub-menu--top.active > .window {\n  height: initial;\n  max-height: 100%; }\n\n.standard-menu--css div__sub-menu--bottom > .window {\n  position: absolute;\n  visibility: hidden;\n  width: auto;\n  transition: max-width cubic-bezier(0.38, 0.01, 0, 1) 200ms, max-height cubic-bezier(0.38, 0.01, 0, 1) 200ms; }\n\n.standard-menu--css div__sub-menu--bottom.active > .window {\n  width: auto;\n  visibility: visible; }\n\n.standard-menu--css div__sub-menu--bottom > .window {\n  top: calc(100% + $windowPadding);\n  left: 0px;\n  max-height: 0%;\n  max-width: 100%; }\n\n.standard-menu--css div__sub-menu--bottom:hover > .window, .standard-menu--css div__sub-menu--bottom.active > .window {\n  height: initial;\n  max-height: 100%; }\n\n.standard-menu--css div__sub-menu--left > .window {\n  position: absolute;\n  visibility: hidden;\n  width: auto;\n  transition: max-width cubic-bezier(0.38, 0.01, 0, 1) 200ms, max-height cubic-bezier(0.38, 0.01, 0, 1) 200ms; }\n\n.standard-menu--css div__sub-menu--left.active > .window {\n  width: auto;\n  visibility: visible; }\n\n.standard-menu--css div__sub-menu--left > .window {\n  left: -100%;\n  top: -3px;\n  max-width: 0%; }\n\n.standard-menu--css div__sub-menu--left:hover > .window, .standard-menu--css div__sub-menu--left.active > .window {\n  max-width: 100%; }\n\n.standard-menu--css div:active, .standard-menu--css div .active {\n  display: none; }\n\n.standard-menu--css div:hover > .window {\n  width: auto;\n  visibility: visible;\n  display: block; }\n";
 styleInject(css$9);
 
-var StandardMenuSimple = function StandardMenuSimple(props) {
+var StandardMenu = function StandardMenu(props) {
   return React.createElement(
     WindowFrame,
     {
       className: classnames('standard-menu', props.className, props.direction, {
-        'standard-menu--visible': props.visible
+        'standard-menu--visible': props.isVisible
       })
     },
     props.options.map(function (option) {
@@ -1245,9 +1256,20 @@ var StandardMenuSimple = function StandardMenuSimple(props) {
   );
 };
 
-StandardMenuSimple.defaultProps = {
+StandardMenu.defaultProps = {
   value: []
 };
+
+var standardMenuProps = {
+  value: propTypes.arrayOf(propTypes.string),
+  mouseEnterItem: propTypes.func,
+  className: propTypes.string,
+  direction: propTypes.oneOf(['up', 'down', 'left', 'right']),
+  options: propTypes.any,
+  isVisible: propTypes.bool
+};
+
+StandardMenu.propTypes = standardMenuProps;
 
 var clone_1 = createCommonjsModule(function (module) {
 var clone = (function() {
@@ -1512,8 +1534,8 @@ var withContextLogic = function withContextLogic(ContextButton) {
   var _class, _temp;
 
   return _temp = _class = function (_Component) {
-    inherits(StandardMenuSimple$$1, _Component);
-    createClass(StandardMenuSimple$$1, null, [{
+    inherits(StandardMenuSimple, _Component);
+    createClass(StandardMenuSimple, null, [{
       key: 'getDerivedStateFromProps',
       value: function getDerivedStateFromProps(nextProps, prevState) {
         if (nextProps.isActive !== prevState.isActive) {
@@ -1525,10 +1547,10 @@ var withContextLogic = function withContextLogic(ContextButton) {
       }
     }]);
 
-    function StandardMenuSimple$$1(props) {
-      classCallCheck(this, StandardMenuSimple$$1);
+    function StandardMenuSimple(props) {
+      classCallCheck(this, StandardMenuSimple);
 
-      var _this = possibleConstructorReturn(this, (StandardMenuSimple$$1.__proto__ || Object.getPrototypeOf(StandardMenuSimple$$1)).call(this, props));
+      var _this = possibleConstructorReturn(this, (StandardMenuSimple.__proto__ || Object.getPrototypeOf(StandardMenuSimple)).call(this, props));
 
       _this.state = {
         options: _this.props.options,
@@ -1559,7 +1581,7 @@ var withContextLogic = function withContextLogic(ContextButton) {
       return _this;
     }
 
-    createClass(StandardMenuSimple$$1, [{
+    createClass(StandardMenuSimple, [{
       key: 'updateActive',
       value: function updateActive(activeFields, newOptions) {
         var _this2 = this;
@@ -1633,7 +1655,7 @@ var withContextLogic = function withContextLogic(ContextButton) {
               }),
               props.children
             ),
-            React.createElement(StandardMenuSimple, {
+            React.createElement(StandardMenu, {
               options: this.state.options,
               className: 'standard-menu__wrapper',
               mouseEnterItem: function mouseEnterItem(e) {
@@ -1642,7 +1664,7 @@ var withContextLogic = function withContextLogic(ContextButton) {
             })
           );
         }
-        return React.createElement(StandardMenuSimple, {
+        return React.createElement(StandardMenu, {
           options: this.state.options,
           className: 'standard-menu__wrapper',
           mouseEnterItem: function mouseEnterItem(e) {
@@ -1651,10 +1673,14 @@ var withContextLogic = function withContextLogic(ContextButton) {
         });
       }
     }]);
-    return StandardMenuSimple$$1;
+    return StandardMenuSimple;
   }(Component), _class.defaultProps = {
     value: []
-  }, _temp;
+  }, _class.propTypes = _extends({}, standardMenuProps, {
+    onClick: propTypes.func,
+    onBlur: propTypes.func,
+    onContextMenu: propTypes.func
+  }), _temp;
 };
 
 var css$a = ".icon {\n  position: relative;\n  display: block;\n  outline: none;\n  background: none;\n  border: none; }\n  .icon__icon {\n    display: block;\n    background-size: contain;\n    background-position: center;\n    background-repeat: no-repeat; }\n  .icon:focus, .icon:active, .icon:active:focus, .icon.is-active {\n    outline: none; }\n    .icon:focus .icon__icon, .icon:active .icon__icon, .icon:active:focus .icon__icon, .icon.is-active .icon__icon {\n      filter: hue-rotate(70deg) contrast(0.3) saturate(2); }\n    .icon:focus .icon__text, .icon:active .icon__text, .icon:active:focus .icon__text, .icon.is-active .icon__text {\n      background-color: #0000a2;\n      color: white;\n      outline: 1px dotted white;\n      outline-offset: -1px; }\n";
@@ -1821,12 +1847,11 @@ var Toggle = function Toggle(props) {
     React.createElement('input', {
       type: props.type,
       id: props.id,
-      disabled: props.disabled,
+      isDisabled: props.isDisabled,
       value: props.value,
       checked: props.checked,
       onChange: props.onChange,
-      name: props.name,
-      isDisabled: props.isDisabled
+      name: props.name
     }),
     React.createElement(
       'label',
@@ -1839,6 +1864,18 @@ var Toggle = function Toggle(props) {
     )
   );
 };
+
+var toggleProps = {
+  label: propTypes.string,
+  type: propTypes.string,
+  id: propTypes.string,
+  name: propTypes.string,
+  checked: propTypes.bool,
+  onChange: propTypes.func,
+  isDisabled: propTypes.bool
+};
+
+Toggle.propTypes = toggleProps;
 
 var css$e = ".w98 input[type=checkbox] + label:before {\n  width: 13px;\n  height: 13px;\n  background-color: white;\n  box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px 0px #808088, inset -2px -2px 0px #bbc3c4, inset 2px 2px 0px 0px #0c0c0c; }\n\n.w98 input[type=checkbox]:checked + label:before {\n  background-image: url(\"data:image/gif;base64,R0lGODlhBwAHAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAHAAcAAAIMlA9nwMj9xGuLIlUAADs=\");\n  background-position: center;\n  background-size: 8px; }\n\n.w98 input[type=checkbox]:disabled + label:before, .w98 input[type=checkbox].disabled + label:before {\n  background-color: #bbc3c4; }\n\n.w98 input[type=checkbox]:disabled:checked + label:before, .w98 input[type=checkbox].disabled:checked + label:before {\n  background-image: url(\"data:image/gif;base64,R0lGODlhBwAHAJEAAAAAAP///5mZmf///yH5BAEAAAMALAAAAAAHAAcAAAIMnC9nwsj9xmuLIlUAADs=\"); }\n";
 styleInject(css$e);
@@ -1900,12 +1937,12 @@ var InputText = function (_Component) {
         className: this.props.className,
         value: this.state.value,
         id: this.props.id,
-        name: this.props.id,
+        isDisabled: this.props.isDisabled,
+        name: this.props.name || this.props.id,
         onBlur: this.handleBlur,
         onChange: this.handleChange,
         onKeyDown: this.props.onKeyDown,
-        onFocus: this.props.onFocus,
-        disabled: this.props.disabled
+        onFocus: this.props.onFocus
       });
     }
   }]);
@@ -1922,13 +1959,14 @@ InputText.defaultProps = {
 
 InputText.propTypes = {
   className: propTypes.string,
-  disabled: propTypes.bool,
   value: propTypes.string,
+  isDisabled: propTypes.bool,
   id: propTypes.string,
+  name: propTypes.string,
   onBlur: propTypes.func.isRequired,
   onChange: propTypes.func.isRequired,
-  onKeyDown: propTypes.func.isRequired,
-  onFocus: propTypes.func.isRequired
+  onFocus: propTypes.func.isRequired,
+  onKeyDown: propTypes.func.isRequired
 };
 
 var AutosizeInput_1 = createCommonjsModule(function (module, exports) {
@@ -4817,22 +4855,23 @@ var menuRenderer$1 = function menuRenderer$$1(_ref) {
     );
   });
 };
+
 menuRenderer$1.propTypes = {
-  focusOption: propTypes.func,
   focusedOption: propTypes.object,
   inputValue: propTypes.string,
   instancePrefix: propTypes.string,
+  optionClassName: propTypes.string,
+  options: propTypes.array,
+  valueArray: propTypes.array,
+  valueKey: propTypes.string,
+  focusOption: propTypes.func,
   onFocus: propTypes.func,
   onOptionRef: propTypes.func,
   onSelect: propTypes.func,
-  optionClassName: propTypes.string,
   optionComponent: propTypes.func,
   optionRenderer: propTypes.func,
-  options: propTypes.array,
   removeValue: propTypes.func,
-  selectValue: propTypes.func,
-  valueArray: propTypes.array,
-  valueKey: propTypes.string
+  selectValue: propTypes.func
 };
 
 var ValueRenderer = function ValueRenderer(props) {
@@ -4841,6 +4880,10 @@ var ValueRenderer = function ValueRenderer(props) {
     { style: { backgroundImage: props.icon ? 'url(\'' + props.icon + '\')' : 'none' } },
     props.label
   );
+};
+ValueRenderer.propTypes = {
+  icon: propTypes.string,
+  label: propTypes.string
 };
 
 var Select = function (_Component) {
@@ -4893,11 +4936,11 @@ var isSelected = function isSelected(selected, val) {
   });
 };
 
-var Select$2 = function Select(props) {
+var SelectBox = function SelectBox(props) {
   var Comp = props.component ? props.component : 'button';
   return React.createElement(
     'div',
-    { className: classnames('SelectBox', props.component ? 'SelectBox--' + props.component.name : 'SelectBox--simple', { disabled: props.disabled }) },
+    { className: classnames('SelectBox', props.component ? 'SelectBox--' + props.component.name : 'SelectBox--simple', { disabled: props.isDisabled }) },
     React.createElement(
       'div',
       null,
@@ -4918,16 +4961,31 @@ var Select$2 = function Select(props) {
   );
 };
 
+SelectBox.propTypes = {
+  component: propTypes.func,
+  className: propTypes.string,
+  title: propTypes.string,
+  selected: propTypes.array,
+  isDisabled: propTypes.bool,
+  options: propTypes.arrayOf(propTypes.shape({
+    value: propTypes.any,
+    title: propTypes.string,
+    icon: propTypes.string,
+    alt: propTypes.string,
+    className: propTypes.string
+  }))
+};
+
 var css$i = "select[multiple] {\n  position: relative;\n  border: none;\n  background-color: white;\n  border-radius: 0px;\n  outline: none;\n  padding: 2px;\n  box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px 0px #808088, inset -2px -2px 0px #bbc3c4, inset 2px 2px 0px 0px #0c0c0c; }\n  select[multiple]:active, select[multiple]:focus, select[multiple]:active:focus, select[multiple].active, select[multiple].clicked {\n    outline: none; }\n  select[multiple] option:active, select[multiple] option:focus, select[multiple] option:checked, select[multiple] option.checked {\n    outline: 1px dotted white;\n    outline-offset: -1px;\n    background-color: #0000a2;\n    color: white; }\n";
 styleInject(css$i);
 
-var Select$3 = function (_Component) {
-  inherits(Select, _Component);
+var SelectMultipleSimple = function (_Component) {
+  inherits(SelectMultipleSimple, _Component);
 
-  function Select(props) {
-    classCallCheck(this, Select);
+  function SelectMultipleSimple(props) {
+    classCallCheck(this, SelectMultipleSimple);
 
-    var _this = possibleConstructorReturn(this, (Select.__proto__ || Object.getPrototypeOf(Select)).call(this, props));
+    var _this = possibleConstructorReturn(this, (SelectMultipleSimple.__proto__ || Object.getPrototypeOf(SelectMultipleSimple)).call(this, props));
 
     _this.updateValue = function (value) {
       _this.setState({ value: value });
@@ -4963,7 +5021,7 @@ var Select$3 = function (_Component) {
     return _this;
   }
 
-  createClass(Select, [{
+  createClass(SelectMultipleSimple, [{
     key: 'render',
     value: function render() {
       var props = this.props;
@@ -4980,7 +5038,7 @@ var Select$3 = function (_Component) {
               {
                 key: option.value.toString(),
                 value: option.value,
-                disabled: option.disabled
+                disabled: option.isDisabled
               },
               React.createElement(
                 'div',
@@ -4998,11 +5056,23 @@ var Select$3 = function (_Component) {
       );
     }
   }]);
-  return Select;
+  return SelectMultipleSimple;
 }(Component);
 
-Select$3.defaultProps = {
+SelectMultipleSimple.defaultProps = {
   onChange: function onChange() {}
+};
+
+
+SelectMultipleSimple.propTypes = {
+  multiple: propTypes.bool,
+  onChange: propTypes.func,
+  value: propTypes.any,
+  options: propTypes.arrayOf(propTypes.shape({
+    name: propTypes.string,
+    value: propTypes.any,
+    isDisabled: propTypes.bool
+  }))
 };
 
 var MenuEntry = withContextLogic(AbstractButton);
@@ -5025,6 +5095,11 @@ var MenuBar = function MenuBar(props) {
   );
 };
 
+MenuBar.propTypes = {
+  options: propTypes.arrayOf(propTypes.shape()),
+  className: propTypes.string
+};
+
 var Started = withContextLogic(StartButton);
 
 var StartMenu = function StartMenu(props) {
@@ -5035,6 +5110,8 @@ var StartMenu = function StartMenu(props) {
     className: classnames('start-menu task-bar__start', className)
   }, otherProps));
 };
+
+StartMenu.propTypes = Started.propTypes;
 
 var Notifier = function Notifier(props) {
   return React.createElement('button', {
@@ -5164,7 +5241,7 @@ var TaskBar = function TaskBar(props) {
       'div',
       { className: 'task-bar__quick-launch' },
       props.quickLaunch.map(function (qlEntry) {
-        return React.createElement(NavButton$2, {
+        return React.createElement(NavButton$1, {
           key: qlEntry.icon + '-QuickLaunch',
           alt: qlEntry.alt,
           onClick: qlEntry.onClick,
@@ -5190,6 +5267,13 @@ var TaskBar = function TaskBar(props) {
     ),
     React.createElement(Notifications, { notifiers: props.notifiers })
   );
+};
+
+TaskBar.propTypes = {
+  options: propTypes.shape(StartMenu.propTypes),
+  quickLaunch: propTypes.arrayOf(propTypes.shape(NavButton$1.propTypes)),
+  openWindows: propTypes.arrayOf(propTypes.shape(ProgramButton.propTypes)),
+  notifiers: propTypes.arrayOf(propTypes.shape(Notifications.propsTypes))
 };
 
 var StaticWindow = function StaticWindow(props) {
@@ -5219,7 +5303,7 @@ var StaticWindow = function StaticWindow(props) {
   );
 };
 
-StaticWindow.propTypes = {
+var windowProps = {
   children: propTypes.node,
   title: propTypes.string,
   className: propTypes.string,
@@ -5232,6 +5316,8 @@ StaticWindow.propTypes = {
   onMaximize: propTypes.func,
   onRestore: propTypes.func
 };
+
+StaticWindow.propTypes = windowProps;
 
 var css$k = ".w98 .window--explorer__view {\n  min-height: 20px;\n  margin: 2px auto 1px;\n  background-color: white;\n  box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px 0px #808088, inset -2px -2px 0px #bbc3c4, inset 2px 2px 0px 0px #0c0c0c; }\n\n.w98 .window--explorer__details {\n  display: flex; }\n  .w98 .window--explorer__details__section {\n    box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px #808088;\n    flex-grow: 1;\n    margin-top: 2px;\n    height: 16px; }\n    .w98 .window--explorer__details__section:not(:last-child) {\n      margin: 2px; }\n\n.w98 .window--explorer .menu-bar {\n  padding: 2px 1px 2px 12px; }\n\n.w98 .window--explorer > div + menu {\n  margin-top: 2px;\n  box-shadow: 0px 1px 0px white, inset 0px -1px 0px #808088, -1px 0px 0px #808088, inset 1px 0px 0px white, 1px 0px 0px white, inset -1px 0px 0px #808088, -1px -1px 0px #808088, 0px -1px 0px #808088, inset 0px 1px 0px white, 1px -1px 0px white; }\n\n.w98 .window--explorer > menu {\n  position: relative;\n  min-height: 16px;\n  padding-left: 12px;\n  margin: 0px 1px;\n  display: flex;\n  box-shadow: 0px 1px 0px white, inset 0px -1px 0px #808088, -1px 0px 0px #808088, inset 1px 0px 0px white, 1px 0px 0px white, inset -1px 0px 0px #808088; }\n  .w98 .window--explorer > menu:before {\n    position: absolute;\n    top: 3px;\n    left: 5px;\n    height: calc(100% - 6px);\n    width: 3px;\n    background-color: #bbc3c4;\n    content: '';\n    box-shadow: inset -1px -1px 0px #808088, inset 1px 1px 0px white; }\n\n.w98 .window--explorer > footer {\n  display: flex; }\n  .w98 .window--explorer > footer > div {\n    flex-grow: 1;\n    padding: 2px 4px;\n    box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px #0c0c0c; }\n    .w98 .window--explorer > footer > div:not(:last-child) {\n      margin-right: 4px; }\n\n.w98 .window--explorer__address {\n  display: flex;\n  height: 22px;\n  overflow-y: visible; }\n  .w98 .window--explorer__address__title {\n    align-self: center;\n    margin-right: 4px;\n    padding-bottom: 2px; }\n  .w98 .window--explorer__address .Select {\n    flex-grow: 1;\n    z-index: 5;\n    margin-right: 4px;\n    margin-top: 1px; }\n\n.w98 .window--explorer__options {\n  display: flex;\n  padding: 2px 4px 2px 12px; }\n\n.w98 .window--explorer > div:last-child {\n  margin-top: 2px; }\n";
 styleInject(css$k);
@@ -5255,12 +5341,12 @@ var ExplorerWindow = function ExplorerWindow(props) {
       'menu',
       { className: 'window--explorer__options' },
       props.explorerOptions.map(function (option) {
-        return React.createElement(NavButton$1, {
+        return React.createElement(LargeIconButton, {
           key: 'large-button-' + option.title,
           icon: option.icon,
           title: option.title,
           onClick: option.onClick,
-          disabled: !option.onClick
+          isDisabled: !option.onClick
         });
       })
     ),
@@ -5295,17 +5381,28 @@ var ExplorerWindow = function ExplorerWindow(props) {
         return React.createElement(
           'div',
           {
-            key: entry.text,
+            key: Math.random(),
             style: entry.icon && {
               backgroundImage: 'url(' + entry.icon + ')'
             }
           },
-          entry.text || 'Default'
+          entry.text || ''
         );
       }) : props.footer
     )
   );
 };
+
+var footerType = {
+  text: propTypes.string,
+  icon: propTypes.string
+};
+
+ExplorerWindow.propTypes = _extends({}, StaticWindow.propTypes, {
+  menuOptions: propTypes.arrayOf(propTypes.any),
+  explorerOptions: propTypes.arrayOf(propTypes.shape(LargeIconButton.propTypes)),
+  footer: propTypes.oneOfType([propTypes.shape(footerType), propTypes.arrayOf(propTypes.shape(footerType))])
+});
 
 var DetailsSection = function DetailsSection(props) {
   return React.createElement(
@@ -5325,5 +5422,5 @@ DetailsSection.propTypes = {
   children: propTypes.node
 };
 
-export { Theme, FormButton, NavButton, ProgramButton, StartButton, NavButton$1 as LargeIconButton, NavButton$2 as SmallIconButton, StandardMenuSimple as StandardMenu, withContextLogic as withStandardMenuWrapper, ExplorerIcon, ListIcon, Checkbox, Radio, InputText, Select, Select$2 as SelectBox, Select$3 as SelectMultipleSimple, MenuBar, StartMenu, TaskBar, StaticWindow as AbstractWindow, ExplorerWindow, WindowFrame, DetailsSection };
+export { Theme, FormButton, NavButton, ProgramButton, StartButton, LargeIconButton, NavButton$1 as SmallIconButton, StandardMenu, withContextLogic as withStandardMenuWrapper, ExplorerIcon, ListIcon, Checkbox, Radio, InputText, Select, SelectBox, SelectMultipleSimple, MenuBar, StartMenu, TaskBar, StaticWindow as AbstractWindow, ExplorerWindow, WindowFrame, DetailsSection };
 //# sourceMappingURL=pb.module.js.map
