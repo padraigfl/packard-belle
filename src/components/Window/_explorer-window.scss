@@ -4,10 +4,12 @@
 @import '../../_scss/w98/var/var';
 
 @function nav-box-shadow(){
-  @return 0px 1px 0px white, inset 0px -1px 0px $darkgrey,
+  @return inset 0px -1px 0px $darkgrey,
   -1px 0px 0px $darkgrey, inset 1px 0px 0px white,
-    1px 0px 0px white, inset -1px 0px 0px $darkgrey;
+    1px 0px 0px white, inset -1px 0px 0px $darkgrey,
+    1px 0px 0px white, 1px 1px 0px white;
 }
+
 
 .w98 .window--explorer {
   &__view {
@@ -44,13 +46,9 @@
 
     min-height: 16px;
     padding-left: 12px;
-    margin: 0px 1px;
+    margin: 0px 2px;
     display: flex;
-    // border-bottom: 1px solid $darkgrey;
-    // border-top: 1px solid white;
     box-shadow: nav-box-shadow();
-    // box-shadow: -1px 0px 0px $darkgrey, inset 1px 0px 0px white,
-    //   inset -1px 0px 0px $darkgrey, 1px 0px 0px white;
     &:before {
       position: absolute;
       top: 3px;

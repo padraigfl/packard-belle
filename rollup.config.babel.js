@@ -1,9 +1,9 @@
-import path from 'path';
 import babel from 'rollup-plugin-babel';
 import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 import replace from 'rollup-plugin-replace';
 import postcss from 'rollup-plugin-postcss';
+import autoExternal from 'rollup-plugin-auto-external';
 
 
 export default {
@@ -11,22 +11,15 @@ export default {
   moduleName: 'PackardBelle',
   sourcemap: true,
 
-  // output: {
-  //   file: './build/rrpm.js',
-  //   format: 'umd',
-  //   name: 'ReactRectanglePopupMenu',
-  //   sourcemap: true
-  // },
-
   targets: [
     {
       dest: './build/pb.js',
-      format: 'umd'
+      format: 'umd',
     },
     {
       dest: 'build/pb.module.js',
-      format: 'es'
-    }
+      format: 'es',
+    },
   ],
 
   plugins: [
@@ -36,20 +29,24 @@ export default {
       // }
     ),
     resolve(),
+    autoExternal(),
     babel({
       exclude: 'node_modules/**',
-      plugins: ['external-helpers']
+      plugins: ['external-helpers'],
     }),
     replace({
-      'process.env.NODE_ENV': JSON.stringify('development')
+      'process.env.NODE_ENV': JSON.stringify('development'),
     }),
-    commonjs()
+    commonjs(),
   ],
 
   external: ['react', 'react-dom'],
 
   globals: {
     react: 'React',
-    'react-dom': 'ReactDOM'
-  }
+    'react-dom': 'ReactDOM',
+    'prop-types': 'PropTypes',
+    classnames: 'classnames',
+    'react-select': 'ReactSelect',
+  },
 };

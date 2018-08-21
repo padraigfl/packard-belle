@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import RSelect from 'react-select';
+import ReactSelect from 'react-select';
 import './_select.scss';
 
 const DefaultOptionComponent = props => <div {...props} />;
@@ -110,7 +110,7 @@ class Select extends Component {
   render() {
     const { props } = this;
     return (
-      <RSelect
+      <ReactSelect
         {...props}
         className="Select"
         placeholder={props.placeholder}

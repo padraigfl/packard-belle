@@ -177,7 +177,7 @@ html {
     .btn.btn--program.btn--active:before {
       content: '';
       background-color: white;
-      background-image: url("../../../images/rgba-204-204-204-85.png"); }
+      background-image: url("data:image/gif;base64,R0lGODlhAgACAJEAAAAAAP///8zMzP///yH5BAEAAAMALAAAAAACAAIAAAID1CYFADs="); }
 
 .btn.btn--start {
   height: 22px;
