@@ -5,7 +5,6 @@ import replace from 'rollup-plugin-replace';
 import postcss from 'rollup-plugin-postcss';
 import autoExternal from 'rollup-plugin-auto-external';
 
-
 export default {
   input: './src/index.js',
   moduleName: 'PackardBelle',
@@ -28,7 +27,9 @@ export default {
       //   modules: true,
       // }
     ),
-    resolve(),
+    resolve({
+      extensions: [ '.mjs', '.js', '.json', '.node', '.ttf'],
+    }),
     autoExternal(),
     babel({
       exclude: 'node_modules/**',

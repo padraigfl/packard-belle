@@ -4,10 +4,14 @@
 @import '../../_scss/w98/var/var';
 
 @function nav-box-shadow(){
-  @return inset 0px -1px 0px $darkgrey,
-  -1px 0px 0px $darkgrey, inset 1px 0px 0px white,
-    1px 0px 0px white, inset -1px 0px 0px $darkgrey,
-    1px 0px 0px white, 1px 1px 0px white;
+  @return
+    inset 0px -1px 0px $darkgrey,
+    inset -1px 0px 0px $darkgrey,
+    inset 0px 0px 0px 1px white,
+    -1px 0px 0px $darkgrey,
+    1px 0px 0px white,
+    -1px 1px 0px 0px white,
+    1px 1px 0px 0px white;
 }
 
 
@@ -37,16 +41,22 @@
   }
   >div + menu {
     margin-top: 2px;
-    box-shadow: nav-box-shadow(),
-      -1px -1px 0px $darkgrey, 0px -1px 0px $darkgrey,
-      inset 0px 1px 0px white, 1px -1px 0px white;
+    box-shadow: 0px 2px 0px -1px white,
+      -1px 2px 0px -1px white,
+      -1px 1px 0px $darkgrey,
+      0px 1px 0px $darkgrey,
+      nav-box-shadow(),
+      -1px -1px 0px $darkgrey,
+      0px -1px 0px $darkgrey,
+      inset 0px 1px 0px white,
+      1px -1px 0px white;
   }
   >menu {
     position: relative;
 
     min-height: 16px;
     padding-left: 12px;
-    margin: 0px 2px;
+    margin: 0px 1px;
     display: flex;
     box-shadow: nav-box-shadow();
     &:before {
@@ -64,11 +74,11 @@
     display: flex;
     >div {
       flex-grow: 1;
-      padding: 2px 4px;
+      padding: 2px;
       height: 12px;
       box-shadow: dualShadow($black, white);
       &:not(:last-child) {
-        margin-right: 4px;
+        margin-right: 2px;
       }
     }
   }
@@ -79,7 +89,6 @@
     &__title {
       align-self: center;
       margin-right: 4px;
-      padding-bottom: 2px;
     }
     .Select {
       flex-grow: 1;
