@@ -45,17 +45,20 @@ StandardMenuItem.defaultProps = {
   value: [],
 };
 
-export const standardMenuItemProps = {
+StandardMenuItem.propTypes = {
   className: PropTypes.string,
   title: PropTypes.string.isRequired,
   icon: PropTypes.string,
   value: PropTypes.arrayOf(PropTypes.string),
   mouseEnterItem: PropTypes.func,
-  options: PropTypes.shape(),
+  options: PropTypes.any,
   isDisabled: PropTypes.bool,
   isActive: PropTypes.bool,
   onClick: PropTypes.func,
   type: PropTypes.string,
 };
+
+export const standardMenuItemProps = StandardMenuItem.propTypes;
+
 
 export default StandardMenuItem;

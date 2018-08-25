@@ -1,14 +1,14 @@
 @font-face {
   font-family: 'MSFont';
-  src: url(./ms98_11.ttf); }
+  src: url(./fonts/ms98s11a10d02.ttf); }
 
 html {
-  font-size: 10px;
+  font-size: 11px;
   width: 200px;
   background-color: #bbc3c4;
   image-rendering: pixelated; }
   html button {
-    font-size: 10px; }
+    font-size: 11px; }
   html menu {
     padding: 0px;
     margin: 0px; }
@@ -84,9 +84,6 @@ html {
   border: 0px solid transparent;
   background-color: #bbc3c4;
   position: relative;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
   user-select: none; }
   .btn:not(.no-style):disabled, .btn:not(.no-style).disabled {
     pointer-events: none; }
@@ -190,9 +187,6 @@ html {
   background-repeat: no-repeat;
   background-position: 2px 1px;
   box-shadow: inset -1px -1px 0px #0c0c0c, inset 1px 1px 0px white, inset -2px -2px 0px #808088, inset 2px 2px 0px #bbc3c4; }
-  .btn.btn--start__text {
-    font-size: 1rem;
-    font-weight: bold; }
   .btn.btn--start:active, .btn.btn--start:focus, .btn.btn--start:active:focus, .btn.btn--start.active, .btn.btn--start.clicked {
     box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px #0c0c0c, inset 0px 1px 0px #0c0c0c, inset -2px -2px 0px #bbc3c4, inset 2px 2px 0px #808088, 0px -1px 0px #0c0c0c;
     background-position: 3px 2px;
@@ -447,7 +441,7 @@ input[type=checkbox], input[type=radio] {
 input[type=text] {
   position: relative;
   padding: 3px 3px 6px 3px;
-  font-size: 10px;
+  font-size: 11px;
   border: none;
   box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px 0px #808088, inset -2px -2px 0px #bbc3c4, inset 2px 2px 0px 0px #0c0c0c; }
   input[type=text]:active, input[type=text]:focus, input[type=text]:active:focus, input[type=text].clicked {
@@ -551,6 +545,28 @@ select[multiple] {
     position: relative;
     height: 22px;
     margin: 0px 2px; }
+  .w98 .task-bar > div:not(:last-child) {
+    padding: 0px 6px; }
+    .w98 .task-bar > div:not(:last-child):first-child {
+      padding: 0px 3px 0px 0px; }
+    .w98 .task-bar > div:not(:last-child):after {
+      position: absolute;
+      top: 1px;
+      right: 0px;
+      height: calc(100% - 2px);
+      width: 1px;
+      background-color: #808088;
+      content: '';
+      box-shadow: 1px 0px 0px white; }
+    .w98 .task-bar > div:not(:last-child):before {
+      position: absolute;
+      top: 3px;
+      right: -6px;
+      height: calc(100% - 6px);
+      width: 3px;
+      background-color: #bbc3c4;
+      content: '';
+      box-shadow: inset -1px -1px 0px #808088, inset 1px 1px 0px white; }
   .w98 .task-bar__programs {
     display: flex;
     flex-grow: 1;
@@ -605,7 +621,7 @@ select[multiple] {
         padding: 3px; }
         .w98 .task-bar__start > button:active + div div, .w98 .task-bar__start > button:focus + div div, .w98 .task-bar__start > button:active:focus + div div, .w98 .task-bar__start > button.active + div div, .w98 .task-bar__start > button.clicked + div div {
           display: flex; }
-  .w98 .task-bar--notifications {
+  .w98 .task-bar__notifications {
     background-color: #bbc3c4;
     display: flex;
     flex: none;
@@ -614,9 +630,9 @@ select[multiple] {
     height: 22px;
     padding: 0px 8px 0px 4px;
     box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px #808088; }
-    .w98 .task-bar--notifications__time {
+    .w98 .task-bar__notifications__time {
       margin-left: 4px; }
-    .w98 .task-bar--notifications__notifier {
+    .w98 .task-bar__notifications__notifier {
       height: 16px;
       width: 16px;
       background-color: #bbc3c4;
@@ -624,31 +640,9 @@ select[multiple] {
       background-position: center;
       background-repeat: no-repeat;
       border: none; }
-      .w98 .task-bar--notifications__notifier:active, .w98 .task-bar--notifications__notifier:focus, .w98 .task-bar--notifications__notifier:active:focus, .w98 .task-bar--notifications__notifier.active, .w98 .task-bar--notifications__notifier.clicked {
+      .w98 .task-bar__notifications__notifier:active, .w98 .task-bar__notifications__notifier:focus, .w98 .task-bar__notifications__notifier:active:focus, .w98 .task-bar__notifications__notifier.active, .w98 .task-bar__notifications__notifier.clicked {
         outline: none;
         border: none; }
-  .w98 .task-bar > div:not(:last-child) {
-    padding: 0px 6px; }
-    .w98 .task-bar > div:not(:last-child):first-child {
-      padding: 0px 3px 0px 0px; }
-    .w98 .task-bar > div:not(:last-child):after {
-      position: absolute;
-      top: 1px;
-      right: 0px;
-      height: calc(100% - 2px);
-      width: 1px;
-      background-color: #808088;
-      content: '';
-      box-shadow: 1px 0px 0px white; }
-    .w98 .task-bar > div:not(:last-child):before {
-      position: absolute;
-      top: 3px;
-      right: -6px;
-      height: calc(100% - 6px);
-      width: 3px;
-      background-color: #bbc3c4;
-      content: '';
-      box-shadow: inset -1px -1px 0px #808088, inset 1px 1px 0px white; }
 
 .w98 .window {
   position: relative;
@@ -662,7 +656,26 @@ select[multiple] {
     color: white;
     margin-bottom: 1px;
     padding: 0px 3px;
-    align-items: center; }
+    align-items: center;
+    letter-spacing: 1px; }
+    .w98 .window__heading > button {
+      padding: 0px;
+      min-width: initial;
+      width: 16px;
+      height: 14px;
+      margin-left: 1px;
+      image-rendering: pixelated;
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+      background-repeat: no-repeat;
+      background-position: 1px 1px; }
+      .w98 .window__heading > button:focus, .w98 .window__heading > button.clicked {
+        outline: none;
+        border: none; }
+      .w98 .window__heading > button:active:focus, .w98 .window__heading > button.clicked {
+        padding: 2px 8px 1px 4px;
+        background-position: 2px 2px; }
   .w98 .window__icon {
     padding: 8px;
     display: flex;
@@ -675,27 +688,6 @@ select[multiple] {
     text-overflow: ellipsis;
     flex-grow: 1;
     min-width: 0px; }
-  .w98 .window__close, .w98 .window__restore, .w98 .window__minimize, .w98 .window__maximize {
-    padding: 0px;
-    min-width: initial;
-    width: 16px;
-    height: 14px;
-    margin-left: 1px;
-    image-rendering: pixelated;
-    display: flex;
-    align-items: center;
-    flex-shrink: 0;
-    background-repeat: no-repeat;
-    background-position: 1px 1px; }
-    .w98 .window__close:focus, .w98 .window__close.clicked, .w98 .window__restore:focus, .w98 .window__restore.clicked, .w98 .window__minimize:focus, .w98 .window__minimize.clicked, .w98 .window__maximize:focus, .w98 .window__maximize.clicked {
-      outline: none;
-      border: none; }
-    .w98 .window__close:active:focus, .w98 .window__close.clicked, .w98 .window__restore:active:focus, .w98 .window__restore.clicked, .w98 .window__minimize:active:focus, .w98 .window__minimize.clicked, .w98 .window__maximize:active:focus, .w98 .window__maximize.clicked {
-      padding-top: 2px;
-      padding-bottom: 1px;
-      padding-left: 4px;
-      padding-right: 8px;
-      background-position: 2px 2px; }
   .w98 .window__close {
     margin-left: 2px;
     background-image: url("data:image/gif;base64,R0lGODlhDQALAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAANAAsAAAIUlI+pKwDoVGxvucmwvblqo33MqBQAOw=="); }
@@ -705,16 +697,16 @@ select[multiple] {
     background-image: url("data:image/gif;base64,R0lGODlhDQALAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAANAAsAAAIOlI+py+0PozSg2mXvFAUAOw=="); }
   .w98 .window__maximize {
     background-image: url("data:image/gif;base64,R0lGODlhDQALAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAANAAsAAAIXlI8Jy4wNXzJAznqwsjtPoYFfCDXfWQAAOw=="); }
-  .w98 .window__menu, .w98 .window .menu-bar {
+  .w98 .window__menu, .w98 .window > menu {
     display: flex;
     padding: 0px;
     font-size: 1rem;
     position: relative;
     overflow-y: visible;
     z-index: 20; }
-    .w98 .window__menu__section, .w98 .window .menu-bar__section {
+    .w98 .window__menu__section, .w98 .window__menu > div, .w98 .window > menu__section, .w98 .window > menu > div {
       position: relative; }
-      .w98 .window__menu__section > button, .w98 .window .menu-bar__section > button {
+      .w98 .window__menu__section > button, .w98 .window__menu > div > button, .w98 .window > menu__section > button, .w98 .window > menu > div > button {
         padding: 0px 4px;
         outline: none;
         border: none;
@@ -728,7 +720,7 @@ select[multiple] {
         text-overflow: ellipsis;
         text-align: left;
         padding: 3px 6px; }
-        .w98 .window__menu__section > button + .standard-menu, .w98 .window__menu__section > button + .menu-bar__section__dropdown, .w98 .window .menu-bar__section > button + .standard-menu, .w98 .window .menu-bar__section > button + .menu-bar__section__dropdown {
+        .w98 .window__menu__section > button + .standard-menu, .w98 .window__menu__section > button + div, .w98 .window__menu > div > button + .standard-menu, .w98 .window__menu > div > button + div, .w98 .window > menu__section > button + .standard-menu, .w98 .window > menu__section > button + div, .w98 .window > menu > div > button + .standard-menu, .w98 .window > menu > div > button + div {
           z-index: 20;
           visibility: hidden;
           position: absolute;
@@ -736,12 +728,12 @@ select[multiple] {
           top: 100%;
           left: 0px;
           transition: max-height linear 750ms; }
-        .w98 .window__menu__section > button:hover, .w98 .window .menu-bar__section > button:hover {
+        .w98 .window__menu__section > button:hover, .w98 .window__menu > div > button:hover, .w98 .window > menu__section > button:hover, .w98 .window > menu > div > button:hover {
           box-shadow: inset -1px -1px 0px #808088, inset 1px 1px 0px white; }
-        .w98 .window__menu__section > button:active, .w98 .window__menu__section > button:focus, .w98 .window__menu__section > button:active:focus, .w98 .window__menu__section > button.active, .w98 .window__menu__section > button.clicked, .w98 .window .menu-bar__section > button:active, .w98 .window .menu-bar__section > button:focus, .w98 .window .menu-bar__section > button:active:focus, .w98 .window .menu-bar__section > button.active, .w98 .window .menu-bar__section > button.clicked {
+        .w98 .window__menu__section > button:active, .w98 .window__menu__section > button:focus, .w98 .window__menu__section > button:active:focus, .w98 .window__menu__section > button.active, .w98 .window__menu__section > button.clicked, .w98 .window__menu > div > button:active, .w98 .window__menu > div > button:focus, .w98 .window__menu > div > button:active:focus, .w98 .window__menu > div > button.active, .w98 .window__menu > div > button.clicked, .w98 .window > menu__section > button:active, .w98 .window > menu__section > button:focus, .w98 .window > menu__section > button:active:focus, .w98 .window > menu__section > button.active, .w98 .window > menu__section > button.clicked, .w98 .window > menu > div > button:active, .w98 .window > menu > div > button:focus, .w98 .window > menu > div > button:active:focus, .w98 .window > menu > div > button.active, .w98 .window > menu > div > button.clicked {
           box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px #808088;
           padding: 4px 5px 2px 7px; }
-          .w98 .window__menu__section > button:active + .standard-menu, .w98 .window__menu__section > button:focus + .standard-menu, .w98 .window__menu__section > button:active:focus + .standard-menu, .w98 .window__menu__section > button.active + .standard-menu, .w98 .window__menu__section > button.clicked + .standard-menu, .w98 .window .menu-bar__section > button:active + .standard-menu, .w98 .window .menu-bar__section > button:focus + .standard-menu, .w98 .window .menu-bar__section > button:active:focus + .standard-menu, .w98 .window .menu-bar__section > button.active + .standard-menu, .w98 .window .menu-bar__section > button.clicked + .standard-menu {
+          .w98 .window__menu__section > button:active + .standard-menu, .w98 .window__menu__section > button:focus + .standard-menu, .w98 .window__menu__section > button:active:focus + .standard-menu, .w98 .window__menu__section > button.active + .standard-menu, .w98 .window__menu__section > button.clicked + .standard-menu, .w98 .window__menu > div > button:active + .standard-menu, .w98 .window__menu > div > button:focus + .standard-menu, .w98 .window__menu > div > button:active:focus + .standard-menu, .w98 .window__menu > div > button.active + .standard-menu, .w98 .window__menu > div > button.clicked + .standard-menu, .w98 .window > menu__section > button:active + .standard-menu, .w98 .window > menu__section > button:focus + .standard-menu, .w98 .window > menu__section > button:active:focus + .standard-menu, .w98 .window > menu__section > button.active + .standard-menu, .w98 .window > menu__section > button.clicked + .standard-menu, .w98 .window > menu > div > button:active + .standard-menu, .w98 .window > menu > div > button:focus + .standard-menu, .w98 .window > menu > div > button:active:focus + .standard-menu, .w98 .window > menu > div > button.active + .standard-menu, .w98 .window > menu > div > button.clicked + .standard-menu {
             visibility: visible;
             max-height: 480px; }
   .w98 .window__details {
@@ -755,13 +747,13 @@ select[multiple] {
       top: -10px;
       padding: 2px 4px;
       background-color: #bbc3c4; }
-  .w98 .window section {
+  .w98 .window section, .w98 .window__section {
     position: relative;
     border: 1px solid white;
     outline: 1px solid darkgrey;
     padding: 5px;
     margin: 16px 8px 8px; }
-    .w98 .window section .title {
+    .w98 .window section .title, .w98 .window__section .title {
       position: absolute;
       top: -10px;
       padding: 2px 4px;

@@ -5,9 +5,7 @@
   height: 22px;
   width: 22px;
   padding: 0px;
-  // background-size: 16px;
-  // background-repeat: no-repeat;
-  // background-position: 3px 3px;
+
   img {
     margin: 3px;
     max-height: 16px;
@@ -19,7 +17,6 @@
   }
   &:hover:focus:active, &:hover:active, &.active, &.clicked {
     box-shadow: dualShadow($darkgrey, white);
-    // background-position: 4px 4px;
     img {
       margin: 4px 2px 2px 4px;
     }

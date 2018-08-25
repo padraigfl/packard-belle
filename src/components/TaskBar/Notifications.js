@@ -39,7 +39,7 @@ class Time extends React.Component {
 
   render() {
     return (
-      <div className="task-bar--notifications__time">
+      <div className="task-bar__notifications__time">
         { formatTime(this.state.time) }
       </div>
     );
@@ -47,7 +47,7 @@ class Time extends React.Component {
 }
 
 const Notifications = props => (
-  <div className="task-bar--notifications">
+  <div className="task-bar__notifications">
     {
       props.notifiers.map( notifier => (
         <Notifier

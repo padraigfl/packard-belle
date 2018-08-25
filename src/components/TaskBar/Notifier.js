@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const Notifier = props => (
   <button
-    className="btn task-bar--notifications__notifier"
+    className="btn task-bar__notifications__notifier"
     title={props.title}
     onClick={props.onClick}
     style={{ backgroundImage: `url("${props.icon}")` }}

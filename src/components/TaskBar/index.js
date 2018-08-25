@@ -51,7 +51,7 @@ const TaskBar = (props) => (
 );
 
 TaskBar.propTypes = {
-  options: PropTypes.shape(StartMenu.propTypes),
+  options: PropTypes.array,
   quickLaunch: PropTypes.arrayOf(PropTypes.shape(
     SmallIconButton.propTypes,
   )),

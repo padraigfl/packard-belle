@@ -13,13 +13,6 @@ $start: 'data:image/gif;base64,R0lGODlhNAATAKIAAAAAAP///wAA/wD/AP//AP8AAP///wAAA
   background-size: auto 18px;
   background-repeat: no-repeat;
   background-position: 2px 1px;
-
-
-  &__text {
-    font-size: 1rem;
-    font-weight: bold;
-  }
-
   box-shadow: dualShadow(white, $black), dualShadow($grey, $darkgrey, 2);
 
   &:active, &:focus, &:active:focus, &.active, &.clicked {

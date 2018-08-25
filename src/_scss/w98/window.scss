@@ -17,6 +17,30 @@
     margin-bottom: 1px;
     padding: 0px 3px;
     align-items: center;
+    letter-spacing: 1px;
+    >button {
+      padding: 0px;
+      min-width: initial;
+      width: 16px;
+      height: 14px;
+      margin-left: 1px;
+      image-rendering: pixelated;
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+      background-repeat: no-repeat;
+      background-position: 1px 1px;
+
+      &:focus, &.clicked {
+        outline: none;
+        border: none;
+      }
+
+      &:active:focus, &.clicked {
+        padding: 2px 8px 1px 4px;
+        background-position: 2px 2px;
+      }
+    }
   }
   &__icon {
     padding: 8px;
@@ -32,33 +56,6 @@
     flex-grow: 1;
     min-width: 0px;
   }
-  &__close, &__restore, &__minimize, &__maximize {
-    padding: 0px;
-    min-width: initial;
-    width: 16px;
-    height: 14px;
-    margin-left: 1px;
-    image-rendering: pixelated;
-    display: flex;
-    align-items: center;
-    flex-shrink: 0;
-    background-repeat: no-repeat;
-    background-position: 1px 1px;
-
-
-    &:focus, &.clicked {
-      outline: none;
-      border: none;
-    }
-
-    &:active:focus, &.clicked {
-      padding-top: 2px;
-      padding-bottom: 1px;
-      padding-left: 4px;
-      padding-right: 8px;
-      background-position: 2px 2px;
-    }
-  }
   &__close {
     margin-left: 2px;
     background-image: url($close);
@@ -73,7 +70,7 @@
     background-image: url($maximize);
   }
 
-  &__menu, .menu-bar {
+  &__menu, >menu {
     display: flex;
     padding: 0px;
     font-size: 1rem;
@@ -81,7 +78,7 @@
     overflow-y: visible;
     z-index: 20;
 
-    &__section{
+    &__section, >div {
       position: relative;
 
       >button {
@@ -99,7 +96,7 @@
         text-align: left;
         padding: 3px 6px;
 
-        + .standard-menu, + .menu-bar__section__dropdown {
+        + .standard-menu, + div {
           z-index: 20;
           visibility: hidden;
           position: absolute;
@@ -141,7 +138,7 @@
     }
   }
 
-  section {
+  section, &__section {
     position: relative;
     border: 1px solid white;
     outline: 1px solid darkgrey;
