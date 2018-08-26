@@ -681,6 +681,7 @@ var AbstractIcon = function (_Component) {
       var iconProps = {
         onDoubleClick: props.onDoubleClick,
         onClick: this.handleClick,
+        onContextMenu: this.props.onContextMenu && this.handleContextMenu,
         className: classnames('icon', props.className),
         title: props.alt,
         value: props.value,
@@ -709,8 +710,7 @@ var AbstractIcon = function (_Component) {
           _extends({
             ref: function ref(icon) {
               _this2.icon = icon;
-            },
-            onContextMenu: this.handleContextMenu
+            }
           }, iconProps),
           contents
         );
@@ -746,6 +746,7 @@ var ExplorerIcon = function ExplorerIcon(props) {
   return React.createElement(AbstractIcon, {
     onClick: props.onClick,
     onDoubleClick: props.onDoubleClick,
+    onContextMenu: props.onContextMenu,
     alt: props.alt,
     className: classnames('icon--explorer', props.className),
     icon: props.icon,
@@ -762,6 +763,7 @@ var ListIcon = function ListIcon(props) {
   return React.createElement(AbstractIcon, {
     onClick: props.onClick,
     onDoubleClick: props.onDoubleClick,
+    onContextMenu: props.onContextMenu,
     alt: props.alt,
     className: classnames('icon--list', props.className),
     icon: props.icon,
@@ -776,9 +778,11 @@ var css$d = "input[type=checkbox], input[type=radio] {\n  opacity: 0;\n  display
 styleInject(css$d);
 
 var Toggle = function Toggle(props) {
+  var Comp = props.className ? 'div' : React.Fragment;
+  var passedProps = props.className ? { className: props.className } : {};
   return React.createElement(
-    React.Fragment,
-    null,
+    Comp,
+    passedProps,
     React.createElement('input', {
       type: props.type,
       id: props.id,
@@ -852,11 +856,13 @@ var InputText = function (_Component) {
     }
 
     return _ret = (_temp = (_this = possibleConstructorReturn(this, (_ref = InputText.__proto__ || Object.getPrototypeOf(InputText)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
-      value: _this.props.value
+      value: _this.props.initialValue
     }, _this.handleChange = function (e) {
-      _this.setState({
-        value: e.target.value
-      });
+      if (_this.props.initialValue) {
+        _this.setState({
+          value: e.target.value
+        });
+      }
 
       _this.props.onChange(e.target.value);
     }, _this.handleBlur = function () {
@@ -870,7 +876,7 @@ var InputText = function (_Component) {
       return React.createElement('input', {
         type: 'text',
         className: this.props.className,
-        value: this.state.value,
+        value: this.props.initialValue ? this.state.value : this.props.value,
         id: this.props.id,
         disabled: this.props.isDisabled,
         name: this.props.name || this.props.id,
@@ -895,6 +901,7 @@ InputText.defaultProps = {
 InputText.propTypes = {
   className: PropTypes.string,
   value: PropTypes.string,
+  initialValue: PropTypes.string,
   isDisabled: PropTypes.bool,
   id: PropTypes.string,
   name: PropTypes.string,

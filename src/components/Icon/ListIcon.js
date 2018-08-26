@@ -7,6 +7,7 @@ const ListIcon = props => (
   <AbstractIcon
     onClick={ props.onClick }
     onDoubleClick={ props.onDoubleClick }
+    onContextMenu={ props.onContextMenu }
     alt={ props.alt }
     className={ classnames('icon--list', props.className) }
     icon={ props.icon }

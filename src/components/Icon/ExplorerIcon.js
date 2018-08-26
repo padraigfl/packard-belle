@@ -7,6 +7,7 @@ const ExplorerIcon = props => (
   <AbstractIcon
     onClick={ props.onClick }
     onDoubleClick={ props.onDoubleClick }
+    onContextMenu={ props.onContextMenu }
     alt={ props.alt }
     className={ classnames('icon--explorer', props.className) }
     icon={ props.icon }

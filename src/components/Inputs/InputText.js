@@ -13,13 +13,15 @@ class InputText extends Component {
   }
 
   state = {
-    value: this.props.value,
+    value: this.props.initialValue,
   }
 
   handleChange = (e) => {
-    this.setState({
-      value: e.target.value,
-    });
+    if (this.props.initialValue) {
+      this.setState({
+        value: e.target.value,
+      });
+    }
 
     this.props.onChange(e.target.value);
   }
@@ -33,7 +35,7 @@ class InputText extends Component {
       <input
         type="text"
         className={this.props.className}
-        value={this.state.value}
+        value={this.props.initialValue ? this.state.value : this.props.value}
         id={this.props.id}
         disabled={this.props.isDisabled}
         name={this.props.name || this.props.id}
@@ -49,6 +51,7 @@ class InputText extends Component {
 InputText.propTypes = {
   className: PropTypes.string,
   value: PropTypes.string,
+  initialValue: PropTypes.string,
   isDisabled: PropTypes.bool,
   id: PropTypes.string,
   name: PropTypes.string,

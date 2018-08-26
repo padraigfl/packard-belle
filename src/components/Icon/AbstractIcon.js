@@ -52,6 +52,7 @@ class AbstractIcon extends Component {
     const iconProps = {
       onDoubleClick: props.onDoubleClick,
       onClick: this.handleClick,
+      onContextMenu: this.props.onContextMenu && this.handleContextMenu,
       className: classnames('icon', props.className),
       title: props.alt,
       value: props.value,
@@ -68,11 +69,10 @@ class AbstractIcon extends Component {
       </React.Fragment>
     );
 
-    if (this.props.onClick || this.props.onDoubleClick) {
+    if (this.props.onClick || this.props.onDoubleClick ) {
       return (
         <button
           ref={(icon) => { this.icon = icon; }}
-          onContextMenu={this.handleContextMenu}
           {...iconProps}
         >
           { contents }
