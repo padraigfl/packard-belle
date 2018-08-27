@@ -7,7 +7,7 @@ import './_select.scss';
 const DefaultOptionComponent = props => <div {...props} />;
 
 // copied straight from react select demos with slight changes
-const menuRenderer = ({
+export const menuRenderer = ({
   focusedOption,
   focusOption,
   inputValue,
@@ -30,6 +30,7 @@ const menuRenderer = ({
     let isFocused = option === focusedOption;
     let optionClass = classNames(optionClassName, {
       'Select-option': true,
+      'Select-option--icon': true,
       'is-selected': isSelected,
       'is-focused': isFocused,
       'is-disabled': option.disabled,
@@ -99,12 +100,16 @@ class Select extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: this.props.value || null,
+      value: this.props.onChange ? null : this.props.value,
     };
   }
 
-  onChange = e => {
-    this.setState({ value: e.value });
+  handleChange = e => {
+    if (this.props.onChange) {
+      this.setState({ value: e.value });
+    } else {
+      this.props.onChange(e);
+    }
   }
 
   render() {
@@ -114,13 +119,12 @@ class Select extends Component {
         {...props}
         className="Select"
         placeholder={props.placeholder}
-        onChange={this.onChange}
-        isOpen
+        onChange={this.handleChange}
         disabled={props.isDisabled}
         searchable={props.searchable}
         menuRenderer={props.useIcons ? menuRenderer : undefined}
         valueRenderer={ValueRenderer}
-        value={this.state.value}
+        value={this.props.onChange ? this.props.value : this.state.value}
       />
     );
   }

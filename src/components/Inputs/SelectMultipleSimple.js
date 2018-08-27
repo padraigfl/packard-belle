@@ -48,14 +48,14 @@ class SelectMultipleSimple extends Component {
     const { props } = this;
     return (
       <div className="SelectMultipleSimple">
-        <select value={this.state.value} onChange={this.handleChange} multiple>
+        <select value={this.state.value} onChange={this.handleChange} disabled={this.props.isDisabled} multiple>
           { props.options.map(option => (
             <option
               key={option.value.toString()}
               value={option.value}
               disabled={option.isDisabled}
             >
-              <div>{option.name}<div>ppp</div></div>
+              <div>{option.title || (typeof option.value === 'string' ? option.value : '')}</div>
             </option>
           ))}
         </select>
@@ -68,6 +68,7 @@ SelectMultipleSimple.propTypes = {
   multiple: PropTypes.bool,
   onChange: PropTypes.func,
   value: PropTypes.any,
+  isDisabled: PropTypes.bool,
   options: PropTypes.arrayOf(PropTypes.shape({
     name: PropTypes.string,
     value: PropTypes.any,

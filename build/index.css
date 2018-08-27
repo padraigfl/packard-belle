@@ -697,16 +697,16 @@ select[multiple] {
     background-image: url("data:image/gif;base64,R0lGODlhDQALAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAANAAsAAAIOlI+py+0PozSg2mXvFAUAOw=="); }
   .w98 .window__maximize {
     background-image: url("data:image/gif;base64,R0lGODlhDQALAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAANAAsAAAIXlI8Jy4wNXzJAznqwsjtPoYFfCDXfWQAAOw=="); }
-  .w98 .window__menu, .w98 .window > menu {
+  .w98 .window__menu {
     display: flex;
     padding: 0px;
     font-size: 1rem;
     position: relative;
     overflow-y: visible;
     z-index: 20; }
-    .w98 .window__menu__section, .w98 .window__menu > div, .w98 .window > menu__section, .w98 .window > menu > div {
+    .w98 .window__menu__section, .w98 .window__menu > div {
       position: relative; }
-      .w98 .window__menu__section > button, .w98 .window__menu > div > button, .w98 .window > menu__section > button, .w98 .window > menu > div > button {
+      .w98 .window__menu__section > button, .w98 .window__menu > div > button {
         padding: 0px 4px;
         outline: none;
         border: none;
@@ -720,7 +720,7 @@ select[multiple] {
         text-overflow: ellipsis;
         text-align: left;
         padding: 3px 6px; }
-        .w98 .window__menu__section > button + .standard-menu, .w98 .window__menu__section > button + div, .w98 .window__menu > div > button + .standard-menu, .w98 .window__menu > div > button + div, .w98 .window > menu__section > button + .standard-menu, .w98 .window > menu__section > button + div, .w98 .window > menu > div > button + .standard-menu, .w98 .window > menu > div > button + div {
+        .w98 .window__menu__section > button + .standard-menu, .w98 .window__menu__section > button + div, .w98 .window__menu > div > button + .standard-menu, .w98 .window__menu > div > button + div {
           z-index: 20;
           visibility: hidden;
           position: absolute;
@@ -728,12 +728,12 @@ select[multiple] {
           top: 100%;
           left: 0px;
           transition: max-height linear 750ms; }
-        .w98 .window__menu__section > button:hover, .w98 .window__menu > div > button:hover, .w98 .window > menu__section > button:hover, .w98 .window > menu > div > button:hover {
+        .w98 .window__menu__section > button:hover, .w98 .window__menu > div > button:hover {
           box-shadow: inset -1px -1px 0px #808088, inset 1px 1px 0px white; }
-        .w98 .window__menu__section > button:active, .w98 .window__menu__section > button:focus, .w98 .window__menu__section > button:active:focus, .w98 .window__menu__section > button.active, .w98 .window__menu__section > button.clicked, .w98 .window__menu > div > button:active, .w98 .window__menu > div > button:focus, .w98 .window__menu > div > button:active:focus, .w98 .window__menu > div > button.active, .w98 .window__menu > div > button.clicked, .w98 .window > menu__section > button:active, .w98 .window > menu__section > button:focus, .w98 .window > menu__section > button:active:focus, .w98 .window > menu__section > button.active, .w98 .window > menu__section > button.clicked, .w98 .window > menu > div > button:active, .w98 .window > menu > div > button:focus, .w98 .window > menu > div > button:active:focus, .w98 .window > menu > div > button.active, .w98 .window > menu > div > button.clicked {
+        .w98 .window__menu__section > button:active, .w98 .window__menu__section > button:focus, .w98 .window__menu__section > button:active:focus, .w98 .window__menu__section > button.active, .w98 .window__menu__section > button.clicked, .w98 .window__menu > div > button:active, .w98 .window__menu > div > button:focus, .w98 .window__menu > div > button:active:focus, .w98 .window__menu > div > button.active, .w98 .window__menu > div > button.clicked {
           box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px #808088;
           padding: 4px 5px 2px 7px; }
-          .w98 .window__menu__section > button:active + .standard-menu, .w98 .window__menu__section > button:focus + .standard-menu, .w98 .window__menu__section > button:active:focus + .standard-menu, .w98 .window__menu__section > button.active + .standard-menu, .w98 .window__menu__section > button.clicked + .standard-menu, .w98 .window__menu > div > button:active + .standard-menu, .w98 .window__menu > div > button:focus + .standard-menu, .w98 .window__menu > div > button:active:focus + .standard-menu, .w98 .window__menu > div > button.active + .standard-menu, .w98 .window__menu > div > button.clicked + .standard-menu, .w98 .window > menu__section > button:active + .standard-menu, .w98 .window > menu__section > button:focus + .standard-menu, .w98 .window > menu__section > button:active:focus + .standard-menu, .w98 .window > menu__section > button.active + .standard-menu, .w98 .window > menu__section > button.clicked + .standard-menu, .w98 .window > menu > div > button:active + .standard-menu, .w98 .window > menu > div > button:focus + .standard-menu, .w98 .window > menu > div > button:active:focus + .standard-menu, .w98 .window > menu > div > button.active + .standard-menu, .w98 .window > menu > div > button.clicked + .standard-menu {
+          .w98 .window__menu__section > button:active + .standard-menu, .w98 .window__menu__section > button:focus + .standard-menu, .w98 .window__menu__section > button:active:focus + .standard-menu, .w98 .window__menu__section > button.active + .standard-menu, .w98 .window__menu__section > button.clicked + .standard-menu, .w98 .window__menu > div > button:active + .standard-menu, .w98 .window__menu > div > button:focus + .standard-menu, .w98 .window__menu > div > button:active:focus + .standard-menu, .w98 .window__menu > div > button.active + .standard-menu, .w98 .window__menu > div > button.clicked + .standard-menu {
             visibility: visible;
             max-height: 480px; }
   .w98 .window__details {

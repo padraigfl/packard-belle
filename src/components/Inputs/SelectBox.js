@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import './_select.scss';
 
-const isSelected = (selected, val) => selected.some(selectedEntry => selectedEntry === val);
+const isSelected = (selected, val) => Array.isArray(selected) ?
+  selected.some(selectedEntry => selectedEntry === val) : selected === val;
 
 const SelectBox = (props) => {
   const Comp = props.component ? props.component : 'button';
@@ -40,7 +41,7 @@ SelectBox.propTypes = {
   component: PropTypes.func,
   className: PropTypes.string,
   title: PropTypes.string,
-  selected: PropTypes.array,
+  selected: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
   isDisabled: PropTypes.bool,
   options: PropTypes.arrayOf(PropTypes.shape({
     value: PropTypes.any,

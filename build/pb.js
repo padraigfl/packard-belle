@@ -356,7 +356,7 @@
     icon: PropTypes.string
   });
 
-  var css$8 = ".w98 .window {\n  position: relative;\n  background-color: #bbc3c4;\n  padding: 3px;\n  box-shadow: inset -1px -1px 0px #0c0c0c, inset 1px 1px 0px #bbc3c4, inset -2px -2px 0px #808088, inset 2px 2px 0px white; }\n  .w98 .window__heading {\n    display: flex;\n    background: linear-gradient(to right, #0000a2, #126fc2);\n    font-weight: bold;\n    color: white;\n    margin-bottom: 1px;\n    padding: 0px 3px;\n    align-items: center;\n    letter-spacing: 1px; }\n    .w98 .window__heading > button {\n      padding: 0px;\n      min-width: initial;\n      width: 16px;\n      height: 14px;\n      margin-left: 1px;\n      image-rendering: pixelated;\n      display: flex;\n      align-items: center;\n      flex-shrink: 0;\n      background-repeat: no-repeat;\n      background-position: 1px 1px; }\n      .w98 .window__heading > button:focus, .w98 .window__heading > button.clicked {\n        outline: none;\n        border: none; }\n      .w98 .window__heading > button:active:focus, .w98 .window__heading > button.clicked {\n        padding: 2px 8px 1px 4px;\n        background-position: 2px 2px; }\n  .w98 .window__icon {\n    padding: 8px;\n    display: flex;\n    background-size: 14px;\n    background-repeat: no-repeat;\n    background-position: center; }\n  .w98 .window__title {\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    flex-grow: 1;\n    min-width: 0px; }\n  .w98 .window__close {\n    margin-left: 2px;\n    background-image: url(\"data:image/gif;base64,R0lGODlhDQALAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAANAAsAAAIUlI+pKwDoVGxvucmwvblqo33MqBQAOw==\"); }\n  .w98 .window__restore {\n    background-image: url(\"data:image/gif;base64,R0lGODlhDQALAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAANAAsAAAIZlI9pwK3SnAKI1kjtwTlpyHjV830b9qRHAQA7\"); }\n  .w98 .window__minimize {\n    background-image: url(\"data:image/gif;base64,R0lGODlhDQALAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAANAAsAAAIOlI+py+0PozSg2mXvFAUAOw==\"); }\n  .w98 .window__maximize {\n    background-image: url(\"data:image/gif;base64,R0lGODlhDQALAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAANAAsAAAIXlI8Jy4wNXzJAznqwsjtPoYFfCDXfWQAAOw==\"); }\n  .w98 .window__menu, .w98 .window > menu {\n    display: flex;\n    padding: 0px;\n    font-size: 1rem;\n    position: relative;\n    overflow-y: visible;\n    z-index: 20; }\n    .w98 .window__menu__section, .w98 .window__menu > div, .w98 .window > menu__section, .w98 .window > menu > div {\n      position: relative; }\n      .w98 .window__menu__section > button, .w98 .window__menu > div > button, .w98 .window > menu__section > button, .w98 .window > menu > div > button {\n        padding: 0px 4px;\n        outline: none;\n        border: none;\n        user-select: none;\n        color: #0c0c0c;\n        display: inline-block;\n        background-color: rgba(0, 0, 0, 0);\n        width: 100%;\n        overflow: hidden;\n        white-space: nowrap;\n        text-overflow: ellipsis;\n        text-align: left;\n        padding: 3px 6px; }\n        .w98 .window__menu__section > button + .standard-menu, .w98 .window__menu__section > button + div, .w98 .window__menu > div > button + .standard-menu, .w98 .window__menu > div > button + div, .w98 .window > menu__section > button + .standard-menu, .w98 .window > menu__section > button + div, .w98 .window > menu > div > button + .standard-menu, .w98 .window > menu > div > button + div {\n          z-index: 20;\n          visibility: hidden;\n          position: absolute;\n          max-height: 0px;\n          top: 100%;\n          left: 0px;\n          transition: max-height linear 750ms; }\n        .w98 .window__menu__section > button:hover, .w98 .window__menu > div > button:hover, .w98 .window > menu__section > button:hover, .w98 .window > menu > div > button:hover {\n          box-shadow: inset -1px -1px 0px #808088, inset 1px 1px 0px white; }\n        .w98 .window__menu__section > button:active, .w98 .window__menu__section > button:focus, .w98 .window__menu__section > button:active:focus, .w98 .window__menu__section > button.active, .w98 .window__menu__section > button.clicked, .w98 .window__menu > div > button:active, .w98 .window__menu > div > button:focus, .w98 .window__menu > div > button:active:focus, .w98 .window__menu > div > button.active, .w98 .window__menu > div > button.clicked, .w98 .window > menu__section > button:active, .w98 .window > menu__section > button:focus, .w98 .window > menu__section > button:active:focus, .w98 .window > menu__section > button.active, .w98 .window > menu__section > button.clicked, .w98 .window > menu > div > button:active, .w98 .window > menu > div > button:focus, .w98 .window > menu > div > button:active:focus, .w98 .window > menu > div > button.active, .w98 .window > menu > div > button.clicked {\n          box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px #808088;\n          padding: 4px 5px 2px 7px; }\n          .w98 .window__menu__section > button:active + .standard-menu, .w98 .window__menu__section > button:focus + .standard-menu, .w98 .window__menu__section > button:active:focus + .standard-menu, .w98 .window__menu__section > button.active + .standard-menu, .w98 .window__menu__section > button.clicked + .standard-menu, .w98 .window__menu > div > button:active + .standard-menu, .w98 .window__menu > div > button:focus + .standard-menu, .w98 .window__menu > div > button:active:focus + .standard-menu, .w98 .window__menu > div > button.active + .standard-menu, .w98 .window__menu > div > button.clicked + .standard-menu, .w98 .window > menu__section > button:active + .standard-menu, .w98 .window > menu__section > button:focus + .standard-menu, .w98 .window > menu__section > button:active:focus + .standard-menu, .w98 .window > menu__section > button.active + .standard-menu, .w98 .window > menu__section > button.clicked + .standard-menu, .w98 .window > menu > div > button:active + .standard-menu, .w98 .window > menu > div > button:focus + .standard-menu, .w98 .window > menu > div > button:active:focus + .standard-menu, .w98 .window > menu > div > button.active + .standard-menu, .w98 .window > menu > div > button.clicked + .standard-menu {\n            visibility: visible;\n            max-height: 480px; }\n  .w98 .window__details {\n    position: relative;\n    border: 1px solid white;\n    outline: 1px solid darkgrey;\n    padding: 5px;\n    margin: 16px 8px 8px; }\n    .w98 .window__details__title {\n      position: absolute;\n      top: -10px;\n      padding: 2px 4px;\n      background-color: #bbc3c4; }\n  .w98 .window section, .w98 .window__section {\n    position: relative;\n    border: 1px solid white;\n    outline: 1px solid darkgrey;\n    padding: 5px;\n    margin: 16px 8px 8px; }\n    .w98 .window section .title, .w98 .window__section .title {\n      position: absolute;\n      top: -10px;\n      padding: 2px 4px;\n      background-color: #bbc3c4; }\n  .w98 .window--alert {\n    max-width: 320px; }\n    .w98 .window--alert__message {\n      display: flex;\n      align-items: center;\n      min-height: 28px;\n      padding: 10px 2px 6px; }\n      .w98 .window--alert__message.has-icon {\n        background-size: 28px 28px;\n        background-repeat: no-repeat;\n        background-position: 6px 6px;\n        padding: 6px 2px 6px 44px; }\n    .w98 .window--alert__actions {\n      width: 100%;\n      display: flex;\n      justify-content: center; }\n      .w98 .window--alert__actions .btn--form {\n        margin: 0px 4px 8px; }\n";
+  var css$8 = ".w98 .window {\n  position: relative;\n  background-color: #bbc3c4;\n  padding: 3px;\n  box-shadow: inset -1px -1px 0px #0c0c0c, inset 1px 1px 0px #bbc3c4, inset -2px -2px 0px #808088, inset 2px 2px 0px white; }\n  .w98 .window__heading {\n    display: flex;\n    background: linear-gradient(to right, #0000a2, #126fc2);\n    font-weight: bold;\n    color: white;\n    margin-bottom: 1px;\n    padding: 0px 3px;\n    align-items: center;\n    letter-spacing: 1px; }\n    .w98 .window__heading > button {\n      padding: 0px;\n      min-width: initial;\n      width: 16px;\n      height: 14px;\n      margin-left: 1px;\n      image-rendering: pixelated;\n      display: flex;\n      align-items: center;\n      flex-shrink: 0;\n      background-repeat: no-repeat;\n      background-position: 1px 1px; }\n      .w98 .window__heading > button:focus, .w98 .window__heading > button.clicked {\n        outline: none;\n        border: none; }\n      .w98 .window__heading > button:active:focus, .w98 .window__heading > button.clicked {\n        padding: 2px 8px 1px 4px;\n        background-position: 2px 2px; }\n  .w98 .window__icon {\n    padding: 8px;\n    display: flex;\n    background-size: 14px;\n    background-repeat: no-repeat;\n    background-position: center; }\n  .w98 .window__title {\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    flex-grow: 1;\n    min-width: 0px; }\n  .w98 .window__close {\n    margin-left: 2px;\n    background-image: url(\"data:image/gif;base64,R0lGODlhDQALAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAANAAsAAAIUlI+pKwDoVGxvucmwvblqo33MqBQAOw==\"); }\n  .w98 .window__restore {\n    background-image: url(\"data:image/gif;base64,R0lGODlhDQALAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAANAAsAAAIZlI9pwK3SnAKI1kjtwTlpyHjV830b9qRHAQA7\"); }\n  .w98 .window__minimize {\n    background-image: url(\"data:image/gif;base64,R0lGODlhDQALAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAANAAsAAAIOlI+py+0PozSg2mXvFAUAOw==\"); }\n  .w98 .window__maximize {\n    background-image: url(\"data:image/gif;base64,R0lGODlhDQALAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAANAAsAAAIXlI8Jy4wNXzJAznqwsjtPoYFfCDXfWQAAOw==\"); }\n  .w98 .window__menu {\n    display: flex;\n    padding: 0px;\n    font-size: 1rem;\n    position: relative;\n    overflow-y: visible;\n    z-index: 20; }\n    .w98 .window__menu__section, .w98 .window__menu > div {\n      position: relative; }\n      .w98 .window__menu__section > button, .w98 .window__menu > div > button {\n        padding: 0px 4px;\n        outline: none;\n        border: none;\n        user-select: none;\n        color: #0c0c0c;\n        display: inline-block;\n        background-color: rgba(0, 0, 0, 0);\n        width: 100%;\n        overflow: hidden;\n        white-space: nowrap;\n        text-overflow: ellipsis;\n        text-align: left;\n        padding: 3px 6px; }\n        .w98 .window__menu__section > button + .standard-menu, .w98 .window__menu__section > button + div, .w98 .window__menu > div > button + .standard-menu, .w98 .window__menu > div > button + div {\n          z-index: 20;\n          visibility: hidden;\n          position: absolute;\n          max-height: 0px;\n          top: 100%;\n          left: 0px;\n          transition: max-height linear 750ms; }\n        .w98 .window__menu__section > button:hover, .w98 .window__menu > div > button:hover {\n          box-shadow: inset -1px -1px 0px #808088, inset 1px 1px 0px white; }\n        .w98 .window__menu__section > button:active, .w98 .window__menu__section > button:focus, .w98 .window__menu__section > button:active:focus, .w98 .window__menu__section > button.active, .w98 .window__menu__section > button.clicked, .w98 .window__menu > div > button:active, .w98 .window__menu > div > button:focus, .w98 .window__menu > div > button:active:focus, .w98 .window__menu > div > button.active, .w98 .window__menu > div > button.clicked {\n          box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px #808088;\n          padding: 4px 5px 2px 7px; }\n          .w98 .window__menu__section > button:active + .standard-menu, .w98 .window__menu__section > button:focus + .standard-menu, .w98 .window__menu__section > button:active:focus + .standard-menu, .w98 .window__menu__section > button.active + .standard-menu, .w98 .window__menu__section > button.clicked + .standard-menu, .w98 .window__menu > div > button:active + .standard-menu, .w98 .window__menu > div > button:focus + .standard-menu, .w98 .window__menu > div > button:active:focus + .standard-menu, .w98 .window__menu > div > button.active + .standard-menu, .w98 .window__menu > div > button.clicked + .standard-menu {\n            visibility: visible;\n            max-height: 480px; }\n  .w98 .window__details {\n    position: relative;\n    border: 1px solid white;\n    outline: 1px solid darkgrey;\n    padding: 5px;\n    margin: 16px 8px 8px; }\n    .w98 .window__details__title {\n      position: absolute;\n      top: -10px;\n      padding: 2px 4px;\n      background-color: #bbc3c4; }\n  .w98 .window section, .w98 .window__section {\n    position: relative;\n    border: 1px solid white;\n    outline: 1px solid darkgrey;\n    padding: 5px;\n    margin: 16px 8px 8px; }\n    .w98 .window section .title, .w98 .window__section .title {\n      position: absolute;\n      top: -10px;\n      padding: 2px 4px;\n      background-color: #bbc3c4; }\n  .w98 .window--alert {\n    max-width: 320px; }\n    .w98 .window--alert__message {\n      display: flex;\n      align-items: center;\n      min-height: 28px;\n      padding: 10px 2px 6px; }\n      .w98 .window--alert__message.has-icon {\n        background-size: 28px 28px;\n        background-repeat: no-repeat;\n        background-position: 6px 6px;\n        padding: 6px 2px 6px 44px; }\n    .w98 .window--alert__actions {\n      width: 100%;\n      display: flex;\n      justify-content: center; }\n      .w98 .window--alert__actions .btn--form {\n        margin: 0px 4px 8px; }\n";
   styleInject(css$8);
 
   var WindowFrame = function WindowFrame(props) {
@@ -950,6 +950,7 @@
       var isFocused = option === focusedOption;
       var optionClass = classnames(optionClassName, {
         'Select-option': true,
+        'Select-option--icon': true,
         'is-selected': isSelected,
         'is-focused': isFocused,
         'is-disabled': option.disabled
@@ -1024,12 +1025,16 @@
 
       var _this = possibleConstructorReturn(this, (Select.__proto__ || Object.getPrototypeOf(Select)).call(this, props));
 
-      _this.onChange = function (e) {
-        _this.setState({ value: e.value });
+      _this.handleChange = function (e) {
+        if (_this.props.onChange) {
+          _this.setState({ value: e.value });
+        } else {
+          _this.props.onChange(e);
+        }
       };
 
       _this.state = {
-        value: _this.props.value || null
+        value: _this.props.onChange ? null : _this.props.value
       };
       return _this;
     }
@@ -1042,13 +1047,12 @@
         return React__default.createElement(ReactSelect, _extends({}, props, {
           className: 'Select',
           placeholder: props.placeholder,
-          onChange: this.onChange,
-          isOpen: true,
+          onChange: this.handleChange,
           disabled: props.isDisabled,
           searchable: props.searchable,
           menuRenderer: props.useIcons ? menuRenderer : undefined,
           valueRenderer: ValueRenderer,
-          value: this.state.value
+          value: this.props.onChange ? this.props.value : this.state.value
         }));
       }
     }]);
@@ -1069,9 +1073,9 @@
   };
 
   var isSelected = function isSelected(selected, val) {
-    return selected.some(function (selectedEntry) {
+    return Array.isArray(selected) ? selected.some(function (selectedEntry) {
       return selectedEntry === val;
-    });
+    }) : selected === val;
   };
 
   var SelectBox = function SelectBox(props) {
@@ -1103,7 +1107,7 @@
     component: PropTypes.func,
     className: PropTypes.string,
     title: PropTypes.string,
-    selected: PropTypes.array,
+    selected: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
     isDisabled: PropTypes.bool,
     options: PropTypes.arrayOf(PropTypes.shape({
       value: PropTypes.any,
@@ -1169,7 +1173,7 @@
           { className: 'SelectMultipleSimple' },
           React__default.createElement(
             'select',
-            { value: this.state.value, onChange: this.handleChange, multiple: true },
+            { value: this.state.value, onChange: this.handleChange, disabled: this.props.isDisabled, multiple: true },
             props.options.map(function (option) {
               return React__default.createElement(
                 'option',
@@ -1181,12 +1185,7 @@
                 React__default.createElement(
                   'div',
                   null,
-                  option.name,
-                  React__default.createElement(
-                    'div',
-                    null,
-                    'ppp'
-                  )
+                  option.title || (typeof option.value === 'string' ? option.value : '')
                 )
               );
             })
@@ -1206,6 +1205,7 @@
     multiple: PropTypes.bool,
     onChange: PropTypes.func,
     value: PropTypes.any,
+    isDisabled: PropTypes.bool,
     options: PropTypes.arrayOf(PropTypes.shape({
       name: PropTypes.string,
       value: PropTypes.any,
