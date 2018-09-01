@@ -1544,7 +1544,16 @@
   var css$l = ".w98 .window--explorer__view {\n  min-height: 20px;\n  margin: 2px auto 1px;\n  background-color: white;\n  box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px 0px #808088, inset -2px -2px 0px #bbc3c4, inset 2px 2px 0px 0px #0c0c0c; }\n\n.w98 .window--explorer__details {\n  display: flex; }\n  .w98 .window--explorer__details__section {\n    box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px #808088;\n    flex-grow: 1;\n    margin-top: 2px;\n    height: 16px; }\n    .w98 .window--explorer__details__section:not(:last-child) {\n      margin: 2px; }\n\n.w98 .window--explorer .menu-bar {\n  padding: 2px 1px 2px 12px; }\n\n.w98 .window--explorer > div + menu {\n  margin-top: 2px;\n  box-shadow: 0px 2px 0px -1px white, -1px 2px 0px -1px white, -1px 1px 0px #808088, 0px 1px 0px #808088, inset 0px -1px 0px #808088, inset -1px 0px 0px #808088, inset 0px 0px 0px 1px white, -1px 0px 0px #808088, 1px 0px 0px white, -1px 1px 0px 0px white, 1px 1px 0px 0px white, -1px -1px 0px #808088, 0px -1px 0px #808088, inset 0px 1px 0px white, 1px -1px 0px white; }\n\n.w98 .window--explorer > menu {\n  position: relative;\n  min-height: 16px;\n  padding-left: 12px;\n  margin: 0px 1px;\n  display: flex;\n  box-shadow: inset 0px -1px 0px #808088, inset -1px 0px 0px #808088, inset 0px 0px 0px 1px white, -1px 0px 0px #808088, 1px 0px 0px white, -1px 1px 0px 0px white, 1px 1px 0px 0px white; }\n  .w98 .window--explorer > menu:before {\n    position: absolute;\n    top: 3px;\n    left: 5px;\n    height: calc(100% - 6px);\n    width: 3px;\n    background-color: #bbc3c4;\n    content: '';\n    box-shadow: inset -1px -1px 0px #808088, inset 1px 1px 0px white; }\n\n.w98 .window--explorer > footer {\n  display: flex; }\n  .w98 .window--explorer > footer > div {\n    flex-grow: 1;\n    padding: 2px;\n    height: 12px;\n    box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px #0c0c0c; }\n    .w98 .window--explorer > footer > div:not(:last-child) {\n      margin-right: 2px; }\n\n.w98 .window--explorer__address {\n  display: flex;\n  height: 22px;\n  overflow-y: visible; }\n  .w98 .window--explorer__address__title {\n    align-self: center;\n    margin-right: 4px; }\n  .w98 .window--explorer__address .Select {\n    flex-grow: 1;\n    z-index: 5;\n    margin-right: 4px;\n    margin-top: 1px; }\n\n.w98 .window--explorer__options {\n  display: flex;\n  padding: 2px 8px 2px 12px; }\n\n.w98 .window--explorer > div:last-child {\n  margin-top: 2px; }\n";
   styleInject(css$l);
 
+  var insertDefaultFooter = function insertDefaultFooter(customFooterElements, minimum) {
+    var footer = [].concat(toConsumableArray(customFooterElements));
+    for (var i = 0; i < minimum; i++) {
+      footer[i] = footer[i] || { text: '' };
+    }
+    return footer;
+  };
+
   var ExplorerWindow = function ExplorerWindow(props) {
+    var footer = insertDefaultFooter(props.footer);
     return React__default.createElement(
       StaticWindow,
       {
@@ -1587,10 +1596,10 @@
         },
         props.children
       ),
-      props.footer && React__default.createElement(
+      React__default.createElement(
         'footer',
         null,
-        Array.isArray(props.footer) ? props.footer.map(function (entry) {
+        footer.map(function (entry) {
           return React__default.createElement(
             'div',
             {
@@ -1601,7 +1610,7 @@
             },
             entry.text || ''
           );
-        }) : props.footer
+        })
       )
     );
   };
@@ -1614,7 +1623,7 @@
   ExplorerWindow.propTypes = _extends({}, StaticWindow.propTypes, {
     menuOptions: PropTypes.arrayOf(PropTypes.any),
     explorerOptions: PropTypes.shape(OptionsList.propTypes.options),
-    footer: PropTypes.oneOfType([PropTypes.shape(footerType), PropTypes.arrayOf(PropTypes.shape(footerType))])
+    footer: PropTypes.arrayOf(PropTypes.shape(footerType))
   });
 
   var DetailsSection = function DetailsSection(props) {
