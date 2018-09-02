@@ -8,7 +8,7 @@ import FormButton from '../FormButton';
 describe('FormButton', () => {
   it('renders', () => {
     const wrapper = shallow(<FormButton />);
-    expect(wrapper.find('.btn--form').length).toBeTruthy();
+    expect(wrapper.find('.FormButton').length).toBeTruthy();
   });
 
   it('renders children', () => {

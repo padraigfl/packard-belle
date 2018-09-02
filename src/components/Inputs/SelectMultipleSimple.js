@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import './_select-multiple-simple.scss';
+import './styles/SelectMultipleSimple.scss';
 
 class SelectMultipleSimple extends Component {
   static defaultProps = {

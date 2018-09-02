@@ -1,7 +1,7 @@
-@import '../../_scss/w98/var/colors';
-@import '../../_scss/w98/functions/box-shadows';
-@import '../../_scss/w98/mixins/box-shadows';
-@import '../../_scss/w98/var/var';
+@import '../../../_scss/w98/var/colors';
+@import '../../../_scss/w98/functions/box-shadows';
+@import '../../../_scss/w98/mixins/box-shadows';
+@import '../../../_scss/w98/var/var';
 
 @function nav-box-shadow(){
   @return
@@ -15,7 +15,7 @@
 }
 
 
-.w98 .window--explorer {
+.w98 .window--explorer, .ExplorerWindow {
   &__view {
     min-height: 20px;
     margin: 2px auto 1px;

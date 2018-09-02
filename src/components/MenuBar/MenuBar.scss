@@ -1,5 +1,5 @@
 @import '../../_scss/w98/_window';
 
-.window {
-  @include window-basic();
+.MenuBar {
+  @include window-menu();
 }

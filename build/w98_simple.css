@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'MSFont';
-  src: url(./ms98s11a10d02.ttf); }
+  src: url(./fonts/ms98s11a10d02.ttf); }
 
 html {
   font-size: 11px;
@@ -230,16 +230,16 @@ html {
   text-align: left;
   display: flex;
   align-items: center; }
-  .icon--list__icon {
+  .icon--list .icon__icon {
     display: block;
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat; }
   .icon--list:focus, .icon--list:active, .icon--list:active:focus, .icon--list.is-active {
     outline: none; }
-    .icon--list:focus .icon--list__icon, .icon--list:active .icon--list__icon, .icon--list:active:focus .icon--list__icon, .icon--list.is-active .icon--list__icon {
+    .icon--list:focus .icon__icon, .icon--list:active .icon__icon, .icon--list:active:focus .icon__icon, .icon--list.is-active .icon__icon {
       filter: hue-rotate(70deg) contrast(0.3) saturate(2); }
-    .icon--list:focus .icon--list__text, .icon--list:active .icon--list__text, .icon--list:active:focus .icon--list__text, .icon--list.is-active .icon--list__text {
+    .icon--list:focus .icon__text, .icon--list:active .icon__text, .icon--list:active:focus .icon__text, .icon--list.is-active .icon__text {
       background-color: #0000a2;
       color: white;
       outline: 1px dotted white;
@@ -273,16 +273,16 @@ html {
   display: flex;
   flex-direction: column;
   align-items: center; }
-  .icon--explorer__icon {
+  .icon--explorer .icon__icon {
     display: block;
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat; }
   .icon--explorer:focus, .icon--explorer:active, .icon--explorer:active:focus, .icon--explorer.is-active {
     outline: none; }
-    .icon--explorer:focus .icon--explorer__icon, .icon--explorer:active .icon--explorer__icon, .icon--explorer:active:focus .icon--explorer__icon, .icon--explorer.is-active .icon--explorer__icon {
+    .icon--explorer:focus .icon__icon, .icon--explorer:active .icon__icon, .icon--explorer:active:focus .icon__icon, .icon--explorer.is-active .icon__icon {
       filter: hue-rotate(70deg) contrast(0.3) saturate(2); }
-    .icon--explorer:focus .icon--explorer__text, .icon--explorer:active .icon--explorer__text, .icon--explorer:active:focus .icon--explorer__text, .icon--explorer.is-active .icon--explorer__text {
+    .icon--explorer:focus .icon__text, .icon--explorer:active .icon__text, .icon--explorer:active:focus .icon__text, .icon--explorer.is-active .icon__text {
       background-color: #0000a2;
       color: white;
       outline: 1px dotted white;
@@ -346,7 +346,7 @@ html {
         width: 16px;
         background-repeat: no-repeat;
         background-position: center; }
-      .standard-menu > div > button standard-menu__item__text {
+      .standard-menu > div > button .standard-menu__item__text {
         padding: 0px 20px 0px 0px; }
       .standard-menu > div > button:disabled, .standard-menu > div > button.disabled {
         color: #808088; }
@@ -550,7 +550,8 @@ select[multiple] {
     color: white;
     margin-bottom: 1px;
     padding: 0px 3px;
-    align-items: center; }
+    align-items: center;
+    letter-spacing: 1px; }
     .window__heading button {
       padding: 0px;
       min-width: initial;
@@ -567,10 +568,7 @@ select[multiple] {
         outline: none;
         border: none; }
       .window__heading button:active:focus, .window__heading button.clicked {
-        padding-top: 2px;
-        padding-bottom: 1px;
-        padding-left: 4px;
-        padding-right: 8px;
+        padding: 2px 8px 1px 4px;
         background-position: 2px 2px; }
   .window__icon {
     padding: 8px;
@@ -616,7 +614,7 @@ select[multiple] {
         text-overflow: ellipsis;
         text-align: left;
         padding: 3px 6px; }
-        .window__menu > div > button + div {
+        .window__menu > div > button + div, .window__menu > div > button + div {
           z-index: 20;
           visibility: hidden;
           position: absolute;
@@ -629,7 +627,7 @@ select[multiple] {
         .window__menu > div > button:active, .window__menu > div > button:focus, .window__menu > div > button:active:focus, .window__menu > div > button.active, .window__menu > div > button.clicked {
           box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px #808088;
           padding: 4px 5px 2px 7px; }
-          .window__menu > div > button:active + div, .window__menu > div > button:focus + div, .window__menu > div > button:active:focus + div, .window__menu > div > button.active + div, .window__menu > div > button.clicked + div {
+          .window__menu > div > button:active + div, .window__menu > div > button:active + div, .window__menu > div > button:focus + div, .window__menu > div > button:focus + div, .window__menu > div > button:active:focus + div, .window__menu > div > button:active:focus + div, .window__menu > div > button.active + div, .window__menu > div > button.active + div, .window__menu > div > button.clicked + div, .window__menu > div > button.clicked + div {
             visibility: visible;
             max-height: 480px; }
   .window section {

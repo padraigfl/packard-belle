@@ -8,7 +8,7 @@ import NavButton from '../NavButton';
 describe('NavButton', () => {
   it('renders', () => {
     const wrapper = shallow(<NavButton />);
-    expect(wrapper.find('.btn--nav').length).toBeTruthy();
+    expect(wrapper.find('.NavButton').length).toBeTruthy();
   });
 
   it('No children', () => {

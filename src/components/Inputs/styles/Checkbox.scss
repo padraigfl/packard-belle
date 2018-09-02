@@ -1,6 +1,6 @@
-@import '../../_scss/w98/_inputs.scss';
+@import '../../../_scss/w98/_inputs.scss';
 
-.checkbox {
+.Checkbox {
   display: inline-block;
   input[type='checkbox'] {
     @include checkbox();

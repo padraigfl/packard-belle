@@ -2,11 +2,12 @@
 import React from 'react';
 import Toggle from './Toggle';
 
-import './_radio.scss';
+import './styles/Radio.scss';
 
 const Radio = props => (
   <Toggle
     {...props}
+    className="Radio"
     type="radio"
   />
 );

@@ -1,8 +1,8 @@
-@import '../../_scss/w98/var/colors';
-@import '../../_scss/w98/mixins/box-shadows';
-@import '../../_scss/w98/functions/box-shadows';
-@import '../../_scss/w98/var/var';
-@import '../../_scss/w98/var/uris';
+@import '../../../_scss/w98/var/colors';
+@import '../../../_scss/w98/mixins/box-shadows';
+@import '../../../_scss/w98/functions/box-shadows';
+@import '../../../_scss/w98/var/var';
+@import '../../../_scss/w98/var/uris';
 
 @mixin select-hover {
   outline: 1px dotted white;

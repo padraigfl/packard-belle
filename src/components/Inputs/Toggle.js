@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 const Toggle = props => (
-  <div className={classnames('Toggle', props.type)}>
+  <div className={classnames('Toggle', props.className)}>
     <input
       type={props.type}
       id={props.id}

@@ -243,14 +243,14 @@ AbstractButton.propTypes = _extends({}, commonButtonPropTypes, {
   style: PropTypes.shape() // Todo: Needs custom prop
 });
 
-var css$2 = ".btn.btn--form {\n  min-width: 48px;\n  outline-width: 1px;\n  outline-offset: -5px;\n  padding: 5px 1px;\n  box-shadow: inset -1px -1px 0px #0c0c0c, inset 1px 1px 0px white, inset -2px -2px 0px #808088, inset 2px 2px 0px #bbc3c4; }\n  .btn.btn--form:focus {\n    outline: black;\n    outline-style: dotted;\n    outline-width: 1px;\n    box-shadow: inset -1px -1px 0px #0c0c0c, inset 1px 1px 0px #0c0c0c, inset -2px -2px 0px #0c0c0c, inset 2px 2px 0px white; }\n  .btn.btn--form:active:focus, .btn.btn--form:active, .btn.btn--form.active, .btn.btn--form.clicked {\n    padding: 6px 0px 4px 2px;\n    box-shadow: inset -1px -1px 0px #0c0c0c, inset 1px 1px 0px #0c0c0c, inset -2px -2px 0px #808088, inset 2px 2px 0px #808088; }\n";
+var css$2 = ".btn.FormButton {\n  min-width: 48px;\n  outline-width: 1px;\n  outline-offset: -5px;\n  padding: 5px 1px;\n  box-shadow: inset -1px -1px 0px #0c0c0c, inset 1px 1px 0px white, inset -2px -2px 0px #808088, inset 2px 2px 0px #bbc3c4; }\n  .btn.FormButton:focus {\n    outline: black;\n    outline-style: dotted;\n    outline-width: 1px;\n    box-shadow: inset -1px -1px 0px #0c0c0c, inset 1px 1px 0px #0c0c0c, inset -2px -2px 0px #0c0c0c, inset 2px 2px 0px white; }\n  .btn.FormButton:active:focus, .btn.FormButton:active, .btn.FormButton.active, .btn.FormButton.clicked {\n    padding: 6px 0px 4px 2px;\n    box-shadow: inset -1px -1px 0px #0c0c0c, inset 1px 1px 0px #0c0c0c, inset -2px -2px 0px #808088, inset 2px 2px 0px #808088; }\n";
 styleInject(css$2);
 
 var FormButton = function FormButton(props) {
   return React.createElement(
     AbstractButton,
     {
-      className: classnames('btn--form', props.className),
+      className: classnames('FormButton', props.className),
       onClick: props.onClick,
       isActive: props.isActive,
       isDisabled: props.isDisabled
@@ -261,12 +261,12 @@ var FormButton = function FormButton(props) {
 
 AbstractButton.propTypes = _extends({}, commonButtonPropTypes);
 
-var css$3 = ".btn.btn--nav {\n  padding: 0px;\n  min-width: initial;\n  width: 16px;\n  height: 14px;\n  margin-left: 1px;\n  margin-top: 1px;\n  margin-bottom: 2px;\n  image-rendering: pixelated;\n  box-shadow: inset -1px -1px 0px #0c0c0c, inset 1px 1px 0px white, inset -2px -2px 0px #808088, inset 2px 2px 0px #bbc3c4; }\n  .btn.btn--nav img {\n    height: 14px;\n    width: 14px; }\n  .btn.btn--nav:focus {\n    outline: none;\n    border: none; }\n  .btn.btn--nav:active:focus, .btn.btn--nav.clicked {\n    padding-top: 2px;\n    padding-bottom: 1px;\n    padding-left: 4px;\n    padding-right: 8px;\n    box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px #0c0c0c, inset -2px -2px 0px #bbc3c4, inset 2px 2px 0px #808088; }\n  .btn.btn--nav.window__close {\n    margin-left: 2px; }\n";
+var css$3 = ".btn.NavButton {\n  padding: 0px;\n  min-width: initial;\n  width: 16px;\n  height: 14px;\n  margin-left: 1px;\n  margin-top: 1px;\n  margin-bottom: 2px;\n  image-rendering: pixelated;\n  box-shadow: inset -1px -1px 0px #0c0c0c, inset 1px 1px 0px white, inset -2px -2px 0px #808088, inset 2px 2px 0px #bbc3c4; }\n  .btn.NavButton img {\n    height: 14px;\n    width: 14px; }\n  .btn.NavButton:focus {\n    outline: none;\n    border: none; }\n  .btn.NavButton:active:focus, .btn.NavButton.clicked {\n    padding-top: 2px;\n    padding-bottom: 1px;\n    padding-left: 4px;\n    padding-right: 8px;\n    box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px #0c0c0c, inset -2px -2px 0px #bbc3c4, inset 2px 2px 0px #808088; }\n  .btn.NavButton.window__close {\n    margin-left: 2px; }\n";
 styleInject(css$3);
 
 var NavButton = function NavButton(props) {
   return React.createElement(AbstractButton, {
-    className: classnames('btn--nav', props.className),
+    className: classnames('NavButton', props.className),
     onClick: props.onClick,
     isActive: props.isActive,
     isDisabled: props.isDisabled
@@ -275,14 +275,14 @@ var NavButton = function NavButton(props) {
 
 NavButton.propTypes = commonButtonPropTypes;
 
-var css$4 = ".btn.btn--program {\n  flex: 1;\n  margin: 0px 1px;\n  height: 22px;\n  max-width: 140px;\n  min-width: 40px;\n  display: inline-block;\n  width: 100%;\n  padding-top: 2px;\n  padding-left: 22px;\n  padding-right: 3px;\n  text-align: left;\n  overflow: hidden;\n  white-space: nowrap;\n  text-overflow: ellipsis;\n  background-size: 16px;\n  background-repeat: no-repeat;\n  background-position: 4px 4px;\n  box-shadow: inset -1px -1px 0px #0c0c0c, inset 1px 1px 0px white, inset -2px -2px 0px #808088, inset 2px 2px 0px #bbc3c4; }\n  .btn.btn--program:active:focus, .btn.btn--program.btn--active, .btn.btn--program.clicked {\n    background-position: 5px 5px;\n    box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px #0c0c0c, inset -2px -2px 0px #bbc3c4, inset 2px 2px 0px #808088;\n    padding-top: 3px;\n    padding-left: 23px;\n    padding-right: 2px; }\n    .btn.btn--program:active:focus:before, .btn.btn--program.btn--active:before, .btn.btn--program.clicked:before {\n      content: '';\n      background-size: 2px;\n      z-index: -1;\n      box-shadow: none; }\n  .btn.btn--program.btn--active {\n    background-color: transparent;\n    font-weight: bold; }\n    .btn.btn--program.btn--active:before {\n      content: '';\n      background-color: white;\n      background-image: url(\"data:image/gif;base64,R0lGODlhAgACAJEAAAAAAP///8zMzP///yH5BAEAAAMALAAAAAACAAIAAAID1CYFADs=\"); }\n";
+var css$4 = ".btn.ProgramButton {\n  flex: 1;\n  margin: 0px 1px;\n  height: 22px;\n  max-width: 140px;\n  min-width: 40px;\n  display: inline-block;\n  width: 100%;\n  padding-top: 2px;\n  padding-left: 22px;\n  padding-right: 3px;\n  text-align: left;\n  overflow: hidden;\n  white-space: nowrap;\n  text-overflow: ellipsis;\n  background-size: 16px;\n  background-repeat: no-repeat;\n  background-position: 4px 4px;\n  box-shadow: inset -1px -1px 0px #0c0c0c, inset 1px 1px 0px white, inset -2px -2px 0px #808088, inset 2px 2px 0px #bbc3c4; }\n  .btn.ProgramButton:active:focus, .btn.ProgramButton.btn--active, .btn.ProgramButton.clicked {\n    background-position: 5px 5px;\n    box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px #0c0c0c, inset -2px -2px 0px #bbc3c4, inset 2px 2px 0px #808088;\n    padding-top: 3px;\n    padding-left: 23px;\n    padding-right: 2px; }\n    .btn.ProgramButton:active:focus:before, .btn.ProgramButton.btn--active:before, .btn.ProgramButton.clicked:before {\n      content: '';\n      background-size: 2px;\n      z-index: -1;\n      box-shadow: none; }\n  .btn.ProgramButton.btn--active {\n    background-color: transparent;\n    font-weight: bold; }\n    .btn.ProgramButton.btn--active:before {\n      content: '';\n      background-color: white;\n      background-image: url(\"data:image/gif;base64,R0lGODlhAgACAJEAAAAAAP///8zMzP///yH5BAEAAAMALAAAAAACAAIAAAID1CYFADs=\"); }\n";
 styleInject(css$4);
 
 var ProgramButton = function ProgramButton(props) {
   return React.createElement(
     AbstractButton,
     {
-      className: classnames('btn--program', props.className),
+      className: classnames('ProgramButton', props.className),
       onClick: props.onClick,
       isActive: props.isActive,
       style: _extends({ backgroundImage: 'url(' + props.icon + ')' }, props.style)
@@ -295,12 +295,12 @@ ProgramButton.propTypes = _extends({}, commonButtonPropTypes, {
   icon: PropTypes.any
 });
 
-var css$5 = ".btn.btn--start {\n  height: 22px;\n  display: flex;\n  align-content: center;\n  width: 54px;\n  padding-right: 6px;\n  background-image: url(\"data:image/gif;base64,R0lGODlhNAATAKIAAAAAAP///wAA/wD/AP//AP8AAP///wAAACH5BAEAAAYALAAAAAA0ABMAAAOPaLrc/jDKSaudIIPLu95dKH2fGIKLVmSDxpTms83qCgwtmik7j46/BglQsOF6BuQrCFEuCkLiJ5diJnswl6sB7dqGSpjPscNaFcWiRpAhbKPVqhbkVAiiAjaA4LYizWOADneEenltfXFXioCCD3mHAHptYW9jV3OKL1FgZzEySZiVnp8yYkKlFyRNqa2uEgkAOw==\");\n  background-size: auto 18px;\n  background-repeat: no-repeat;\n  background-position: 2px 1px;\n  box-shadow: inset -1px -1px 0px #0c0c0c, inset 1px 1px 0px white, inset -2px -2px 0px #808088, inset 2px 2px 0px #bbc3c4; }\n  .btn.btn--start__text {\n    font-size: 1rem;\n    font-weight: bold; }\n  .btn.btn--start:active, .btn.btn--start:focus, .btn.btn--start:active:focus, .btn.btn--start.active, .btn.btn--start.clicked {\n    box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px #0c0c0c, inset 0px 1px 0px #0c0c0c, inset -2px -2px 0px #bbc3c4, inset 2px 2px 0px #808088, 0px -1px 0px #0c0c0c;\n    background-position: 3px 2px;\n    outline: 1px dotted black;\n    outline-offset: -4px; }\n";
+var css$5 = ".btn.StartButton {\n  height: 22px;\n  display: flex;\n  align-content: center;\n  width: 54px;\n  padding-right: 6px;\n  background-image: url(\"data:image/gif;base64,R0lGODlhNAATAKIAAAAAAP///wAA/wD/AP//AP8AAP///wAAACH5BAEAAAYALAAAAAA0ABMAAAOPaLrc/jDKSaudIIPLu95dKH2fGIKLVmSDxpTms83qCgwtmik7j46/BglQsOF6BuQrCFEuCkLiJ5diJnswl6sB7dqGSpjPscNaFcWiRpAhbKPVqhbkVAiiAjaA4LYizWOADneEenltfXFXioCCD3mHAHptYW9jV3OKL1FgZzEySZiVnp8yYkKlFyRNqa2uEgkAOw==\");\n  background-size: auto 18px;\n  background-repeat: no-repeat;\n  background-position: 2px 1px;\n  box-shadow: inset -1px -1px 0px #0c0c0c, inset 1px 1px 0px white, inset -2px -2px 0px #808088, inset 2px 2px 0px #bbc3c4; }\n  .btn.StartButton__text {\n    font-size: 1rem;\n    font-weight: bold; }\n  .btn.StartButton:active, .btn.StartButton:focus, .btn.StartButton:active:focus, .btn.StartButton.active, .btn.StartButton.clicked {\n    box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px #0c0c0c, inset 0px 1px 0px #0c0c0c, inset -2px -2px 0px #bbc3c4, inset 2px 2px 0px #808088, 0px -1px 0px #0c0c0c;\n    background-position: 3px 2px;\n    outline: 1px dotted black;\n    outline-offset: -4px; }\n";
 styleInject(css$5);
 
 var StartButton = function StartButton(props) {
   return React.createElement(AbstractButton, {
-    className: classnames('btn--start', props.className),
+    className: classnames('StartButton', props.className),
     onClick: props.onClick,
     onBlur: props.onBlur,
     isActive: props.isActive
@@ -309,14 +309,14 @@ var StartButton = function StartButton(props) {
 
 StartButton.propTypes = commonButtonPropTypes;
 
-var css$6 = ".btn.btn--large-icon {\n  padding: 2px;\n  width: 48px;\n  min-width: 48px; }\n  .btn.btn--large-icon img {\n    display: block;\n    margin: 0 auto;\n    filter: grayscale(1);\n    height: 20px;\n    max-width: 20px; }\n  .btn.btn--large-icon:disabled, .btn.btn--large-icon.disabled {\n    color: #808088; }\n    .btn.btn--large-icon:disabled:hover, .btn.btn--large-icon.disabled:hover {\n      box-shadow: none; }\n      .btn.btn--large-icon:disabled:hover img, .btn.btn--large-icon.disabled:hover img {\n        filter: grayscale(1); }\n  .btn.btn--large-icon:hover {\n    box-shadow: inset -1px -1px 0px #0c0c0c, inset 1px 1px 0px white; }\n    .btn.btn--large-icon:hover img {\n      filter: grayscale(0); }\n  .btn.btn--large-icon:active:focus {\n    box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px #0c0c0c;\n    padding: 3px 1px 1px 3px; }\n";
+var css$6 = ".btn.LargeIconButton {\n  padding: 2px;\n  width: 48px;\n  min-width: 48px; }\n  .btn.LargeIconButton img {\n    display: block;\n    margin: 0 auto;\n    filter: grayscale(1);\n    height: 20px;\n    max-width: 20px; }\n  .btn.LargeIconButton:disabled, .btn.LargeIconButton.disabled {\n    color: #808088; }\n    .btn.LargeIconButton:disabled:hover, .btn.LargeIconButton.disabled:hover {\n      box-shadow: none; }\n      .btn.LargeIconButton:disabled:hover img, .btn.LargeIconButton.disabled:hover img {\n        filter: grayscale(1); }\n  .btn.LargeIconButton:hover {\n    box-shadow: inset -1px -1px 0px #0c0c0c, inset 1px 1px 0px white; }\n    .btn.LargeIconButton:hover img {\n      filter: grayscale(0); }\n  .btn.LargeIconButton:active:focus {\n    box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px #0c0c0c;\n    padding: 3px 1px 1px 3px; }\n";
 styleInject(css$6);
 
 var LargeIconButton = function LargeIconButton(props) {
   return React.createElement(
     AbstractButton,
     {
-      className: classnames('btn--large-icon', props.className),
+      className: classnames('LargeIconButton', props.className),
       onClick: props.onClick,
       isDisabled: props.isDisabled
     },
@@ -330,14 +330,14 @@ LargeIconButton.propTypes = _extends({}, commonButtonPropTypes, {
   title: PropTypes.string
 });
 
-var css$7 = ".btn.btn--small-icon {\n  height: 22px;\n  width: 22px;\n  padding: 0px; }\n  .btn.btn--small-icon img {\n    margin: 3px;\n    max-height: 16px;\n    max-width: 16px; }\n  .btn.btn--small-icon:hover {\n    box-shadow: inset -1px -1px 0px #808088, inset 1px 1px 0px white; }\n  .btn.btn--small-icon:hover:focus:active, .btn.btn--small-icon:hover:active, .btn.btn--small-icon.active, .btn.btn--small-icon.clicked {\n    box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px #808088; }\n    .btn.btn--small-icon:hover:focus:active img, .btn.btn--small-icon:hover:active img, .btn.btn--small-icon.active img, .btn.btn--small-icon.clicked img {\n      margin: 4px 2px 2px 4px; }\n  .btn.btn--small-icon.btn--disabled img {\n    filter: grayscale(1); }\n";
+var css$7 = ".btn.SmallIconButton {\n  height: 22px;\n  width: 22px;\n  padding: 0px; }\n  .btn.SmallIconButton img {\n    margin: 3px;\n    max-height: 16px;\n    max-width: 16px; }\n  .btn.SmallIconButton:hover {\n    box-shadow: inset -1px -1px 0px #808088, inset 1px 1px 0px white; }\n  .btn.SmallIconButton:hover:focus:active, .btn.SmallIconButton:hover:active, .btn.SmallIconButton.active, .btn.SmallIconButton.clicked {\n    box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px #808088; }\n    .btn.SmallIconButton:hover:focus:active img, .btn.SmallIconButton:hover:active img, .btn.SmallIconButton.active img, .btn.SmallIconButton.clicked img {\n      margin: 4px 2px 2px 4px; }\n  .btn.SmallIconButton.btn--disabled img {\n    filter: grayscale(1); }\n";
 styleInject(css$7);
 
-var NavButton$1 = function NavButton(props) {
+var SmallIconButton = function SmallIconButton(props) {
   return React.createElement(
     AbstractButton,
     {
-      className: classnames('btn--small-icon', props.className),
+      className: classnames('SmallIconButton', props.className),
       onClick: props.onClick,
       isDisabled: props.isDisabled,
       isActive: props.isActive
@@ -346,11 +346,11 @@ var NavButton$1 = function NavButton(props) {
   );
 };
 
-NavButton$1.propTypes = _extends({}, commonButtonPropTypes, {
+SmallIconButton.propTypes = _extends({}, commonButtonPropTypes, {
   icon: PropTypes.string
 });
 
-var css$8 = ".window {\n  position: relative;\n  background-color: #bbc3c4;\n  padding: 3px;\n  box-shadow: inset -1px -1px 0px #0c0c0c, inset 1px 1px 0px #bbc3c4, inset -2px -2px 0px #808088, inset 2px 2px 0px white; }\n";
+var css$8 = ".window, .WindowFrame {\n  position: relative;\n  background-color: #bbc3c4;\n  padding: 3px;\n  box-shadow: inset -1px -1px 0px #0c0c0c, inset 1px 1px 0px #bbc3c4, inset -2px -2px 0px #808088, inset 2px 2px 0px white; }\n";
 styleInject(css$8);
 
 var WindowFrame = function WindowFrame(props) {
@@ -411,15 +411,15 @@ StandardMenuItem.propTypes = {
   type: PropTypes.string
 };
 
-var css$9 = ".standard-menu {\n  display: inline-flex;\n  flex-direction: column;\n  word-wrap: none;\n  white-space: nowrap;\n  text-overflow: clip; }\n  .standard-menu > div {\n    position: relative; }\n    .standard-menu > div > .window {\n      position: absolute;\n      visibility: hidden;\n      width: auto;\n      transition: max-width cubic-bezier(0.38, 0.01, 0, 1) 200ms, max-height cubic-bezier(0.38, 0.01, 0, 1) 200ms; }\n    .standard-menu > div.active > .window {\n      width: auto;\n      visibility: visible; }\n    .standard-menu > div > .window {\n      left: calc(100%  - 3px);\n      top: -3px;\n      max-width: 0%; }\n    .standard-menu > div:hover > .window, .standard-menu > div.active > .window {\n      max-width: 400%; }\n    .standard-menu > div > button {\n      position: relative;\n      display: block;\n      width: 100%;\n      padding: 0px 20px 0px 20px;\n      text-align: left;\n      background-repeat: no-repeat;\n      background-size: 16px;\n      background-position: 3px center;\n      background-color: rgba(0, 0, 0, 0);\n      border: none;\n      outline: none;\n      height: 20px; }\n      .standard-menu > div > button:before {\n        content: '';\n        position: absolute;\n        left: 0px;\n        top: 0px;\n        height: 16px;\n        width: 16px;\n        background-repeat: no-repeat;\n        background-position: center; }\n      .standard-menu > div > button .standard-menu__item__text {\n        padding: 0px 20px 0px 0px; }\n      .standard-menu > div > button:disabled, .standard-menu > div > button.disabled {\n        color: #808088; }\n      .standard-menu > div > button:not(:only-child):after {\n        content: '';\n        position: absolute;\n        background-image: url(\"data:image/gif;base64,R0lGODlhBAAHAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAEAAcAAAIIhA4maeyrlCgAOw==\");\n        top: 0px;\n        left: 0px;\n        height: 100%;\n        width: calc(100% - 8px);\n        background-position: right center;\n        background-repeat: no-repeat; }\n    .standard-menu > div.radio-selected > button:before {\n      background-image: url(\"data:image/gif;base64,R0lGODlhBgAGAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAGAAYAAAIIFA6Gy816RAEAOw==\"); }\n    .standard-menu > div.checked > button:before {\n      background-image: url(\"data:image/gif;base64,R0lGODlhBwAHAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAHAAcAAAIMlA9nwMj9xGuLIlUAADs=\"); }\n    .standard-menu > div.checked.disabled > button:before {\n      background-image: url(\"data:image/gif;base64,R0lGODlhBwAHAJEAAAAAAP///5mZmf///yH5BAEAAAMALAAAAAAHAAcAAAIMnC9nwsj9xmuLIlUAADs=\"); }\n    .standard-menu > div:hover, .standard-menu > div:active, .standard-menu > div:focus, .standard-menu > div:active:focus, .standard-menu > div.active, .standard-menu > div.clicked {\n      color: white; }\n      .standard-menu > div:hover > button:not(.disabled), .standard-menu > div:active > button:not(.disabled), .standard-menu > div:focus > button:not(.disabled), .standard-menu > div:active:focus > button:not(.disabled), .standard-menu > div.active > button:not(.disabled), .standard-menu > div.clicked > button:not(.disabled) {\n        color: white;\n        background-color: #0000a2; }\n        .standard-menu > div:hover > button:not(.disabled):not(:only-child):after, .standard-menu > div:active > button:not(.disabled):not(:only-child):after, .standard-menu > div:focus > button:not(.disabled):not(:only-child):after, .standard-menu > div:active:focus > button:not(.disabled):not(:only-child):after, .standard-menu > div.active > button:not(.disabled):not(:only-child):after, .standard-menu > div.clicked > button:not(.disabled):not(:only-child):after {\n          background-image: url(\"data:image/gif;base64,R0lGODlhBAAHAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAEAAcAAAIIjB4maeyrlCgAOw==\"); }\n  .standard-menu > div:empty {\n    position: relative;\n    width: 95%;\n    margin: 2px auto;\n    border-top: 1px solid #808088;\n    border-bottom: 1px solid white;\n    display: none; }\n  .standard-menu > div:not(:empty) + div:empty:not(:last-child):not(:first-child) {\n    display: block; }\n  .standard-menu.css div__sub-menu--top > .window {\n    position: absolute;\n    visibility: hidden;\n    width: auto;\n    transition: max-width cubic-bezier(0.38, 0.01, 0, 1) 200ms, max-height cubic-bezier(0.38, 0.01, 0, 1) 200ms; }\n  .standard-menu.css div__sub-menu--top.active > .window {\n    width: auto;\n    visibility: visible; }\n  .standard-menu.css div__sub-menu--top > .window {\n    bottom: calc(100% + $windowPadding);\n    left: 0px;\n    height: 0px;\n    max-height: 0%;\n    max-width: 100%; }\n  .standard-menu.css div__sub-menu--top:hover > .window, .standard-menu.css div__sub-menu--top.active > .window {\n    height: initial;\n    max-height: 100%; }\n  .standard-menu.css div__sub-menu--bottom > .window {\n    position: absolute;\n    visibility: hidden;\n    width: auto;\n    transition: max-width cubic-bezier(0.38, 0.01, 0, 1) 200ms, max-height cubic-bezier(0.38, 0.01, 0, 1) 200ms; }\n  .standard-menu.css div__sub-menu--bottom.active > .window {\n    width: auto;\n    visibility: visible; }\n  .standard-menu.css div__sub-menu--bottom > .window {\n    top: calc(100% + $windowPadding);\n    left: 0px;\n    max-height: 0%;\n    max-width: 100%; }\n  .standard-menu.css div__sub-menu--bottom:hover > .window, .standard-menu.css div__sub-menu--bottom.active > .window {\n    height: initial;\n    max-height: 100%; }\n  .standard-menu.css div__sub-menu--left > .window {\n    position: absolute;\n    visibility: hidden;\n    width: auto;\n    transition: max-width cubic-bezier(0.38, 0.01, 0, 1) 200ms, max-height cubic-bezier(0.38, 0.01, 0, 1) 200ms; }\n  .standard-menu.css div__sub-menu--left.active > .window {\n    width: auto;\n    visibility: visible; }\n  .standard-menu.css div__sub-menu--left > .window {\n    left: -100%;\n    top: -3px;\n    max-width: 0%; }\n  .standard-menu.css div__sub-menu--left:hover > .window, .standard-menu.css div__sub-menu--left.active > .window {\n    max-width: 100%; }\n  .standard-menu.css div:active, .standard-menu.css div .active {\n    display: none; }\n  .standard-menu.css div:hover > .window {\n    width: auto;\n    visibility: visible;\n    display: block; }\n";
+var css$9 = ".StandardMenu {\n  display: inline-flex;\n  flex-direction: column;\n  word-wrap: none;\n  white-space: nowrap;\n  text-overflow: clip; }\n  .StandardMenu > div {\n    position: relative; }\n    .StandardMenu > div > .window {\n      position: absolute;\n      visibility: hidden;\n      width: auto;\n      transition: max-width cubic-bezier(0.38, 0.01, 0, 1) 200ms, max-height cubic-bezier(0.38, 0.01, 0, 1) 200ms; }\n    .StandardMenu > div.active > .window {\n      width: auto;\n      visibility: visible; }\n    .StandardMenu > div > .window {\n      left: calc(100%  - 3px);\n      top: -3px;\n      max-width: 0%; }\n    .StandardMenu > div:hover > .window, .StandardMenu > div.active > .window {\n      max-width: 400%; }\n    .StandardMenu > div > button {\n      position: relative;\n      display: block;\n      width: 100%;\n      padding: 0px 20px 0px 20px;\n      text-align: left;\n      background-repeat: no-repeat;\n      background-size: 16px;\n      background-position: 3px center;\n      background-color: rgba(0, 0, 0, 0);\n      border: none;\n      outline: none;\n      height: 20px; }\n      .StandardMenu > div > button:before {\n        content: '';\n        position: absolute;\n        left: 0px;\n        top: 0px;\n        height: 16px;\n        width: 16px;\n        background-repeat: no-repeat;\n        background-position: center; }\n      .StandardMenu > div > button .StandardMenu__item__text {\n        padding: 0px 20px 0px 0px; }\n      .StandardMenu > div > button:disabled, .StandardMenu > div > button.disabled {\n        color: #808088; }\n      .StandardMenu > div > button:not(:only-child):after {\n        content: '';\n        position: absolute;\n        background-image: url(\"data:image/gif;base64,R0lGODlhBAAHAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAEAAcAAAIIhA4maeyrlCgAOw==\");\n        top: 0px;\n        left: 0px;\n        height: 100%;\n        width: calc(100% - 8px);\n        background-position: right center;\n        background-repeat: no-repeat; }\n    .StandardMenu > div.radio-selected > button:before {\n      background-image: url(\"data:image/gif;base64,R0lGODlhBgAGAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAGAAYAAAIIFA6Gy816RAEAOw==\"); }\n    .StandardMenu > div.checked > button:before {\n      background-image: url(\"data:image/gif;base64,R0lGODlhBwAHAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAHAAcAAAIMlA9nwMj9xGuLIlUAADs=\"); }\n    .StandardMenu > div.checked.disabled > button:before {\n      background-image: url(\"data:image/gif;base64,R0lGODlhBwAHAJEAAAAAAP///5mZmf///yH5BAEAAAMALAAAAAAHAAcAAAIMnC9nwsj9xmuLIlUAADs=\"); }\n    .StandardMenu > div:hover, .StandardMenu > div:active, .StandardMenu > div:focus, .StandardMenu > div:active:focus, .StandardMenu > div.active, .StandardMenu > div.clicked {\n      color: white; }\n      .StandardMenu > div:hover > button:not(.disabled), .StandardMenu > div:active > button:not(.disabled), .StandardMenu > div:focus > button:not(.disabled), .StandardMenu > div:active:focus > button:not(.disabled), .StandardMenu > div.active > button:not(.disabled), .StandardMenu > div.clicked > button:not(.disabled) {\n        color: white;\n        background-color: #0000a2; }\n        .StandardMenu > div:hover > button:not(.disabled):not(:only-child):after, .StandardMenu > div:active > button:not(.disabled):not(:only-child):after, .StandardMenu > div:focus > button:not(.disabled):not(:only-child):after, .StandardMenu > div:active:focus > button:not(.disabled):not(:only-child):after, .StandardMenu > div.active > button:not(.disabled):not(:only-child):after, .StandardMenu > div.clicked > button:not(.disabled):not(:only-child):after {\n          background-image: url(\"data:image/gif;base64,R0lGODlhBAAHAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAEAAcAAAIIjB4maeyrlCgAOw==\"); }\n  .StandardMenu > div:empty {\n    position: relative;\n    width: 95%;\n    margin: 2px auto;\n    border-top: 1px solid #808088;\n    border-bottom: 1px solid white;\n    display: none; }\n  .StandardMenu > div:not(:empty) + div:empty:not(:last-child):not(:first-child) {\n    display: block; }\n  .StandardMenu.css div__sub-menu--top > .window {\n    position: absolute;\n    visibility: hidden;\n    width: auto;\n    transition: max-width cubic-bezier(0.38, 0.01, 0, 1) 200ms, max-height cubic-bezier(0.38, 0.01, 0, 1) 200ms; }\n  .StandardMenu.css div__sub-menu--top.active > .window {\n    width: auto;\n    visibility: visible; }\n  .StandardMenu.css div__sub-menu--top > .window {\n    bottom: calc(100% + $windowPadding);\n    left: 0px;\n    height: 0px;\n    max-height: 0%;\n    max-width: 100%; }\n  .StandardMenu.css div__sub-menu--top:hover > .window, .StandardMenu.css div__sub-menu--top.active > .window {\n    height: initial;\n    max-height: 100%; }\n  .StandardMenu.css div__sub-menu--bottom > .window {\n    position: absolute;\n    visibility: hidden;\n    width: auto;\n    transition: max-width cubic-bezier(0.38, 0.01, 0, 1) 200ms, max-height cubic-bezier(0.38, 0.01, 0, 1) 200ms; }\n  .StandardMenu.css div__sub-menu--bottom.active > .window {\n    width: auto;\n    visibility: visible; }\n  .StandardMenu.css div__sub-menu--bottom > .window {\n    top: calc(100% + $windowPadding);\n    left: 0px;\n    max-height: 0%;\n    max-width: 100%; }\n  .StandardMenu.css div__sub-menu--bottom:hover > .window, .StandardMenu.css div__sub-menu--bottom.active > .window {\n    height: initial;\n    max-height: 100%; }\n  .StandardMenu.css div__sub-menu--left > .window {\n    position: absolute;\n    visibility: hidden;\n    width: auto;\n    transition: max-width cubic-bezier(0.38, 0.01, 0, 1) 200ms, max-height cubic-bezier(0.38, 0.01, 0, 1) 200ms; }\n  .StandardMenu.css div__sub-menu--left.active > .window {\n    width: auto;\n    visibility: visible; }\n  .StandardMenu.css div__sub-menu--left > .window {\n    left: -100%;\n    top: -3px;\n    max-width: 0%; }\n  .StandardMenu.css div__sub-menu--left:hover > .window, .StandardMenu.css div__sub-menu--left.active > .window {\n    max-width: 100%; }\n  .StandardMenu.css div:active, .StandardMenu.css div .active {\n    display: none; }\n  .StandardMenu.css div:hover > .window {\n    width: auto;\n    visibility: visible;\n    display: block; }\n";
 styleInject(css$9);
 
 var StandardMenu = function StandardMenu(props) {
   return React.createElement(
     WindowFrame,
     {
-      className: classnames('standard-menu', props.className, props.direction, {
-        'standard-menu--visible': props.isVisible
+      className: classnames('StandardMenu', props.className, props.direction, {
+        'StandardMenu--visible': props.isVisible
       })
     },
     props.options.map(function (option) {
@@ -440,7 +440,7 @@ var StandardMenu = function StandardMenu(props) {
         );
       } else {
         return React.createElement(StandardMenuItem, _extends({
-          key: 'standard-menu-item-' + option.title
+          key: 'StandardMenu-item-' + option.title
         }, option, {
           value: [].concat(toConsumableArray(props.value), [option.title]),
           mouseEnterItem: props.mouseEnterItem
@@ -658,7 +658,7 @@ var AbstractIcon = function (_Component) {
         _this.props.onClick();
       }
     }, _this.handleContextMenu = function (e) {
-      //e.preventDefault();
+      e.preventDefault();
       _this.icon.focus();
       if (_this.props.onContextMenu) {
         _this.props.onContextMenu(e);
@@ -736,7 +736,7 @@ var iconProps = {
 
 AbstractIcon.propTypes = iconProps;
 
-var css$a = ".icon.icon--explorer {\n  position: relative;\n  display: block;\n  outline: none;\n  background: none;\n  border: none;\n  width: 58px;\n  height: 70px;\n  text-align: center;\n  display: flex;\n  flex-direction: column;\n  align-items: center; }\n  .icon.icon--explorer .icon__icon {\n    display: block;\n    background-size: contain;\n    background-position: center;\n    background-repeat: no-repeat; }\n  .icon.icon--explorer:focus, .icon.icon--explorer:active, .icon.icon--explorer:active:focus, .icon.icon--explorer.is-active {\n    outline: none; }\n    .icon.icon--explorer:focus .icon__icon, .icon.icon--explorer:active .icon__icon, .icon.icon--explorer:active:focus .icon__icon, .icon.icon--explorer.is-active .icon__icon {\n      filter: hue-rotate(70deg) contrast(0.3) saturate(2); }\n    .icon.icon--explorer:focus .icon__text, .icon.icon--explorer:active .icon__text, .icon.icon--explorer:active:focus .icon__text, .icon.icon--explorer.is-active .icon__text {\n      background-color: #0000a2;\n      color: white;\n      outline: 1px dotted white;\n      outline-offset: -1px; }\n  .icon.icon--explorer .icon__icon {\n    width: 42px;\n    height: 42px;\n    margin: 0 auto; }\n  .icon.icon--explorer .icon__text {\n    position: absolute;\n    top: 45px;\n    left: 0px;\n    max-height: 28px;\n    width: 100%;\n    overflow-y: hidden;\n    display: inline-block; }\n  .icon.icon--explorer:focus .icon__text, .icon.icon--explorer:active .icon__text, .icon.icon--explorer:active:focus .icon__text, .icon.icon--explorer.active .icon__text, .icon.icon--explorer.clicked .icon__text {\n    max-height: initial; }\n";
+var css$a = ".icon.ExplorerIcon {\n  position: relative;\n  display: block;\n  outline: none;\n  background: none;\n  border: none;\n  width: 58px;\n  height: 70px;\n  text-align: center;\n  display: flex;\n  flex-direction: column;\n  align-items: center; }\n  .icon.ExplorerIcon .icon__icon {\n    display: block;\n    background-size: contain;\n    background-position: center;\n    background-repeat: no-repeat; }\n  .icon.ExplorerIcon:focus, .icon.ExplorerIcon:active, .icon.ExplorerIcon:active:focus, .icon.ExplorerIcon.is-active {\n    outline: none; }\n    .icon.ExplorerIcon:focus .icon__icon, .icon.ExplorerIcon:active .icon__icon, .icon.ExplorerIcon:active:focus .icon__icon, .icon.ExplorerIcon.is-active .icon__icon {\n      filter: hue-rotate(70deg) contrast(0.3) saturate(2); }\n    .icon.ExplorerIcon:focus .icon__text, .icon.ExplorerIcon:active .icon__text, .icon.ExplorerIcon:active:focus .icon__text, .icon.ExplorerIcon.is-active .icon__text {\n      background-color: #0000a2;\n      color: white;\n      outline: 1px dotted white;\n      outline-offset: -1px; }\n  .icon.ExplorerIcon .icon__icon {\n    width: 42px;\n    height: 42px;\n    margin: 0 auto; }\n  .icon.ExplorerIcon .icon__text {\n    position: absolute;\n    top: 45px;\n    left: 0px;\n    max-height: 28px;\n    width: 100%;\n    overflow-y: hidden;\n    display: inline-block; }\n  .icon.ExplorerIcon:focus .icon__text, .icon.ExplorerIcon:active .icon__text, .icon.ExplorerIcon:active:focus .icon__text, .icon.ExplorerIcon.active .icon__text, .icon.ExplorerIcon.clicked .icon__text {\n    max-height: initial; }\n";
 styleInject(css$a);
 
 var ExplorerIcon = function ExplorerIcon(props) {
@@ -745,7 +745,7 @@ var ExplorerIcon = function ExplorerIcon(props) {
     onDoubleClick: props.onDoubleClick,
     onContextMenu: props.onContextMenu,
     alt: props.alt,
-    className: classnames('icon--explorer', props.className),
+    className: classnames('ExplorerIcon', props.className),
     icon: props.icon,
     title: props.title
   });
@@ -753,7 +753,7 @@ var ExplorerIcon = function ExplorerIcon(props) {
 
 ExplorerIcon.propTypes = iconProps;
 
-var css$b = ".icon.icon--list {\n  position: relative;\n  display: block;\n  outline: none;\n  background: none;\n  border: none;\n  height: 18px;\n  margin: 2px;\n  text-align: left;\n  display: flex;\n  align-items: center; }\n  .icon.icon--list .icon__icon {\n    display: block;\n    background-size: contain;\n    background-position: center;\n    background-repeat: no-repeat; }\n  .icon.icon--list:focus, .icon.icon--list:active, .icon.icon--list:active:focus, .icon.icon--list.is-active {\n    outline: none; }\n    .icon.icon--list:focus .icon__icon, .icon.icon--list:active .icon__icon, .icon.icon--list:active:focus .icon__icon, .icon.icon--list.is-active .icon__icon {\n      filter: hue-rotate(70deg) contrast(0.3) saturate(2); }\n    .icon.icon--list:focus .icon__text, .icon.icon--list:active .icon__text, .icon.icon--list:active:focus .icon__text, .icon.icon--list.is-active .icon__text {\n      background-color: #0000a2;\n      color: white;\n      outline: 1px dotted white;\n      outline-offset: -1px; }\n  .icon.icon--list .icon__icon {\n    display: inline-block;\n    width: 16px;\n    height: 16px;\n    margin-right: 2px; }\n  .icon.icon--list .icon__text {\n    position: relative;\n    padding: 2px;\n    display: inline-block;\n    overflow: hidden;\n    white-space: nowrap;\n    text-overflow: ellipsis;\n    width: calc(100% - 20px);\n    padding-bottom: 3px; }\n  .icon.icon--list:focus .icon__text, .icon.icon--list:active .icon__text, .icon.icon--list:active:focus .icon__text, .icon.icon--list.active .icon__text, .icon.icon--list.clicked .icon__text {\n    max-height: initial; }\n";
+var css$b = ".icon.ListIcon {\n  position: relative;\n  display: block;\n  outline: none;\n  background: none;\n  border: none;\n  height: 18px;\n  margin: 2px;\n  text-align: left;\n  display: flex;\n  align-items: center; }\n  .icon.ListIcon .icon__icon {\n    display: block;\n    background-size: contain;\n    background-position: center;\n    background-repeat: no-repeat; }\n  .icon.ListIcon:focus, .icon.ListIcon:active, .icon.ListIcon:active:focus, .icon.ListIcon.is-active {\n    outline: none; }\n    .icon.ListIcon:focus .icon__icon, .icon.ListIcon:active .icon__icon, .icon.ListIcon:active:focus .icon__icon, .icon.ListIcon.is-active .icon__icon {\n      filter: hue-rotate(70deg) contrast(0.3) saturate(2); }\n    .icon.ListIcon:focus .icon__text, .icon.ListIcon:active .icon__text, .icon.ListIcon:active:focus .icon__text, .icon.ListIcon.is-active .icon__text {\n      background-color: #0000a2;\n      color: white;\n      outline: 1px dotted white;\n      outline-offset: -1px; }\n  .icon.ListIcon .icon__icon {\n    display: inline-block;\n    width: 16px;\n    height: 16px;\n    margin-right: 2px; }\n  .icon.ListIcon .icon__text {\n    position: relative;\n    padding: 2px;\n    display: inline-block;\n    overflow: hidden;\n    white-space: nowrap;\n    text-overflow: ellipsis;\n    width: calc(100% - 20px);\n    padding-bottom: 3px; }\n  .icon.ListIcon:focus .icon__text, .icon.ListIcon:active .icon__text, .icon.ListIcon:active:focus .icon__text, .icon.ListIcon.active .icon__text, .icon.ListIcon.clicked .icon__text {\n    max-height: initial; }\n";
 styleInject(css$b);
 
 var ListIcon = function ListIcon(props) {
@@ -762,7 +762,7 @@ var ListIcon = function ListIcon(props) {
     onDoubleClick: props.onDoubleClick,
     onContextMenu: props.onContextMenu,
     alt: props.alt,
-    className: classnames('icon--list', props.className),
+    className: classnames('ListIcon', props.className),
     icon: props.icon,
     title: props.title,
     value: props.value
@@ -774,7 +774,7 @@ ListIcon.propTypes = iconProps;
 var Toggle = function Toggle(props) {
   return React.createElement(
     'div',
-    { className: classnames('Toggle', props.type) },
+    { className: classnames('Toggle', props.className) },
     React.createElement('input', {
       type: props.type,
       id: props.id,
@@ -808,29 +808,31 @@ var toggleProps = {
 
 Toggle.propTypes = toggleProps;
 
-var css$c = ".checkbox {\n  display: inline-block; }\n  .checkbox input[type='checkbox'] {\n    opacity: 0;\n    display: none;\n    cursor: pointer; }\n    .checkbox input[type='checkbox'] + label {\n      position: relative;\n      padding: 1px 0px;\n      padding-left: 16px; }\n      .checkbox input[type='checkbox'] + label > span, .checkbox input[type='checkbox'] + label > div {\n        display: inline-block;\n        border: 1px solid rgba(0, 0, 0, 0); }\n      .checkbox input[type='checkbox'] + label:before {\n        content: '';\n        position: absolute;\n        left: 0px;\n        top: 1px;\n        width: 20px;\n        height: 12px;\n        background-repeat: no-repeat; }\n    .checkbox input[type='checkbox']:checked + label {\n      border-bottom-left-radius: 2px;\n      border-bottom-right-radius: 2px; }\n    .checkbox input[type='checkbox']:checked:active + label > span, .checkbox input[type='checkbox']:checked:active + label > div, .checkbox input[type='checkbox']:checked:focus + label > span, .checkbox input[type='checkbox']:checked:focus + label > div, .checkbox input[type='checkbox']:checked:active:focus + label > span, .checkbox input[type='checkbox']:checked:active:focus + label > div, .checkbox input[type='checkbox']:checked.active + label > span, .checkbox input[type='checkbox']:checked.active + label > div, .checkbox input[type='checkbox']:checked.clicked + label > span, .checkbox input[type='checkbox']:checked.clicked + label > div {\n      border: 1px dotted black; }\n    .checkbox input[type='checkbox']:disabled + label, .checkbox input[type='checkbox'].disabled + label {\n      color: #808088; }\n    .checkbox input[type='checkbox'] + label:before {\n      width: 13px;\n      height: 13px;\n      background-color: white;\n      box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px 0px #808088, inset -2px -2px 0px #bbc3c4, inset 2px 2px 0px 0px #0c0c0c; }\n    .checkbox input[type='checkbox']:checked + label:before {\n      background-image: url(\"data:image/gif;base64,R0lGODlhBwAHAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAHAAcAAAIMlA9nwMj9xGuLIlUAADs=\");\n      background-position: center;\n      background-size: 8px; }\n    .checkbox input[type='checkbox']:disabled + label:before, .checkbox input[type='checkbox'].disabled + label:before {\n      background-color: #bbc3c4; }\n    .checkbox input[type='checkbox']:disabled:checked + label:before, .checkbox input[type='checkbox'].disabled:checked + label:before {\n      background-image: url(\"data:image/gif;base64,R0lGODlhBwAHAJEAAAAAAP///5mZmf///yH5BAEAAAMALAAAAAAHAAcAAAIMnC9nwsj9xmuLIlUAADs=\"); }\n";
+var css$c = ".Checkbox {\n  display: inline-block; }\n  .Checkbox input[type='checkbox'] {\n    opacity: 0;\n    display: none;\n    cursor: pointer; }\n    .Checkbox input[type='checkbox'] + label {\n      position: relative;\n      padding: 1px 0px;\n      padding-left: 16px; }\n      .Checkbox input[type='checkbox'] + label > span, .Checkbox input[type='checkbox'] + label > div {\n        display: inline-block;\n        border: 1px solid rgba(0, 0, 0, 0); }\n      .Checkbox input[type='checkbox'] + label:before {\n        content: '';\n        position: absolute;\n        left: 0px;\n        top: 1px;\n        width: 20px;\n        height: 12px;\n        background-repeat: no-repeat; }\n    .Checkbox input[type='checkbox']:checked + label {\n      border-bottom-left-radius: 2px;\n      border-bottom-right-radius: 2px; }\n    .Checkbox input[type='checkbox']:checked:active + label > span, .Checkbox input[type='checkbox']:checked:active + label > div, .Checkbox input[type='checkbox']:checked:focus + label > span, .Checkbox input[type='checkbox']:checked:focus + label > div, .Checkbox input[type='checkbox']:checked:active:focus + label > span, .Checkbox input[type='checkbox']:checked:active:focus + label > div, .Checkbox input[type='checkbox']:checked.active + label > span, .Checkbox input[type='checkbox']:checked.active + label > div, .Checkbox input[type='checkbox']:checked.clicked + label > span, .Checkbox input[type='checkbox']:checked.clicked + label > div {\n      border: 1px dotted black; }\n    .Checkbox input[type='checkbox']:disabled + label, .Checkbox input[type='checkbox'].disabled + label {\n      color: #808088; }\n    .Checkbox input[type='checkbox'] + label:before {\n      width: 13px;\n      height: 13px;\n      background-color: white;\n      box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px 0px #808088, inset -2px -2px 0px #bbc3c4, inset 2px 2px 0px 0px #0c0c0c; }\n    .Checkbox input[type='checkbox']:checked + label:before {\n      background-image: url(\"data:image/gif;base64,R0lGODlhBwAHAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAHAAcAAAIMlA9nwMj9xGuLIlUAADs=\");\n      background-position: center;\n      background-size: 8px; }\n    .Checkbox input[type='checkbox']:disabled + label:before, .Checkbox input[type='checkbox'].disabled + label:before {\n      background-color: #bbc3c4; }\n    .Checkbox input[type='checkbox']:disabled:checked + label:before, .Checkbox input[type='checkbox'].disabled:checked + label:before {\n      background-image: url(\"data:image/gif;base64,R0lGODlhBwAHAJEAAAAAAP///5mZmf///yH5BAEAAAMALAAAAAAHAAcAAAIMnC9nwsj9xmuLIlUAADs=\"); }\n";
 styleInject(css$c);
 
 var Checkbox = function Checkbox(props) {
   return React.createElement(Toggle, _extends({}, props, {
+    className: classnames('Checkbox', props.className),
     type: 'checkbox'
   }));
 };
 
 Checkbox.propTypes = Toggle.propTypes;
 
-var css$d = ".radio {\n  display: inline-block; }\n  .radio input[type='radio'] {\n    opacity: 0;\n    display: none;\n    cursor: pointer; }\n    .radio input[type='radio'] + label {\n      position: relative;\n      padding: 1px 0px;\n      padding-left: 16px; }\n      .radio input[type='radio'] + label > span, .radio input[type='radio'] + label > div {\n        display: inline-block;\n        border: 1px solid rgba(0, 0, 0, 0); }\n      .radio input[type='radio'] + label:before {\n        content: '';\n        position: absolute;\n        left: 0px;\n        top: 1px;\n        width: 20px;\n        height: 12px;\n        background-repeat: no-repeat; }\n    .radio input[type='radio']:checked + label {\n      border-bottom-left-radius: 2px;\n      border-bottom-right-radius: 2px; }\n    .radio input[type='radio']:checked:active + label > span, .radio input[type='radio']:checked:active + label > div, .radio input[type='radio']:checked:focus + label > span, .radio input[type='radio']:checked:focus + label > div, .radio input[type='radio']:checked:active:focus + label > span, .radio input[type='radio']:checked:active:focus + label > div, .radio input[type='radio']:checked.active + label > span, .radio input[type='radio']:checked.active + label > div, .radio input[type='radio']:checked.clicked + label > span, .radio input[type='radio']:checked.clicked + label > div {\n      border: 1px dotted black; }\n    .radio input[type='radio']:disabled + label, .radio input[type='radio'].disabled + label {\n      color: #808088; }\n    .radio input[type='radio'] + label:before {\n      background-image: url(\"data:image/gif;base64,R0lGODlhDAAMAKIAAAAAAP///8zMzJmZmf///wAAAAAAAAAAACH5BAEAAAQALAAAAAAMAAwAAAMqSErTs6uBCVqcIQesBtCaEDAfGAaeeaZqILKqyLQyI4hhTWT3nUEKECQBADs=\"); }\n    .radio input[type='radio']:checked + label:before {\n      background-image: url(\"data:image/gif;base64,R0lGODlhDAAMAKIAAAAAAP///8zMzJmZmf///wAAAAAAAAAAACH5BAEAAAQALAAAAAAMAAwAAAMtSErTs6uBCVqcIQesBtCaEDBfhmWiZ1JooG5skJZwOA6g3QliKC4oXg+iAEESADs=\"); }\n    .radio input[type='radio']:disabled + label:before, .radio input[type='radio'].disabled + label:before {\n      background-image: url(\"data:image/gif;base64,R0lGODlhDAAMAKIAAAAAAP///8zMzJmZmf///wAAAAAAAAAAACH5BAEAAAQALAAAAAAMAAwAAAMpSErTs6uBCVqccAY1AFTC1n1LOJKE6aEqmorsxggCRMtEENA3vug6SAIAOw==\"); }\n    .radio input[type='radio']:disabled:checked + label:before, .radio input[type='radio'].disabled:checked + label:before {\n      background-image: url(\"data:image/gif;base64,R0lGODlhDAAMAKIAAAAAAP///8zMzJmZmf///wAAAAAAAAAAACH5BAEAAAQALAAAAAAMAAwAAAMtSErTs6uBCVqccAY1AFTC1i0YGIwE5REhqppourLiZ3KCAOWbEgQ5Xg/y+0ESADs=\"); }\n";
+var css$d = ".Radio {\n  display: inline-block; }\n  .Radio input[type='radio'] {\n    opacity: 0;\n    display: none;\n    cursor: pointer; }\n    .Radio input[type='radio'] + label {\n      position: relative;\n      padding: 1px 0px;\n      padding-left: 16px; }\n      .Radio input[type='radio'] + label > span, .Radio input[type='radio'] + label > div {\n        display: inline-block;\n        border: 1px solid rgba(0, 0, 0, 0); }\n      .Radio input[type='radio'] + label:before {\n        content: '';\n        position: absolute;\n        left: 0px;\n        top: 1px;\n        width: 20px;\n        height: 12px;\n        background-repeat: no-repeat; }\n    .Radio input[type='radio']:checked + label {\n      border-bottom-left-radius: 2px;\n      border-bottom-right-radius: 2px; }\n    .Radio input[type='radio']:checked:active + label > span, .Radio input[type='radio']:checked:active + label > div, .Radio input[type='radio']:checked:focus + label > span, .Radio input[type='radio']:checked:focus + label > div, .Radio input[type='radio']:checked:active:focus + label > span, .Radio input[type='radio']:checked:active:focus + label > div, .Radio input[type='radio']:checked.active + label > span, .Radio input[type='radio']:checked.active + label > div, .Radio input[type='radio']:checked.clicked + label > span, .Radio input[type='radio']:checked.clicked + label > div {\n      border: 1px dotted black; }\n    .Radio input[type='radio']:disabled + label, .Radio input[type='radio'].disabled + label {\n      color: #808088; }\n    .Radio input[type='radio'] + label:before {\n      background-image: url(\"data:image/gif;base64,R0lGODlhDAAMAKIAAAAAAP///8zMzJmZmf///wAAAAAAAAAAACH5BAEAAAQALAAAAAAMAAwAAAMqSErTs6uBCVqcIQesBtCaEDAfGAaeeaZqILKqyLQyI4hhTWT3nUEKECQBADs=\"); }\n    .Radio input[type='radio']:checked + label:before {\n      background-image: url(\"data:image/gif;base64,R0lGODlhDAAMAKIAAAAAAP///8zMzJmZmf///wAAAAAAAAAAACH5BAEAAAQALAAAAAAMAAwAAAMtSErTs6uBCVqcIQesBtCaEDBfhmWiZ1JooG5skJZwOA6g3QliKC4oXg+iAEESADs=\"); }\n    .Radio input[type='radio']:disabled + label:before, .Radio input[type='radio'].disabled + label:before {\n      background-image: url(\"data:image/gif;base64,R0lGODlhDAAMAKIAAAAAAP///8zMzJmZmf///wAAAAAAAAAAACH5BAEAAAQALAAAAAAMAAwAAAMpSErTs6uBCVqccAY1AFTC1n1LOJKE6aEqmorsxggCRMtEENA3vug6SAIAOw==\"); }\n    .Radio input[type='radio']:disabled:checked + label:before, .Radio input[type='radio'].disabled:checked + label:before {\n      background-image: url(\"data:image/gif;base64,R0lGODlhDAAMAKIAAAAAAP///8zMzJmZmf///wAAAAAAAAAAACH5BAEAAAQALAAAAAAMAAwAAAMtSErTs6uBCVqccAY1AFTC1i0YGIwE5REhqppourLiZ3KCAOWbEgQ5Xg/y+0ESADs=\"); }\n";
 styleInject(css$d);
 
 var Radio = function Radio(props) {
   return React.createElement(Toggle, _extends({}, props, {
+    className: 'Radio',
     type: 'radio'
   }));
 };
 
 Radio.propTypes = Toggle.propTypes;
 
-var css$e = ".input-text {\n  position: relative;\n  padding: 3px 3px 6px 3px;\n  font-size: 11px;\n  border: none;\n  box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px 0px #808088, inset -2px -2px 0px #bbc3c4, inset 2px 2px 0px 0px #0c0c0c; }\n  .input-text:active, .input-text:focus, .input-text:active:focus, .input-text.clicked {\n    outline: none; }\n  .input-text:disabled, .input-text.disabled {\n    background-color: #bbc3c4; }\n";
+var css$e = ".InputText {\n  position: relative;\n  padding: 3px 3px 6px 3px;\n  font-size: 11px;\n  border: none;\n  box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px 0px #808088, inset -2px -2px 0px #bbc3c4, inset 2px 2px 0px 0px #0c0c0c; }\n  .InputText:active, .InputText:focus, .InputText:active:focus, .InputText.clicked {\n    outline: none; }\n  .InputText:disabled, .InputText.disabled {\n    background-color: #bbc3c4; }\n";
 styleInject(css$e);
 
 var InputText = function (_Component) {
@@ -867,7 +869,7 @@ var InputText = function (_Component) {
     value: function render() {
       return React.createElement('input', {
         type: 'text',
-        className: classnames('input-text', this.props.className),
+        className: classnames('InputText', this.props.className),
         value: this.props.initialValue ? this.state.value : this.props.value,
         id: this.props.id,
         disabled: this.props.isDisabled,
@@ -1202,7 +1204,7 @@ SelectMultipleSimple.propTypes = {
   }))
 };
 
-var css$i = ".menu-bar {\n  display: flex;\n  padding: 0px;\n  font-size: 1rem;\n  position: relative;\n  overflow-y: visible;\n  z-index: 20; }\n  .menu-bar > div {\n    position: relative; }\n    .menu-bar > div > button {\n      padding: 0px 4px;\n      outline: none;\n      border: none;\n      user-select: none;\n      color: #0c0c0c;\n      display: inline-block;\n      background-color: rgba(0, 0, 0, 0);\n      width: 100%;\n      overflow: hidden;\n      white-space: nowrap;\n      text-overflow: ellipsis;\n      text-align: left;\n      padding: 3px 6px; }\n      .menu-bar > div > button + div, .menu-bar > div > button + div {\n        z-index: 20;\n        visibility: hidden;\n        position: absolute;\n        max-height: 0px;\n        top: 100%;\n        left: 0px;\n        transition: max-height linear 750ms; }\n      .menu-bar > div > button:hover {\n        box-shadow: inset -1px -1px 0px #808088, inset 1px 1px 0px white; }\n      .menu-bar > div > button:active, .menu-bar > div > button:focus, .menu-bar > div > button:active:focus, .menu-bar > div > button.active, .menu-bar > div > button.clicked {\n        box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px #808088;\n        padding: 4px 5px 2px 7px; }\n        .menu-bar > div > button:active + div, .menu-bar > div > button:active + div, .menu-bar > div > button:focus + div, .menu-bar > div > button:focus + div, .menu-bar > div > button:active:focus + div, .menu-bar > div > button:active:focus + div, .menu-bar > div > button.active + div, .menu-bar > div > button.active + div, .menu-bar > div > button.clicked + div, .menu-bar > div > button.clicked + div {\n          visibility: visible;\n          max-height: 480px; }\n";
+var css$i = ".MenuBar {\n  display: flex;\n  padding: 0px;\n  font-size: 1rem;\n  position: relative;\n  overflow-y: visible;\n  z-index: 20; }\n  .MenuBar > div {\n    position: relative; }\n    .MenuBar > div > button {\n      padding: 0px 4px;\n      outline: none;\n      border: none;\n      user-select: none;\n      color: #0c0c0c;\n      display: inline-block;\n      background-color: rgba(0, 0, 0, 0);\n      width: 100%;\n      overflow: hidden;\n      white-space: nowrap;\n      text-overflow: ellipsis;\n      text-align: left;\n      padding: 3px 6px; }\n      .MenuBar > div > button + div, .MenuBar > div > button + div {\n        z-index: 20;\n        visibility: hidden;\n        position: absolute;\n        max-height: 0px;\n        top: 100%;\n        left: 0px;\n        transition: max-height linear 750ms; }\n      .MenuBar > div > button:hover {\n        box-shadow: inset -1px -1px 0px #808088, inset 1px 1px 0px white; }\n      .MenuBar > div > button:active, .MenuBar > div > button:focus, .MenuBar > div > button:active:focus, .MenuBar > div > button.active, .MenuBar > div > button.clicked {\n        box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px #808088;\n        padding: 4px 5px 2px 7px; }\n        .MenuBar > div > button:active + div, .MenuBar > div > button:active + div, .MenuBar > div > button:focus + div, .MenuBar > div > button:focus + div, .MenuBar > div > button:active:focus + div, .MenuBar > div > button:active:focus + div, .MenuBar > div > button.active + div, .MenuBar > div > button.active + div, .MenuBar > div > button.clicked + div, .MenuBar > div > button.clicked + div {\n          visibility: visible;\n          max-height: 480px; }\n";
 styleInject(css$i);
 
 var MenuEntry = withContextLogic(AbstractButton);
@@ -1210,12 +1212,12 @@ var MenuEntry = withContextLogic(AbstractButton);
 var MenuBar = function MenuBar(props) {
   return React.createElement(
     'menu',
-    { className: 'window__menu menu-bar' },
+    { className: 'window__menu MenuBar' },
     props.options && props.options.map(function (section) {
       return React.createElement(
         MenuEntry,
         {
-          className: classnames('window__menu__section menu-bar__section', props.className),
+          className: classnames('window__menu__section MenuBar__section', props.className),
           key: 'menu-bar-section-' + section.title,
           options: section.options
         },
@@ -1237,7 +1239,7 @@ var StartMenu = function StartMenu(props) {
       otherProps = objectWithoutProperties(props, ['className']);
 
   return React.createElement(Started, _extends({
-    className: classnames('start-menu task-bar__start', className)
+    className: classnames('start-menu TaskBar__start', className)
   }, otherProps));
 };
 
@@ -1245,7 +1247,7 @@ StartMenu.propTypes = Started.propTypes;
 
 var Notifier = function Notifier(props) {
   return React.createElement('button', {
-    className: 'btn task-bar__notifications__notifier',
+    className: 'btn TaskBar__notifications__notifier',
     title: props.title,
     onClick: props.onClick,
     style: { backgroundImage: 'url("' + props.icon + '")' }
@@ -1325,7 +1327,7 @@ var Time = function (_React$Component) {
     value: function render() {
       return React.createElement(
         'div',
-        { className: 'task-bar__notifications__time' },
+        { className: 'TaskBar__notifications__time' },
         formatTime(this.state.time)
       );
     }
@@ -1336,7 +1338,7 @@ var Time = function (_React$Component) {
 var Notifications = function Notifications(props) {
   return React.createElement(
     'div',
-    { className: 'task-bar__notifications' },
+    { className: 'TaskBar__notifications' },
     props.notifiers.map(function (notifier) {
       return React.createElement(Notifier, {
         key: notifier.alt,
@@ -1357,21 +1359,21 @@ Notifications.defaultProps = {
   notifiers: []
 };
 
-var css$j = ".task-bar {\n  position: fixed;\n  bottom: 0px;\n  left: 0px;\n  width: 100%;\n  max-width: 100%;\n  z-index: 10;\n  box-shadow: 0px -1px 0px white;\n  padding: 2px 0px;\n  display: flex; }\n  .task-bar > div, .task-bar > button {\n    position: relative;\n    height: 22px;\n    margin: 0px 2px; }\n  .task-bar > div:not(:last-child) {\n    padding: 0px 6px; }\n    .task-bar > div:not(:last-child):first-child {\n      padding: 0px 3px 0px 0px; }\n    .task-bar > div:not(:last-child):after {\n      position: absolute;\n      top: 1px;\n      right: 0px;\n      height: calc(100% - 2px);\n      width: 1px;\n      background-color: #808088;\n      content: '';\n      box-shadow: 1px 0px 0px white; }\n    .task-bar > div:not(:last-child):before {\n      position: absolute;\n      top: 3px;\n      right: -6px;\n      height: calc(100% - 6px);\n      width: 3px;\n      background-color: #bbc3c4;\n      content: '';\n      box-shadow: inset -1px -1px 0px #808088, inset 1px 1px 0px white; }\n  .task-bar__programs {\n    display: flex;\n    flex-grow: 1;\n    flex-shrink: 1;\n    flex-wrap: nowrap;\n    margin-right: 4px;\n    min-width: 42px; }\n    .task-bar__programs:before {\n      display: none; }\n  .task-bar__start {\n    position: relative; }\n    .task-bar__start > button + div {\n      transition: max-height linear 200ms;\n      position: fixed;\n      bottom: 25px;\n      left: 2px;\n      visibility: hidden;\n      max-height: 0px;\n      padding-left: 22px; }\n      .task-bar__start > button + div > .divider, .task-bar__start > button + div > div:empty {\n        margin-left: 24px;\n        width: calc(100% - 26px); }\n      .task-bar__start > button + div:after {\n        content: '';\n        display: block;\n        position: absolute;\n        left: 3px;\n        top: 3px;\n        height: calc(100% - 6px);\n        width: 20px;\n        background: #0000a2;\n        background: linear-gradient(#0000a2, #126fc2);\n        background: url(\"data:image/gif;base64,R0lGODlhDgBkALMAAAAAAP///wIAsZKSmZKTmpGSmZKTmcjOz8fNzsfOz8fOzv///wAAAAAAAAAAAAAAACH5BAEAAAsALAAAAAAOAGQAAAT/cMk5SUo06CO179wSGEowgEOQBcRUEuqkUaIRd/cCwyvFzyJNS3JQ2Tyt0QLBklgwEqZGQasShr4DQhuilDxgRCWAINgIAkIxFoB2DDJWbmGb2Oq0nJx2dqoCXUEuKl8GMCZRSjpgWAdYEydVkhMJQlVkQR8UTFRgQDhiHkc9QRyfRwRSV5+ZH1KbnodzjEGPCAYFcBIJj5mOk61IkgZSnpKVxpSeYCuegTjCw8Uev1bLPkfXccuY29SSGgmRky2p4b2Jnm5+3LrQ3CsY5Wuk9ZlwcJrv2uzLvWthJgH0cWVAKkMGBjhKws1YQ4cPP1wxUETclUPuBOXRY4mOvmDJafaFFMmKwoEDCspIgnGSC0pYDZvB88YvE7Bd3YABrBlRJs+HN73MiPgq4heQYJAhlYiOhqyUwLhVo7TTWcYlyEZOmAbEYM+I4hape4b0Cg0tDXlVyapVR9UY5h7KaogAg9R1c82ubEohAgA7\") no-repeat bottom 3px center, linear-gradient(#0000a2, #126fc2); }\n      .task-bar__start > button + div > div {\n        display: flex;\n        align-items: center;\n        margin-left: 20px; }\n        .task-bar__start > button + div > div > button {\n          height: 32px;\n          padding-left: 32px;\n          background-size: 22px;\n          background-position: 4px center; }\n        .task-bar__start > button + div > div .window {\n          display: none; }\n    .task-bar__start > button:active, .task-bar__start > button:focus, .task-bar__start > button:active:focus, .task-bar__start > button.active, .task-bar__start > button.clicked {\n      background-position: 3px 2px;\n      outline: 1px dotted black;\n      outline-offset: -4px; }\n      .task-bar__start > button:active + div, .task-bar__start > button:focus + div, .task-bar__start > button:active:focus + div, .task-bar__start > button.active + div, .task-bar__start > button.clicked + div {\n        visibility: visible;\n        max-height: 100vh;\n        padding: 3px; }\n        .task-bar__start > button:active + div div, .task-bar__start > button:focus + div div, .task-bar__start > button:active:focus + div div, .task-bar__start > button.active + div div, .task-bar__start > button.clicked + div div {\n          display: flex; }\n  .task-bar__notifications {\n    background-color: #bbc3c4;\n    display: flex;\n    flex: none;\n    margin-left: auto;\n    align-items: center;\n    height: 22px;\n    padding: 0px 8px 0px 4px;\n    box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px #808088; }\n    .task-bar__notifications__time {\n      margin-left: 4px; }\n    .task-bar__notifications__notifier {\n      height: 16px;\n      width: 16px;\n      background-color: #bbc3c4;\n      background-size: contain;\n      background-position: center;\n      background-repeat: no-repeat;\n      border: none; }\n      .task-bar__notifications__notifier:active, .task-bar__notifications__notifier:focus, .task-bar__notifications__notifier:active:focus, .task-bar__notifications__notifier.active, .task-bar__notifications__notifier.clicked {\n        outline: none;\n        border: none; }\n";
+var css$j = ".TaskBar {\n  position: fixed;\n  bottom: 0px;\n  left: 0px;\n  width: 100%;\n  max-width: 100%;\n  z-index: 10;\n  box-shadow: 0px -1px 0px white;\n  padding: 2px 0px;\n  display: flex; }\n  .TaskBar > div, .TaskBar > button {\n    position: relative;\n    height: 22px;\n    margin: 0px 2px; }\n  .TaskBar > div:not(:last-child) {\n    padding: 0px 6px; }\n    .TaskBar > div:not(:last-child):first-child {\n      padding: 0px 3px 0px 0px; }\n    .TaskBar > div:not(:last-child):after {\n      position: absolute;\n      top: 1px;\n      right: 0px;\n      height: calc(100% - 2px);\n      width: 1px;\n      background-color: #808088;\n      content: '';\n      box-shadow: 1px 0px 0px white; }\n    .TaskBar > div:not(:last-child):before {\n      position: absolute;\n      top: 3px;\n      right: -6px;\n      height: calc(100% - 6px);\n      width: 3px;\n      background-color: #bbc3c4;\n      content: '';\n      box-shadow: inset -1px -1px 0px #808088, inset 1px 1px 0px white; }\n  .TaskBar__programs {\n    display: flex;\n    flex-grow: 1;\n    flex-shrink: 1;\n    flex-wrap: nowrap;\n    margin-right: 4px;\n    min-width: 42px; }\n    .TaskBar__programs:before {\n      display: none; }\n  .TaskBar__start {\n    position: relative; }\n    .TaskBar__start > button + div {\n      transition: max-height linear 200ms;\n      position: fixed;\n      bottom: 25px;\n      left: 2px;\n      visibility: hidden;\n      max-height: 0px;\n      padding-left: 22px; }\n      .TaskBar__start > button + div > .divider, .TaskBar__start > button + div > div:empty {\n        margin-left: 24px;\n        width: calc(100% - 26px); }\n      .TaskBar__start > button + div:after {\n        content: '';\n        display: block;\n        position: absolute;\n        left: 3px;\n        top: 3px;\n        height: calc(100% - 6px);\n        width: 20px;\n        background: #0000a2;\n        background: linear-gradient(#0000a2, #126fc2);\n        background: url(\"data:image/gif;base64,R0lGODlhDgBkALMAAAAAAP///wIAsZKSmZKTmpGSmZKTmcjOz8fNzsfOz8fOzv///wAAAAAAAAAAAAAAACH5BAEAAAsALAAAAAAOAGQAAAT/cMk5SUo06CO179wSGEowgEOQBcRUEuqkUaIRd/cCwyvFzyJNS3JQ2Tyt0QLBklgwEqZGQasShr4DQhuilDxgRCWAINgIAkIxFoB2DDJWbmGb2Oq0nJx2dqoCXUEuKl8GMCZRSjpgWAdYEydVkhMJQlVkQR8UTFRgQDhiHkc9QRyfRwRSV5+ZH1KbnodzjEGPCAYFcBIJj5mOk61IkgZSnpKVxpSeYCuegTjCw8Uev1bLPkfXccuY29SSGgmRky2p4b2Jnm5+3LrQ3CsY5Wuk9ZlwcJrv2uzLvWthJgH0cWVAKkMGBjhKws1YQ4cPP1wxUETclUPuBOXRY4mOvmDJafaFFMmKwoEDCspIgnGSC0pYDZvB88YvE7Bd3YABrBlRJs+HN73MiPgq4heQYJAhlYiOhqyUwLhVo7TTWcYlyEZOmAbEYM+I4hape4b0Cg0tDXlVyapVR9UY5h7KaogAg9R1c82ubEohAgA7\") no-repeat bottom 3px center, linear-gradient(#0000a2, #126fc2); }\n      .TaskBar__start > button + div > div {\n        display: flex;\n        align-items: center;\n        margin-left: 20px; }\n        .TaskBar__start > button + div > div > button {\n          height: 32px;\n          padding-left: 32px;\n          background-size: 22px;\n          background-position: 4px center; }\n        .TaskBar__start > button + div > div .window {\n          display: none; }\n    .TaskBar__start > button:active, .TaskBar__start > button:focus, .TaskBar__start > button:active:focus, .TaskBar__start > button.active, .TaskBar__start > button.clicked {\n      background-position: 3px 2px;\n      outline: 1px dotted black;\n      outline-offset: -4px; }\n      .TaskBar__start > button:active + div, .TaskBar__start > button:focus + div, .TaskBar__start > button:active:focus + div, .TaskBar__start > button.active + div, .TaskBar__start > button.clicked + div {\n        visibility: visible;\n        max-height: 100vh;\n        padding: 3px; }\n        .TaskBar__start > button:active + div div, .TaskBar__start > button:focus + div div, .TaskBar__start > button:active:focus + div div, .TaskBar__start > button.active + div div, .TaskBar__start > button.clicked + div div {\n          display: flex; }\n  .TaskBar__notifications {\n    background-color: #bbc3c4;\n    display: flex;\n    flex: none;\n    margin-left: auto;\n    align-items: center;\n    height: 22px;\n    padding: 0px 8px 0px 4px;\n    box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px #808088; }\n    .TaskBar__notifications__time {\n      margin-left: 4px; }\n    .TaskBar__notifications__notifier {\n      height: 16px;\n      width: 16px;\n      background-color: #bbc3c4;\n      background-size: contain;\n      background-position: center;\n      background-repeat: no-repeat;\n      border: none; }\n      .TaskBar__notifications__notifier:active, .TaskBar__notifications__notifier:focus, .TaskBar__notifications__notifier:active:focus, .TaskBar__notifications__notifier.active, .TaskBar__notifications__notifier.clicked {\n        outline: none;\n        border: none; }\n";
 styleInject(css$j);
 
 var TaskBar = function TaskBar(props) {
   return React.createElement(
     'div',
-    { className: 'task-bar' },
+    { className: 'TaskBar' },
     React.createElement(StartMenu, {
       options: props.options
     }),
     props.quickLaunch && React.createElement(
       'div',
-      { className: 'task-bar__quick-launch' },
+      { className: 'TaskBar__quick-launch' },
       props.quickLaunch.map(function (qlEntry) {
-        return React.createElement(NavButton$1, {
+        return React.createElement(SmallIconButton, {
           key: qlEntry.icon + '-QuickLaunch',
           alt: qlEntry.alt,
           onClick: qlEntry.onClick,
@@ -1381,7 +1383,7 @@ var TaskBar = function TaskBar(props) {
     ),
     props.openWindows && React.createElement(
       'div',
-      { className: 'task-bar__programs' },
+      { className: 'TaskBar__programs' },
       props.openWindows.map(function (openWindow) {
         return React.createElement(
           ProgramButton,
@@ -1401,7 +1403,7 @@ var TaskBar = function TaskBar(props) {
 
 TaskBar.propTypes = {
   options: PropTypes.array,
-  quickLaunch: PropTypes.arrayOf(PropTypes.shape(NavButton$1.propTypes)),
+  quickLaunch: PropTypes.arrayOf(PropTypes.shape(SmallIconButton.propTypes)),
   openWindows: PropTypes.arrayOf(PropTypes.shape(ProgramButton.propTypes)),
   notifiers: PropTypes.arrayOf(PropTypes.shape(Notifications.propsTypes))
 };
@@ -1536,7 +1538,7 @@ OptionsList.propTypes = {
   className: PropTypes.string
 };
 
-var css$m = ".w98 .window--explorer__view {\n  min-height: 20px;\n  margin: 2px auto 1px;\n  background-color: white;\n  box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px 0px #808088, inset -2px -2px 0px #bbc3c4, inset 2px 2px 0px 0px #0c0c0c; }\n\n.w98 .window--explorer__details {\n  display: flex; }\n  .w98 .window--explorer__details__section {\n    box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px #808088;\n    flex-grow: 1;\n    margin-top: 2px;\n    height: 16px; }\n    .w98 .window--explorer__details__section:not(:last-child) {\n      margin: 2px; }\n\n.w98 .window--explorer .menu-bar {\n  padding: 2px 1px 2px 12px; }\n\n.w98 .window--explorer > div + menu {\n  margin-top: 2px;\n  box-shadow: 0px 2px 0px -1px white, -1px 2px 0px -1px white, -1px 1px 0px #808088, 0px 1px 0px #808088, inset 0px -1px 0px #808088, inset -1px 0px 0px #808088, inset 0px 0px 0px 1px white, -1px 0px 0px #808088, 1px 0px 0px white, -1px 1px 0px 0px white, 1px 1px 0px 0px white, -1px -1px 0px #808088, 0px -1px 0px #808088, inset 0px 1px 0px white, 1px -1px 0px white; }\n\n.w98 .window--explorer > menu {\n  position: relative;\n  min-height: 16px;\n  padding-left: 12px;\n  margin: 0px 1px;\n  display: flex;\n  box-shadow: inset 0px -1px 0px #808088, inset -1px 0px 0px #808088, inset 0px 0px 0px 1px white, -1px 0px 0px #808088, 1px 0px 0px white, -1px 1px 0px 0px white, 1px 1px 0px 0px white; }\n  .w98 .window--explorer > menu:before {\n    position: absolute;\n    top: 3px;\n    left: 5px;\n    height: calc(100% - 6px);\n    width: 3px;\n    background-color: #bbc3c4;\n    content: '';\n    box-shadow: inset -1px -1px 0px #808088, inset 1px 1px 0px white; }\n\n.w98 .window--explorer > footer {\n  display: flex; }\n  .w98 .window--explorer > footer > div {\n    flex-grow: 1;\n    padding: 2px;\n    height: 12px;\n    box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px #0c0c0c; }\n    .w98 .window--explorer > footer > div:not(:last-child) {\n      margin-right: 2px; }\n\n.w98 .window--explorer__address {\n  display: flex;\n  height: 22px;\n  overflow-y: visible; }\n  .w98 .window--explorer__address__title {\n    align-self: center;\n    margin-right: 4px; }\n  .w98 .window--explorer__address .Select {\n    flex-grow: 1;\n    z-index: 5;\n    margin-right: 4px;\n    margin-top: 1px; }\n\n.w98 .window--explorer__options {\n  display: flex;\n  padding: 2px 8px 2px 12px; }\n\n.w98 .window--explorer > div:last-child {\n  margin-top: 2px; }\n";
+var css$m = ".w98 .window--explorer__view, .ExplorerWindow__view {\n  min-height: 20px;\n  margin: 2px auto 1px;\n  background-color: white;\n  box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px 0px #808088, inset -2px -2px 0px #bbc3c4, inset 2px 2px 0px 0px #0c0c0c; }\n\n.w98 .window--explorer__details, .ExplorerWindow__details {\n  display: flex; }\n  .w98 .window--explorer__details__section, .ExplorerWindow__details__section {\n    box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px #808088;\n    flex-grow: 1;\n    margin-top: 2px;\n    height: 16px; }\n    .w98 .window--explorer__details__section:not(:last-child), .ExplorerWindow__details__section:not(:last-child) {\n      margin: 2px; }\n\n.w98 .window--explorer .menu-bar, .ExplorerWindow .menu-bar {\n  padding: 2px 1px 2px 12px; }\n\n.w98 .window--explorer > div + menu, .ExplorerWindow > div + menu {\n  margin-top: 2px;\n  box-shadow: 0px 2px 0px -1px white, -1px 2px 0px -1px white, -1px 1px 0px #808088, 0px 1px 0px #808088, inset 0px -1px 0px #808088, inset -1px 0px 0px #808088, inset 0px 0px 0px 1px white, -1px 0px 0px #808088, 1px 0px 0px white, -1px 1px 0px 0px white, 1px 1px 0px 0px white, -1px -1px 0px #808088, 0px -1px 0px #808088, inset 0px 1px 0px white, 1px -1px 0px white; }\n\n.w98 .window--explorer > menu, .ExplorerWindow > menu {\n  position: relative;\n  min-height: 16px;\n  padding-left: 12px;\n  margin: 0px 1px;\n  display: flex;\n  box-shadow: inset 0px -1px 0px #808088, inset -1px 0px 0px #808088, inset 0px 0px 0px 1px white, -1px 0px 0px #808088, 1px 0px 0px white, -1px 1px 0px 0px white, 1px 1px 0px 0px white; }\n  .w98 .window--explorer > menu:before, .ExplorerWindow > menu:before {\n    position: absolute;\n    top: 3px;\n    left: 5px;\n    height: calc(100% - 6px);\n    width: 3px;\n    background-color: #bbc3c4;\n    content: '';\n    box-shadow: inset -1px -1px 0px #808088, inset 1px 1px 0px white; }\n\n.w98 .window--explorer > footer, .ExplorerWindow > footer {\n  display: flex; }\n  .w98 .window--explorer > footer > div, .ExplorerWindow > footer > div {\n    flex-grow: 1;\n    padding: 2px;\n    height: 12px;\n    box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px #0c0c0c; }\n    .w98 .window--explorer > footer > div:not(:last-child), .ExplorerWindow > footer > div:not(:last-child) {\n      margin-right: 2px; }\n\n.w98 .window--explorer__address, .ExplorerWindow__address {\n  display: flex;\n  height: 22px;\n  overflow-y: visible; }\n  .w98 .window--explorer__address__title, .ExplorerWindow__address__title {\n    align-self: center;\n    margin-right: 4px; }\n  .w98 .window--explorer__address .Select, .ExplorerWindow__address .Select {\n    flex-grow: 1;\n    z-index: 5;\n    margin-right: 4px;\n    margin-top: 1px; }\n\n.w98 .window--explorer__options, .ExplorerWindow__options {\n  display: flex;\n  padding: 2px 8px 2px 12px; }\n\n.w98 .window--explorer > div:last-child, .ExplorerWindow > div:last-child {\n  margin-top: 2px; }\n";
 styleInject(css$m);
 
 var insertDefaultFooter = function insertDefaultFooter(customFooterElements, minimum) {
@@ -1552,7 +1554,7 @@ var ExplorerWindow = function ExplorerWindow(props) {
   return React.createElement(
     StaticWindow,
     {
-      className: classnames('window--explorer', props.className),
+      className: classnames('ExplorerWindow window--explorer', props.className),
       icon: props.icon,
       onClose: props.onClose,
       onMaximize: props.onClose,
@@ -1621,13 +1623,13 @@ ExplorerWindow.propTypes = _extends({}, StaticWindow.propTypes, {
   footer: PropTypes.arrayOf(PropTypes.shape(footerType))
 });
 
-var css$n = ".window__section {\n  position: relative;\n  border: 1px solid white;\n  outline: 1px solid darkgrey;\n  padding: 5px;\n  margin: 16px 8px 8px; }\n  .window__section .title {\n    position: absolute;\n    top: -10px;\n    padding: 2px 4px;\n    background-color: #bbc3c4; }\n";
+var css$n = ".DetailsSection, .window__section {\n  position: relative;\n  border: 1px solid white;\n  outline: 1px solid darkgrey;\n  padding: 5px;\n  margin: 16px 8px 8px; }\n  .DetailsSection .title, .window__section .title {\n    position: absolute;\n    top: -10px;\n    padding: 2px 4px;\n    background-color: #bbc3c4; }\n";
 styleInject(css$n);
 
 var DetailsSection = function DetailsSection(props) {
   return React.createElement(
     'section',
-    { className: 'window__section' },
+    { className: 'DetailsSection window__section' },
     React.createElement(
       'div',
       { className: 'title' },
@@ -1642,5 +1644,5 @@ DetailsSection.propTypes = {
   children: PropTypes.node
 };
 
-export { Theme, FormButton, NavButton, ProgramButton, StartButton, LargeIconButton, NavButton$1 as SmallIconButton, StandardMenu, withContextLogic as withStandardMenuWrapper, ExplorerIcon, ListIcon, Checkbox, Radio, InputText, Select, SelectBox, SelectMultipleSimple, MenuBar, StartMenu, TaskBar, StaticWindow as AbstractWindow, ExplorerWindow, WindowFrame, DetailsSection };
+export { Theme, FormButton, NavButton, ProgramButton, StartButton, LargeIconButton, SmallIconButton, StandardMenu, withContextLogic as withStandardMenuWrapper, ExplorerIcon, ListIcon, Checkbox, Radio, InputText, Select, SelectBox, SelectMultipleSimple, MenuBar, StartMenu, TaskBar, StaticWindow as AbstractWindow, ExplorerWindow, WindowFrame, DetailsSection };
 //# sourceMappingURL=pb.module.js.map

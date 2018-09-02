@@ -4,11 +4,11 @@ import classnames from 'classnames';
 import AbstractWindow, { windowProps } from './AbstractWindow';
 import FormButton from '../Button/FormButton';
 
-import './_alert-window.scss';
+import './styles/AlertWindow.scss';
 
 const AlertWindow = props => (
   <AbstractWindow
-    className="window--alert"
+    className="AlertWindow window--alert"
     onClose={props.onClose}
     onHelp={props.onHelp}
     title="Error"

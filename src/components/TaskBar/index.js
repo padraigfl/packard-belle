@@ -5,16 +5,16 @@ import StartMenu from '../StartMenu';
 import ProgramButton from '../Button/ProgramButton';
 import SmallIconButton from '../Button/SmallIconButton';
 
-import './_task-bar.scss';
+import './TaskBar.scss';
 
 const TaskBar = (props) => (
-  <div className="task-bar">
+  <div className="TaskBar">
     <StartMenu
       options={props.options}
     />
     {
       props.quickLaunch && (
-        <div className="task-bar__quick-launch">
+        <div className="TaskBar__quick-launch">
           {
             props.quickLaunch.map(qlEntry =>
               <SmallIconButton
@@ -30,7 +30,7 @@ const TaskBar = (props) => (
     }
     {
       props.openWindows && (
-        <div className="task-bar__programs">
+        <div className="TaskBar__programs">
           {
             props.openWindows.map(openWindow =>
               <ProgramButton

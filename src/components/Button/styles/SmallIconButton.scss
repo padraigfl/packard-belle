@@ -1,0 +1,5 @@
+@import '../../../_scss/w98/_buttons';
+
+.btn.SmallIconButton {
+  @include button-small-icon();
+}

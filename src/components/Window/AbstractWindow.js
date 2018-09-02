@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import WindowFrame from './WindowFrame';
 import Button from '../Button/NavButton';
 
-import './_abstract-window.scss';
+import './styles/AbstractWindow.scss';
 
 const StaticWindow = props => (
   <WindowFrame className={props.className}>

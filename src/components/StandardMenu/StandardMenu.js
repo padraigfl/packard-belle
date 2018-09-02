@@ -4,18 +4,18 @@ import classnames from 'classnames';
 import Window from '../Window/WindowFrame';
 import StandardMenuItem from './StandardMenuItem';
 
-import './_standard-menu.scss';
+import './StandardMenu.scss';
 
 const StandardMenu = props => {
   return (
     <Window
       className={
         classnames(
-          'standard-menu',
+          'StandardMenu',
           props.className,
           props.direction,
           {
-            'standard-menu--visible': props.isVisible,
+            'StandardMenu--visible': props.isVisible,
           }
         )
       }
@@ -40,7 +40,7 @@ const StandardMenu = props => {
         else {
           return (
             <StandardMenuItem
-              key={`standard-menu-item-${option.title}`}
+              key={`StandardMenu-item-${option.title}`}
               {...option}
               value={[ ...props.value, option.title ]}
               mouseEnterItem={props.mouseEnterItem}

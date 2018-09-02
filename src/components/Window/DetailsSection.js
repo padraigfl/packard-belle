@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './_details-section.scss';
+import './styles/DetailsSection.scss';
 
 const DetailsSection = props => (
-  <section className="window__section">
+  <section className="DetailsSection window__section">
     <div className="title">{ props.title }</div>
     { props.children }
   </section>

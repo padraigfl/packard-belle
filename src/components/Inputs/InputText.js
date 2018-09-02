@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
 
-import './_input-text.scss';
+import './styles/InputText.scss';
 
 class InputText extends Component {
   static defaultProps = {
@@ -34,7 +34,7 @@ class InputText extends Component {
     return (
       <input
         type="text"
-        className={classnames('input-text', this.props.className)}
+        className={classnames('InputText', this.props.className)}
         value={this.props.initialValue ? this.state.value : this.props.value}
         id={this.props.id}
         disabled={this.props.isDisabled}

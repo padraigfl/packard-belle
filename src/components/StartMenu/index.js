@@ -10,7 +10,7 @@ const StartMenu = (props) => {
   return (
     <Started
       className={
-        classnames('start-menu task-bar__start', className)
+        classnames('start-menu TaskBar__start', className)
       }
       {...otherProps}
     />
