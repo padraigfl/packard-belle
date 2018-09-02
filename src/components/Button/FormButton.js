@@ -2,7 +2,7 @@ import React from 'react';
 import classnames from 'classnames';
 import Button, { commonButtonPropTypes } from './AbstractButton';
 
-import '../../_scss/w98/buttons/btn--form.scss';
+import './_form-button.scss';
 
 const FormButton = props => (
   <Button

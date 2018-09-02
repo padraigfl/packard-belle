@@ -2,7 +2,7 @@ import React from 'react';
 import classnames from 'classnames';
 import Button, { commonButtonPropTypes } from './AbstractButton';
 
-import '../../_scss/w98/buttons/btn--nav.scss';
+import './_nav-button.scss';
 
 const NavButton = props => (
   <Button

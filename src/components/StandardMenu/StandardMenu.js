@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Window from '../Window/WindowFrame';
 import StandardMenuItem from './StandardMenuItem';
-import '../../_scss/w98/menu/index.scss';
+
+import './_standard-menu.scss';
 
 const StandardMenu = props => {
   return (

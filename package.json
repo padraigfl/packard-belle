@@ -9,7 +9,7 @@
     "watch": "rollup -c rollup.config.babel.js -w",
     "storybook": "start-storybook -p 9001 -c .storybook",
     "build": "build-storybook -c .storybook -o .out",
-    "build:css": "node-sass src/_scss/w98/index.scss -o build",
+    "build:css": "node-sass src/_scss/w98_simple.scss -o build",
     "test": "jest --env=jsdom --no-cache --watch",
     "lint": "eslint -c .eslintrc.js --quiet src/*",
     "precommit-build": "npm run build:module && git add build"

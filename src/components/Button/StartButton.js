@@ -2,7 +2,7 @@ import React from 'react';
 import classnames from 'classnames';
 import Button, { commonButtonPropTypes } from './AbstractButton';
 
-import '../../_scss/w98/buttons/btn--start.scss';
+import './_start-button.scss';
 
 const StartButton = props => (
   <Button

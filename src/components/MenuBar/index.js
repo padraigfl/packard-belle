@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Button from '../Button/AbstractButton';
 import withMenuWrapper from '../StandardMenu/withMenuWrapper';
-import '../../_scss/w98/window.scss';
+import './_menu-bar.scss';
 
 const MenuEntry = withMenuWrapper(Button);
 

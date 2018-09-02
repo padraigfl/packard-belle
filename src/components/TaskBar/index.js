@@ -5,7 +5,7 @@ import StartMenu from '../StartMenu';
 import ProgramButton from '../Button/ProgramButton';
 import SmallIconButton from '../Button/SmallIconButton';
 
-import '../../_scss/w98/task-bar.scss';
+import './_task-bar.scss';
 
 const TaskBar = (props) => (
   <div className="task-bar">

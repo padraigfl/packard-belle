@@ -93,7 +93,7 @@ storiesOf('ContextMenu', module)
         Children display handled via CSS :hover
       </p>
       <ContextMenu
-        className="standard-menu--css"
+        className="css"
         options={optionsSample}
       />
       <p>

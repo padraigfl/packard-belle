@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import '../_scss/w98/_theme.scss';
+import '../_scss/w98/theme.scss';
 
 const Theme = props => (
   <div className="w98">

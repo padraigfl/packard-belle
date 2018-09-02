@@ -4,6 +4,8 @@ import classnames from 'classnames';
 import AbstractWindow, { windowProps } from './AbstractWindow';
 import FormButton from '../Button/FormButton';
 
+import './_alert-window.scss';
+
 const AlertWindow = props => (
   <AbstractWindow
     className="window--alert"

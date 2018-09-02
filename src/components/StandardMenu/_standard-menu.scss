@@ -1,0 +1,7 @@
+@import '../../_scss/w98/_menu';
+
+.standard-menu {
+  @include standard-menu('.standard-menu');
+
+  @include standard-menu-css('.standard-menu');
+}

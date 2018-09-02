@@ -1,7 +1,7 @@
 import React from 'react';
 import Toggle from './Toggle';
-import '../../_scss/w98/inputs/toggle.scss';
-import '../../_scss/w98/inputs/checkbox.scss';
+
+import './_checkbox.scss';
 
 const Checkbox = props => (
   <Toggle

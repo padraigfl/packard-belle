@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import '../../_scss/w98/window.scss';
+import './_window-frame.scss';
 
 const WindowFrame = props => (
   <div className={classnames('window', props.className)}>

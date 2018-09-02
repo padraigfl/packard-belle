@@ -1,7 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 import AbstractIcon, { iconProps } from './AbstractIcon';
-import '../../_scss/w98/icons/icon--explorer.scss';
+import './_explorer-icon.scss';
 
 const ExplorerIcon = props => (
   <AbstractIcon

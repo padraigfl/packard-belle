@@ -1,7 +1,8 @@
 
 import React from 'react';
 import Toggle from './Toggle';
-import '../../_scss/w98/inputs/radio.scss';
+
+import './_radio.scss';
 
 const Radio = props => (
   <Toggle

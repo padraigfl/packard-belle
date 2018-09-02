@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Button, { commonButtonPropTypes } from './AbstractButton';
 
-import '../../_scss/w98/buttons/btn--large-icon.scss';
+import './_large-icon-button.scss';
 
 const LargeIconButton = props => (
   <Button

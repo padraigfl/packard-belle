@@ -46,6 +46,7 @@ export default {
   globals: {
     react: 'React',
     'react-dom': 'ReactDOM',
+    clone: 'clone',
     'prop-types': 'PropTypes',
     classnames: 'classnames',
     'react-select': 'ReactSelect',

@@ -1,0 +1,8 @@
+@import '../../_scss/w98/_inputs.scss';
+
+.radio {
+  display: inline-block;
+  input[type='radio'] {
+    @include radio();
+  }
+}

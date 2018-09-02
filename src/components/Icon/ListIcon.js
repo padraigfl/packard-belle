@@ -1,7 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 import AbstractIcon, { iconProps } from './AbstractIcon';
-import '../../_scss/w98/icons/icon--list.scss';
+import './_list-icon.scss';
 
 const ListIcon = props => (
   <AbstractIcon

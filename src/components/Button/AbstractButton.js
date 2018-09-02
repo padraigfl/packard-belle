@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-import '../../_scss/w98/buttons/btn.scss';
+import './_abstract-button.scss';
 
 class AbstractButton extends Component {
   state = {

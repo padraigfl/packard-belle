@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Button, { commonButtonPropTypes } from './AbstractButton';
 
-import '../../_scss/w98/buttons/btn--small-icon.scss';
+import './_small-icon-button.scss';
 
 const NavButton = props => (
   <Button
