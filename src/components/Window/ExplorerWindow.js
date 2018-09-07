@@ -5,7 +5,7 @@ import Window from './AbstractWindow';
 import MenuBar from '../MenuBar';
 import Select from '../Inputs/Select';
 import OptionsList from './OptionsList';
-import './_explorer-window.scss';
+import './styles/ExplorerWindow.scss';
 
 const insertDefaultFooter = (customFooterElements, minimum) => {
   const footer = [...customFooterElements];
@@ -19,7 +19,7 @@ const ExplorerWindow = props => {
   const footer = insertDefaultFooter(props.footer);
   return (
     <Window
-      className={classnames('window--explorer', props.className)}
+      className={classnames('ExplorerWindow window--explorer', props.className)}
       icon={props.icon}
       onClose={props.onClose}
       onMaximize={props.onClose}

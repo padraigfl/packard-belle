@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Button, { commonButtonPropTypes } from './AbstractButton';
 
-import '../../_scss/w98/buttons/btn--program.scss';
+import './styles/ProgramButton.scss';
 
 const ProgramButton = props => (
   <Button
-    className={ classnames('btn--program', props.className) }
+    className={ classnames('ProgramButton', props.className) }
     onClick={ props.onClick }
     isActive={ props.isActive }
     style={ { backgroundImage: `url(${props.icon})`, ...props.style }}

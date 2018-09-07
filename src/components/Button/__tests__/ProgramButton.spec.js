@@ -9,7 +9,7 @@ import AbstractButton from '../AbstractButton';
 describe('ProgramButton', () => {
   it('renders', () => {
     const wrapper = shallow(<ProgramButton />);
-    expect(wrapper.find('.btn--program').length).toBeTruthy();
+    expect(wrapper.find('.ProgramButton').length).toBeTruthy();
   });
 
   it('renders children', () => {

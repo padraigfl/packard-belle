@@ -8,7 +8,7 @@ import StartButton from '../StartButton';
 describe('StartButton', () => {
   it('renders', () => {
     const wrapper = shallow(<StartButton />);
-    expect(wrapper.find('.btn--start').length).toBeTruthy();
+    expect(wrapper.find('.StartButton').length).toBeTruthy();
   });
 
   it('accepts classes passed in', () => {

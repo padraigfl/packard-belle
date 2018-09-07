@@ -1,0 +1,26 @@
+@import '../../../_scss/w98/_window';
+
+.window {
+  &__heading {
+    @include window-heading();
+  }
+  &__icon {
+    @include window-icon();
+  }
+  &__title {
+    @include window-title();
+  }
+  &__close {
+    margin-left: 2px;
+    background-image: url($close);
+  }
+  &__restore {
+    background-image: url($restore);
+  }
+  &__minimize {
+    background-image: url($minimize);
+  }
+  &__maximize {
+    background-image: url($maximize);
+  }
+}

@@ -9,7 +9,7 @@ import AbstractButton from '../AbstractButton';
 describe('LargeIconButton', () => {
   it('renders', () => {
     const wrapper = shallow(<LargeIconButton />);
-    expect(wrapper.find('.btn--large-icon').length).toBeTruthy();
+    expect(wrapper.find('.LargeIconButton').length).toBeTruthy();
   });
 
   it('renders icon', () => {

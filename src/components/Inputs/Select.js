@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import ReactSelect from 'react-select';
-import './_select.scss';
+import './styles/Select.scss';
 
 const DefaultOptionComponent = props => <div {...props} />;
 

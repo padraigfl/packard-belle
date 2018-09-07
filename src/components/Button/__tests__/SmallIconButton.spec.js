@@ -8,7 +8,7 @@ import SmallIconButton from '../SmallIconButton';
 describe('SmallIconButton', () => {
   it('renders', () => {
     const wrapper = shallow(<SmallIconButton />);
-    expect(wrapper.find('.btn--small-icon').length).toBeTruthy();
+    expect(wrapper.find('.SmallIconButton').length).toBeTruthy();
   });
 
   it('renders icon', () => {

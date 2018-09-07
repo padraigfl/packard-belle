@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Button, { commonButtonPropTypes } from './AbstractButton';
 
-import '../../_scss/w98/buttons/btn--small-icon.scss';
+import './styles/SmallIconButton.scss';
 
-const NavButton = props => (
+const SmallIconButton = props => (
   <Button
-    className={ classnames('btn--small-icon', props.className) }
+    className={ classnames('SmallIconButton', props.className) }
     onClick={ props.onClick }
     isDisabled={ props.isDisabled }
     isActive={ props.isActive }
@@ -16,10 +16,10 @@ const NavButton = props => (
   </Button>
 );
 
-NavButton.propTypes = {
+SmallIconButton.propTypes = {
   ...commonButtonPropTypes,
   icon: PropTypes.string,
 };
 
 
-export default NavButton;
+export default SmallIconButton;

@@ -1,0 +1,94 @@
+@import './w98/theme';
+@import './w98/_buttons';
+@import './w98/_menu';
+@import './w98/_icons';
+@import './w98/_task-bar';
+@import './w98/_inputs';
+@import './w98/_window';
+
+.btn--form {
+  @include button-form();
+}
+.btn--large-icon {
+  @include button-large-icon();
+}
+.btn--small-icon {
+  @include button-small-icon();
+}
+.btn--nav {
+  @include button-nav();
+}
+.btn--program {
+  @include button-program();
+}
+.btn--start {
+  @include button-start();
+}
+
+.icon--list {
+  @include icon-list();
+}
+.icon--explorer {
+  @include icon-explorer();
+}
+
+.standard-menu {
+  @include standard-menu('.standard-menu');
+
+  @include standard-menu-css('.standard-menu');
+}
+
+input[type=radio] {
+  @include radio();
+}
+input[type=checkbox] {
+  @include checkbox();
+}
+input[type=text] {
+  @include input-text();
+}
+select[multiple] {
+  @include select-multiple-simple();
+}
+
+.window {
+  @include window-basic();
+  &__heading {
+    @include window-heading();
+  }
+  &__icon {
+    @include window-icon();
+  }
+  &__title {
+    @include window-title();
+  }
+  &__close {
+    margin-left: 2px;
+    background-image: url($close);
+  }
+  &__restore {
+    background-image: url($restore);
+  }
+  &__minimize {
+    background-image: url($minimize);
+  }
+  &__maximize {
+    background-image: url($maximize);
+  }
+
+  &__menu {
+    @include window-menu();
+  }
+
+  section {
+    @include window-settings-section();
+  }
+
+  &--alert {
+    @include window-alert();
+  }
+}
+
+.task-bar {
+  @include task-bar();
+}

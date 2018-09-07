@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import '../../_scss/w98/icons/icon.scss';
 
 class AbstractIcon extends Component {
   state = {
@@ -43,7 +42,7 @@ class AbstractIcon extends Component {
     if (this.props.onContextMenu) {
       this.props.onContextMenu(e);
     }
-    return false;
+    //return false;
   }
 
   render() {

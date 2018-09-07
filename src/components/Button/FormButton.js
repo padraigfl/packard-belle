@@ -2,11 +2,11 @@ import React from 'react';
 import classnames from 'classnames';
 import Button, { commonButtonPropTypes } from './AbstractButton';
 
-import '../../_scss/w98/buttons/btn--form.scss';
+import './styles/FormButton.scss';
 
 const FormButton = props => (
   <Button
-    className={ classnames('btn--form', props.className) }
+    className={ classnames('FormButton', props.className) }
     onClick={ props.onClick }
     isActive={ props.isActive }
     isDisabled={props.isDisabled}

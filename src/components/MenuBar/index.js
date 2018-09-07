@@ -4,18 +4,18 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Button from '../Button/AbstractButton';
 import withMenuWrapper from '../StandardMenu/withMenuWrapper';
-import '../../_scss/w98/window.scss';
+import './MenuBar.scss';
 
 const MenuEntry = withMenuWrapper(Button);
 
 const MenuBar = props => (
-  <menu className="window__menu menu-bar">
+  <menu className="window__menu MenuBar">
     {props.options && (
       props.options.map(section => (
         <MenuEntry
           className={
             classnames(
-              'window__menu__section menu-bar__section',
+              'window__menu__section MenuBar__section',
               props.className
             )
           }

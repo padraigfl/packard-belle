@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import WindowFrame from './WindowFrame';
 import Button from '../Button/NavButton';
 
+import './styles/AbstractWindow.scss';
+
 const StaticWindow = props => (
   <WindowFrame className={props.className}>
     <div className="window__heading">

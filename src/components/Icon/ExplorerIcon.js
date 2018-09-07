@@ -1,7 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 import AbstractIcon, { iconProps } from './AbstractIcon';
-import '../../_scss/w98/icons/icon--explorer.scss';
+import './styles/ExplorerIcon.scss';
 
 const ExplorerIcon = props => (
   <AbstractIcon
@@ -9,7 +9,7 @@ const ExplorerIcon = props => (
     onDoubleClick={ props.onDoubleClick }
     onContextMenu={ props.onContextMenu }
     alt={ props.alt }
-    className={ classnames('icon--explorer', props.className) }
+    className={ classnames('ExplorerIcon', props.className) }
     icon={ props.icon }
     title={ props.title }
   />

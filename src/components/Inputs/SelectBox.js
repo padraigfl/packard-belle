@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import './_select.scss';
+
+import './styles/SelectBox.scss';
 
 const isSelected = (selected, val) => Array.isArray(selected) ?
   selected.some(selectedEntry => selectedEntry === val) : selected === val;
