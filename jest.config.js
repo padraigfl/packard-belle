@@ -1,4 +1,4 @@
-module.exports = {
+module.exports = { // eslint-disable-line
   verbose: true,
   setupTestFrameworkScriptFile: './src/setupTests.js',
   collectCoverageFrom: [
@@ -6,10 +6,10 @@ module.exports = {
   ],
   testEnvironment: 'jsdom',
   transform: {
-    '^.+\\.js?$': 'babel-jest'
+    '^.+\\.js?$': 'babel-jest',
   },
-  testURL: "http://localhost/",
+  testURL: 'http://localhost/',
   moduleNameMapper: {
-    "^.+\\.(css|less|scss)$": "babel-jest"
-  }
+    '^.+\\.(css|less|scss)$': 'babel-jest',
+  },
 };

@@ -10,7 +10,10 @@
     "storybook": "start-storybook -p 9001 -c .storybook",
     "build": "build-storybook -c .storybook -o .out",
     "build:css": "node-sass src/_scss/w98_simple.scss -o build",
-    "test": "jest --env=jsdom --no-cache --watch",
+    "test": "jest --env=jsdom",
+    "test:watch": "jest --env=jsdom --no-cache --watch",
+    "coverage": "jest --env=jsdom --coverage",
+    "coveralls": "npm run coverage | coveralls",
     "lint": "eslint -c .eslintrc.js --quiet src/*",
     "precommit-build": "npm run build:module && git add build"
   },
@@ -27,6 +30,7 @@
   "dependencies": {
     "classnames": "^2.2.6",
     "clone": "^2.1.2",
+    "coveralls": "^3.0.2",
     "prop-types": "^15.6.2",
     "react-select": "^1.2.1"
   },
