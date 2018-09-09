@@ -5,6 +5,27 @@ import LargeIconButton from '../../Button/LargeIconButton';
 import StandardMenu from '../../StandardMenu/StandardMenu';
 import './_options-list.scss';
 
+class OptionsListDropdown extends Component {
+  openList = () => {
+    this.dropdownButton.focus();
+  }
+  render() {
+    return (
+      <div className="options-list__dropdown">
+        <button
+          ref={(btn) => { this.dropdownButton = btn; }}
+          onClick={this.openList}
+          className="options-list__dropdown__button"
+        />
+        <StandardMenu
+          className="options-list__dropdown__list"
+          options={this.props.options}
+        />
+      </div>
+    );
+  }
+}
+
 class OptionsList extends Component {
   static propTypes = {
     options: PropTypes.arrayOf(PropTypes.shape(LargeIconButton.propTypes)),
@@ -23,10 +44,6 @@ class OptionsList extends Component {
     });
   }
 
-  openList = () => {
-    this.dropdownButton.focus();
-  }
-
   render() {
     return (
       <menu
@@ -42,22 +59,9 @@ class OptionsList extends Component {
             isDisabled={!option.onClick}
           />
         ))}
-        <div
-          className={classnames(
-            'options-list__dropdown',
-            { 'options-list__dropdown--empty': this.state.dropdown.length < 1}
-          )}
-        >
-          <button
-            ref={(btn) => { this.dropdownButton = btn; }}
-            onClick={this.openList}
-            className="options-list__dropdown__button"
-          />
-          <StandardMenu
-            className="options-list__dropdown__list"
-            options={this.state.dropdown}
-          />
-        </div>
+        { this.state.dropdown.length > 0 && (
+          <OptionsListDropdown options={this.state.dropdown} />
+        )}
       </menu>
     );
   }

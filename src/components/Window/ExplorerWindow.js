@@ -15,6 +15,30 @@ const insertDefaultFooter = (customFooterElements, minimum) => {
   return footer;
 };
 
+const ExplorerFooter = props => (
+  <footer>
+    { props.entries.map((entry, idx) => (
+      <div
+        key={`${entry}-${idx}`}
+        style={entry.icon && {
+          backgroundImage: `url(${entry.icon})`,
+        }}
+      >
+        {entry.text || ''}
+      </div>
+    ))}
+  </footer>
+);
+
+const footerType = {
+  text: PropTypes.string,
+  icon: PropTypes.string,
+};
+
+ExplorerFooter.propTypes = {
+  entries: PropTypes.arrayOf(PropTypes.shape(footerType)),
+};
+
 const ExplorerWindow = props => {
   const footer = insertDefaultFooter(props.footer);
   return (
@@ -40,33 +64,12 @@ const ExplorerWindow = props => {
         <div className="window--explorer__address__title">Address</div>
         <Select placeholder={<span>Test</span>} isDisabled />
       </menu>
-      <div
-        className="window--explorer__view"
-        style={props.backgroundColor && ({
-          backgroundColor: props.backgroundColor,
-        })}
-      >
+      <div className="window--explorer__view">
         {props.children}
       </div>
-      <footer>
-        { footer.map(entry => (
-          <div
-            key={Math.random()}
-            style={entry.icon && {
-              backgroundImage: `url(${entry.icon})`,
-            }}
-          >
-            {entry.text || ''}
-          </div>
-        ))}
-      </footer>
+      <ExplorerFooter entries={footer} />
     </Window>
   );
-};
-
-const footerType = {
-  text: PropTypes.string,
-  icon: PropTypes.string,
 };
 
 ExplorerWindow.propTypes = {

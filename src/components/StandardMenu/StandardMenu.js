@@ -6,47 +6,39 @@ import StandardMenuItem from './StandardMenuItem';
 
 import './StandardMenu.scss';
 
+const DIVIDER = 'divider';
+
+
+const flattenWithDividers = (options) => options.reduce((acc, val) => {
+  if (!Array.isArray(val)) {
+    acc.push(val);
+  } else {
+    acc = acc.concat([`${DIVIDER}--start`, ...val, `${DIVIDER}--end`]);
+  }
+  return acc;
+}, []);
+
 const StandardMenu = props => {
+  const options = flattenWithDividers(props.options);
   return (
     <Window
-      className={
-        classnames(
-          'StandardMenu',
-          props.className,
-          props.direction,
-          {
-            'StandardMenu--visible': props.isVisible,
-          }
-        )
-      }
+      className={classnames(
+        'StandardMenu', props.className, props.direction,
+        { 'StandardMenu--visible': props.isVisible },
+      )}
     >
-      { props.options.map(option => {
-        if (Array.isArray(option)) {
-          return (
-            <React.Fragment key={`menu-subset-${option[0].title}`}>
-              <div className="divider divider--start"/>
-              {option.map(subOption => (
-                <StandardMenuItem
-                  key={`menu-divider-${subOption.title}`}
-                  {...subOption}
-                  value={[ ...props.value, subOption.title ]}
-                  mouseEnterItem={props.mouseEnterItem}
-                />
-              ))}
-              <div className="divider divider--end"/>
-            </React.Fragment>
-          );
+      { options.map(option => {
+        if (typeof option === 'string' && option.includes(DIVIDER)) {
+          return <div className={`${DIVIDER} ${option}`} />;
         }
-        else {
-          return (
-            <StandardMenuItem
-              key={`StandardMenu-item-${option.title}`}
-              {...option}
-              value={[ ...props.value, option.title ]}
-              mouseEnterItem={props.mouseEnterItem}
-            />
-          );
-        }
+        return (
+          <StandardMenuItem
+            key={`StandardMenu-item-${option.title}`}
+            {...option}
+            value={[ ...props.value, option.title ]}
+            mouseEnterItem={props.mouseEnterItem}
+          />
+        );
       })}
     </Window>
   );
