@@ -28,24 +28,21 @@ const TaskBar = (props) => (
         </div>
       )
     }
-    {
-      props.openWindows && (
-        <div className="TaskBar__programs">
-          {
-            props.openWindows.map(openWindow =>
-              <ProgramButton
-                isActive={ openWindow.isActive }
-                onClick={ openWindow.onClick }
-                icon={ openWindow.icon }
-                key={ `${openWindow.icon}-ProgramButton-${openWindow.title}` }
-              >
-                { openWindow.title }
-              </ProgramButton>
-            )
-          }
-        </div>
-      )
-    }
+    <div className="TaskBar__programs">
+      {
+        props.openWindows &&
+          props.openWindows.map(openWindow =>
+            <ProgramButton
+              isActive={ openWindow.isActive }
+              onClick={ openWindow.onClick }
+              icon={ openWindow.icon }
+              key={ `${openWindow.icon}-ProgramButton-${openWindow.title}` }
+            >
+              { openWindow.title }
+            </ProgramButton>
+          )
+      }
+    </div>
     <Notifiations notifiers={props.notifiers} />
   </div>
 );

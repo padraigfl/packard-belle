@@ -19,6 +19,7 @@ function loadStories() {
   require('./stories/scrollbar.js');
   require('./stories/inputs.js');
   require('./stories/start.js');
+  require('./stories/desktop.js');
 }
 
 configure(loadStories, module);

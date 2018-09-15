@@ -298,7 +298,8 @@ html {
     max-height: 28px;
     width: 100%;
     overflow-y: hidden;
-    display: inline-block; }
+    display: inline-block;
+    z-index: 1; }
   .icon--explorer:focus .icon__text, .icon--explorer:active .icon__text, .icon--explorer:active:focus .icon__text, .icon--explorer.active .icon__text, .icon--explorer.clicked .icon__text {
     max-height: initial; }
 

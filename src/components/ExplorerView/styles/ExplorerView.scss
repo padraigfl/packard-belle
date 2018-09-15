@@ -1,0 +1,16 @@
+.ExplorerView {
+  display: flex;
+  flex-flow: column wrap;
+  height: 100%;
+  width: 100%;
+  align-content: flex-start;
+
+  &--fixed-width {
+    overflow-y: scroll;
+    height: initial;
+  }
+  &--fixed-height {
+    overflow-x: scroll;
+    width: initial;
+  }
+}

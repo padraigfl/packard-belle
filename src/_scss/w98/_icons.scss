@@ -54,6 +54,7 @@
     width: 100%;
     overflow-y: hidden;
     display: inline-block;
+    z-index: 1;
   }
 
   &:focus, &:active, &:active:focus, &.active, &.clicked {

@@ -27,7 +27,7 @@ const StandardMenu = props => {
         { 'StandardMenu--visible': props.isVisible },
       )}
     >
-      { options.map(option => {
+      { options && options.map(option => {
         if (typeof option === 'string' && option.includes(DIVIDER)) {
           return <div className={`${DIVIDER} ${option}`} />;
         }
