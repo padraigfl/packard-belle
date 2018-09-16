@@ -13,6 +13,8 @@ export { default as withStandardMenuWrapper } from './components/StandardMenu/wi
 export { default as ExplorerIcon } from './components/Icon/ExplorerIcon';
 export { default as ListIcon } from './components/Icon/ListIcon';
 
+export { default as ExplorerView } from './components/ExplorerView/ExplorerView';
+
 export { default as Checkbox } from './components/Inputs/Checkbox';
 export { default as Radio } from './components/Inputs/Radio';
 export { default as InputText } from './components/Inputs/InputText';
