@@ -294,14 +294,14 @@ html {
   .icon--explorer .icon__text {
     position: absolute;
     top: 45px;
-    left: 0px;
+    padding: 1px;
     max-height: 28px;
-    width: 100%;
+    max-width: 100%;
     overflow-y: hidden;
-    display: inline-block;
-    z-index: 1; }
+    display: inline-block; }
   .icon--explorer:focus .icon__text, .icon--explorer:active .icon__text, .icon--explorer:active:focus .icon__text, .icon--explorer.active .icon__text, .icon--explorer.clicked .icon__text {
-    max-height: initial; }
+    max-height: initial;
+    z-index: 1; }
 
 .standard-menu {
   display: inline-flex;

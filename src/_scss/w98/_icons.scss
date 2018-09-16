@@ -49,17 +49,17 @@
   .icon__text {
     position: absolute;
     top: 45px;
-    left: 0px;
+    padding: 1px;
     max-height: 28px;
-    width: 100%;
+    max-width: 100%;
     overflow-y: hidden;
     display: inline-block;
-    z-index: 1;
   }
 
   &:focus, &:active, &:active:focus, &.active, &.clicked {
     .icon__text{
       max-height: initial;
+      z-index: 1;
     }
   }
 }
