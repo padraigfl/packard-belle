@@ -5,3 +5,12 @@
 
   @include standard-menu-css('.StandardMenu');
 }
+
+.StandardMenuItem {
+  &--empty {
+    .StandardMenuItem__button {
+      text-shadow: 1px 1px white;
+      text-align: center;
+    }
+  }
+}

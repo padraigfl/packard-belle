@@ -18,6 +18,7 @@ const StandardMenuItem = props => (
     <button
       className={
         classnames(
+          'StandardMenuItem__button',
           'standard-menu__item__button',
           { disabled: props.isDisabled },
         )

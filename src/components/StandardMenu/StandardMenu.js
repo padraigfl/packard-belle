@@ -20,6 +20,7 @@ const flattenWithDividers = (options) => options.reduce((acc, val) => {
 
 const StandardMenu = props => {
   const options = flattenWithDividers(props.options);
+  const hasOptions = Array.isArray(options);
   return (
     <Window
       className={classnames(
@@ -27,19 +28,27 @@ const StandardMenu = props => {
         { 'StandardMenu--visible': props.isVisible },
       )}
     >
-      { options && options.map(option => {
-        if (typeof option === 'string' && option.includes(DIVIDER)) {
-          return <div className={`${DIVIDER} ${option}`} />;
-        }
-        return (
-          <StandardMenuItem
-            key={`StandardMenu-item-${option.title}`}
-            {...option}
-            value={[ ...props.value, option.title ]}
-            mouseEnterItem={props.mouseEnterItem}
-          />
-        );
-      })}
+      { hasOptions && options.length > 0 ? (
+        options.map(option => {
+          if (typeof option === 'string' && option.includes(DIVIDER)) {
+            return <div className={`${DIVIDER} ${option}`} />;
+          }
+          return (
+            <StandardMenuItem
+              key={`StandardMenu-item-${option.title}`}
+              {...option}
+              value={[ ...props.value, option.title ]}
+              mouseEnterItem={props.mouseEnterItem}
+            />
+          );
+        })) : (
+        <StandardMenuItem
+          title="(Empty)"
+          className={'StandardMenuItem--empty'}
+          mouseEnterItem={props.mouseEnterItem}
+          isDisabled
+        />
+      )}
     </Window>
   );
 };

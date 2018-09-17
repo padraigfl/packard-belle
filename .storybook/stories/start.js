@@ -44,6 +44,7 @@ const optionsSample = [
       onClick: noop,
       title: 'Control Panel',
       icon: img,
+      options: [],
     }
   ],
   {

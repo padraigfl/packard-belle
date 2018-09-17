@@ -95,3 +95,4 @@ W98 Toolbar
 - [ ] Redundant CSS clearout
 - [x] ContextMenuWrapper as HOC?
 - [ ] Gradient improvements
+- [ ] Add empty taskbar to core css
