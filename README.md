@@ -1,5 +1,7 @@
 # Packard Belle: A nostalgic component UI
 
+[![Coverage Status](https://coveralls.io/repos/github/padraigfl/packard-belle/badge.svg?branch=master)](https://coveralls.io/github/padraigfl/packard-belle?branch=master) [![Build Status](https://travis-ci.org/padraigfl/packard-belle/badge.svg?branch=master)](https://travis-ci.org/padraigfl/packard-belle?branch=master) [![Maintainability](https://api.codeclimate.com/v1/badges/57fda55403f052a1579b/maintainability)](https://codeclimate.com/github/padraigfl/packard-belle/maintainability)
+
 The primary object of this project is to further my knowledge of various browsers and see how far I can push CSS.
 
 Components previewable at http://packard-belle.herokuapp.com/

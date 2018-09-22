@@ -26,10 +26,6 @@ const withContextLogic = ContextButton => {
       else return null;
     }
 
-    constructor(props) {
-      super(props);
-    }
-
     state = {
       options: this.props.options,
       isActive: this.props.isActive,
@@ -74,39 +70,33 @@ const withContextLogic = ContextButton => {
       }
     }
 
-    handleClick = (e) => {
-      if (this.props.onClick) {
-        this.props.onClick(e);
+    handleEvent = onEvent => (e, newState) => {
+      if (onEvent) {
+        onEvent(e);
       }
-      this.setState({ isOpen: true });
+      if (newState) {
+        this.setState(newState);
+      }
     }
 
-    handleContextMenu = (e) => {
-      if (this.props.onContextMenu) {
-        this.props.onContextMenu(e);
-      }
-      this.setState({ isOpen: true });
-    }
-
-    handleBlur(e) {
-      if(this.props.onBlur) {
-        this.props.onBlur(e);
-      }
-      this.setState({
-        isOpen: false,
-        options: this.props.options,
-      });
-    }
+    handleClick = e => this.handleEvent(this.props.onClick)(e, { isOpen: true });
+    handleContextMenu = e => this.handleEvent(this.props.onContextMenu)(e, { isOpen: true });
+    handleBlur = e => this.handleEvent(this.props.onBlur)(e, { isOpen: false, options: this.props.options });
 
     render() {
       const { options, onClick, ...props } = this.props; //eslint-disable-line
+
+      const renderedMenu = (
+        <StandardMenu
+          options={this.state.options}
+          className="standard-menu__wrapper"
+          mouseEnterItem={(e) => this.mouseEnterItem(e)}
+        />
+      );
+
       if (ContextButton) {
         return (
-          <div
-            className={
-              classnames('standard-menu-wrapper', props.className)
-            }
-          >
+          <div className={classnames('standard-menu-wrapper', props.className)}>
             <ContextButton
               {...props}
               className={classnames({ 'active': this.state.isOpen })}
@@ -116,21 +106,11 @@ const withContextLogic = ContextButton => {
             >
               { props.children }
             </ContextButton>
-            <StandardMenu
-              options={this.state.options}
-              className="standard-menu__wrapper"
-              mouseEnterItem={(e) => this.mouseEnterItem(e)}
-            />
+            { renderedMenu }
           </div>
         );
       }
-      return (
-        <StandardMenu
-          options={this.state.options}
-          className="standard-menu__wrapper"
-          mouseEnterItem={(e) => this.mouseEnterItem(e)}
-        />
-      );
+      return renderedMenu;
     }
   };
 };

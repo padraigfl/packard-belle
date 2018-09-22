@@ -420,38 +420,36 @@
   var css$9 = ".StandardMenu {\n  display: inline-flex;\n  flex-direction: column;\n  word-wrap: none;\n  white-space: nowrap;\n  text-overflow: clip; }\n  .StandardMenu > div {\n    position: relative; }\n    .StandardMenu > div > .window {\n      position: absolute;\n      visibility: hidden;\n      width: auto;\n      transition: max-width cubic-bezier(0.38, 0.01, 0, 1) 200ms, max-height cubic-bezier(0.38, 0.01, 0, 1) 200ms; }\n    .StandardMenu > div.active > .window {\n      width: auto;\n      visibility: visible; }\n    .StandardMenu > div > .window {\n      left: calc(100%  - 3px);\n      top: -3px;\n      max-width: 0%; }\n    .StandardMenu > div:hover > .window, .StandardMenu > div.active > .window {\n      max-width: 400%; }\n    .StandardMenu > div > button {\n      position: relative;\n      display: block;\n      width: 100%;\n      padding: 0px 20px 0px 20px;\n      text-align: left;\n      background-repeat: no-repeat;\n      background-size: 16px;\n      background-position: 3px center;\n      background-color: rgba(0, 0, 0, 0);\n      border: none;\n      outline: none;\n      height: 20px; }\n      .StandardMenu > div > button:before {\n        content: '';\n        position: absolute;\n        left: 0px;\n        top: 0px;\n        height: 16px;\n        width: 16px;\n        background-repeat: no-repeat;\n        background-position: center; }\n      .StandardMenu > div > button .StandardMenu__item__text {\n        padding: 0px 20px 0px 0px; }\n      .StandardMenu > div > button:disabled, .StandardMenu > div > button.disabled {\n        color: #808088; }\n      .StandardMenu > div > button:not(:only-child):after {\n        content: '';\n        position: absolute;\n        background-image: url(\"data:image/gif;base64,R0lGODlhBAAHAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAEAAcAAAIIhA4maeyrlCgAOw==\");\n        top: 0px;\n        left: 0px;\n        height: 100%;\n        width: calc(100% - 8px);\n        background-position: right center;\n        background-repeat: no-repeat; }\n    .StandardMenu > div.radio-selected > button:before {\n      background-image: url(\"data:image/gif;base64,R0lGODlhBgAGAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAGAAYAAAIIFA6Gy816RAEAOw==\"); }\n    .StandardMenu > div.checked > button:before {\n      background-image: url(\"data:image/gif;base64,R0lGODlhBwAHAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAHAAcAAAIMlA9nwMj9xGuLIlUAADs=\"); }\n    .StandardMenu > div.checked.disabled > button:before {\n      background-image: url(\"data:image/gif;base64,R0lGODlhBwAHAJEAAAAAAP///5mZmf///yH5BAEAAAMALAAAAAAHAAcAAAIMnC9nwsj9xmuLIlUAADs=\"); }\n    .StandardMenu > div:hover, .StandardMenu > div:active, .StandardMenu > div:focus, .StandardMenu > div:active:focus, .StandardMenu > div.active, .StandardMenu > div.clicked {\n      color: white; }\n      .StandardMenu > div:hover > button:not(.disabled), .StandardMenu > div:active > button:not(.disabled), .StandardMenu > div:focus > button:not(.disabled), .StandardMenu > div:active:focus > button:not(.disabled), .StandardMenu > div.active > button:not(.disabled), .StandardMenu > div.clicked > button:not(.disabled) {\n        color: white;\n        background-color: #0000a2; }\n        .StandardMenu > div:hover > button:not(.disabled):not(:only-child):after, .StandardMenu > div:active > button:not(.disabled):not(:only-child):after, .StandardMenu > div:focus > button:not(.disabled):not(:only-child):after, .StandardMenu > div:active:focus > button:not(.disabled):not(:only-child):after, .StandardMenu > div.active > button:not(.disabled):not(:only-child):after, .StandardMenu > div.clicked > button:not(.disabled):not(:only-child):after {\n          background-image: url(\"data:image/gif;base64,R0lGODlhBAAHAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAEAAcAAAIIjB4maeyrlCgAOw==\"); }\n  .StandardMenu > div:empty {\n    position: relative;\n    width: 95%;\n    margin: 2px auto;\n    border-top: 1px solid #808088;\n    border-bottom: 1px solid white;\n    display: none; }\n  .StandardMenu > div:not(:empty) + div:empty:not(:last-child):not(:first-child) {\n    display: block; }\n  .StandardMenu.css div__sub-menu--top > .window {\n    position: absolute;\n    visibility: hidden;\n    width: auto;\n    transition: max-width cubic-bezier(0.38, 0.01, 0, 1) 200ms, max-height cubic-bezier(0.38, 0.01, 0, 1) 200ms; }\n  .StandardMenu.css div__sub-menu--top.active > .window {\n    width: auto;\n    visibility: visible; }\n  .StandardMenu.css div__sub-menu--top > .window {\n    bottom: calc(100% + $windowPadding);\n    left: 0px;\n    height: 0px;\n    max-height: 0%;\n    max-width: 100%; }\n  .StandardMenu.css div__sub-menu--top:hover > .window, .StandardMenu.css div__sub-menu--top.active > .window {\n    height: initial;\n    max-height: 100%; }\n  .StandardMenu.css div__sub-menu--bottom > .window {\n    position: absolute;\n    visibility: hidden;\n    width: auto;\n    transition: max-width cubic-bezier(0.38, 0.01, 0, 1) 200ms, max-height cubic-bezier(0.38, 0.01, 0, 1) 200ms; }\n  .StandardMenu.css div__sub-menu--bottom.active > .window {\n    width: auto;\n    visibility: visible; }\n  .StandardMenu.css div__sub-menu--bottom > .window {\n    top: calc(100% + $windowPadding);\n    left: 0px;\n    max-height: 0%;\n    max-width: 100%; }\n  .StandardMenu.css div__sub-menu--bottom:hover > .window, .StandardMenu.css div__sub-menu--bottom.active > .window {\n    height: initial;\n    max-height: 100%; }\n  .StandardMenu.css div__sub-menu--left > .window {\n    position: absolute;\n    visibility: hidden;\n    width: auto;\n    transition: max-width cubic-bezier(0.38, 0.01, 0, 1) 200ms, max-height cubic-bezier(0.38, 0.01, 0, 1) 200ms; }\n  .StandardMenu.css div__sub-menu--left.active > .window {\n    width: auto;\n    visibility: visible; }\n  .StandardMenu.css div__sub-menu--left > .window {\n    left: -100%;\n    top: -3px;\n    max-width: 0%; }\n  .StandardMenu.css div__sub-menu--left:hover > .window, .StandardMenu.css div__sub-menu--left.active > .window {\n    max-width: 100%; }\n  .StandardMenu.css div:active, .StandardMenu.css div .active {\n    display: none; }\n  .StandardMenu.css div:hover > .window {\n    width: auto;\n    visibility: visible;\n    display: block; }\n";
   styleInject(css$9);
 
+  var DIVIDER = 'divider';
+
+  var flattenWithDividers = function flattenWithDividers(options) {
+    return options.reduce(function (acc, val) {
+      if (!Array.isArray(val)) {
+        acc.push(val);
+      } else {
+        acc = acc.concat([DIVIDER + '--start'].concat(toConsumableArray(val), [DIVIDER + '--end']));
+      }
+      return acc;
+    }, []);
+  };
+
   var StandardMenu = function StandardMenu(props) {
+    var options = flattenWithDividers(props.options);
     return React__default.createElement(
       WindowFrame,
       {
-        className: classnames('StandardMenu', props.className, props.direction, {
-          'StandardMenu--visible': props.isVisible
-        })
+        className: classnames('StandardMenu', props.className, props.direction, { 'StandardMenu--visible': props.isVisible })
       },
-      props.options.map(function (option) {
-        if (Array.isArray(option)) {
-          return React__default.createElement(
-            React__default.Fragment,
-            { key: 'menu-subset-' + option[0].title },
-            React__default.createElement('div', { className: 'divider divider--start' }),
-            option.map(function (subOption) {
-              return React__default.createElement(StandardMenuItem, _extends({
-                key: 'menu-divider-' + subOption.title
-              }, subOption, {
-                value: [].concat(toConsumableArray(props.value), [subOption.title]),
-                mouseEnterItem: props.mouseEnterItem
-              }));
-            }),
-            React__default.createElement('div', { className: 'divider divider--end' })
-          );
-        } else {
-          return React__default.createElement(StandardMenuItem, _extends({
-            key: 'StandardMenu-item-' + option.title
-          }, option, {
-            value: [].concat(toConsumableArray(props.value), [option.title]),
-            mouseEnterItem: props.mouseEnterItem
-          }));
+      options.map(function (option) {
+        if (typeof option === 'string' && option.includes(DIVIDER)) {
+          return React__default.createElement('div', { className: DIVIDER + ' ' + option });
         }
+        return React__default.createElement(StandardMenuItem, _extends({
+          key: 'StandardMenu-item-' + option.title
+        }, option, {
+          value: [].concat(toConsumableArray(props.value), [option.title]),
+          mouseEnterItem: props.mouseEnterItem
+        }));
       })
     );
   };
@@ -472,54 +470,46 @@
   StandardMenu.propTypes = standardMenuProps;
 
   var withContextLogic = function withContextLogic(ContextButton) {
-    var _class, _temp;
+    var _class, _temp2;
 
-    return _temp = _class = function (_Component) {
+    return _temp2 = _class = function (_Component) {
       inherits(StandardMenuSimple, _Component);
-      createClass(StandardMenuSimple, null, [{
-        key: 'getDerivedStateFromProps',
-        value: function getDerivedStateFromProps(nextProps, prevState) {
-          if (nextProps.isActive !== prevState.isActive) {
-            return {
-              options: nextProps.options,
-              isActive: nextProps.isActive
-            };
-          } else return null;
-        }
-      }]);
 
-      function StandardMenuSimple(props) {
+      function StandardMenuSimple() {
+        var _ref;
+
+        var _temp, _this, _ret;
+
         classCallCheck(this, StandardMenuSimple);
 
-        var _this = possibleConstructorReturn(this, (StandardMenuSimple.__proto__ || Object.getPrototypeOf(StandardMenuSimple)).call(this, props));
+        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+          args[_key] = arguments[_key];
+        }
 
-        _this.state = {
+        return _ret = (_temp = (_this = possibleConstructorReturn(this, (_ref = StandardMenuSimple.__proto__ || Object.getPrototypeOf(StandardMenuSimple)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
           options: _this.props.options,
           isActive: _this.props.isActive
-        };
-
-        _this.mouseEnterItem = function (e) {
+        }, _this.mouseEnterItem = function (e) {
           if (e.target.value) {
             var newOptions = _this.updateActive(e.target.value.split(','), clone(_this.props.options), 0);
             _this.setState({ options: newOptions });
           }
-        };
-
-        _this.handleClick = function (e) {
-          if (_this.props.onClick) {
-            _this.props.onClick(e);
-          }
-          _this.setState({ isOpen: true });
-        };
-
-        _this.handleContextMenu = function (e) {
-          if (_this.props.onContextMenu) {
-            _this.props.onContextMenu(e);
-          }
-          _this.setState({ isOpen: true });
-        };
-
-        return _this;
+        }, _this.handleEvent = function (onEvent) {
+          return function (e, newState) {
+            if (onEvent) {
+              onEvent(e);
+            }
+            if (newState) {
+              _this.setState(newState);
+            }
+          };
+        }, _this.handleClick = function (e) {
+          return _this.handleEvent(_this.props.onClick)(e, { isOpen: true });
+        }, _this.handleContextMenu = function (e) {
+          return _this.handleEvent(_this.props.onContextMenu)(e, { isOpen: true });
+        }, _this.handleBlur = function (e) {
+          return _this.handleEvent(_this.props.onBlur)(e, { isOpen: false, options: _this.props.options });
+        }, _temp), possibleConstructorReturn(_this, _ret);
       }
 
       createClass(StandardMenuSimple, [{
@@ -554,17 +544,6 @@
           return newOptions;
         }
       }, {
-        key: 'handleBlur',
-        value: function handleBlur(e) {
-          if (this.props.onBlur) {
-            this.props.onBlur(e);
-          }
-          this.setState({
-            isOpen: false,
-            options: this.props.options
-          });
-        }
-      }, {
         key: 'render',
         value: function render() {
           var _this3 = this;
@@ -574,12 +553,18 @@
               onClick = _props.onClick,
               props = objectWithoutProperties(_props, ['options', 'onClick']); //eslint-disable-line
 
+          var renderedMenu = React__default.createElement(StandardMenu, {
+            options: this.state.options,
+            className: 'standard-menu__wrapper',
+            mouseEnterItem: function mouseEnterItem(e) {
+              return _this3.mouseEnterItem(e);
+            }
+          });
+
           if (ContextButton) {
             return React__default.createElement(
               'div',
-              {
-                className: classnames('standard-menu-wrapper', props.className)
-              },
+              { className: classnames('standard-menu-wrapper', props.className) },
               React__default.createElement(
                 ContextButton,
                 _extends({}, props, {
@@ -596,22 +581,20 @@
                 }),
                 props.children
               ),
-              React__default.createElement(StandardMenu, {
-                options: this.state.options,
-                className: 'standard-menu__wrapper',
-                mouseEnterItem: function mouseEnterItem(e) {
-                  return _this3.mouseEnterItem(e);
-                }
-              })
+              renderedMenu
             );
           }
-          return React__default.createElement(StandardMenu, {
-            options: this.state.options,
-            className: 'standard-menu__wrapper',
-            mouseEnterItem: function mouseEnterItem(e) {
-              return _this3.mouseEnterItem(e);
-            }
-          });
+          return renderedMenu;
+        }
+      }], [{
+        key: 'getDerivedStateFromProps',
+        value: function getDerivedStateFromProps(nextProps, prevState) {
+          if (nextProps.isActive !== prevState.isActive) {
+            return {
+              options: nextProps.options,
+              isActive: nextProps.isActive
+            };
+          } else return null;
         }
       }]);
       return StandardMenuSimple;
@@ -621,7 +604,7 @@
       onClick: PropTypes.func,
       onBlur: PropTypes.func,
       onContextMenu: PropTypes.func
-    }), _temp;
+    }), _temp2;
   };
 
   var AbstractIcon = function (_Component) {
@@ -1463,26 +1446,68 @@
   var css$l = ".options-list__dropdown {\n  position: absolute;\n  right: 2px;\n  top: 2px;\n  height: calc(100% - 4px); }\n  .options-list__dropdown--empty {\n    display: none; }\n  .options-list__dropdown__button {\n    height: 100%;\n    border: none;\n    background-color: #bbc3c4;\n    background-image: url(\"data:image/gif;base64,R0lGODlhCAAFAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAIAAUAAAIKBCSGebzqoJKtAAA7\");\n    background-repeat: no-repeat;\n    background-position: 2px 3px;\n    padding: 0px 6px;\n    font-size: 0.70rem;\n    user-select: none;\n    letter-spacing: -2px;\n    display: flex;\n    flex-direction: column; }\n    .options-list__dropdown__button:hover {\n      box-shadow: inset -1px -1px 0px #808088, inset 1px 1px 0px white; }\n    .options-list__dropdown__button:active, .options-list__dropdown__button:focus, .options-list__dropdown__button:active:focus {\n      background-position: 3px 4px;\n      box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px #808088; }\n      .options-list__dropdown__button:active + .options-list__dropdown__list, .options-list__dropdown__button:focus + .options-list__dropdown__list, .options-list__dropdown__button:active:focus + .options-list__dropdown__list {\n        position: absolute;\n        top: 100%;\n        right: 0px;\n        display: block;\n        z-index: 10; }\n    .options-list__dropdown__button:active, .options-list__dropdown__button:focus, .options-list__dropdown__button:active:focus {\n      outline: none; }\n  .options-list__dropdown .options-list__dropdown__list {\n    display: none; }\n";
   styleInject(css$l);
 
-  var OptionsList = function (_Component) {
-    inherits(OptionsList, _Component);
+  var OptionsListDropdown = function (_Component) {
+    inherits(OptionsListDropdown, _Component);
 
-    function OptionsList() {
+    function OptionsListDropdown() {
       var _ref;
 
       var _temp, _this, _ret;
 
-      classCallCheck(this, OptionsList);
+      classCallCheck(this, OptionsListDropdown);
 
       for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
         args[_key] = arguments[_key];
       }
 
-      return _ret = (_temp = (_this = possibleConstructorReturn(this, (_ref = OptionsList.__proto__ || Object.getPrototypeOf(OptionsList)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
-        displayedIcons: [],
-        dropdown: []
-      }, _this.openList = function () {
+      return _ret = (_temp = (_this = possibleConstructorReturn(this, (_ref = OptionsListDropdown.__proto__ || Object.getPrototypeOf(OptionsListDropdown)).call.apply(_ref, [this].concat(args))), _this), _this.openList = function () {
         _this.dropdownButton.focus();
       }, _temp), possibleConstructorReturn(_this, _ret);
+    }
+
+    createClass(OptionsListDropdown, [{
+      key: 'render',
+      value: function render() {
+        var _this2 = this;
+
+        return React__default.createElement(
+          'div',
+          { className: 'options-list__dropdown' },
+          React__default.createElement('button', {
+            ref: function ref(btn) {
+              _this2.dropdownButton = btn;
+            },
+            onClick: this.openList,
+            className: 'options-list__dropdown__button'
+          }),
+          React__default.createElement(StandardMenu, {
+            className: 'options-list__dropdown__list',
+            options: this.props.options
+          })
+        );
+      }
+    }]);
+    return OptionsListDropdown;
+  }(React.Component);
+
+  var OptionsList = function (_Component2) {
+    inherits(OptionsList, _Component2);
+
+    function OptionsList() {
+      var _ref2;
+
+      var _temp2, _this3, _ret2;
+
+      classCallCheck(this, OptionsList);
+
+      for (var _len2 = arguments.length, args = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
+        args[_key2] = arguments[_key2];
+      }
+
+      return _ret2 = (_temp2 = (_this3 = possibleConstructorReturn(this, (_ref2 = OptionsList.__proto__ || Object.getPrototypeOf(OptionsList)).call.apply(_ref2, [this].concat(args))), _this3), _this3.state = {
+        displayedIcons: [],
+        dropdown: []
+      }, _temp2), possibleConstructorReturn(_this3, _ret2);
     }
 
     createClass(OptionsList, [{
@@ -1497,13 +1522,13 @@
     }, {
       key: 'render',
       value: function render() {
-        var _this2 = this;
+        var _this4 = this;
 
         return React__default.createElement(
           'menu',
           {
             ref: function ref(section) {
-              _this2.section = section;
+              _this4.section = section;
             },
             className: classnames(this.props.className, 'options-list')
           },
@@ -1516,23 +1541,7 @@
               isDisabled: !option.onClick
             });
           }),
-          React__default.createElement(
-            'div',
-            {
-              className: classnames('options-list__dropdown', { 'options-list__dropdown--empty': this.state.dropdown.length < 1 })
-            },
-            React__default.createElement('button', {
-              ref: function ref(btn) {
-                _this2.dropdownButton = btn;
-              },
-              onClick: this.openList,
-              className: 'options-list__dropdown__button'
-            }),
-            React__default.createElement(StandardMenu, {
-              className: 'options-list__dropdown__list',
-              options: this.state.dropdown
-            })
-          )
+          this.state.dropdown.length > 0 && React__default.createElement(OptionsListDropdown, { options: this.state.dropdown })
         );
       }
     }]);
@@ -1553,6 +1562,34 @@
       footer[i] = footer[i] || { text: '' };
     }
     return footer;
+  };
+
+  var ExplorerFooter = function ExplorerFooter(props) {
+    return React__default.createElement(
+      'footer',
+      null,
+      props.entries.map(function (entry, idx) {
+        return React__default.createElement(
+          'div',
+          {
+            key: entry + '-' + idx,
+            style: entry.icon && {
+              backgroundImage: 'url(' + entry.icon + ')'
+            }
+          },
+          entry.text || ''
+        );
+      })
+    );
+  };
+
+  var footerType = {
+    text: PropTypes.string,
+    icon: PropTypes.string
+  };
+
+  ExplorerFooter.propTypes = {
+    entries: PropTypes.arrayOf(PropTypes.shape(footerType))
   };
 
   var ExplorerWindow = function ExplorerWindow(props) {
@@ -1591,36 +1628,11 @@
       ),
       React__default.createElement(
         'div',
-        {
-          className: 'window--explorer__view',
-          style: props.backgroundColor && {
-            backgroundColor: props.backgroundColor
-          }
-        },
+        { className: 'window--explorer__view' },
         props.children
       ),
-      React__default.createElement(
-        'footer',
-        null,
-        footer.map(function (entry) {
-          return React__default.createElement(
-            'div',
-            {
-              key: Math.random(),
-              style: entry.icon && {
-                backgroundImage: 'url(' + entry.icon + ')'
-              }
-            },
-            entry.text || ''
-          );
-        })
-      )
+      React__default.createElement(ExplorerFooter, { entries: footer })
     );
-  };
-
-  var footerType = {
-    text: PropTypes.string,
-    icon: PropTypes.string
   };
 
   ExplorerWindow.propTypes = _extends({}, StaticWindow.propTypes, {
