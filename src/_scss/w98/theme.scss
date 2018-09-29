@@ -2,10 +2,15 @@
 @import './var/colors';
 @import './mixins/box-shadows';
 @import './var/uris';
+@import './var/fontBackup';
 
 @font-face {
   font-family: 'MSFont';
-  src: url(./fonts/ms98s11a10d02.ttf);
+  src: url($ms11);
+}
+@font-face {
+  font-family: 'MSFont11';
+  src: url('./fonts//ms98s11a10d02.ttf');
 }
 
 @mixin scrollbar-button-shadowing {
@@ -29,7 +34,7 @@ html{
   }
 
   * {
-    font-family: 'MSFont', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'MSFont', 'MSFont11', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
 
   width: 200px;

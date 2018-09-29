@@ -22,11 +22,9 @@ export default {
   ],
 
   plugins: [
-    postcss(
-      // {
-      //   modules: true,
-      // }
-    ),
+    postcss({
+      // modules: true,
+    }),
     resolve({
       extensions: [ '.mjs', '.js', '.json', '.node', '.ttf'],
     }),
