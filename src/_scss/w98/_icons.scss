@@ -43,14 +43,14 @@
   .icon__icon {
     width: 42px;
     height: 42px;
-    margin: 0 auto;
+    margin: 0 3px;
   }
 
   .icon__text {
     position: absolute;
     top: 45px;
-    padding: 1px;
-    max-height: 28px;
+    padding: 2px 6px 0px;
+    max-height: 21px;
     max-width: 100%;
     overflow-y: hidden;
     display: inline-block;
@@ -58,6 +58,7 @@
 
   &:focus, &:active, &:active:focus, &.active, &.clicked {
     .icon__text{
+      padding: 2px 6px 2px;
       max-height: initial;
       z-index: 1;
     }

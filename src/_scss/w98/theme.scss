@@ -6,11 +6,11 @@
 
 @font-face {
   font-family: 'MSFont';
-  src: url($ms11);
+  src: url($ms11) format('woff2');
 }
 @font-face {
   font-family: 'MSFont11';
-  src: url('./fonts//ms98s11a10d02.ttf');
+  src: url('./fonts/ms98s11a10d02.ttf') format('woff2');
 }
 
 @mixin scrollbar-button-shadowing {

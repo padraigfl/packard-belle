@@ -5,6 +5,7 @@ $w98-text: 'data:image/gif;base64,R0lGODlhDgBkALMAAAAAAP///wIAsZKSmZKTmpGSmZKTmc
 
 @mixin task-bar($classname: 'task-bar') {
   position: fixed;
+  background-color: $grey;
   bottom: 0px;
   left: 0px;
   width: 100%;
