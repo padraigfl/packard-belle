@@ -28,7 +28,7 @@ export { default as StartMenu } from './components/StartMenu';
 
 export { default as TaskBar } from './components/TaskBar';
 
-export { default as AbstractWindow } from './components/Window/AbstractWindow';
+export { default as Window } from './components/Window/AbstractWindow';
 export { default as ExplorerWindow } from './components/Window/ExplorerWindow';
 export { default as WindowFrame } from './components/Window/WindowFrame';
 export { default as DetailsSection } from './components/Window/DetailsSection';

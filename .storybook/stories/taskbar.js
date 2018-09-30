@@ -4,6 +4,11 @@ import Notifications from '../../src/components/TaskBar/Notifications';
 import TaskBar from '../../src/components/TaskBar';
 import img from './directory_closed.png';
 
+
+const noop = () => {
+  console.log('run')
+};
+
 const optionsSample = [
   {
     onClick: noop,
@@ -57,10 +62,6 @@ const optionsSample = [
     icon: img,
   },
 ];
-
-const noop = () => {
-  console.log('run')
-};
 
 storiesOf('TaskBar', module)
   .add('TaskBar', () => (

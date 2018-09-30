@@ -27,7 +27,7 @@ describe('MenuBar', () => {
     const options = menuOptions(func);
     const wrapper = mount(<MenuBar className="MenuBar" options={options} />);
     expect(wrapper.find('.testButton').length).toBeTruthy();
-    wrapper.find('.testButton').at(0).find('button').at(0).simulate('click');
+    wrapper.find('.testButton').at(0).find('button').at(0).simulate('mousedown');
     expect(func).toHaveBeenCalled();
   });
 });

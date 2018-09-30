@@ -747,16 +747,22 @@ select[multiple] {
           background-position: 4px center; }
         .task-bar__start > button + div > div .window {
           display: none; }
-    .task-bar__start > button:active, .task-bar__start > button:focus, .task-bar__start > button:active:focus, .task-bar__start > button.active, .task-bar__start > button.clicked {
+    .task-bar__start > button.active, .task-bar__start > button.clicked, .task-bar__start > button:active, .task-bar__start > button:focus, .task-bar__start > button:active:focus {
       background-position: 3px 2px;
       outline: 1px dotted black;
       outline-offset: -4px; }
-      .task-bar__start > button:active + div, .task-bar__start > button:focus + div, .task-bar__start > button:active:focus + div, .task-bar__start > button.active + div, .task-bar__start > button.clicked + div {
+      .task-bar__start > button.active + div, .task-bar__start > button.clicked + div, .task-bar__start > button:active + div, .task-bar__start > button:focus + div, .task-bar__start > button:active:focus + div {
         visibility: visible;
         max-height: 100vh;
         padding: 3px; }
-        .task-bar__start > button:active + div div, .task-bar__start > button:focus + div div, .task-bar__start > button:active:focus + div div, .task-bar__start > button.active + div div, .task-bar__start > button.clicked + div div {
+        .task-bar__start > button.active + div div, .task-bar__start > button.clicked + div div, .task-bar__start > button:active + div div, .task-bar__start > button:focus + div div, .task-bar__start > button:active:focus + div div {
           display: flex; }
+    .task-bar__start.active > div {
+      visibility: visible;
+      max-height: 100vh;
+      padding: 3px; }
+      .task-bar__start.active > div div {
+        display: flex; }
   .task-bar__notifications {
     background-color: #bbc3c4;
     display: flex;

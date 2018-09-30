@@ -383,7 +383,7 @@
         'button',
         {
           className: classnames('StandardMenuItem__button', 'standard-menu__item__button', { disabled: props.isDisabled }),
-          onClick: props.onClick,
+          onMouseDown: props.onClick,
           style: props.icon ? { backgroundImage: 'url(\'' + props.icon + '\')' } : undefined,
           value: props.value,
           disabled: props.isDisabled
@@ -494,7 +494,8 @@
 
         return _ret = (_temp = (_this = possibleConstructorReturn(this, (_ref = StandardMenuSimple.__proto__ || Object.getPrototypeOf(StandardMenuSimple)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
           options: _this.props.options,
-          isActive: _this.props.isActive
+          isActive: _this.props.isActive,
+          isOpen: false
         }, _this.mouseEnterItem = function (e) {
           if (e.target.value) {
             var newOptions = _this.updateActive(e.target.value.split(','), clone(_this.props.options), 0);
@@ -510,7 +511,8 @@
             }
           };
         }, _this.handleClick = function (e) {
-          return _this.handleEvent(_this.props.onClick)(e, { isOpen: true });
+          _this.el.focus();
+          _this.handleEvent(_this.props.onClick)(e, { isOpen: true });
         }, _this.handleContextMenu = function (e) {
           return _this.handleEvent(_this.props.onContextMenu)(e, { isOpen: true });
         }, _this.handleBlur = function (e) {
@@ -564,28 +566,38 @@
             className: 'standard-menu__wrapper',
             mouseEnterItem: function mouseEnterItem(e) {
               return _this3.mouseEnterItem(e);
-            }
+            },
+            closeOnClick: this.closeOnClick
           });
 
           if (ContextButton) {
+            var _props3 = this.props,
+                className = _props3.className,
+                onContextMenu = _props3.onContextMenu,
+                _props2 = objectWithoutProperties(_props3, ['className', 'onContextMenu']);
+
             return React__default.createElement(
               'div',
-              { className: classnames('standard-menu-wrapper', props.className) },
+              {
+                ref: function ref(el) {
+                  _this3.el = el;
+                },
+                className: classnames('standard-menu-wrapper', className, { 'active': this.state.isOpen }),
+                onBlur: function onBlur(e) {
+                  return _this3.handleBlur(e);
+                },
+                onClick: !onContextMenu && function (e) {
+                  return _this3.handleClick(e);
+                }
+              },
               React__default.createElement(
                 ContextButton,
-                _extends({}, props, {
-                  className: classnames({ 'active': this.state.isOpen }),
-                  onBlur: function onBlur(e) {
-                    return _this3.handleBlur(e);
-                  },
-                  onClick: !this.props.onContextMenu && function (e) {
-                    return _this3.handleClick(e);
-                  },
+                _extends({}, _props2, {
                   onContextMenu: this.props.onContextMenu && function (e) {
                     return _this3.handleContextMenu(e);
                   }
                 }),
-                props.children
+                _props2.children
               ),
               renderedMenu
             );
@@ -1379,7 +1391,7 @@
     notifiers: []
   };
 
-  var css$k = ".TaskBar {\n  position: fixed;\n  background-color: #bbc3c4;\n  bottom: 0px;\n  left: 0px;\n  width: 100%;\n  max-width: 100%;\n  z-index: 10;\n  box-shadow: 0px -1px 0px white;\n  padding: 2px 0px;\n  display: flex; }\n  .TaskBar > div, .TaskBar > button {\n    position: relative;\n    height: 22px;\n    margin: 0px 2px; }\n  .TaskBar > div:not(:last-child) {\n    padding: 0px 6px; }\n    .TaskBar > div:not(:last-child):first-child {\n      padding: 0px 3px 0px 0px; }\n    .TaskBar > div:not(:last-child):after {\n      position: absolute;\n      top: 1px;\n      right: 0px;\n      height: calc(100% - 2px);\n      width: 1px;\n      background-color: #808088;\n      content: '';\n      box-shadow: 1px 0px 0px white; }\n    .TaskBar > div:not(:last-child):before {\n      position: absolute;\n      top: 3px;\n      right: -6px;\n      height: calc(100% - 6px);\n      width: 3px;\n      background-color: #bbc3c4;\n      content: '';\n      box-shadow: inset -1px -1px 0px #808088, inset 1px 1px 0px white; }\n  .TaskBar__programs {\n    display: flex;\n    flex-grow: 1;\n    flex-shrink: 1;\n    flex-wrap: nowrap;\n    margin-right: 4px;\n    min-width: 42px; }\n    .TaskBar__programs:before {\n      display: none; }\n  .TaskBar__start {\n    position: relative; }\n    .TaskBar__start > button + div {\n      transition: max-height linear 200ms;\n      position: fixed;\n      bottom: 25px;\n      left: 2px;\n      visibility: hidden;\n      max-height: 0px;\n      padding-left: 22px; }\n      .TaskBar__start > button + div > .divider, .TaskBar__start > button + div > div:empty {\n        margin-left: 24px;\n        width: calc(100% - 26px); }\n      .TaskBar__start > button + div:after {\n        content: '';\n        display: block;\n        position: absolute;\n        left: 3px;\n        top: 3px;\n        height: calc(100% - 6px);\n        width: 20px;\n        background: #0000a2;\n        background: linear-gradient(#0000a2, #126fc2);\n        background: url(\"data:image/gif;base64,R0lGODlhDgBkALMAAAAAAP///wIAsZKSmZKTmpGSmZKTmcjOz8fNzsfOz8fOzv///wAAAAAAAAAAAAAAACH5BAEAAAsALAAAAAAOAGQAAAT/cMk5SUo06CO179wSGEowgEOQBcRUEuqkUaIRd/cCwyvFzyJNS3JQ2Tyt0QLBklgwEqZGQasShr4DQhuilDxgRCWAINgIAkIxFoB2DDJWbmGb2Oq0nJx2dqoCXUEuKl8GMCZRSjpgWAdYEydVkhMJQlVkQR8UTFRgQDhiHkc9QRyfRwRSV5+ZH1KbnodzjEGPCAYFcBIJj5mOk61IkgZSnpKVxpSeYCuegTjCw8Uev1bLPkfXccuY29SSGgmRky2p4b2Jnm5+3LrQ3CsY5Wuk9ZlwcJrv2uzLvWthJgH0cWVAKkMGBjhKws1YQ4cPP1wxUETclUPuBOXRY4mOvmDJafaFFMmKwoEDCspIgnGSC0pYDZvB88YvE7Bd3YABrBlRJs+HN73MiPgq4heQYJAhlYiOhqyUwLhVo7TTWcYlyEZOmAbEYM+I4hape4b0Cg0tDXlVyapVR9UY5h7KaogAg9R1c82ubEohAgA7\") no-repeat bottom 3px center, linear-gradient(#0000a2, #126fc2); }\n      .TaskBar__start > button + div > div {\n        display: flex;\n        align-items: center;\n        margin-left: 20px; }\n        .TaskBar__start > button + div > div > button {\n          height: 32px;\n          padding-left: 32px;\n          background-size: 22px;\n          background-position: 4px center; }\n        .TaskBar__start > button + div > div .window {\n          display: none; }\n    .TaskBar__start > button:active, .TaskBar__start > button:focus, .TaskBar__start > button:active:focus, .TaskBar__start > button.active, .TaskBar__start > button.clicked {\n      background-position: 3px 2px;\n      outline: 1px dotted black;\n      outline-offset: -4px; }\n      .TaskBar__start > button:active + div, .TaskBar__start > button:focus + div, .TaskBar__start > button:active:focus + div, .TaskBar__start > button.active + div, .TaskBar__start > button.clicked + div {\n        visibility: visible;\n        max-height: 100vh;\n        padding: 3px; }\n        .TaskBar__start > button:active + div div, .TaskBar__start > button:focus + div div, .TaskBar__start > button:active:focus + div div, .TaskBar__start > button.active + div div, .TaskBar__start > button.clicked + div div {\n          display: flex; }\n  .TaskBar__notifications {\n    background-color: #bbc3c4;\n    display: flex;\n    flex: none;\n    margin-left: auto;\n    align-items: center;\n    height: 22px;\n    padding: 0px 8px 0px 4px;\n    box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px #808088; }\n    .TaskBar__notifications__time {\n      margin-left: 4px; }\n    .TaskBar__notifications__notifier {\n      height: 16px;\n      width: 16px;\n      background-color: #bbc3c4;\n      background-size: contain;\n      background-position: center;\n      background-repeat: no-repeat;\n      border: none; }\n      .TaskBar__notifications__notifier:active, .TaskBar__notifications__notifier:focus, .TaskBar__notifications__notifier:active:focus, .TaskBar__notifications__notifier.active, .TaskBar__notifications__notifier.clicked {\n        outline: none;\n        border: none; }\n";
+  var css$k = ".TaskBar {\n  position: fixed;\n  background-color: #bbc3c4;\n  bottom: 0px;\n  left: 0px;\n  width: 100%;\n  max-width: 100%;\n  z-index: 10;\n  box-shadow: 0px -1px 0px white;\n  padding: 2px 0px;\n  display: flex; }\n  .TaskBar > div, .TaskBar > button {\n    position: relative;\n    height: 22px;\n    margin: 0px 2px; }\n  .TaskBar > div:not(:last-child) {\n    padding: 0px 6px; }\n    .TaskBar > div:not(:last-child):first-child {\n      padding: 0px 3px 0px 0px; }\n    .TaskBar > div:not(:last-child):after {\n      position: absolute;\n      top: 1px;\n      right: 0px;\n      height: calc(100% - 2px);\n      width: 1px;\n      background-color: #808088;\n      content: '';\n      box-shadow: 1px 0px 0px white; }\n    .TaskBar > div:not(:last-child):before {\n      position: absolute;\n      top: 3px;\n      right: -6px;\n      height: calc(100% - 6px);\n      width: 3px;\n      background-color: #bbc3c4;\n      content: '';\n      box-shadow: inset -1px -1px 0px #808088, inset 1px 1px 0px white; }\n  .TaskBar__programs {\n    display: flex;\n    flex-grow: 1;\n    flex-shrink: 1;\n    flex-wrap: nowrap;\n    margin-right: 4px;\n    min-width: 42px; }\n    .TaskBar__programs:before {\n      display: none; }\n  .TaskBar__start {\n    position: relative; }\n    .TaskBar__start > button + div {\n      transition: max-height linear 200ms;\n      position: fixed;\n      bottom: 25px;\n      left: 2px;\n      visibility: hidden;\n      max-height: 0px;\n      padding-left: 22px; }\n      .TaskBar__start > button + div > .divider, .TaskBar__start > button + div > div:empty {\n        margin-left: 24px;\n        width: calc(100% - 26px); }\n      .TaskBar__start > button + div:after {\n        content: '';\n        display: block;\n        position: absolute;\n        left: 3px;\n        top: 3px;\n        height: calc(100% - 6px);\n        width: 20px;\n        background: #0000a2;\n        background: linear-gradient(#0000a2, #126fc2);\n        background: url(\"data:image/gif;base64,R0lGODlhDgBkALMAAAAAAP///wIAsZKSmZKTmpGSmZKTmcjOz8fNzsfOz8fOzv///wAAAAAAAAAAAAAAACH5BAEAAAsALAAAAAAOAGQAAAT/cMk5SUo06CO179wSGEowgEOQBcRUEuqkUaIRd/cCwyvFzyJNS3JQ2Tyt0QLBklgwEqZGQasShr4DQhuilDxgRCWAINgIAkIxFoB2DDJWbmGb2Oq0nJx2dqoCXUEuKl8GMCZRSjpgWAdYEydVkhMJQlVkQR8UTFRgQDhiHkc9QRyfRwRSV5+ZH1KbnodzjEGPCAYFcBIJj5mOk61IkgZSnpKVxpSeYCuegTjCw8Uev1bLPkfXccuY29SSGgmRky2p4b2Jnm5+3LrQ3CsY5Wuk9ZlwcJrv2uzLvWthJgH0cWVAKkMGBjhKws1YQ4cPP1wxUETclUPuBOXRY4mOvmDJafaFFMmKwoEDCspIgnGSC0pYDZvB88YvE7Bd3YABrBlRJs+HN73MiPgq4heQYJAhlYiOhqyUwLhVo7TTWcYlyEZOmAbEYM+I4hape4b0Cg0tDXlVyapVR9UY5h7KaogAg9R1c82ubEohAgA7\") no-repeat bottom 3px center, linear-gradient(#0000a2, #126fc2); }\n      .TaskBar__start > button + div > div {\n        display: flex;\n        align-items: center;\n        margin-left: 20px; }\n        .TaskBar__start > button + div > div > button {\n          height: 32px;\n          padding-left: 32px;\n          background-size: 22px;\n          background-position: 4px center; }\n        .TaskBar__start > button + div > div .window {\n          display: none; }\n    .TaskBar__start > button.active, .TaskBar__start > button.clicked, .TaskBar__start > button:active, .TaskBar__start > button:focus, .TaskBar__start > button:active:focus {\n      background-position: 3px 2px;\n      outline: 1px dotted black;\n      outline-offset: -4px; }\n      .TaskBar__start > button.active + div, .TaskBar__start > button.clicked + div, .TaskBar__start > button:active + div, .TaskBar__start > button:focus + div, .TaskBar__start > button:active:focus + div {\n        visibility: visible;\n        max-height: 100vh;\n        padding: 3px; }\n        .TaskBar__start > button.active + div div, .TaskBar__start > button.clicked + div div, .TaskBar__start > button:active + div div, .TaskBar__start > button:focus + div div, .TaskBar__start > button:active:focus + div div {\n          display: flex; }\n    .TaskBar__start.active > div {\n      visibility: visible;\n      max-height: 100vh;\n      padding: 3px; }\n      .TaskBar__start.active > div div {\n        display: flex; }\n  .TaskBar__notifications {\n    background-color: #bbc3c4;\n    display: flex;\n    flex: none;\n    margin-left: auto;\n    align-items: center;\n    height: 22px;\n    padding: 0px 8px 0px 4px;\n    box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px #808088; }\n    .TaskBar__notifications__time {\n      margin-left: 4px; }\n    .TaskBar__notifications__notifier {\n      height: 16px;\n      width: 16px;\n      background-color: #bbc3c4;\n      background-size: contain;\n      background-position: center;\n      background-repeat: no-repeat;\n      border: none; }\n      .TaskBar__notifications__notifier:active, .TaskBar__notifications__notifier:focus, .TaskBar__notifications__notifier:active:focus, .TaskBar__notifications__notifier.active, .TaskBar__notifications__notifier.clicked {\n        outline: none;\n        border: none; }\n";
   styleInject(css$k);
 
   var TaskBar = function TaskBar(props) {
@@ -1714,7 +1726,7 @@
   exports.MenuBar = MenuBar;
   exports.StartMenu = StartMenu;
   exports.TaskBar = TaskBar;
-  exports.AbstractWindow = StaticWindow;
+  exports.Window = StaticWindow;
   exports.ExplorerWindow = ExplorerWindow;
   exports.WindowFrame = WindowFrame;
   exports.DetailsSection = DetailsSection;

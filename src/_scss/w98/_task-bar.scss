@@ -103,7 +103,7 @@ $w98-text: 'data:image/gif;base64,R0lGODlhDgBkALMAAAAAAP///wIAsZKSmZKTmpGSmZKTmc
         }
       }
 
-      &:active, &:focus, &:active:focus, &.active, &.clicked {
+      &.active, &.clicked, &:active, &:focus, &:active:focus {
         background-position: 3px 2px;
         outline: 1px dotted black;
         outline-offset: -4px;
@@ -115,6 +115,17 @@ $w98-text: 'data:image/gif;base64,R0lGODlhDgBkALMAAAAAAP///wIAsZKSmZKTmpGSmZKTmc
           div {
             display: flex;
           }
+        }
+      }
+    }
+
+    &.active {
+      >div {
+        visibility: visible;
+        max-height: 100vh;
+        padding: 3px;
+        div {
+          display: flex;
         }
       }
     }

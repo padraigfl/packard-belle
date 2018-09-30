@@ -29,6 +29,7 @@ const withContextLogic = ContextButton => {
     state = {
       options: this.props.options,
       isActive: this.props.isActive,
+      isOpen: false,
     };
 
     updateActive(activeFields, newOptions, idx = 0) {
@@ -79,7 +80,10 @@ const withContextLogic = ContextButton => {
       }
     }
 
-    handleClick = e => this.handleEvent(this.props.onClick)(e, { isOpen: true });
+    handleClick = e => {
+      this.el.focus();
+      this.handleEvent(this.props.onClick)(e, { isOpen: true });
+    }
     handleContextMenu = e => this.handleEvent(this.props.onContextMenu)(e, { isOpen: true });
     handleBlur = e => this.handleEvent(this.props.onBlur)(e, { isOpen: false, options: this.props.options });
 
@@ -91,17 +95,25 @@ const withContextLogic = ContextButton => {
           options={this.state.options}
           className="standard-menu__wrapper"
           mouseEnterItem={(e) => this.mouseEnterItem(e)}
+          closeOnClick={this.closeOnClick}
         />
       );
 
       if (ContextButton) {
+        const { className, onContextMenu, ...props} = this.props;
         return (
-          <div className={classnames('standard-menu-wrapper', props.className)}>
+          <div
+            ref={(el) => { this.el = el; }}
+            className={classnames(
+              'standard-menu-wrapper',
+              className,
+              { 'active': this.state.isOpen }
+            )}
+            onBlur={(e) => this.handleBlur(e)}
+            onClick={!onContextMenu && (e => this.handleClick(e))}
+          >
             <ContextButton
               {...props}
-              className={classnames({ 'active': this.state.isOpen })}
-              onBlur={(e) => this.handleBlur(e)}
-              onClick={!this.props.onContextMenu && (e => this.handleClick(e))}
               onContextMenu={this.props.onContextMenu && (e => this.handleContextMenu(e))}
             >
               { props.children }
