@@ -3,10 +3,8 @@ import { configure, addDecorator } from '@storybook/react';
 import Theme from '../src/components/Theme';
 
 addDecorator(story => (
-  <Theme>
-    <div style={{ padding: '8px' }}>
+  <Theme style={{ height: '100vh', display: 'inline-block' }}>
       {story()}
-    </div>
   </Theme>
 ));
 

@@ -9,6 +9,7 @@
   background-color: $grey;
   padding: 3px;
   box-shadow: dualShadow($grey, $black), dualShadow(white, $darkgrey, 2);
+  display: inline-block;
 }
 
 @mixin window-heading {

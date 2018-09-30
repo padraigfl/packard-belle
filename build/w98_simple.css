@@ -7,82 +7,89 @@
   src: url("./fonts/ms98s11a10d02.ttf") format("woff2"); }
 
 html {
-  font-size: 11px;
-  width: 200px;
-  background-color: #bbc3c4;
-  image-rendering: pixelated; }
+  font-size: 11px; }
   html button {
     font-size: 11px; }
   html menu {
     padding: 0px;
     margin: 0px; }
-  html * {
-    font-family: 'MSFont', 'MSFont11', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+  html body {
+    font-family: 'MSFont', 'MSFont11', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-width: 200px;
+    margin: 0px; }
   html .disabled {
     color: #808088; }
-  html ::-webkit-scrollbar {
+
+.w98 {
+  font-family: 'MSFont', 'MSFont11', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  width: 100%;
+  height: 100%;
+  margin: 8px;
+  background-color: #bbc3c4;
+  image-rendering: pixelated;
+  position: relative;
+  transform: scale(1); }
+  .w98 *, .w98 {
+    cursor: url("data:image/gif;base64,R0lGODlhCwATAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAALABMAAAIrhI4JlhrcBAgvSlrbxPBs7mAU9IlMaV7mwo6jY2zk+Xphh8iWint1tDgUAAA7"), default; }
+  .w98.x2 {
+    transform: scale(2); }
+    .w98.x2 *, .w98.x2 {
+      cursor: url("data:image/gif;base64,R0lGODlhFgAmAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAWACYAAAJzBISpu8b/jINUHgpNCBMrzV1eAm6dV4YjkppiBWyyisazfDIt/ur2zcv8gDQf8ZYT7IDJJfHkZL6izwtVyhpKLVwtssudpZJZ8ZCstE3GvbSrHGxIPue2hW72CfOkNvy9wrbiFjcoGFhnmIjIp4iGcZdQAAA7"), default; }
+  .w98 ::-webkit-scrollbar {
     width: 16px;
     height: 16px;
     background-color: white;
     background-image: url("data:image/gif;base64,R0lGODlhAgACAJEAAAAAAP///8zMzP///yH5BAEAAAMALAAAAAACAAIAAAID1CYFADs="); }
-    html ::-webkit-scrollbar-track {
+    .w98 ::-webkit-scrollbar-track {
       position: relative; }
-    html ::-webkit-scrollbar-thumb {
+    .w98 ::-webkit-scrollbar-thumb {
       background: #bbc3c4;
       box-shadow: inset -1px -1px 0px #808088, inset 1px 1px 0px 0px white;
       border: 1px solid #0c0c0c;
       border-top: 1px solid #bbc3c4;
       border-left: 1px solid #bbc3c4; }
-    html ::-webkit-scrollbar-button {
+    .w98 ::-webkit-scrollbar-button {
       background: #bbc3c4;
       box-shadow: inset -1px -1px 0px #808088, inset 1px 1px 0px 0px white;
       border: 1px solid #0c0c0c;
       border-top: 1px solid #bbc3c4;
       border-left: 1px solid #bbc3c4; }
-      html ::-webkit-scrollbar-button:start:decrement, html ::-webkit-scrollbar-button:end:increment {
+      .w98 ::-webkit-scrollbar-button:start:decrement, .w98 ::-webkit-scrollbar-button:end:increment {
         height: 16px;
         width: 16px;
         display: block;
         background-repeat: no-repeat;
         background-color: #bbc3c4; }
-        html ::-webkit-scrollbar-button:start:decrement:active, html ::-webkit-scrollbar-button:end:increment:active {
+        .w98 ::-webkit-scrollbar-button:start:decrement:active, .w98 ::-webkit-scrollbar-button:end:increment:active {
           border: 1px solid #808088;
           box-shadow: none;
           background-color: #bbc3c4; }
-      html ::-webkit-scrollbar-button:horizontal:decrement {
+      .w98 ::-webkit-scrollbar-button:horizontal:decrement {
         background-image: url("data:image/gif;base64,R0lGODlhBAAHAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAEAAcAAAIIlHEIy7ppBCgAOw==");
         background-position: 4px 3px; }
-        html ::-webkit-scrollbar-button:horizontal:decrement:active {
+        .w98 ::-webkit-scrollbar-button:horizontal:decrement:active {
           background-position: 5px 4px; }
-      html ::-webkit-scrollbar-button:horizontal:increment {
+      .w98 ::-webkit-scrollbar-button:horizontal:increment {
         background-image: url("data:image/gif;base64,R0lGODlhBAAHAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAEAAcAAAIIhA4maeyrlCgAOw==");
         background-position: 5px 3px; }
-        html ::-webkit-scrollbar-button:horizontal:increment:active {
+        .w98 ::-webkit-scrollbar-button:horizontal:increment:active {
           background-position: 6px 4px; }
-      html ::-webkit-scrollbar-button:vertical:decrement {
+      .w98 ::-webkit-scrollbar-button:vertical:decrement {
         background-image: url("data:image/gif;base64,R0lGODlhBwAEAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAHAAQAAAIHlGEJq8sOCwA7");
         background-position: 3px 5px; }
-        html ::-webkit-scrollbar-button:vertical:decrement:active {
+        .w98 ::-webkit-scrollbar-button:vertical:decrement:active {
           background-position: 4px 6px; }
-      html ::-webkit-scrollbar-button:vertical:increment {
+      .w98 ::-webkit-scrollbar-button:vertical:increment {
         background-image: url("data:image/gif;base64,R0lGODlhBwAEAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAHAAQAAAIIhA+CKWoNmSgAOw==");
         background-position: 3px 5px; }
-        html ::-webkit-scrollbar-button:vertical:increment:active {
+        .w98 ::-webkit-scrollbar-button:vertical:increment:active {
           background-position: 4px 6px; }
-    html ::-webkit-scrollbar-corner {
+    .w98 ::-webkit-scrollbar-corner {
       /*
       background-image: url(resources/corner.png);
       background-repeat: no-repeat;
       */
       background-color: #bbc3c4; }
-
-.w98 *, .w98 {
-  cursor: url("data:image/gif;base64,R0lGODlhCwATAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAALABMAAAIrhI4JlhrcBAgvSlrbxPBs7mAU9IlMaV7mwo6jY2zk+Xphh8iWint1tDgUAAA7"), default; }
-
-.w98.x2 {
-  transform: scale(2); }
-  .w98.x2 *, .w98.x2 {
-    cursor: url("data:image/gif;base64,R0lGODlhFgAmAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAWACYAAAJzBISpu8b/jINUHgpNCBMrzV1eAm6dV4YjkppiBWyyisazfDIt/ur2zcv8gDQf8ZYT7IDJJfHkZL6izwtVyhpKLVwtssudpZJZ8ZCstE3GvbSrHGxIPue2hW72CfOkNvy9wrbiFjcoGFhnmIjIp4iGcZdQAAA7"), default; }
 
 .btn--form {
   min-width: 48px;
@@ -548,7 +555,8 @@ select[multiple] {
   position: relative;
   background-color: #bbc3c4;
   padding: 3px;
-  box-shadow: inset -1px -1px 0px #0c0c0c, inset 1px 1px 0px #bbc3c4, inset -2px -2px 0px #808088, inset 2px 2px 0px white; }
+  box-shadow: inset -1px -1px 0px #0c0c0c, inset 1px 1px 0px #bbc3c4, inset -2px -2px 0px #808088, inset 2px 2px 0px white;
+  display: inline-block; }
   .window__heading {
     display: flex;
     background: linear-gradient(to right, #0000a2, #126fc2);
