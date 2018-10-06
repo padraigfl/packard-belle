@@ -23,7 +23,7 @@ const StandardMenuItem = props => (
           { disabled: props.isDisabled },
         )
       }
-      onMouseDown={props.onClick}
+      onClick={props.closeOnClick(props.onClick)}
       style={ props.icon ? { backgroundImage: `url('${props.icon}')` } : undefined }
       value={props.value}
       disabled={props.isDisabled}
@@ -36,6 +36,7 @@ const StandardMenuItem = props => (
         options={props.options}
         value={props.value}
         mouseEnterItem={props.mouseEnterItem}
+        closeOnClick={props.closeOnClick}
       />
     )}
   </div>

@@ -224,7 +224,7 @@ html {
   .btn--start__text {
     font-size: 1rem;
     font-weight: bold; }
-  .btn--start:active, .btn--start:focus, .btn--start:active:focus, .btn--start.active, .btn--start.clicked {
+  .btn--start.active, .btn--start.clicked {
     box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px #0c0c0c, inset 0px 1px 0px #0c0c0c, inset -2px -2px 0px #bbc3c4, inset 2px 2px 0px #808088, 0px -1px 0px #0c0c0c;
     background-position: 3px 2px;
     outline: 1px dotted black;
@@ -379,12 +379,12 @@ html {
       background-image: url("data:image/gif;base64,R0lGODlhBwAHAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAHAAcAAAIMlA9nwMj9xGuLIlUAADs="); }
     .standard-menu > div.checked.disabled > button:before {
       background-image: url("data:image/gif;base64,R0lGODlhBwAHAJEAAAAAAP///5mZmf///yH5BAEAAAMALAAAAAAHAAcAAAIMnC9nwsj9xmuLIlUAADs="); }
-    .standard-menu > div:hover, .standard-menu > div:active, .standard-menu > div:focus, .standard-menu > div:active:focus, .standard-menu > div.active, .standard-menu > div.clicked {
+    .standard-menu > div.active, .standard-menu > div.clicked {
       color: white; }
-      .standard-menu > div:hover > button:not(.disabled), .standard-menu > div:active > button:not(.disabled), .standard-menu > div:focus > button:not(.disabled), .standard-menu > div:active:focus > button:not(.disabled), .standard-menu > div.active > button:not(.disabled), .standard-menu > div.clicked > button:not(.disabled) {
+      .standard-menu > div.active > button:not(.disabled), .standard-menu > div.clicked > button:not(.disabled) {
         color: white;
         background-color: #0000a2; }
-        .standard-menu > div:hover > button:not(.disabled):not(:only-child):after, .standard-menu > div:active > button:not(.disabled):not(:only-child):after, .standard-menu > div:focus > button:not(.disabled):not(:only-child):after, .standard-menu > div:active:focus > button:not(.disabled):not(:only-child):after, .standard-menu > div.active > button:not(.disabled):not(:only-child):after, .standard-menu > div.clicked > button:not(.disabled):not(:only-child):after {
+        .standard-menu > div.active > button:not(.disabled):not(:only-child):after, .standard-menu > div.clicked > button:not(.disabled):not(:only-child):after {
           background-image: url("data:image/gif;base64,R0lGODlhBAAHAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAEAAcAAAIIjB4maeyrlCgAOw=="); }
   .standard-menu > div:empty {
     position: relative;
@@ -755,15 +755,15 @@ select[multiple] {
           background-position: 4px center; }
         .task-bar__start > button + div > div .window {
           display: none; }
-    .task-bar__start > button.active, .task-bar__start > button.clicked, .task-bar__start > button:active, .task-bar__start > button:focus, .task-bar__start > button:active:focus {
+    .task-bar__start > button.active, .task-bar__start > button.clicked {
       background-position: 3px 2px;
       outline: 1px dotted black;
       outline-offset: -4px; }
-      .task-bar__start > button.active + div, .task-bar__start > button.clicked + div, .task-bar__start > button:active + div, .task-bar__start > button:focus + div, .task-bar__start > button:active:focus + div {
+      .task-bar__start > button.active + div, .task-bar__start > button.clicked + div {
         visibility: visible;
         max-height: 100vh;
         padding: 3px; }
-        .task-bar__start > button.active + div div, .task-bar__start > button.clicked + div div, .task-bar__start > button:active + div div, .task-bar__start > button:focus + div div, .task-bar__start > button:active:focus + div div {
+        .task-bar__start > button.active + div div, .task-bar__start > button.clicked + div div {
           display: flex; }
     .task-bar__start.active > div {
       visibility: visible;

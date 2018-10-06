@@ -103,7 +103,7 @@ $w98-text: 'data:image/gif;base64,R0lGODlhDgBkALMAAAAAAP///wIAsZKSmZKTmpGSmZKTmc
         }
       }
 
-      &.active, &.clicked, &:active, &:focus, &:active:focus {
+      &.active, &.clicked {
         background-position: 3px 2px;
         outline: 1px dotted black;
         outline-offset: -4px;

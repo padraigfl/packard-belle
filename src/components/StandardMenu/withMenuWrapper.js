@@ -71,36 +71,39 @@ const withContextLogic = ContextButton => {
       }
     }
 
-    handleEvent = onEvent => (e, newState) => {
-      if (onEvent) {
-        onEvent(e);
-      }
-      if (newState) {
-        this.setState(newState);
+    buttonClick = () => {
+      if (this.state.isOpen) {
+        document.body.removeEventListener('click', this.handleBlur);
+        this.setState({ isOpen: false, options: this.props.options });
+      } else {
+        document.body.addEventListener('click', this.handleBlur);
+        this.setState({ isOpen: true, options: this.props.options });
       }
     }
-
-    handleClick = e => {
-      this.el.focus();
-      this.handleEvent(this.props.onClick)(e, { isOpen: true });
+    handleEvent = newState => onEvent => e => {
+      if (onEvent) { onEvent(e); }
+      if (newState) { this.setState(newState); }
     }
-    handleContextMenu = e => this.handleEvent(this.props.onContextMenu)(e, { isOpen: true });
-    handleBlur = e => this.handleEvent(this.props.onBlur)(e, { isOpen: false, options: this.props.options });
+    handleContextMenu = e => this.handleEvent({ isOpen: true })(this.props.onContextMenu)(e);
+    handleBlur = (e) => {
+      if (this.el && !this.el.contains(e.target)) {
+        this.handleEvent({ isOpen: false, options: this.props.options })(this.props.onBlur)(e);
+      }
+    }
+    handleSelectionClose = this.handleEvent({ isOpen: false, options: this.props.options });
 
     render() {
-      const { options, onClick, ...props } = this.props; //eslint-disable-line
-
       const renderedMenu = (
         <StandardMenu
           options={this.state.options}
           className="standard-menu__wrapper"
           mouseEnterItem={(e) => this.mouseEnterItem(e)}
-          closeOnClick={this.closeOnClick}
+          closeOnClick={this.handleSelectionClose}
         />
       );
 
       if (ContextButton) {
-        const { className, onContextMenu, ...props} = this.props;
+        const { className, ...props} = this.props;
         return (
           <div
             ref={(el) => { this.el = el; }}
@@ -109,11 +112,11 @@ const withContextLogic = ContextButton => {
               className,
               { 'active': this.state.isOpen }
             )}
-            onBlur={(e) => this.handleBlur(e)}
-            onClick={!onContextMenu && (e => this.handleClick(e))}
           >
             <ContextButton
               {...props}
+              onClick={this.buttonClick}
+              className={this.state.isOpen ? 'active' : ''}
               onContextMenu={this.props.onContextMenu && (e => this.handleContextMenu(e))}
             >
               { props.children }

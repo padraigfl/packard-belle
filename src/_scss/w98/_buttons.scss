@@ -206,7 +206,7 @@ $start: 'data:image/gif;base64,R0lGODlhNAATAKIAAAAAAP///wAA/wD/AP//AP8AAP///wAAA
     font-weight: bold;
   }
 
-  &:active, &:focus, &:active:focus, &.active, &.clicked {
+  &.active, &.clicked {
     box-shadow: dualShadow($black, white),
       shadow($black, 0, 1), dualShadow($darkgrey, $grey, 2),
       0px -1px 0px $black;

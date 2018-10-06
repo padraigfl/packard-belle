@@ -142,7 +142,7 @@ $windowPadding: 3px;
         }
       }
     }
-    &:hover, &:active, &:focus, &:active:focus, &.active, &.clicked {
+    &.active, &.clicked {
       color: white;
       >button:not(.disabled) {
         color: white;

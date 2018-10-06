@@ -8,7 +8,6 @@ import './StandardMenu.scss';
 
 const DIVIDER = 'divider';
 
-
 const flattenWithDividers = (options) => options.reduce((acc, val) => {
   if (!Array.isArray(val)) {
     acc.push(val);
@@ -31,13 +30,14 @@ const StandardMenu = props => {
       { hasOptions && options.length > 0 ? (
         options.map(option => {
           if (typeof option === 'string' && option.includes(DIVIDER)) {
-            return <div className={`${DIVIDER} ${option}`} />;
+            return <div key={option.toString()} className={`${DIVIDER} ${option}`} />;
           }
           return (
             <StandardMenuItem
               key={`StandardMenu-item-${option.title}`}
               {...option}
               value={[ ...props.value, option.title ]}
+              closeOnClick={props.closeOnClick}
               mouseEnterItem={props.mouseEnterItem}
             />
           );
@@ -46,6 +46,7 @@ const StandardMenu = props => {
           title="(Empty)"
           className={'StandardMenuItem--empty'}
           mouseEnterItem={props.mouseEnterItem}
+          closeOnClick={props.closeOnClick}
           isDisabled
         />
       )}
