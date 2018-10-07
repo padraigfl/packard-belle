@@ -49,12 +49,12 @@ html{
   font-family: 'MSFont', 'MSFont11', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   width: 100%;
   height: 100%;
-  margin: 8px;
   background-color: $grey;
   image-rendering: pixelated;
   position: relative;
   transform: scale(1);
   *, & {
+    font-family: 'MSFont', 'MSFont11', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     cursor: url($cursor), default;
   }
   &.x2 {

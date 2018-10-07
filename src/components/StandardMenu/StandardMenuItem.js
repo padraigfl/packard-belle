@@ -14,6 +14,7 @@ const StandardMenuItem = props => (
       )
     }
     onMouseEnter={props.mouseEnterItem}
+    onTouchStart={props.mouseEnterItem}
   >
     <button
       className={
@@ -23,8 +24,8 @@ const StandardMenuItem = props => (
           { disabled: props.isDisabled },
         )
       }
-      onClick={props.closeOnClick(props.onClick)}
-      style={ props.icon ? { backgroundImage: `url('${props.icon}')` } : undefined }
+      onClick={!props.options ? props.closeOnClick(props.onClick) : undefined}
+      style={props.icon ? { backgroundImage: `url('${props.icon}')` } : undefined}
       value={props.value}
       disabled={props.isDisabled}
     >
@@ -44,6 +45,7 @@ const StandardMenuItem = props => (
 
 StandardMenuItem.defaultProps = {
   onClick: () => {},
+  closeOnClick: () => { console.error('Menus require a closeOnClick prop to function correctly'); }, // eslint-disable-line
   value: [],
 };
 

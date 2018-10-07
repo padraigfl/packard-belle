@@ -10,8 +10,10 @@ $windowPadding: 3px;
     position: absolute;
     visibility: hidden;
     width: auto;
-    transition: max-width cubic-bezier(0.38, 0.01, 0, 1) 200ms,
-    max-height cubic-bezier(0.38, 0.01, 0, 1) 200ms;
+    @media (min-height: 720px) and (min-width: 960px) {
+      transition: max-width cubic-bezier(0.38, 0.01, 0, 1) 200ms,
+      max-height cubic-bezier(0.38, 0.01, 0, 1) 200ms;
+    }
   }
   &.active {
     >.window {
@@ -81,6 +83,7 @@ $windowPadding: 3px;
     position: relative;
     @include onDisplay('right');
     >button {
+      user-select: none;
       position: relative;
       display: block;
       width: 100%;

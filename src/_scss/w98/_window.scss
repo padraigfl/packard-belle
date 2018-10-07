@@ -96,7 +96,9 @@
         max-height: 0px;
         top: 100%;
         left: 0px;
-        transition: max-height linear 750ms;
+        @media (min-height: 720px) and (min-width: 960px) {
+          transition: max-height linear 750ms;
+        }
       }
 
       &:hover {

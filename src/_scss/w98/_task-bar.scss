@@ -64,7 +64,9 @@ $w98-text: 'data:image/gif;base64,R0lGODlhDgBkALMAAAAAAP///wIAsZKSmZKTmpGSmZKTmc
     position: relative;
     >button {
       + div {
-        transition: max-height linear 200ms;
+        @media (min-height: 720px) and (min-width: 960px) {
+          transition: max-height linear 200ms;
+        }
         position: fixed;
         bottom: 25px;
         left: 2px;

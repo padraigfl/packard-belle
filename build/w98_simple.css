@@ -24,12 +24,12 @@ html {
   font-family: 'MSFont', 'MSFont11', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   width: 100%;
   height: 100%;
-  margin: 8px;
   background-color: #bbc3c4;
   image-rendering: pixelated;
   position: relative;
   transform: scale(1); }
   .w98 *, .w98 {
+    font-family: 'MSFont', 'MSFont11', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     cursor: url("data:image/gif;base64,R0lGODlhCwATAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAALABMAAAIrhI4JlhrcBAgvSlrbxPBs7mAU9IlMaV7mwo6jY2zk+Xphh8iWint1tDgUAAA7"), default; }
   .w98.x2 {
     transform: scale(2); }
@@ -180,7 +180,7 @@ html {
   min-width: 40px;
   display: inline-block;
   width: 100%;
-  padding-top: 2px;
+  padding-top: 1px;
   padding-left: 22px;
   padding-right: 3px;
   text-align: left;
@@ -326,8 +326,10 @@ html {
     .standard-menu > div > .window {
       position: absolute;
       visibility: hidden;
-      width: auto;
-      transition: max-width cubic-bezier(0.38, 0.01, 0, 1) 200ms, max-height cubic-bezier(0.38, 0.01, 0, 1) 200ms; }
+      width: auto; }
+      @media (min-height: 720px) and (min-width: 960px) {
+        .standard-menu > div > .window {
+          transition: max-width cubic-bezier(0.38, 0.01, 0, 1) 200ms, max-height cubic-bezier(0.38, 0.01, 0, 1) 200ms; } }
     .standard-menu > div.active > .window {
       width: auto;
       visibility: visible; }
@@ -338,6 +340,7 @@ html {
     .standard-menu > div:hover > .window, .standard-menu > div.active > .window {
       max-width: 400%; }
     .standard-menu > div > button {
+      user-select: none;
       position: relative;
       display: block;
       width: 100%;
@@ -398,8 +401,10 @@ html {
   .standard-menu.css div__sub-menu--top > .window {
     position: absolute;
     visibility: hidden;
-    width: auto;
-    transition: max-width cubic-bezier(0.38, 0.01, 0, 1) 200ms, max-height cubic-bezier(0.38, 0.01, 0, 1) 200ms; }
+    width: auto; }
+    @media (min-height: 720px) and (min-width: 960px) {
+      .standard-menu.css div__sub-menu--top > .window {
+        transition: max-width cubic-bezier(0.38, 0.01, 0, 1) 200ms, max-height cubic-bezier(0.38, 0.01, 0, 1) 200ms; } }
   .standard-menu.css div__sub-menu--top.active > .window {
     width: auto;
     visibility: visible; }
@@ -415,8 +420,10 @@ html {
   .standard-menu.css div__sub-menu--bottom > .window {
     position: absolute;
     visibility: hidden;
-    width: auto;
-    transition: max-width cubic-bezier(0.38, 0.01, 0, 1) 200ms, max-height cubic-bezier(0.38, 0.01, 0, 1) 200ms; }
+    width: auto; }
+    @media (min-height: 720px) and (min-width: 960px) {
+      .standard-menu.css div__sub-menu--bottom > .window {
+        transition: max-width cubic-bezier(0.38, 0.01, 0, 1) 200ms, max-height cubic-bezier(0.38, 0.01, 0, 1) 200ms; } }
   .standard-menu.css div__sub-menu--bottom.active > .window {
     width: auto;
     visibility: visible; }
@@ -431,8 +438,10 @@ html {
   .standard-menu.css div__sub-menu--left > .window {
     position: absolute;
     visibility: hidden;
-    width: auto;
-    transition: max-width cubic-bezier(0.38, 0.01, 0, 1) 200ms, max-height cubic-bezier(0.38, 0.01, 0, 1) 200ms; }
+    width: auto; }
+    @media (min-height: 720px) and (min-width: 960px) {
+      .standard-menu.css div__sub-menu--left > .window {
+        transition: max-width cubic-bezier(0.38, 0.01, 0, 1) 200ms, max-height cubic-bezier(0.38, 0.01, 0, 1) 200ms; } }
   .standard-menu.css div__sub-menu--left.active > .window {
     width: auto;
     visibility: visible; }
@@ -634,8 +643,10 @@ select[multiple] {
           position: absolute;
           max-height: 0px;
           top: 100%;
-          left: 0px;
-          transition: max-height linear 750ms; }
+          left: 0px; }
+          @media (min-height: 720px) and (min-width: 960px) {
+            .window__menu > div > button + div, .window__menu > div > button + div {
+              transition: max-height linear 750ms; } }
         .window__menu > div > button:hover {
           box-shadow: inset -1px -1px 0px #808088, inset 1px 1px 0px white; }
         .window__menu > div > button:active, .window__menu > div > button:focus, .window__menu > div > button:active:focus, .window__menu > div > button.active, .window__menu > div > button.clicked {
@@ -723,13 +734,15 @@ select[multiple] {
   .task-bar__start {
     position: relative; }
     .task-bar__start > button + div {
-      transition: max-height linear 200ms;
       position: fixed;
       bottom: 25px;
       left: 2px;
       visibility: hidden;
       max-height: 0px;
       padding-left: 22px; }
+      @media (min-height: 720px) and (min-width: 960px) {
+        .task-bar__start > button + div {
+          transition: max-height linear 200ms; } }
       .task-bar__start > button + div > .divider, .task-bar__start > button + div > div:empty {
         margin-left: 24px;
         width: calc(100% - 26px); }
