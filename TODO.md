@@ -67,15 +67,15 @@ W98 Toolbar
 ## Performance
 
 - [ ] Tests
-- [ ] CI
-- [ ] Coverage
+- [x] CI
+- [x] Coverage
 - [ ] Snapshots (only when finished with core components)
 - [x] Linting
 - [x] PropTypes
 
 # Necessary Refactorings
 
-- [ ] Decouple CSS build from React build (i.e. style everything within mixins, include where appropriate)
+- [x] Decouple CSS build from React build (i.e. style everything within mixins, include where appropriate)
 - [ ] Reimplement CSS Modules
 - [ ] Make dummy Select component for places where aesthetically needed
 - [ ] Group options collections in explorer
@@ -96,3 +96,4 @@ W98 Toolbar
 - [x] ContextMenuWrapper as HOC?
 - [ ] Gradient improvements
 - [ ] Add empty taskbar to core css
+- [ ] Menu onBlur handling (currently using a pretty ugly onMouseDown solution that prevents future right clicking)

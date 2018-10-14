@@ -4,7 +4,7 @@ import classnames from 'classnames';
 import clone from 'clone';
 import StandardMenu, { standardMenuProps } from './StandardMenu';
 
-const withContextLogic = ContextButton => {
+const withContextLogic = (ContextButton, rightClick = false) => {
   return class StandardMenuSimple extends Component {
     static defaultProps = {
       value: [],
@@ -79,12 +79,12 @@ const withContextLogic = ContextButton => {
         document.body.addEventListener('click', this.handleBlur);
         this.setState({ isOpen: true, options: this.props.options });
       }
+      return false;
     }
     handleEvent = newState => onEvent => e => {
       if (onEvent) { onEvent(e); }
       if (newState) { this.setState(newState); }
     }
-    handleContextMenu = e => this.handleEvent({ isOpen: true })(this.props.onContextMenu)(e);
     handleBlur = (e) => {
       if (this.el && !this.el.contains(e.target)) {
         this.handleEvent({ isOpen: false, options: this.props.options })(this.props.onBlur)(e);
@@ -115,9 +115,9 @@ const withContextLogic = ContextButton => {
           >
             <ContextButton
               {...props}
-              onClick={this.buttonClick}
+              onClick={!rightClick ? this.buttonClick : this.props.onClick}
               className={this.state.isOpen ? 'active' : ''}
-              onContextMenu={this.props.onContextMenu && (e => this.handleContextMenu(e))}
+              onContextMenu={rightClick ? this.buttonClick : this.props.onContextMenu}
             >
               { props.children }
             </ContextButton>

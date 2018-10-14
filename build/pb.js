@@ -172,7 +172,6 @@
         }
       }, _this.handleContextMenu = function (e) {
         e.preventDefault();
-        e.stopPropagation();
         _this.button.focus();
         if (_this.props.onContextMenu) {
           _this.props.onContextMenu(e);
@@ -486,6 +485,8 @@
   var withContextLogic = function withContextLogic(ContextButton) {
     var _class, _temp2;
 
+    var rightClick = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+
     return _temp2 = _class = function (_Component) {
       inherits(StandardMenuSimple, _Component);
 
@@ -517,6 +518,7 @@
             document.body.addEventListener('click', _this.handleBlur);
             _this.setState({ isOpen: true, options: _this.props.options });
           }
+          return false;
         }, _this.handleEvent = function (newState) {
           return function (onEvent) {
             return function (e) {
@@ -528,8 +530,6 @@
               }
             };
           };
-        }, _this.handleContextMenu = function (e) {
-          return _this.handleEvent({ isOpen: true })(_this.props.onContextMenu)(e);
         }, _this.handleBlur = function (e) {
           if (_this.el && !_this.el.contains(e.target)) {
             _this.handleEvent({ isOpen: false, options: _this.props.options })(_this.props.onBlur)(e);
@@ -598,11 +598,9 @@
               React__default.createElement(
                 ContextButton,
                 _extends({}, props, {
-                  onClick: this.buttonClick,
+                  onClick: !rightClick ? this.buttonClick : this.props.onClick,
                   className: this.state.isOpen ? 'active' : '',
-                  onContextMenu: this.props.onContextMenu && function (e) {
-                    return _this3.handleContextMenu(e);
-                  }
+                  onContextMenu: rightClick ? this.buttonClick : this.props.onContextMenu
                 }),
                 props.children
               ),

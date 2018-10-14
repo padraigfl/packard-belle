@@ -31,7 +31,6 @@ class AbstractButton extends Component {
 
   handleContextMenu = (e) => {
     e.preventDefault();
-    e.stopPropagation();
     this.button.focus();
     if (this.props.onContextMenu) {
       this.props.onContextMenu(e);
