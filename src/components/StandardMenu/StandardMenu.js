@@ -26,6 +26,7 @@ const StandardMenu = props => {
         'StandardMenu', props.className, props.direction,
         { 'StandardMenu--visible': props.isVisible },
       )}
+      coordinates={props.coordinates}
     >
       { hasOptions && options.length > 0 ? (
         options.map(option => {
@@ -65,6 +66,10 @@ export const standardMenuProps = {
   direction: PropTypes.oneOf(['up', 'down', 'left', 'right']),
   options: PropTypes.any,
   isVisible: PropTypes.bool,
+  coordinates: PropTypes.shape({
+    posX: PropTypes.number,
+    posY: PropTypes.number,
+  }),
 };
 
 StandardMenu.propTypes = standardMenuProps;

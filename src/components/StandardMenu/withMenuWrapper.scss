@@ -1,0 +1,7 @@
+.standard-menu__wrapper {
+  visibility: hidden;
+  z-index: 10;
+}
+.active + .standard-menu__wrapper {
+  visibility: visible;
+}

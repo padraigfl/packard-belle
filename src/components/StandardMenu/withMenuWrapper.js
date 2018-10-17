@@ -3,11 +3,13 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import clone from 'clone';
 import StandardMenu, { standardMenuProps } from './StandardMenu';
+import './withMenuWrapper.scss';
 
 const withContextLogic = (ContextButton, rightClick = false) => {
   return class StandardMenuSimple extends Component {
     static defaultProps = {
       value: [],
+      options: [],
     };
     static propTypes = {
       ...standardMenuProps,
@@ -30,6 +32,8 @@ const withContextLogic = (ContextButton, rightClick = false) => {
       options: this.props.options,
       isActive: this.props.isActive,
       isOpen: false,
+      posX: 0,
+      posY: 0,
     };
 
     updateActive(activeFields, newOptions, idx = 0) {
@@ -71,22 +75,43 @@ const withContextLogic = (ContextButton, rightClick = false) => {
       }
     }
 
-    buttonClick = () => {
+    buttonClick = (e) => {
+      let changes = {
+        options: this.props.options,
+      };
+      if (e.button === 2) {
+        changes.posX = e.pageX;
+        changes.posY = e.pageY;
+      }
       if (this.state.isOpen) {
         document.body.removeEventListener('click', this.handleBlur);
-        this.setState({ isOpen: false, options: this.props.options });
       } else {
         document.body.addEventListener('click', this.handleBlur);
-        this.setState({ isOpen: true, options: this.props.options });
       }
+      this.setState({ ...changes, isOpen: !this.state.isOpen });
+      return false;
+    }
+    rightButtonClick = (e) => {
+      let changes = {
+        options: this.props.options,
+        posX: e.pageX,
+        posY: e.pageY,
+      };
+      const menuEl = this.el.getElementsByClassName('standard-menu__wrapper')[0];
+      if (this.state.isOpen) {
+        document.body.removeEventListener('click', (e) => this.handleBlur(e, menuEl));
+      } else {
+        document.body.addEventListener('click', (e) => this.handleBlur(e, menuEl));
+      }
+      this.setState({ ...changes, isOpen: !this.state.isOpen });
       return false;
     }
     handleEvent = newState => onEvent => e => {
       if (onEvent) { onEvent(e); }
       if (newState) { this.setState(newState); }
     }
-    handleBlur = (e) => {
-      if (this.el && !this.el.contains(e.target)) {
+    handleBlur = (e, el = this.el) => {
+      if (el && !el.contains(e.target)) {
         this.handleEvent({ isOpen: false, options: this.props.options })(this.props.onBlur)(e);
       }
     }
@@ -99,6 +124,10 @@ const withContextLogic = (ContextButton, rightClick = false) => {
           className="standard-menu__wrapper"
           mouseEnterItem={(e) => this.mouseEnterItem(e)}
           closeOnClick={this.handleSelectionClose}
+          coordinates={rightClick && {
+            posX: this.state.posX,
+            posY: this.state.posY,
+          }}
         />
       );
 
@@ -117,7 +146,7 @@ const withContextLogic = (ContextButton, rightClick = false) => {
               {...props}
               onClick={!rightClick ? this.buttonClick : this.props.onClick}
               className={this.state.isOpen ? 'active' : ''}
-              onContextMenu={rightClick ? this.buttonClick : this.props.onContextMenu}
+              onContextMenu={rightClick ? this.rightButtonClick : this.props.onContextMenu}
             >
               { props.children }
             </ContextButton>

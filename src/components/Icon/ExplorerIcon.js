@@ -1,6 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 import AbstractIcon, { iconProps } from './AbstractIcon';
+import withMenuWrapper from '../StandardMenu/withMenuWrapper';
 import './styles/ExplorerIcon.scss';
 
 const ExplorerIcon = props => (
@@ -17,4 +18,6 @@ const ExplorerIcon = props => (
 
 ExplorerIcon.propTypes = iconProps;
 
-export default ExplorerIcon;
+const Bleh = withMenuWrapper(ExplorerIcon, true);
+
+export default Bleh;
