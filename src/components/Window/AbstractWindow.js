@@ -6,7 +6,7 @@ import Button from '../Button/NavButton';
 import './styles/AbstractWindow.scss';
 
 const StaticWindow = props => (
-  <WindowFrame className={props.className}>
+  <WindowFrame className={props.className} resizable={props.resizable}>
     <div className="window__heading">
       { props.icon && (
         <div
@@ -20,23 +20,28 @@ const StaticWindow = props => (
         { props.title }
       </div>
       {
-        props.onMinimize && (
-          <Button  className="window__minimize" />
+        (props.onHelp) && (
+          <Button className="window__help" onClick={props.onHelp} />
+        )
+      }
+      {
+        (props.onMaximize || props.onMinimize) && (
+          <Button className="window__minimize" onClick={props.onMinimize} />
         )
       }
       {
         props.isMaximized && props.onRestore && (
-          <Button  className="window__restore" />
+          <Button className="window__restore" onClick={props.onRestore} />
         )
       }
       {
         !props.isMaximized && props.onMaximize && (
-          <Button className="window__maximize" />
+          <Button className="window__maximize" onClick={props.onMaximize} />
         )
       }
       {
         props.onClose && (
-          <Button className="window__close" />
+          <Button className="window__close" onClick={props.onClose} />
         )
       }
     </div>
@@ -51,6 +56,7 @@ export const windowProps = {
   isActive: PropTypes.bool,
   isMaximized: PropTypes.bool,
   icon: PropTypes.string,
+  resizable: PropTypes.bool,
 
   onClose: PropTypes.func,
   onMinimize: PropTypes.func,

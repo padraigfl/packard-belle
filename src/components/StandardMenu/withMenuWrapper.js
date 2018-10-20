@@ -70,13 +70,21 @@ const withContextLogic = ContextButton => {
         this.setState({ options: newOptions });
       }
     }
+    addBlurListener = () => {
+      document.body.addEventListener('click', this.handleBlur);
+      document.body.addEventListener('mousedown', this.handleBlur);
+    }
+    removeBlurListener = () => {
+      document.body.removeEventListener('click', this.handleBlur);
+      document.body.removeEventListener('mousedown', this.handleBlur);
+    }
 
     buttonClick = () => {
       if (this.state.isOpen) {
-        document.body.removeEventListener('click', this.handleBlur);
+        this.removeBlurListener();
         this.setState({ isOpen: false, options: this.props.options });
       } else {
-        document.body.addEventListener('click', this.handleBlur);
+        this.addBlurListener();
         this.setState({ isOpen: true, options: this.props.options });
       }
     }

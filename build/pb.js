@@ -1,12 +1,12 @@
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('react'), require('prop-types'), require('classnames'), require('clone'), require('react-select')) :
-  typeof define === 'function' && define.amd ? define(['exports', 'react', 'prop-types', 'classnames', 'clone', 'react-select'], factory) :
-  (factory((global.PackardBelle = {}),global.React,global.PropTypes,global.classnames,global.clone,global.ReactSelect));
-}(this, (function (exports,React,PropTypes,classnames,clone,ReactSelect) { 'use strict';
+  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('react'), require('classnames'), require('prop-types'), require('clone'), require('react-select')) :
+  typeof define === 'function' && define.amd ? define(['exports', 'react', 'classnames', 'prop-types', 'clone', 'react-select'], factory) :
+  (factory((global.PackardBelle = {}),global.React,global.classnames,global.PropTypes,global.clone,global.ReactSelect));
+}(this, (function (exports,React,classnames,PropTypes,clone,ReactSelect) { 'use strict';
 
   var React__default = 'default' in React ? React['default'] : React;
-  PropTypes = PropTypes && PropTypes.hasOwnProperty('default') ? PropTypes['default'] : PropTypes;
   classnames = classnames && classnames.hasOwnProperty('default') ? classnames['default'] : classnames;
+  PropTypes = PropTypes && PropTypes.hasOwnProperty('default') ? PropTypes['default'] : PropTypes;
   clone = clone && clone.hasOwnProperty('default') ? clone['default'] : clone;
   ReactSelect = ReactSelect && ReactSelect.hasOwnProperty('default') ? ReactSelect['default'] : ReactSelect;
 
@@ -43,13 +43,14 @@
   var Theme = function Theme(props) {
     return React__default.createElement(
       'div',
-      { className: 'w98', style: props.style },
+      { className: classnames('w98', props.className), style: props.style },
       props.children
     );
   };
 
   Theme.propTypes = {
     children: PropTypes.node,
+    className: PropTypes.string,
     style: PropTypes.shape()
   };
 
@@ -363,14 +364,15 @@
   var WindowFrame = function WindowFrame(props) {
     return React__default.createElement(
       'div',
-      { className: classnames('window', props.className) },
+      { className: classnames('window', props.className, { 'window--resizable': props.resizable }) },
       props.children
     );
   };
 
   WindowFrame.propTypes = {
     children: PropTypes.node,
-    className: PropTypes.string
+    className: PropTypes.string,
+    resizable: PropTypes.bool
   };
 
   var StandardMenuItem = function StandardMenuItem(props) {
@@ -509,12 +511,18 @@
             var newOptions = _this.updateActive(e.target.value.split(','), clone(_this.props.options), 0);
             _this.setState({ options: newOptions });
           }
+        }, _this.addBlurListener = function () {
+          document.body.addEventListener('click', _this.handleBlur);
+          document.body.addEventListener('mousedown', _this.handleBlur);
+        }, _this.removeBlurListener = function () {
+          document.body.removeEventListener('click', _this.handleBlur);
+          document.body.removeEventListener('mousedown', _this.handleBlur);
         }, _this.buttonClick = function () {
           if (_this.state.isOpen) {
-            document.body.removeEventListener('click', _this.handleBlur);
+            _this.removeBlurListener();
             _this.setState({ isOpen: false, options: _this.props.options });
           } else {
-            document.body.addEventListener('click', _this.handleBlur);
+            _this.addBlurListener();
             _this.setState({ isOpen: true, options: _this.props.options });
           }
         }, _this.handleEvent = function (newState) {
@@ -791,20 +799,29 @@
   var ExplorerView = function ExplorerView(props) {
     return React__default.createElement(
       'div',
-      { className: classnames('ExplorerView', props.className, {
+      {
+        className: classnames('ExplorerView', props.className, {
           'ExplorerView--fixed-width': props.fixedWidth,
           'ExplorerView--fixed-height': props.fixedHeight
-        }) },
-      props.options && props.options.map(function (option) {
-        return React__default.createElement(ExplorerIcon, _extends({
-          key: option.title
-        }, option));
-      })
+        }),
+        style: {
+          backgroundColor: props.style.backgroundColor,
+          backgroundImage: props.style.backgroundImage,
+          backgroundSize: props.style.backgroundSize,
+          backgroundRepeat: props.style.backgroundRepeat,
+          backgroundPosition: props.style.backgroundPosition
+        }
+      },
+      props.children
     );
   };
 
+  ExplorerView.defaultProps = {
+    style: {}
+  };
+
   ExplorerView.propTypes = {
-    options: PropTypes.arrayOf(PropTypes.shape(ExplorerIcon.propTypes)),
+    children: PropTypes.node,
     fixedHeight: PropTypes.bool,
     fixedWidth: PropTypes.bool,
     className: PropTypes.string
@@ -1447,13 +1464,13 @@
     notifiers: PropTypes.arrayOf(PropTypes.shape(Notifications.propsTypes))
   };
 
-  var css$l = ".window__heading {\n  display: flex;\n  background: linear-gradient(to right, #0000a2, #126fc2);\n  font-weight: bold;\n  color: white;\n  margin-bottom: 1px;\n  padding: 0px 3px;\n  align-items: center;\n  letter-spacing: 1px; }\n  .window__heading button {\n    padding: 0px;\n    min-width: initial;\n    width: 16px;\n    height: 14px;\n    margin-left: 1px;\n    image-rendering: pixelated;\n    display: flex;\n    align-items: center;\n    flex-shrink: 0;\n    background-repeat: no-repeat;\n    background-position: 1px 1px; }\n    .window__heading button:focus, .window__heading button.clicked {\n      outline: none;\n      border: none; }\n    .window__heading button:active:focus, .window__heading button.clicked {\n      padding: 2px 8px 1px 4px;\n      background-position: 2px 2px; }\n\n.window__icon {\n  padding: 8px;\n  display: flex;\n  background-size: 14px;\n  background-repeat: no-repeat;\n  background-position: center; }\n\n.window__title {\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  flex-grow: 1;\n  min-width: 0px; }\n\n.window__close {\n  margin-left: 2px;\n  background-image: url(\"data:image/gif;base64,R0lGODlhDQALAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAANAAsAAAIUlI+pKwDoVGxvucmwvblqo33MqBQAOw==\"); }\n\n.window__restore {\n  background-image: url(\"data:image/gif;base64,R0lGODlhDQALAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAANAAsAAAIZlI9pwK3SnAKI1kjtwTlpyHjV830b9qRHAQA7\"); }\n\n.window__minimize {\n  background-image: url(\"data:image/gif;base64,R0lGODlhDQALAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAANAAsAAAIOlI+py+0PozSg2mXvFAUAOw==\"); }\n\n.window__maximize {\n  background-image: url(\"data:image/gif;base64,R0lGODlhDQALAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAANAAsAAAIXlI8Jy4wNXzJAznqwsjtPoYFfCDXfWQAAOw==\"); }\n";
+  var css$l = ".window__heading {\n  display: flex;\n  background: linear-gradient(to right, #0000a2, #126fc2);\n  font-weight: bold;\n  color: white;\n  margin-bottom: 1px;\n  padding: 0px 3px;\n  align-items: center;\n  letter-spacing: 1px; }\n  .window__heading button {\n    padding: 0px;\n    min-width: initial;\n    width: 16px;\n    height: 14px;\n    margin-left: 1px;\n    image-rendering: pixelated;\n    display: flex;\n    align-items: center;\n    flex-shrink: 0;\n    background-repeat: no-repeat;\n    background-position: 1px 1px; }\n    .window__heading button:focus, .window__heading button.clicked {\n      outline: none;\n      border: none; }\n    .window__heading button:active:focus, .window__heading button.clicked {\n      padding: 2px 8px 1px 4px;\n      background-position: 2px 2px; }\n\n.window__icon {\n  padding: 8px;\n  display: flex;\n  background-size: 14px;\n  background-repeat: no-repeat;\n  background-position: center; }\n\n.window__title {\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  flex-grow: 1;\n  min-width: 0px; }\n\n.window__close {\n  margin-left: 2px;\n  background-image: url(\"data:image/gif;base64,R0lGODlhDQALAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAANAAsAAAIUlI+pKwDoVGxvucmwvblqo33MqBQAOw==\"); }\n\n.window__restore {\n  background-image: url(\"data:image/gif;base64,R0lGODlhDQALAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAANAAsAAAIZlI9pwK3SnAKI1kjtwTlpyHjV830b9qRHAQA7\"); }\n\n.window__minimize {\n  background-image: url(\"data:image/gif;base64,R0lGODlhDQALAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAANAAsAAAIOlI+py+0PozSg2mXvFAUAOw==\"); }\n\n.window__maximize {\n  background-image: url(\"data:image/gif;base64,R0lGODlhDQALAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAANAAsAAAIXlI8Jy4wNXzJAznqwsjtPoYFfCDXfWQAAOw==\"); }\n\n.window--resizable {\n  width: 100%;\n  height: 100%; }\n  .window--resizable:after {\n    position: absolute;\n    bottom: 4px;\n    right: 4px;\n    height: 12px;\n    width: 12px;\n    content: '';\n    background-image: url(\"data:image/gif;base64,R0lGODlhDAAMAJEAAAAAAP///5mZmf///yH5BAEAAAMALAAAAAAMAAwAAAIbnI8TmSF83IMSKvFWw3dnHnFV+GVGhZZXmaoFADs=\"); }\n";
   styleInject(css$l);
 
   var StaticWindow = function StaticWindow(props) {
     return React__default.createElement(
       WindowFrame,
-      { className: props.className },
+      { className: props.className, resizable: props.resizable },
       React__default.createElement(
         'div',
         { className: 'window__heading' },
@@ -1468,10 +1485,11 @@
           },
           props.title
         ),
-        props.onMinimize && React__default.createElement(NavButton, { className: 'window__minimize' }),
-        props.isMaximized && props.onRestore && React__default.createElement(NavButton, { className: 'window__restore' }),
-        !props.isMaximized && props.onMaximize && React__default.createElement(NavButton, { className: 'window__maximize' }),
-        props.onClose && React__default.createElement(NavButton, { className: 'window__close' })
+        props.onHelp && React__default.createElement(NavButton, { className: 'window__help', onClick: props.onHelp }),
+        (props.onMaximize || props.onMinimize) && React__default.createElement(NavButton, { className: 'window__minimize', onClick: props.onMinimize }),
+        props.isMaximized && props.onRestore && React__default.createElement(NavButton, { className: 'window__restore', onClick: props.onRestore }),
+        !props.isMaximized && props.onMaximize && React__default.createElement(NavButton, { className: 'window__maximize', onClick: props.onMaximize }),
+        props.onClose && React__default.createElement(NavButton, { className: 'window__close', onClick: props.onClose })
       ),
       props.children
     );
@@ -1484,6 +1502,7 @@
     isActive: PropTypes.bool,
     isMaximized: PropTypes.bool,
     icon: PropTypes.string,
+    resizable: PropTypes.bool,
 
     onClose: PropTypes.func,
     onMinimize: PropTypes.func,
@@ -1603,13 +1622,15 @@
     className: PropTypes.string
   };
 
-  var css$n = ".w98 .window--explorer__view, .ExplorerWindow__view {\n  min-height: 20px;\n  margin: 2px auto 1px;\n  background-color: white;\n  box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px 0px #808088, inset -2px -2px 0px #bbc3c4, inset 2px 2px 0px 0px #0c0c0c; }\n\n.w98 .window--explorer__details, .ExplorerWindow__details {\n  display: flex; }\n  .w98 .window--explorer__details__section, .ExplorerWindow__details__section {\n    box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px #808088;\n    flex-grow: 1;\n    margin-top: 2px;\n    height: 16px; }\n    .w98 .window--explorer__details__section:not(:last-child), .ExplorerWindow__details__section:not(:last-child) {\n      margin: 2px; }\n\n.w98 .window--explorer .menu-bar, .ExplorerWindow .menu-bar {\n  padding: 2px 1px 2px 12px; }\n\n.w98 .window--explorer > div + menu, .ExplorerWindow > div + menu {\n  margin-top: 2px;\n  box-shadow: 0px 2px 0px -1px white, -1px 2px 0px -1px white, -1px 1px 0px #808088, 0px 1px 0px #808088, inset 0px -1px 0px #808088, inset -1px 0px 0px #808088, inset 0px 0px 0px 1px white, -1px 0px 0px #808088, 1px 0px 0px white, -1px 1px 0px 0px white, 1px 1px 0px 0px white, -1px -1px 0px #808088, 0px -1px 0px #808088, inset 0px 1px 0px white, 1px -1px 0px white; }\n\n.w98 .window--explorer > menu, .ExplorerWindow > menu {\n  position: relative;\n  min-height: 16px;\n  padding-left: 12px;\n  margin: 0px 1px;\n  display: flex;\n  box-shadow: inset 0px -1px 0px #808088, inset -1px 0px 0px #808088, inset 0px 0px 0px 1px white, -1px 0px 0px #808088, 1px 0px 0px white, -1px 1px 0px 0px white, 1px 1px 0px 0px white; }\n  .w98 .window--explorer > menu:before, .ExplorerWindow > menu:before {\n    position: absolute;\n    top: 3px;\n    left: 5px;\n    height: calc(100% - 6px);\n    width: 3px;\n    background-color: #bbc3c4;\n    content: '';\n    box-shadow: inset -1px -1px 0px #808088, inset 1px 1px 0px white; }\n\n.w98 .window--explorer > footer, .ExplorerWindow > footer {\n  display: flex; }\n  .w98 .window--explorer > footer > div, .ExplorerWindow > footer > div {\n    flex-grow: 1;\n    padding: 2px;\n    height: 12px;\n    box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px #0c0c0c; }\n    .w98 .window--explorer > footer > div:not(:last-child), .ExplorerWindow > footer > div:not(:last-child) {\n      margin-right: 2px; }\n\n.w98 .window--explorer__address, .ExplorerWindow__address {\n  display: flex;\n  height: 22px;\n  overflow-y: visible; }\n  .w98 .window--explorer__address__title, .ExplorerWindow__address__title {\n    align-self: center;\n    margin-right: 4px; }\n  .w98 .window--explorer__address .Select, .ExplorerWindow__address .Select {\n    flex-grow: 1;\n    z-index: 5;\n    margin-right: 4px;\n    margin-top: 1px; }\n\n.w98 .window--explorer__options, .ExplorerWindow__options {\n  display: flex;\n  padding: 2px 8px 2px 12px; }\n\n.w98 .window--explorer > div:last-child, .ExplorerWindow > div:last-child {\n  margin-top: 2px; }\n";
+  var css$n = ".w98 .window--explorer, .ExplorerWindow {\n  display: inline-flex;\n  flex-direction: column; }\n  .w98 .window--explorer__view, .ExplorerWindow__view {\n    min-height: 20px;\n    margin: 2px 1px;\n    flex-grow: 1;\n    background-color: white;\n    box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px 0px #808088, inset -2px -2px 0px #bbc3c4, inset 2px 2px 0px 0px #0c0c0c; }\n  .w98 .window--explorer__details, .ExplorerWindow__details {\n    display: flex; }\n    .w98 .window--explorer__details__section, .ExplorerWindow__details__section {\n      box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px #808088;\n      flex-grow: 1;\n      margin-top: 2px;\n      height: 16px; }\n      .w98 .window--explorer__details__section:not(:last-child), .ExplorerWindow__details__section:not(:last-child) {\n        margin: 2px; }\n  .w98 .window--explorer .window__menu, .ExplorerWindow .window__menu {\n    padding: 2px 2px 2px 12px; }\n  .w98 .window--explorer > div + menu, .ExplorerWindow > div + menu {\n    margin-top: 2px;\n    box-shadow: 0px 2px 0px -1px white, -1px 2px 0px -1px white, -1px 1px 0px #808088, 0px 1px 0px #808088, inset 0px -1px 0px #808088, inset -1px 0px 0px #808088, inset 0px 0px 0px 1px white, -1px 0px 0px #808088, 1px 0px 0px white, -1px 1px 0px 0px white, 1px 1px 0px 0px white, -1px -1px 0px #808088, 0px -1px 0px #808088, inset 0px 1px 0px white, 1px -1px 0px white; }\n  .w98 .window--explorer > menu, .ExplorerWindow > menu {\n    position: relative;\n    min-height: 16px;\n    padding-left: 12px;\n    margin: 0px 1px;\n    display: flex;\n    box-shadow: inset 0px -1px 0px #808088, inset -1px 0px 0px #808088, inset 0px 0px 0px 1px white, -1px 0px 0px #808088, 1px 0px 0px white, -1px 1px 0px 0px white, 1px 1px 0px 0px white; }\n    .w98 .window--explorer > menu:before, .ExplorerWindow > menu:before {\n      position: absolute;\n      top: 3px;\n      left: 5px;\n      height: calc(100% - 6px);\n      width: 3px;\n      background-color: #bbc3c4;\n      content: '';\n      box-shadow: inset -1px -1px 0px #808088, inset 1px 1px 0px white; }\n  .w98 .window--explorer > footer, .ExplorerWindow > footer {\n    display: flex; }\n    .w98 .window--explorer > footer > div, .ExplorerWindow > footer > div {\n      white-space: nowrap;\n      text-overflow: ellipsis;\n      overflow: hidden;\n      min-width: 0px;\n      flex-grow: 1;\n      padding: 2px;\n      height: 12px;\n      box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px #0c0c0c; }\n      .w98 .window--explorer > footer > div:not(:last-child), .ExplorerWindow > footer > div:not(:last-child) {\n        margin-right: 2px; }\n      .w98 .window--explorer > footer > div:last-child, .ExplorerWindow > footer > div:last-child {\n        padding-right: 12px; }\n  .w98 .window--explorer__address, .ExplorerWindow__address {\n    display: flex;\n    height: 22px;\n    overflow-y: visible; }\n    .w98 .window--explorer__address__title, .ExplorerWindow__address__title {\n      align-self: center;\n      margin-right: 4px; }\n    .w98 .window--explorer__address .Select, .ExplorerWindow__address .Select {\n      flex-grow: 1;\n      z-index: 5;\n      margin-right: 4px;\n      margin-top: 1px; }\n  .w98 .window--explorer__options, .ExplorerWindow__options {\n    display: flex;\n    padding: 2px 8px 2px 12px; }\n  .w98 .window--explorer > div:last-child, .ExplorerWindow > div:last-child {\n    margin-top: 2px; }\n";
   styleInject(css$n);
 
-  var insertDefaultFooter = function insertDefaultFooter(customFooterElements, minimum) {
-    var footer = [].concat(toConsumableArray(customFooterElements));
+  var insertDefaultFooter = function insertDefaultFooter(customFooterElements) {
+    var minimum = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 2;
+
+    var footer = Array.isArray(customFooterElements) ? [].concat(toConsumableArray(customFooterElements)) : [];
     for (var i = 0; i < minimum; i++) {
-      footer[i] = footer[i] || { text: '' };
+      footer[i] = footer && !footer.text ? footer[i] : { text: '' };
     }
     return footer;
   };
@@ -1652,7 +1673,8 @@
         onClose: props.onClose,
         onMaximize: props.onClose,
         onMinimize: props.onMaximize,
-        title: props.title
+        title: props.title,
+        resizable: props.resizable
       },
       React__default.createElement(MenuBar, {
         className: 'window--explorer__menu',

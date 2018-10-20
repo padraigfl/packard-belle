@@ -40,7 +40,7 @@ Explorer/Program
 - [x] Standard view icons
 - [x] close/minimize/restore/help
 - [x] File/Edit/etc toolbar
-- [x] Options (needs sections handling and see more icon)
+- [x] Options (needs sections handling and see more icons)
 - [x] Explorer input (cosmetic only)
 - [ ] Explorer input (working)
 - [ ] Status footer (partially done, logic not figured out)
@@ -79,7 +79,6 @@ W98 Toolbar
 - [ ] Reimplement CSS Modules
 - [ ] Make dummy Select component for places where aesthetically needed
 - [ ] Group options collections in explorer
-- [ ] Figure out what to do with footers in explorer
 - [ ] Pixel near perfect (leave to last)
 
 ## To fix later
@@ -87,12 +86,15 @@ W98 Toolbar
 - [ ] Use svg filter for icon highlighting (checkered blue pixel)
 - [ ] Refactor various list option groups
 - [ ] Blue selected areas grey when parent not active
-- [ ] Radio and checkbox for ContextMenus
+- [ ] Radio and checkbox for Menus
 - [ ] Custom font
 - [ ] Start menu animation on iOS (absolute transitions issue, considering disabling on mobile)
 - [ ] Selected sections grey when not focus
 - [ ] Filter overhauls
 - [ ] Redundant CSS clearout
-- [x] ContextMenuWrapper as HOC?
+- [x] StandardMenuWrapper as HOC?
 - [ ] Gradient improvements
 - [ ] Add empty taskbar to core css
+- [ ] Disabled buttons
+- [ ] Single width font
+- [ ] Right clicking

@@ -667,7 +667,9 @@ select[multiple] {
       padding: 2px 4px;
       background-color: #bbc3c4; }
   .window--alert {
-    max-width: 320px; }
+    display: inline-flex;
+    flex-direction: column;
+    max-width: 250px; }
     .window--alert__message {
       display: flex;
       align-items: center;
@@ -677,12 +679,12 @@ select[multiple] {
         background-size: 28px 28px;
         background-repeat: no-repeat;
         background-position: 6px 6px;
-        padding: 6px 2px 6px 44px; }
+        padding: 6px 4px 8px 40px; }
     .window--alert__actions {
       width: 100%;
       display: flex;
       justify-content: center; }
-      .window--alert__actions .btn--form {
+      .window--alert__actions .btn {
         margin: 0px 4px 8px; }
 
 .task-bar {

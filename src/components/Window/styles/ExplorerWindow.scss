@@ -16,9 +16,12 @@
 
 
 .w98 .window--explorer, .ExplorerWindow {
+  display: inline-flex;
+  flex-direction: column;
   &__view {
     min-height: 20px;
-    margin: 2px auto 1px;
+    margin: 2px 1px;
+    flex-grow: 1;
     background-color: white;
     @include shadow-input;
   }
@@ -36,8 +39,8 @@
     }
   }
 
-  .menu-bar {
-    padding: 2px 1px 2px 12px;
+  .window__menu {
+    padding: 2px 2px 2px 12px;
   }
   >div + menu {
     margin-top: 2px;
@@ -73,12 +76,19 @@
   >footer {
     display: flex;
     >div {
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      min-width: 0px; // hack to prevent overflow
       flex-grow: 1;
       padding: 2px;
       height: 12px;
       box-shadow: dualShadow($black, white);
       &:not(:last-child) {
         margin-right: 2px;
+      }
+      &:last-child {
+        padding-right: 12px;
       }
     }
   }

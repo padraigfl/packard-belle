@@ -7,10 +7,11 @@ import Select from '../Inputs/Select';
 import OptionsList from './OptionsList';
 import './styles/ExplorerWindow.scss';
 
-const insertDefaultFooter = (customFooterElements, minimum) => {
-  const footer = [...customFooterElements];
+const insertDefaultFooter = (customFooterElements, minimum = 2) => {
+  const footer = Array.isArray(customFooterElements) ?
+    [...customFooterElements] : [];
   for(let i = 0; i < minimum; i++) {
-    footer[i] = footer[i] || { text: '' };
+    footer[i] = (footer && !footer.text) ? footer[i] : { text: '' };
   }
   return footer;
 };
@@ -49,6 +50,7 @@ const ExplorerWindow = props => {
       onMaximize={props.onClose}
       onMinimize={props.onMaximize}
       title={props.title}
+      resizable={props.resizable}
     >
       <MenuBar
         className="window--explorer__menu"
