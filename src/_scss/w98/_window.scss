@@ -10,6 +10,13 @@
   padding: 3px;
   box-shadow: dualShadow($grey, $black), dualShadow(white, $darkgrey, 2);
   display: inline-block;
+
+  &--maximized {
+    width: calc(100% + 0px);
+    height: calc(100% - 28px);
+    top: -3px;
+    left: -3px;
+  }
 }
 
 @mixin window-heading {
@@ -18,7 +25,7 @@
   font-weight: bold;
   color: white;
   margin-bottom: 1px;
-  padding: 0px 3px;
+  padding: 0px 1px 0px 3px;
   align-items: center;
   letter-spacing: 1px;
 

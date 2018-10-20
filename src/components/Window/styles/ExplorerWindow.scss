@@ -20,7 +20,7 @@
   flex-direction: column;
   &__view {
     min-height: 20px;
-    margin: 2px 1px;
+    margin: 2px 0px;
     flex-grow: 1;
     background-color: white;
     @include shadow-input;
