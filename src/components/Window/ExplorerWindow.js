@@ -47,8 +47,9 @@ const ExplorerWindow = props => {
       className={classnames('ExplorerWindow window--explorer', props.className)}
       icon={props.icon}
       onClose={props.onClose}
-      onMaximize={props.onClose}
-      onMinimize={props.onMaximize}
+      onMaximize={props.onMaximize}
+      onMinimize={props.onMinimize}
+      onRestore={props.onRestore}
       title={props.title}
       resizable={props.resizable}
     >
