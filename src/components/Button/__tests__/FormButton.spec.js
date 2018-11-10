@@ -3,22 +3,22 @@ import {
   shallow,
   mount,
 } from 'enzyme';
-import FormButton from '../FormButton';
+import ButtonForm from '../ButtonForm';
 
-describe('FormButton', () => {
+describe('ButtonForm', () => {
   it('renders', () => {
-    const wrapper = shallow(<FormButton />);
-    expect(wrapper.find('.FormButton').length).toBeTruthy();
+    const wrapper = shallow(<ButtonForm />);
+    expect(wrapper.find('.ButtonForm').length).toBeTruthy();
   });
 
   it('renders children', () => {
-    const wrapper = shallow(<FormButton><div id="test" /></FormButton>);
+    const wrapper = shallow(<ButtonForm><div id="test" /></ButtonForm>);
     expect(wrapper.find('#test').length).toBeTruthy();
   });
 
   it('accepts classes passed in', () => {
     const wrapper = shallow(
-      <FormButton
+      <ButtonForm
         className="test"
         isActive
         isDisabled
@@ -32,7 +32,7 @@ describe('FormButton', () => {
   it('onclick focuses and fires prop', () => {
     const clickFunc = jest.fn();
     const testString = 'TestString';
-    const wrapper = mount(<FormButton onClick={clickFunc}>{testString}</FormButton>);
+    const wrapper = mount(<ButtonForm onClick={clickFunc}>{testString}</ButtonForm>);
     wrapper.simulate('click');
     expect(document.activeElement.innerHTML).toBe(testString);
     expect(clickFunc).toHaveBeenCalled();

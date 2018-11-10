@@ -3,22 +3,22 @@ import {
   shallow,
   mount,
 } from 'enzyme';
-import SmallIconButton from '../SmallIconButton';
+import ButtonIconSmall from '../ButtonIconSmall';
 
-describe('SmallIconButton', () => {
+describe('ButtonIconSmall', () => {
   it('renders', () => {
-    const wrapper = shallow(<SmallIconButton />);
-    expect(wrapper.find('.SmallIconButton').length).toBeTruthy();
+    const wrapper = shallow(<ButtonIconSmall />);
+    expect(wrapper.find('.ButtonIconSmall').length).toBeTruthy();
   });
 
   it('renders icon', () => {
-    const wrapper = mount(<SmallIconButton icon="TEST" />);
+    const wrapper = mount(<ButtonIconSmall icon="TEST" />);
     expect(wrapper.find('img').props().src).toBe('TEST');
   });
 
   it('accepts classes passed in', () => {
     const wrapper = shallow(
-      <SmallIconButton
+      <ButtonIconSmall
         className="test"
         isActive
         isDisabled
@@ -31,7 +31,7 @@ describe('SmallIconButton', () => {
 
   it('onclick focuses and fires prop', () => {
     const clickFunc = jest.fn();
-    const wrapper = mount(<SmallIconButton onClick={clickFunc} />);
+    const wrapper = mount(<ButtonIconSmall onClick={clickFunc} />);
     wrapper.simulate('click');
     expect(clickFunc).toHaveBeenCalled();
   });

@@ -1,7 +1,7 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
+import cx from 'classnames';
 import Button from '../Button/AbstractButton';
 import withMenuWrapper from '../StandardMenu/withMenuWrapper';
 import './MenuBar.scss';
@@ -14,7 +14,7 @@ const MenuBar = props => (
       props.options.map(section => (
         <MenuEntry
           className={
-            classnames(
+            cx(
               'window__menu__section MenuBar__section',
               props.className
             )

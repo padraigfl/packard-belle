@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
+import cx from 'classnames';
 
 import './styles/AbstractButton.scss';
 
@@ -50,7 +50,7 @@ class AbstractButton extends Component {
     return (
       <button
         ref={(btn) => { this.button = btn; }}
-        className={ classnames(
+        className={ cx(
           'btn',
           props.className,
           {

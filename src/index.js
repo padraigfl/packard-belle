@@ -1,11 +1,11 @@
 export { default as Theme } from './components/Theme';
 
-export { default as FormButton } from './components/Button/FormButton';
-export { default as NavButton } from './components/Button/NavButton';
-export { default as ProgramButton } from './components/Button/ProgramButton';
+export { default as ButtonForm } from './components/Button/ButtonForm';
+export { default as ButtonNav } from './components/Button/ButtonNav';
+export { default as ButtonProgram } from './components/Button/ButtonProgram';
 export { default as StartButton } from './components/Button/StartButton';
-export { default as LargeIconButton } from './components/Button/LargeIconButton';
-export { default as SmallIconButton } from './components/Button/SmallIconButton';
+export { default as ButtonIconLarge} from './components/Button/ButtonIconLarge';
+export { default as ButtonIconSmall } from './components/Button/ButtonIconSmall';
 
 export { default as StandardMenu } from './components/StandardMenu/StandardMenu';
 export { default as withStandardMenuWrapper } from './components/StandardMenu/withMenuWrapper';
@@ -28,7 +28,9 @@ export { default as StartMenu } from './components/StartMenu';
 
 export { default as TaskBar } from './components/TaskBar';
 
-export { default as Window } from './components/Window/AbstractWindow';
-export { default as ExplorerWindow } from './components/Window/ExplorerWindow';
 export { default as WindowFrame } from './components/Window/WindowFrame';
+export { default as WindowAbstract } from './components/Window/WindowAbstract';
+export { default as WindowAlert} from './components/Window/WindowAlert';
+export { default as WindowExplorer } from './components/Window/WindowExplorer';
+export { default as WindowProgram } from './components/Window/WindowProgram';
 export { default as DetailsSection } from './components/Window/DetailsSection';

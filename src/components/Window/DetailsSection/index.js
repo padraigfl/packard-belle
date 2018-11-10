@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './styles/DetailsSection.scss';
+import './_details-section.scss';
 
 const DetailsSection = props => (
   <section className="DetailsSection window__section">

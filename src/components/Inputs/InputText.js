@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import classnames from 'classnames';
+import cx from 'classnames';
 import PropTypes from 'prop-types';
 
 import './styles/InputText.scss';
@@ -34,7 +34,7 @@ class InputText extends Component {
     return (
       <input
         type="text"
-        className={classnames('InputText', this.props.className)}
+        className={ cx('InputText', this.props.className)}
         value={this.props.initialValue ? this.state.value : this.props.value}
         id={this.props.id}
         disabled={this.props.isDisabled}

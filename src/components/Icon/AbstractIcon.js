@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
+import cx from 'classnames';
 
 class AbstractIcon extends Component {
   state = {
@@ -52,7 +52,7 @@ class AbstractIcon extends Component {
       onDoubleClick: props.onDoubleClick,
       onClick: this.handleClick,
       onContextMenu: this.props.onContextMenu && this.handleContextMenu,
-      className: classnames('icon', props.className),
+      className: cx('icon', props.className),
       title: props.alt,
       value: props.value,
       ref: (icon) => { this.icon = icon; },

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
+import cx from 'classnames';
 
 import './styles/SelectBox.scss';
 
@@ -11,7 +11,7 @@ const SelectBox = (props) => {
   const Comp = props.component ? props.component : 'button';
   return (
     <div className={
-      classnames(
+      cx(
         'SelectBox',
         props.component ? `SelectBox--${props.component.name}` : 'SelectBox--simple',
         { disabled: props.isDisabled },
@@ -23,7 +23,7 @@ const SelectBox = (props) => {
             onClick={() => props.onClick(option.value)}
             alt={props.component ? option.alt : undefined}
             className={
-              classnames(
+              cx(
                 option.className,
                 { 'is-active': isSelected(props.selected, option.value) }
               )

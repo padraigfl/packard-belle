@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Notifiations from './Notifications';
 import StartMenu from '../StartMenu';
-import ProgramButton from '../Button/ProgramButton';
-import SmallIconButton from '../Button/SmallIconButton';
+import ButtonProgram from '../Button/ButtonProgram';
+import SmallIconButton from '../Button/ButtonIconSmall';
 
 import './TaskBar.scss';
 
@@ -32,14 +32,14 @@ const TaskBar = (props) => (
       {
         props.openWindows &&
           props.openWindows.map(openWindow =>
-            <ProgramButton
+            <ButtonProgram
               isActive={ openWindow.isActive }
               onClick={ openWindow.onClick }
               icon={ openWindow.icon }
-              key={ `${openWindow.icon}-ProgramButton-${openWindow.title}` }
+              key={ `${openWindow.icon}-ButtonProgram-${openWindow.title}` }
             >
               { openWindow.title }
-            </ProgramButton>
+            </ButtonProgram>
           )
       }
     </div>
@@ -53,7 +53,7 @@ TaskBar.propTypes = {
     SmallIconButton.propTypes,
   )),
   openWindows: PropTypes.arrayOf(PropTypes.shape(
-    ProgramButton.propTypes,
+    ButtonProgram.propTypes,
   )),
   notifiers: PropTypes.arrayOf(PropTypes.shape(
     Notifiations.propsTypes,

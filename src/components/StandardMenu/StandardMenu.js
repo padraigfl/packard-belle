@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
+import cx from 'classnames';
 import Window from '../Window/WindowFrame';
 import StandardMenuItem from './StandardMenuItem';
 
@@ -22,7 +22,7 @@ const StandardMenu = props => {
   const hasOptions = Array.isArray(options);
   return (
     <Window
-      className={classnames(
+      className={ cx(
         'StandardMenu', props.className, props.direction,
         { 'StandardMenu--visible': props.isVisible },
       )}

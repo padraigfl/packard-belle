@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
+import cx from 'classnames';
 
 const Toggle = props => (
-  <div className={classnames('Toggle', props.className)}>
+  <div className={ cx('Toggle', props.className)}>
     <input
       type={props.type}
       id={props.id}

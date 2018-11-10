@@ -1,21 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
-import AbstractWindow, { windowProps } from './AbstractWindow';
-import FormButton from '../Button/FormButton';
+import cx from 'classnames';
+import WindowAbstract from './WindowAbstract';
+import ButtonForm from '../Button/ButtonForm';
 
-import './styles/AlertWindow.scss';
+import './styles/WindowAlert.scss';
 
-const AlertWindow = props => (
-  <AbstractWindow
-    className="AlertWindow window--alert"
+const WindowAlert = props => (
+  <WindowAbstract
+    className="WindowAlert window--alert"
     onClose={props.onClose}
     onHelp={props.onHelp}
     title="Error"
   >
     <div
       className={
-        classnames('window--alert__message', { 'has-icon': props.icon})
+        cx('window--alert__message', { 'has-icon': props.icon})
       }
       style={ props.icon && { backgroundImage: `url(${props.icon})`} }
     >
@@ -23,33 +23,33 @@ const AlertWindow = props => (
     </div>
     <div className="window--alert__actions">
       { props.onOK && (
-        <FormButton
+        <ButtonForm
           onClick={
             () => {
               props.onOK();
             }
           }
-        >OK</FormButton>
+        >OK</ButtonForm>
       )}
       { props.onCancel && (
-        <FormButton
+        <ButtonForm
           onClick={
             () => {
               props.onCancel();
             }
           }
-        >Cancel</FormButton>
+        >Cancel</ButtonForm>
       )}
     </div>
-  </AbstractWindow>
+  </WindowAbstract>
 );
 
-AlertWindow.propTypes = {
-  ...windowProps,
+WindowAlert.propTypes = {
+  ...WindowAbstract.propTypes,
   onOK: PropTypes.func,
   onCancel: PropTypes.func,
   children: PropTypes.node,
   icon: PropTypes.string,
 };
 
-export default AlertWindow;
+export default WindowAlert;

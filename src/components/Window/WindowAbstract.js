@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import WindowFrame from './WindowFrame';
-import Button from '../Button/NavButton';
+import Button from '../Button/ButtonNav';
 
-import './styles/AbstractWindow.scss';
+import './styles/WindowAbstract.scss';
 
-const StaticWindow = props => (
+const WindowAbstract = props => (
   <WindowFrame className={props.className} resizable={props.resizable}>
     <div className="window__heading">
       { props.icon && (
@@ -64,6 +64,6 @@ export const windowProps = {
   onRestore: PropTypes.func,
 };
 
-StaticWindow.propTypes = windowProps;
+WindowAbstract.propTypes = windowProps;
 
-export default StaticWindow;
+export default WindowAbstract;

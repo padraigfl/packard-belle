@@ -1,25 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
+import cx from 'classnames';
 import Button, { commonButtonPropTypes } from './AbstractButton';
 
-import './styles/SmallIconButton.scss';
+import './styles/ButtonIconLarge.scss';
 
-const SmallIconButton = props => (
+const ButtonIconLarge = props => (
   <Button
-    className={ classnames('SmallIconButton', props.className) }
+    className={ cx('ButtonIconLarge', props.className) }
     onClick={ props.onClick }
     isDisabled={ props.isDisabled }
-    isActive={ props.isActive }
   >
     <img src={props.icon} />
+    { props.title }
   </Button>
 );
 
-SmallIconButton.propTypes = {
+ButtonIconLarge.propTypes = {
   ...commonButtonPropTypes,
   icon: PropTypes.string,
+  title: PropTypes.string,
 };
 
 
-export default SmallIconButton;
+export default ButtonIconLarge;

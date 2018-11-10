@@ -3,22 +3,22 @@ import {
   shallow,
   mount,
 } from 'enzyme';
-import NavButton from '../NavButton';
+import ButtonNav from '../ButtonNav';
 
-describe('NavButton', () => {
+describe('ButtonNav', () => {
   it('renders', () => {
-    const wrapper = shallow(<NavButton />);
-    expect(wrapper.find('.NavButton').length).toBeTruthy();
+    const wrapper = shallow(<ButtonNav />);
+    expect(wrapper.find('.ButtonNav').length).toBeTruthy();
   });
 
   it('No children', () => {
-    const wrapper = shallow(<NavButton><div id="test" /></NavButton>);
+    const wrapper = shallow(<ButtonNav><div id="test" /></ButtonNav>);
     expect(wrapper.find('#test').length).toBeFalsy();
   });
 
   it('accepts classes passed in', () => {
     const wrapper = shallow(
-      <NavButton
+      <ButtonNav
         className="test"
         isActive
         isDisabled
@@ -31,7 +31,7 @@ describe('NavButton', () => {
 
   it('onclick fires prop', () => {
     const clickFunc = jest.fn();
-    const wrapper = mount(<NavButton onClick={clickFunc} />);
+    const wrapper = mount(<ButtonNav onClick={clickFunc} />);
     wrapper.simulate('click');
     expect(clickFunc).toHaveBeenCalled();
   });

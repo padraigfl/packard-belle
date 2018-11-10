@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
+import cx from 'classnames';
 import clone from 'clone';
 import StandardMenu, { standardMenuProps } from './StandardMenu';
 
@@ -115,7 +115,7 @@ const withContextLogic = ContextButton => {
         return (
           <div
             ref={(el) => { this.el = el; }}
-            className={classnames(
+            className={ cx(
               'standard-menu-wrapper',
               className,
               { 'active': this.state.isOpen }

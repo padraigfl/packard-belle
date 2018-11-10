@@ -1,5 +1,5 @@
 import React from 'react';
-import classnames from 'classnames';
+import cx from 'classnames';
 import Start from '../Button/StartButton';
 import standardMenuWrapper from '../StandardMenu/withMenuWrapper';
 
@@ -10,7 +10,7 @@ const StartMenu = (props) => {
   return (
     <Started
       className={
-        classnames('start-menu TaskBar__start', className)
+        cx('start-menu TaskBar__start', className)
       }
       {...otherProps}
     />

@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
+import cx from 'classnames';
 import StandardMenu from './StandardMenu';
 
 const StandardMenuItem = props => (
   <div
     className={
-      classnames(
+      cx(
         'standard-menu__item',
         props.className,
         props.type,
@@ -18,7 +18,7 @@ const StandardMenuItem = props => (
   >
     <button
       className={
-        classnames(
+        cx(
           'StandardMenuItem__button',
           'standard-menu__item__button',
           { disabled: props.isDisabled },

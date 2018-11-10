@@ -1,5 +1,5 @@
 @import '../../../_scss/w98/_window';
 
-.AlertWindow, .window--alert {
+.WindowAlert, .window--alert {
   @include window-alert();
 }

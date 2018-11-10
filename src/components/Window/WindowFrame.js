@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
+import cx from 'classnames';
 import './styles/WindowFrame.scss';
 
 const WindowFrame = props => (
-  <div className={classnames('window', props.className, { 'window--resizable': props.resizable })}>
+  <div className={ cx('window', props.className, { 'window--resizable': props.resizable })}>
     {props.children}
   </div>
 );

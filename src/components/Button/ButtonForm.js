@@ -1,12 +1,12 @@
 import React from 'react';
-import classnames from 'classnames';
+import cx from 'classnames';
 import Button, { commonButtonPropTypes } from './AbstractButton';
 
-import './styles/FormButton.scss';
+import './styles/ButtonForm.scss';
 
-const FormButton = props => (
+const ButtonForm = props => (
   <Button
-    className={ classnames('FormButton', props.className) }
+    className={ cx('ButtonForm', props.className) }
     onClick={ props.onClick }
     isActive={ props.isActive }
     isDisabled={props.isDisabled}
@@ -19,4 +19,4 @@ Button.propTypes = {
   ...commonButtonPropTypes,
 };
 
-export default FormButton;
+export default ButtonForm;

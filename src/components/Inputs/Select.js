@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import classNames from 'classnames';
+import cx from 'classnames';
 import PropTypes from 'prop-types';
 import ReactSelect from 'react-select';
 import './styles/Select.scss';
@@ -28,7 +28,7 @@ export const menuRenderer = ({
   return options.map((option, i) => {
     let isSelected = valueArray && valueArray.some(x => x[valueKey] === option[valueKey]);
     let isFocused = option === focusedOption;
-    let optionClass = classNames(optionClassName, {
+    let optionClass = cx(optionClassName, {
       'Select-option': true,
       'Select-option--icon': true,
       'is-selected': isSelected,

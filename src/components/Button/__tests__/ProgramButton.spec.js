@@ -3,23 +3,23 @@ import {
   shallow,
   mount,
 } from 'enzyme';
-import ProgramButton from '../ProgramButton';
+import ButtonProgram from '../ButtonProgram';
 import AbstractButton from '../AbstractButton';
 
-describe('ProgramButton', () => {
+describe('ButtonProgram', () => {
   it('renders', () => {
-    const wrapper = shallow(<ProgramButton />);
-    expect(wrapper.find('.ProgramButton').length).toBeTruthy();
+    const wrapper = shallow(<ButtonProgram />);
+    expect(wrapper.find('.ButtonProgram').length).toBeTruthy();
   });
 
   it('renders children', () => {
-    const wrapper = shallow(<ProgramButton><div id="test" /></ProgramButton>);
+    const wrapper = shallow(<ButtonProgram><div id="test" /></ButtonProgram>);
     expect(wrapper.find('#test').length).toBeTruthy();
   });
 
   it('accepts classes passed in', () => {
     const wrapper = shallow(
-      <ProgramButton
+      <ButtonProgram
         className="test"
         isActive
         isDisabled
@@ -32,13 +32,13 @@ describe('ProgramButton', () => {
 
   it('onclick focuses and fires prop', () => {
     const clickFunc = jest.fn();
-    const wrapper = mount(<ProgramButton onClick={clickFunc} />);
+    const wrapper = mount(<ButtonProgram onClick={clickFunc} />);
     wrapper.simulate('click');
     expect(clickFunc).toHaveBeenCalled();
   });
 
   it('icon is passed into style', () => {
-    const wrapper = mount(<ProgramButton icon="ICON" />);
+    const wrapper = mount(<ButtonProgram icon="ICON" />);
     expect(wrapper.find(AbstractButton).props().style.backgroundImage).toBe('url(ICON)');
   });
 });

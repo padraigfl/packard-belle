@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
-import LargeIconButton from '../../Button/LargeIconButton';
+import cx from 'classnames';
+import ButtonIconLarge from '../../Button/ButtonIconLarge';
 import StandardMenu from '../../StandardMenu/StandardMenu';
 import './_options-list.scss';
 
@@ -28,7 +28,7 @@ class OptionsListDropdown extends Component {
 
 class OptionsList extends Component {
   static propTypes = {
-    options: PropTypes.arrayOf(PropTypes.shape(LargeIconButton.propTypes)),
+    options: PropTypes.arrayOf(PropTypes.shape(ButtonIconLarge.propTypes)),
     className: PropTypes.string,
   }
   state = {
@@ -48,10 +48,10 @@ class OptionsList extends Component {
     return (
       <menu
         ref={(section) => { this.section = section; }}
-        className={classnames(this.props.className, 'options-list')}
+        className={ cx(this.props.className, 'options-list')}
       >
         {this.state.displayedIcons.map(option => (
-          <LargeIconButton
+          <ButtonIconLarge
             key={`large-button-${option.title}`}
             icon={option.icon}
             title={option.title}

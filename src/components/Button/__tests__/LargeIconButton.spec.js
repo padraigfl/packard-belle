@@ -3,24 +3,24 @@ import {
   shallow,
   mount,
 } from 'enzyme';
-import LargeIconButton from '../LargeIconButton';
+import ButtonIconLarge from '../ButtonIconLarge';
 import AbstractButton from '../AbstractButton';
 
-describe('LargeIconButton', () => {
+describe('ButtonIconLarge', () => {
   it('renders', () => {
-    const wrapper = shallow(<LargeIconButton />);
-    expect(wrapper.find('.LargeIconButton').length).toBeTruthy();
+    const wrapper = shallow(<ButtonIconLarge />);
+    expect(wrapper.find('.ButtonIconLarge').length).toBeTruthy();
   });
 
   it('renders icon', () => {
-    const wrapper = mount(<LargeIconButton icon="TEST" title="TEST"/>);
+    const wrapper = mount(<ButtonIconLarge icon="TEST" title="TEST"/>);
     expect(wrapper.find('img').props().src).toBe('TEST');
     expect(wrapper.find(AbstractButton).props().children[1]).toBe('TEST');
   });
 
   it('accepts classes passed in', () => {
     const wrapper = shallow(
-      <LargeIconButton
+      <ButtonIconLarge
         className="test"
         isActive
         isDisabled
@@ -33,7 +33,7 @@ describe('LargeIconButton', () => {
 
   it('onclick focuses and fires prop', () => {
     const clickFunc = jest.fn();
-    const wrapper = mount(<LargeIconButton onClick={clickFunc} />);
+    const wrapper = mount(<ButtonIconLarge onClick={clickFunc} />);
     wrapper.simulate('click');
     expect(clickFunc).toHaveBeenCalled();
   });
