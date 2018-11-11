@@ -1,44 +1,56 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="storybook-version" content="3.4.10">
-    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
-    <title>Storybook</title>
-    <style>
-        /*
-          When resizing panels, the drag event breaks if the cursor
-          moves over the iframe. Add the 'dragging' class to the body
-          at drag start and remove it when the drag ends.
-         */
-        .dragging iframe {
-            pointer-events: none;
-        }
+<!doctype html><html><head><meta charset="utf-8"><title>Storybook</title><style>html, body {
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }</style><script>try {
+    if (window.parent !== window) {
+      window.__REACT_DEVTOOLS_GLOBAL_HOOK__ = window.parent.__REACT_DEVTOOLS_GLOBAL_HOOK__;
+      window.__VUE_DEVTOOLS_GLOBAL_HOOK__ = window.parent.__VUE_DEVTOOLS_GLOBAL_HOOK__;
+    }
+  } catch (e) {
+    console.warn('unable to connect to parent frame for connecting dev tools');
+  }</script><style>@font-face {
+    font-family: 'MSFont';
+    src: url('https://www.dropbox.com/s/7y92fwqomvm2l3g/ms98_11.ttf') format('ttf');
+  }
+  @font-face {
+    font-family: 'MSFont11';
+    src: url('../src/_scss/w98/fonts/ms98s11a10d02.ttf') format('ttf');
+  }
 
-        /* Styling the fuzzy search box placeholders */
-        .searchBox::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-            color: #ddd;
-            font-size: 16px;
-        }
+  [role='tablist'] button {
+    color: white;
+  }
 
-        .searchBox::-moz-placeholder { /* Firefox 19+ */
-            color: #ddd;
-            font-size: 16px;
-        }
+  a[href='https://github.com/padraigfl/packard-belle?selector'] {
+    border-radius: 0px;
+  }
+  a[href='https://github.com/padraigfl/packard-belle?selector'] + button[class^="css-"] {
+    border-radius: 0px;
+    box-shadow: inset -1px -1px 0px #0c0c0c, inset 1px 1px 0px white, inset -2px -2px 0px #808088, inset 2px 2px 0px #bbc3c4;
+  }
+  a[href='https://github.com/padraigfl/packard-belle?selector'] + button[class^="css-"]:active:focus {
+    box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px #0c0c0c, inset -2px -2px 0px #bbc3c4, inset 2px 2px 0px #808088;
+  }
 
-        .searchBox:focus{
-            border-color: #EEE !important;
-        }
+  .Pane.vertical.Pane1 input[placeholder='Filter'] {
+    border-radius: 0px;
+    box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px 0px #808088,
+      inset -2px -2px 0px #bbc3c4, inset 2px 2px 0px 0px #000;
+    font-family: monospace;
+  }
 
-        .btn:hover{
-            background-color: #eee
-        }
-    </style>
-    
+  .Pane.horizontal {
+    box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px 0px #808088, inset -2px -2px 0px #bbc3c4, inset 2px 2px 0px 0px #0c0c0c;
+  }
 
-</head>
-<body style="margin: 0;">
-    <div id="root"></div>
-<script type="text/javascript" src="static/manager.9fb032a783e8b2beec79.bundle.js"></script></body>
-</html>
+  .css-1tv5i4z.e1lzzkxx2{
+    color: #bbc3c4;
+  }
+
+  .ReactModal__Content {
+    background: #bbc3c4 !important;
+    box-shadow: inset -1px -1px 0px #0c0c0c, inset 1px 1px 0px #bbc3c4, inset -2px -2px 0px #808088, inset 2px 2px 0px white;
+  }</style></head><body><div id="root"></div><script src="static/runtime~manager.9ffd8dd7b8642e4235e2.bundle.js"></script><script src="static/manager.b4f50fe8debbb7851fef.bundle.js"></script></body></html>

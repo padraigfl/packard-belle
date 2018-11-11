@@ -11,6 +11,7 @@ import ExplorerIcon from '../../src/components/Icon/ExplorerIcon';
 import img from './directory_closed.png';
 
 const noop = () => {};
+let selectValue = 'option1';
 
 class RadioTest extends Component {
   constructor(props) {
@@ -261,7 +262,8 @@ storiesOf('Inputs', module)
           label: 'Option4',
           value: 'option4',
         }]}
-        value="option1"
+        onChange={(value) => { selectValue = value; }}
+        value={selectValue}
         useIcons
       />
       <br/><br/>
@@ -284,14 +286,14 @@ storiesOf('Inputs', module)
         useIcons
         isDisabled
       />
-      <p>
-        <strong>Note:</strong>
-        These select boxes use <a href="https://github.com/JedWatson/react-select">React-Select</a> v1.2;
-        writing, styling and debugger a framework agnostic select field seemed like a lot more work than everything else here combined
-        A total rewrite will be required to update
-      </p>
     </div>
-  ))
+  ), {
+    notes: `*Note*
+    These select boxes use [https://github.com/JedWatson/react-select](React-Select) v1.2;
+    writing, styling and debugger a framework agnostic select field seemed like a lot more work than everything else here combined
+    A total rewrite will be required to update.
+    Current storybook example is not fully operational.`
+  })
   .add('selectbox simple', () => (
     <div className="form">
       <SelectBoxState multiple />

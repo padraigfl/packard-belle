@@ -21,7 +21,7 @@ storiesOf('Icons', module)
       icon={ img }
       title="Testing this testing some more"
     />
-  ))
+  ), { notes: 'Click on item to expose full name' })
   .add('ListIcon', () => (
     <div>
       <ListIcon

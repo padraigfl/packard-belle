@@ -165,7 +165,7 @@ storiesOf('Windows', module)
         </div>,
       ]}
     />
-  ))
+  ), { notes: 'WIP' })
   .add('AlertWindow', () => (
     <AlertWindow
       title="AlertWindow"

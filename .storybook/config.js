@@ -1,18 +1,22 @@
 import React from 'react';
 import { configure, addDecorator } from '@storybook/react';
 import { withOptions } from '@storybook/addon-options';
+import { withNotes } from '@storybook/addon-notes';
 
 import Theme from '../src/components/Theme';
 
 addDecorator(story => (
-  <Theme style={{ height: '100vh', display: 'inline-block' }}>
-      {story()}
-  </Theme>
+  <div style={{ background: '#666666' }}>
+    <Theme style={{ height: '100vh', display: 'inline-block' }}>
+        {story()}
+    </Theme>
+  </div>
 ));
 
 addDecorator(
   withOptions({
-    name: 'PackardBelle',
+    name: 'Packard-Belle',
+    url: 'https://github.com/padraigfl/packard-belle?selector',
     theme: {
       mainBackground: '#bbc3c4',
       mainBorder: '2px solid rgba(0,0,0,0)',
@@ -22,6 +26,8 @@ addDecorator(
     },
   }),
 );
+
+addDecorator(withNotes);
 
 function loadStories() {
   require('./stories/taskbar.js');

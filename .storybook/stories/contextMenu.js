@@ -55,6 +55,8 @@ const noop = () => {};
 
 const MenuWithLogic = withMenuWrapper();
 
+const notes = 'Hover styling currently controlled by javascript (no styling on CSS only version)';
+
 storiesOf('ContextMenu', module)
   .add('ContextMenu Single Field', () => (
     <ContextMenu
@@ -86,7 +88,7 @@ storiesOf('ContextMenu', module)
         },
     ]}
     />
-  ))
+  ), { notes })
   .add('ContextMenu with children', () => (
     <div>
       <p>
@@ -104,4 +106,4 @@ storiesOf('ContextMenu', module)
         isActive
       />
     </div>
-  ));
+  ), { notes });
