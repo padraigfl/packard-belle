@@ -1,11 +1,11 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import FormButton from '../../src/components/Button/FormButton';
-import NavButton from '../../src/components/Button/NavButton';
+import FormButton from '../../src/components/Button/ButtonForm';
+import NavButton from '../../src/components/Button/ButtonNav';
 import StartButton from '../../src/components/Button/StartButton';
-import ProgramButton from '../../src/components/Button/ProgramButton';
-import SmallIconButton from '../../src/components/Button/SmallIconButton';
-import LargeIconButton from '../../src/components/Button/LargeIconButton';
+import ProgramButton from '../../src/components/Button/ButtonProgram';
+import SmallIconButton from '../../src/components/Button/ButtonIconSmall';
+import LargeIconButton from '../../src/components/Button/ButtonIconLarge';
 import img from './directory_closed.png';
 
 const noop = () => {

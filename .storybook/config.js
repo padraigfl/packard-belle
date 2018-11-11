@@ -1,5 +1,7 @@
 import React from 'react';
 import { configure, addDecorator } from '@storybook/react';
+import { withOptions } from '@storybook/addon-options';
+
 import Theme from '../src/components/Theme';
 
 addDecorator(story => (
@@ -7,6 +9,19 @@ addDecorator(story => (
       {story()}
   </Theme>
 ));
+
+addDecorator(
+  withOptions({
+    name: 'PackardBelle',
+    theme: {
+      mainBackground: '#bbc3c4',
+      mainBorder: '2px solid rgba(0,0,0,0)',
+      mainTextFace: "monospace",
+      barFill: 'linear-gradient(to right, #0000a2, #126fc2)',
+      barTextColor: 'white',
+    },
+  }),
+);
 
 function loadStories() {
   require('./stories/taskbar.js');

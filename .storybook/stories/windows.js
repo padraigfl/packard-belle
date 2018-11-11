@@ -1,10 +1,10 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import WindowFrame from '../../src/components/Window/WindowFrame';
-import AbstractWindow from '../../src/components/Window/AbstractWindow';
-import ExplorerWindow from '../../src/components/Window/ExplorerWindow';
-import AlertWindow from '../../src/components/Window/AlertWindow';
-import MenuBar from '../../src/components/MenuBar';
+import AbstractWindow from '../../src/components/Window/WindowAbstract';
+import ExplorerWindow from '../../src/components/Window/WindowExplorer';
+import AlertWindow from '../../src/components/Window/WindowAlert';
+import WindowProgram from '../../src/components/Window/WindowProgram';
 import DetailsSection from '../../src/components/Window/DetailsSection';
 
 import img from './directory_closed.png';
@@ -87,28 +87,26 @@ storiesOf('Windows', module)
       </DetailsSection>
     </AbstractWindow>
   ))
-  .add('Window toolbar', () => (
-    <AbstractWindow
+  .add('Window Program', () => (
+    <WindowProgram
       title="Window with MenuBar"
       icon={img}
       onClose={ noop }
       onMinimize={ noop }
       onMaximize={ noop }
+      menuOptions={[
+        {
+          title: 'File',
+          options: optionsSample,
+        },
+        {
+          title: 'Edit',
+          options: optionsSample,
+        }
+      ]}
     >
-      <MenuBar
-        options={[
-          {
-            title: 'File',
-            options: optionsSample,
-          },
-          {
-            title: 'Edit',
-            options: optionsSample,
-          }
-        ]}
-      />
       Windows
-    </AbstractWindow>
+    </WindowProgram>
   ))
   .add('ExplorerWindow', () => (
     <ExplorerWindow

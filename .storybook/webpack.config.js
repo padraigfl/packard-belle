@@ -7,7 +7,13 @@ module.exports = (baseConfig, env, defaultConfig) => {
   defaultConfig.module.rules.push({
     test: /\.scss$/,
     loaders: ["style-loader", "css-loader", "sass-loader"],
-    include: path.resolve(__dirname, "../")
+    include: path.resolve(__dirname, "../"),
+  });
+
+  defaultConfig.module.rules.push({
+    test: /\.jsx?$/,
+    loaders: [require.resolve('@storybook/addon-storysource/loader')],
+    enforce: 'pre',
   });
 
   defaultConfig.resolve.extensions.push(".scss");

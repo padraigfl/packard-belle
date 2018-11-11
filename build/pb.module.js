@@ -35,11 +35,10 @@ var css = "@font-face {\n  font-family: 'MSFont';\n  src: url(\"data:application
 styleInject(css);
 
 var Theme = function Theme(props) {
-  return React.createElement(
-    'div',
-    { className: cx('w98', props.className), style: props.style },
-    props.children
-  );
+  return React.createElement("div", {
+    className: cx('w98', props.className),
+    style: props.style
+  }, props.children);
 };
 
 Theme.propTypes = {
@@ -48,220 +47,324 @@ Theme.propTypes = {
   style: PropTypes.shape()
 };
 
-var css$1 = ".btn {\n  border: 0px solid transparent;\n  background-color: #bbc3c4;\n  position: relative;\n  user-select: none; }\n  .btn:disabled, .btn.disabled {\n    pointer-events: none; }\n  .btn:active, .btn:focus, .btn:active:focus, .btn.active, .btn.clicked {\n    outline: none;\n    color: inherit; }\n  .btn:before {\n    position: absolute;\n    display: block;\n    top: 1px;\n    left: 1px;\n    width: calc(100% - 2px);\n    height: calc(100% - 2px); }\n";
-styleInject(css$1);
-
-var classCallCheck = function (instance, Constructor) {
+function _classCallCheck(instance, Constructor) {
   if (!(instance instanceof Constructor)) {
     throw new TypeError("Cannot call a class as a function");
   }
-};
+}
 
-var createClass = function () {
-  function defineProperties(target, props) {
-    for (var i = 0; i < props.length; i++) {
-      var descriptor = props[i];
-      descriptor.enumerable = descriptor.enumerable || false;
-      descriptor.configurable = true;
-      if ("value" in descriptor) descriptor.writable = true;
-      Object.defineProperty(target, descriptor.key, descriptor);
-    }
+function _defineProperties(target, props) {
+  for (var i = 0; i < props.length; i++) {
+    var descriptor = props[i];
+    descriptor.enumerable = descriptor.enumerable || false;
+    descriptor.configurable = true;
+    if ("value" in descriptor) descriptor.writable = true;
+    Object.defineProperty(target, descriptor.key, descriptor);
+  }
+}
+
+function _createClass(Constructor, protoProps, staticProps) {
+  if (protoProps) _defineProperties(Constructor.prototype, protoProps);
+  if (staticProps) _defineProperties(Constructor, staticProps);
+  return Constructor;
+}
+
+function _defineProperty(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
   }
 
-  return function (Constructor, protoProps, staticProps) {
-    if (protoProps) defineProperties(Constructor.prototype, protoProps);
-    if (staticProps) defineProperties(Constructor, staticProps);
-    return Constructor;
-  };
-}();
+  return obj;
+}
 
-var _extends = Object.assign || function (target) {
-  for (var i = 1; i < arguments.length; i++) {
-    var source = arguments[i];
+function _extends() {
+  _extends = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
 
-    for (var key in source) {
-      if (Object.prototype.hasOwnProperty.call(source, key)) {
-        target[key] = source[key];
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
       }
     }
+
+    return target;
+  };
+
+  return _extends.apply(this, arguments);
+}
+
+function _objectSpread(target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i] != null ? arguments[i] : {};
+    var ownKeys = Object.keys(source);
+
+    if (typeof Object.getOwnPropertySymbols === 'function') {
+      ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {
+        return Object.getOwnPropertyDescriptor(source, sym).enumerable;
+      }));
+    }
+
+    ownKeys.forEach(function (key) {
+      _defineProperty(target, key, source[key]);
+    });
   }
 
   return target;
-};
+}
 
-var inherits = function (subClass, superClass) {
+function _inherits(subClass, superClass) {
   if (typeof superClass !== "function" && superClass !== null) {
-    throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);
+    throw new TypeError("Super expression must either be null or a function");
   }
 
   subClass.prototype = Object.create(superClass && superClass.prototype, {
     constructor: {
       value: subClass,
-      enumerable: false,
       writable: true,
       configurable: true
     }
   });
-  if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
-};
+  if (superClass) _setPrototypeOf(subClass, superClass);
+}
 
-var objectWithoutProperties = function (obj, keys) {
+function _getPrototypeOf(o) {
+  _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {
+    return o.__proto__ || Object.getPrototypeOf(o);
+  };
+  return _getPrototypeOf(o);
+}
+
+function _setPrototypeOf(o, p) {
+  _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
+    o.__proto__ = p;
+    return o;
+  };
+
+  return _setPrototypeOf(o, p);
+}
+
+function _objectWithoutPropertiesLoose(source, excluded) {
+  if (source == null) return {};
   var target = {};
+  var sourceKeys = Object.keys(source);
+  var key, i;
 
-  for (var i in obj) {
-    if (keys.indexOf(i) >= 0) continue;
-    if (!Object.prototype.hasOwnProperty.call(obj, i)) continue;
-    target[i] = obj[i];
+  for (i = 0; i < sourceKeys.length; i++) {
+    key = sourceKeys[i];
+    if (excluded.indexOf(key) >= 0) continue;
+    target[key] = source[key];
   }
 
   return target;
-};
+}
 
-var possibleConstructorReturn = function (self, call) {
-  if (!self) {
+function _objectWithoutProperties(source, excluded) {
+  if (source == null) return {};
+
+  var target = _objectWithoutPropertiesLoose(source, excluded);
+
+  var key, i;
+
+  if (Object.getOwnPropertySymbols) {
+    var sourceSymbolKeys = Object.getOwnPropertySymbols(source);
+
+    for (i = 0; i < sourceSymbolKeys.length; i++) {
+      key = sourceSymbolKeys[i];
+      if (excluded.indexOf(key) >= 0) continue;
+      if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue;
+      target[key] = source[key];
+    }
+  }
+
+  return target;
+}
+
+function _assertThisInitialized(self) {
+  if (self === void 0) {
     throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
   }
 
-  return call && (typeof call === "object" || typeof call === "function") ? call : self;
-};
+  return self;
+}
 
-var toConsumableArray = function (arr) {
+function _possibleConstructorReturn(self, call) {
+  if (call && (typeof call === "object" || typeof call === "function")) {
+    return call;
+  }
+
+  return _assertThisInitialized(self);
+}
+
+function _toConsumableArray(arr) {
+  return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread();
+}
+
+function _arrayWithoutHoles(arr) {
   if (Array.isArray(arr)) {
-    for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) arr2[i] = arr[i];
+    for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) arr2[i] = arr[i];
 
     return arr2;
-  } else {
-    return Array.from(arr);
   }
-};
+}
 
-var AbstractButton = function (_Component) {
-  inherits(AbstractButton, _Component);
+function _iterableToArray(iter) {
+  if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter);
+}
+
+function _nonIterableSpread() {
+  throw new TypeError("Invalid attempt to spread non-iterable instance");
+}
+
+var css$1 = ".btn {\n  border: 0px solid transparent;\n  background-color: #bbc3c4;\n  position: relative;\n  user-select: none; }\n  .btn:disabled, .btn.disabled {\n    pointer-events: none; }\n  .btn:active, .btn:focus, .btn:active:focus, .btn.active, .btn.clicked {\n    outline: none;\n    color: inherit; }\n  .btn:before {\n    position: absolute;\n    display: block;\n    top: 1px;\n    left: 1px;\n    width: calc(100% - 2px);\n    height: calc(100% - 2px); }\n";
+styleInject(css$1);
+
+var AbstractButton =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(AbstractButton, _Component);
 
   function AbstractButton() {
-    var _ref;
+    var _getPrototypeOf2;
 
-    var _temp, _this, _ret;
+    var _this;
 
-    classCallCheck(this, AbstractButton);
+    _classCallCheck(this, AbstractButton);
 
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = possibleConstructorReturn(this, (_ref = AbstractButton.__proto__ || Object.getPrototypeOf(AbstractButton)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(AbstractButton)).call.apply(_getPrototypeOf2, [this].concat(args)));
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "state", {
       mouseDown: false
-    }, _this.handleMouse = function (func, mouseDown) {
-      _this.setState({ mouseDown: mouseDown });
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleMouse", function (func, mouseDown) {
+      _this.setState({
+        mouseDown: mouseDown
+      });
+
       if (func) {
         func();
       }
-    }, _this.handleClick = function (e) {
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleClick", function (e) {
       _this.button.focus();
+
       if (_this.props.onClick) {
         _this.props.onClick(e);
       }
-    }, _this.handleBlur = function (e) {
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleBlur", function (e) {
       if (_this.props.onBlur) {
         _this.props.onBlur(e);
       }
-    }, _this.handleContextMenu = function (e) {
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleContextMenu", function (e) {
       e.preventDefault();
       e.stopPropagation();
+
       _this.button.focus();
+
       if (_this.props.onContextMenu) {
         _this.props.onContextMenu(e);
       }
-    }, _this.handleDoubleClick = function (e) {
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleDoubleClick", function (e) {
       if (_this.props.onDoubleClick) {
         _this.props.onDoubleClick(e);
       }
-    }, _temp), possibleConstructorReturn(_this, _ret);
+    });
+
+    return _this;
   }
 
-  createClass(AbstractButton, [{
-    key: 'render',
+  _createClass(AbstractButton, [{
+    key: "render",
     value: function render() {
       var _this2 = this;
 
       var props = this.props;
-
-
-      return React.createElement(
-        'button',
-        {
-          ref: function ref(btn) {
-            _this2.button = btn;
-          },
-          className: cx('btn', props.className, {
-            'clicked': this.state.mouseDown,
-            'btn--active': props.isActive,
-            'btn--disabled': props.isDisabled
-          }),
-          onClick: function onClick(e) {
-            return _this2.handleClick(e);
-          },
-          onDoubleClick: function onDoubleClick(e) {
-            return _this2.handleDoubleClick(e);
-          },
-          onMouseDown: function onMouseDown() {
-            return _this2.handleMouse(props.onMouseDown, true);
-          },
-          onMouseUp: function onMouseUp() {
-            return _this2.handleMouse(props.onMouseUp, false);
-          },
-          onBlur: function onBlur(e) {
-            return _this2.handleBlur(e);
-          },
-          onContextMenu: this.props.onContextMenu && function (e) {
-            return _this2.handleContextMenu(e);
-          },
-          disabled: props.isDisabled,
-          style: props.style
+      return React.createElement("button", {
+        ref: function ref(btn) {
+          _this2.button = btn;
         },
-        props.children
-      );
+        className: cx('btn', props.className, {
+          'clicked': this.state.mouseDown,
+          'btn--active': props.isActive,
+          'btn--disabled': props.isDisabled
+        }),
+        onClick: function onClick(e) {
+          return _this2.handleClick(e);
+        },
+        onDoubleClick: function onDoubleClick(e) {
+          return _this2.handleDoubleClick(e);
+        },
+        onMouseDown: function onMouseDown() {
+          return _this2.handleMouse(props.onMouseDown, true);
+        },
+        onMouseUp: function onMouseUp() {
+          return _this2.handleMouse(props.onMouseUp, false);
+        },
+        onBlur: function onBlur(e) {
+          return _this2.handleBlur(e);
+        },
+        onContextMenu: this.props.onContextMenu && function (e) {
+          return _this2.handleContextMenu(e);
+        },
+        disabled: props.isDisabled,
+        style: props.style
+      }, props.children);
     }
   }]);
+
   return AbstractButton;
 }(Component);
 
 var commonButtonPropTypes = {
   children: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-
   className: PropTypes.string,
   isActive: PropTypes.bool,
   isDisabled: PropTypes.bool,
-
   onBlur: PropTypes.func,
   onClick: PropTypes.func
 };
-
-AbstractButton.propTypes = _extends({}, commonButtonPropTypes, {
+AbstractButton.propTypes = _objectSpread({}, commonButtonPropTypes, {
   onDoubleClick: PropTypes.func,
   onContextMenu: PropTypes.func,
   onMouseDown: PropTypes.func,
   onMouseUp: PropTypes.func,
   style: PropTypes.shape() // Todo: Needs custom prop
+
 });
 
 var css$2 = ".btn.ButtonForm {\n  min-width: 48px;\n  outline-width: 1px;\n  outline-offset: -5px;\n  padding: 5px 1px;\n  box-shadow: inset -1px -1px 0px #0c0c0c, inset 1px 1px 0px white, inset -2px -2px 0px #808088, inset 2px 2px 0px #bbc3c4; }\n  .btn.ButtonForm:focus {\n    outline: black;\n    outline-style: dotted;\n    outline-width: 1px;\n    box-shadow: inset -1px -1px 0px #0c0c0c, inset 1px 1px 0px #0c0c0c, inset -2px -2px 0px #0c0c0c, inset 2px 2px 0px white; }\n  .btn.ButtonForm:active:focus, .btn.ButtonForm:active, .btn.ButtonForm.active, .btn.ButtonForm.clicked {\n    padding: 6px 0px 4px 2px;\n    box-shadow: inset -1px -1px 0px #0c0c0c, inset 1px 1px 0px #0c0c0c, inset -2px -2px 0px #808088, inset 2px 2px 0px #808088; }\n";
 styleInject(css$2);
 
 var ButtonForm = function ButtonForm(props) {
-  return React.createElement(
-    AbstractButton,
-    {
-      className: cx('ButtonForm', props.className),
-      onClick: props.onClick,
-      isActive: props.isActive,
-      isDisabled: props.isDisabled
-    },
-    props.children
-  );
+  return React.createElement(AbstractButton, {
+    className: cx('ButtonForm', props.className),
+    onClick: props.onClick,
+    isActive: props.isActive,
+    isDisabled: props.isDisabled
+  }, props.children);
 };
 
-AbstractButton.propTypes = _extends({}, commonButtonPropTypes);
+AbstractButton.propTypes = _objectSpread({}, commonButtonPropTypes);
 
 var css$3 = ".btn.ButtonNav {\n  padding: 0px;\n  min-width: initial;\n  width: 16px;\n  height: 14px;\n  margin-left: 1px;\n  margin-top: 1px;\n  margin-bottom: 2px;\n  image-rendering: pixelated;\n  box-shadow: inset -1px -1px 0px #0c0c0c, inset 1px 1px 0px white, inset -2px -2px 0px #808088, inset 2px 2px 0px #bbc3c4; }\n  .btn.ButtonNav img {\n    height: 14px;\n    width: 14px; }\n  .btn.ButtonNav:focus {\n    outline: none;\n    border: none; }\n  .btn.ButtonNav:active:focus, .btn.ButtonNav.clicked {\n    padding-top: 2px;\n    padding-bottom: 1px;\n    padding-left: 4px;\n    padding-right: 8px;\n    box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px #0c0c0c, inset -2px -2px 0px #bbc3c4, inset 2px 2px 0px #808088; }\n  .btn.ButtonNav.window__close {\n    margin-left: 2px; }\n";
 styleInject(css$3);
@@ -281,19 +384,17 @@ var css$4 = ".btn.ButtonProgram {\n  flex: 1;\n  margin: 0px 1px;\n  height: 22p
 styleInject(css$4);
 
 var ButtonProgram = function ButtonProgram(props) {
-  return React.createElement(
-    AbstractButton,
-    {
-      className: cx('ButtonProgram', props.className),
-      onClick: props.onClick,
-      isActive: props.isActive,
-      style: _extends({ backgroundImage: 'url(' + props.icon + ')' }, props.style)
-    },
-    props.children
-  );
+  return React.createElement(AbstractButton, {
+    className: cx('ButtonProgram', props.className),
+    onClick: props.onClick,
+    isActive: props.isActive,
+    style: _objectSpread({
+      backgroundImage: "url(".concat(props.icon, ")")
+    }, props.style)
+  }, props.children);
 };
 
-ButtonProgram.propTypes = _extends({}, commonButtonPropTypes, {
+ButtonProgram.propTypes = _objectSpread({}, commonButtonPropTypes, {
   icon: PropTypes.any
 });
 
@@ -315,19 +416,16 @@ var css$6 = ".btn.ButtonIconLarge {\n  padding: 2px;\n  width: 48px;\n  min-widt
 styleInject(css$6);
 
 var ButtonIconLarge = function ButtonIconLarge(props) {
-  return React.createElement(
-    AbstractButton,
-    {
-      className: cx('ButtonIconLarge', props.className),
-      onClick: props.onClick,
-      isDisabled: props.isDisabled
-    },
-    React.createElement('img', { src: props.icon }),
-    props.title
-  );
+  return React.createElement(AbstractButton, {
+    className: cx('ButtonIconLarge', props.className),
+    onClick: props.onClick,
+    isDisabled: props.isDisabled
+  }, React.createElement("img", {
+    src: props.icon
+  }), props.title);
 };
 
-ButtonIconLarge.propTypes = _extends({}, commonButtonPropTypes, {
+ButtonIconLarge.propTypes = _objectSpread({}, commonButtonPropTypes, {
   icon: PropTypes.string,
   title: PropTypes.string
 });
@@ -336,19 +434,17 @@ var css$7 = ".btn.ButtonIconSmall {\n  height: 22px;\n  width: 22px;\n  padding:
 styleInject(css$7);
 
 var ButtonIconSmall = function ButtonIconSmall(props) {
-  return React.createElement(
-    AbstractButton,
-    {
-      className: cx('ButtonIconSmall', props.className),
-      onClick: props.onClick,
-      isDisabled: props.isDisabled,
-      isActive: props.isActive
-    },
-    React.createElement('img', { src: props.icon })
-  );
+  return React.createElement(AbstractButton, {
+    className: cx('ButtonIconSmall', props.className),
+    onClick: props.onClick,
+    isDisabled: props.isDisabled,
+    isActive: props.isActive
+  }, React.createElement("img", {
+    src: props.icon
+  }));
 };
 
-ButtonIconSmall.propTypes = _extends({}, commonButtonPropTypes, {
+ButtonIconSmall.propTypes = _objectSpread({}, commonButtonPropTypes, {
   icon: PropTypes.string
 });
 
@@ -356,11 +452,11 @@ var css$8 = ".window, .WindowFrame {\n  position: relative;\n  background-color:
 styleInject(css$8);
 
 var WindowFrame = function WindowFrame(props) {
-  return React.createElement(
-    'div',
-    { className: cx('window', props.className, { 'window--resizable': props.resizable }) },
-    props.children
-  );
+  return React.createElement("div", {
+    className: cx('window', props.className, {
+      'window--resizable': props.resizable
+    })
+  }, props.children);
 };
 
 WindowFrame.propTypes = {
@@ -370,42 +466,40 @@ WindowFrame.propTypes = {
 };
 
 var StandardMenuItem = function StandardMenuItem(props) {
-  return React.createElement(
-    'div',
-    {
-      className: cx('standard-menu__item', props.className, props.type, { 'standard-menu__item--has-options': props.options, 'active': props.isActive }),
-      onMouseEnter: props.mouseEnterItem,
-      onTouchStart: props.mouseEnterItem
-    },
-    React.createElement(
-      'button',
-      {
-        className: cx('StandardMenuItem__button', 'standard-menu__item__button', { disabled: props.isDisabled }),
-        onClick: !props.options ? props.closeOnClick(props.onClick) : undefined,
-        style: props.icon ? { backgroundImage: 'url(\'' + props.icon + '\')' } : undefined,
-        value: props.value,
-        disabled: props.isDisabled
-      },
-      props.title
-    ),
-    props.options && React.createElement(StandardMenu, {
-      className: 'standard-menu__item__child',
-      options: props.options,
-      value: props.value,
-      mouseEnterItem: props.mouseEnterItem,
-      closeOnClick: props.closeOnClick
-    })
-  );
+  return React.createElement("div", {
+    className: cx('standard-menu__item', props.className, props.type, {
+      'standard-menu__item--has-options': props.options,
+      'active': props.isActive
+    }),
+    onMouseEnter: props.mouseEnterItem,
+    onTouchStart: props.mouseEnterItem
+  }, React.createElement("button", {
+    className: cx('StandardMenuItem__button', 'standard-menu__item__button', {
+      disabled: props.isDisabled
+    }),
+    onClick: !props.options ? props.closeOnClick(props.onClick) : undefined,
+    style: props.icon ? {
+      backgroundImage: "url('".concat(props.icon, "')")
+    } : undefined,
+    value: props.value,
+    disabled: props.isDisabled
+  }, props.title), props.options && React.createElement(StandardMenu, {
+    className: "standard-menu__item__child",
+    options: props.options,
+    value: props.value,
+    mouseEnterItem: props.mouseEnterItem,
+    closeOnClick: props.closeOnClick
+  }));
 };
 
 StandardMenuItem.defaultProps = {
   onClick: function onClick() {},
   closeOnClick: function closeOnClick() {
     console.error('Menus require a closeOnClick prop to function correctly');
-  }, // eslint-disable-line
+  },
+  // eslint-disable-line
   value: []
 };
-
 StandardMenuItem.propTypes = {
   className: PropTypes.string,
   title: PropTypes.string.isRequired,
@@ -429,8 +523,9 @@ var flattenWithDividers = function flattenWithDividers(options) {
     if (!Array.isArray(val)) {
       acc.push(val);
     } else {
-      acc = acc.concat([DIVIDER + '--start'].concat(toConsumableArray(val), [DIVIDER + '--end']));
+      acc = acc.concat(["".concat(DIVIDER, "--start")].concat(_toConsumableArray(val), ["".concat(DIVIDER, "--end")]));
     }
+
     return acc;
   }, []);
 };
@@ -438,36 +533,37 @@ var flattenWithDividers = function flattenWithDividers(options) {
 var StandardMenu = function StandardMenu(props) {
   var options = flattenWithDividers(props.options);
   var hasOptions = Array.isArray(options);
-  return React.createElement(
-    WindowFrame,
-    {
-      className: cx('StandardMenu', props.className, props.direction, { 'StandardMenu--visible': props.isVisible })
-    },
-    hasOptions && options.length > 0 ? options.map(function (option) {
-      if (typeof option === 'string' && option.includes(DIVIDER)) {
-        return React.createElement('div', { key: option.toString(), className: DIVIDER + ' ' + option });
-      }
-      return React.createElement(StandardMenuItem, _extends({
-        key: 'StandardMenu-item-' + option.title
-      }, option, {
-        value: [].concat(toConsumableArray(props.value), [option.title]),
-        closeOnClick: props.closeOnClick,
-        mouseEnterItem: props.mouseEnterItem
-      }));
-    }) : React.createElement(StandardMenuItem, {
-      title: '(Empty)',
-      className: 'StandardMenuItem--empty',
-      mouseEnterItem: props.mouseEnterItem,
-      closeOnClick: props.closeOnClick,
-      isDisabled: true
+  return React.createElement(WindowFrame, {
+    className: cx('StandardMenu', props.className, props.direction, {
+      'StandardMenu--visible': props.isVisible
     })
-  );
+  }, hasOptions && options.length > 0 ? options.map(function (option) {
+    if (typeof option === 'string' && option.includes(DIVIDER)) {
+      return React.createElement("div", {
+        key: option.toString(),
+        className: "".concat(DIVIDER, " ").concat(option)
+      });
+    }
+
+    return React.createElement(StandardMenuItem, _extends({
+      key: "StandardMenu-item-".concat(option.title)
+    }, option, {
+      value: _toConsumableArray(props.value).concat([option.title]),
+      closeOnClick: props.closeOnClick,
+      mouseEnterItem: props.mouseEnterItem
+    }));
+  }) : React.createElement(StandardMenuItem, {
+    title: "(Empty)",
+    className: 'StandardMenuItem--empty',
+    mouseEnterItem: props.mouseEnterItem,
+    closeOnClick: props.closeOnClick,
+    isDisabled: true
+  }));
 };
 
 StandardMenu.defaultProps = {
   value: []
 };
-
 var standardMenuProps = {
   value: PropTypes.arrayOf(PropTypes.string),
   mouseEnterItem: PropTypes.func,
@@ -476,71 +572,112 @@ var standardMenuProps = {
   options: PropTypes.any,
   isVisible: PropTypes.bool
 };
-
 StandardMenu.propTypes = standardMenuProps;
 
 var withContextLogic = function withContextLogic(ContextButton) {
-  var _class, _temp2;
+  var _class, _temp;
 
-  return _temp2 = _class = function (_Component) {
-    inherits(StandardMenuSimple, _Component);
+  return _temp = _class =
+  /*#__PURE__*/
+  function (_Component) {
+    _inherits(StandardMenuSimple, _Component);
 
     function StandardMenuSimple() {
-      var _ref;
+      var _getPrototypeOf2;
 
-      var _temp, _this, _ret;
+      var _this;
 
-      classCallCheck(this, StandardMenuSimple);
+      _classCallCheck(this, StandardMenuSimple);
 
-      for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
         args[_key] = arguments[_key];
       }
 
-      return _ret = (_temp = (_this = possibleConstructorReturn(this, (_ref = StandardMenuSimple.__proto__ || Object.getPrototypeOf(StandardMenuSimple)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+      _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(StandardMenuSimple)).call.apply(_getPrototypeOf2, [this].concat(args)));
+
+      _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "state", {
         options: _this.props.options,
         isActive: _this.props.isActive,
         isOpen: false
-      }, _this.mouseEnterItem = function (e) {
+      });
+
+      _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "mouseEnterItem", function (e) {
         if (e.target.value) {
           var newOptions = _this.updateActive(e.target.value.split(','), clone(_this.props.options), 0);
-          _this.setState({ options: newOptions });
+
+          _this.setState({
+            options: newOptions
+          });
         }
-      }, _this.addBlurListener = function () {
+      });
+
+      _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "addBlurListener", function () {
         document.body.addEventListener('click', _this.handleBlur);
         document.body.addEventListener('mousedown', _this.handleBlur);
-      }, _this.removeBlurListener = function () {
+      });
+
+      _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "removeBlurListener", function () {
         document.body.removeEventListener('click', _this.handleBlur);
         document.body.removeEventListener('mousedown', _this.handleBlur);
-      }, _this.buttonClick = function () {
+      });
+
+      _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "buttonClick", function () {
         if (_this.state.isOpen) {
           _this.removeBlurListener();
-          _this.setState({ isOpen: false, options: _this.props.options });
+
+          _this.setState({
+            isOpen: false,
+            options: _this.props.options
+          });
         } else {
           _this.addBlurListener();
-          _this.setState({ isOpen: true, options: _this.props.options });
+
+          _this.setState({
+            isOpen: true,
+            options: _this.props.options
+          });
         }
-      }, _this.handleEvent = function (newState) {
+      });
+
+      _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleEvent", function (newState) {
         return function (onEvent) {
           return function (e) {
             if (onEvent) {
               onEvent(e);
             }
+
             if (newState) {
               _this.setState(newState);
             }
           };
         };
-      }, _this.handleContextMenu = function (e) {
-        return _this.handleEvent({ isOpen: true })(_this.props.onContextMenu)(e);
-      }, _this.handleBlur = function (e) {
+      });
+
+      _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleContextMenu", function (e) {
+        return _this.handleEvent({
+          isOpen: true
+        })(_this.props.onContextMenu)(e);
+      });
+
+      _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleBlur", function (e) {
         if (_this.el && !_this.el.contains(e.target)) {
-          _this.handleEvent({ isOpen: false, options: _this.props.options })(_this.props.onBlur)(e);
+          _this.handleEvent({
+            isOpen: false,
+            options: _this.props.options
+          })(_this.props.onBlur)(e);
         }
-      }, _this.handleSelectionClose = _this.handleEvent({ isOpen: false, options: _this.props.options }), _temp), possibleConstructorReturn(_this, _ret);
+      });
+
+      _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleSelectionClose", _this.handleEvent({
+        isOpen: false,
+        options: _this.props.options
+      }));
+
+      return _this;
     }
 
-    createClass(StandardMenuSimple, [{
-      key: 'updateActive',
+    _createClass(StandardMenuSimple, [{
+      key: "updateActive",
       value: function updateActive(activeFields, newOptions) {
         var _this2 = this;
 
@@ -549,35 +686,42 @@ var withContextLogic = function withContextLogic(ContextButton) {
         if (activeFields.length <= idx) {
           return newOptions;
         }
+
         var changeIdx = newOptions.findIndex(function (option, optIdx) {
           if (Array.isArray(option)) {
             var subIdx = option.findIndex(function (opt) {
               return opt.title === activeFields[idx];
             });
+
             if (subIdx !== -1) {
               newOptions[optIdx][subIdx].isActive = true;
+
               if (newOptions[optIdx][subIdx].options) {
                 newOptions[optIdx][subIdx].options = _this2.updateActive(activeFields, newOptions[optIdx][subIdx].options, idx + 1);
               }
+
               return;
             }
           }
+
           return option.title === activeFields[idx];
         });
+
         if (changeIdx !== -1) {
           newOptions[changeIdx].isActive = true;
           newOptions[changeIdx].options = this.updateActive(activeFields, newOptions[changeIdx].options, idx + 1);
         }
+
         return newOptions;
       }
     }, {
-      key: 'render',
+      key: "render",
       value: function render() {
         var _this3 = this;
 
         var renderedMenu = React.createElement(StandardMenu, {
           options: this.state.options,
-          className: 'standard-menu__wrapper',
+          className: "standard-menu__wrapper",
           mouseEnterItem: function mouseEnterItem(e) {
             return _this3.mouseEnterItem(e);
           },
@@ -585,36 +729,30 @@ var withContextLogic = function withContextLogic(ContextButton) {
         });
 
         if (ContextButton) {
-          var _props = this.props,
-              className = _props.className,
-              props = objectWithoutProperties(_props, ['className']);
+          var _this$props = this.props,
+              className = _this$props.className,
+              props = _objectWithoutProperties(_this$props, ["className"]);
 
-          return React.createElement(
-            'div',
-            {
-              ref: function ref(el) {
-                _this3.el = el;
-              },
-              className: cx('standard-menu-wrapper', className, { 'active': this.state.isOpen })
+          return React.createElement("div", {
+            ref: function ref(el) {
+              _this3.el = el;
             },
-            React.createElement(
-              ContextButton,
-              _extends({}, props, {
-                onClick: this.buttonClick,
-                className: this.state.isOpen ? 'active' : '',
-                onContextMenu: this.props.onContextMenu && function (e) {
-                  return _this3.handleContextMenu(e);
-                }
-              }),
-              props.children
-            ),
-            renderedMenu
-          );
+            className: cx('standard-menu-wrapper', className, {
+              'active': this.state.isOpen
+            })
+          }, React.createElement(ContextButton, _extends({}, props, {
+            onClick: this.buttonClick,
+            className: this.state.isOpen ? 'active' : '',
+            onContextMenu: this.props.onContextMenu && function (e) {
+              return _this3.handleContextMenu(e);
+            }
+          }), props.children), renderedMenu);
         }
+
         return renderedMenu;
       }
     }], [{
-      key: 'getDerivedStateFromProps',
+      key: "getDerivedStateFromProps",
       value: function getDerivedStateFromProps(nextProps, prevState) {
         if (nextProps.isActive !== prevState.isActive) {
           return {
@@ -624,35 +762,46 @@ var withContextLogic = function withContextLogic(ContextButton) {
         } else return null;
       }
     }]);
+
     return StandardMenuSimple;
-  }(Component), _class.defaultProps = {
+  }(Component), _defineProperty(_class, "defaultProps", {
     value: []
-  }, _class.propTypes = _extends({}, standardMenuProps, {
+  }), _defineProperty(_class, "propTypes", _objectSpread({}, standardMenuProps, {
     onClick: PropTypes.func,
     onBlur: PropTypes.func,
     onContextMenu: PropTypes.func
-  }), _temp2;
+  })), _temp;
 };
 
-var AbstractIcon = function (_Component) {
-  inherits(AbstractIcon, _Component);
+var AbstractIcon =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(AbstractIcon, _Component);
 
   function AbstractIcon() {
-    var _ref;
+    var _getPrototypeOf2;
 
-    var _temp, _this, _ret;
+    var _this;
 
-    classCallCheck(this, AbstractIcon);
+    _classCallCheck(this, AbstractIcon);
 
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = possibleConstructorReturn(this, (_ref = AbstractIcon.__proto__ || Object.getPrototypeOf(AbstractIcon)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(AbstractIcon)).call.apply(_getPrototypeOf2, [this].concat(args)));
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "state", {
       doubleReady: false
-    }, _this.disableAction = function () {
-      _this.setState({ doubleReady: false });
-    }, _this.checkDoubleClick = function () {
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "disableAction", function () {
+      _this.setState({
+        doubleReady: false
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "checkDoubleClick", function () {
       if (_this.props.onClick) {
         _this.props.onClick();
       }
@@ -663,34 +812,45 @@ var AbstractIcon = function (_Component) {
 
       if (_this.state.doubleReady) {
         _this.props.onDoubleClick();
+
         _this.disableAction();
       } else {
-        _this.setState({ doubleReady: true });
+        _this.setState({
+          doubleReady: true
+        });
+
         setTimeout(_this.disableAction, 700);
       }
-    }, _this.handleClick = function () {
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleClick", function () {
       _this.icon.focus();
+
       if (_this.props.onClick) {
         _this.props.onClick();
       }
-    }, _this.handleContextMenu = function (e) {
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleContextMenu", function (e) {
       e.preventDefault();
+
       _this.icon.focus();
+
       if (_this.props.onContextMenu) {
         _this.props.onContextMenu(e);
-      }
-      //return false;
-    }, _temp), possibleConstructorReturn(_this, _ret);
+      } //return false;
+
+    });
+
+    return _this;
   }
 
-  createClass(AbstractIcon, [{
-    key: 'render',
+  _createClass(AbstractIcon, [{
+    key: "render",
     value: function render() {
       var _this2 = this;
 
       var props = this.props;
-
-
       var iconProps = {
         onDoubleClick: props.onDoubleClick,
         onClick: this.handleClick,
@@ -702,39 +862,27 @@ var AbstractIcon = function (_Component) {
           _this2.icon = icon;
         }
       };
-
-      var contents = React.createElement(
-        React.Fragment,
-        null,
-        React.createElement('div', {
-          className: 'icon__icon',
-          style: { backgroundImage: 'url(\'' + props.icon + '\')' }
-        }),
-        React.createElement(
-          'div',
-          { className: 'icon__text' },
-          props.title
-        )
-      );
+      var contents = React.createElement(React.Fragment, null, React.createElement("div", {
+        className: "icon__icon",
+        style: {
+          backgroundImage: "url('".concat(props.icon, "')")
+        }
+      }), React.createElement("div", {
+        className: "icon__text"
+      }, props.title));
 
       if (this.props.onClick || this.props.onDoubleClick) {
-        return React.createElement(
-          'button',
-          _extends({
-            ref: function ref(icon) {
-              _this2.icon = icon;
-            }
-          }, iconProps),
-          contents
-        );
+        return React.createElement("button", _extends({
+          ref: function ref(icon) {
+            _this2.icon = icon;
+          }
+        }, iconProps), contents);
       }
-      return React.createElement(
-        'div',
-        iconProps,
-        contents
-      );
+
+      return React.createElement("div", iconProps, contents);
     }
   }]);
+
   return AbstractIcon;
 }(Component);
 
@@ -749,7 +897,6 @@ var iconProps = {
   onDoubleClick: PropTypes.func,
   onContextMenu: PropTypes.func
 };
-
 AbstractIcon.propTypes = iconProps;
 
 var css$a = ".icon.ExplorerIcon {\n  position: relative;\n  display: block;\n  outline: none;\n  background: none;\n  border: none;\n  width: 58px;\n  height: 70px;\n  text-align: center;\n  display: flex;\n  flex-direction: column;\n  align-items: center; }\n  .icon.ExplorerIcon .icon__icon {\n    display: block;\n    background-size: contain;\n    background-position: center;\n    background-repeat: no-repeat; }\n  .icon.ExplorerIcon:focus, .icon.ExplorerIcon:active, .icon.ExplorerIcon:active:focus, .icon.ExplorerIcon.is-active {\n    outline: none; }\n    .icon.ExplorerIcon:focus .icon__icon, .icon.ExplorerIcon:active .icon__icon, .icon.ExplorerIcon:active:focus .icon__icon, .icon.ExplorerIcon.is-active .icon__icon {\n      filter: hue-rotate(70deg) contrast(0.3) saturate(2); }\n    .icon.ExplorerIcon:focus .icon__text, .icon.ExplorerIcon:active .icon__text, .icon.ExplorerIcon:active:focus .icon__text, .icon.ExplorerIcon.is-active .icon__text {\n      background-color: #0000a2;\n      color: white;\n      outline: 1px dotted white;\n      outline-offset: -1px; }\n  .icon.ExplorerIcon .icon__icon {\n    width: 42px;\n    height: 42px;\n    margin: 0 3px; }\n  .icon.ExplorerIcon .icon__text {\n    position: absolute;\n    top: 45px;\n    padding: 2px 6px 0px;\n    max-height: 21px;\n    max-width: 100%;\n    overflow-y: hidden;\n    display: inline-block; }\n  .icon.ExplorerIcon:focus .icon__text, .icon.ExplorerIcon:active .icon__text, .icon.ExplorerIcon:active:focus .icon__text, .icon.ExplorerIcon.active .icon__text, .icon.ExplorerIcon.clicked .icon__text {\n    padding: 2px 6px 2px;\n    max-height: initial;\n    z-index: 1; }\n";
@@ -791,29 +938,24 @@ var css$c = ".ExplorerView {\n  display: flex;\n  flex-flow: column wrap;\n  hei
 styleInject(css$c);
 
 var ExplorerView = function ExplorerView(props) {
-  return React.createElement(
-    'div',
-    {
-      className: cx('ExplorerView', props.className, {
-        'ExplorerView--fixed-width': props.fixedWidth,
-        'ExplorerView--fixed-height': props.fixedHeight
-      }),
-      style: {
-        backgroundColor: props.style.backgroundColor,
-        backgroundImage: props.style.backgroundImage,
-        backgroundSize: props.style.backgroundSize,
-        backgroundRepeat: props.style.backgroundRepeat,
-        backgroundPosition: props.style.backgroundPosition
-      }
-    },
-    props.children
-  );
+  return React.createElement("div", {
+    className: cx('ExplorerView', props.className, {
+      'ExplorerView--fixed-width': props.fixedWidth,
+      'ExplorerView--fixed-height': props.fixedHeight
+    }),
+    style: {
+      backgroundColor: props.style.backgroundColor,
+      backgroundImage: props.style.backgroundImage,
+      backgroundSize: props.style.backgroundSize,
+      backgroundRepeat: props.style.backgroundRepeat,
+      backgroundPosition: props.style.backgroundPosition
+    }
+  }, props.children);
 };
 
 ExplorerView.defaultProps = {
   style: {}
 };
-
 ExplorerView.propTypes = {
   children: PropTypes.node,
   fixedHeight: PropTypes.bool,
@@ -822,28 +964,19 @@ ExplorerView.propTypes = {
 };
 
 var Toggle = function Toggle(props) {
-  return React.createElement(
-    'div',
-    { className: cx('Toggle', props.className) },
-    React.createElement('input', {
-      type: props.type,
-      id: props.id,
-      disabled: props.isDisabled,
-      value: props.value,
-      checked: props.checked,
-      onChange: props.onChange,
-      name: props.name
-    }),
-    React.createElement(
-      'label',
-      { htmlFor: props.id },
-      React.createElement(
-        'span',
-        null,
-        props.label
-      )
-    )
-  );
+  return React.createElement("div", {
+    className: cx('Toggle', props.className)
+  }, React.createElement("input", {
+    type: props.type,
+    id: props.id,
+    disabled: props.isDisabled,
+    value: props.value,
+    checked: props.checked,
+    onChange: props.onChange,
+    name: props.name
+  }), React.createElement("label", {
+    htmlFor: props.id
+  }, React.createElement("span", null, props.label)));
 };
 
 var toggleProps = {
@@ -855,7 +988,6 @@ var toggleProps = {
   onChange: PropTypes.func,
   isDisabled: PropTypes.bool
 };
-
 Toggle.propTypes = toggleProps;
 
 var css$d = ".Checkbox {\n  display: inline-block; }\n  .Checkbox input[type='checkbox'] {\n    opacity: 0;\n    display: none;\n    cursor: pointer; }\n    .Checkbox input[type='checkbox'] + label {\n      position: relative;\n      padding: 1px 0px;\n      padding-left: 16px; }\n      .Checkbox input[type='checkbox'] + label > span, .Checkbox input[type='checkbox'] + label > div {\n        display: inline-block;\n        border: 1px solid rgba(0, 0, 0, 0); }\n      .Checkbox input[type='checkbox'] + label:before {\n        content: '';\n        position: absolute;\n        left: 0px;\n        top: 1px;\n        width: 20px;\n        height: 12px;\n        background-repeat: no-repeat; }\n    .Checkbox input[type='checkbox']:checked + label {\n      border-bottom-left-radius: 2px;\n      border-bottom-right-radius: 2px; }\n    .Checkbox input[type='checkbox']:checked:active + label > span, .Checkbox input[type='checkbox']:checked:active + label > div, .Checkbox input[type='checkbox']:checked:focus + label > span, .Checkbox input[type='checkbox']:checked:focus + label > div, .Checkbox input[type='checkbox']:checked:active:focus + label > span, .Checkbox input[type='checkbox']:checked:active:focus + label > div, .Checkbox input[type='checkbox']:checked.active + label > span, .Checkbox input[type='checkbox']:checked.active + label > div, .Checkbox input[type='checkbox']:checked.clicked + label > span, .Checkbox input[type='checkbox']:checked.clicked + label > div {\n      border: 1px dotted black; }\n    .Checkbox input[type='checkbox']:disabled + label, .Checkbox input[type='checkbox'].disabled + label {\n      color: #808088; }\n    .Checkbox input[type='checkbox'] + label:before {\n      width: 13px;\n      height: 13px;\n      background-color: white;\n      box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px 0px #808088, inset -2px -2px 0px #bbc3c4, inset 2px 2px 0px 0px #0c0c0c; }\n    .Checkbox input[type='checkbox']:checked + label:before {\n      background-image: url(\"data:image/gif;base64,R0lGODlhBwAHAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAHAAcAAAIMlA9nwMj9xGuLIlUAADs=\");\n      background-position: center;\n      background-size: 8px; }\n    .Checkbox input[type='checkbox']:disabled + label:before, .Checkbox input[type='checkbox'].disabled + label:before {\n      background-color: #bbc3c4; }\n    .Checkbox input[type='checkbox']:disabled:checked + label:before, .Checkbox input[type='checkbox'].disabled:checked + label:before {\n      background-image: url(\"data:image/gif;base64,R0lGODlhBwAHAJEAAAAAAP///5mZmf///yH5BAEAAAMALAAAAAAHAAcAAAIMnC9nwsj9xmuLIlUAADs=\"); }\n";
@@ -864,7 +996,7 @@ styleInject(css$d);
 var Checkbox = function Checkbox(props) {
   return React.createElement(Toggle, _extends({}, props, {
     className: cx('Checkbox', props.className),
-    type: 'checkbox'
+    type: "checkbox"
   }));
 };
 
@@ -875,8 +1007,8 @@ styleInject(css$e);
 
 var Radio = function Radio(props) {
   return React.createElement(Toggle, _extends({}, props, {
-    className: 'Radio',
-    type: 'radio'
+    className: "Radio",
+    type: "radio"
   }));
 };
 
@@ -885,23 +1017,29 @@ Radio.propTypes = Toggle.propTypes;
 var css$f = ".InputText {\n  position: relative;\n  padding: 3px 3px 6px 3px;\n  font-size: 11px;\n  border: none;\n  box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px 0px #808088, inset -2px -2px 0px #bbc3c4, inset 2px 2px 0px 0px #0c0c0c; }\n  .InputText:active, .InputText:focus, .InputText:active:focus, .InputText.clicked {\n    outline: none; }\n  .InputText:disabled, .InputText.disabled {\n    background-color: #bbc3c4; }\n";
 styleInject(css$f);
 
-var InputText = function (_Component) {
-  inherits(InputText, _Component);
+var InputText =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(InputText, _Component);
 
   function InputText() {
-    var _ref;
+    var _getPrototypeOf2;
 
-    var _temp, _this, _ret;
+    var _this;
 
-    classCallCheck(this, InputText);
+    _classCallCheck(this, InputText);
 
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = possibleConstructorReturn(this, (_ref = InputText.__proto__ || Object.getPrototypeOf(InputText)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(InputText)).call.apply(_getPrototypeOf2, [this].concat(args)));
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "state", {
       value: _this.props.initialValue
-    }, _this.handleChange = function (e) {
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleChange", function (e) {
       if (_this.props.initialValue) {
         _this.setState({
           value: e.target.value
@@ -909,16 +1047,20 @@ var InputText = function (_Component) {
       }
 
       _this.props.onChange(e.target.value);
-    }, _this.handleBlur = function () {
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleBlur", function () {
       _this.props.onBlur(_this.state.value);
-    }, _temp), possibleConstructorReturn(_this, _ret);
+    });
+
+    return _this;
   }
 
-  createClass(InputText, [{
-    key: 'render',
+  _createClass(InputText, [{
+    key: "render",
     value: function render() {
-      return React.createElement('input', {
-        type: 'text',
+      return React.createElement("input", {
+        type: "text",
         className: cx('InputText', this.props.className),
         value: this.props.initialValue ? this.state.value : this.props.value,
         id: this.props.id,
@@ -931,16 +1073,16 @@ var InputText = function (_Component) {
       });
     }
   }]);
+
   return InputText;
 }(Component);
 
-InputText.defaultProps = {
+_defineProperty(InputText, "defaultProps", {
   onChange: function onChange() {},
   onKeyDown: function onKeyDown() {},
   onBlur: function onBlur() {},
   onFocus: function onFocus() {}
-};
-
+});
 
 InputText.propTypes = {
   className: PropTypes.string,
@@ -959,10 +1101,10 @@ var css$g = ".w98 .Select {\n  position: relative; }\n  .w98 .Select .Select-con
 styleInject(css$g);
 
 var DefaultOptionComponent = function DefaultOptionComponent(props) {
-  return React.createElement('div', props);
-};
+  return React.createElement("div", props);
+}; // copied straight from react select demos with slight changes
 
-// copied straight from react select demos with slight changes
+
 var menuRenderer = function menuRenderer(_ref) {
   var focusedOption = _ref.focusedOption,
       focusOption = _ref.focusOption,
@@ -978,9 +1120,7 @@ var menuRenderer = function menuRenderer(_ref) {
       selectValue = _ref.selectValue,
       valueArray = _ref.valueArray,
       valueKey = _ref.valueKey;
-
   var Option = optionComponent || DefaultOptionComponent;
-
   return options.map(function (option, i) {
     var isSelected = valueArray && valueArray.some(function (x) {
       return x[valueKey] === option[valueKey];
@@ -993,38 +1133,28 @@ var menuRenderer = function menuRenderer(_ref) {
       'is-focused': isFocused,
       'is-disabled': option.disabled
     });
-
-    return React.createElement(
-      Option,
-      {
-        className: optionClass,
-        focusOption: focusOption,
-        inputValue: inputValue,
-        instancePrefix: instancePrefix,
-        isDisabled: option.disabled,
-        isFocused: isFocused,
-        isSelected: isSelected,
-        key: 'option-' + i + '-' + option[valueKey],
-        onFocus: onFocus,
-        onSelect: onSelect,
-        option: option,
-        optionIndex: i,
-        ref: function ref(_ref2) {
-          onOptionRef(_ref2, isFocused);
-        },
-        removeValue: removeValue,
-        selectValue: selectValue,
-        backgroundImage: option.icon
+    return React.createElement(Option, {
+      className: optionClass,
+      focusOption: focusOption,
+      inputValue: inputValue,
+      instancePrefix: instancePrefix,
+      isDisabled: option.disabled,
+      isFocused: isFocused,
+      isSelected: isSelected,
+      key: "option-".concat(i, "-").concat(option[valueKey]),
+      onFocus: onFocus,
+      onSelect: onSelect,
+      option: option,
+      optionIndex: i,
+      ref: function ref(_ref2) {
+        onOptionRef(_ref2, isFocused);
       },
-      React.createElement(
-        'span',
-        null,
-        option.label
-      )
-    );
+      removeValue: removeValue,
+      selectValue: selectValue,
+      backgroundImage: option.icon
+    }, React.createElement("span", null, option.label));
   });
 };
-
 menuRenderer.propTypes = {
   focusedOption: PropTypes.object,
   inputValue: PropTypes.string,
@@ -1044,32 +1174,39 @@ menuRenderer.propTypes = {
 };
 
 var ValueRenderer = function ValueRenderer(props) {
-  return React.createElement(
-    'div',
-    { style: { backgroundImage: props.icon ? 'url(\'' + props.icon + '\')' : 'none' } },
-    props.label
-  );
+  return React.createElement("div", {
+    style: {
+      backgroundImage: props.icon ? "url('".concat(props.icon, "')") : 'none'
+    }
+  }, props.label);
 };
+
 ValueRenderer.propTypes = {
   icon: PropTypes.string,
   label: PropTypes.string
 };
 
-var Select = function (_Component) {
-  inherits(Select, _Component);
+var Select =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(Select, _Component);
 
   function Select(props) {
-    classCallCheck(this, Select);
+    var _this;
 
-    var _this = possibleConstructorReturn(this, (Select.__proto__ || Object.getPrototypeOf(Select)).call(this, props));
+    _classCallCheck(this, Select);
 
-    _this.handleChange = function (e) {
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Select).call(this, props));
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleChange", function (e) {
       if (_this.props.onChange) {
-        _this.setState({ value: e.value });
+        _this.setState({
+          value: e.value
+        });
       } else {
         _this.props.onChange(e);
       }
-    };
+    });
 
     _this.state = {
       value: _this.props.onChange ? null : _this.props.value
@@ -1077,13 +1214,12 @@ var Select = function (_Component) {
     return _this;
   }
 
-  createClass(Select, [{
-    key: 'render',
+  _createClass(Select, [{
+    key: "render",
     value: function render() {
       var props = this.props;
-
       return React.createElement(ReactSelect, _extends({}, props, {
-        className: 'Select',
+        className: "Select",
         placeholder: props.placeholder,
         onChange: this.handleChange,
         disabled: props.isDisabled,
@@ -1094,14 +1230,14 @@ var Select = function (_Component) {
       }));
     }
   }]);
+
   return Select;
 }(Component);
 
-Select.defaultProps = {
+_defineProperty(Select, "defaultProps", {
   placeholder: '',
   searchable: false
-};
-
+});
 
 Select.propTypes = {
   placeholder: PropTypes.any,
@@ -1121,27 +1257,25 @@ var isSelected = function isSelected(selected, val) {
 
 var SelectBox = function SelectBox(props) {
   var Comp = props.component ? props.component : 'button';
-  return React.createElement(
-    'div',
-    { className: cx('SelectBox', props.component ? 'SelectBox--' + props.component.name : 'SelectBox--simple', { disabled: props.isDisabled }) },
-    React.createElement(
-      'div',
-      null,
-      props.options.map(function (option) {
-        return React.createElement(Comp, {
-          key: option.value,
-          onClick: function onClick() {
-            return props.onClick(option.value);
-          },
-          alt: props.component ? option.alt : undefined,
-          className: cx(option.className, { 'is-active': isSelected(props.selected, option.value) }),
-          icon: props.component ? option.icon : undefined,
-          title: option.title || (typeof option.value === 'string' ? option.value : ''),
-          value: option.value
-        });
-      })
-    )
-  );
+  return React.createElement("div", {
+    className: cx('SelectBox', props.component ? "SelectBox--".concat(props.component.name) : 'SelectBox--simple', {
+      disabled: props.isDisabled
+    })
+  }, React.createElement("div", null, props.options.map(function (option) {
+    return React.createElement(Comp, {
+      key: option.value,
+      onClick: function onClick() {
+        return props.onClick(option.value);
+      },
+      alt: props.component ? option.alt : undefined,
+      className: cx(option.className, {
+        'is-active': isSelected(props.selected, option.value)
+      }),
+      icon: props.component ? option.icon : undefined,
+      title: option.title || (typeof option.value === 'string' ? option.value : ''),
+      value: option.value
+    });
+  })));
 };
 
 SelectBox.propTypes = {
@@ -1162,41 +1296,55 @@ SelectBox.propTypes = {
 var css$i = ".SelectMultipleSimple select[multiple] {\n  position: relative;\n  border: none;\n  background-color: white;\n  border-radius: 0px;\n  outline: none;\n  padding: 2px;\n  box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px 0px #808088, inset -2px -2px 0px #bbc3c4, inset 2px 2px 0px 0px #0c0c0c; }\n  .SelectMultipleSimple select[multiple]:active, .SelectMultipleSimple select[multiple]:focus, .SelectMultipleSimple select[multiple]:active:focus, .SelectMultipleSimple select[multiple].active, .SelectMultipleSimple select[multiple].clicked {\n    outline: none; }\n  .SelectMultipleSimple select[multiple] option:active, .SelectMultipleSimple select[multiple] option:focus, .SelectMultipleSimple select[multiple] option:checked, .SelectMultipleSimple select[multiple] option.checked {\n    outline: 1px dotted white;\n    outline-offset: -1px;\n    background-color: #0000a2;\n    color: white; }\n";
 styleInject(css$i);
 
-var SelectMultipleSimple = function (_Component) {
-  inherits(SelectMultipleSimple, _Component);
+var SelectMultipleSimple =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(SelectMultipleSimple, _Component);
 
   function SelectMultipleSimple(props) {
-    classCallCheck(this, SelectMultipleSimple);
+    var _this;
 
-    var _this = possibleConstructorReturn(this, (SelectMultipleSimple.__proto__ || Object.getPrototypeOf(SelectMultipleSimple)).call(this, props));
+    _classCallCheck(this, SelectMultipleSimple);
 
-    _this.updateValue = function (value) {
-      _this.setState({ value: value });
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(SelectMultipleSimple).call(this, props));
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "updateValue", function (value) {
+      _this.setState({
+        value: value
+      });
+
       _this.props.onChange(value);
-    };
+    });
 
-    _this.handleChange = function (event) {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleChange", function (event) {
       if (_this.props.multiple) {
         var selectedIndex = _this.state.value.findIndex(function (val) {
           return val === event.target.value;
         });
+
         var isSelected = selectedIndex !== -1;
+
         if (!isSelected && _this.props.selectMultiple) {
-          _this.updateValue([].concat(toConsumableArray(_this.state.value), [event.target.value]));
+          _this.updateValue(_toConsumableArray(_this.state.value).concat([event.target.value]));
+
           return;
         }
+
         if (!isSelected) {
           _this.updateValue([event.target.value]);
+
           return;
         }
+
         if (isSelected) {
-          _this.updateValue([].concat(toConsumableArray(_this.state.value.slice(0, selectedIndex)), toConsumableArray(_this.state.value.slice(selectedIndex + 1))));
+          _this.updateValue(_toConsumableArray(_this.state.value.slice(0, selectedIndex)).concat(_toConsumableArray(_this.state.value.slice(selectedIndex + 1))));
+
           return;
         }
       } else {
         _this.updateValue(event.target.value);
       }
-    };
+    });
 
     _this.state = {
       value: _this.props.multiple ? [] : _this.props.value || ''
@@ -1204,43 +1352,33 @@ var SelectMultipleSimple = function (_Component) {
     return _this;
   }
 
-  createClass(SelectMultipleSimple, [{
-    key: 'render',
+  _createClass(SelectMultipleSimple, [{
+    key: "render",
     value: function render() {
       var props = this.props;
-
-      return React.createElement(
-        'div',
-        { className: 'SelectMultipleSimple' },
-        React.createElement(
-          'select',
-          { value: this.state.value, onChange: this.handleChange, disabled: this.props.isDisabled, multiple: true },
-          props.options.map(function (option) {
-            return React.createElement(
-              'option',
-              {
-                key: option.value.toString(),
-                value: option.value,
-                disabled: option.isDisabled
-              },
-              React.createElement(
-                'div',
-                null,
-                option.title || (typeof option.value === 'string' ? option.value : '')
-              )
-            );
-          })
-        )
-      );
+      return React.createElement("div", {
+        className: "SelectMultipleSimple"
+      }, React.createElement("select", {
+        value: this.state.value,
+        onChange: this.handleChange,
+        disabled: this.props.isDisabled,
+        multiple: true
+      }, props.options.map(function (option) {
+        return React.createElement("option", {
+          key: option.value.toString(),
+          value: option.value,
+          disabled: option.isDisabled
+        }, React.createElement("div", null, option.title || (typeof option.value === 'string' ? option.value : '')));
+      })));
     }
   }]);
+
   return SelectMultipleSimple;
 }(Component);
 
-SelectMultipleSimple.defaultProps = {
+_defineProperty(SelectMultipleSimple, "defaultProps", {
   onChange: function onChange() {}
-};
-
+});
 
 SelectMultipleSimple.propTypes = {
   multiple: PropTypes.bool,
@@ -1260,21 +1398,15 @@ styleInject(css$j);
 var MenuEntry = withContextLogic(AbstractButton);
 
 var MenuBar = function MenuBar(props) {
-  return React.createElement(
-    'menu',
-    { className: 'window__menu MenuBar' },
-    props.options && props.options.map(function (section) {
-      return React.createElement(
-        MenuEntry,
-        {
-          className: cx('window__menu__section MenuBar__section', props.className),
-          key: 'menu-bar-section-' + section.title,
-          options: section.options
-        },
-        section.title
-      );
-    })
-  );
+  return React.createElement("menu", {
+    className: "window__menu MenuBar"
+  }, props.options && props.options.map(function (section) {
+    return React.createElement(MenuEntry, {
+      className: cx('window__menu__section MenuBar__section', props.className),
+      key: "menu-bar-section-".concat(section.title),
+      options: section.options
+    }, section.title);
+  }));
 };
 
 MenuBar.propTypes = {
@@ -1286,7 +1418,7 @@ var Started = withContextLogic(StartButton);
 
 var StartMenu = function StartMenu(props) {
   var className = props.className,
-      otherProps = objectWithoutProperties(props, ['className']);
+      otherProps = _objectWithoutProperties(props, ["className"]);
 
   return React.createElement(Started, _extends({
     className: cx('start-menu TaskBar__start', className)
@@ -1296,11 +1428,13 @@ var StartMenu = function StartMenu(props) {
 StartMenu.propTypes = Started.propTypes;
 
 var Notifier = function Notifier(props) {
-  return React.createElement('button', {
-    className: 'btn TaskBar__notifications__notifier',
+  return React.createElement("button", {
+    className: "btn TaskBar__notifications__notifier",
     title: props.title,
     onClick: props.onClick,
-    style: { backgroundImage: 'url("' + props.icon + '")' }
+    style: {
+      backgroundImage: "url(\"".concat(props.icon, "\")")
+    }
   });
 };
 
@@ -1309,7 +1443,6 @@ Notifier.propTypes = {
   onClick: PropTypes.func,
   title: PropTypes.string
 };
-
 Notifier.defaultProps = {
   onClick: function onClick() {}
 };
@@ -1323,6 +1456,7 @@ var formatTime = function formatTime(date) {
   if (hour < 10) {
     hour = '0' + hour;
   }
+
   if (min < 10) {
     min = '0' + min;
   }
@@ -1330,27 +1464,33 @@ var formatTime = function formatTime(date) {
   return hour + ':' + min;
 };
 
-var Time = function (_React$Component) {
-  inherits(Time, _React$Component);
+var Time =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(Time, _React$Component);
 
   function Time() {
-    var _ref;
+    var _getPrototypeOf2;
 
-    var _temp, _this, _ret;
+    var _this;
 
-    classCallCheck(this, Time);
+    _classCallCheck(this, Time);
 
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = possibleConstructorReturn(this, (_ref = Time.__proto__ || Object.getPrototypeOf(Time)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(Time)).call.apply(_getPrototypeOf2, [this].concat(args)));
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "state", {
       time: _this.props.time ? new Date(_this.props.time) : new Date()
-    }, _temp), possibleConstructorReturn(_this, _ret);
+    });
+
+    return _this;
   }
 
-  createClass(Time, [{
-    key: 'componentDidMount',
+  _createClass(Time, [{
+    key: "componentDidMount",
     value: function componentDidMount() {
       var _this2 = this;
 
@@ -1361,50 +1501,47 @@ var Time = function (_React$Component) {
       }
     }
   }, {
-    key: 'componentWillUnmount',
+    key: "componentWillUnmount",
     value: function componentWillUnmount() {
       if (this.timerId) {
         clearInterval(this.timerId);
       }
     }
   }, {
-    key: 'getDate',
+    key: "getDate",
     value: function getDate() {
-      this.setState({ time: new Date(this.state.time.getTime() + INTERVALS) });
+      this.setState({
+        time: new Date(this.state.time.getTime() + INTERVALS)
+      });
     }
   }, {
-    key: 'render',
+    key: "render",
     value: function render() {
-      return React.createElement(
-        'div',
-        { className: 'TaskBar__notifications__time' },
-        formatTime(this.state.time)
-      );
+      return React.createElement("div", {
+        className: "TaskBar__notifications__time"
+      }, formatTime(this.state.time));
     }
   }]);
+
   return Time;
 }(React.Component);
 
 var Notifications = function Notifications(props) {
-  return React.createElement(
-    'div',
-    { className: 'TaskBar__notifications' },
-    props.notifiers.map(function (notifier) {
-      return React.createElement(Notifier, {
-        key: notifier.alt,
-        icon: notifier.icon,
-        onClick: notifier.onClick,
-        title: notifier.alt
-      });
-    }),
-    React.createElement(Time, null)
-  );
+  return React.createElement("div", {
+    className: "TaskBar__notifications"
+  }, props.notifiers.map(function (notifier) {
+    return React.createElement(Notifier, {
+      key: notifier.alt,
+      icon: notifier.icon,
+      onClick: notifier.onClick,
+      title: notifier.alt
+    });
+  }), React.createElement(Time, null));
 };
 
 Notifications.propsTypes = {
   notifiers: PropTypes.arrayOf(PropTypes.shape(Notifier.propTypes))
 };
-
 Notifications.defaultProps = {
   notifiers: []
 };
@@ -1413,42 +1550,31 @@ var css$k = ".TaskBar {\n  position: fixed;\n  background-color: #bbc3c4;\n  bot
 styleInject(css$k);
 
 var TaskBar = function TaskBar(props) {
-  return React.createElement(
-    'div',
-    { className: 'TaskBar' },
-    React.createElement(StartMenu, {
-      options: props.options
-    }),
-    props.quickLaunch && React.createElement(
-      'div',
-      { className: 'TaskBar__quick-launch' },
-      props.quickLaunch.map(function (qlEntry) {
-        return React.createElement(ButtonIconSmall, {
-          key: qlEntry.icon + '-QuickLaunch',
-          alt: qlEntry.alt,
-          onClick: qlEntry.onClick,
-          icon: qlEntry.icon
-        });
-      })
-    ),
-    React.createElement(
-      'div',
-      { className: 'TaskBar__programs' },
-      props.openWindows && props.openWindows.map(function (openWindow) {
-        return React.createElement(
-          ButtonProgram,
-          {
-            isActive: openWindow.isActive,
-            onClick: openWindow.onClick,
-            icon: openWindow.icon,
-            key: openWindow.icon + '-ButtonProgram-' + openWindow.title
-          },
-          openWindow.title
-        );
-      })
-    ),
-    React.createElement(Notifications, { notifiers: props.notifiers })
-  );
+  return React.createElement("div", {
+    className: "TaskBar"
+  }, React.createElement(StartMenu, {
+    options: props.options
+  }), props.quickLaunch && React.createElement("div", {
+    className: "TaskBar__quick-launch"
+  }, props.quickLaunch.map(function (qlEntry) {
+    return React.createElement(ButtonIconSmall, {
+      key: "".concat(qlEntry.icon, "-QuickLaunch"),
+      alt: qlEntry.alt,
+      onClick: qlEntry.onClick,
+      icon: qlEntry.icon
+    });
+  })), React.createElement("div", {
+    className: "TaskBar__programs"
+  }, props.openWindows && props.openWindows.map(function (openWindow) {
+    return React.createElement(ButtonProgram, {
+      isActive: openWindow.isActive,
+      onClick: openWindow.onClick,
+      icon: openWindow.icon,
+      key: "".concat(openWindow.icon, "-ButtonProgram-").concat(openWindow.title)
+    }, openWindow.title);
+  })), React.createElement(Notifications, {
+    notifiers: props.notifiers
+  }));
 };
 
 TaskBar.propTypes = {
@@ -1462,31 +1588,34 @@ var css$l = ".window__heading {\n  display: flex;\n  background: linear-gradient
 styleInject(css$l);
 
 var WindowAbstract = function WindowAbstract(props) {
-  return React.createElement(
-    WindowFrame,
-    { className: props.className, resizable: props.resizable },
-    React.createElement(
-      'div',
-      { className: 'window__heading' },
-      props.icon && React.createElement('div', {
-        className: 'window__icon',
-        style: { backgroundImage: 'url(\'' + props.icon + '\')' }
-      }),
-      React.createElement(
-        'div',
-        {
-          className: 'window__title'
-        },
-        props.title
-      ),
-      props.onHelp && React.createElement(ButtonNav, { className: 'window__help', onClick: props.onHelp }),
-      (props.onMaximize || props.onMinimize) && React.createElement(ButtonNav, { className: 'window__minimize', onClick: props.onMinimize }),
-      props.isMaximized && props.onRestore && React.createElement(ButtonNav, { className: 'window__restore', onClick: props.onRestore }),
-      !props.isMaximized && props.onMaximize && React.createElement(ButtonNav, { className: 'window__maximize', onClick: props.onMaximize }),
-      props.onClose && React.createElement(ButtonNav, { className: 'window__close', onClick: props.onClose })
-    ),
-    props.children
-  );
+  return React.createElement(WindowFrame, {
+    className: props.className,
+    resizable: props.resizable
+  }, React.createElement("div", {
+    className: "window__heading"
+  }, props.icon && React.createElement("div", {
+    className: "window__icon",
+    style: {
+      backgroundImage: "url('".concat(props.icon, "')")
+    }
+  }), React.createElement("div", {
+    className: "window__title"
+  }, props.title), props.onHelp && React.createElement(ButtonNav, {
+    className: "window__help",
+    onClick: props.onHelp
+  }), (props.onMaximize || props.onMinimize) && React.createElement(ButtonNav, {
+    className: "window__minimize",
+    onClick: props.onMinimize
+  }), props.isMaximized && props.onRestore && React.createElement(ButtonNav, {
+    className: "window__restore",
+    onClick: props.onRestore
+  }), !props.isMaximized && props.onMaximize && React.createElement(ButtonNav, {
+    className: "window__maximize",
+    onClick: props.onMaximize
+  }), props.onClose && React.createElement(ButtonNav, {
+    className: "window__close",
+    onClick: props.onClose
+  })), props.children);
 };
 
 var windowProps = {
@@ -1497,61 +1626,43 @@ var windowProps = {
   isMaximized: PropTypes.bool,
   icon: PropTypes.string,
   resizable: PropTypes.bool,
-
   onClose: PropTypes.func,
   onMinimize: PropTypes.func,
   onMaximize: PropTypes.func,
   onRestore: PropTypes.func
 };
-
 WindowAbstract.propTypes = windowProps;
 
 var css$m = ".WindowAlert, .window--alert {\n  display: inline-flex;\n  flex-direction: column;\n  max-width: 250px; }\n  .WindowAlert__message, .window--alert__message {\n    display: flex;\n    align-items: center;\n    min-height: 28px;\n    padding: 10px 2px 6px; }\n    .WindowAlert__message.has-icon, .window--alert__message.has-icon {\n      background-size: 28px 28px;\n      background-repeat: no-repeat;\n      background-position: 6px 6px;\n      padding: 6px 4px 8px 40px; }\n  .WindowAlert__actions, .window--alert__actions {\n    width: 100%;\n    display: flex;\n    justify-content: center; }\n    .WindowAlert__actions .btn, .window--alert__actions .btn {\n      margin: 0px 4px 8px; }\n";
 styleInject(css$m);
 
 var WindowAlert = function WindowAlert(props) {
-  return React.createElement(
-    WindowAbstract,
-    {
-      className: 'WindowAlert window--alert',
-      onClose: props.onClose,
-      onHelp: props.onHelp,
-      title: 'Error'
-    },
-    React.createElement(
-      'div',
-      {
-        className: cx('window--alert__message', { 'has-icon': props.icon }),
-        style: props.icon && { backgroundImage: 'url(' + props.icon + ')' }
-      },
-      props.children
-    ),
-    React.createElement(
-      'div',
-      { className: 'window--alert__actions' },
-      props.onOK && React.createElement(
-        ButtonForm,
-        {
-          onClick: function onClick() {
-            props.onOK();
-          }
-        },
-        'OK'
-      ),
-      props.onCancel && React.createElement(
-        ButtonForm,
-        {
-          onClick: function onClick() {
-            props.onCancel();
-          }
-        },
-        'Cancel'
-      )
-    )
-  );
+  return React.createElement(WindowAbstract, {
+    className: "WindowAlert window--alert",
+    onClose: props.onClose,
+    onHelp: props.onHelp,
+    title: "Error"
+  }, React.createElement("div", {
+    className: cx('window--alert__message', {
+      'has-icon': props.icon
+    }),
+    style: props.icon && {
+      backgroundImage: "url(".concat(props.icon, ")")
+    }
+  }, props.children), React.createElement("div", {
+    className: "window--alert__actions"
+  }, props.onOK && React.createElement(ButtonForm, {
+    onClick: function onClick() {
+      props.onOK();
+    }
+  }, "OK"), props.onCancel && React.createElement(ButtonForm, {
+    onClick: function onClick() {
+      props.onCancel();
+    }
+  }, "Cancel")));
 };
 
-WindowAlert.propTypes = _extends({}, WindowAbstract.propTypes, {
+WindowAlert.propTypes = _objectSpread({}, WindowAbstract.propTypes, {
   onOK: PropTypes.func,
   onCancel: PropTypes.func,
   children: PropTypes.node,
@@ -1563,110 +1674,116 @@ styleInject(css$n);
 
 var insertDefaultFooter = function insertDefaultFooter(customFooterElements) {
   var minimum = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 2;
+  var footer = Array.isArray(customFooterElements) ? _toConsumableArray(customFooterElements) : [];
 
-  var footer = Array.isArray(customFooterElements) ? [].concat(toConsumableArray(customFooterElements)) : [];
   for (var i = 0; i < minimum; i++) {
-    footer[i] = footer && footer.text ? footer[i] : { text: '' };
+    footer[i] = footer && footer.text ? footer[i] : {
+      text: ''
+    };
   }
+
   return footer;
 };
 
 var Footer = function Footer() {
   var props = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
-  return React.createElement(
-    'footer',
-    null,
-    props.entries.map(function (entry, idx) {
-      return React.createElement(
-        'div',
-        {
-          key: entry + '-' + idx,
-          style: entry.icon && {
-            backgroundImage: 'url(' + entry.icon + ')'
-          }
-        },
-        entry.text || ''
-      );
-    })
-  );
+  return React.createElement("footer", null, props.entries.map(function (entry, idx) {
+    return React.createElement("div", {
+      key: "".concat(entry, "-").concat(idx),
+      style: entry.icon && {
+        backgroundImage: "url(".concat(entry.icon, ")")
+      }
+    }, entry.text || '');
+  }));
 };
 
 var footerType = {
   text: PropTypes.string,
   icon: PropTypes.string
 };
-
 Footer.propTypes = {
   entries: PropTypes.arrayOf(PropTypes.shape(footerType))
 };
 
-var WindowProgram = function (_React$Component) {
-  inherits(WindowProgram, _React$Component);
+var WindowProgram =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(WindowProgram, _React$Component);
 
   function WindowProgram() {
-    var _ref;
+    var _getPrototypeOf2;
 
-    var _temp, _this, _ret;
+    var _this;
 
-    classCallCheck(this, WindowProgram);
+    _classCallCheck(this, WindowProgram);
 
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = possibleConstructorReturn(this, (_ref = WindowProgram.__proto__ || Object.getPrototypeOf(WindowProgram)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(WindowProgram)).call.apply(_getPrototypeOf2, [this].concat(args)));
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "state", {
       isMaximized: false
-    }, _this.maximize = function () {
-      return _this.setState({ isMaximized: true });
-    }, _this.restore = function () {
-      return _this.setState({ isMaximized: false });
-    }, _temp), possibleConstructorReturn(_this, _ret);
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "maximize", function () {
+      return _this.setState({
+        isMaximized: true
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "restore", function () {
+      return _this.setState({
+        isMaximized: false
+      });
+    });
+
+    return _this;
   }
 
-  createClass(WindowProgram, [{
-    key: 'render',
+  _createClass(WindowProgram, [{
+    key: "render",
     value: function render() {
       var _this2 = this;
 
       var props = this.props;
-
       var footer = insertDefaultFooter(props.footer);
-      return React.createElement(
-        WindowAbstract,
-        {
-          className: cx('WindowProgram window--program', props.className),
-          icon: props.icon,
-          onClose: props.onClose,
-          onMaximize: function onMaximize() {
-            if (props.onMaximize) {
-              props.onMaximize();
-            }
-            _this2.maximize();
-          },
-          onMinimize: props.onMinimize,
-          onRestore: function onRestore() {
-            if (props.onRestore) {
-              props.onRestore();
-            }
-            _this2.restore();
-          },
-          title: props.title,
-          isMaximized: this.state.isMaximized,
-          resizable: props.resizable
+      return React.createElement(WindowAbstract, {
+        className: cx('WindowProgram window--program', props.className),
+        icon: props.icon,
+        onClose: props.onClose,
+        onMaximize: function onMaximize() {
+          if (props.onMaximize) {
+            props.onMaximize();
+          }
+
+          _this2.maximize();
         },
-        React.createElement(MenuBar, {
-          className: 'window--explorer__menu',
-          options: props.menuOptions
-        }),
-        props.children,
-        props.footer && React.createElement(Footer, { entries: footer })
-      );
+        onMinimize: props.onMinimize,
+        onRestore: function onRestore() {
+          if (props.onRestore) {
+            props.onRestore();
+          }
+
+          _this2.restore();
+        },
+        title: props.title,
+        isMaximized: this.state.isMaximized,
+        resizable: props.resizable
+      }, React.createElement(MenuBar, {
+        className: "window--explorer__menu",
+        options: props.menuOptions
+      }), props.children, props.footer && React.createElement(Footer, {
+        entries: footer
+      }));
     }
   }]);
+
   return WindowProgram;
 }(React.Component);
 
-WindowProgram.propTypes = _extends({}, WindowAbstract.propTypes, {
+WindowProgram.propTypes = _objectSpread({}, WindowAbstract.propTypes, {
   menuOptions: PropTypes.arrayOf(PropTypes.any),
   footer: PropTypes.arrayOf(PropTypes.shape(footerType))
 });
@@ -1674,72 +1791,82 @@ WindowProgram.propTypes = _extends({}, WindowAbstract.propTypes, {
 var css$o = ".options-list__dropdown {\n  position: absolute;\n  right: 2px;\n  top: 2px;\n  height: calc(100% - 4px); }\n  .options-list__dropdown--empty {\n    display: none; }\n  .options-list__dropdown__button {\n    height: 100%;\n    border: none;\n    background-color: #bbc3c4;\n    background-image: url(\"data:image/gif;base64,R0lGODlhCAAFAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAIAAUAAAIKBCSGebzqoJKtAAA7\");\n    background-repeat: no-repeat;\n    background-position: 2px 3px;\n    padding: 0px 6px;\n    font-size: 0.70rem;\n    user-select: none;\n    letter-spacing: -2px;\n    display: flex;\n    flex-direction: column; }\n    .options-list__dropdown__button:hover {\n      box-shadow: inset -1px -1px 0px #808088, inset 1px 1px 0px white; }\n    .options-list__dropdown__button:active, .options-list__dropdown__button:focus, .options-list__dropdown__button:active:focus {\n      background-position: 3px 4px;\n      box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px #808088; }\n      .options-list__dropdown__button:active + .options-list__dropdown__list, .options-list__dropdown__button:focus + .options-list__dropdown__list, .options-list__dropdown__button:active:focus + .options-list__dropdown__list {\n        position: absolute;\n        top: 100%;\n        right: 0px;\n        display: block;\n        z-index: 10; }\n    .options-list__dropdown__button:active, .options-list__dropdown__button:focus, .options-list__dropdown__button:active:focus {\n      outline: none; }\n  .options-list__dropdown .options-list__dropdown__list {\n    display: none; }\n";
 styleInject(css$o);
 
-var OptionsListDropdown = function (_Component) {
-  inherits(OptionsListDropdown, _Component);
+var OptionsListDropdown =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(OptionsListDropdown, _Component);
 
   function OptionsListDropdown() {
-    var _ref;
+    var _getPrototypeOf2;
 
-    var _temp, _this, _ret;
+    var _this;
 
-    classCallCheck(this, OptionsListDropdown);
+    _classCallCheck(this, OptionsListDropdown);
 
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = possibleConstructorReturn(this, (_ref = OptionsListDropdown.__proto__ || Object.getPrototypeOf(OptionsListDropdown)).call.apply(_ref, [this].concat(args))), _this), _this.openList = function () {
+    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(OptionsListDropdown)).call.apply(_getPrototypeOf2, [this].concat(args)));
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "openList", function () {
       _this.dropdownButton.focus();
-    }, _temp), possibleConstructorReturn(_this, _ret);
+    });
+
+    return _this;
   }
 
-  createClass(OptionsListDropdown, [{
-    key: 'render',
+  _createClass(OptionsListDropdown, [{
+    key: "render",
     value: function render() {
       var _this2 = this;
 
-      return React.createElement(
-        'div',
-        { className: 'options-list__dropdown' },
-        React.createElement('button', {
-          ref: function ref(btn) {
-            _this2.dropdownButton = btn;
-          },
-          onClick: this.openList,
-          className: 'options-list__dropdown__button'
-        }),
-        React.createElement(StandardMenu, {
-          className: 'options-list__dropdown__list',
-          options: this.props.options
-        })
-      );
+      return React.createElement("div", {
+        className: "options-list__dropdown"
+      }, React.createElement("button", {
+        ref: function ref(btn) {
+          _this2.dropdownButton = btn;
+        },
+        onClick: this.openList,
+        className: "options-list__dropdown__button"
+      }), React.createElement(StandardMenu, {
+        className: "options-list__dropdown__list",
+        options: this.props.options
+      }));
     }
   }]);
+
   return OptionsListDropdown;
 }(Component);
 
-var OptionsList = function (_Component2) {
-  inherits(OptionsList, _Component2);
+var OptionsList =
+/*#__PURE__*/
+function (_Component2) {
+  _inherits(OptionsList, _Component2);
 
   function OptionsList() {
-    var _ref2;
+    var _getPrototypeOf3;
 
-    var _temp2, _this3, _ret2;
+    var _this3;
 
-    classCallCheck(this, OptionsList);
+    _classCallCheck(this, OptionsList);
 
-    for (var _len2 = arguments.length, args = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
+    for (var _len2 = arguments.length, args = new Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
       args[_key2] = arguments[_key2];
     }
 
-    return _ret2 = (_temp2 = (_this3 = possibleConstructorReturn(this, (_ref2 = OptionsList.__proto__ || Object.getPrototypeOf(OptionsList)).call.apply(_ref2, [this].concat(args))), _this3), _this3.state = {
+    _this3 = _possibleConstructorReturn(this, (_getPrototypeOf3 = _getPrototypeOf(OptionsList)).call.apply(_getPrototypeOf3, [this].concat(args)));
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this3)), "state", {
       displayedIcons: [],
       dropdown: []
-    }, _temp2), possibleConstructorReturn(_this3, _ret2);
+    });
+
+    return _this3;
   }
 
-  createClass(OptionsList, [{
-    key: 'componentDidMount',
+  _createClass(OptionsList, [{
+    key: "componentDidMount",
     value: function componentDidMount() {
       var entriesInView = (this.section.clientWidth - 20) / 50;
       this.setState({
@@ -1748,110 +1875,108 @@ var OptionsList = function (_Component2) {
       });
     }
   }, {
-    key: 'render',
+    key: "render",
     value: function render() {
       var _this4 = this;
 
-      return React.createElement(
-        'menu',
-        {
-          ref: function ref(section) {
-            _this4.section = section;
-          },
-          className: cx(this.props.className, 'options-list')
+      return React.createElement("menu", {
+        ref: function ref(section) {
+          _this4.section = section;
         },
-        this.state.displayedIcons.map(function (option) {
-          return React.createElement(ButtonIconLarge, {
-            key: 'large-button-' + option.title,
-            icon: option.icon,
-            title: option.title,
-            onClick: option.onClick,
-            isDisabled: !option.onClick
-          });
-        }),
-        this.state.dropdown.length > 0 && React.createElement(OptionsListDropdown, { options: this.state.dropdown })
-      );
+        className: cx(this.props.className, 'options-list')
+      }, this.state.displayedIcons.map(function (option) {
+        return React.createElement(ButtonIconLarge, {
+          key: "large-button-".concat(option.title),
+          icon: option.icon,
+          title: option.title,
+          onClick: option.onClick,
+          isDisabled: !option.onClick
+        });
+      }), this.state.dropdown.length > 0 && React.createElement(OptionsListDropdown, {
+        options: this.state.dropdown
+      }));
     }
   }]);
+
   return OptionsList;
 }(Component);
 
-OptionsList.propTypes = {
+_defineProperty(OptionsList, "propTypes", {
   options: PropTypes.arrayOf(PropTypes.shape(ButtonIconLarge.propTypes)),
   className: PropTypes.string
-};
+});
 
 var css$p = ".w98 .window--explorer, .WindowExplorer {\n  display: inline-flex;\n  flex-direction: column; }\n  .w98 .window--explorer__view, .WindowExplorer__view {\n    min-height: 20px;\n    margin: 2px 0px;\n    flex-grow: 1;\n    background-color: white;\n    box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px 0px #808088, inset -2px -2px 0px #bbc3c4, inset 2px 2px 0px 0px #0c0c0c; }\n  .w98 .window--explorer__details, .WindowExplorer__details {\n    display: flex; }\n    .w98 .window--explorer__details__section, .WindowExplorer__details__section {\n      box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px #808088;\n      flex-grow: 1;\n      margin-top: 2px;\n      height: 16px; }\n      .w98 .window--explorer__details__section:not(:last-child), .WindowExplorer__details__section:not(:last-child) {\n        margin: 2px; }\n  .w98 .window--explorer .window__menu, .WindowExplorer .window__menu {\n    padding: 2px 2px 2px 12px; }\n  .w98 .window--explorer > div + menu, .WindowExplorer > div + menu {\n    margin-top: 2px;\n    box-shadow: 0px 2px 0px -1px white, -1px 2px 0px -1px white, -1px 1px 0px #808088, 0px 1px 0px #808088, inset 0px -1px 0px #808088, inset -1px 0px 0px #808088, inset 0px 0px 0px 1px white, -1px 0px 0px #808088, 1px 0px 0px white, -1px 1px 0px 0px white, 1px 1px 0px 0px white, -1px -1px 0px #808088, 0px -1px 0px #808088, inset 0px 1px 0px white, 1px -1px 0px white; }\n  .w98 .window--explorer > menu, .WindowExplorer > menu {\n    position: relative;\n    min-height: 16px;\n    padding-left: 12px;\n    margin: 0px 1px;\n    display: flex;\n    box-shadow: inset 0px -1px 0px #808088, inset -1px 0px 0px #808088, inset 0px 0px 0px 1px white, -1px 0px 0px #808088, 1px 0px 0px white, -1px 1px 0px 0px white, 1px 1px 0px 0px white; }\n    .w98 .window--explorer > menu:before, .WindowExplorer > menu:before {\n      position: absolute;\n      top: 3px;\n      left: 5px;\n      height: calc(100% - 6px);\n      width: 3px;\n      background-color: #bbc3c4;\n      content: '';\n      box-shadow: inset -1px -1px 0px #808088, inset 1px 1px 0px white; }\n  .w98 .window--explorer > footer, .WindowExplorer > footer {\n    display: flex; }\n    .w98 .window--explorer > footer > div, .WindowExplorer > footer > div {\n      white-space: nowrap;\n      text-overflow: ellipsis;\n      overflow: hidden;\n      min-width: 0px;\n      flex-grow: 1;\n      padding: 2px;\n      height: 12px;\n      box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px #0c0c0c; }\n      .w98 .window--explorer > footer > div:not(:last-child), .WindowExplorer > footer > div:not(:last-child) {\n        margin-right: 2px; }\n      .w98 .window--explorer > footer > div:last-child, .WindowExplorer > footer > div:last-child {\n        padding-right: 12px; }\n  .w98 .window--explorer__address, .WindowExplorer__address {\n    display: flex;\n    height: 22px;\n    overflow-y: visible; }\n    .w98 .window--explorer__address__title, .WindowExplorer__address__title {\n      align-self: center;\n      margin-right: 4px; }\n    .w98 .window--explorer__address .Select, .WindowExplorer__address .Select {\n      flex-grow: 1;\n      z-index: 5;\n      margin-right: 4px;\n      margin-top: 1px; }\n  .w98 .window--explorer__options, .WindowExplorer__options {\n    display: flex;\n    padding: 2px 8px 2px 12px; }\n  .w98 .window--explorer > div:last-child, .WindowExplorer > div:last-child {\n    margin-top: 2px; }\n";
 styleInject(css$p);
 
-var WindowExplorer = function (_React$Component) {
-  inherits(WindowExplorer, _React$Component);
+var WindowExplorer =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(WindowExplorer, _React$Component);
 
   function WindowExplorer() {
-    var _ref;
+    var _getPrototypeOf2;
 
-    var _temp, _this, _ret;
+    var _this;
 
-    classCallCheck(this, WindowExplorer);
+    _classCallCheck(this, WindowExplorer);
 
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = possibleConstructorReturn(this, (_ref = WindowExplorer.__proto__ || Object.getPrototypeOf(WindowExplorer)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(WindowExplorer)).call.apply(_getPrototypeOf2, [this].concat(args)));
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "state", {
       isMaximized: false
-    }, _this.maximize = function () {
-      return _this.setState({ isMaximized: true });
-    }, _this.restore = function () {
-      return _this.setState({ isMaximized: false });
-    }, _temp), possibleConstructorReturn(_this, _ret);
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "maximize", function () {
+      return _this.setState({
+        isMaximized: true
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "restore", function () {
+      return _this.setState({
+        isMaximized: false
+      });
+    });
+
+    return _this;
   }
 
-  createClass(WindowExplorer, [{
-    key: 'render',
+  _createClass(WindowExplorer, [{
+    key: "render",
     value: function render() {
       var props = this.props;
-
-      return React.createElement(
-        WindowProgram,
-        {
-          className: cx('WindowExplorer window--explorer', props.className),
-          icon: props.icon,
-          onClose: props.onClose,
-          onMaximize: props.onMaximize,
-          onMinimize: props.onMinimize,
-          onRestore: props.onRestore,
-          title: props.title,
-          resizable: props.resizable,
-          footer: props.footer,
-          menuOptions: props.menuOptions
-        },
-        props.explorerOptions && React.createElement(OptionsList, {
-          className: 'window--explorer__options',
-          options: props.explorerOptions
-        }),
-        React.createElement(
-          'menu',
-          { className: 'window--explorer__address' },
-          React.createElement(
-            'div',
-            { className: 'window--explorer__address__title' },
-            'Address'
-          ),
-          React.createElement(Select, { placeholder: React.createElement(
-              'span',
-              null,
-              'Test'
-            ), isDisabled: true })
-        ),
-        React.createElement(
-          'div',
-          { className: 'window--explorer__view' },
-          props.children
-        )
-      );
+      return React.createElement(WindowProgram, {
+        className: cx('WindowExplorer window--explorer', props.className),
+        icon: props.icon,
+        onClose: props.onClose,
+        onMaximize: props.onMaximize,
+        onMinimize: props.onMinimize,
+        onRestore: props.onRestore,
+        title: props.title,
+        resizable: props.resizable,
+        footer: props.footer,
+        menuOptions: props.menuOptions
+      }, props.explorerOptions && React.createElement(OptionsList, {
+        className: "window--explorer__options",
+        options: props.explorerOptions
+      }), React.createElement("menu", {
+        className: "window--explorer__address"
+      }, React.createElement("div", {
+        className: "window--explorer__address__title"
+      }, "Address"), React.createElement(Select, {
+        placeholder: React.createElement("span", null, "Test"),
+        isDisabled: true
+      })), React.createElement("div", {
+        className: "window--explorer__view"
+      }, props.children));
     }
   }]);
+
   return WindowExplorer;
 }(React.Component);
 
@@ -1859,8 +1984,7 @@ WindowExplorer.defaultProps = {
   footer: [],
   menuOptions: []
 };
-
-WindowExplorer.propTypes = _extends({}, WindowProgram.propTypes, {
+WindowExplorer.propTypes = _objectSpread({}, WindowProgram.propTypes, {
   menuOptions: PropTypes.arrayOf(PropTypes.any),
   explorerOptions: PropTypes.shape(OptionsList.propTypes.options)
 });
@@ -1869,16 +1993,11 @@ var css$q = ".DetailsSection, .window__section {\n  position: relative;\n  borde
 styleInject(css$q);
 
 var DetailsSection = function DetailsSection(props) {
-  return React.createElement(
-    'section',
-    { className: 'DetailsSection window__section' },
-    React.createElement(
-      'div',
-      { className: 'title' },
-      props.title
-    ),
-    props.children
-  );
+  return React.createElement("section", {
+    className: "DetailsSection window__section"
+  }, React.createElement("div", {
+    className: "title"
+  }, props.title), props.children);
 };
 
 DetailsSection.propTypes = {

@@ -5,21 +5,31 @@ import replace from 'rollup-plugin-replace';
 import postcss from 'rollup-plugin-postcss';
 import autoExternal from 'rollup-plugin-auto-external';
 
+const moduleOptions = {
+  name: 'PackardBelle',
+  globals: {
+    react: 'React',
+    'react-dom': 'ReactDOM',
+    clone: 'clone',
+    'prop-types': 'PropTypes',
+    classnames: 'classnames',
+    'react-select': 'ReactSelect',
+  },
+  sourcemap: true,
+}
+
 export default {
   input: './src/index.js',
-  moduleName: 'PackardBelle',
-  sourcemap: true,
 
-  targets: [
-    {
-      dest: './build/pb.js',
-      format: 'umd',
-    },
-    {
-      dest: 'build/pb.module.js',
-      format: 'es',
-    },
-  ],
+  output: [{
+    ...moduleOptions,
+    file: './build/pb.js',
+    format: 'umd',
+  }, {
+    ...moduleOptions,
+    file: 'build/pb.module.js',
+    format: 'es',
+  }],
 
   plugins: [
     postcss({
@@ -31,7 +41,6 @@ export default {
     autoExternal(),
     babel({
       exclude: 'node_modules/**',
-      plugins: ['external-helpers'],
     }),
     replace({
       'process.env.NODE_ENV': JSON.stringify('development'),
@@ -40,13 +49,4 @@ export default {
   ],
 
   external: ['react', 'react-dom'],
-
-  globals: {
-    react: 'React',
-    'react-dom': 'ReactDOM',
-    clone: 'clone',
-    'prop-types': 'PropTypes',
-    classnames: 'classnames',
-    'react-select': 'ReactSelect',
-  },
 };
