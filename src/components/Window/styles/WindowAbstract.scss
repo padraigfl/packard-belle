@@ -36,4 +36,7 @@
       background-image: url($resize);
     }
   }
+  &--maximized {
+    @include window-maximized();
+  }
 }

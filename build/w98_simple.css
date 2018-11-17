@@ -565,11 +565,6 @@ select[multiple] {
   padding: 3px;
   box-shadow: inset -1px -1px 0px #0c0c0c, inset 1px 1px 0px #bbc3c4, inset -2px -2px 0px #808088, inset 2px 2px 0px white;
   display: inline-block; }
-  .window--maximized {
-    width: calc(100% + 0px);
-    height: calc(100% - 28px);
-    top: -3px;
-    left: -3px; }
   .window__heading {
     display: flex;
     background: linear-gradient(to right, #0000a2, #126fc2);
