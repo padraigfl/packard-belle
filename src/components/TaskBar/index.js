@@ -3,13 +3,14 @@ import PropTypes from 'prop-types';
 import Notifiations from './Notifications';
 import StartMenu from '../StartMenu';
 import ButtonProgram from '../Button/ButtonProgram';
-import SmallIconButton from '../Button/ButtonIconSmall';
+import ButtonIconSmall from '../Button/ButtonIconSmall';
 
 import './TaskBar.scss';
 
 const TaskBar = (props) => (
   <div className="TaskBar">
     <StartMenu
+      className="TaskBar__start"
       options={props.options}
     />
     {
@@ -17,7 +18,7 @@ const TaskBar = (props) => (
         <div className="TaskBar__quick-launch">
           {
             props.quickLaunch.map(qlEntry =>
-              <SmallIconButton
+              <ButtonIconSmall
                 key={ `${qlEntry.icon}-QuickLaunch` }
                 alt={ qlEntry.alt }
                 onClick={ qlEntry.onClick }
@@ -50,7 +51,7 @@ const TaskBar = (props) => (
 TaskBar.propTypes = {
   options: PropTypes.array,
   quickLaunch: PropTypes.arrayOf(PropTypes.shape(
-    SmallIconButton.propTypes,
+    ButtonIconSmall.propTypes,
   )),
   openWindows: PropTypes.arrayOf(PropTypes.shape(
     ButtonProgram.propTypes,

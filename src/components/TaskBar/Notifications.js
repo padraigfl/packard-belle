@@ -14,7 +14,7 @@ const formatTime = date => {
   return hour+':'+min;
 };
 
-class Time extends React.Component {
+export class Time extends React.Component {
   state = {
     time: this.props.time? new Date(this.props.time) : new Date(),
   }

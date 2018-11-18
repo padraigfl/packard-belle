@@ -1421,7 +1421,7 @@ var StartMenu = function StartMenu(props) {
       otherProps = _objectWithoutProperties(props, ["className"]);
 
   return React.createElement(Started, _extends({
-    className: cx('start-menu TaskBar__start', className)
+    className: cx('start-menu StartMenu', className)
   }, otherProps));
 };
 
@@ -1429,7 +1429,7 @@ StartMenu.propTypes = Started.propTypes;
 
 var Notifier = function Notifier(props) {
   return React.createElement("button", {
-    className: "btn TaskBar__notifications__notifier",
+    className: "btn Notifier TaskBar__notifications__notifier",
     title: props.title,
     onClick: props.onClick,
     style: {
@@ -1553,6 +1553,7 @@ var TaskBar = function TaskBar(props) {
   return React.createElement("div", {
     className: "TaskBar"
   }, React.createElement(StartMenu, {
+    className: "TaskBar__start",
     options: props.options
   }), props.quickLaunch && React.createElement("div", {
     className: "TaskBar__quick-launch"
