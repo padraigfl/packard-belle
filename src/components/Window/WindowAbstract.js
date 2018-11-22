@@ -30,44 +30,44 @@ class WindowAbstract extends Component {
 
     return (
       <WindowFrame
-        className={cx(props.className, { 'window--maximized': this.state.maximized })}
+        className={cx('Window', props.className, { 'Window--maximized': this.state.maximized })}
         resizable={props.resizable}
       >
-        <div className="window__heading">
+        <div className="Window__heading">
           { props.icon && (
             <div
-              className="window__icon"
+              className="Window__icon"
               style={ { backgroundImage: `url('${props.icon}')` } }
             />
           )}
           <div
-            className="window__title"
+            className="Window__title"
           >
             { props.title }
           </div>
           {
-            (props.onHelp) && (
-              <Button className="window__help" onClick={props.onHelp} />
+            props.onHelp && (
+              <Button className="Window__help" onClick={props.onHelp} />
             )
           }
           {
-            (props.onMaximize || props.onMinimize) && (
-              <Button className="window__minimize" onClick={props.onMinimize} />
+            props.onMinimize && (
+              <Button className="Window__minimize" onClick={props.onMinimize} />
             )
           }
           {
-            props.isMaximized && props.onRestore && (
-              <Button className="window__restore" onClick={this.handleRestore} />
+            this.state.maximized && props.resizable && (
+              <Button className="Window__restore" onClick={this.handleRestore} />
             )
           }
           {
-            !props.isMaximized && props.onMaximize && (
-              <Button className="window__maximize" onClick={this.handleMaximize} />
+            !this.state.maximized && props.resizable && (
+              <Button className="Window__maximize" onClick={this.handleMaximize} />
             )
           }
           {
             props.onClose && (
-              <Button className="window__close" onClick={props.onClose} />
+              <Button className="Window__close" onClick={props.onClose} />
             )
           }
         </div>

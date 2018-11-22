@@ -4,7 +4,7 @@ import cx from 'classnames';
 import './styles/WindowFrame.scss';
 
 const WindowFrame = props => (
-  <div className={ cx('window', props.className, { 'window--resizable': props.resizable })}>
+  <div className={ cx('Frame', props.className)}>
     {props.children}
   </div>
 );
@@ -12,7 +12,6 @@ const WindowFrame = props => (
 WindowFrame.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
-  resizable: PropTypes.bool,
 };
 
 export default WindowFrame;
