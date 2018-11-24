@@ -24,20 +24,14 @@ const WindowAlert = props => (
     <div className="window--alert__actions">
       { props.onOK && (
         <ButtonForm
-          onClick={
-            () => {
-              props.onOK();
-            }
-          }
+          className="WindowAlert__ok"
+          onClick={props.onOK}
         >OK</ButtonForm>
       )}
       { props.onCancel && (
         <ButtonForm
-          onClick={
-            () => {
-              props.onCancel();
-            }
-          }
+          className="WindowAlert__cancel"
+          onClick={props.onCancel()}
         >Cancel</ButtonForm>
       )}
     </div>

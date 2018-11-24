@@ -71,7 +71,7 @@ class WindowProgram extends React.Component {
         resizable={props.resizable}
       >
         <MenuBar
-          className="window--explorer__menu"
+          className="window--explorer__menu WindowProgram__menu"
           options={props.menuOptions}
         />
         { props.children }

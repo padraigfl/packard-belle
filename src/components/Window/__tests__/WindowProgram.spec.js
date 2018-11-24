@@ -1,21 +1,30 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import WindowAbstract from '../WindowAbstract';
+import WindowProgram from '../WindowProgram';
 
 const options = (onClick = jest.fn()) => ([
-  { alt: 'open', onClick, title: 'testButton' },
-  { alt: 'find', onClick, options: 'testOption' },
+  { title: 'testButton', options: [{ title: 'testOption', onClick }]},
+  { title: 'test', options: [{ title: 'testOption', onClick }]},
 ]);
 
-describe('WindowAbstract', () => {
+describe('WindowProgram', () => {
   const func = jest.fn();
-  const wrapper = mount(<WindowAbstract className="WindowAbstract" {...options(func)[0]} />);
+  const wrapper = mount(
+    <WindowProgram
+      className="WindowProgram"
+      menuOptions={options(func)}
+    >
+      <div className="test" />
+    </WindowProgram>
+  );
   it('renders', () => {
-    expect(wrapper.find('.WindowAbstract').length).toBeTruthy();
+    expect(wrapper.find('.WindowProgram').length).toBeTruthy();
   });
-
-  it('can be clicked', () => {
-    wrapper.simulate('click');
-    expect(func).toHaveBeenCalled();
+  it('hasChildren', () => {
+    expect(wrapper.find('.test').length).toBeTruthy();
+  });
+  it('has menus', () => {
+    expect(wrapper.find('.WindowProgram__menu').length).toBeTruthy();
+    expect(wrapper.find('.standard-menu-wrapper')).toHaveLength(2);
   });
 });

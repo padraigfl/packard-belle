@@ -1,21 +1,17 @@
 import React from 'react';
-import { mount } from 'enzyme';
-import WindowAbstract from '../WindowAbstract';
+import { shallow } from 'enzyme';
+import WindowAlert from '../WindowAlert';
 
-const options = (onClick = jest.fn()) => ([
-  { alt: 'open', onClick, title: 'testButton' },
-  { alt: 'find', onClick, options: 'testOption' },
-]);
-
-describe('WindowAbstract', () => {
+describe('WindowAlert', () => {
   const func = jest.fn();
-  const wrapper = mount(<WindowAbstract className="WindowAbstract" {...options(func)[0]} />);
+  const wrapper = shallow(<WindowAlert onOK={func} onCancel={func} />);
   it('renders', () => {
-    expect(wrapper.find('.WindowAbstract').length).toBeTruthy();
+    expect(wrapper.find('.WindowAlert').length).toBeTruthy();
   });
 
   it('can be clicked', () => {
-    wrapper.simulate('click');
-    expect(func).toHaveBeenCalled();
+    wrapper.find('.WindowAlert__cancel').at(0).simulate('click');
+    wrapper.find('.WindowAlert__ok').at(0).simulate('click');
+    expect(func).toHaveBeenCalledTimes(2);
   });
 });

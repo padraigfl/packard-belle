@@ -1,17 +1,12 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import WindowAbstract from '../WindowAbstract';
+import WindowExplorer from '../WindowExplorer';
 
-const options = (onClick = jest.fn()) => ([
-  { alt: 'open', onClick, title: 'testButton' },
-  { alt: 'find', onClick, options: 'testOption' },
-]);
-
-describe('WindowAbstract', () => {
+xdescribe('WindowExplorer', () => { // eslint-disable-line
   const func = jest.fn();
-  const wrapper = mount(<WindowAbstract className="WindowAbstract" {...options(func)[0]} />);
+  const wrapper = mount(<WindowExplorer />);
   it('renders', () => {
-    expect(wrapper.find('.WindowAbstract').length).toBeTruthy();
+    expect(wrapper.find('.WindowExplorer').length).toBeTruthy();
   });
 
   it('can be clicked', () => {

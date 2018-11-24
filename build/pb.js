@@ -454,21 +454,18 @@
     icon: PropTypes.string
   });
 
-  var css$8 = ".window, .WindowFrame {\n  position: relative;\n  background-color: #bbc3c4;\n  padding: 3px;\n  box-shadow: inset -1px -1px 0px #0c0c0c, inset 1px 1px 0px #bbc3c4, inset -2px -2px 0px #808088, inset 2px 2px 0px white;\n  display: inline-block; }\n";
+  var css$8 = ".Frame, .frame {\n  position: relative;\n  background-color: #bbc3c4;\n  padding: 3px;\n  box-shadow: inset -1px -1px 0px #0c0c0c, inset 1px 1px 0px #bbc3c4, inset -2px -2px 0px #808088, inset 2px 2px 0px white;\n  display: inline-block; }\n";
   styleInject(css$8);
 
   var WindowFrame = function WindowFrame(props) {
     return React__default.createElement("div", {
-      className: cx('window', props.className, {
-        'window--resizable': props.resizable
-      })
+      className: cx('Frame', props.className)
     }, props.children);
   };
 
   WindowFrame.propTypes = {
     children: PropTypes.node,
-    className: PropTypes.string,
-    resizable: PropTypes.bool
+    className: PropTypes.string
   };
 
   var StandardMenuItem = function StandardMenuItem(props) {
@@ -1591,7 +1588,7 @@
     notifiers: PropTypes.arrayOf(PropTypes.shape(Notifications.propsTypes))
   };
 
-  var css$l = ".window__heading {\n  display: flex;\n  background: linear-gradient(to right, #0000a2, #126fc2);\n  font-weight: bold;\n  color: white;\n  margin-bottom: 1px;\n  padding: 0px 1px 0px 3px;\n  align-items: center;\n  letter-spacing: 1px; }\n  .window__heading button {\n    padding: 0px;\n    min-width: initial;\n    width: 16px;\n    height: 14px;\n    margin-left: 1px;\n    image-rendering: pixelated;\n    display: flex;\n    align-items: center;\n    flex-shrink: 0;\n    background-repeat: no-repeat;\n    background-position: 1px 1px; }\n    .window__heading button:focus, .window__heading button.clicked {\n      outline: none;\n      border: none; }\n    .window__heading button:active:focus, .window__heading button.clicked {\n      padding: 2px 8px 1px 4px;\n      background-position: 2px 2px; }\n\n.window__icon {\n  padding: 8px;\n  display: flex;\n  background-size: 14px;\n  background-repeat: no-repeat;\n  background-position: center; }\n\n.window__title {\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  flex-grow: 1;\n  min-width: 0px; }\n\n.window__close {\n  margin-left: 2px;\n  background-image: url(\"data:image/gif;base64,R0lGODlhDQALAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAANAAsAAAIUlI+pKwDoVGxvucmwvblqo33MqBQAOw==\"); }\n\n.window__restore {\n  background-image: url(\"data:image/gif;base64,R0lGODlhDQALAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAANAAsAAAIZlI9pwK3SnAKI1kjtwTlpyHjV830b9qRHAQA7\"); }\n\n.window__minimize {\n  background-image: url(\"data:image/gif;base64,R0lGODlhDQALAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAANAAsAAAIOlI+py+0PozSg2mXvFAUAOw==\"); }\n\n.window__maximize {\n  background-image: url(\"data:image/gif;base64,R0lGODlhDQALAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAANAAsAAAIXlI8Jy4wNXzJAznqwsjtPoYFfCDXfWQAAOw==\"); }\n\n.window--resizable {\n  width: 100%;\n  height: 100%; }\n  .window--resizable:after {\n    position: absolute;\n    bottom: 4px;\n    right: 4px;\n    height: 12px;\n    width: 12px;\n    content: '';\n    background-image: url(\"data:image/gif;base64,R0lGODlhDAAMAJEAAAAAAP///5mZmf///yH5BAEAAAMALAAAAAAMAAwAAAIbnI8TmSF83IMSKvFWw3dnHnFV+GVGhZZXmaoFADs=\"); }\n\n.window--maximized {\n  width: calc(100% + 0px);\n  height: calc(100% - 28px);\n  top: -3px;\n  left: -3px; }\n";
+  var css$l = ".window__heading, .Window__heading {\n  display: flex;\n  background: linear-gradient(to right, #0000a2, #126fc2);\n  font-weight: bold;\n  color: white;\n  margin-bottom: 1px;\n  padding: 0px 1px 0px 3px;\n  align-items: center;\n  letter-spacing: 1px; }\n  .window__heading button, .Window__heading button {\n    padding: 0px;\n    min-width: initial;\n    width: 16px;\n    height: 14px;\n    margin-left: 1px;\n    image-rendering: pixelated;\n    display: flex;\n    align-items: center;\n    flex-shrink: 0;\n    background-repeat: no-repeat;\n    background-position: 1px 1px; }\n    .window__heading button:focus, .window__heading button.clicked, .Window__heading button:focus, .Window__heading button.clicked {\n      outline: none;\n      border: none; }\n    .window__heading button:active:focus, .window__heading button.clicked, .Window__heading button:active:focus, .Window__heading button.clicked {\n      padding: 2px 8px 1px 4px;\n      background-position: 2px 2px; }\n\n.window__icon, .Window__icon {\n  padding: 8px;\n  display: flex;\n  background-size: 14px;\n  background-repeat: no-repeat;\n  background-position: center; }\n\n.window__title, .Window__title {\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  flex-grow: 1;\n  min-width: 0px; }\n\n.window__close, .Window__close {\n  margin-left: 2px;\n  background-image: url(\"data:image/gif;base64,R0lGODlhDQALAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAANAAsAAAIUlI+pKwDoVGxvucmwvblqo33MqBQAOw==\"); }\n\n.window__restore, .Window__restore {\n  background-image: url(\"data:image/gif;base64,R0lGODlhDQALAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAANAAsAAAIZlI9pwK3SnAKI1kjtwTlpyHjV830b9qRHAQA7\"); }\n\n.window__minimize, .Window__minimize {\n  background-image: url(\"data:image/gif;base64,R0lGODlhDQALAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAANAAsAAAIOlI+py+0PozSg2mXvFAUAOw==\"); }\n\n.window__maximize, .Window__maximize {\n  background-image: url(\"data:image/gif;base64,R0lGODlhDQALAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAANAAsAAAIXlI8Jy4wNXzJAznqwsjtPoYFfCDXfWQAAOw==\"); }\n\n.window--resizable, .Window--resizable {\n  width: 100%;\n  height: 100%; }\n  .window--resizable:after, .Window--resizable:after {\n    position: absolute;\n    bottom: 4px;\n    right: 4px;\n    height: 12px;\n    width: 12px;\n    content: '';\n    background-image: url(\"data:image/gif;base64,R0lGODlhDAAMAJEAAAAAAP///5mZmf///yH5BAEAAAMALAAAAAAMAAwAAAIbnI8TmSF83IMSKvFWw3dnHnFV+GVGhZZXmaoFADs=\"); }\n\n.window--maximized, .Window--maximized {\n  width: calc(100% + 0px);\n  height: calc(100% - 28px);\n  top: -3px;\n  left: -3px; }\n";
   styleInject(css$l);
 
   var WindowAbstract =
@@ -1644,33 +1641,33 @@
       value: function render() {
         var props = this.props;
         return React__default.createElement(WindowFrame, {
-          className: cx(props.className, {
-            'window--maximized': this.state.maximized
+          className: cx('Window', props.className, {
+            'Window--maximized': this.state.maximized
           }),
           resizable: props.resizable
         }, React__default.createElement("div", {
-          className: "window__heading"
+          className: "Window__heading"
         }, props.icon && React__default.createElement("div", {
-          className: "window__icon",
+          className: "Window__icon",
           style: {
             backgroundImage: "url('".concat(props.icon, "')")
           }
         }), React__default.createElement("div", {
-          className: "window__title"
+          className: "Window__title"
         }, props.title), props.onHelp && React__default.createElement(ButtonNav, {
-          className: "window__help",
+          className: "Window__help",
           onClick: props.onHelp
-        }), (props.onMaximize || props.onMinimize) && React__default.createElement(ButtonNav, {
-          className: "window__minimize",
+        }), props.onMinimize && React__default.createElement(ButtonNav, {
+          className: "Window__minimize",
           onClick: props.onMinimize
-        }), props.isMaximized && props.onRestore && React__default.createElement(ButtonNav, {
-          className: "window__restore",
+        }), this.state.maximized && props.resizable && React__default.createElement(ButtonNav, {
+          className: "Window__restore",
           onClick: this.handleRestore
-        }), !props.isMaximized && props.onMaximize && React__default.createElement(ButtonNav, {
-          className: "window__maximize",
+        }), !this.state.maximized && props.resizable && React__default.createElement(ButtonNav, {
+          className: "Window__maximize",
           onClick: this.handleMaximize
         }), props.onClose && React__default.createElement(ButtonNav, {
-          className: "window__close",
+          className: "Window__close",
           onClick: props.onClose
         })), props.children);
       }
@@ -1713,13 +1710,11 @@
     }, props.children), React__default.createElement("div", {
       className: "window--alert__actions"
     }, props.onOK && React__default.createElement(ButtonForm, {
-      onClick: function onClick() {
-        props.onOK();
-      }
+      className: "WindowAlert__ok",
+      onClick: props.onOK
     }, "OK"), props.onCancel && React__default.createElement(ButtonForm, {
-      onClick: function onClick() {
-        props.onCancel();
-      }
+      className: "WindowAlert__cancel",
+      onClick: props.onCancel()
     }, "Cancel")));
   };
 
@@ -1833,7 +1828,7 @@
           isMaximized: this.state.isMaximized,
           resizable: props.resizable
         }, React__default.createElement(MenuBar, {
-          className: "window--explorer__menu",
+          className: "window--explorer__menu WindowProgram__menu",
           options: props.menuOptions
         }), props.children, props.footer && React__default.createElement(Footer, {
           entries: footer
@@ -2054,11 +2049,11 @@
   styleInject(css$q);
 
   var DetailsSection = function DetailsSection(props) {
-    return React__default.createElement("section", {
+    return props.children ? React__default.createElement("section", {
       className: "DetailsSection window__section"
     }, React__default.createElement("div", {
-      className: "title"
-    }, props.title), props.children);
+      className: "DetailsSection__title"
+    }, props.title), props.children) : null;
   };
 
   DetailsSection.propTypes = {

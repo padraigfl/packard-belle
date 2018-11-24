@@ -1,21 +1,18 @@
 import React from 'react';
-import { mount } from 'enzyme';
-import WindowAbstract from '../WindowAbstract';
+import { shallow } from 'enzyme';
+import DetailsSection from '..';
 
-const options = (onClick = jest.fn()) => ([
-  { alt: 'open', onClick, title: 'testButton' },
-  { alt: 'find', onClick, options: 'testOption' },
-]);
-
-describe('WindowAbstract', () => {
-  const func = jest.fn();
-  const wrapper = mount(<WindowAbstract className="WindowAbstract" {...options(func)[0]} />);
+describe('DetailsSection', () => {
+  const wrapper = shallow(
+    <DetailsSection title="Test">
+      Children
+    </DetailsSection>
+  );
   it('renders', () => {
-    expect(wrapper.find('.WindowAbstract').length).toBeTruthy();
+    expect(wrapper.find('.DetailsSection').length).toBeTruthy();
   });
 
-  it('can be clicked', () => {
-    wrapper.simulate('click');
-    expect(func).toHaveBeenCalled();
+  it('has title', () => {
+    expect(wrapper.find('.DetailsSection__title').at(0).text()).toBe('Test');
   });
 });
