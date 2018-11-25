@@ -15,7 +15,7 @@ const MenuBar = props => (
         <MenuEntry
           className={
             cx(
-              'window__menu__section MenuBar__section',
+              'MenuBar__section',
               props.className
             )
           }

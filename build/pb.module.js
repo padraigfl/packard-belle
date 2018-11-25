@@ -464,14 +464,14 @@ WindowFrame.propTypes = {
 
 var StandardMenuItem = function StandardMenuItem(props) {
   return React.createElement("div", {
-    className: cx('standard-menu__item', props.className, props.type, {
-      'standard-menu__item--has-options': props.options,
+    className: cx('StandardMenuItem', props.className, props.type, {
+      'StandardMenuItem--has-options': props.options,
       'active': props.isActive
     }),
     onMouseEnter: props.mouseEnterItem,
     onTouchStart: props.mouseEnterItem
   }, React.createElement("button", {
-    className: cx('StandardMenuItem__button', 'standard-menu__item__button', {
+    className: cx('StandardMenuItem__button', {
       disabled: props.isDisabled
     }),
     onClick: !props.options ? props.closeOnClick(props.onClick) : undefined,
@@ -481,7 +481,7 @@ var StandardMenuItem = function StandardMenuItem(props) {
     value: props.value,
     disabled: props.isDisabled
   }, props.title), props.options && React.createElement(StandardMenu, {
-    className: "standard-menu__item__child",
+    className: "StandardMenuItem__child",
     options: props.options,
     value: props.value,
     mouseEnterItem: props.mouseEnterItem,
@@ -718,7 +718,7 @@ var withContextLogic = function withContextLogic(ContextButton) {
 
         var renderedMenu = React.createElement(StandardMenu, {
           options: this.state.options,
-          className: "standard-menu__wrapper",
+          className: "renderedMenu",
           mouseEnterItem: function mouseEnterItem(e) {
             return _this3.mouseEnterItem(e);
           },
@@ -734,7 +734,7 @@ var withContextLogic = function withContextLogic(ContextButton) {
             ref: function ref(el) {
               _this3.el = el;
             },
-            className: cx('standard-menu-wrapper', className, {
+            className: cx('StandardMenuWrapper', className, {
               'active': this.state.isOpen
             })
           }, React.createElement(ContextButton, _extends({}, props, {
@@ -1399,7 +1399,7 @@ var MenuBar = function MenuBar(props) {
     className: "window__menu MenuBar"
   }, props.options && props.options.map(function (section) {
     return React.createElement(MenuEntry, {
-      className: cx('window__menu__section MenuBar__section', props.className),
+      className: cx('MenuBar__section', props.className),
       key: "menu-bar-section-".concat(section.title),
       options: section.options
     }, section.title);
@@ -1418,7 +1418,7 @@ var StartMenu = function StartMenu(props) {
       otherProps = _objectWithoutProperties(props, ["className"]);
 
   return React.createElement(Started, _extends({
-    className: cx('start-menu StartMenu', className)
+    className: cx('StartMenu', className)
   }, otherProps));
 };
 
@@ -1635,7 +1635,7 @@ function (_Component) {
     value: function render() {
       var props = this.props;
       return React.createElement(WindowFrame, {
-        className: cx('Window', props.className, {
+        className: cx('Window window', props.className, {
           'Window--maximized': this.state.maximized
         }),
         resizable: props.resizable
@@ -1695,14 +1695,14 @@ var WindowAlert = function WindowAlert(props) {
     onHelp: props.onHelp,
     title: "Error"
   }, React.createElement("div", {
-    className: cx('window--alert__message', {
+    className: cx('WindowAlert__message', {
       'has-icon': props.icon
     }),
     style: props.icon && {
       backgroundImage: "url(".concat(props.icon, ")")
     }
   }, props.children), React.createElement("div", {
-    className: "window--alert__actions"
+    className: "WindowAlert__actions"
   }, props.onOK && React.createElement(ButtonForm, {
     className: "WindowAlert__ok",
     onClick: props.onOK
@@ -2001,7 +2001,7 @@ function (_React$Component) {
     value: function render() {
       var props = this.props;
       return React.createElement(WindowProgram, {
-        className: cx('WindowExplorer window--explorer', props.className),
+        className: cx('WindowExplorer', props.className),
         icon: props.icon,
         onClose: props.onClose,
         onMaximize: props.onMaximize,
@@ -2012,17 +2012,17 @@ function (_React$Component) {
         footer: props.footer,
         menuOptions: props.menuOptions
       }, props.explorerOptions && React.createElement(OptionsList, {
-        className: "window--explorer__options",
+        className: "WindowExplorer__options",
         options: props.explorerOptions
       }), React.createElement("menu", {
-        className: "window--explorer__address"
+        className: "WindowExplorer__address"
       }, React.createElement("div", {
-        className: "window--explorer__address__title"
+        className: "WindowExplorer__address__title"
       }, "Address"), React.createElement(Select, {
         placeholder: React.createElement("span", null, "Test"),
         isDisabled: true
       })), React.createElement("div", {
-        className: "window--explorer__view"
+        className: "WindowExplorer__view"
       }, props.children));
     }
   }]);

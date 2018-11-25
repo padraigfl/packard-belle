@@ -10,7 +10,7 @@ const StartMenu = (props) => {
   return (
     <Started
       className={
-        cx('start-menu StartMenu', className)
+        cx('StartMenu', className)
       }
       {...otherProps}
     />

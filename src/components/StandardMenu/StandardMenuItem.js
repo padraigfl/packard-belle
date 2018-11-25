@@ -7,10 +7,10 @@ const StandardMenuItem = props => (
   <div
     className={
       cx(
-        'standard-menu__item',
+        'StandardMenuItem',
         props.className,
         props.type,
-        { 'standard-menu__item--has-options': props.options, 'active': props.isActive },
+        { 'StandardMenuItem--has-options': props.options, 'active': props.isActive },
       )
     }
     onMouseEnter={props.mouseEnterItem}
@@ -20,7 +20,6 @@ const StandardMenuItem = props => (
       className={
         cx(
           'StandardMenuItem__button',
-          'standard-menu__item__button',
           { disabled: props.isDisabled },
         )
       }
@@ -33,7 +32,7 @@ const StandardMenuItem = props => (
     </button>
     { props.options && (
       <StandardMenu
-        className="standard-menu__item__child"
+        className="StandardMenuItem__child"
         options={props.options}
         value={props.value}
         mouseEnterItem={props.mouseEnterItem}

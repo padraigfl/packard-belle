@@ -470,14 +470,14 @@
 
   var StandardMenuItem = function StandardMenuItem(props) {
     return React__default.createElement("div", {
-      className: cx('standard-menu__item', props.className, props.type, {
-        'standard-menu__item--has-options': props.options,
+      className: cx('StandardMenuItem', props.className, props.type, {
+        'StandardMenuItem--has-options': props.options,
         'active': props.isActive
       }),
       onMouseEnter: props.mouseEnterItem,
       onTouchStart: props.mouseEnterItem
     }, React__default.createElement("button", {
-      className: cx('StandardMenuItem__button', 'standard-menu__item__button', {
+      className: cx('StandardMenuItem__button', {
         disabled: props.isDisabled
       }),
       onClick: !props.options ? props.closeOnClick(props.onClick) : undefined,
@@ -487,7 +487,7 @@
       value: props.value,
       disabled: props.isDisabled
     }, props.title), props.options && React__default.createElement(StandardMenu, {
-      className: "standard-menu__item__child",
+      className: "StandardMenuItem__child",
       options: props.options,
       value: props.value,
       mouseEnterItem: props.mouseEnterItem,
@@ -724,7 +724,7 @@
 
           var renderedMenu = React__default.createElement(StandardMenu, {
             options: this.state.options,
-            className: "standard-menu__wrapper",
+            className: "renderedMenu",
             mouseEnterItem: function mouseEnterItem(e) {
               return _this3.mouseEnterItem(e);
             },
@@ -740,7 +740,7 @@
               ref: function ref(el) {
                 _this3.el = el;
               },
-              className: cx('standard-menu-wrapper', className, {
+              className: cx('StandardMenuWrapper', className, {
                 'active': this.state.isOpen
               })
             }, React__default.createElement(ContextButton, _extends({}, props, {
@@ -1405,7 +1405,7 @@
       className: "window__menu MenuBar"
     }, props.options && props.options.map(function (section) {
       return React__default.createElement(MenuEntry, {
-        className: cx('window__menu__section MenuBar__section', props.className),
+        className: cx('MenuBar__section', props.className),
         key: "menu-bar-section-".concat(section.title),
         options: section.options
       }, section.title);
@@ -1424,7 +1424,7 @@
         otherProps = _objectWithoutProperties(props, ["className"]);
 
     return React__default.createElement(Started, _extends({
-      className: cx('start-menu StartMenu', className)
+      className: cx('StartMenu', className)
     }, otherProps));
   };
 
@@ -1641,7 +1641,7 @@
       value: function render() {
         var props = this.props;
         return React__default.createElement(WindowFrame, {
-          className: cx('Window', props.className, {
+          className: cx('Window window', props.className, {
             'Window--maximized': this.state.maximized
           }),
           resizable: props.resizable
@@ -1701,14 +1701,14 @@
       onHelp: props.onHelp,
       title: "Error"
     }, React__default.createElement("div", {
-      className: cx('window--alert__message', {
+      className: cx('WindowAlert__message', {
         'has-icon': props.icon
       }),
       style: props.icon && {
         backgroundImage: "url(".concat(props.icon, ")")
       }
     }, props.children), React__default.createElement("div", {
-      className: "window--alert__actions"
+      className: "WindowAlert__actions"
     }, props.onOK && React__default.createElement(ButtonForm, {
       className: "WindowAlert__ok",
       onClick: props.onOK
@@ -2007,7 +2007,7 @@
       value: function render() {
         var props = this.props;
         return React__default.createElement(WindowProgram, {
-          className: cx('WindowExplorer window--explorer', props.className),
+          className: cx('WindowExplorer', props.className),
           icon: props.icon,
           onClose: props.onClose,
           onMaximize: props.onMaximize,
@@ -2018,17 +2018,17 @@
           footer: props.footer,
           menuOptions: props.menuOptions
         }, props.explorerOptions && React__default.createElement(OptionsList, {
-          className: "window--explorer__options",
+          className: "WindowExplorer__options",
           options: props.explorerOptions
         }), React__default.createElement("menu", {
-          className: "window--explorer__address"
+          className: "WindowExplorer__address"
         }, React__default.createElement("div", {
-          className: "window--explorer__address__title"
+          className: "WindowExplorer__address__title"
         }, "Address"), React__default.createElement(Select, {
           placeholder: React__default.createElement("span", null, "Test"),
           isDisabled: true
         })), React__default.createElement("div", {
-          className: "window--explorer__view"
+          className: "WindowExplorer__view"
         }, props.children));
       }
     }]);

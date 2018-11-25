@@ -104,7 +104,7 @@ const withContextLogic = ContextButton => {
       const renderedMenu = (
         <StandardMenu
           options={this.state.options}
-          className="standard-menu__wrapper"
+          className="renderedMenu"
           mouseEnterItem={(e) => this.mouseEnterItem(e)}
           closeOnClick={this.handleSelectionClose}
         />
@@ -116,7 +116,7 @@ const withContextLogic = ContextButton => {
           <div
             ref={(el) => { this.el = el; }}
             className={ cx(
-              'standard-menu-wrapper',
+              'StandardMenuWrapper',
               className,
               { 'active': this.state.isOpen }
             )}

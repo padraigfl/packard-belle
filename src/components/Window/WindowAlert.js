@@ -15,13 +15,13 @@ const WindowAlert = props => (
   >
     <div
       className={
-        cx('window--alert__message', { 'has-icon': props.icon})
+        cx('WindowAlert__message', { 'has-icon': props.icon})
       }
       style={ props.icon && { backgroundImage: `url(${props.icon})`} }
     >
       { props.children }
     </div>
-    <div className="window--alert__actions">
+    <div className="WindowAlert__actions">
       { props.onOK && (
         <ButtonForm
           className="WindowAlert__ok"

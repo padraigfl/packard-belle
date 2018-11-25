@@ -17,7 +17,7 @@ class WindowExplorer extends React.Component {
     const { props } = this;
     return (
       <WindowProgram
-        className={ cx('WindowExplorer window--explorer', props.className)}
+        className={ cx('WindowExplorer', props.className)}
         icon={props.icon}
         onClose={props.onClose}
         onMaximize={props.onMaximize}
@@ -30,15 +30,15 @@ class WindowExplorer extends React.Component {
       >
         {props.explorerOptions && (
           <OptionsList
-            className="window--explorer__options"
+            className="WindowExplorer__options"
             options={props.explorerOptions}
           />
         )}
-        <menu className="window--explorer__address">
-          <div className="window--explorer__address__title">Address</div>
+        <menu className="WindowExplorer__address">
+          <div className="WindowExplorer__address__title">Address</div>
           <Select placeholder={<span>Test</span>} isDisabled />
         </menu>
-        <div className="window--explorer__view">
+        <div className="WindowExplorer__view">
           {props.children}
         </div>
       </WindowProgram>

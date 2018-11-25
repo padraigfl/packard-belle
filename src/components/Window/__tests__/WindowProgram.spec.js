@@ -25,6 +25,6 @@ describe('WindowProgram', () => {
   });
   it('has menus', () => {
     expect(wrapper.find('.WindowProgram__menu').length).toBeTruthy();
-    expect(wrapper.find('.standard-menu-wrapper')).toHaveLength(2);
+    expect(wrapper.find('.StandardMenuWrapper')).toHaveLength(2);
   });
 });

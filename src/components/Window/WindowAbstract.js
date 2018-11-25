@@ -30,7 +30,7 @@ class WindowAbstract extends Component {
 
     return (
       <WindowFrame
-        className={cx('Window', props.className, { 'Window--maximized': this.state.maximized })}
+        className={cx('Window window', props.className, { 'Window--maximized': this.state.maximized })}
         resizable={props.resizable}
       >
         <div className="Window__heading">
