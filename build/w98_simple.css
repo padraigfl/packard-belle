@@ -322,22 +322,6 @@ html {
   text-overflow: clip; }
   .standard-menu > div {
     position: relative; }
-    .standard-menu > div > .window {
-      position: absolute;
-      visibility: hidden;
-      width: auto; }
-      @media (min-height: 720px) and (min-width: 960px) {
-        .standard-menu > div > .window {
-          transition: max-width cubic-bezier(0.38, 0.01, 0, 1) 200ms, max-height cubic-bezier(0.38, 0.01, 0, 1) 200ms; } }
-    .standard-menu > div.active > .window {
-      width: auto;
-      visibility: visible; }
-    .standard-menu > div > .window {
-      left: calc(100%  - 3px);
-      top: -3px;
-      max-width: 0%; }
-    .standard-menu > div:hover > .window, .standard-menu > div.active > .window {
-      max-width: 400%; }
     .standard-menu > div > button {
       user-select: none;
       position: relative;
@@ -353,7 +337,7 @@ html {
       outline: none;
       height: 20px; }
       .standard-menu > div > button:before {
-        content: '';
+        content: "";
         position: absolute;
         left: 0px;
         top: 0px;
@@ -366,7 +350,7 @@ html {
       .standard-menu > div > button:disabled, .standard-menu > div > button.disabled {
         color: #808088; }
       .standard-menu > div > button:not(:only-child):after {
-        content: '';
+        content: "";
         position: absolute;
         background-image: url("data:image/gif;base64,R0lGODlhBAAHAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAEAAcAAAIIhA4maeyrlCgAOw==");
         top: 0px;
@@ -388,6 +372,28 @@ html {
         background-color: #0000a2; }
         .standard-menu > div.active > button:not(.disabled):not(:only-child):after, .standard-menu > div.clicked > button:not(.disabled):not(:only-child):after {
           background-image: url("data:image/gif;base64,R0lGODlhBAAHAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAEAAcAAAIIjB4maeyrlCgAOw=="); }
+    .standard-menu > div > .window,
+    .standard-menu > div > .Frame {
+      position: absolute;
+      visibility: hidden;
+      width: auto; }
+      @media (min-height: 720px) and (min-width: 960px) {
+        .standard-menu > div > .window,
+        .standard-menu > div > .Frame {
+          transition: max-width cubic-bezier(0.38, 0.01, 0, 1) 200ms, max-height cubic-bezier(0.38, 0.01, 0, 1) 200ms; } }
+    .standard-menu > div.active > .window,
+    .standard-menu > div.active > .Frame {
+      width: auto;
+      visibility: visible; }
+    .standard-menu > div > .window,
+    .standard-menu > div > .Frame {
+      left: calc(100% - 3px);
+      top: -3px;
+      max-width: 0%; }
+    .standard-menu > div:hover > .window,
+    .standard-menu > div:hover > .Frame, .standard-menu > div.active > .window,
+    .standard-menu > div.active > .Frame {
+      max-width: 400%; }
   .standard-menu > div:empty {
     position: relative;
     width: 95%;
@@ -397,62 +403,82 @@ html {
     display: none; }
   .standard-menu > div:not(:empty) + div:empty:not(:last-child):not(:first-child) {
     display: block; }
-  .standard-menu.css div__sub-menu--top > .window {
+  .standard-menu.css div__sub-menu--top > .window,
+  .standard-menu.css div__sub-menu--top > .Frame {
     position: absolute;
     visibility: hidden;
     width: auto; }
     @media (min-height: 720px) and (min-width: 960px) {
-      .standard-menu.css div__sub-menu--top > .window {
+      .standard-menu.css div__sub-menu--top > .window,
+      .standard-menu.css div__sub-menu--top > .Frame {
         transition: max-width cubic-bezier(0.38, 0.01, 0, 1) 200ms, max-height cubic-bezier(0.38, 0.01, 0, 1) 200ms; } }
-  .standard-menu.css div__sub-menu--top.active > .window {
+  .standard-menu.css div__sub-menu--top.active > .window,
+  .standard-menu.css div__sub-menu--top.active > .Frame {
     width: auto;
     visibility: visible; }
-  .standard-menu.css div__sub-menu--top > .window {
+  .standard-menu.css div__sub-menu--top > .window,
+  .standard-menu.css div__sub-menu--top > .Frame {
     bottom: calc(100% + $windowPadding);
     left: 0px;
     height: 0px;
     max-height: 0%;
     max-width: 100%; }
-  .standard-menu.css div__sub-menu--top:hover > .window, .standard-menu.css div__sub-menu--top.active > .window {
+  .standard-menu.css div__sub-menu--top:hover > .window,
+  .standard-menu.css div__sub-menu--top:hover > .Frame, .standard-menu.css div__sub-menu--top.active > .window,
+  .standard-menu.css div__sub-menu--top.active > .Frame {
     height: initial;
     max-height: 100%; }
-  .standard-menu.css div__sub-menu--bottom > .window {
+  .standard-menu.css div__sub-menu--bottom > .window,
+  .standard-menu.css div__sub-menu--bottom > .Frame {
     position: absolute;
     visibility: hidden;
     width: auto; }
     @media (min-height: 720px) and (min-width: 960px) {
-      .standard-menu.css div__sub-menu--bottom > .window {
+      .standard-menu.css div__sub-menu--bottom > .window,
+      .standard-menu.css div__sub-menu--bottom > .Frame {
         transition: max-width cubic-bezier(0.38, 0.01, 0, 1) 200ms, max-height cubic-bezier(0.38, 0.01, 0, 1) 200ms; } }
-  .standard-menu.css div__sub-menu--bottom.active > .window {
+  .standard-menu.css div__sub-menu--bottom.active > .window,
+  .standard-menu.css div__sub-menu--bottom.active > .Frame {
     width: auto;
     visibility: visible; }
-  .standard-menu.css div__sub-menu--bottom > .window {
+  .standard-menu.css div__sub-menu--bottom > .window,
+  .standard-menu.css div__sub-menu--bottom > .Frame {
     top: calc(100% + $windowPadding);
     left: 0px;
     max-height: 0%;
     max-width: 100%; }
-  .standard-menu.css div__sub-menu--bottom:hover > .window, .standard-menu.css div__sub-menu--bottom.active > .window {
+  .standard-menu.css div__sub-menu--bottom:hover > .window,
+  .standard-menu.css div__sub-menu--bottom:hover > .Frame, .standard-menu.css div__sub-menu--bottom.active > .window,
+  .standard-menu.css div__sub-menu--bottom.active > .Frame {
     height: initial;
     max-height: 100%; }
-  .standard-menu.css div__sub-menu--left > .window {
+  .standard-menu.css div__sub-menu--left > .window,
+  .standard-menu.css div__sub-menu--left > .Frame {
     position: absolute;
     visibility: hidden;
     width: auto; }
     @media (min-height: 720px) and (min-width: 960px) {
-      .standard-menu.css div__sub-menu--left > .window {
+      .standard-menu.css div__sub-menu--left > .window,
+      .standard-menu.css div__sub-menu--left > .Frame {
         transition: max-width cubic-bezier(0.38, 0.01, 0, 1) 200ms, max-height cubic-bezier(0.38, 0.01, 0, 1) 200ms; } }
-  .standard-menu.css div__sub-menu--left.active > .window {
+  .standard-menu.css div__sub-menu--left.active > .window,
+  .standard-menu.css div__sub-menu--left.active > .Frame {
     width: auto;
     visibility: visible; }
-  .standard-menu.css div__sub-menu--left > .window {
+  .standard-menu.css div__sub-menu--left > .window,
+  .standard-menu.css div__sub-menu--left > .Frame {
     left: -100%;
     top: -3px;
     max-width: 0%; }
-  .standard-menu.css div__sub-menu--left:hover > .window, .standard-menu.css div__sub-menu--left.active > .window {
+  .standard-menu.css div__sub-menu--left:hover > .window,
+  .standard-menu.css div__sub-menu--left:hover > .Frame, .standard-menu.css div__sub-menu--left.active > .window,
+  .standard-menu.css div__sub-menu--left.active > .Frame {
     max-width: 100%; }
-  .standard-menu.css div:active, .standard-menu.css div .active {
+  .standard-menu.css div:active,
+  .standard-menu.css div .active {
     display: none; }
-  .standard-menu.css div:hover > .window {
+  .standard-menu.css div:hover > .window,
+  .standard-menu.css div:hover > .Frame {
     width: auto;
     visibility: visible;
     display: block; }
@@ -636,7 +662,8 @@ select[multiple] {
         text-overflow: ellipsis;
         text-align: left;
         padding: 3px 6px; }
-        .window__menu > div > button + div, .window__menu > div > button + div {
+        .window__menu > div > button + div,
+        .window__menu > div > button + div {
           z-index: 20;
           visibility: hidden;
           position: absolute;
@@ -644,14 +671,20 @@ select[multiple] {
           top: 100%;
           left: 0px; }
           @media (min-height: 720px) and (min-width: 960px) {
-            .window__menu > div > button + div, .window__menu > div > button + div {
+            .window__menu > div > button + div,
+            .window__menu > div > button + div {
               transition: max-height linear 750ms; } }
         .window__menu > div > button:hover {
           box-shadow: inset -1px -1px 0px #808088, inset 1px 1px 0px white; }
         .window__menu > div > button:active, .window__menu > div > button:focus, .window__menu > div > button:active:focus, .window__menu > div > button.active, .window__menu > div > button.clicked {
           box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px #808088;
           padding: 4px 5px 2px 7px; }
-          .window__menu > div > button:active + div, .window__menu > div > button:active + div, .window__menu > div > button:focus + div, .window__menu > div > button:focus + div, .window__menu > div > button:active:focus + div, .window__menu > div > button:active:focus + div, .window__menu > div > button.active + div, .window__menu > div > button.active + div, .window__menu > div > button.clicked + div, .window__menu > div > button.clicked + div {
+          .window__menu > div > button:active + div,
+          .window__menu > div > button:active + div, .window__menu > div > button:focus + div,
+          .window__menu > div > button:focus + div, .window__menu > div > button:active:focus + div,
+          .window__menu > div > button:active:focus + div, .window__menu > div > button.active + div,
+          .window__menu > div > button.active + div, .window__menu > div > button.clicked + div,
+          .window__menu > div > button.clicked + div {
             visibility: visible;
             max-height: 480px; }
   .window section {
@@ -697,7 +730,8 @@ select[multiple] {
   box-shadow: 0px -1px 0px white;
   padding: 2px 0px;
   display: flex; }
-  .task-bar > div, .task-bar > button {
+  .task-bar > div,
+  .task-bar > button {
     position: relative;
     height: 22px;
     margin: 0px 2px; }
@@ -712,7 +746,7 @@ select[multiple] {
       height: calc(100% - 2px);
       width: 1px;
       background-color: #808088;
-      content: '';
+      content: "";
       box-shadow: 1px 0px 0px white; }
     .task-bar > div:not(:last-child):before {
       position: absolute;
@@ -721,7 +755,7 @@ select[multiple] {
       height: calc(100% - 6px);
       width: 3px;
       background-color: #bbc3c4;
-      content: '';
+      content: "";
       box-shadow: inset -1px -1px 0px #808088, inset 1px 1px 0px white; }
   .task-bar__programs {
     display: flex;
@@ -744,11 +778,12 @@ select[multiple] {
       @media (min-height: 720px) and (min-width: 960px) {
         .task-bar__start > button + div {
           transition: max-height linear 200ms; } }
-      .task-bar__start > button + div > .divider, .task-bar__start > button + div > div:empty {
+      .task-bar__start > button + div > .divider,
+      .task-bar__start > button + div > div:empty {
         margin-left: 24px;
         width: calc(100% - 26px); }
       .task-bar__start > button + div:after {
-        content: '';
+        content: "";
         display: block;
         position: absolute;
         left: 3px;
@@ -773,11 +808,11 @@ select[multiple] {
       background-position: 3px 2px;
       outline: 1px dotted black;
       outline-offset: -4px; }
-      .task-bar__start > button.active + div, .task-bar__start > button.clicked + div {
+      .task-bar__start > button.active > div, .task-bar__start > button.clicked > div {
         visibility: visible;
         max-height: 100vh;
         padding: 3px; }
-        .task-bar__start > button.active + div div, .task-bar__start > button.clicked + div div {
+        .task-bar__start > button.active > div div, .task-bar__start > button.clicked > div div {
           display: flex; }
     .task-bar__start.active > div {
       visibility: visible;

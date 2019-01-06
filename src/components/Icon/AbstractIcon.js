@@ -5,11 +5,11 @@ import cx from 'classnames';
 class AbstractIcon extends Component {
   state = {
     doubleReady: false,
-  }
+  };
 
   disableAction = () => {
     this.setState({ doubleReady: false });
-  }
+  };
 
   checkDoubleClick = () => {
     if (this.props.onClick) {
@@ -20,30 +20,30 @@ class AbstractIcon extends Component {
       return;
     }
 
-    if(this.state.doubleReady) {
+    if (this.state.doubleReady) {
       this.props.onDoubleClick();
       this.disableAction();
     } else {
       this.setState({ doubleReady: true });
       setTimeout(this.disableAction, 700);
     }
-  }
+  };
 
   handleClick = () => {
     this.icon.focus();
     if (this.props.onClick) {
       this.props.onClick();
     }
-  }
+  };
 
-  handleContextMenu = (e) => {
+  handleContextMenu = e => {
     e.preventDefault();
     this.icon.focus();
     if (this.props.onContextMenu) {
       this.props.onContextMenu(e);
     }
     //return false;
-  }
+  };
 
   render() {
     const { props } = this;
@@ -55,34 +55,34 @@ class AbstractIcon extends Component {
       className: cx('icon', props.className),
       title: props.alt,
       value: props.value,
-      ref: (icon) => { this.icon = icon; },
+      ref: icon => {
+        this.icon = icon;
+      },
     };
 
     const contents = (
-      <React.Fragment>
+      <>
         <div
           className="icon__icon"
-          style={ { backgroundImage: `url('${props.icon}')` } }
+          style={{ backgroundImage: `url('${props.icon}')` }}
         />
-        <div className="icon__text">{ props.title }</div>
-      </React.Fragment>
+        <div className="icon__text">{props.title}</div>
+      </>
     );
 
-    if (this.props.onClick || this.props.onDoubleClick ) {
+    if (this.props.onClick || this.props.onDoubleClick) {
       return (
         <button
-          ref={(icon) => { this.icon = icon; }}
+          ref={icon => {
+            this.icon = icon;
+          }}
           {...iconProps}
         >
-          { contents }
+          {contents}
         </button>
       );
     }
-    return (
-      <div {...iconProps}>
-        { contents }
-      </div>
-    );
+    return <div {...iconProps}>{contents}</div>;
   }
 }
 

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import '../_scss/w98/theme.scss';
 
 const Theme = props => (
-  <div className={cx('w98', props.className)} style={ props.style }>
+  <div className={cx('w98', props.className)} style={props.style}>
     {props.children}
   </div>
 );

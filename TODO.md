@@ -40,7 +40,7 @@ Explorer/Program
 - [x] Standard view icons
 - [x] close/minimize/restore/help
 - [x] File/Edit/etc toolbar
-- [x] Options (needs sections handling and see more icons)
+- [x] Options (needs sections, resize handling and see more icons)
 - [x] Explorer input (cosmetic only)
 - [ ] Explorer input (working)
 - [ ] Status footer (partially done, logic not figured out)
@@ -80,6 +80,9 @@ W98 Toolbar
 - [ ] Make dummy Select component for places where aesthetically needed
 - [ ] Group options collections in explorer
 - [ ] Pixel near perfect (leave to last)
+- [ ] Switch to react-testing-library
+- [ ] CSS modules
+- [ ] Sematic HTML improvements
 
 ## To fix later
 
@@ -98,3 +101,5 @@ W98 Toolbar
 - [ ] Disabled buttons
 - [ ] Single width font
 - [ ] Right clicking
+- [ ] Firefox outlines issue
+- [ ] PERFORMANCE IMPROVMENTS

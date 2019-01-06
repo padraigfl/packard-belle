@@ -16,14 +16,13 @@ const withContextLogic = ContextButton => {
       onContextMenu: PropTypes.func,
     };
 
-    static getDerivedStateFromProps(nextProps, prevState){
-      if(nextProps.isActive!==prevState.isActive){
+    static getDerivedStateFromProps(nextProps, prevState) {
+      if (nextProps.isActive !== prevState.isActive) {
         return {
           options: nextProps.options,
           isActive: nextProps.isActive,
         };
-      }
-      else return null;
+      } else return null;
     }
 
     state = {
@@ -38,14 +37,16 @@ const withContextLogic = ContextButton => {
       }
       const changeIdx = newOptions.findIndex((option, optIdx) => {
         if (Array.isArray(option)) {
-          const subIdx = option.findIndex( opt => opt.title === activeFields[idx]);
-          if ( subIdx !== -1) {
+          const subIdx = option.findIndex(
+            opt => opt.title === activeFields[idx]
+          );
+          if (subIdx !== -1) {
             newOptions[optIdx][subIdx].isActive = true;
             if (newOptions[optIdx][subIdx].options) {
               newOptions[optIdx][subIdx].options = this.updateActive(
                 activeFields,
                 newOptions[optIdx][subIdx].options,
-                idx + 1,
+                idx + 1
               );
             }
             return;
@@ -55,29 +56,33 @@ const withContextLogic = ContextButton => {
       });
       if (changeIdx !== -1) {
         newOptions[changeIdx].isActive = true;
-        newOptions[changeIdx].options = this.updateActive(activeFields, newOptions[changeIdx].options, idx + 1);
+        newOptions[changeIdx].options = this.updateActive(
+          activeFields,
+          newOptions[changeIdx].options,
+          idx + 1
+        );
       }
       return newOptions;
     }
 
-    mouseEnterItem = (e) => {
+    mouseEnterItem = e => {
       if (e.target.value) {
         const newOptions = this.updateActive(
           e.target.value.split(','),
           clone(this.props.options),
-          0,
+          0
         );
         this.setState({ options: newOptions });
       }
-    }
+    };
     addBlurListener = () => {
       document.body.addEventListener('click', this.handleBlur);
       document.body.addEventListener('mousedown', this.handleBlur);
-    }
+    };
     removeBlurListener = () => {
       document.body.removeEventListener('click', this.handleBlur);
       document.body.removeEventListener('mousedown', this.handleBlur);
-    }
+    };
 
     buttonClick = () => {
       if (this.state.isOpen) {
@@ -87,49 +92,61 @@ const withContextLogic = ContextButton => {
         this.addBlurListener();
         this.setState({ isOpen: true, options: this.props.options });
       }
-    }
+    };
     handleEvent = newState => onEvent => e => {
-      if (onEvent) { onEvent(e); }
-      if (newState) { this.setState(newState); }
-    }
-    handleContextMenu = e => this.handleEvent({ isOpen: true })(this.props.onContextMenu)(e);
-    handleBlur = (e) => {
-      if (this.el && !this.el.contains(e.target)) {
-        this.handleEvent({ isOpen: false, options: this.props.options })(this.props.onBlur)(e);
+      if (onEvent) {
+        onEvent(e);
       }
-    }
-    handleSelectionClose = this.handleEvent({ isOpen: false, options: this.props.options });
+      if (newState) {
+        this.setState(newState);
+      }
+    };
+    handleContextMenu = e =>
+      this.handleEvent({ isOpen: true })(this.props.onContextMenu)(e);
+    handleBlur = e => {
+      if (this.el && !this.el.contains(e.target)) {
+        this.handleEvent({ isOpen: false, options: this.props.options })(
+          this.props.onBlur
+        )(e);
+      }
+    };
+    handleSelectionClose = this.handleEvent({
+      isOpen: false,
+      options: this.props.options,
+    });
 
     render() {
       const renderedMenu = (
         <StandardMenu
           options={this.state.options}
           className="renderedMenu"
-          mouseEnterItem={(e) => this.mouseEnterItem(e)}
+          mouseEnterItem={e => this.mouseEnterItem(e)}
           closeOnClick={this.handleSelectionClose}
         />
       );
 
       if (ContextButton) {
-        const { className, ...props} = this.props;
+        const { className, ...props } = this.props;
         return (
           <div
-            ref={(el) => { this.el = el; }}
-            className={ cx(
-              'StandardMenuWrapper',
-              className,
-              { 'active': this.state.isOpen }
-            )}
+            ref={el => {
+              this.el = el;
+            }}
+            className={cx('StandardMenuWrapper', className, {
+              active: this.state.isOpen,
+            })}
           >
             <ContextButton
               {...props}
               onClick={this.buttonClick}
               className={this.state.isOpen ? 'active' : ''}
-              onContextMenu={this.props.onContextMenu && (e => this.handleContextMenu(e))}
+              onContextMenu={
+                this.props.onContextMenu && (e => this.handleContextMenu(e))
+              }
             >
-              { props.children }
+              {props.children}
             </ContextButton>
-            { renderedMenu }
+            {renderedMenu}
           </div>
         );
       }
