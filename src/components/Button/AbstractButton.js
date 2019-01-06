@@ -7,80 +7,75 @@ import './styles/AbstractButton.scss';
 class AbstractButton extends Component {
   state = {
     mouseDown: false,
-  }
+  };
 
   handleMouse = (func, mouseDown) => {
     this.setState({ mouseDown });
     if (func) {
       func();
     }
-  }
+  };
 
-  handleClick = (e) => {
+  handleClick = e => {
     this.button.focus();
     if (this.props.onClick) {
       this.props.onClick(e);
     }
-  }
+  };
 
-  handleBlur = (e) => {
+  handleBlur = e => {
     if (this.props.onBlur) {
       this.props.onBlur(e);
     }
-  }
+  };
 
-  handleContextMenu = (e) => {
+  handleContextMenu = e => {
     e.preventDefault();
     e.stopPropagation();
     this.button.focus();
     if (this.props.onContextMenu) {
       this.props.onContextMenu(e);
     }
-  }
+  };
 
-  handleDoubleClick = (e) => {
+  handleDoubleClick = e => {
     if (this.props.onDoubleClick) {
       this.props.onDoubleClick(e);
     }
-  }
+  };
 
   render() {
     const { props } = this;
 
     return (
       <button
-        ref={(btn) => { this.button = btn; }}
-        className={ cx(
-          'btn',
-          props.className,
-          {
-            'clicked': this.state.mouseDown,
-            'btn--active': props.isActive,
-            'btn--disabled': props.isDisabled,
-          },
-        )}
-        onClick={ (e) => this.handleClick(e) }
-        onDoubleClick={(e) => this.handleDoubleClick(e) }
+        ref={btn => {
+          this.button = btn;
+        }}
+        className={cx('btn', props.className, {
+          clicked: this.state.mouseDown,
+          'btn--active': props.isActive,
+          'btn--disabled': props.isDisabled,
+        })}
+        onClick={e => this.handleClick(e)}
+        onDoubleClick={e => this.handleDoubleClick(e)}
         onMouseDown={() => this.handleMouse(props.onMouseDown, true)}
         onMouseUp={() => this.handleMouse(props.onMouseUp, false)}
-        onBlur={(e) => this.handleBlur(e) }
+        onBlur={e => this.handleBlur(e)}
         onContextMenu={
           this.props.onContextMenu && (e => this.handleContextMenu(e))
         }
         disabled={props.isDisabled}
-        style={ props.style }
+        style={props.style}
       >
-        { props.children }
+        {props.children}
       </button>
     );
   }
 }
 
 export const commonButtonPropTypes = {
-  children: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.node,
-  ]),
+  children: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
 
   className: PropTypes.string,
   isActive: PropTypes.bool,

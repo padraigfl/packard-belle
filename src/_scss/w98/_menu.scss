@@ -1,71 +1,85 @@
-@import 'src/_scss/w98/var/colors';
-@import 'src/_scss/w98/mixins/box-shadows';
-@import 'src/_scss/w98/var/var';
-@import 'src/_scss/w98/var/uris';
+@import "src/_scss/w98/var/colors";
+@import "src/_scss/w98/mixins/box-shadows";
+@import "src/_scss/w98/var/var";
+@import "src/_scss/w98/var/uris";
 
 $windowPadding: 3px;
 
-@mixin onDisplay($direction: 'right') {
-  >.window {
+@mixin onDisplay($direction: "right") {
+  > .window,
+  > .Frame {
     position: absolute;
     visibility: hidden;
     width: auto;
     @media (min-height: 720px) and (min-width: 960px) {
       transition: max-width cubic-bezier(0.38, 0.01, 0, 1) 200ms,
-      max-height cubic-bezier(0.38, 0.01, 0, 1) 200ms;
+        max-height cubic-bezier(0.38, 0.01, 0, 1) 200ms;
     }
   }
   &.active {
-    >.window {
+    > .window,
+    > .Frame {
       width: auto;
       visibility: visible;
     }
   }
-  @if $direction  == 'right' {
-    >.window {
-      left: calc(100%  - 3px);
+  @if $direction == "right" {
+    > .window,
+    > .Frame {
+      left: calc(100% - 3px);
       top: -$windowPadding;
       max-width: 0%;
     }
-    &:hover, &.active {
-      >.window {
+    &:hover,
+    &.active {
+      > .window,
+      > .Frame {
         max-width: 400%;
       }
     }
-  } @else if $direction  == 'left' {
-    >.window {
+  } @else if $direction == "left" {
+    > .window,
+    > .Frame {
       left: -100%;
       top: -$windowPadding;
       max-width: 0%;
     }
-    &:hover, &.active {
-      >.window {
+    &:hover,
+    &.active {
+      > .window,
+      > .Frame {
         max-width: 100%;
       }
     }
-  } @else if $direction  == 'top' {
-    >.window {
+  } @else if $direction == "top" {
+    > .window,
+    > .Frame {
       bottom: calc(100% + $windowPadding);
       left: 0px;
       height: 0px;
       max-height: 0%;
       max-width: 100%;
     }
-    &:hover, &.active {
-      >.window {
+    &:hover,
+    &.active {
+      > .window,
+      > .Frame {
         height: initial;
         max-height: 100%;
       }
     }
-  } @else if $direction  == 'bottom' {
-    >.window {
+  } @else if $direction == "bottom" {
+    > .window,
+    > .Frame {
       top: calc(100% + $windowPadding);
       left: 0px;
       max-height: 0%;
       max-width: 100%;
     }
-    &:hover, &.active {
-      >.window {
+    &:hover,
+    &.active {
+      > .window,
+      > .Frame {
         height: initial;
         max-height: 100%;
       }
@@ -73,16 +87,15 @@ $windowPadding: 3px;
   }
 }
 
-@mixin standard-menu($menu-name: 'div') {
+@mixin standard-menu($menu-name: "div") {
   display: inline-flex;
   flex-direction: column;
   word-wrap: none;
   white-space: nowrap;
   text-overflow: clip;
-  >div {
+  > div {
     position: relative;
-    @include onDisplay('right');
-    >button {
+    > button {
       user-select: none;
       position: relative;
       display: block;
@@ -92,12 +105,12 @@ $windowPadding: 3px;
       background-repeat: no-repeat;
       background-size: 16px;
       background-position: 3px center;
-      background-color: rgba(0,0,0,0);
+      background-color: rgba(0, 0, 0, 0);
       border: none;
       outline: none;
       height: 20px;
       &:before {
-        content: '';
+        content: "";
         position: absolute;
         left: 0px;
         top: 0px;
@@ -110,13 +123,14 @@ $windowPadding: 3px;
         padding: 0px 20px 0px 0px;
       }
 
-      &:disabled, &.disabled {
+      &:disabled,
+      &.disabled {
         color: $darkgrey;
       }
 
       &:not(:only-child) {
         &:after {
-          content: '';
+          content: "";
           position: absolute;
           background-image: url($arrow-right);
           top: 0px;
@@ -129,25 +143,26 @@ $windowPadding: 3px;
       }
     }
     &.radio-selected {
-      >button {
-        &:before{
+      > button {
+        &:before {
           background-image: url($menu-radio);
         }
       }
     }
     &.checked {
-      >button:before {
+      > button:before {
         background-image: url($menu-checked);
       }
       &.disabled {
-        >button:before {
+        > button:before {
           background-image: url($menu-checked-disabled);
         }
       }
     }
-    &.active, &.clicked {
+    &.active,
+    &.clicked {
       color: white;
-      >button:not(.disabled) {
+      > button:not(.disabled) {
         color: white;
         background-color: $blue;
         &:not(:only-child) {
@@ -157,10 +172,11 @@ $windowPadding: 3px;
         }
       }
     }
+    @include onDisplay("right");
   }
 
   // hack divider handling
-  >div:empty{
+  > div:empty {
     position: relative;
     width: 95%;
     margin: 2px auto;
@@ -168,26 +184,34 @@ $windowPadding: 3px;
     border-bottom: 1px solid white;
     display: none;
   }
-  >div:not(:empty) + div:empty {
+  > div:not(:empty) + div:empty {
     &:not(:last-child):not(:first-child) {
       display: block;
     }
   }
 }
 
-@mixin standard-menu-css($menu-name: 'div') {
+@mixin standard-menu-css($menu-name: "div") {
   &.css {
     div {
-      &__sub-menu--top { @include onDisplay('top'); }
-      &__sub-menu--bottom { @include onDisplay('bottom'); }
-      &__sub-menu--left { @include onDisplay('left'); }
+      &__sub-menu--top {
+        @include onDisplay("top");
+      }
+      &__sub-menu--bottom {
+        @include onDisplay("bottom");
+      }
+      &__sub-menu--left {
+        @include onDisplay("left");
+      }
 
-      &:active, .active {
+      &:active,
+      .active {
         display: none;
       }
 
       &:hover {
-        >.window {
+        > .window,
+        > .Frame {
           width: auto;
           visibility: visible;
           display: block;

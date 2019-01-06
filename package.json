@@ -15,7 +15,7 @@
     "test:watch": "jest --env=jsdom --no-cache --watch",
     "coverage": "jest --env=jsdom --coverage",
     "coveralls": "npm run coverage | coveralls",
-    "lint": "eslint -c .eslintrc.js --quiet src/*",
+    "lint": "eslint -c .eslintrc.js --quiet --ext .js './src/**/*.js'",
     "precommit-build": "npm run build:module && git add build"
   },
   "keywords": [
@@ -31,7 +31,6 @@
   "dependencies": {
     "classnames": "^2.2.6",
     "clone": "^2.1.2",
-    "coveralls": "^3.0.2",
     "prop-types": "^15.6.2",
     "react-select": "^1.2.1"
   },
@@ -51,18 +50,18 @@
     "babel-eslint": "^8.2.6",
     "babel-jest": "^23.6.0",
     "babel-loader": "^8.0.4",
+    "coveralls": "^3.0.2",
     "css-loader": "^1.0.0",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
-    "eslint": "^4.19.1",
+    "eslint": "^5.13.0",
     "eslint-config-airbnb": "^17.0.0",
     "eslint-plugin-import": "^2.13.0",
     "eslint-plugin-jest": "^21.18.0",
     "eslint-plugin-jsx-a11y": "^6.1.1",
     "eslint-plugin-react": "^7.10.0",
-    "jest": "^23.6.0",
+    "jest": "^24.1.0",
     "node-sass": "^4.9.2",
-    "postcss-scss": "^2.0.0",
     "pre-commit": "^1.2.2",
     "raf": "^3.4.0",
     "react": "^16.4.2",
@@ -76,11 +75,8 @@
     "rollup-plugin-node-resolve": "^3.3.0",
     "rollup-plugin-postcss": "^1.6.2",
     "rollup-plugin-replace": "^2.0.0",
-    "rollup-plugin-serve": "^0.4.2",
-    "rollup-watch": "^4.3.1",
     "sass-loader": "^7.1.0",
-    "style-loader": "^0.21.0",
-    "url-loader": "^1.0.1"
+    "style-loader": "^0.21.0"
   },
   "peerDependencies": {
     "react": "^16.4.2",

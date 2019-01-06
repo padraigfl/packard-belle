@@ -1,8 +1,8 @@
-@import 'src/_scss/w98/var/colors';
-@import 'src/_scss/w98/functions/box-shadows';
-@import 'src/_scss/w98/var/var';
-@import 'src/_scss/w98/var/uris';
-@import 'src/_scss/w98/_menu';
+@import "src/_scss/w98/var/colors";
+@import "src/_scss/w98/functions/box-shadows";
+@import "src/_scss/w98/var/var";
+@import "src/_scss/w98/var/uris";
+@import "src/_scss/w98/_menu";
 
 @mixin window-basic {
   position: relative;
@@ -42,12 +42,14 @@
     background-repeat: no-repeat;
     background-position: 1px 1px;
 
-    &:focus, &.clicked {
+    &:focus,
+    &.clicked {
       outline: none;
       border: none;
     }
 
-    &:active:focus, &.clicked {
+    &:active:focus,
+    &.clicked {
       padding: 2px 8px 1px 4px;
       background-position: 2px 2px;
     }
@@ -70,7 +72,7 @@
   min-width: 0px;
 }
 
-@mixin window-menu($classname: 'div') {
+@mixin window-menu($classname: "div") {
   display: flex;
   padding: 0px;
   font-size: 1rem;
@@ -78,17 +80,17 @@
   overflow-y: visible;
   z-index: 20;
 
-  >div{
+  > div {
     position: relative;
 
-    >button {
+    > button {
       padding: 0px 4px;
       outline: none;
       border: none;
       user-select: none;
       color: $black;
       display: inline-block;
-      background-color: rgba(0,0,0,0);
+      background-color: rgba(0, 0, 0, 0);
       width: 100%;
       overflow: hidden;
       white-space: nowrap;
@@ -96,7 +98,8 @@
       text-align: left;
       padding: 3px 6px;
 
-      +div, +#{$classname} {
+      + div,
+      + #{$classname} {
         z-index: 20;
         visibility: hidden;
         position: absolute;
@@ -112,11 +115,16 @@
         box-shadow: dualShadow(white, $darkgrey);
       }
 
-      &:active, &:focus, &:active:focus, &.active, &.clicked {
+      &:active,
+      &:focus,
+      &:active:focus,
+      &.active,
+      &.clicked {
         box-shadow: dualShadow($darkgrey, white);
         padding: 4px 5px 2px 7px;
 
-        + div, +#{$classname} {
+        + div,
+        + #{$classname} {
           visibility: visible;
           max-height: 480px;
         }
