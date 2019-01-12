@@ -1,27 +1,28 @@
-@import './var/var';
-@import './var/colors';
-@import './mixins/box-shadows';
-@import './var/uris';
-@import './var/fontBackup';
+/* stylelint-disable selector-pseudo-class-no-unknown */
+@import "./var/var";
+@import "./var/colors";
+@import "./mixins/box-shadows";
+@import "./var/uris";
+@import "./var/fontBackup";
 
 @font-face {
-  font-family: 'MSFont';
-  src: url($ms11) format('woff2');
+  font-family: "MSFont";
+  src: url($ms11) format("woff2");
 }
 @font-face {
-  font-family: 'MSFont11';
-  src: url('./fonts/ms98s11a10d02.ttf') format('woff2');
+  font-family: "MSFont11";
+  src: url("./fonts/ms98s11a10d02.ttf") format("woff2");
 }
 
 @mixin scrollbar-button-shadowing {
   background: $grey;
-  box-shadow: inset -1px -1px 0px $darkgrey, inset 1px 1px 0px 0px white;
+  box-shadow: inset -1px -1px 0px $darkgrey, inset 1px 1px 0px 0px #ffffff;
   border: 1px solid $black;
   border-top: 1px solid $grey;
   border-left: 1px solid $grey;
 }
 
-html{
+html {
   font-size: $base-font-size;
 
   button {
@@ -34,7 +35,8 @@ html{
   }
 
   body {
-    font-family: 'MSFont', 'MSFont11', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: "MSFont", "MSFont11", "Segoe UI", Tahoma, Geneva, Verdana,
+      sans-serif;
     min-width: 200px;
     margin: 0px;
   }
@@ -42,22 +44,25 @@ html{
   .disabled {
     color: $darkgrey;
   }
-
 }
 
 .w98 {
-  font-family: 'MSFont', 'MSFont11', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "MSFont", "MSFont11", "Segoe UI", Tahoma, Geneva, Verdana,
+    sans-serif;
   width: 100%;
   height: 100%;
   image-rendering: pixelated;
   position: relative;
   transform: scale(1);
-  *, & {
-    font-family: 'MSFont', 'MSFont11', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  *,
+  & {
+    font-family: "MSFont", "MSFont11", "Segoe UI", Tahoma, Geneva, Verdana,
+      sans-serif;
     cursor: url($cursor), default;
   }
   &.x2 {
-    *, & {
+    *,
+    & {
       cursor: url($cursorX2), default;
     }
     transform: scale(2);
@@ -66,7 +71,7 @@ html{
   ::-webkit-scrollbar {
     width: 16px;
     height: 16px;
-    background-color: white;
+    background-color: #ffffff;
     background-image: url($grey-checkered);
 
     &-track {
@@ -77,9 +82,10 @@ html{
       @include scrollbar-button-shadowing();
     }
 
-    &-button{
+    &-button {
       @include scrollbar-button-shadowing();
-      &:start:decrement, &:end:increment {
+      &:start:decrement,
+      &:end:increment {
         height: 16px;
         width: 16px;
         display: block;
@@ -113,7 +119,7 @@ html{
           background-position: 4px 6px;
         }
       }
-      &:vertical:increment{
+      &:vertical:increment {
         background-image: url($arrow-down);
         background-position: 3px 5px;
         &:active {

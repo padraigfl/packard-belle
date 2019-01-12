@@ -1,7 +1,7 @@
-@import '../../../_scss/w98/_inputs.scss';
+@import "../../../_scss/w98/_inputs.scss";
 
 .SelectMultipleSimple {
-  select[multiple]{
+  select[multiple] {
     @include select-multiple-simple();
   }
 }

@@ -100,7 +100,7 @@ $windowPadding: 3px;
       position: relative;
       display: block;
       width: 100%;
-      padding: 0px 20px 0px 20px;
+      padding: 0px 20px;
       text-align: left;
       background-repeat: no-repeat;
       background-size: 16px;
@@ -161,9 +161,9 @@ $windowPadding: 3px;
     }
     &.active,
     &.clicked {
-      color: white;
+      color: #ffffff;
       > button:not(.disabled) {
-        color: white;
+        color: #ffffff;
         background-color: $blue;
         &:not(:only-child) {
           &:after {
@@ -181,7 +181,7 @@ $windowPadding: 3px;
     width: 95%;
     margin: 2px auto;
     border-top: 1px solid $darkgrey;
-    border-bottom: 1px solid white;
+    border-bottom: 1px solid #ffffff;
     display: none;
   }
   > div:not(:empty) + div:empty {

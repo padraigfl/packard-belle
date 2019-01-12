@@ -1,10 +1,10 @@
-@import './w98/theme';
-@import './w98/_buttons';
-@import './w98/_menu';
-@import './w98/_icons';
-@import './w98/_task-bar';
-@import './w98/_inputs';
-@import './w98/_window';
+@import "./w98/theme";
+@import "./w98/_buttons";
+@import "./w98/_menu";
+@import "./w98/_icons";
+@import "./w98/_task-bar";
+@import "./w98/_inputs";
+@import "./w98/_window";
 
 .btn--form {
   @include button-form();
@@ -33,18 +33,18 @@
 }
 
 .standard-menu {
-  @include standard-menu('.standard-menu');
+  @include standard-menu(".standard-menu");
 
-  @include standard-menu-css('.standard-menu');
+  @include standard-menu-css(".standard-menu");
 }
 
-input[type=radio] {
+input[type="radio"] {
   @include radio();
 }
-input[type=checkbox] {
+input[type="checkbox"] {
   @include checkbox();
 }
-input[type=text] {
+input[type="text"] {
   @include input-text();
 }
 select[multiple] {

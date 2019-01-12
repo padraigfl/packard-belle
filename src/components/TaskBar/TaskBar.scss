@@ -1,5 +1,5 @@
-@import '../../_scss/w98/_task-bar';
+@import "../../_scss/w98/_task-bar";
 
 .TaskBar {
-  @include task-bar('.TaskBar');
+  @include task-bar(".TaskBar");
 }
