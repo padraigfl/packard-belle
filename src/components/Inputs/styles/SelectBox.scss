@@ -1,18 +1,18 @@
-@import '../../../_scss/w98/var/colors';
-@import '../../../_scss/w98/mixins/box-shadows';
-@import '../../../_scss/w98/functions/box-shadows';
-@import '../../../_scss/w98/var/var';
+@import "../../../_scss/w98/var/colors";
+@import "../../../_scss/w98/mixins/box-shadows";
+@import "../../../_scss/w98/functions/box-shadows";
+@import "../../../_scss/w98/var/var";
 
 .SelectBox {
   position: relative;
   width: 100%;
-  background-color: white;
+  background-color: #ffffff;
   padding: 2px;
 
-  &:disabled, &.disabled {
+  &:disabled,
+  &.disabled {
     pointer-events: none;
-    >div {
-
+    > div {
       overflow: hidden;
     }
     background-color: $grey;
@@ -23,7 +23,7 @@
       filter: grayscale(1);
     }
   }
-  >div {
+  > div {
     position: relative;
     overflow: auto;
   }
@@ -36,7 +36,7 @@
     height: 100%;
     @include shadow-input;
     pointer-events: none;
-    content: '';
+    content: "";
   }
 
   button:not(.icon) {
@@ -55,14 +55,14 @@
     }
     &.is-active {
       background-color: $blue;
-      color: white;
+      color: #ffffff;
       outline-offset: -1px;
-      outline: 1px dotted white;
+      outline: 1px dotted #ffffff;
     }
   }
 
   &--ExplorerIcon {
-    >div {
+    > div {
       display: flex;
       flex-direction: row;
       overflow-y: hidden;
@@ -80,9 +80,9 @@
       width: initial;
     }
 
-    &:focus:not(.is-active), &:active:not(.is-active) {
-
-      .icon__text{
+    &:focus:not(.is-active),
+    &:active:not(.is-active) {
+      .icon__text {
         background-color: transparent;
         color: $black;
         outline: none;

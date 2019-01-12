@@ -16,6 +16,7 @@
     "coverage": "jest --env=jsdom --coverage",
     "coveralls": "npm run coverage | coveralls",
     "lint": "eslint -c .eslintrc.js --quiet --ext .js './src/**/*.js'",
+    "lint:css": "stylelint 'src/**/*.scss'",
     "precommit-build": "npm run build:module && git add build"
   },
   "keywords": [
@@ -76,7 +77,9 @@
     "rollup-plugin-postcss": "^1.6.2",
     "rollup-plugin-replace": "^2.0.0",
     "sass-loader": "^7.1.0",
-    "style-loader": "^0.21.0"
+    "style-loader": "^0.21.0",
+    "stylelint": "^9.10.1",
+    "stylelint-scss": "^3.5.3"
   },
   "peerDependencies": {
     "react": "^16.4.2",

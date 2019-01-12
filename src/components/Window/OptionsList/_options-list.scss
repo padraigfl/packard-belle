@@ -1,6 +1,6 @@
-@import '../../../_scss/w98/functions/box-shadows';
-@import '../../../_scss/w98/var/colors';
-@import '../../../_scss/w98/var/uris';
+@import "../../../_scss/w98/functions/box-shadows";
+@import "../../../_scss/w98/var/colors";
+@import "../../../_scss/w98/var/uris";
 
 .options-list {
   &__dropdown {
@@ -19,17 +19,20 @@
       background-repeat: no-repeat;
       background-position: 2px 3px;
       padding: 0px 6px;
-      font-size: 0.70rem;
+      font-size: 0.7rem;
       user-select: none;
       letter-spacing: -2px;
       display: flex;
       flex-direction: column;
       &:hover {
-        box-shadow: dualShadow(white, $darkgrey);
+        box-shadow: dualShadow(#ffffff, $darkgrey);
       }
-      &:active, &:focus, &:active:focus {
+      &:active,
+      &:focus,
+      &:active:focus {
+        outline: none;
         background-position: 3px 4px;
-        box-shadow: dualShadow($darkgrey, white);
+        box-shadow: dualShadow($darkgrey, #ffffff);
         + .options-list__dropdown__list {
           position: absolute;
           top: 100%;
@@ -38,12 +41,9 @@
           z-index: 10;
         }
       }
-      &:active, &:focus, &:active:focus {
-        outline: none;
-      }
     }
 
-    .options-list__dropdown__list{
+    .options-list__dropdown__list {
       display: none;
     }
   }

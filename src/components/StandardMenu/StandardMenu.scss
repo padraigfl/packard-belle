@@ -1,15 +1,15 @@
-@import '../../_scss/w98/_menu';
+@import "../../_scss/w98/_menu";
 
 .StandardMenu {
-  @include standard-menu('.StandardMenu');
+  @include standard-menu(".StandardMenu");
 
-  @include standard-menu-css('.StandardMenu');
+  @include standard-menu-css(".StandardMenu");
 }
 
 .StandardMenuItem {
   &--empty {
     .StandardMenuItem__button {
-      text-shadow: 1px 1px white;
+      text-shadow: 1px 1px #ffffff;
       text-align: center;
     }
   }

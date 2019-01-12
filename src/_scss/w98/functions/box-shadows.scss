@@ -1,11 +1,10 @@
-@import '../var/colors';
+@import "../var/colors";
 
-@function shadow($color, $px1, $px2: '') {
-  @if ($px2 == '') {
-    @return inset $px1*1px $px1*1px 0px $color;
-  }
-  @else {
-    @return inset $px1*1px $px2*1px 0px $color;
+@function shadow($color, $px1, $px2: "") {
+  @if ($px2 == "") {
+    @return inset $px1 * 1px $px1 * 1px 0px $color;
+  } @else {
+    @return inset $px1 * 1px $px2 * 1px 0px $color;
   }
 }
 

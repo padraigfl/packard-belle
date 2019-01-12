@@ -8,7 +8,7 @@
   position: relative;
   background-color: $grey;
   padding: 3px;
-  box-shadow: dualShadow($grey, $black), dualShadow(white, $darkgrey, 2);
+  box-shadow: dualShadow($grey, $black), dualShadow(#ffffff, $darkgrey, 2);
   display: inline-block;
 }
 
@@ -23,7 +23,7 @@
   display: flex;
   background: linear-gradient(to right, $blue, #126fc2);
   font-weight: bold;
-  color: white;
+  color: #ffffff;
   margin-bottom: 1px;
   padding: 0px 1px 0px 3px;
   align-items: center;
@@ -112,7 +112,7 @@
       }
 
       &:hover {
-        box-shadow: dualShadow(white, $darkgrey);
+        box-shadow: dualShadow(#ffffff, $darkgrey);
       }
 
       &:active,
@@ -120,7 +120,7 @@
       &:active:focus,
       &.active,
       &.clicked {
-        box-shadow: dualShadow($darkgrey, white);
+        box-shadow: dualShadow($darkgrey, #ffffff);
         padding: 4px 5px 2px 7px;
 
         + div,
@@ -135,8 +135,8 @@
 
 @mixin window-settings-section() {
   position: relative;
-  border: 1px solid white;
-  outline: 1px solid darkgrey;
+  border: 1px solid #ffffff;
+  outline: 1px solid $darkgrey;
   padding: 5px;
   margin: 16px 8px 8px;
 

@@ -1,6 +1,7 @@
-@import '../../../_scss/w98/_window';
+@import "../../../_scss/w98/_window";
 
-.window, .Window {
+.window,
+.Window {
   &__heading {
     @include window-heading();
   }
@@ -32,7 +33,7 @@
       right: 4px;
       height: 12px;
       width: 12px;
-      content: '';
+      content: "";
       background-image: url($resize);
     }
   }

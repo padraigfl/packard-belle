@@ -1,34 +1,29 @@
-@import '../../../_scss/w98/var/colors';
-@import '../../../_scss/w98/functions/box-shadows';
-@import '../../../_scss/w98/mixins/box-shadows';
-@import '../../../_scss/w98/var/var';
+@import "../../../_scss/w98/var/colors";
+@import "../../../_scss/w98/functions/box-shadows";
+@import "../../../_scss/w98/mixins/box-shadows";
+@import "../../../_scss/w98/var/var";
 
-@function nav-box-shadow(){
-  @return
-    inset 0px -1px 0px $darkgrey,
-    inset -1px 0px 0px $darkgrey,
-    inset 0px 0px 0px 1px white,
-    -1px 0px 0px $darkgrey,
-    1px 0px 0px white,
-    -1px 1px 0px 0px white,
-    1px 1px 0px 0px white;
+@function nav-box-shadow() {
+  @return inset 0px -1px 0px $darkgrey, inset -1px 0px 0px $darkgrey,
+    inset 0px 0px 0px 1px #ffffff, -1px 0px 0px $darkgrey, 1px 0px 0px #ffffff,
+    -1px 1px 0px 0px #ffffff, 1px 1px 0px 0px #ffffff;
 }
 
-
-.w98 .window--explorer, .WindowExplorer {
+.w98 .window--explorer,
+.WindowExplorer {
   display: inline-flex;
   flex-direction: column;
   &__view {
     min-height: 20px;
     margin: 2px 0px;
     flex-grow: 1;
-    background-color: white;
+    background-color: #ffffff;
     @include shadow-input;
   }
   &__details {
     display: flex;
     &__section {
-      box-shadow: inset -1px -1px 0px white, inset 1px 1px 0px $darkgrey;
+      box-shadow: inset -1px -1px 0px #ffffff, inset 1px 1px 0px $darkgrey;
       flex-grow: 1;
       margin-top: 2px;
       height: 16px;
@@ -42,19 +37,14 @@
   .window__menu {
     padding: 2px 2px 2px 12px;
   }
-  >div + menu {
+  > div + menu {
     margin-top: 2px;
-    box-shadow: 0px 2px 0px -1px white,
-      -1px 2px 0px -1px white,
-      -1px 1px 0px $darkgrey,
-      0px 1px 0px $darkgrey,
-      nav-box-shadow(),
-      -1px -1px 0px $darkgrey,
-      0px -1px 0px $darkgrey,
-      inset 0px 1px 0px white,
-      1px -1px 0px white;
+    box-shadow: 0px 2px 0px -1px #ffffff, -1px 2px 0px -1px #ffffff,
+      -1px 1px 0px $darkgrey, 0px 1px 0px $darkgrey, nav-box-shadow(),
+      -1px -1px 0px $darkgrey, 0px -1px 0px $darkgrey, inset 0px 1px 0px #ffffff,
+      1px -1px 0px #ffffff;
   }
-  >menu {
+  > menu {
     position: relative;
 
     min-height: 16px;
@@ -69,13 +59,13 @@
       height: calc(100% - 6px);
       width: 3px;
       background-color: $grey;
-      content: '';
-      box-shadow: dualShadow(white, $darkgrey);
+      content: "";
+      box-shadow: dualShadow(#ffffff, $darkgrey);
     }
   }
-  >footer {
+  > footer {
     display: flex;
-    >div {
+    > div {
       white-space: nowrap;
       text-overflow: ellipsis;
       overflow: hidden;
@@ -83,7 +73,7 @@
       flex-grow: 1;
       padding: 2px;
       height: 12px;
-      box-shadow: dualShadow($black, white);
+      box-shadow: dualShadow($black, #ffffff);
       &:not(:last-child) {
         margin-right: 2px;
       }
@@ -111,7 +101,7 @@
     display: flex;
     padding: 2px 8px 2px 12px;
   }
-  >div:last-child {
+  > div:last-child {
     margin-top: 2px;
   }
 }

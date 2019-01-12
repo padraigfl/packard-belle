@@ -1,15 +1,16 @@
-@import '../../../_scss/w98/var/colors';
-@import '../../../_scss/w98/functions/box-shadows';
-@import '../../../_scss/w98/mixins/box-shadows';
-@import '../../../_scss/w98/var/var';
+@import "../../../_scss/w98/var/colors";
+@import "../../../_scss/w98/functions/box-shadows";
+@import "../../../_scss/w98/mixins/box-shadows";
+@import "../../../_scss/w98/var/var";
 
-.w98 .window--program, .WindowProgram {
+.w98 .window--program,
+.WindowProgram {
   display: inline-flex;
   flex-direction: column;
 
-  >footer {
+  > footer {
     display: flex;
-    >div {
+    > div {
       white-space: nowrap;
       text-overflow: ellipsis;
       overflow: hidden;
@@ -17,7 +18,7 @@
       flex-grow: 1;
       padding: 2px;
       height: 12px;
-      box-shadow: dualShadow($black, white);
+      box-shadow: dualShadow($black, #ffffff);
       &:not(:last-child) {
         margin-right: 2px;
       }
@@ -26,7 +27,7 @@
       }
     }
   }
-  >div:last-child {
+  > div:last-child {
     margin-top: 2px;
   }
 }

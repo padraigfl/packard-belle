@@ -11,7 +11,7 @@ $w98-text: "data:image/gif;base64,R0lGODlhDgBkALMAAAAAAP///wIAsZKSmZKTmpGSmZKTmc
   width: 100%;
   max-width: 100%;
   z-index: 10;
-  box-shadow: 0px -1px 0px white;
+  box-shadow: 0px -1px 0px #ffffff;
   padding: 2px 0px;
   display: flex;
 
@@ -35,7 +35,7 @@ $w98-text: "data:image/gif;base64,R0lGODlhDgBkALMAAAAAAP///wIAsZKSmZKTmpGSmZKTmc
       width: 1px;
       background-color: $darkgrey;
       content: "";
-      box-shadow: 1px 0px 0px white;
+      box-shadow: 1px 0px 0px #ffffff;
     }
     &:before {
       position: absolute;
@@ -45,7 +45,7 @@ $w98-text: "data:image/gif;base64,R0lGODlhDgBkALMAAAAAAP///wIAsZKSmZKTmpGSmZKTmc
       width: 3px;
       background-color: $grey;
       content: "";
-      box-shadow: dualShadow(white, $darkgrey);
+      box-shadow: dualShadow(#ffffff, $darkgrey);
     }
   }
 
@@ -111,7 +111,7 @@ $w98-text: "data:image/gif;base64,R0lGODlhDgBkALMAAAAAAP///wIAsZKSmZKTmpGSmZKTmc
       &.active,
       &.clicked {
         background-position: 3px 2px;
-        outline: 1px dotted black;
+        outline: 1px dotted $black;
         outline-offset: -4px;
 
         > div {
@@ -145,7 +145,7 @@ $w98-text: "data:image/gif;base64,R0lGODlhDgBkALMAAAAAAP///wIAsZKSmZKTmpGSmZKTmc
     align-items: center;
     height: 22px;
     padding: 0px 8px 0px 4px;
-    box-shadow: dualShadow($darkgrey, white);
+    box-shadow: dualShadow($darkgrey, #ffffff);
 
     &__time {
       margin-left: 4px;

@@ -1,5 +1,6 @@
-@import '../../../_scss/w98/_window';
+@import "../../../_scss/w98/_window";
 
-.Frame, .frame {
+.Frame,
+.frame {
   @include window-basic();
 }

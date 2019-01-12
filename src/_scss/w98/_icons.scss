@@ -1,6 +1,6 @@
-@import './var/colors';
+@import "./var/colors";
 
-@mixin icon($classname: '.icon') {
+@mixin icon($classname: ".icon") {
   position: relative;
   display: block;
   outline: none;
@@ -14,7 +14,10 @@
     background-repeat: no-repeat;
   }
 
-  &:focus, &:active, &:active:focus, &.is-active {
+  &:focus,
+  &:active,
+  &:active:focus,
+  &.is-active {
     outline: none;
 
     .icon__icon {
@@ -23,14 +26,14 @@
 
     .icon__text {
       background-color: $blue;
-      color: white;
-      outline: 1px dotted white;
+      color: #ffffff;
+      outline: 1px dotted #ffffff;
       outline-offset: -1px;
     }
   }
 }
 
-@mixin icon-explorer($classname: '.icon--explorer') {
+@mixin icon-explorer($classname: ".icon--explorer") {
   @include icon($classname);
 
   width: 58px;
@@ -56,16 +59,20 @@
     display: inline-block;
   }
 
-  &:focus, &:active, &:active:focus, &.active, &.clicked {
-    .icon__text{
-      padding: 2px 6px 2px;
+  &:focus,
+  &:active,
+  &:active:focus,
+  &.active,
+  &.clicked {
+    .icon__text {
+      padding: 2px 6px;
       max-height: initial;
       z-index: 1;
     }
   }
 }
 
-@mixin icon-list($classname: '.icon--list') {
+@mixin icon-list($classname: ".icon--list") {
   @include icon($classname);
   height: 18px;
   margin: 2px;
@@ -91,8 +98,12 @@
     padding-bottom: 3px;
   }
 
-  &:focus, &:active, &:active:focus, &.active, &.clicked {
-    .icon__text{
+  &:focus,
+  &:active,
+  &:active:focus,
+  &.active,
+  &.clicked {
+    .icon__text {
       max-height: initial;
     }
   }
