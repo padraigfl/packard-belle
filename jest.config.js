@@ -1,9 +1,8 @@
-module.exports = { // eslint-disable-line
+// eslint-disable-next-line
+module.exports = {
   verbose: true,
-  setupTestFrameworkScriptFile: './src/setupTests.js',
-  collectCoverageFrom: [
-    'src/**/*.js',
-  ],
+  setupFilesAfterEnv: ['./src/setupTests.js'],
+  collectCoverageFrom: ['src/**/*.js'],
   testEnvironment: 'jsdom',
   transform: {
     '^.+\\.js?$': 'babel-jest',
