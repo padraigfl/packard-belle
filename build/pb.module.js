@@ -466,7 +466,7 @@ var StandardMenuItem = function StandardMenuItem(props) {
   return React.createElement("div", {
     className: cx('StandardMenuItem', props.className, props.type, {
       'StandardMenuItem--has-options': props.options,
-      'active': props.isActive
+      active: props.isActive
     }),
     onMouseEnter: props.mouseEnterItem,
     onTouchStart: props.mouseEnterItem
@@ -474,7 +474,10 @@ var StandardMenuItem = function StandardMenuItem(props) {
     className: cx('StandardMenuItem__button', {
       disabled: props.isDisabled
     }),
-    onClick: !props.options ? props.closeOnClick(props.onClick) : undefined,
+    onClick: !props.options ? function (e) {
+      props.onClick(e);
+      props.closeOnClick(e);
+    } : undefined,
     style: props.icon ? {
       backgroundImage: "url('".concat(props.icon, "')")
     } : undefined,
@@ -492,9 +495,9 @@ var StandardMenuItem = function StandardMenuItem(props) {
 StandardMenuItem.defaultProps = {
   onClick: function onClick() {},
   closeOnClick: function closeOnClick() {
+    // eslint-disable-next-line
     console.error('Menus require a closeOnClick prop to function correctly');
   },
-  // eslint-disable-line
   value: []
 };
 StandardMenuItem.propTypes = {
@@ -559,7 +562,8 @@ var StandardMenu = function StandardMenu(props) {
 };
 
 StandardMenu.defaultProps = {
-  value: []
+  value: [],
+  options: []
 };
 var standardMenuProps = {
   value: PropTypes.arrayOf(PropTypes.string),
