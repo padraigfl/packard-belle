@@ -1777,19 +1777,23 @@ function (_React$Component) {
     _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(WindowProgram)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "state", {
-      isMaximized: false
+      isMaximized: _this.props.maximizeOnOpen
     });
 
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "maximize", function () {
-      return _this.setState({
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "maximize", function (e) {
+      _this.setState({
         isMaximized: true
       });
+
+      _this.props.onMaximize && _this.props.onMaximize(e);
     });
 
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "restore", function () {
-      return _this.setState({
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "restore", function (e) {
+      _this.setState({
         isMaximized: false
       });
+
+      _this.props.onRestore && _this.props.onRestore(e);
     });
 
     return _this;
@@ -1804,9 +1808,9 @@ function (_React$Component) {
         className: cx('WindowProgram window--program', props.className),
         icon: props.icon,
         onClose: props.onClose,
-        onMaximize: props.onMaximize,
         onMinimize: props.onMinimize,
-        onRestore: props.onRestore,
+        onMaximize: this.maximize,
+        onRestore: this.restore,
         title: props.title,
         resizable: props.resizable
       }, Array.isArray(props.menuOptions) && React.createElement(MenuBar, {
@@ -1823,7 +1827,8 @@ function (_React$Component) {
 
 WindowProgram.propTypes = _objectSpread({}, WindowAbstract.propTypes, {
   menuOptions: PropTypes.arrayOf(PropTypes.any),
-  footer: PropTypes.arrayOf(PropTypes.shape(footerType))
+  footer: PropTypes.arrayOf(PropTypes.shape(footerType)),
+  maximizeOnOpen: PropTypes.bool
 });
 
 var css$o = ".options-list__dropdown {\n  position: absolute;\n  right: 2px;\n  top: 2px;\n  height: calc(100% - 4px); }\n  .options-list__dropdown--empty {\n    display: none; }\n  .options-list__dropdown__button {\n    height: 100%;\n    border: none;\n    background-color: #bbc3c4;\n    background-image: url(\"data:image/gif;base64,R0lGODlhCAAFAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAIAAUAAAIKBCSGebzqoJKtAAA7\");\n    background-repeat: no-repeat;\n    background-position: 2px 3px;\n    padding: 0px 6px;\n    font-size: 0.7rem;\n    user-select: none;\n    letter-spacing: -2px;\n    display: flex;\n    flex-direction: column; }\n    .options-list__dropdown__button:hover {\n      box-shadow: inset -1px -1px 0px #808088, inset 1px 1px 0px #ffffff; }\n    .options-list__dropdown__button:active, .options-list__dropdown__button:focus, .options-list__dropdown__button:active:focus {\n      outline: none;\n      background-position: 3px 4px;\n      box-shadow: inset -1px -1px 0px #ffffff, inset 1px 1px 0px #808088; }\n      .options-list__dropdown__button:active + .options-list__dropdown__list, .options-list__dropdown__button:focus + .options-list__dropdown__list, .options-list__dropdown__button:active:focus + .options-list__dropdown__list {\n        position: absolute;\n        top: 100%;\n        right: 0px;\n        display: block;\n        z-index: 10; }\n  .options-list__dropdown .options-list__dropdown__list {\n    display: none; }\n";
@@ -1953,35 +1958,9 @@ function (_React$Component) {
   _inherits(WindowExplorer, _React$Component);
 
   function WindowExplorer() {
-    var _getPrototypeOf2;
-
-    var _this;
-
     _classCallCheck(this, WindowExplorer);
 
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(WindowExplorer)).call.apply(_getPrototypeOf2, [this].concat(args)));
-
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "state", {
-      isMaximized: false
-    });
-
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "maximize", function () {
-      return _this.setState({
-        isMaximized: true
-      });
-    });
-
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "restore", function () {
-      return _this.setState({
-        isMaximized: false
-      });
-    });
-
-    return _this;
+    return _possibleConstructorReturn(this, _getPrototypeOf(WindowExplorer).apply(this, arguments));
   }
 
   _createClass(WindowExplorer, [{
@@ -1992,13 +1971,14 @@ function (_React$Component) {
         className: cx('WindowExplorer', props.className),
         icon: props.icon,
         onClose: props.onClose,
-        onMaximize: props.onMaximize,
         onMinimize: props.onMinimize,
+        onMaximize: props.onMaximize,
         onRestore: props.onRestore,
         title: props.title,
         resizable: props.resizable,
         footer: props.footer,
-        menuOptions: props.menuOptions
+        menuOptions: props.menuOptions,
+        maximizeOnOpen: props.maximizeOnOpen
       }, props.explorerOptions && React.createElement(OptionsList, {
         className: "WindowExplorer__options",
         options: props.explorerOptions
@@ -2024,7 +2004,6 @@ _defineProperty(WindowExplorer, "defaultProps", {
 });
 
 WindowExplorer.propTypes = _objectSpread({}, WindowProgram.propTypes, {
-  menuOptions: PropTypes.arrayOf(PropTypes.any),
   explorerOptions: PropTypes.shape(OptionsList.propTypes.options)
 });
 

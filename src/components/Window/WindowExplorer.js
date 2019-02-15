@@ -12,12 +12,6 @@ class WindowExplorer extends React.Component {
     menuOptions: [],
   };
 
-  state = {
-    isMaximized: false,
-  };
-
-  maximize = () => this.setState({ isMaximized: true });
-  restore = () => this.setState({ isMaximized: false });
   render() {
     const { props } = this;
     return (
@@ -25,13 +19,14 @@ class WindowExplorer extends React.Component {
         className={cx('WindowExplorer', props.className)}
         icon={props.icon}
         onClose={props.onClose}
-        onMaximize={props.onMaximize}
         onMinimize={props.onMinimize}
+        onMaximize={props.onMaximize}
         onRestore={props.onRestore}
         title={props.title}
         resizable={props.resizable}
         footer={props.footer}
         menuOptions={props.menuOptions}
+        maximizeOnOpen={props.maximizeOnOpen}
       >
         {props.explorerOptions && (
           <OptionsList
@@ -51,7 +46,6 @@ class WindowExplorer extends React.Component {
 
 WindowExplorer.propTypes = {
   ...WindowProgram.propTypes,
-  menuOptions: PropTypes.arrayOf(PropTypes.any),
   explorerOptions: PropTypes.shape(OptionsList.propTypes.options),
 };
 
