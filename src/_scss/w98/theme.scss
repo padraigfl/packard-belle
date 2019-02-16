@@ -68,6 +68,7 @@ html {
     transform: scale(2);
   }
 
+  /* stylelint-disable selector-max-specificity */
   ::-webkit-scrollbar {
     width: 16px;
     height: 16px;

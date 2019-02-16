@@ -17,7 +17,8 @@
     }
     background-color: $grey;
     button {
-      color: $darkgrey !important;
+      // @todo remove important
+      color: $darkgrey !important; // stylelint-disable-line
     }
     .icon {
       filter: grayscale(1);
@@ -80,6 +81,7 @@
       width: initial;
     }
 
+    // stylelint-disable selector-max-specificity
     &:focus:not(.is-active),
     &:active:not(.is-active) {
       .icon__text {

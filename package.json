@@ -86,6 +86,8 @@
     "react-dom": "^16.4.2"
   },
   "pre-commit": [
+    "lint",
+    "lint:css",
     "build:css",
     "build",
     "precommit-build"
