@@ -166,6 +166,7 @@ $windowPadding: 3px;
         color: #ffffff;
         background-color: $blue;
         &:not(:only-child) {
+          // stylelint-disable-next-line
           &:after {
             background-image: url($arrow-right-inverted);
           }
@@ -185,6 +186,7 @@ $windowPadding: 3px;
     display: none;
   }
   > div:not(:empty) + div:empty {
+    // stylelint-disable-next-line
     &:not(:last-child):not(:first-child) {
       display: block;
     }

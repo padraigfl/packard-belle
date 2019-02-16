@@ -33,6 +33,7 @@
         outline: none;
         background-position: 3px 4px;
         box-shadow: dualShadow($darkgrey, #ffffff);
+        // stylelint-disable-next-line selector-max-specificity
         + .options-list__dropdown__list {
           position: absolute;
           top: 100%;

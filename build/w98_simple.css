@@ -27,7 +27,8 @@ html {
   height: 100%;
   image-rendering: pixelated;
   position: relative;
-  transform: scale(1); }
+  transform: scale(1);
+  /* stylelint-disable selector-max-specificity */ }
   .w98 *, .w98 {
     font-family: "MSFont", "MSFont11", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     cursor: url("data:image/gif;base64,R0lGODlhCwATAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAALABMAAAIrhI4JlhrcBAgvSlrbxPBs7mAU9IlMaV7mwo6jY2zk+Xphh8iWint1tDgUAAA7"), default; }
