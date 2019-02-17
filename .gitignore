@@ -62,3 +62,6 @@ typings/
 **/.DS_Store
 /.nyc_output/
 /.vscode/
+/.cache/
+/.out/
+
