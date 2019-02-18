@@ -396,7 +396,7 @@ html {
     .standard-menu > div:hover > .Frame, .standard-menu > div.active > .window,
     .standard-menu > div.active > .Frame {
       max-width: 400%; }
-  .standard-menu > div:empty {
+  .standard-menu > div:empty:not(:only-child) {
     position: relative;
     width: 95%;
     margin: 2px auto;
@@ -835,7 +835,7 @@ select[multiple] {
       @media (min-height: 720px) and (min-width: 960px) {
         .task-bar__start > button + div {
           transition: max-height linear 200ms; } }
-      .task-bar__start > button + div > .divider,
+      .task-bar__start > button + div > .divider:empty,
       .task-bar__start > button + div > div:empty {
         margin-left: 24px;
         width: calc(100% - 26px); }

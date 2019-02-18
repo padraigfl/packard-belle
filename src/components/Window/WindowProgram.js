@@ -42,20 +42,9 @@ Footer.propTypes = {
 };
 
 class WindowProgram extends React.Component {
-  state = {
-    isMaximized: this.props.maximizeOnOpen,
+  static defaultProps = {
+    onMaximize: () => {},
   };
-
-  maximize = e => {
-    this.setState({ isMaximized: true });
-    this.props.onMaximize && this.props.onMaximize(e);
-  };
-
-  restore = e => {
-    this.setState({ isMaximized: false });
-    this.props.onRestore && this.props.onRestore(e);
-  };
-
   render() {
     const { props } = this;
     const footer = insertDefaultFooter(props.footer);
@@ -65,8 +54,8 @@ class WindowProgram extends React.Component {
         icon={props.icon}
         onClose={props.onClose}
         onMinimize={props.onMinimize}
-        onMaximize={this.maximize}
-        onRestore={this.restore}
+        onMaximize={props.onMaximize}
+        onRestore={props.onRestore}
         title={props.title}
         resizable={props.resizable}
       >
@@ -87,7 +76,6 @@ WindowProgram.propTypes = {
   ...WindowAbstract.propTypes,
   menuOptions: PropTypes.arrayOf(PropTypes.any),
   footer: PropTypes.arrayOf(PropTypes.shape(footerType)),
-  maximizeOnOpen: PropTypes.bool,
 };
 
 export default WindowProgram;

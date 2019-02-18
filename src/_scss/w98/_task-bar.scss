@@ -74,7 +74,7 @@ $w98-text: "data:image/gif;base64,R0lGODlhDgBkALMAAAAAAP///wIAsZKSmZKTmpGSmZKTmc
         visibility: hidden;
         max-height: 0px;
         padding-left: 22px;
-        > .divider,
+        > .divider:empty,
         > div:empty {
           margin-left: 24px;
           width: calc(100% - 26px);

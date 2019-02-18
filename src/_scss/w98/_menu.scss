@@ -177,7 +177,7 @@ $windowPadding: 3px;
   }
 
   // hack divider handling
-  > div:empty {
+  > div:empty:not(:only-child) {
     position: relative;
     width: 95%;
     margin: 2px auto;

@@ -4,9 +4,8 @@ import Notifications from '../../src/components/TaskBar/Notifications';
 import TaskBar from '../../src/components/TaskBar';
 import img from './directory_closed.png';
 
-
 const noop = () => {
-  console.log('run')
+  console.log('run');
 };
 
 const optionsSample = [
@@ -48,19 +47,21 @@ const optionsSample = [
           title: 'open file?',
           icon: img,
         },
-      ]
+      ],
     },
     {
       onClick: noop,
       title: 'Control Panel',
       icon: img,
-    }
+    },
   ],
-  {
-    onClick: noop,
-    title: 'Shut Down',
-    icon: img,
-  },
+  [
+    {
+      onClick: noop,
+      title: 'Shut Down',
+      icon: img,
+    },
+  ],
 ];
 
 storiesOf('TaskBar', module)
@@ -101,7 +102,4 @@ storiesOf('TaskBar', module)
       ]}
     />
   ))
-  .add('Notifications', () => (
-    <Notifications
-    />
-  ));
+  .add('Notifications', () => <Notifications />);
