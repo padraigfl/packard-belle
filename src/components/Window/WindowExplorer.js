@@ -7,9 +7,14 @@ import OptionsList from './OptionsList';
 import './styles/WindowExplorer.scss';
 
 class WindowExplorer extends React.Component {
+  static defaultProps = {
+    footer: [],
+    menuOptions: [],
+  };
+
   state = {
     isMaximized: false,
-  }
+  };
 
   maximize = () => this.setState({ isMaximized: true });
   restore = () => this.setState({ isMaximized: false });
@@ -17,7 +22,7 @@ class WindowExplorer extends React.Component {
     const { props } = this;
     return (
       <WindowProgram
-        className={ cx('WindowExplorer', props.className)}
+        className={cx('WindowExplorer', props.className)}
         icon={props.icon}
         onClose={props.onClose}
         onMaximize={props.onMaximize}
@@ -38,24 +43,15 @@ class WindowExplorer extends React.Component {
           <div className="WindowExplorer__address__title">Address</div>
           <Select placeholder={<span>Test</span>} isDisabled />
         </menu>
-        <div className="WindowExplorer__view">
-          {props.children}
-        </div>
+        <div className="WindowExplorer__view">{props.children}</div>
       </WindowProgram>
     );
   }
 }
 
-WindowExplorer.defaultProps = {
-  footer: [],
-  menuOptions: [],
-};
-
 WindowExplorer.propTypes = {
   ...WindowProgram.propTypes,
-  menuOptions: PropTypes.arrayOf(
-    PropTypes.any,
-  ),
+  menuOptions: PropTypes.arrayOf(PropTypes.any),
   explorerOptions: PropTypes.shape(OptionsList.propTypes.options),
 };
 

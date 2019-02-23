@@ -332,7 +332,7 @@
           onContextMenu: this.props.onContextMenu && function (e) {
             return _this2.handleContextMenu(e);
           },
-          disabled: props.isDisabled,
+          disabled: props.isDisabled || props.onClick && typeof props.onClick !== 'function',
           style: props.style
         }, props.children);
       }
@@ -372,7 +372,7 @@
 
   AbstractButton.propTypes = _objectSpread({}, commonButtonPropTypes);
 
-  var css$3 = ".btn.ButtonNav {\n  padding: 0px;\n  min-width: initial;\n  width: 16px;\n  height: 14px;\n  margin-left: 1px;\n  margin-top: 1px;\n  margin-bottom: 2px;\n  image-rendering: pixelated;\n  box-shadow: inset -1px -1px 0px #0c0c0c, inset 1px 1px 0px #ffffff, inset -2px -2px 0px #808088, inset 2px 2px 0px #bbc3c4; }\n  .btn.ButtonNav img {\n    height: 14px;\n    width: 14px; }\n  .btn.ButtonNav:focus {\n    outline: none;\n    border: none; }\n  .btn.ButtonNav:active:focus, .btn.ButtonNav.clicked {\n    padding-top: 2px;\n    padding-bottom: 1px;\n    padding-left: 4px;\n    padding-right: 8px;\n    box-shadow: inset -1px -1px 0px #ffffff, inset 1px 1px 0px #0c0c0c, inset -2px -2px 0px #bbc3c4, inset 2px 2px 0px #808088; }\n  .btn.ButtonNav.window__close {\n    margin-left: 2px; }\n";
+  var css$3 = ".btn.ButtonNav {\n  padding: 0px;\n  min-width: initial;\n  width: 16px;\n  height: 14px;\n  margin-left: 1px;\n  margin-top: 1px;\n  margin-bottom: 2px;\n  image-rendering: pixelated;\n  box-shadow: inset -1px -1px 0px #0c0c0c, inset 1px 1px 0px #ffffff, inset -2px -2px 0px #808088, inset 2px 2px 0px #bbc3c4; }\n  .btn.ButtonNav img {\n    height: 14px;\n    width: 14px; }\n  .btn.ButtonNav:focus {\n    outline: none;\n    border: none; }\n  .btn.ButtonNav:active:focus, .btn.ButtonNav.clicked {\n    padding-top: 2px;\n    padding-bottom: 1px;\n    padding-left: 4px;\n    padding-right: 8px;\n    box-shadow: inset -1px -1px 0px #ffffff, inset 1px 1px 0px #0c0c0c, inset -2px -2px 0px #bbc3c4, inset 2px 2px 0px #808088; }\n  .btn.ButtonNav.window__close, .btn.ButtonNav.Window__close {\n    margin-left: 2px; }\n";
   styleInject(css$3);
 
   var ButtonNav = function ButtonNav(props) {
@@ -1549,7 +1549,7 @@
     notifiers: []
   };
 
-  var css$k = ".TaskBar {\n  position: fixed;\n  background-color: #bbc3c4;\n  bottom: 0px;\n  left: 0px;\n  width: 100%;\n  max-width: 100%;\n  z-index: 10;\n  box-shadow: 0px -1px 0px #ffffff;\n  padding: 2px 0px;\n  display: flex; }\n  .TaskBar > div,\n  .TaskBar > button {\n    position: relative;\n    height: 22px;\n    margin: 0px 2px; }\n  .TaskBar > div:not(:last-child) {\n    padding: 0px 6px; }\n    .TaskBar > div:not(:last-child):first-child {\n      padding: 0px 3px 0px 0px; }\n    .TaskBar > div:not(:last-child):after {\n      position: absolute;\n      top: 1px;\n      right: 0px;\n      height: calc(100% - 2px);\n      width: 1px;\n      background-color: #808088;\n      content: \"\";\n      box-shadow: 1px 0px 0px #ffffff; }\n    .TaskBar > div:not(:last-child):before {\n      position: absolute;\n      top: 3px;\n      right: -6px;\n      height: calc(100% - 6px);\n      width: 3px;\n      background-color: #bbc3c4;\n      content: \"\";\n      box-shadow: inset -1px -1px 0px #808088, inset 1px 1px 0px #ffffff; }\n  .TaskBar__programs {\n    display: flex;\n    flex-grow: 1;\n    flex-shrink: 1;\n    flex-wrap: nowrap;\n    margin-right: 4px;\n    min-width: 42px; }\n    .TaskBar__programs:before {\n      display: none; }\n  .TaskBar__start {\n    position: relative; }\n    .TaskBar__start > button + div {\n      position: fixed;\n      bottom: 25px;\n      left: 2px;\n      visibility: hidden;\n      max-height: 0px;\n      padding-left: 22px; }\n      @media (min-height: 720px) and (min-width: 960px) {\n        .TaskBar__start > button + div {\n          transition: max-height linear 200ms; } }\n      .TaskBar__start > button + div > .divider,\n      .TaskBar__start > button + div > div:empty {\n        margin-left: 24px;\n        width: calc(100% - 26px); }\n      .TaskBar__start > button + div:after {\n        content: \"\";\n        display: block;\n        position: absolute;\n        left: 3px;\n        top: 3px;\n        height: calc(100% - 6px);\n        width: 20px;\n        background: #0000a2;\n        background: linear-gradient(#0000a2, #126fc2);\n        background: url(\"data:image/gif;base64,R0lGODlhDgBkALMAAAAAAP///wIAsZKSmZKTmpGSmZKTmcjOz8fNzsfOz8fOzv///wAAAAAAAAAAAAAAACH5BAEAAAsALAAAAAAOAGQAAAT/cMk5SUo06CO179wSGEowgEOQBcRUEuqkUaIRd/cCwyvFzyJNS3JQ2Tyt0QLBklgwEqZGQasShr4DQhuilDxgRCWAINgIAkIxFoB2DDJWbmGb2Oq0nJx2dqoCXUEuKl8GMCZRSjpgWAdYEydVkhMJQlVkQR8UTFRgQDhiHkc9QRyfRwRSV5+ZH1KbnodzjEGPCAYFcBIJj5mOk61IkgZSnpKVxpSeYCuegTjCw8Uev1bLPkfXccuY29SSGgmRky2p4b2Jnm5+3LrQ3CsY5Wuk9ZlwcJrv2uzLvWthJgH0cWVAKkMGBjhKws1YQ4cPP1wxUETclUPuBOXRY4mOvmDJafaFFMmKwoEDCspIgnGSC0pYDZvB88YvE7Bd3YABrBlRJs+HN73MiPgq4heQYJAhlYiOhqyUwLhVo7TTWcYlyEZOmAbEYM+I4hape4b0Cg0tDXlVyapVR9UY5h7KaogAg9R1c82ubEohAgA7\") no-repeat bottom 3px center, linear-gradient(#0000a2, #126fc2); }\n      .TaskBar__start > button + div > div {\n        display: flex;\n        align-items: center;\n        margin-left: 20px; }\n        .TaskBar__start > button + div > div > button {\n          height: 32px;\n          padding-left: 32px;\n          background-size: 22px;\n          background-position: 4px center; }\n        .TaskBar__start > button + div > div .window {\n          display: none; }\n    .TaskBar__start > button.active, .TaskBar__start > button.clicked {\n      background-position: 3px 2px;\n      outline: 1px dotted #0c0c0c;\n      outline-offset: -4px; }\n      .TaskBar__start > button.active > div, .TaskBar__start > button.clicked > div {\n        visibility: visible;\n        max-height: 100vh;\n        padding: 3px; }\n        .TaskBar__start > button.active > div div, .TaskBar__start > button.clicked > div div {\n          display: flex; }\n    .TaskBar__start.active > div {\n      visibility: visible;\n      max-height: 100vh;\n      padding: 3px; }\n      .TaskBar__start.active > div div {\n        display: flex; }\n  .TaskBar__notifications {\n    background-color: #bbc3c4;\n    display: flex;\n    flex: none;\n    margin-left: auto;\n    align-items: center;\n    height: 22px;\n    padding: 0px 8px 0px 4px;\n    box-shadow: inset -1px -1px 0px #ffffff, inset 1px 1px 0px #808088; }\n    .TaskBar__notifications__time {\n      margin-left: 4px; }\n    .TaskBar__notifications__notifier {\n      height: 16px;\n      width: 16px;\n      background-color: #bbc3c4;\n      background-size: contain;\n      background-position: center;\n      background-repeat: no-repeat;\n      border: none; }\n      .TaskBar__notifications__notifier:active, .TaskBar__notifications__notifier:focus, .TaskBar__notifications__notifier:active:focus, .TaskBar__notifications__notifier.active, .TaskBar__notifications__notifier.clicked {\n        outline: none;\n        border: none; }\n";
+  var css$k = ".TaskBar {\n  position: fixed;\n  background-color: #bbc3c4;\n  bottom: 0px;\n  left: 0px;\n  width: 100%;\n  max-width: 100%;\n  z-index: 10;\n  box-shadow: 0px -1px 0px #ffffff;\n  padding: 2px 0px;\n  display: flex; }\n  .TaskBar > div,\n  .TaskBar > button {\n    position: relative;\n    height: 22px;\n    margin: 0px 2px; }\n  .TaskBar > div:not(:last-child) {\n    padding: 0px 6px; }\n    .TaskBar > div:not(:last-child):first-child {\n      padding: 0px 3px 0px 0px; }\n    .TaskBar > div:not(:last-child):after {\n      position: absolute;\n      top: 1px;\n      right: 0px;\n      height: calc(100% - 2px);\n      width: 1px;\n      background-color: #808088;\n      content: \"\";\n      box-shadow: 1px 0px 0px #ffffff; }\n    .TaskBar > div:not(:last-child):before {\n      position: absolute;\n      top: 3px;\n      right: -6px;\n      height: calc(100% - 6px);\n      width: 3px;\n      background-color: #bbc3c4;\n      content: \"\";\n      box-shadow: inset -1px -1px 0px #808088, inset 1px 1px 0px #ffffff; }\n  .TaskBar__programs {\n    display: flex;\n    flex-grow: 1;\n    flex-shrink: 1;\n    flex-wrap: nowrap;\n    margin-right: 4px;\n    min-width: 42px; }\n    .TaskBar__programs:before {\n      display: none; }\n  .TaskBar__start {\n    position: relative; }\n    .TaskBar__start > button + div {\n      position: fixed;\n      bottom: 25px;\n      left: 2px;\n      visibility: hidden;\n      max-height: 0px;\n      padding-left: 22px; }\n      @media (min-height: 720px) and (min-width: 960px) {\n        .TaskBar__start > button + div {\n          transition: max-height linear 200ms; } }\n      .TaskBar__start > button + div > .divider,\n      .TaskBar__start > button + div > div:empty {\n        margin-left: 24px;\n        width: calc(100% - 26px); }\n      .TaskBar__start > button + div:after {\n        content: \"\";\n        display: block;\n        position: absolute;\n        left: 3px;\n        top: 3px;\n        height: calc(100% - 6px);\n        width: 20px;\n        background: #0000a2;\n        background: linear-gradient(#0000a2, #126fc2);\n        background: url(\"data:image/gif;base64,R0lGODlhDgBkALMAAAAAAP///wIAsZKSmZKTmpGSmZKTmcjOz8fNzsfOz8fOzv///wAAAAAAAAAAAAAAACH5BAEAAAsALAAAAAAOAGQAAAT/cMk5SUo06CO179wSGEowgEOQBcRUEuqkUaIRd/cCwyvFzyJNS3JQ2Tyt0QLBklgwEqZGQasShr4DQhuilDxgRCWAINgIAkIxFoB2DDJWbmGb2Oq0nJx2dqoCXUEuKl8GMCZRSjpgWAdYEydVkhMJQlVkQR8UTFRgQDhiHkc9QRyfRwRSV5+ZH1KbnodzjEGPCAYFcBIJj5mOk61IkgZSnpKVxpSeYCuegTjCw8Uev1bLPkfXccuY29SSGgmRky2p4b2Jnm5+3LrQ3CsY5Wuk9ZlwcJrv2uzLvWthJgH0cWVAKkMGBjhKws1YQ4cPP1wxUETclUPuBOXRY4mOvmDJafaFFMmKwoEDCspIgnGSC0pYDZvB88YvE7Bd3YABrBlRJs+HN73MiPgq4heQYJAhlYiOhqyUwLhVo7TTWcYlyEZOmAbEYM+I4hape4b0Cg0tDXlVyapVR9UY5h7KaogAg9R1c82ubEohAgA7\") no-repeat bottom 3px center, linear-gradient(#0000a2, #126fc2); }\n      .TaskBar__start > button + div > div {\n        display: flex;\n        align-items: center;\n        margin-left: 20px; }\n        .TaskBar__start > button + div > div > button {\n          height: 32px;\n          padding-left: 32px;\n          background-size: 22px;\n          background-position: 4px center; }\n    .TaskBar__start > button.active, .TaskBar__start > button.clicked {\n      background-position: 3px 2px;\n      outline: 1px dotted #0c0c0c;\n      outline-offset: -4px; }\n      .TaskBar__start > button.active > div, .TaskBar__start > button.clicked > div {\n        visibility: visible;\n        max-height: 100vh;\n        padding: 3px; }\n        .TaskBar__start > button.active > div div, .TaskBar__start > button.clicked > div div {\n          display: flex; }\n    .TaskBar__start.active > div {\n      visibility: visible;\n      max-height: 100vh;\n      padding: 3px; }\n      .TaskBar__start.active > div div {\n        display: flex; }\n  .TaskBar__notifications {\n    background-color: #bbc3c4;\n    display: flex;\n    flex: none;\n    margin-left: auto;\n    align-items: center;\n    height: 22px;\n    padding: 0px 8px 0px 4px;\n    box-shadow: inset -1px -1px 0px #ffffff, inset 1px 1px 0px #808088; }\n    .TaskBar__notifications__time {\n      margin-left: 4px; }\n    .TaskBar__notifications__notifier {\n      height: 16px;\n      width: 16px;\n      background-color: #bbc3c4;\n      background-size: contain;\n      background-position: center;\n      background-repeat: no-repeat;\n      border: none; }\n      .TaskBar__notifications__notifier:active, .TaskBar__notifications__notifier:focus, .TaskBar__notifications__notifier:active:focus, .TaskBar__notifications__notifier.active, .TaskBar__notifications__notifier.clicked {\n        outline: none;\n        border: none; }\n";
   styleInject(css$k);
 
   var TaskBar = function TaskBar(props) {
@@ -1641,8 +1641,9 @@
       value: function render() {
         var props = this.props;
         return React__default.createElement(WindowFrame, {
-          className: cx('Window window', props.className, {
-            'Window--maximized': this.state.maximized
+          className: cx('Window', props.className, {
+            'Window--maximized': this.state.maximized,
+            'Window--resizable': props.resizable
           }),
           resizable: props.resizable
         }, React__default.createElement("div", {
@@ -1662,10 +1663,12 @@
           onClick: props.onMinimize
         }), this.state.maximized && props.resizable && React__default.createElement(ButtonNav, {
           className: "Window__restore",
-          onClick: this.handleRestore
+          onClick: this.handleRestore,
+          isDisabled: !this.props.onRestore
         }), !this.state.maximized && props.resizable && React__default.createElement(ButtonNav, {
           className: "Window__maximize",
-          onClick: this.handleMaximize
+          onClick: this.handleMaximize,
+          isDisabled: !this.props.onMaximize
         }), props.onClose && React__default.createElement(ButtonNav, {
           className: "Window__close",
           onClick: props.onClose
@@ -1676,12 +1679,15 @@
     return WindowAbstract;
   }(React.Component);
 
+  _defineProperty(WindowAbstract, "defaultProps", {
+    title: '...'
+  });
+
   var windowProps = {
     children: PropTypes.node,
     title: PropTypes.string,
     className: PropTypes.string,
     isActive: PropTypes.bool,
-    isMaximized: PropTypes.bool,
     icon: PropTypes.string,
     resizable: PropTypes.bool,
     onClose: PropTypes.func,
@@ -1714,7 +1720,7 @@
       onClick: props.onOK
     }, "OK"), props.onCancel && React__default.createElement(ButtonForm, {
       className: "WindowAlert__cancel",
-      onClick: props.onCancel()
+      onClick: props.onCancel
     }, "Cancel")));
   };
 
@@ -1801,33 +1807,18 @@
     _createClass(WindowProgram, [{
       key: "render",
       value: function render() {
-        var _this2 = this;
-
         var props = this.props;
         var footer = insertDefaultFooter(props.footer);
         return React__default.createElement(WindowAbstract, {
           className: cx('WindowProgram window--program', props.className),
           icon: props.icon,
           onClose: props.onClose,
-          onMaximize: function onMaximize() {
-            if (props.onMaximize) {
-              props.onMaximize();
-            }
-
-            _this2.maximize();
-          },
+          onMaximize: props.onMaximize,
           onMinimize: props.onMinimize,
-          onRestore: function onRestore() {
-            if (props.onRestore) {
-              props.onRestore();
-            }
-
-            _this2.restore();
-          },
+          onRestore: props.onRestore,
           title: props.title,
-          isMaximized: this.state.isMaximized,
           resizable: props.resizable
-        }, React__default.createElement(MenuBar, {
+        }, Array.isArray(props.menuOptions) && React__default.createElement(MenuBar, {
           className: "window--explorer__menu WindowProgram__menu",
           options: props.menuOptions
         }), props.children, props.footer && React__default.createElement(Footer, {
@@ -2036,10 +2027,11 @@
     return WindowExplorer;
   }(React__default.Component);
 
-  WindowExplorer.defaultProps = {
+  _defineProperty(WindowExplorer, "defaultProps", {
     footer: [],
     menuOptions: []
-  };
+  });
+
   WindowExplorer.propTypes = _objectSpread({}, WindowProgram.propTypes, {
     menuOptions: PropTypes.arrayOf(PropTypes.any),
     explorerOptions: PropTypes.shape(OptionsList.propTypes.options)

@@ -14,25 +14,21 @@ const WindowAlert = props => (
     title="Error"
   >
     <div
-      className={
-        cx('WindowAlert__message', { 'has-icon': props.icon})
-      }
-      style={ props.icon && { backgroundImage: `url(${props.icon})`} }
+      className={cx('WindowAlert__message', { 'has-icon': props.icon })}
+      style={props.icon && { backgroundImage: `url(${props.icon})` }}
     >
-      { props.children }
+      {props.children}
     </div>
     <div className="WindowAlert__actions">
-      { props.onOK && (
-        <ButtonForm
-          className="WindowAlert__ok"
-          onClick={props.onOK}
-        >OK</ButtonForm>
+      {props.onOK && (
+        <ButtonForm className="WindowAlert__ok" onClick={props.onOK}>
+          OK
+        </ButtonForm>
       )}
-      { props.onCancel && (
-        <ButtonForm
-          className="WindowAlert__cancel"
-          onClick={props.onCancel()}
-        >Cancel</ButtonForm>
+      {props.onCancel && (
+        <ButtonForm className="WindowAlert__cancel" onClick={props.onCancel}>
+          Cancel
+        </ButtonForm>
       )}
     </div>
   </WindowAbstract>

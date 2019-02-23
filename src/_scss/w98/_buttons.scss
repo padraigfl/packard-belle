@@ -149,7 +149,8 @@ $start: "data:image/gif;base64,R0lGODlhNAATAKIAAAAAAP///wAA/wD/AP//AP8AAP///wAAA
     padding-right: 8px;
     box-shadow: dualShadow($black, #ffffff), dualShadow($darkgrey, $grey, 2);
   }
-  &.window__close {
+  &.window__close,
+  &.Window__close {
     margin-left: 2px;
   }
 }

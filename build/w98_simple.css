@@ -170,7 +170,7 @@ html {
     padding-left: 4px;
     padding-right: 8px;
     box-shadow: inset -1px -1px 0px #ffffff, inset 1px 1px 0px #0c0c0c, inset -2px -2px 0px #bbc3c4, inset 2px 2px 0px #808088; }
-  .btn--nav.window__close {
+  .btn--nav.window__close, .btn--nav.Window__close {
     margin-left: 2px; }
 
 .btn--program {
@@ -599,13 +599,15 @@ select[multiple] {
     background-color: #0000a2;
     color: #ffffff; }
 
-.window {
+.window,
+.Window {
   position: relative;
   background-color: #bbc3c4;
   padding: 3px;
   box-shadow: inset -1px -1px 0px #0c0c0c, inset 1px 1px 0px #bbc3c4, inset -2px -2px 0px #808088, inset 2px 2px 0px #ffffff;
   display: inline-block; }
-  .window__heading {
+  .window__heading,
+  .Window__heading {
     display: flex;
     background: linear-gradient(to right, #0000a2, #126fc2);
     font-weight: bold;
@@ -614,7 +616,8 @@ select[multiple] {
     padding: 0px 1px 0px 3px;
     align-items: center;
     letter-spacing: 1px; }
-    .window__heading button {
+    .window__heading button,
+    .Window__heading button {
       padding: 0px;
       min-width: initial;
       width: 16px;
@@ -626,43 +629,56 @@ select[multiple] {
       flex-shrink: 0;
       background-repeat: no-repeat;
       background-position: 1px 1px; }
-      .window__heading button:focus, .window__heading button.clicked {
+      .window__heading button:focus, .window__heading button.clicked,
+      .Window__heading button:focus,
+      .Window__heading button.clicked {
         outline: none;
         border: none; }
-      .window__heading button:active:focus, .window__heading button.clicked {
+      .window__heading button:active:focus, .window__heading button.clicked,
+      .Window__heading button:active:focus,
+      .Window__heading button.clicked {
         padding: 2px 8px 1px 4px;
         background-position: 2px 2px; }
-  .window__icon {
+  .window__icon,
+  .Window__icon {
     padding: 8px;
     display: flex;
     background-size: 14px;
     background-repeat: no-repeat;
     background-position: center; }
-  .window__title {
+  .window__title,
+  .Window__title {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     flex-grow: 1;
     min-width: 0px; }
-  .window__close {
+  .window__close,
+  .Window__close {
     margin-left: 2px;
     background-image: url("data:image/gif;base64,R0lGODlhDQALAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAANAAsAAAIUlI+pKwDoVGxvucmwvblqo33MqBQAOw=="); }
-  .window__restore {
+  .window__restore,
+  .Window__restore {
     background-image: url("data:image/gif;base64,R0lGODlhDQALAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAANAAsAAAIZlI9pwK3SnAKI1kjtwTlpyHjV830b9qRHAQA7"); }
-  .window__minimize {
+  .window__minimize,
+  .Window__minimize {
     background-image: url("data:image/gif;base64,R0lGODlhDQALAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAANAAsAAAIOlI+py+0PozSg2mXvFAUAOw=="); }
-  .window__maximize {
+  .window__maximize,
+  .Window__maximize {
     background-image: url("data:image/gif;base64,R0lGODlhDQALAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAANAAsAAAIXlI8Jy4wNXzJAznqwsjtPoYFfCDXfWQAAOw=="); }
-  .window__menu {
+  .window__menu,
+  .Window__menu {
     display: flex;
     padding: 0px;
     font-size: 1rem;
     position: relative;
     overflow-y: visible;
     z-index: 20; }
-    .window__menu > div {
+    .window__menu > div,
+    .Window__menu > div {
       position: relative; }
-      .window__menu > div > button {
+      .window__menu > div > button,
+      .Window__menu > div > button {
         padding: 0px 4px;
         outline: none;
         border: none;
@@ -677,7 +693,9 @@ select[multiple] {
         text-align: left;
         padding: 3px 6px; }
         .window__menu > div > button + div,
-        .window__menu > div > button + div {
+        .window__menu > div > button + div,
+        .Window__menu > div > button + div,
+        .Window__menu > div > button + div {
           z-index: 20;
           visibility: hidden;
           position: absolute;
@@ -686,11 +704,19 @@ select[multiple] {
           left: 0px; }
           @media (min-height: 720px) and (min-width: 960px) {
             .window__menu > div > button + div,
-            .window__menu > div > button + div {
+            .window__menu > div > button + div,
+            .Window__menu > div > button + div,
+            .Window__menu > div > button + div {
               transition: max-height linear 750ms; } }
-        .window__menu > div > button:hover {
+        .window__menu > div > button:hover,
+        .Window__menu > div > button:hover {
           box-shadow: inset -1px -1px 0px #808088, inset 1px 1px 0px #ffffff; }
-        .window__menu > div > button:active, .window__menu > div > button:focus, .window__menu > div > button:active:focus, .window__menu > div > button.active, .window__menu > div > button.clicked {
+        .window__menu > div > button:active, .window__menu > div > button:focus, .window__menu > div > button:active:focus, .window__menu > div > button.active, .window__menu > div > button.clicked,
+        .Window__menu > div > button:active,
+        .Window__menu > div > button:focus,
+        .Window__menu > div > button:active:focus,
+        .Window__menu > div > button.active,
+        .Window__menu > div > button.clicked {
           box-shadow: inset -1px -1px 0px #ffffff, inset 1px 1px 0px #808088;
           padding: 4px 5px 2px 7px; }
           .window__menu > div > button:active + div,
@@ -698,39 +724,56 @@ select[multiple] {
           .window__menu > div > button:focus + div, .window__menu > div > button:active:focus + div,
           .window__menu > div > button:active:focus + div, .window__menu > div > button.active + div,
           .window__menu > div > button.active + div, .window__menu > div > button.clicked + div,
-          .window__menu > div > button.clicked + div {
+          .window__menu > div > button.clicked + div,
+          .Window__menu > div > button:active + div,
+          .Window__menu > div > button:active + div,
+          .Window__menu > div > button:focus + div,
+          .Window__menu > div > button:focus + div,
+          .Window__menu > div > button:active:focus + div,
+          .Window__menu > div > button:active:focus + div,
+          .Window__menu > div > button.active + div,
+          .Window__menu > div > button.active + div,
+          .Window__menu > div > button.clicked + div,
+          .Window__menu > div > button.clicked + div {
             visibility: visible;
             max-height: 480px; }
-  .window section {
+  .window section,
+  .Window section {
     position: relative;
     border: 1px solid #ffffff;
     outline: 1px solid #808088;
     padding: 5px;
     margin: 16px 8px 8px; }
-    .window section .title {
+    .window section .title,
+    .Window section .title {
       position: absolute;
       top: -10px;
       padding: 2px 4px;
       background-color: #bbc3c4; }
-  .window--alert {
+  .window--alert,
+  .Window--alert {
     display: inline-flex;
     flex-direction: column;
     max-width: 250px; }
-    .window--alert__message {
+    .window--alert__message,
+    .Window--alert__message {
       display: flex;
       align-items: center;
       min-height: 28px;
       padding: 10px 2px 6px; }
-      .window--alert__message.has-icon {
+      .window--alert__message.has-icon,
+      .Window--alert__message.has-icon {
         background-size: 28px 28px;
         background-repeat: no-repeat;
         background-position: 6px 6px;
         padding: 6px 4px 8px 40px; }
-    .window--alert__actions {
+    .window--alert__actions,
+    .Window--alert__actions {
       width: 100%;
       display: flex;
       justify-content: center; }
-      .window--alert__actions .btn {
+      .window--alert__actions .btn,
+      .Window--alert__actions .btn {
         margin: 0px 4px 8px; }
 
 .task-bar {
@@ -816,8 +859,6 @@ select[multiple] {
           padding-left: 32px;
           background-size: 22px;
           background-position: 4px center; }
-        .task-bar__start > button + div > div .window {
-          display: none; }
     .task-bar__start > button.active, .task-bar__start > button.clicked {
       background-position: 3px 2px;
       outline: 1px dotted #0c0c0c;

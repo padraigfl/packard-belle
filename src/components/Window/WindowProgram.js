@@ -6,22 +6,25 @@ import MenuBar from '../MenuBar';
 import './styles/WindowProgram.scss';
 
 const insertDefaultFooter = (customFooterElements, minimum = 2) => {
-  const footer = Array.isArray(customFooterElements) ?
-    [...customFooterElements] : [];
-  for(let i = 0; i < minimum; i++) {
-    footer[i] = (footer && footer.text) ? footer[i] : { text: '' };
+  const footer = Array.isArray(customFooterElements)
+    ? [...customFooterElements]
+    : [];
+  for (let i = 0; i < minimum; i++) {
+    footer[i] = footer && footer.text ? footer[i] : { text: '' };
   }
   return footer;
 };
 
 const Footer = (props = []) => (
   <footer>
-    { props.entries.map((entry, idx) => (
+    {props.entries.map((entry, idx) => (
       <div
         key={`${entry}-${idx}`}
-        style={entry.icon && {
-          backgroundImage: `url(${entry.icon})`,
-        }}
+        style={
+          entry.icon && {
+            backgroundImage: `url(${entry.icon})`,
+          }
+        }
       >
         {entry.text || ''}
       </div>
@@ -41,7 +44,7 @@ Footer.propTypes = {
 class WindowProgram extends React.Component {
   state = {
     isMaximized: false,
-  }
+  };
 
   maximize = () => this.setState({ isMaximized: true });
   restore = () => this.setState({ isMaximized: false });
@@ -50,34 +53,23 @@ class WindowProgram extends React.Component {
     const footer = insertDefaultFooter(props.footer);
     return (
       <WindowAbstract
-        className={ cx('WindowProgram window--program', props.className)}
+        className={cx('WindowProgram window--program', props.className)}
         icon={props.icon}
         onClose={props.onClose}
-        onMaximize={() => {
-          if (props.onMaximize) {
-            props.onMaximize();
-          }
-          this.maximize();
-        }}
+        onMaximize={props.onMaximize}
         onMinimize={props.onMinimize}
-        onRestore={() => {
-          if (props.onRestore) {
-            props.onRestore();
-          }
-          this.restore();
-        }}
+        onRestore={props.onRestore}
         title={props.title}
-        isMaximized={this.state.isMaximized}
         resizable={props.resizable}
       >
-        <MenuBar
-          className="window--explorer__menu WindowProgram__menu"
-          options={props.menuOptions}
-        />
-        { props.children }
-        { props.footer && (
-          <Footer entries={footer} />
+        {Array.isArray(props.menuOptions) && (
+          <MenuBar
+            className="window--explorer__menu WindowProgram__menu"
+            options={props.menuOptions}
+          />
         )}
+        {props.children}
+        {props.footer && <Footer entries={footer} />}
       </WindowAbstract>
     );
   }
@@ -85,9 +77,7 @@ class WindowProgram extends React.Component {
 
 WindowProgram.propTypes = {
   ...WindowAbstract.propTypes,
-  menuOptions: PropTypes.arrayOf(
-    PropTypes.any,
-  ),
+  menuOptions: PropTypes.arrayOf(PropTypes.any),
   footer: PropTypes.arrayOf(PropTypes.shape(footerType)),
 };
 

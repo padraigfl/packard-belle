@@ -51,7 +51,8 @@ select[multiple] {
   @include select-multiple-simple();
 }
 
-.window {
+.window,
+.Window {
   @include window-basic();
   &__heading {
     @include window-heading();
