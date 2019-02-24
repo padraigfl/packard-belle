@@ -38,7 +38,6 @@ class WindowAbstract extends Component {
           'Window--maximized': this.state.maximized,
           'Window--resizable': props.resizable,
         })}
-        resizable={props.resizable}
       >
         <div className="Window__heading">
           {props.icon && (
@@ -55,23 +54,29 @@ class WindowAbstract extends Component {
             <Button className="Window__minimize" onClick={props.onMinimize} />
           )}
           {this.state.maximized &&
-            props.resizable && (
+            this.props.resizable && (
             <Button
               className="Window__restore"
               onClick={this.handleRestore}
-              isDisabled={!this.props.onRestore}
             />
           )}
           {!this.state.maximized &&
-            props.resizable && (
+            this.props.resizable && (
             <Button
               className="Window__maximize"
               onClick={this.handleMaximize}
-              isDisabled={!this.props.onMaximize}
             />
           )}
-          {props.onClose && (
-            <Button className="Window__close" onClick={props.onClose} />
+          {(props.onClose ||
+            props.onMaximize ||
+            props.onRestore ||
+            props.onMinimize ||
+            props.onHelp) && (
+            <Button
+              className="Window__close"
+              onClick={props.onClose}
+              isDisabled={!props.onClose}
+            />
           )}
         </div>
         {props.children}
@@ -86,7 +91,6 @@ export const windowProps = {
   className: PropTypes.string,
   isActive: PropTypes.bool,
   icon: PropTypes.string,
-  resizable: PropTypes.bool,
 
   onClose: PropTypes.func,
   onMinimize: PropTypes.func,

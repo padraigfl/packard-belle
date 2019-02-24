@@ -332,7 +332,7 @@
           onContextMenu: this.props.onContextMenu && function (e) {
             return _this2.handleContextMenu(e);
           },
-          disabled: props.isDisabled || props.onClick && typeof props.onClick !== 'function',
+          disabled: props.isDisabled,
           style: props.style
         }, props.children);
       }
@@ -1588,7 +1588,7 @@
     notifiers: PropTypes.arrayOf(PropTypes.shape(Notifications.propsTypes))
   };
 
-  var css$l = ".window__heading,\n.Window__heading {\n  display: flex;\n  background: linear-gradient(to right, #0000a2, #126fc2);\n  font-weight: bold;\n  color: #ffffff;\n  margin-bottom: 1px;\n  padding: 0px 1px 0px 3px;\n  align-items: center;\n  letter-spacing: 1px; }\n  .window__heading button,\n  .Window__heading button {\n    padding: 0px;\n    min-width: initial;\n    width: 16px;\n    height: 14px;\n    margin-left: 1px;\n    image-rendering: pixelated;\n    display: flex;\n    align-items: center;\n    flex-shrink: 0;\n    background-repeat: no-repeat;\n    background-position: 1px 1px; }\n    .window__heading button:focus, .window__heading button.clicked,\n    .Window__heading button:focus,\n    .Window__heading button.clicked {\n      outline: none;\n      border: none; }\n    .window__heading button:active:focus, .window__heading button.clicked,\n    .Window__heading button:active:focus,\n    .Window__heading button.clicked {\n      padding: 2px 8px 1px 4px;\n      background-position: 2px 2px; }\n\n.window__icon,\n.Window__icon {\n  padding: 8px;\n  display: flex;\n  background-size: 14px;\n  background-repeat: no-repeat;\n  background-position: center; }\n\n.window__title,\n.Window__title {\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  flex-grow: 1;\n  min-width: 0px; }\n\n.window__close,\n.Window__close {\n  margin-left: 2px;\n  background-image: url(\"data:image/gif;base64,R0lGODlhDQALAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAANAAsAAAIUlI+pKwDoVGxvucmwvblqo33MqBQAOw==\"); }\n\n.window__restore,\n.Window__restore {\n  background-image: url(\"data:image/gif;base64,R0lGODlhDQALAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAANAAsAAAIZlI9pwK3SnAKI1kjtwTlpyHjV830b9qRHAQA7\"); }\n\n.window__minimize,\n.Window__minimize {\n  background-image: url(\"data:image/gif;base64,R0lGODlhDQALAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAANAAsAAAIOlI+py+0PozSg2mXvFAUAOw==\"); }\n\n.window__maximize,\n.Window__maximize {\n  background-image: url(\"data:image/gif;base64,R0lGODlhDQALAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAANAAsAAAIXlI8Jy4wNXzJAznqwsjtPoYFfCDXfWQAAOw==\"); }\n\n.window--resizable,\n.Window--resizable {\n  width: 100%;\n  height: 100%; }\n  .window--resizable:after,\n  .Window--resizable:after {\n    position: absolute;\n    bottom: 4px;\n    right: 4px;\n    height: 12px;\n    width: 12px;\n    content: \"\";\n    background-image: url(\"data:image/gif;base64,R0lGODlhDAAMAJEAAAAAAP///5mZmf///yH5BAEAAAMALAAAAAAMAAwAAAIbnI8TmSF83IMSKvFWw3dnHnFV+GVGhZZXmaoFADs=\"); }\n\n.window--maximized,\n.Window--maximized {\n  width: calc(100% + 0px);\n  height: calc(100% - 28px);\n  top: -3px;\n  left: -3px; }\n";
+  var css$l = ".window__heading,\n.Window__heading {\n  display: flex;\n  background: linear-gradient(to right, #0000a2, #126fc2);\n  font-weight: bold;\n  color: #ffffff;\n  margin-bottom: 1px;\n  padding: 0px 1px 0px 3px;\n  align-items: center;\n  letter-spacing: 1px; }\n  .window__heading button,\n  .Window__heading button {\n    padding: 0px;\n    min-width: initial;\n    width: 16px;\n    height: 14px;\n    margin-left: 1px;\n    image-rendering: pixelated;\n    display: flex;\n    align-items: center;\n    flex-shrink: 0;\n    background-repeat: no-repeat;\n    background-position: 1px 1px; }\n    .window__heading button:focus, .window__heading button.clicked,\n    .Window__heading button:focus,\n    .Window__heading button.clicked {\n      outline: none;\n      border: none; }\n    .window__heading button:active:focus, .window__heading button.clicked,\n    .Window__heading button:active:focus,\n    .Window__heading button.clicked {\n      padding: 2px 8px 1px 4px;\n      background-position: 2px 2px; }\n\n.window__icon,\n.Window__icon {\n  padding: 8px;\n  display: flex;\n  background-size: 14px;\n  background-repeat: no-repeat;\n  background-position: center; }\n\n.window__title,\n.Window__title {\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  flex-grow: 1;\n  min-width: 0px; }\n\n.window__close,\n.Window__close {\n  margin-left: 2px;\n  background-image: url(\"data:image/gif;base64,R0lGODlhDQALAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAANAAsAAAIUlI+pKwDoVGxvucmwvblqo33MqBQAOw==\"); }\n\n.window__restore,\n.Window__restore {\n  background-image: url(\"data:image/gif;base64,R0lGODlhDQALAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAANAAsAAAIZlI9pwK3SnAKI1kjtwTlpyHjV830b9qRHAQA7\"); }\n\n.window__minimize,\n.Window__minimize {\n  background-image: url(\"data:image/gif;base64,R0lGODlhDQALAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAANAAsAAAIOlI+py+0PozSg2mXvFAUAOw==\"); }\n\n.window__maximize,\n.Window__maximize {\n  background-image: url(\"data:image/gif;base64,R0lGODlhDQALAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAANAAsAAAIXlI8Jy4wNXzJAznqwsjtPoYFfCDXfWQAAOw==\"); }\n\n.window--resizable:after,\n.Window--resizable:after {\n  position: absolute;\n  bottom: 4px;\n  right: 4px;\n  height: 12px;\n  width: 12px;\n  content: \"\";\n  background-image: url(\"data:image/gif;base64,R0lGODlhDAAMAJEAAAAAAP///5mZmf///yH5BAEAAAMALAAAAAAMAAwAAAIbnI8TmSF83IMSKvFWw3dnHnFV+GVGhZZXmaoFADs=\"); }\n\n.window--maximized,\n.Window--maximized {\n  width: calc(100% + 0px);\n  height: calc(100% - 28px);\n  top: -3px;\n  left: -3px; }\n";
   styleInject(css$l);
 
   var WindowAbstract =
@@ -1644,8 +1644,7 @@
           className: cx('Window', props.className, {
             'Window--maximized': this.state.maximized,
             'Window--resizable': props.resizable
-          }),
-          resizable: props.resizable
+          })
         }, React__default.createElement("div", {
           className: "Window__heading"
         }, props.icon && React__default.createElement("div", {
@@ -1661,17 +1660,16 @@
         }), props.onMinimize && React__default.createElement(ButtonNav, {
           className: "Window__minimize",
           onClick: props.onMinimize
-        }), this.state.maximized && props.resizable && React__default.createElement(ButtonNav, {
+        }), this.state.maximized && this.props.resizable && React__default.createElement(ButtonNav, {
           className: "Window__restore",
-          onClick: this.handleRestore,
-          isDisabled: !this.props.onRestore
-        }), !this.state.maximized && props.resizable && React__default.createElement(ButtonNav, {
+          onClick: this.handleRestore
+        }), !this.state.maximized && this.props.resizable && React__default.createElement(ButtonNav, {
           className: "Window__maximize",
-          onClick: this.handleMaximize,
-          isDisabled: !this.props.onMaximize
-        }), props.onClose && React__default.createElement(ButtonNav, {
+          onClick: this.handleMaximize
+        }), (props.onClose || props.onMaximize || props.onRestore || props.onMinimize || props.onHelp) && React__default.createElement(ButtonNav, {
           className: "Window__close",
-          onClick: props.onClose
+          onClick: props.onClose,
+          isDisabled: !props.onClose
         })), props.children);
       }
     }]);
@@ -1689,7 +1687,6 @@
     className: PropTypes.string,
     isActive: PropTypes.bool,
     icon: PropTypes.string,
-    resizable: PropTypes.bool,
     onClose: PropTypes.func,
     onMinimize: PropTypes.func,
     onMaximize: PropTypes.func,
@@ -2037,7 +2034,7 @@
     explorerOptions: PropTypes.shape(OptionsList.propTypes.options)
   });
 
-  var css$q = ".DetailsSection,\n.window__section {\n  position: relative;\n  border: 1px solid #ffffff;\n  outline: 1px solid #808088;\n  padding: 5px;\n  margin: 16px 8px 8px; }\n  .DetailsSection .title,\n  .window__section .title {\n    position: absolute;\n    top: -10px;\n    padding: 2px 4px;\n    background-color: #bbc3c4; }\n";
+  var css$q = ".DetailsSection,\n.window__section {\n  position: relative;\n  border: 1px solid #ffffff;\n  outline: 1px solid #808088;\n  padding: 5px;\n  margin: 16px 8px 8px; }\n  .DetailsSection__title,\n  .window__section__title {\n    position: absolute;\n    top: -10px;\n    padding: 2px 4px;\n    background-color: #bbc3c4; }\n";
   styleInject(css$q);
 
   var DetailsSection = function DetailsSection(props) {

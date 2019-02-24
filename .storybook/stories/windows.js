@@ -46,7 +46,7 @@ const optionsSample = [
             },
           ],
         },
-      ]
+      ],
     },
   ],
   {
@@ -54,7 +54,6 @@ const optionsSample = [
     title: 'quit',
   },
 ];
-
 
 const noop = () => {};
 
@@ -64,9 +63,9 @@ storiesOf('Windows', module)
     <AbstractWindow
       title="Title"
       icon={img}
-      onClose={ noop }
-      onMinimize={ noop }
-      onMaximize={ noop }
+      onClose={noop}
+      onMinimize={noop}
+      onMaximize={noop}
     >
       Windows
     </AbstractWindow>
@@ -75,9 +74,9 @@ storiesOf('Windows', module)
     <AbstractWindow
       title="Settings w/Sections"
       icon={img}
-      onClose={ noop }
-      onMinimize={ noop }
-      onMaximize={ noop }
+      onClose={noop}
+      onMinimize={noop}
+      onMaximize={noop}
     >
       <DetailsSection title="First Detail">
         <p>Here's a load of stuff</p>
@@ -91,9 +90,9 @@ storiesOf('Windows', module)
     <WindowProgram
       title="Window with MenuBar"
       icon={img}
-      onClose={ noop }
-      onMinimize={ noop }
-      onMaximize={ noop }
+      onClose={noop}
+      onMinimize={noop}
+      onMaximize={noop}
       menuOptions={[
         {
           title: 'File',
@@ -102,79 +101,78 @@ storiesOf('Windows', module)
         {
           title: 'Edit',
           options: optionsSample,
-        }
+        },
       ]}
+      resizable
     >
       Windows
     </WindowProgram>
   ))
-  .add('ExplorerWindow', () => (
-    <ExplorerWindow
-      title="ExplorerWindow"
-      menuOptions={[
-        {
-          title: 'File',
-          options: optionsSample,
-        },
-        {
-          title: 'Edit',
-          options: optionsSample,
-        }
-      ]}
-      icon={img}
-      onClose={ noop }
-      onMinimize={ noop }
-      onMaximize={ noop }
-      explorerOptions={[
-        {
-          icon: img,
-          title: 'Back',
-          onClick: noop,
-        },
-        {
-          icon: img,
-          title: 'Forward',
-          onClick: noop,
-        },
-        {
-          icon: img,
-          title: 'Forward',
-          onClick: noop,
-        },
-        {
-          icon: img,
-          title: 'Forward',
-          onClick: noop,
-        },
-        {
-          icon: img,
-          title: 'View',
-        },
-        {
-          icon: img,
-          title: 'Forward',
-          onClick: noop,
-        },
-      ]}
-      footer={[
-        <div>
-          Test
-        </div>,
-        <div>
-          Oh
-        </div>,
-      ]}
-    />
-  ), { notes: 'WIP' })
+  .add(
+    'ExplorerWindow',
+    () => (
+      <ExplorerWindow
+        title="ExplorerWindow"
+        menuOptions={[
+          {
+            title: 'File',
+            options: optionsSample,
+          },
+          {
+            title: 'Edit',
+            options: optionsSample,
+          },
+        ]}
+        icon={img}
+        onClose={noop}
+        onMinimize={noop}
+        onMaximize={noop}
+        onRestore={noop}
+        explorerOptions={[
+          {
+            icon: img,
+            title: 'Back',
+            onClick: noop,
+          },
+          {
+            icon: img,
+            title: 'Forward',
+            onClick: noop,
+          },
+          {
+            icon: img,
+            title: 'Forward',
+            onClick: noop,
+          },
+          {
+            icon: img,
+            title: 'Forward',
+            onClick: noop,
+          },
+          {
+            icon: img,
+            title: 'View',
+          },
+          {
+            icon: img,
+            title: 'Forward',
+            onClick: noop,
+          },
+        ]}
+        footer={[<div>Test</div>, <div>Oh</div>]}
+        resizable
+      />
+    ),
+    { notes: 'WIP' }
+  )
   .add('AlertWindow', () => (
     <AlertWindow
       title="AlertWindow"
       icon={img}
-      onClose={ noop }
-      onOK={ noop }
-      onCancel={ noop }
+      onClose={noop}
+      onOK={noop}
+      onCancel={noop}
     >
       This is an error message.
     </AlertWindow>
   ));
-

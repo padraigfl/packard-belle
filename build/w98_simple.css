@@ -744,8 +744,8 @@ select[multiple] {
     outline: 1px solid #808088;
     padding: 5px;
     margin: 16px 8px 8px; }
-    .window section .title,
-    .Window section .title {
+    .window section__title,
+    .Window section__title {
       position: absolute;
       top: -10px;
       padding: 2px 4px;

@@ -65,10 +65,7 @@ class AbstractButton extends Component {
         onContextMenu={
           this.props.onContextMenu && (e => this.handleContextMenu(e))
         }
-        disabled={
-          props.isDisabled ||
-          (props.onClick && typeof props.onClick !== 'function')
-        }
+        disabled={props.isDisabled}
         style={props.style}
       >
         {props.children}
