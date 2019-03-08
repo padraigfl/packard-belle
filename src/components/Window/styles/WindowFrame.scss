@@ -4,7 +4,7 @@
 .frame {
   @include window-basic();
 
-  &__drag {
+  &--drag {
     @include window-drag();
   }
 }

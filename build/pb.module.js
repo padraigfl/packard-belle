@@ -448,7 +448,7 @@ ButtonIconSmall.propTypes = _objectSpread({}, commonButtonPropTypes, {
   icon: PropTypes.string
 });
 
-var css$8 = ".Frame,\n.frame {\n  position: relative;\n  background-color: #bbc3c4;\n  padding: 3px;\n  box-shadow: inset -1px -1px 0px #0c0c0c, inset 1px 1px 0px #bbc3c4, inset -2px -2px 0px #808088, inset 2px 2px 0px #ffffff;\n  display: inline-block; }\n  .Frame__drag,\n  .frame__drag {\n    background-color: rgba(0, 0, 0, 0);\n    box-shadow: inset -3px -3px 0px #808088, inset 3px 3px 0px #808088; }\n    .Frame__drag > *, .Frame__drag:after,\n    .frame__drag > *,\n    .frame__drag:after {\n      visibility: hidden; }\n";
+var css$8 = ".Frame,\n.frame {\n  position: relative;\n  background-color: #bbc3c4;\n  padding: 3px;\n  box-shadow: inset -1px -1px 0px #0c0c0c, inset 1px 1px 0px #bbc3c4, inset -2px -2px 0px #808088, inset 2px 2px 0px #ffffff;\n  display: inline-block; }\n  .Frame--drag,\n  .frame--drag {\n    background-color: rgba(0, 0, 0, 0);\n    box-shadow: inset -3px -3px 0px #808088, inset 3px 3px 0px #808088; }\n    .Frame--drag > *, .Frame--drag:after,\n    .frame--drag > *,\n    .frame--drag:after {\n      filter: opacity(0.1%); }\n";
 styleInject(css$8);
 
 var WindowFrame = function WindowFrame(props) {

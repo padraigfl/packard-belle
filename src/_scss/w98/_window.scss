@@ -17,7 +17,7 @@
   box-shadow: dualShadow($darkgrey, $darkgrey, 3);
   > *,
   &:after {
-    visibility: hidden;
+    filter: opacity(0.1%);
   }
 }
 
