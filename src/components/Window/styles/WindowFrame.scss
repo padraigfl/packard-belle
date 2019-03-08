@@ -1,7 +1,6 @@
 @import "../../../_scss/w98/_window";
 
-.Frame,
-.frame {
+.Frame {
   @include window-basic();
 
   &--drag {

@@ -50,7 +50,7 @@ class WindowProgram extends React.Component {
     const footer = insertDefaultFooter(props.footer);
     return (
       <WindowAbstract
-        className={cx('WindowProgram window--program', props.className)}
+        className={cx('WindowProgram', props.className)}
         icon={props.icon}
         onClose={props.onClose}
         onMinimize={props.onMinimize}
@@ -61,7 +61,7 @@ class WindowProgram extends React.Component {
       >
         {Array.isArray(props.menuOptions) && (
           <MenuBar
-            className="window--explorer__menu WindowProgram__menu"
+            className="WindowProgram__menu"
             options={props.menuOptions}
           />
         )}

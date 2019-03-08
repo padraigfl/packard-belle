@@ -1,7 +1,6 @@
 @import "../../../_scss/w98/_window";
 
-.window,
-.Window {
+.w98 .Window {
   &__heading {
     @include window-heading();
   }
