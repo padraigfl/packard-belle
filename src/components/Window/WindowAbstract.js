@@ -39,6 +39,7 @@ class WindowAbstract extends Component {
         className={cx('Window', props.className, {
           'Window--maximized': this.state.maximized,
           'Window--resizable': props.resizable,
+          'Window--drag': props.changingState,
         })}
       >
         <div className="Window__heading">
@@ -55,15 +56,10 @@ class WindowAbstract extends Component {
           {props.onMinimize && (
             <Button className="Window__minimize" onClick={props.onMinimize} />
           )}
-          {this.state.maximized &&
-            this.props.resizable && (
-            <Button
-              className="Window__restore"
-              onClick={this.handleRestore}
-            />
+          {this.state.maximized && this.props.resizable && (
+            <Button className="Window__restore" onClick={this.handleRestore} />
           )}
-          {!this.state.maximized &&
-            this.props.resizable && (
+          {!this.state.maximized && this.props.resizable && (
             <Button
               className="Window__maximize"
               onClick={this.handleMaximize}
@@ -99,6 +95,8 @@ export const windowProps = {
   onMaximize: PropTypes.func,
   onRestore: PropTypes.func,
   maximizeOnOpen: PropTypes.bool,
+
+  changingState: PropTypes.bool,
 };
 
 WindowAbstract.propTypes = windowProps;

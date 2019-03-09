@@ -2,8 +2,4 @@
 
 .Frame {
   @include window-basic();
-
-  &--drag {
-    @include window-drag();
-  }
 }

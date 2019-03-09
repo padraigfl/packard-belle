@@ -27,6 +27,7 @@ class WindowExplorer extends React.Component {
         footer={props.footer}
         menuOptions={props.menuOptions}
         maximizeOnOpen={props.maximizeOnOpen}
+        changingState={props.changingState}
       >
         {props.explorerOptions && (
           <OptionsList

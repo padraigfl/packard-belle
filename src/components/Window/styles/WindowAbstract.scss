@@ -37,4 +37,8 @@
   &--maximized {
     @include window-maximized();
   }
+
+  &--drag {
+    @include window-drag();
+  }
 }

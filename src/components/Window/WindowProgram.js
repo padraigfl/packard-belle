@@ -58,6 +58,7 @@ class WindowProgram extends React.Component {
         onRestore={props.onRestore}
         title={props.title}
         resizable={props.resizable}
+        changingState={props.changingState}
       >
         {Array.isArray(props.menuOptions) && (
           <MenuBar
