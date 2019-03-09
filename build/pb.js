@@ -251,11 +251,11 @@
 
       _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(AbstractButton)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
-      _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "state", {
+      _defineProperty(_assertThisInitialized(_this), "state", {
         mouseDown: false
       });
 
-      _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleMouse", function (func, mouseDown) {
+      _defineProperty(_assertThisInitialized(_this), "handleMouse", function (func, mouseDown) {
         _this.setState({
           mouseDown: mouseDown
         });
@@ -265,7 +265,7 @@
         }
       });
 
-      _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleClick", function (e) {
+      _defineProperty(_assertThisInitialized(_this), "handleClick", function (e) {
         _this.button.focus();
 
         if (_this.props.onClick) {
@@ -273,13 +273,13 @@
         }
       });
 
-      _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleBlur", function (e) {
+      _defineProperty(_assertThisInitialized(_this), "handleBlur", function (e) {
         if (_this.props.onBlur) {
           _this.props.onBlur(e);
         }
       });
 
-      _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleContextMenu", function (e) {
+      _defineProperty(_assertThisInitialized(_this), "handleContextMenu", function (e) {
         e.preventDefault();
         e.stopPropagation();
 
@@ -290,7 +290,7 @@
         }
       });
 
-      _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleDoubleClick", function (e) {
+      _defineProperty(_assertThisInitialized(_this), "handleDoubleClick", function (e) {
         if (_this.props.onDoubleClick) {
           _this.props.onDoubleClick(e);
         }
@@ -551,7 +551,7 @@
       return React__default.createElement(StandardMenuItem, _extends({
         key: "StandardMenu-item-".concat(option.title)
       }, option, {
-        value: _toConsumableArray(props.value).concat([option.title]),
+        value: [].concat(_toConsumableArray(props.value), [option.title]),
         closeOnClick: props.closeOnClick,
         mouseEnterItem: props.mouseEnterItem
       }));
@@ -598,13 +598,13 @@
 
         _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(StandardMenuSimple)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
-        _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "state", {
+        _defineProperty(_assertThisInitialized(_this), "state", {
           options: _this.props.options,
           isActive: _this.props.isActive,
           isOpen: false
         });
 
-        _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "mouseEnterItem", function (e) {
+        _defineProperty(_assertThisInitialized(_this), "mouseEnterItem", function (e) {
           if (e.target.value) {
             var newOptions = _this.updateActive(e.target.value.split(','), clone(_this.props.options), 0);
 
@@ -614,17 +614,17 @@
           }
         });
 
-        _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "addBlurListener", function () {
+        _defineProperty(_assertThisInitialized(_this), "addBlurListener", function () {
           document.body.addEventListener('click', _this.handleBlur);
           document.body.addEventListener('mousedown', _this.handleBlur);
         });
 
-        _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "removeBlurListener", function () {
+        _defineProperty(_assertThisInitialized(_this), "removeBlurListener", function () {
           document.body.removeEventListener('click', _this.handleBlur);
           document.body.removeEventListener('mousedown', _this.handleBlur);
         });
 
-        _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "buttonClick", function () {
+        _defineProperty(_assertThisInitialized(_this), "buttonClick", function () {
           if (_this.state.isOpen) {
             _this.removeBlurListener();
 
@@ -642,7 +642,7 @@
           }
         });
 
-        _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleEvent", function (newState) {
+        _defineProperty(_assertThisInitialized(_this), "handleEvent", function (newState) {
           return function (onEvent) {
             return function (e) {
               if (onEvent) {
@@ -656,13 +656,13 @@
           };
         });
 
-        _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleContextMenu", function (e) {
+        _defineProperty(_assertThisInitialized(_this), "handleContextMenu", function (e) {
           return _this.handleEvent({
             isOpen: true
           })(_this.props.onContextMenu)(e);
         });
 
-        _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleBlur", function (e) {
+        _defineProperty(_assertThisInitialized(_this), "handleBlur", function (e) {
           if (_this.el && !_this.el.contains(e.target)) {
             _this.handleEvent({
               isOpen: false,
@@ -671,7 +671,7 @@
           }
         });
 
-        _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleSelectionClose", _this.handleEvent({
+        _defineProperty(_assertThisInitialized(_this), "handleSelectionClose", _this.handleEvent({
           isOpen: false,
           options: _this.props.options
         }));
@@ -794,17 +794,17 @@
 
       _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(AbstractIcon)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
-      _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "state", {
+      _defineProperty(_assertThisInitialized(_this), "state", {
         doubleReady: false
       });
 
-      _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "disableAction", function () {
+      _defineProperty(_assertThisInitialized(_this), "disableAction", function () {
         _this.setState({
           doubleReady: false
         });
       });
 
-      _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "checkDoubleClick", function () {
+      _defineProperty(_assertThisInitialized(_this), "checkDoubleClick", function () {
         if (_this.props.onClick) {
           _this.props.onClick();
         }
@@ -826,7 +826,7 @@
         }
       });
 
-      _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleClick", function () {
+      _defineProperty(_assertThisInitialized(_this), "handleClick", function () {
         _this.icon.focus();
 
         if (_this.props.onClick) {
@@ -834,7 +834,7 @@
         }
       });
 
-      _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleContextMenu", function (e) {
+      _defineProperty(_assertThisInitialized(_this), "handleContextMenu", function (e) {
         e.preventDefault();
 
         _this.icon.focus();
@@ -1038,11 +1038,11 @@
 
       _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(InputText)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
-      _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "state", {
+      _defineProperty(_assertThisInitialized(_this), "state", {
         value: _this.props.initialValue
       });
 
-      _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleChange", function (e) {
+      _defineProperty(_assertThisInitialized(_this), "handleChange", function (e) {
         if (_this.props.initialValue) {
           _this.setState({
             value: e.target.value
@@ -1052,7 +1052,7 @@
         _this.props.onChange(e.target.value);
       });
 
-      _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleBlur", function () {
+      _defineProperty(_assertThisInitialized(_this), "handleBlur", function () {
         _this.props.onBlur(_this.state.value);
       });
 
@@ -1201,7 +1201,7 @@
 
       _this = _possibleConstructorReturn(this, _getPrototypeOf(Select).call(this, props));
 
-      _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleChange", function (e) {
+      _defineProperty(_assertThisInitialized(_this), "handleChange", function (e) {
         if (_this.props.onChange) {
           _this.setState({
             value: e.value
@@ -1311,7 +1311,7 @@
 
       _this = _possibleConstructorReturn(this, _getPrototypeOf(SelectMultipleSimple).call(this, props));
 
-      _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "updateValue", function (value) {
+      _defineProperty(_assertThisInitialized(_this), "updateValue", function (value) {
         _this.setState({
           value: value
         });
@@ -1319,7 +1319,7 @@
         _this.props.onChange(value);
       });
 
-      _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleChange", function (event) {
+      _defineProperty(_assertThisInitialized(_this), "handleChange", function (event) {
         if (_this.props.multiple) {
           var selectedIndex = _this.state.value.findIndex(function (val) {
             return val === event.target.value;
@@ -1328,7 +1328,7 @@
           var isSelected = selectedIndex !== -1;
 
           if (!isSelected && _this.props.selectMultiple) {
-            _this.updateValue(_toConsumableArray(_this.state.value).concat([event.target.value]));
+            _this.updateValue([].concat(_toConsumableArray(_this.state.value), [event.target.value]));
 
             return;
           }
@@ -1340,7 +1340,7 @@
           }
 
           if (isSelected) {
-            _this.updateValue(_toConsumableArray(_this.state.value.slice(0, selectedIndex)).concat(_toConsumableArray(_this.state.value.slice(selectedIndex + 1))));
+            _this.updateValue([].concat(_toConsumableArray(_this.state.value.slice(0, selectedIndex)), _toConsumableArray(_this.state.value.slice(selectedIndex + 1))));
 
             return;
           }
@@ -1485,7 +1485,7 @@
 
       _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(Time)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
-      _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "state", {
+      _defineProperty(_assertThisInitialized(_this), "state", {
         time: _this.props.time ? new Date(_this.props.time) : new Date()
       });
 
@@ -1609,11 +1609,11 @@
 
       _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(WindowAbstract)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
-      _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "state", {
-        maximized: _this.props.maximized
+      _defineProperty(_assertThisInitialized(_this), "state", {
+        maximized: _this.props.maximizeOnOpen
       });
 
-      _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleMaximize", function (e) {
+      _defineProperty(_assertThisInitialized(_this), "handleMaximize", function (e) {
         _this.setState({
           maximized: true
         });
@@ -1623,7 +1623,7 @@
         }
       });
 
-      _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleRestore", function (e) {
+      _defineProperty(_assertThisInitialized(_this), "handleRestore", function (e) {
         _this.setState({
           maximized: false
         });
@@ -1678,7 +1678,8 @@
   }(React.Component);
 
   _defineProperty(WindowAbstract, "defaultProps", {
-    title: '...'
+    title: '...',
+    resizable: true
   });
 
   var windowProps = {
@@ -1690,7 +1691,8 @@
     onClose: PropTypes.func,
     onMinimize: PropTypes.func,
     onMaximize: PropTypes.func,
-    onRestore: PropTypes.func
+    onRestore: PropTypes.func,
+    maximizeOnOpen: PropTypes.bool
   };
   WindowAbstract.propTypes = windowProps;
 
@@ -1770,39 +1772,9 @@
     _inherits(WindowProgram, _React$Component);
 
     function WindowProgram() {
-      var _getPrototypeOf2;
-
-      var _this;
-
       _classCallCheck(this, WindowProgram);
 
-      for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-        args[_key] = arguments[_key];
-      }
-
-      _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(WindowProgram)).call.apply(_getPrototypeOf2, [this].concat(args)));
-
-      _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "state", {
-        isMaximized: _this.props.maximizeOnOpen
-      });
-
-      _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "maximize", function (e) {
-        _this.setState({
-          isMaximized: true
-        });
-
-        _this.props.onMaximize && _this.props.onMaximize(e);
-      });
-
-      _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "restore", function (e) {
-        _this.setState({
-          isMaximized: false
-        });
-
-        _this.props.onRestore && _this.props.onRestore(e);
-      });
-
-      return _this;
+      return _possibleConstructorReturn(this, _getPrototypeOf(WindowProgram).apply(this, arguments));
     }
 
     _createClass(WindowProgram, [{
@@ -1815,8 +1787,8 @@
           icon: props.icon,
           onClose: props.onClose,
           onMinimize: props.onMinimize,
-          onMaximize: this.maximize,
-          onRestore: this.restore,
+          onMaximize: props.onMaximize,
+          onRestore: props.onRestore,
           title: props.title,
           resizable: props.resizable
         }, Array.isArray(props.menuOptions) && React__default.createElement(MenuBar, {
@@ -1831,10 +1803,13 @@
     return WindowProgram;
   }(React__default.Component);
 
+  _defineProperty(WindowProgram, "defaultProps", {
+    onMaximize: function onMaximize() {}
+  });
+
   WindowProgram.propTypes = _objectSpread({}, WindowAbstract.propTypes, {
     menuOptions: PropTypes.arrayOf(PropTypes.any),
-    footer: PropTypes.arrayOf(PropTypes.shape(footerType)),
-    maximizeOnOpen: PropTypes.bool
+    footer: PropTypes.arrayOf(PropTypes.shape(footerType))
   });
 
   var css$o = ".options-list__dropdown {\n  position: absolute;\n  right: 2px;\n  top: 2px;\n  height: calc(100% - 4px); }\n  .options-list__dropdown--empty {\n    display: none; }\n  .options-list__dropdown__button {\n    height: 100%;\n    border: none;\n    background-color: #bbc3c4;\n    background-image: url(\"data:image/gif;base64,R0lGODlhCAAFAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAIAAUAAAIKBCSGebzqoJKtAAA7\");\n    background-repeat: no-repeat;\n    background-position: 2px 3px;\n    padding: 0px 6px;\n    font-size: 0.7rem;\n    user-select: none;\n    letter-spacing: -2px;\n    display: flex;\n    flex-direction: column; }\n    .options-list__dropdown__button:hover {\n      box-shadow: inset -1px -1px 0px #808088, inset 1px 1px 0px #ffffff; }\n    .options-list__dropdown__button:active, .options-list__dropdown__button:focus, .options-list__dropdown__button:active:focus {\n      outline: none;\n      background-position: 3px 4px;\n      box-shadow: inset -1px -1px 0px #ffffff, inset 1px 1px 0px #808088; }\n      .options-list__dropdown__button:active + .options-list__dropdown__list, .options-list__dropdown__button:focus + .options-list__dropdown__list, .options-list__dropdown__button:active:focus + .options-list__dropdown__list {\n        position: absolute;\n        top: 100%;\n        right: 0px;\n        display: block;\n        z-index: 10; }\n  .options-list__dropdown .options-list__dropdown__list {\n    display: none; }\n";
@@ -1858,7 +1833,7 @@
 
       _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(OptionsListDropdown)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
-      _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "openList", function () {
+      _defineProperty(_assertThisInitialized(_this), "openList", function () {
         _this.dropdownButton.focus();
       });
 
@@ -1906,7 +1881,7 @@
 
       _this3 = _possibleConstructorReturn(this, (_getPrototypeOf3 = _getPrototypeOf(OptionsList)).call.apply(_getPrototypeOf3, [this].concat(args)));
 
-      _defineProperty(_assertThisInitialized(_assertThisInitialized(_this3)), "state", {
+      _defineProperty(_assertThisInitialized(_this3), "state", {
         displayedIcons: [],
         dropdown: []
       });

@@ -9,14 +9,16 @@ import './styles/WindowAbstract.scss';
 class WindowAbstract extends Component {
   static defaultProps = {
     title: '...',
+    resizable: true,
   };
 
   state = {
-    maximized: this.props.maximized,
+    maximized: this.props.maximizeOnOpen,
   };
 
   handleMaximize = e => {
     this.setState({ maximized: true });
+
     if (this.props.onMaximize) {
       this.props.onMaximize(e);
     }
@@ -96,6 +98,7 @@ export const windowProps = {
   onMinimize: PropTypes.func,
   onMaximize: PropTypes.func,
   onRestore: PropTypes.func,
+  maximizeOnOpen: PropTypes.bool,
 };
 
 WindowAbstract.propTypes = windowProps;
