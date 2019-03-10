@@ -5,32 +5,28 @@ import StandardMenu from './StandardMenu';
 
 const StandardMenuItem = props => (
   <div
-    className={
-      cx(
-        'StandardMenuItem',
-        props.className,
-        props.type,
-        { 'StandardMenuItem--has-options': props.options, 'active': props.isActive },
-      )
-    }
+    className={cx('StandardMenuItem', props.className, props.type, {
+      'StandardMenuItem--has-options': props.options,
+      active: props.isActive,
+    })}
     onMouseEnter={props.mouseEnterItem}
     onTouchStart={props.mouseEnterItem}
   >
     <button
-      className={
-        cx(
-          'StandardMenuItem__button',
-          { disabled: props.isDisabled },
-        )
+      className={cx('StandardMenuItem__button', { disabled: props.isDisabled })}
+      onClick={
+        !props.options && !props.isDisabled
+          ? props.closeOnClick(props.onClick)
+          : undefined
       }
-      onClick={!props.options ? props.closeOnClick(props.onClick) : undefined}
-      style={props.icon ? { backgroundImage: `url('${props.icon}')` } : undefined}
+      style={
+        props.icon ? { backgroundImage: `url('${props.icon}')` } : undefined
+      }
       value={props.value}
-      disabled={props.isDisabled}
     >
       {props.title}
     </button>
-    { props.options && (
+    {props.options && (
       <StandardMenu
         className="StandardMenuItem__child"
         options={props.options}
@@ -44,7 +40,9 @@ const StandardMenuItem = props => (
 
 StandardMenuItem.defaultProps = {
   onClick: () => {},
-  closeOnClick: () => { console.error('Menus require a closeOnClick prop to function correctly'); }, // eslint-disable-line
+  closeOnClick: () => {
+    console.error('Menus require a closeOnClick prop to function correctly'); // eslint-disable-line
+  },
   value: [],
 };
 
@@ -62,6 +60,5 @@ StandardMenuItem.propTypes = {
 };
 
 export const standardMenuItemProps = StandardMenuItem.propTypes;
-
 
 export default StandardMenuItem;

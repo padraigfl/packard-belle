@@ -47,6 +47,7 @@ class AbstractIcon extends Component {
 
   render() {
     const { props } = this;
+    const Comp = props.href ? 'a' : 'button';
 
     const iconProps = {
       onDoubleClick: props.onDoubleClick,
@@ -58,6 +59,7 @@ class AbstractIcon extends Component {
       ref: icon => {
         this.icon = icon;
       },
+      href: props.href,
     };
 
     const contents = (
@@ -72,14 +74,14 @@ class AbstractIcon extends Component {
 
     if (this.props.onClick || this.props.onDoubleClick) {
       return (
-        <button
+        <Comp
           ref={icon => {
             this.icon = icon;
           }}
           {...iconProps}
         >
           {contents}
-        </button>
+        </Comp>
       );
     }
     return <div {...iconProps}>{contents}</div>;
@@ -96,6 +98,7 @@ export const iconProps = {
   onClick: PropTypes.func,
   onDoubleClick: PropTypes.func,
   onContextMenu: PropTypes.func,
+  href: PropTypes.string,
 };
 
 AbstractIcon.propTypes = iconProps;

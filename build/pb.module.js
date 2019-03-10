@@ -466,7 +466,7 @@ var StandardMenuItem = function StandardMenuItem(props) {
   return React.createElement("div", {
     className: cx('StandardMenuItem', props.className, props.type, {
       'StandardMenuItem--has-options': props.options,
-      'active': props.isActive
+      active: props.isActive
     }),
     onMouseEnter: props.mouseEnterItem,
     onTouchStart: props.mouseEnterItem
@@ -474,12 +474,11 @@ var StandardMenuItem = function StandardMenuItem(props) {
     className: cx('StandardMenuItem__button', {
       disabled: props.isDisabled
     }),
-    onClick: !props.options ? props.closeOnClick(props.onClick) : undefined,
+    onClick: !props.options && !props.isDisabled ? props.closeOnClick(props.onClick) : undefined,
     style: props.icon ? {
       backgroundImage: "url('".concat(props.icon, "')")
     } : undefined,
-    value: props.value,
-    disabled: props.isDisabled
+    value: props.value
   }, props.title), props.options && React.createElement(StandardMenu, {
     className: "StandardMenuItem__child",
     options: props.options,
@@ -492,9 +491,8 @@ var StandardMenuItem = function StandardMenuItem(props) {
 StandardMenuItem.defaultProps = {
   onClick: function onClick() {},
   closeOnClick: function closeOnClick() {
-    console.error('Menus require a closeOnClick prop to function correctly');
+    console.error('Menus require a closeOnClick prop to function correctly'); // eslint-disable-line
   },
-  // eslint-disable-line
   value: []
 };
 StandardMenuItem.propTypes = {
@@ -848,6 +846,7 @@ function (_Component) {
       var _this2 = this;
 
       var props = this.props;
+      var Comp = props.href ? 'a' : 'button';
       var iconProps = {
         onDoubleClick: props.onDoubleClick,
         onClick: this.handleClick,
@@ -857,7 +856,8 @@ function (_Component) {
         value: props.value,
         ref: function ref(icon) {
           _this2.icon = icon;
-        }
+        },
+        href: props.href
       };
       var contents = React.createElement(React.Fragment, null, React.createElement("div", {
         className: "icon__icon",
@@ -869,7 +869,7 @@ function (_Component) {
       }, props.title));
 
       if (this.props.onClick || this.props.onDoubleClick) {
-        return React.createElement("button", _extends({
+        return React.createElement(Comp, _extends({
           ref: function ref(icon) {
             _this2.icon = icon;
           }
@@ -892,11 +892,12 @@ var iconProps = {
   value: PropTypes.any,
   onClick: PropTypes.func,
   onDoubleClick: PropTypes.func,
-  onContextMenu: PropTypes.func
+  onContextMenu: PropTypes.func,
+  href: PropTypes.string
 };
 AbstractIcon.propTypes = iconProps;
 
-var css$a = ".icon.ExplorerIcon {\n  position: relative;\n  display: block;\n  outline: none;\n  background: none;\n  border: none;\n  width: 58px;\n  height: 70px;\n  text-align: center;\n  display: flex;\n  flex-direction: column;\n  align-items: center; }\n  .icon.ExplorerIcon .icon__icon {\n    display: block;\n    background-size: contain;\n    background-position: center;\n    background-repeat: no-repeat; }\n  .icon.ExplorerIcon:focus, .icon.ExplorerIcon:active, .icon.ExplorerIcon:active:focus, .icon.ExplorerIcon.is-active {\n    outline: none; }\n    .icon.ExplorerIcon:focus .icon__icon, .icon.ExplorerIcon:active .icon__icon, .icon.ExplorerIcon:active:focus .icon__icon, .icon.ExplorerIcon.is-active .icon__icon {\n      filter: hue-rotate(70deg) contrast(0.3) saturate(2); }\n    .icon.ExplorerIcon:focus .icon__text, .icon.ExplorerIcon:active .icon__text, .icon.ExplorerIcon:active:focus .icon__text, .icon.ExplorerIcon.is-active .icon__text {\n      background-color: #0000a2;\n      color: #ffffff;\n      outline: 1px dotted #ffffff;\n      outline-offset: -1px; }\n  .icon.ExplorerIcon .icon__icon {\n    width: 42px;\n    height: 42px;\n    margin: 0 3px; }\n  .icon.ExplorerIcon .icon__text {\n    position: absolute;\n    top: 45px;\n    padding: 2px 6px 0px;\n    max-height: 21px;\n    max-width: 100%;\n    overflow-y: hidden;\n    display: inline-block; }\n  .icon.ExplorerIcon:focus .icon__text, .icon.ExplorerIcon:active .icon__text, .icon.ExplorerIcon:active:focus .icon__text, .icon.ExplorerIcon.active .icon__text, .icon.ExplorerIcon.clicked .icon__text {\n    padding: 2px 6px;\n    max-height: initial;\n    z-index: 1; }\n";
+var css$a = ".icon.ExplorerIcon {\n  position: relative;\n  display: block;\n  outline: none;\n  background: none;\n  border: none;\n  color: initial;\n  text-decoration: none;\n  padding: 1px 7px 2px;\n  width: 58px;\n  height: 70px;\n  text-align: center;\n  display: flex;\n  flex-direction: column;\n  align-items: center; }\n  .icon.ExplorerIcon .icon__icon {\n    display: block;\n    background-size: contain;\n    background-position: center;\n    background-repeat: no-repeat; }\n  .icon.ExplorerIcon:focus, .icon.ExplorerIcon:active, .icon.ExplorerIcon:active:focus, .icon.ExplorerIcon.is-active {\n    outline: none; }\n    .icon.ExplorerIcon:focus .icon__icon, .icon.ExplorerIcon:active .icon__icon, .icon.ExplorerIcon:active:focus .icon__icon, .icon.ExplorerIcon.is-active .icon__icon {\n      filter: hue-rotate(70deg) contrast(0.3) saturate(2); }\n    .icon.ExplorerIcon:focus .icon__text, .icon.ExplorerIcon:active .icon__text, .icon.ExplorerIcon:active:focus .icon__text, .icon.ExplorerIcon.is-active .icon__text {\n      background-color: #0000a2;\n      color: #ffffff;\n      outline: 1px dotted #ffffff;\n      outline-offset: -1px; }\n  .icon.ExplorerIcon .icon__icon {\n    width: 42px;\n    height: 42px;\n    margin: 0 3px; }\n  .icon.ExplorerIcon .icon__text {\n    position: absolute;\n    top: 45px;\n    padding: 2px 6px 0px;\n    max-height: 22px;\n    max-width: 100%;\n    overflow-y: hidden;\n    display: inline-block; }\n  .icon.ExplorerIcon:focus .icon__text, .icon.ExplorerIcon:active .icon__text, .icon.ExplorerIcon:active:focus .icon__text, .icon.ExplorerIcon.active .icon__text, .icon.ExplorerIcon.clicked .icon__text {\n    padding: 2px 6px;\n    max-height: initial;\n    z-index: 1; }\n";
 styleInject(css$a);
 
 var ExplorerIcon = function ExplorerIcon(props) {
@@ -907,13 +908,14 @@ var ExplorerIcon = function ExplorerIcon(props) {
     alt: props.alt,
     className: cx('ExplorerIcon', props.className),
     icon: props.icon,
-    title: props.title
+    title: props.title,
+    href: props.href
   });
 };
 
 ExplorerIcon.propTypes = iconProps;
 
-var css$b = ".icon.ListIcon {\n  position: relative;\n  display: block;\n  outline: none;\n  background: none;\n  border: none;\n  height: 18px;\n  margin: 2px;\n  text-align: left;\n  display: flex;\n  align-items: center; }\n  .icon.ListIcon .icon__icon {\n    display: block;\n    background-size: contain;\n    background-position: center;\n    background-repeat: no-repeat; }\n  .icon.ListIcon:focus, .icon.ListIcon:active, .icon.ListIcon:active:focus, .icon.ListIcon.is-active {\n    outline: none; }\n    .icon.ListIcon:focus .icon__icon, .icon.ListIcon:active .icon__icon, .icon.ListIcon:active:focus .icon__icon, .icon.ListIcon.is-active .icon__icon {\n      filter: hue-rotate(70deg) contrast(0.3) saturate(2); }\n    .icon.ListIcon:focus .icon__text, .icon.ListIcon:active .icon__text, .icon.ListIcon:active:focus .icon__text, .icon.ListIcon.is-active .icon__text {\n      background-color: #0000a2;\n      color: #ffffff;\n      outline: 1px dotted #ffffff;\n      outline-offset: -1px; }\n  .icon.ListIcon .icon__icon {\n    display: inline-block;\n    width: 16px;\n    height: 16px;\n    margin-right: 2px; }\n  .icon.ListIcon .icon__text {\n    position: relative;\n    padding: 2px;\n    display: inline-block;\n    overflow: hidden;\n    white-space: nowrap;\n    text-overflow: ellipsis;\n    width: calc(100% - 20px);\n    padding-bottom: 3px; }\n  .icon.ListIcon:focus .icon__text, .icon.ListIcon:active .icon__text, .icon.ListIcon:active:focus .icon__text, .icon.ListIcon.active .icon__text, .icon.ListIcon.clicked .icon__text {\n    max-height: initial; }\n";
+var css$b = ".icon.ListIcon {\n  position: relative;\n  display: block;\n  outline: none;\n  background: none;\n  border: none;\n  color: initial;\n  text-decoration: none;\n  padding: 1px 7px 2px;\n  height: 18px;\n  margin: 2px;\n  text-align: left;\n  display: flex;\n  align-items: center; }\n  .icon.ListIcon .icon__icon {\n    display: block;\n    background-size: contain;\n    background-position: center;\n    background-repeat: no-repeat; }\n  .icon.ListIcon:focus, .icon.ListIcon:active, .icon.ListIcon:active:focus, .icon.ListIcon.is-active {\n    outline: none; }\n    .icon.ListIcon:focus .icon__icon, .icon.ListIcon:active .icon__icon, .icon.ListIcon:active:focus .icon__icon, .icon.ListIcon.is-active .icon__icon {\n      filter: hue-rotate(70deg) contrast(0.3) saturate(2); }\n    .icon.ListIcon:focus .icon__text, .icon.ListIcon:active .icon__text, .icon.ListIcon:active:focus .icon__text, .icon.ListIcon.is-active .icon__text {\n      background-color: #0000a2;\n      color: #ffffff;\n      outline: 1px dotted #ffffff;\n      outline-offset: -1px; }\n  .icon.ListIcon .icon__icon {\n    display: inline-block;\n    width: 16px;\n    height: 16px;\n    margin-right: 2px; }\n  .icon.ListIcon .icon__text {\n    position: relative;\n    padding: 2px;\n    display: inline-block;\n    overflow: hidden;\n    white-space: nowrap;\n    text-overflow: ellipsis;\n    width: calc(100% - 20px);\n    padding-bottom: 3px; }\n  .icon.ListIcon:focus .icon__text, .icon.ListIcon:active .icon__text, .icon.ListIcon:active:focus .icon__text, .icon.ListIcon.active .icon__text, .icon.ListIcon.clicked .icon__text {\n    max-height: initial; }\n";
 styleInject(css$b);
 
 var ListIcon = function ListIcon(props) {
@@ -925,7 +927,8 @@ var ListIcon = function ListIcon(props) {
     className: cx('ListIcon', props.className),
     icon: props.icon,
     title: props.title,
-    value: props.value
+    value: props.value,
+    href: props.href
   });
 };
 
@@ -1700,7 +1703,8 @@ var WindowAlert = function WindowAlert(props) {
     className: "WindowAlert",
     onClose: props.onClose,
     onHelp: props.onHelp,
-    title: "Error"
+    title: "Error",
+    resizabled: false
   }, React.createElement("div", {
     className: cx('WindowAlert__message', {
       'has-icon': props.icon
