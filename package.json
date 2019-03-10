@@ -10,7 +10,7 @@
     "watch": "rollup -c rollup.config.babel.js -w",
     "storybook": "start-storybook -p 9001 -c .storybook",
     "build": "build-storybook -c .storybook -o .out",
-    "build:css": "node-sass src/_scss/w98_simple.scss -o build",
+    "build:css": "node-sass src/_scss/w98_simple.scss -o css",
     "test": "jest --env=jsdom",
     "test:watch": "jest --env=jsdom --no-cache --watch",
     "coverage": "jest --env=jsdom --coverage",
