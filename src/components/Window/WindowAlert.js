@@ -8,7 +8,7 @@ import './styles/WindowAlert.scss';
 
 const WindowAlert = props => (
   <WindowAbstract
-    className="WindowAlert"
+    className={cx('WindowAlert', props.className)}
     onClose={props.onClose}
     onHelp={props.onHelp}
     title="Error"
