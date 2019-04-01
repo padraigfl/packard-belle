@@ -12,7 +12,7 @@ const WindowAlert = props => (
     onClose={props.onClose}
     onHelp={props.onHelp}
     title="Error"
-    resizabled={false}
+    resizable={false}
   >
     <div
       className={cx('WindowAlert__message', { 'has-icon': props.icon })}
