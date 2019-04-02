@@ -16,10 +16,16 @@ $w98-text: "data:image/gif;base64,R0lGODlhDgBkALMAAAAAAP///wIAsZKSmZKTmpGSmZKTmc
   display: flex;
 
   > div,
-  > button {
+  > button,
+  > a {
     position: relative;
     height: 22px;
     margin: 0px 2px;
+  }
+
+  a {
+    display: inline-flex !important;
+    align-items: center;
   }
 
   > div:not(:last-child) {
@@ -63,7 +69,8 @@ $w98-text: "data:image/gif;base64,R0lGODlhDgBkALMAAAAAAP///wIAsZKSmZKTmpGSmZKTmc
   }
   &__start {
     position: relative;
-    > button {
+    > button,
+    > a {
       + div {
         @media (min-height: 720px) and (min-width: 960px) {
           transition: max-height linear 200ms;
@@ -96,7 +103,8 @@ $w98-text: "data:image/gif;base64,R0lGODlhDgBkALMAAAAAAP///wIAsZKSmZKTmpGSmZKTmc
           display: flex;
           align-items: center;
           margin-left: 20px;
-          > button {
+          > button,
+          > a {
             height: 32px;
             padding-left: 32px;
             background-size: 22px;

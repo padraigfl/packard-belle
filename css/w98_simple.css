@@ -658,7 +658,8 @@ select[multiple] {
     overflow: hidden;
     text-overflow: ellipsis;
     flex-grow: 1;
-    min-width: 0px; }
+    min-width: 0px;
+    user-select: none; }
   .window__close,
   .Window__close {
     margin-left: 2px;

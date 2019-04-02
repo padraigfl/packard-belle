@@ -3,40 +3,43 @@ import PropTypes from 'prop-types';
 import cx from 'classnames';
 import StandardMenu from './StandardMenu';
 
-const StandardMenuItem = props => (
-  <div
-    className={cx('StandardMenuItem', props.className, props.type, {
-      'StandardMenuItem--has-options': props.options,
-      active: props.isActive,
-    })}
-    onMouseEnter={props.mouseEnterItem}
-    onTouchStart={props.mouseEnterItem}
-  >
-    <button
-      className={cx('StandardMenuItem__button', { disabled: props.isDisabled })}
-      onClick={
-        !props.options && !props.isDisabled
-          ? props.closeOnClick(props.onClick)
-          : undefined
-      }
-      style={
-        props.icon ? { backgroundImage: `url('${props.icon}')` } : undefined
-      }
-      value={props.value}
+const StandardMenuItem = props => {
+  const Comp = props.href ? 'a' : 'button';
+  return (
+    <div
+      className={cx('StandardMenuItem', props.className, props.type, {
+        'StandardMenuItem--has-options': props.options,
+        active: props.isActive,
+      })}
+      onMouseEnter={props.mouseEnterItem}
+      onTouchStart={props.mouseEnterItem}
     >
-      {props.title}
-    </button>
-    {props.options && (
-      <StandardMenu
-        className="StandardMenuItem__child"
-        options={props.options}
+      <Comp
+        className={cx('StandardMenuItem__button', { disabled: props.isDisabled })}
+        onClick={
+          !props.options && !props.isDisabled
+            ? props.closeOnClick(props.onClick)
+            : undefined
+        }
+        style={
+          props.icon ? { backgroundImage: `url('${props.icon}')` } : undefined
+        }
         value={props.value}
-        mouseEnterItem={props.mouseEnterItem}
-        closeOnClick={props.closeOnClick}
-      />
-    )}
-  </div>
-);
+      >
+        {props.title}
+      </Comp>
+      {props.options && (
+        <StandardMenu
+          className="StandardMenuItem__child"
+          options={props.options}
+          value={props.value}
+          mouseEnterItem={props.mouseEnterItem}
+          closeOnClick={props.closeOnClick}
+        />
+      )}
+    </div>
+  );
+}
 
 StandardMenuItem.defaultProps = {
   onClick: () => {},

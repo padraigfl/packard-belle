@@ -95,7 +95,8 @@ $windowPadding: 3px;
   text-overflow: clip;
   > div {
     position: relative;
-    > button {
+    > button,
+    > a {
       user-select: none;
       position: relative;
       display: block;
@@ -143,18 +144,21 @@ $windowPadding: 3px;
       }
     }
     &.radio-selected {
-      > button {
+      > button,
+      > a {
         &:before {
           background-image: url($menu-radio);
         }
       }
     }
     &.checked {
-      > button:before {
+      > button:before,
+      > a:before {
         background-image: url($menu-checked);
       }
       &.disabled {
-        > button:before {
+        > button:before,
+        > a:before {
           background-image: url($menu-checked-disabled);
         }
       }
@@ -162,7 +166,8 @@ $windowPadding: 3px;
     &.active,
     &.clicked {
       color: #ffffff;
-      > button:not(.disabled) {
+      > button:not(.disabled),
+      > a:not(.disabled) {
         color: #ffffff;
         background-color: $blue;
         &:not(:only-child) {
