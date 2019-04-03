@@ -1795,7 +1795,8 @@ function (_React$Component) {
         onRestore: props.onRestore,
         title: props.title,
         resizable: props.resizable,
-        changingState: props.changingState
+        changingState: props.changingState,
+        maximizeOnOpen: props.maximizeOnOpen
       }, Array.isArray(props.menuOptions) && React.createElement(MenuBar, {
         className: "WindowProgram__menu",
         options: props.menuOptions
@@ -1974,7 +1975,7 @@ function (_React$Component) {
       }, React.createElement("div", {
         className: "WindowExplorer__address__title"
       }, "Address"), React.createElement(Select, {
-        placeholder: React.createElement("span", null, "Test"),
+        placeholder: React.createElement("span", null, props.title || 'test'),
         isDisabled: true
       })), React.createElement("div", {
         className: "WindowExplorer__view"

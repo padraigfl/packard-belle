@@ -1801,7 +1801,8 @@
           onRestore: props.onRestore,
           title: props.title,
           resizable: props.resizable,
-          changingState: props.changingState
+          changingState: props.changingState,
+          maximizeOnOpen: props.maximizeOnOpen
         }, Array.isArray(props.menuOptions) && React__default.createElement(MenuBar, {
           className: "WindowProgram__menu",
           options: props.menuOptions
@@ -1980,7 +1981,7 @@
         }, React__default.createElement("div", {
           className: "WindowExplorer__address__title"
         }, "Address"), React__default.createElement(Select, {
-          placeholder: React__default.createElement("span", null, "Test"),
+          placeholder: React__default.createElement("span", null, props.title || 'test'),
           isDisabled: true
         })), React__default.createElement("div", {
           className: "WindowExplorer__view"
