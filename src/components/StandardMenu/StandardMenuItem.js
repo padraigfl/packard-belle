@@ -4,7 +4,8 @@ import cx from 'classnames';
 import StandardMenu from './StandardMenu';
 
 const StandardMenuItem = props => {
-  const Comp = props.href ? 'a' : 'button';
+  const Compo = props.href ? 'a' : 'button';
+  const Comp = props.Comp || Compo;
   return (
     <div
       className={cx('StandardMenuItem', props.className, props.type, {
@@ -15,7 +16,9 @@ const StandardMenuItem = props => {
       onTouchStart={props.mouseEnterItem}
     >
       <Comp
-        className={cx('StandardMenuItem__button', { disabled: props.isDisabled })}
+        className={cx('StandardMenuItem__button', {
+          disabled: props.isDisabled,
+        })}
         onClick={
           !props.options && !props.isDisabled
             ? props.closeOnClick(props.onClick)
@@ -24,7 +27,9 @@ const StandardMenuItem = props => {
         style={
           props.icon ? { backgroundImage: `url('${props.icon}')` } : undefined
         }
+        href={props.href}
         value={props.value}
+        to={props.href}
       >
         {props.title}
       </Comp>
@@ -39,7 +44,7 @@ const StandardMenuItem = props => {
       )}
     </div>
   );
-}
+};
 
 StandardMenuItem.defaultProps = {
   onClick: () => {},

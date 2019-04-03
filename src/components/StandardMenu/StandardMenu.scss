@@ -4,6 +4,10 @@
   @include standard-menu(".StandardMenu");
 
   @include standard-menu-css(".StandardMenu");
+  a {
+    text-decoration: none;
+    color: black;
+  }
 }
 
 .StandardMenuItem {
