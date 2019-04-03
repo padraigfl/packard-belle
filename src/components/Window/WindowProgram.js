@@ -59,6 +59,7 @@ class WindowProgram extends React.Component {
         title={props.title}
         resizable={props.resizable}
         changingState={props.changingState}
+        maximizeOnOpen={props.maximizeOnOpen}
       >
         {Array.isArray(props.menuOptions) && (
           <MenuBar

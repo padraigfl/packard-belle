@@ -37,7 +37,10 @@ class WindowExplorer extends React.Component {
         )}
         <menu className="WindowExplorer__address">
           <div className="WindowExplorer__address__title">Address</div>
-          <Select placeholder={<span>Test</span>} isDisabled />
+          <Select
+            placeholder={<span>{props.title || 'test'}</span>}
+            isDisabled
+          />
         </menu>
         <div className="WindowExplorer__view">{props.children}</div>
       </WindowProgram>
