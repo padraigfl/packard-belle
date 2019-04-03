@@ -1981,7 +1981,7 @@
         }, React__default.createElement("div", {
           className: "WindowExplorer__address__title"
         }, "Address"), React__default.createElement(Select, {
-          placeholder: React__default.createElement("span", null, props.title || 'test'),
+          placeholder: React__default.createElement("span", null, "www.padraigs-website.com/", props.title ? props.title.replace(' ', '-') : ''),
           isDisabled: true
         })), React__default.createElement("div", {
           className: "WindowExplorer__view"

@@ -1975,7 +1975,7 @@ function (_React$Component) {
       }, React.createElement("div", {
         className: "WindowExplorer__address__title"
       }, "Address"), React.createElement(Select, {
-        placeholder: React.createElement("span", null, props.title || 'test'),
+        placeholder: React.createElement("span", null, "www.padraigs-website.com/", props.title ? props.title.replace(' ', '-') : ''),
         isDisabled: true
       })), React.createElement("div", {
         className: "WindowExplorer__view"
