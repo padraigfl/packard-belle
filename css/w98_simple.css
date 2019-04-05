@@ -5,7 +5,17 @@
 
 @font-face {
   font-family: "MSFont11";
-  src: url("./fonts/ms98s11a10d02.ttf") format("woff2"); }
+  src: url("./fonts/ms98s11a10d02.ttf") format("ttf"); }
+
+@font-face {
+  font-family: "MSSansSerif";
+  src: url("./fonts/MSSansSerif.woff2") format("woff2");
+  font-weight: normal; }
+
+@font-face {
+  font-family: "MSSansSerif";
+  src: url("./fonts/MSSansSerifBold.woff2") format("woff2");
+  font-weight: bold; }
 
 html {
   font-size: 11px; }
@@ -15,14 +25,14 @@ html {
     padding: 0px;
     margin: 0px; }
   html body {
-    font-family: "MSFont", "MSFont11", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-family: "MSSansSerif", "MSFont", "MSFont11", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     min-width: 200px;
     margin: 0px; }
   html .disabled {
     color: #808088; }
 
 .w98 {
-  font-family: "MSFont", "MSFont11", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "MSSansSerif", "MSFont", "MSFont11", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   width: 100%;
   height: 100%;
   image-rendering: pixelated;
@@ -30,7 +40,7 @@ html {
   transform: scale(1);
   /* stylelint-disable selector-max-specificity */ }
   .w98 *, .w98 {
-    font-family: "MSFont", "MSFont11", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-family: "MSSansSerif", "MSFont", "MSFont11", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     cursor: url("data:image/gif;base64,R0lGODlhCwATAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAALABMAAAIrhI4JlhrcBAgvSlrbxPBs7mAU9IlMaV7mwo6jY2zk+Xphh8iWint1tDgUAAA7"), default; }
     .w98 * .default, .w98 .default {
       cursor: url("data:image/gif;base64,R0lGODlhCwATAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAALABMAAAIrhI4JlhrcBAgvSlrbxPBs7mAU9IlMaV7mwo6jY2zk+Xphh8iWint1tDgUAAA7"), default; }
@@ -184,13 +194,17 @@ html {
   align-items: center; }
   .btn--large-icon__text {
     margin-top: auto; }
-  .btn--large-icon img {
+  .btn--large-icon__icon {
     flex-grow: 1;
-    display: block;
-    filter: grayscale(1);
-    max-height: 20px;
+    width: 20px;
+    height: 20px;
+    margin: 1px auto 2px;
+    align-content: center; }
+  .btn--large-icon img {
     max-width: 20px;
-    margin: 1px auto 2px; }
+    max-height: 20px;
+    display: block;
+    filter: grayscale(1); }
   .btn--large-icon:disabled, .btn--large-icon.disabled {
     color: #808088; }
     .btn--large-icon:disabled:hover, .btn--large-icon.disabled:hover {

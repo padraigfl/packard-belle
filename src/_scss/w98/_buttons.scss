@@ -68,18 +68,20 @@ $start: "data:image/gif;base64,R0lGODlhNAATAKIAAAAAAP///wAA/wD/AP//AP8AAP///wAAA
   &__text {
     margin-top: auto;
   }
-  &__icon {
+  .ButtonIconLarge__icon {
     flex-grow: 1;
     width: 20px;
     height: 20px;
     margin: 1px auto 2px;
-    align-content: center;
   }
   img {
     max-width: 20px;
     max-height: 20px;
     display: block;
     filter: grayscale(1);
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
   }
   &:disabled,
   &.disabled {

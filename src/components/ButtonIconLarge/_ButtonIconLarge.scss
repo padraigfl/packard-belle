@@ -1,7 +1,7 @@
 @import "../../_scss/w98/_buttons";
 
-.btn.ButtonIconLarge {
-  @include button-large-icon();
+.ButtonIconLarge {
+  @include button-large-icon;
   &__icon {
     flex-grow: 1;
     width: 20px;
