@@ -11,7 +11,9 @@ const ButtonIconLarge = props => (
     onClick={props.onClick}
     isDisabled={props.isDisabled}
   >
-    <img src={props.icon} />
+    <div className="ButtonIconLarge__icon">
+      <img src={props.icon} />
+    </div>
     <div className="ButtonIconLarge__text">{props.title}</div>
   </Button>
 );

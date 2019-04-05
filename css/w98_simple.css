@@ -155,6 +155,9 @@ html {
       background-repeat: no-repeat;
       */
       background-color: #bbc3c4; }
+  .w98 ::selection {
+    color: #ffffff;
+    background-color: #0000a2; }
 
 .btn--form {
   min-width: 48px;
@@ -564,6 +567,11 @@ html {
     width: auto;
     visibility: visible;
     display: block; }
+  .standard-menu.css div:hover > button {
+    background-color: #0000a2;
+    color: #ffffff; }
+    .standard-menu.css div:hover > button:after {
+      background-image: url("data:image/gif;base64,R0lGODlhBAAHAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAEAAcAAAIIjB4maeyrlCgAOw=="); }
 
 input[type="radio"] {
   opacity: 0;
@@ -840,6 +848,7 @@ select[multiple] {
     .Window--alert__message {
       display: flex;
       align-items: center;
+      user-select: none;
       min-height: 28px;
       padding: 10px 2px 6px; }
       .window--alert__message.has-icon,

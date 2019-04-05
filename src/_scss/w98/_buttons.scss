@@ -68,13 +68,18 @@ $start: "data:image/gif;base64,R0lGODlhNAATAKIAAAAAAP///wAA/wD/AP//AP8AAP///wAAA
   &__text {
     margin-top: auto;
   }
-  img {
+  &__icon {
     flex-grow: 1;
+    width: 20px;
+    height: 20px;
+    margin: 1px auto 2px;
+    align-content: center;
+  }
+  img {
+    max-width: 20px;
+    max-height: 20px;
     display: block;
     filter: grayscale(1);
-    max-height: 20px;
-    max-width: 20px;
-    margin: 1px auto 2px;
   }
   &:disabled,
   &.disabled {

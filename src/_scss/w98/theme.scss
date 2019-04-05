@@ -12,7 +12,19 @@
 }
 @font-face {
   font-family: "MSFont11";
-  src: url("./fonts/ms98s11a10d02.ttf") format("woff2");
+  src: url("./fonts/ms98s11a10d02.ttf") format("ttf");
+}
+
+// sourced from https://github.com/1000hz/winmine-exe/tree/master/static/fonts
+@font-face {
+  font-family: "MSSansSerif";
+  src: url("./fonts/MSSansSerif.woff2") format("woff2");
+  font-weight: normal;
+}
+@font-face {
+  font-family: "MSSansSerif";
+  src: url("./fonts/MSSansSerifBold.woff2") format("woff2");
+  font-weight: bold;
 }
 
 @mixin scrollbar-button-shadowing {
@@ -36,8 +48,8 @@ html {
   }
 
   body {
-    font-family: "MSFont", "MSFont11", "Segoe UI", Tahoma, Geneva, Verdana,
-      sans-serif;
+    font-family: "MSSansSerif", "MSFont", "MSFont11", "Segoe UI", Tahoma, Geneva,
+      Verdana, sans-serif;
     min-width: 200px;
     margin: 0px;
   }
@@ -48,8 +60,8 @@ html {
 }
 
 .w98 {
-  font-family: "MSFont", "MSFont11", "Segoe UI", Tahoma, Geneva, Verdana,
-    sans-serif;
+  font-family: "MSSansSerif", "MSFont", "MSFont11", "Segoe UI", Tahoma, Geneva,
+    Verdana, sans-serif;
   width: 100%;
   height: 100%;
   image-rendering: pixelated;
@@ -57,8 +69,8 @@ html {
   transform: scale(1);
   *,
   & {
-    font-family: "MSFont", "MSFont11", "Segoe UI", Tahoma, Geneva, Verdana,
-      sans-serif;
+    font-family: "MSSansSerif", "MSFont", "MSFont11", "Segoe UI", Tahoma, Geneva,
+      Verdana, sans-serif;
 
     cursor: url($cursor), default;
 
