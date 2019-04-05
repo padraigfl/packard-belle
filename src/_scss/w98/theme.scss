@@ -235,4 +235,9 @@ html {
       background-color: $grey;
     }
   }
+
+  ::selection {
+    color: #ffffff;
+    background-color: $blue;
+  }
 }

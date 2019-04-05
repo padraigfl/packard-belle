@@ -163,6 +163,7 @@
   &__message {
     display: flex;
     align-items: center;
+    user-select: none;
     &.has-icon {
       background-size: 28px 28px;
       background-repeat: no-repeat;

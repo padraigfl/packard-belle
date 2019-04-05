@@ -85,6 +85,7 @@
     display: flex;
     height: 26px;
     overflow-y: visible;
+    user-select: none;
     &__title {
       align-self: center;
       margin-right: 4px;
