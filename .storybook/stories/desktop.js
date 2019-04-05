@@ -1,14 +1,18 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import ExplorerView from '../../src/components/ExplorerView/ExplorerView';
+import ExplorerView from '../../src/components/ExplorerView';
 import img from './directory_closed.png';
 
 const noop = () => {
-  console.log('run')
+  console.log('run');
 };
 
 const options = [
-  { title: 'Test0 With a very very very long name oh wait is this okay', onClick: noop, icon: img },
+  {
+    title: 'Test0 With a very very very long name oh wait is this okay',
+    onClick: noop,
+    icon: img,
+  },
   { title: 'Test1', onClick: noop, icon: img },
   { title: 'Test2', onClick: noop, icon: img },
   { title: 'Test3', onClick: noop, icon: img },
@@ -26,15 +30,14 @@ const options = [
   { title: 'TestF', onClick: noop, icon: img },
 ];
 
-storiesOf('Desktop', module)
-  .add('Desktop sample', () => (
-    <div style={{
+storiesOf('Desktop', module).add('Desktop sample', () => (
+  <div
+    style={{
       backgroundColor: 'white',
       width: '400px',
       height: '300px',
-    }}>
-      <ExplorerView
-        options={options}
-      />
-    </div>
-  ));
+    }}
+  >
+    <ExplorerView options={options} />
+  </div>
+));

@@ -1,6 +1,6 @@
 {
   "name": "packard-belle",
-  "version": "0.2.0",
+  "version": "0.3.1",
   "description": "Library of components to mimic old desktop",
   "main": "build/pb.js",
   "module": "build/pb.module.js",
@@ -17,7 +17,8 @@
     "coveralls": "npm run coverage | coveralls",
     "lint": "eslint -c .eslintrc.js --quiet --ext .js './src/**/*.js'",
     "lint:css": "stylelint 'src/**/*.scss'",
-    "precommit-build": "npm run build:module && git add build"
+    "precommit-build": "npm run build:module && git add build",
+    "index": "node ./.scripts/autoIndex/"
   },
   "keywords": [
     "react",

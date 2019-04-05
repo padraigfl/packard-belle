@@ -110,14 +110,20 @@ html {
 .btn--large-icon {
   padding: 2px;
   width: 48px;
-  min-width: 48px; }
+  min-width: 48px;
+  height: 38px;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center; }
+  .btn--large-icon__text {
+    margin-top: auto; }
   .btn--large-icon img {
+    flex-grow: 1;
     display: block;
-    margin: 0 auto;
     filter: grayscale(1);
-    height: 20px;
+    max-height: 20px;
     max-width: 20px;
-    margin-bottom: 2px; }
+    margin: 1px auto 2px; }
   .btn--large-icon:disabled, .btn--large-icon.disabled {
     color: #808088; }
     .btn--large-icon:disabled:hover, .btn--large-icon.disabled:hover {
