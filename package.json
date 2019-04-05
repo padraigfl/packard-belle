@@ -13,7 +13,7 @@
     "build:css": "node-sass src/_scss/w98_simple.scss -o css",
     "test": "jest --env=jsdom",
     "test:watch": "jest --env=jsdom --no-cache --watch",
-    "coverage": "jest --env=jsdom --coverage  --coverageReporters=text-lcov",
+    "coverage": "jest --env=jsdom --coverage  --coverageReporters=text-lcov ",
     "coveralls": "npm run coverage | coveralls",
     "lint": "eslint -c .eslintrc.js --quiet --ext .js './src/**/*.js'",
     "lint:css": "stylelint 'src/**/*.scss'",
