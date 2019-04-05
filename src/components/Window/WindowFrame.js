@@ -4,7 +4,7 @@ import cx from 'classnames';
 import './styles/WindowFrame.scss';
 
 const WindowFrame = props => (
-  <div className={ cx('Frame', props.className)}>
+  <div className={cx('Frame', props.className)} ref={props.innerRef}>
     {props.children}
   </div>
 );

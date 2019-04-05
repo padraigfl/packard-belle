@@ -2,7 +2,12 @@
 @import "../../../_scss/w98/var/colors";
 @import "../../../_scss/w98/var/uris";
 
-.options-list {
+.OptionsList {
+  max-height: 40px;
+  z-index: 10;
+  &__large-icons {
+    overflow: hidden;
+  }
   &__dropdown {
     &--empty {
       display: none;
@@ -34,7 +39,7 @@
         background-position: 3px 4px;
         box-shadow: dualShadow($darkgrey, #ffffff);
         // stylelint-disable-next-line selector-max-specificity
-        + .options-list__dropdown__list {
+        + .OptionsList__dropdown__list {
           position: absolute;
           top: 100%;
           right: 0px;
@@ -43,9 +48,15 @@
         }
       }
     }
-
-    .options-list__dropdown__list {
-      display: none;
-    }
+  }
+  .OptionsList__dropdown__list {
+    display: none;
+  }
+  .OptionsList__dropdown__button {
+    margin-left: auto;
+  }
+  .StandardMenuItem__button:hover {
+    background-color: $blue;
+    color: #ffffff;
   }
 }

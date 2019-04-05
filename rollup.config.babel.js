@@ -16,27 +16,30 @@ const moduleOptions = {
     'react-select': 'ReactSelect',
   },
   sourcemap: true,
-}
+};
 
 export default {
   input: './src/index.js',
 
-  output: [{
-    ...moduleOptions,
-    file: './build/pb.js',
-    format: 'umd',
-  }, {
-    ...moduleOptions,
-    file: 'build/pb.module.js',
-    format: 'es',
-  }],
+  output: [
+    {
+      ...moduleOptions,
+      file: './build/pb.js',
+      format: 'umd',
+    },
+    {
+      ...moduleOptions,
+      file: 'build/pb.module.js',
+      format: 'es',
+    },
+  ],
 
   plugins: [
     postcss({
       // modules: true,
     }),
     resolve({
-      extensions: [ '.mjs', '.js', '.json', '.node', '.ttf'],
+      extensions: ['.mjs', '.js', '.json', '.node', '.ttf'],
     }),
     autoExternal(),
     babel({

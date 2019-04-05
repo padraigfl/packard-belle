@@ -1,0 +1,42 @@
+@import "../../../_scss/w98/var/colors";
+@import "../../../_scss/w98/mixins/box-shadows";
+@import "../../../_scss/w98/functions/box-shadows";
+@import "../../../_scss/w98/var/var";
+@import "../../../_scss/w98/var/uris";
+
+$select-height: 22px;
+
+.FakeSelect {
+  position: relative;
+  display: flex;
+  height: $select-height;
+  align-self: center;
+  align-items: center;
+  background-color: #ffffff;
+  overflow: hidden;
+  @include shadow-input;
+  &__icon {
+    margin-left: 6px;
+    height: 16px;
+  }
+  &__children {
+    margin-left: 6px;
+    margin-right: 28px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &__arrow {
+    position: absolute;
+    box-shadow: dualShadow($grey, $black), dualShadow(#ffffff, $darkgrey, 2);
+    height: $select-height - 4;
+    width: $select-height - 4;
+    left: calc(100% - 20px);
+    top: 2px;
+    background-color: $grey;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url($arrow-down);
+  }
+}

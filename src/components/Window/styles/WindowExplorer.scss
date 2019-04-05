@@ -83,17 +83,16 @@
   }
   &__address {
     display: flex;
-    height: 22px;
+    height: 26px;
     overflow-y: visible;
     &__title {
       align-self: center;
       margin-right: 4px;
     }
-    .Select {
+    .FakeSelect {
       flex-grow: 1;
       z-index: 5;
       margin-right: 4px;
-      margin-top: 1px;
     }
   }
   &__options {

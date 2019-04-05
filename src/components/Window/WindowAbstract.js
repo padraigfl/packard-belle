@@ -33,7 +33,6 @@ class WindowAbstract extends Component {
 
   render() {
     const { props } = this;
-
     return (
       <WindowFrame
         className={cx('Window', props.className, {
@@ -41,6 +40,7 @@ class WindowAbstract extends Component {
           'Window--resizable': props.resizable,
           'Window--drag': props.changingState,
         })}
+        ref={props.innerRef}
       >
         <div className="Window__heading">
           {props.icon && (

@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import StandardMenu from './StandardMenu';
 
 const StandardMenuItem = props => (
   <div
@@ -27,7 +26,7 @@ const StandardMenuItem = props => (
       {props.title}
     </button>
     {props.options && (
-      <StandardMenu
+      <props.StandardMenu
         className="StandardMenuItem__child"
         options={props.options}
         value={props.value}

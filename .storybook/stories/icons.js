@@ -16,14 +16,23 @@ storiesOf('Icons', module)
   .add(
     'ExplorerIcon',
     () => (
-      <ExplorerIcon
-        className="test"
-        onDoubleClick={alertIt}
-        alt="Testing this testing some more"
-        icon={img}
-        title="Testing this testing some more"
-        href="https://www.google.com"
-      />
+      <>
+        <ExplorerIcon
+          className="test"
+          onDoubleClick={alertIt}
+          alt="Testing this testing some more"
+          icon={img}
+          title="Testing this testing some more"
+        />
+        <ExplorerIcon
+          className="test"
+          onDoubleClick={alertIt}
+          alt="Testing this testing some more"
+          icon={img}
+          title="This is a link"
+          href="#"
+        />
+      </>
     ),
     { notes: 'Click on item to expose full name' }
   )

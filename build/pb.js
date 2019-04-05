@@ -418,7 +418,7 @@
 
   StartButton.propTypes = commonButtonPropTypes;
 
-  var css$6 = ".btn.ButtonIconLarge {\n  padding: 2px;\n  width: 48px;\n  min-width: 48px; }\n  .btn.ButtonIconLarge img {\n    display: block;\n    margin: 0 auto;\n    filter: grayscale(1);\n    height: 20px;\n    max-width: 20px; }\n  .btn.ButtonIconLarge:disabled, .btn.ButtonIconLarge.disabled {\n    color: #808088; }\n    .btn.ButtonIconLarge:disabled:hover, .btn.ButtonIconLarge.disabled:hover {\n      box-shadow: none; }\n      .btn.ButtonIconLarge:disabled:hover img, .btn.ButtonIconLarge.disabled:hover img {\n        filter: grayscale(1); }\n  .btn.ButtonIconLarge:hover {\n    box-shadow: inset -1px -1px 0px #0c0c0c, inset 1px 1px 0px #ffffff; }\n    .btn.ButtonIconLarge:hover img {\n      filter: grayscale(0); }\n  .btn.ButtonIconLarge:active:focus {\n    box-shadow: inset -1px -1px 0px #ffffff, inset 1px 1px 0px #0c0c0c;\n    padding: 3px 1px 1px 3px; }\n";
+  var css$6 = ".btn.ButtonIconLarge {\n  padding: 2px;\n  width: 48px;\n  min-width: 48px; }\n  .btn.ButtonIconLarge img {\n    display: block;\n    margin: 0 auto;\n    filter: grayscale(1);\n    height: 20px;\n    max-width: 20px;\n    margin-bottom: 2px; }\n  .btn.ButtonIconLarge:disabled, .btn.ButtonIconLarge.disabled {\n    color: #808088; }\n    .btn.ButtonIconLarge:disabled:hover, .btn.ButtonIconLarge.disabled:hover {\n      box-shadow: none; }\n      .btn.ButtonIconLarge:disabled:hover img, .btn.ButtonIconLarge.disabled:hover img {\n        filter: grayscale(1); }\n  .btn.ButtonIconLarge:hover {\n    box-shadow: inset -1px -1px 0px #0c0c0c, inset 1px 1px 0px #ffffff; }\n    .btn.ButtonIconLarge:hover img {\n      filter: grayscale(0); }\n  .btn.ButtonIconLarge:active:focus {\n    box-shadow: inset -1px -1px 0px #ffffff, inset 1px 1px 0px #0c0c0c;\n    padding: 3px 1px 1px 3px; }\n";
   styleInject(css$6);
 
   var ButtonIconLarge = function ButtonIconLarge(props) {
@@ -459,7 +459,8 @@
 
   var WindowFrame = function WindowFrame(props) {
     return React__default.createElement("div", {
-      className: cx('Frame', props.className)
+      className: cx('Frame', props.className),
+      ref: props.innerRef
     }, props.children);
   };
 
@@ -485,7 +486,7 @@
         backgroundImage: "url('".concat(props.icon, "')")
       } : undefined,
       value: props.value
-    }, props.title), props.options && React__default.createElement(StandardMenu, {
+    }, props.title), props.options && React__default.createElement(props.StandardMenu, {
       className: "StandardMenuItem__child",
       options: props.options,
       value: props.value,
@@ -551,13 +552,15 @@
       }, option, {
         value: [].concat(_toConsumableArray(props.value), [option.title]),
         closeOnClick: props.closeOnClick,
-        mouseEnterItem: props.mouseEnterItem
+        mouseEnterItem: props.mouseEnterItem,
+        StandardMenu: StandardMenu
       }));
     }) : React__default.createElement(StandardMenuItem, {
       title: "(Empty)",
       className: 'StandardMenuItem--empty',
       mouseEnterItem: props.mouseEnterItem,
       closeOnClick: props.closeOnClick,
+      StandardMenu: StandardMenu,
       isDisabled: true
     }));
   };
@@ -903,7 +906,7 @@
   };
   AbstractIcon.propTypes = iconProps;
 
-  var css$a = ".icon.ExplorerIcon {\n  position: relative;\n  display: block;\n  outline: none;\n  background: none;\n  border: none;\n  color: initial;\n  text-decoration: none;\n  padding: 1px 7px 2px;\n  width: 58px;\n  height: 70px;\n  text-align: center;\n  display: flex;\n  flex-direction: column;\n  align-items: center; }\n  .icon.ExplorerIcon .icon__icon {\n    display: block;\n    background-size: contain;\n    background-position: center;\n    background-repeat: no-repeat; }\n  .icon.ExplorerIcon:focus, .icon.ExplorerIcon:active, .icon.ExplorerIcon:active:focus, .icon.ExplorerIcon.is-active {\n    outline: none; }\n    .icon.ExplorerIcon:focus .icon__icon, .icon.ExplorerIcon:active .icon__icon, .icon.ExplorerIcon:active:focus .icon__icon, .icon.ExplorerIcon.is-active .icon__icon {\n      filter: hue-rotate(70deg) contrast(0.3) saturate(2); }\n    .icon.ExplorerIcon:focus .icon__text, .icon.ExplorerIcon:active .icon__text, .icon.ExplorerIcon:active:focus .icon__text, .icon.ExplorerIcon.is-active .icon__text {\n      background-color: #0000a2;\n      color: #ffffff;\n      outline: 1px dotted #ffffff;\n      outline-offset: -1px; }\n  .icon.ExplorerIcon .icon__icon {\n    width: 42px;\n    height: 42px;\n    margin: 0 3px; }\n  .icon.ExplorerIcon .icon__text {\n    position: absolute;\n    top: 45px;\n    padding: 2px 6px 0px;\n    max-height: 22px;\n    max-width: 100%;\n    overflow-y: hidden;\n    display: inline-block; }\n  .icon.ExplorerIcon:focus .icon__text, .icon.ExplorerIcon:active .icon__text, .icon.ExplorerIcon:active:focus .icon__text, .icon.ExplorerIcon.active .icon__text, .icon.ExplorerIcon.clicked .icon__text {\n    padding: 2px 6px;\n    max-height: initial;\n    z-index: 1; }\n";
+  var css$a = ".icon.ExplorerIcon {\n  position: relative;\n  display: block;\n  outline: none;\n  background: none;\n  border: none;\n  color: initial;\n  text-decoration: none;\n  padding: 1px 7px 2px;\n  padding: initial;\n  margin: 2px;\n  width: 52px;\n  height: 58px;\n  text-align: center;\n  display: flex;\n  flex-direction: column;\n  align-items: center; }\n  .icon.ExplorerIcon .icon__icon {\n    display: block;\n    background-size: contain;\n    background-position: center;\n    background-repeat: no-repeat; }\n  .icon.ExplorerIcon:focus, .icon.ExplorerIcon:active, .icon.ExplorerIcon:active:focus, .icon.ExplorerIcon.is-active {\n    outline: none; }\n    .icon.ExplorerIcon:focus .icon__icon, .icon.ExplorerIcon:active .icon__icon, .icon.ExplorerIcon:active:focus .icon__icon, .icon.ExplorerIcon.is-active .icon__icon {\n      filter: hue-rotate(70deg) contrast(0.3) saturate(2); }\n    .icon.ExplorerIcon:focus .icon__text, .icon.ExplorerIcon:active .icon__text, .icon.ExplorerIcon:active:focus .icon__text, .icon.ExplorerIcon.is-active .icon__text {\n      background-color: #0000a2;\n      color: #ffffff;\n      outline: 1px dotted #ffffff;\n      outline-offset: -1px; }\n  .icon.ExplorerIcon .icon__icon {\n    width: 32px;\n    height: 32px;\n    margin: 0 3px; }\n  .icon.ExplorerIcon .icon__text {\n    position: absolute;\n    top: 31px;\n    width: 100%;\n    padding: 2px 2px 0px;\n    max-height: 22px;\n    max-width: 100%;\n    overflow-y: hidden;\n    display: inline-block; }\n  .icon.ExplorerIcon:focus .icon__text, .icon.ExplorerIcon:active .icon__text, .icon.ExplorerIcon:active:focus .icon__text, .icon.ExplorerIcon.active .icon__text, .icon.ExplorerIcon.clicked .icon__text {\n    padding: 2px 1px;\n    max-height: initial;\n    z-index: 1; }\n";
   styleInject(css$a);
 
   var ExplorerIcon = function ExplorerIcon(props) {
@@ -1252,8 +1255,26 @@
     useIcons: PropTypes.bool
   };
 
-  var css$h = ".SelectBox {\n  position: relative;\n  width: 100%;\n  background-color: #ffffff;\n  padding: 2px; }\n  .SelectBox:disabled, .SelectBox.disabled {\n    pointer-events: none;\n    background-color: #bbc3c4; }\n    .SelectBox:disabled > div, .SelectBox.disabled > div {\n      overflow: hidden; }\n    .SelectBox:disabled button, .SelectBox.disabled button {\n      color: #808088 !important; }\n    .SelectBox:disabled .icon, .SelectBox.disabled .icon {\n      filter: grayscale(1); }\n  .SelectBox > div {\n    position: relative;\n    overflow: auto; }\n  .SelectBox:after {\n    position: absolute;\n    top: 0px;\n    left: 0px;\n    width: 100%;\n    height: 100%;\n    box-shadow: inset -1px -1px 0px #ffffff, inset 1px 1px 0px 0px #808088, inset -2px -2px 0px #bbc3c4, inset 2px 2px 0px 0px #0c0c0c;\n    pointer-events: none;\n    content: \"\"; }\n  .SelectBox button:not(.icon) {\n    display: block;\n    outline: none;\n    background: transparent;\n    border: none;\n    white-space: nowrap;\n    overflow: hidden;\n    color: #0c0c0c;\n    width: 100%;\n    text-align: left; }\n    .SelectBox button:not(.icon):after {\n      content: attr(title);\n      position: initial; }\n    .SelectBox button:not(.icon).is-active {\n      background-color: #0000a2;\n      color: #ffffff;\n      outline-offset: -1px;\n      outline: 1px dotted #ffffff; }\n  .SelectBox--ExplorerIcon > div {\n    display: flex;\n    flex-direction: row;\n    overflow-y: hidden;\n    padding-bottom: 20px; }\n    .SelectBox--ExplorerIcon > div .explorer-icon {\n      margin: 2px 8px; }\n  .SelectBox .icon--list {\n    margin: 0px;\n    padding: 1px; }\n    .SelectBox .icon--list .icon__text {\n      width: initial; }\n    .SelectBox .icon--list:focus:not(.is-active) .icon__text, .SelectBox .icon--list:active:not(.is-active) .icon__text {\n      background-color: transparent;\n      color: #0c0c0c;\n      outline: none;\n      outline-offset: -1px; }\n";
+  var css$h = ".FakeSelect {\n  position: relative;\n  display: flex;\n  height: 22px;\n  align-self: center;\n  align-items: center;\n  background-color: #ffffff;\n  overflow: hidden;\n  box-shadow: inset -1px -1px 0px #ffffff, inset 1px 1px 0px 0px #808088, inset -2px -2px 0px #bbc3c4, inset 2px 2px 0px 0px #0c0c0c; }\n  .FakeSelect__icon {\n    margin-left: 6px;\n    height: 16px; }\n  .FakeSelect__children {\n    margin-left: 6px;\n    margin-right: 28px;\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis; }\n  .FakeSelect__arrow {\n    position: absolute;\n    box-shadow: inset -1px -1px 0px #0c0c0c, inset 1px 1px 0px #bbc3c4, inset -2px -2px 0px #808088, inset 2px 2px 0px #ffffff;\n    height: 18px;\n    width: 18px;\n    left: calc(100% - 20px);\n    top: 2px;\n    background-color: #bbc3c4;\n    background-repeat: no-repeat;\n    background-position: center;\n    background-image: url(\"data:image/gif;base64,R0lGODlhBwAEAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAHAAQAAAIIhA+CKWoNmSgAOw==\"); }\n";
   styleInject(css$h);
+
+  var FakeSelect = function FakeSelect(props) {
+    return React__default.createElement("div", {
+      className: cx('FakeSelect', {
+        disabled: props.isDisabled
+      })
+    }, props.icon && React__default.createElement("img", {
+      className: "FakeSelect__icon",
+      src: props.icon
+    }), React__default.createElement("div", {
+      className: "FakeSelect__children"
+    }, props.title), React__default.createElement("div", {
+      className: "FakeSelect__arrow"
+    }));
+  };
+
+  var css$i = ".SelectBox {\n  position: relative;\n  width: 100%;\n  background-color: #ffffff;\n  padding: 2px; }\n  .SelectBox:disabled, .SelectBox.disabled {\n    pointer-events: none;\n    background-color: #bbc3c4; }\n    .SelectBox:disabled > div, .SelectBox.disabled > div {\n      overflow: hidden; }\n    .SelectBox:disabled button, .SelectBox.disabled button {\n      color: #808088 !important; }\n    .SelectBox:disabled .icon, .SelectBox.disabled .icon {\n      filter: grayscale(1); }\n  .SelectBox > div {\n    position: relative;\n    overflow: auto; }\n  .SelectBox:after {\n    position: absolute;\n    top: 0px;\n    left: 0px;\n    width: 100%;\n    height: 100%;\n    box-shadow: inset -1px -1px 0px #ffffff, inset 1px 1px 0px 0px #808088, inset -2px -2px 0px #bbc3c4, inset 2px 2px 0px 0px #0c0c0c;\n    pointer-events: none;\n    content: \"\"; }\n  .SelectBox button:not(.icon) {\n    display: block;\n    outline: none;\n    background: transparent;\n    border: none;\n    white-space: nowrap;\n    overflow: hidden;\n    color: #0c0c0c;\n    width: 100%;\n    text-align: left; }\n    .SelectBox button:not(.icon):after {\n      content: attr(title);\n      position: initial; }\n    .SelectBox button:not(.icon).is-active {\n      background-color: #0000a2;\n      color: #ffffff;\n      outline-offset: -1px;\n      outline: 1px dotted #ffffff; }\n  .SelectBox--ExplorerIcon > div {\n    display: flex;\n    flex-direction: row;\n    overflow-y: hidden;\n    padding-bottom: 20px; }\n    .SelectBox--ExplorerIcon > div .explorer-icon {\n      margin: 2px 8px; }\n  .SelectBox .icon--list {\n    margin: 0px;\n    padding: 1px; }\n    .SelectBox .icon--list .icon__text {\n      width: initial; }\n    .SelectBox .icon--list:focus:not(.is-active) .icon__text, .SelectBox .icon--list:active:not(.is-active) .icon__text {\n      background-color: transparent;\n      color: #0c0c0c;\n      outline: none;\n      outline-offset: -1px; }\n";
+  styleInject(css$i);
 
   var isSelected = function isSelected(selected, val) {
     return Array.isArray(selected) ? selected.some(function (selectedEntry) {
@@ -1299,8 +1320,8 @@
     }))
   };
 
-  var css$i = ".SelectMultipleSimple select[multiple] {\n  position: relative;\n  border: none;\n  background-color: #ffffff;\n  border-radius: 0px;\n  outline: none;\n  padding: 2px;\n  box-shadow: inset -1px -1px 0px #ffffff, inset 1px 1px 0px 0px #808088, inset -2px -2px 0px #bbc3c4, inset 2px 2px 0px 0px #0c0c0c; }\n  .SelectMultipleSimple select[multiple]:active, .SelectMultipleSimple select[multiple]:focus, .SelectMultipleSimple select[multiple]:active:focus, .SelectMultipleSimple select[multiple].active, .SelectMultipleSimple select[multiple].clicked {\n    outline: none; }\n  .SelectMultipleSimple select[multiple] option:active, .SelectMultipleSimple select[multiple] option:focus, .SelectMultipleSimple select[multiple] option:checked, .SelectMultipleSimple select[multiple] option.checked {\n    outline: 1px dotted #ffffff;\n    outline-offset: -1px;\n    background-color: #0000a2;\n    color: #ffffff; }\n";
-  styleInject(css$i);
+  var css$j = ".SelectMultipleSimple select[multiple] {\n  position: relative;\n  border: none;\n  background-color: #ffffff;\n  border-radius: 0px;\n  outline: none;\n  padding: 2px;\n  box-shadow: inset -1px -1px 0px #ffffff, inset 1px 1px 0px 0px #808088, inset -2px -2px 0px #bbc3c4, inset 2px 2px 0px 0px #0c0c0c; }\n  .SelectMultipleSimple select[multiple]:active, .SelectMultipleSimple select[multiple]:focus, .SelectMultipleSimple select[multiple]:active:focus, .SelectMultipleSimple select[multiple].active, .SelectMultipleSimple select[multiple].clicked {\n    outline: none; }\n  .SelectMultipleSimple select[multiple] option:active, .SelectMultipleSimple select[multiple] option:focus, .SelectMultipleSimple select[multiple] option:checked, .SelectMultipleSimple select[multiple] option.checked {\n    outline: 1px dotted #ffffff;\n    outline-offset: -1px;\n    background-color: #0000a2;\n    color: #ffffff; }\n";
+  styleInject(css$j);
 
   var SelectMultipleSimple =
   /*#__PURE__*/
@@ -1398,8 +1419,8 @@
     }))
   };
 
-  var css$j = ".MenuBar {\n  display: flex;\n  padding: 0px;\n  font-size: 1rem;\n  position: relative;\n  overflow-y: visible;\n  z-index: 20; }\n  .MenuBar > div {\n    position: relative; }\n    .MenuBar > div > button {\n      padding: 0px 4px;\n      outline: none;\n      border: none;\n      user-select: none;\n      color: #0c0c0c;\n      display: inline-block;\n      background-color: rgba(0, 0, 0, 0);\n      width: 100%;\n      overflow: hidden;\n      white-space: nowrap;\n      text-overflow: ellipsis;\n      text-align: left;\n      padding: 3px 6px; }\n      .MenuBar > div > button + div,\n      .MenuBar > div > button + div {\n        z-index: 20;\n        visibility: hidden;\n        position: absolute;\n        max-height: 0px;\n        top: 100%;\n        left: 0px; }\n        @media (min-height: 720px) and (min-width: 960px) {\n          .MenuBar > div > button + div,\n          .MenuBar > div > button + div {\n            transition: max-height linear 750ms; } }\n      .MenuBar > div > button:hover {\n        box-shadow: inset -1px -1px 0px #808088, inset 1px 1px 0px #ffffff; }\n      .MenuBar > div > button:active, .MenuBar > div > button:focus, .MenuBar > div > button:active:focus, .MenuBar > div > button.active, .MenuBar > div > button.clicked {\n        box-shadow: inset -1px -1px 0px #ffffff, inset 1px 1px 0px #808088;\n        padding: 4px 5px 2px 7px; }\n        .MenuBar > div > button:active + div,\n        .MenuBar > div > button:active + div, .MenuBar > div > button:focus + div,\n        .MenuBar > div > button:focus + div, .MenuBar > div > button:active:focus + div,\n        .MenuBar > div > button:active:focus + div, .MenuBar > div > button.active + div,\n        .MenuBar > div > button.active + div, .MenuBar > div > button.clicked + div,\n        .MenuBar > div > button.clicked + div {\n          visibility: visible;\n          max-height: 480px; }\n";
-  styleInject(css$j);
+  var css$k = ".MenuBar {\n  display: flex;\n  padding: 0px;\n  font-size: 1rem;\n  position: relative;\n  overflow-y: visible;\n  z-index: 20; }\n  .MenuBar > div {\n    position: relative; }\n    .MenuBar > div > button {\n      padding: 0px 4px;\n      outline: none;\n      border: none;\n      user-select: none;\n      color: #0c0c0c;\n      display: inline-block;\n      background-color: rgba(0, 0, 0, 0);\n      width: 100%;\n      overflow: hidden;\n      white-space: nowrap;\n      text-overflow: ellipsis;\n      text-align: left;\n      padding: 3px 6px; }\n      .MenuBar > div > button + div,\n      .MenuBar > div > button + div {\n        z-index: 20;\n        visibility: hidden;\n        position: absolute;\n        max-height: 0px;\n        top: 100%;\n        left: 0px; }\n        @media (min-height: 720px) and (min-width: 960px) {\n          .MenuBar > div > button + div,\n          .MenuBar > div > button + div {\n            transition: max-height linear 750ms; } }\n      .MenuBar > div > button:hover {\n        box-shadow: inset -1px -1px 0px #808088, inset 1px 1px 0px #ffffff; }\n      .MenuBar > div > button:active, .MenuBar > div > button:focus, .MenuBar > div > button:active:focus, .MenuBar > div > button.active, .MenuBar > div > button.clicked {\n        box-shadow: inset -1px -1px 0px #ffffff, inset 1px 1px 0px #808088;\n        padding: 4px 5px 2px 7px; }\n        .MenuBar > div > button:active + div,\n        .MenuBar > div > button:active + div, .MenuBar > div > button:focus + div,\n        .MenuBar > div > button:focus + div, .MenuBar > div > button:active:focus + div,\n        .MenuBar > div > button:active:focus + div, .MenuBar > div > button.active + div,\n        .MenuBar > div > button.active + div, .MenuBar > div > button.clicked + div,\n        .MenuBar > div > button.clicked + div {\n          visibility: visible;\n          max-height: 480px; }\n";
+  styleInject(css$k);
 
   var MenuEntry = withContextLogic(AbstractButton);
 
@@ -1552,8 +1573,8 @@
     notifiers: []
   };
 
-  var css$k = ".TaskBar {\n  position: fixed;\n  background-color: #bbc3c4;\n  bottom: 0px;\n  left: 0px;\n  width: 100%;\n  max-width: 100%;\n  z-index: 10;\n  box-shadow: 0px -1px 0px #ffffff;\n  padding: 2px 0px;\n  display: flex; }\n  .TaskBar > div,\n  .TaskBar > button {\n    position: relative;\n    height: 22px;\n    margin: 0px 2px; }\n  .TaskBar > div:not(:last-child) {\n    padding: 0px 6px; }\n    .TaskBar > div:not(:last-child):first-child {\n      padding: 0px 3px 0px 0px; }\n    .TaskBar > div:not(:last-child):after {\n      position: absolute;\n      top: 1px;\n      right: 0px;\n      height: calc(100% - 2px);\n      width: 1px;\n      background-color: #808088;\n      content: \"\";\n      box-shadow: 1px 0px 0px #ffffff; }\n    .TaskBar > div:not(:last-child):before {\n      position: absolute;\n      top: 3px;\n      right: -6px;\n      height: calc(100% - 6px);\n      width: 3px;\n      background-color: #bbc3c4;\n      content: \"\";\n      box-shadow: inset -1px -1px 0px #808088, inset 1px 1px 0px #ffffff; }\n  .TaskBar__programs {\n    display: flex;\n    flex-grow: 1;\n    flex-shrink: 1;\n    flex-wrap: nowrap;\n    margin-right: 4px;\n    min-width: 42px; }\n    .TaskBar__programs:before {\n      display: none; }\n  .TaskBar__start {\n    position: relative; }\n    .TaskBar__start > button + div {\n      position: fixed;\n      bottom: 25px;\n      left: 2px;\n      visibility: hidden;\n      max-height: 0px;\n      padding-left: 22px; }\n      @media (min-height: 720px) and (min-width: 960px) {\n        .TaskBar__start > button + div {\n          transition: max-height linear 200ms; } }\n      .TaskBar__start > button + div > .divider:empty,\n      .TaskBar__start > button + div > div:empty {\n        margin-left: 24px;\n        width: calc(100% - 26px); }\n      .TaskBar__start > button + div:after {\n        content: \"\";\n        display: block;\n        position: absolute;\n        left: 3px;\n        top: 3px;\n        height: calc(100% - 6px);\n        width: 20px;\n        background: #0000a2;\n        background: linear-gradient(#0000a2, #126fc2);\n        background: url(\"data:image/gif;base64,R0lGODlhDgBkALMAAAAAAP///wIAsZKSmZKTmpGSmZKTmcjOz8fNzsfOz8fOzv///wAAAAAAAAAAAAAAACH5BAEAAAsALAAAAAAOAGQAAAT/cMk5SUo06CO179wSGEowgEOQBcRUEuqkUaIRd/cCwyvFzyJNS3JQ2Tyt0QLBklgwEqZGQasShr4DQhuilDxgRCWAINgIAkIxFoB2DDJWbmGb2Oq0nJx2dqoCXUEuKl8GMCZRSjpgWAdYEydVkhMJQlVkQR8UTFRgQDhiHkc9QRyfRwRSV5+ZH1KbnodzjEGPCAYFcBIJj5mOk61IkgZSnpKVxpSeYCuegTjCw8Uev1bLPkfXccuY29SSGgmRky2p4b2Jnm5+3LrQ3CsY5Wuk9ZlwcJrv2uzLvWthJgH0cWVAKkMGBjhKws1YQ4cPP1wxUETclUPuBOXRY4mOvmDJafaFFMmKwoEDCspIgnGSC0pYDZvB88YvE7Bd3YABrBlRJs+HN73MiPgq4heQYJAhlYiOhqyUwLhVo7TTWcYlyEZOmAbEYM+I4hape4b0Cg0tDXlVyapVR9UY5h7KaogAg9R1c82ubEohAgA7\") no-repeat bottom 3px center, linear-gradient(#0000a2, #126fc2); }\n      .TaskBar__start > button + div > div {\n        display: flex;\n        align-items: center;\n        margin-left: 20px; }\n        .TaskBar__start > button + div > div > button {\n          height: 32px;\n          padding-left: 32px;\n          background-size: 22px;\n          background-position: 4px center; }\n    .TaskBar__start > button.active, .TaskBar__start > button.clicked {\n      background-position: 3px 2px;\n      outline: 1px dotted #0c0c0c;\n      outline-offset: -4px; }\n      .TaskBar__start > button.active > div, .TaskBar__start > button.clicked > div {\n        visibility: visible;\n        max-height: 100vh;\n        padding: 3px; }\n        .TaskBar__start > button.active > div div, .TaskBar__start > button.clicked > div div {\n          display: flex; }\n    .TaskBar__start.active > div {\n      visibility: visible;\n      max-height: 100vh;\n      padding: 3px; }\n      .TaskBar__start.active > div div {\n        display: flex; }\n  .TaskBar__notifications {\n    background-color: #bbc3c4;\n    display: flex;\n    flex: none;\n    margin-left: auto;\n    align-items: center;\n    height: 22px;\n    padding: 0px 8px 0px 4px;\n    box-shadow: inset -1px -1px 0px #ffffff, inset 1px 1px 0px #808088; }\n    .TaskBar__notifications__time {\n      margin-left: 4px; }\n    .TaskBar__notifications__notifier {\n      height: 16px;\n      width: 16px;\n      background-color: #bbc3c4;\n      background-size: contain;\n      background-position: center;\n      background-repeat: no-repeat;\n      border: none; }\n      .TaskBar__notifications__notifier:active, .TaskBar__notifications__notifier:focus, .TaskBar__notifications__notifier:active:focus, .TaskBar__notifications__notifier.active, .TaskBar__notifications__notifier.clicked {\n        outline: none;\n        border: none; }\n";
-  styleInject(css$k);
+  var css$l = ".TaskBar {\n  position: fixed;\n  background-color: #bbc3c4;\n  bottom: 0px;\n  left: 0px;\n  width: 100%;\n  max-width: 100%;\n  z-index: 10;\n  box-shadow: 0px -1px 0px #ffffff;\n  padding: 2px 0px;\n  display: flex; }\n  .TaskBar > div,\n  .TaskBar > button {\n    position: relative;\n    height: 22px;\n    margin: 0px 2px; }\n  .TaskBar > div:not(:last-child) {\n    padding: 0px 6px; }\n    .TaskBar > div:not(:last-child):first-child {\n      padding: 0px 3px 0px 0px; }\n    .TaskBar > div:not(:last-child):after {\n      position: absolute;\n      top: 1px;\n      right: 0px;\n      height: calc(100% - 2px);\n      width: 1px;\n      background-color: #808088;\n      content: \"\";\n      box-shadow: 1px 0px 0px #ffffff; }\n    .TaskBar > div:not(:last-child):before {\n      position: absolute;\n      top: 3px;\n      right: -6px;\n      height: calc(100% - 6px);\n      width: 3px;\n      background-color: #bbc3c4;\n      content: \"\";\n      box-shadow: inset -1px -1px 0px #808088, inset 1px 1px 0px #ffffff; }\n  .TaskBar__programs {\n    display: flex;\n    flex-grow: 1;\n    flex-shrink: 1;\n    flex-wrap: nowrap;\n    margin-right: 4px;\n    min-width: 42px; }\n    .TaskBar__programs:before {\n      display: none; }\n  .TaskBar__start {\n    position: relative; }\n    .TaskBar__start > button + div {\n      position: fixed;\n      bottom: 25px;\n      left: 2px;\n      visibility: hidden;\n      max-height: 0px;\n      padding-left: 22px; }\n      @media (min-height: 720px) and (min-width: 960px) {\n        .TaskBar__start > button + div {\n          transition: max-height linear 200ms; } }\n      .TaskBar__start > button + div > .divider:empty,\n      .TaskBar__start > button + div > div:empty {\n        margin-left: 24px;\n        width: calc(100% - 26px); }\n      .TaskBar__start > button + div:after {\n        content: \"\";\n        display: block;\n        position: absolute;\n        left: 3px;\n        top: 3px;\n        height: calc(100% - 6px);\n        width: 20px;\n        background: #0000a2;\n        background: linear-gradient(#0000a2, #126fc2);\n        background: url(\"data:image/gif;base64,R0lGODlhDgBkALMAAAAAAP///wIAsZKSmZKTmpGSmZKTmcjOz8fNzsfOz8fOzv///wAAAAAAAAAAAAAAACH5BAEAAAsALAAAAAAOAGQAAAT/cMk5SUo06CO179wSGEowgEOQBcRUEuqkUaIRd/cCwyvFzyJNS3JQ2Tyt0QLBklgwEqZGQasShr4DQhuilDxgRCWAINgIAkIxFoB2DDJWbmGb2Oq0nJx2dqoCXUEuKl8GMCZRSjpgWAdYEydVkhMJQlVkQR8UTFRgQDhiHkc9QRyfRwRSV5+ZH1KbnodzjEGPCAYFcBIJj5mOk61IkgZSnpKVxpSeYCuegTjCw8Uev1bLPkfXccuY29SSGgmRky2p4b2Jnm5+3LrQ3CsY5Wuk9ZlwcJrv2uzLvWthJgH0cWVAKkMGBjhKws1YQ4cPP1wxUETclUPuBOXRY4mOvmDJafaFFMmKwoEDCspIgnGSC0pYDZvB88YvE7Bd3YABrBlRJs+HN73MiPgq4heQYJAhlYiOhqyUwLhVo7TTWcYlyEZOmAbEYM+I4hape4b0Cg0tDXlVyapVR9UY5h7KaogAg9R1c82ubEohAgA7\") no-repeat bottom 3px center, linear-gradient(#0000a2, #126fc2); }\n      .TaskBar__start > button + div > div {\n        display: flex;\n        align-items: center;\n        margin-left: 20px; }\n        .TaskBar__start > button + div > div > button {\n          height: 32px;\n          padding-left: 32px;\n          background-size: 22px;\n          background-position: 4px center; }\n    .TaskBar__start > button.active, .TaskBar__start > button.clicked {\n      background-position: 3px 2px;\n      outline: 1px dotted #0c0c0c;\n      outline-offset: -4px; }\n      .TaskBar__start > button.active > div, .TaskBar__start > button.clicked > div {\n        visibility: visible;\n        max-height: 100vh;\n        padding: 3px; }\n        .TaskBar__start > button.active > div div, .TaskBar__start > button.clicked > div div {\n          display: flex; }\n    .TaskBar__start.active > div {\n      visibility: visible;\n      max-height: 100vh;\n      padding: 3px; }\n      .TaskBar__start.active > div div {\n        display: flex; }\n  .TaskBar__notifications {\n    background-color: #bbc3c4;\n    display: flex;\n    flex: none;\n    margin-left: auto;\n    align-items: center;\n    height: 22px;\n    padding: 0px 8px 0px 4px;\n    box-shadow: inset -1px -1px 0px #ffffff, inset 1px 1px 0px #808088; }\n    .TaskBar__notifications__time {\n      margin-left: 4px; }\n    .TaskBar__notifications__notifier {\n      height: 16px;\n      width: 16px;\n      background-color: #bbc3c4;\n      background-size: contain;\n      background-position: center;\n      background-repeat: no-repeat;\n      border: none; }\n      .TaskBar__notifications__notifier:active, .TaskBar__notifications__notifier:focus, .TaskBar__notifications__notifier:active:focus, .TaskBar__notifications__notifier.active, .TaskBar__notifications__notifier.clicked {\n        outline: none;\n        border: none; }\n";
+  styleInject(css$l);
 
   var TaskBar = function TaskBar(props) {
     return React__default.createElement("div", {
@@ -1591,8 +1612,8 @@
     notifiers: PropTypes.arrayOf(PropTypes.shape(Notifications.propsTypes))
   };
 
-  var css$l = ".w98 .Window__heading {\n  display: flex;\n  background: linear-gradient(to right, #0000a2, #126fc2);\n  font-weight: bold;\n  color: #ffffff;\n  margin-bottom: 1px;\n  padding: 0px 1px 0px 3px;\n  align-items: center;\n  letter-spacing: 1px; }\n  .w98 .Window__heading button {\n    padding: 0px;\n    min-width: initial;\n    width: 16px;\n    height: 14px;\n    margin-left: 1px;\n    image-rendering: pixelated;\n    display: flex;\n    align-items: center;\n    flex-shrink: 0;\n    background-repeat: no-repeat;\n    background-position: 1px 1px; }\n    .w98 .Window__heading button:focus, .w98 .Window__heading button.clicked {\n      outline: none;\n      border: none; }\n    .w98 .Window__heading button:active:focus, .w98 .Window__heading button.clicked {\n      padding: 2px 8px 1px 4px;\n      background-position: 2px 2px; }\n\n.w98 .Window__icon {\n  padding: 8px;\n  display: flex;\n  background-size: 14px;\n  background-repeat: no-repeat;\n  background-position: center; }\n\n.w98 .Window__title {\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  flex-grow: 1;\n  min-width: 0px;\n  user-select: none; }\n\n.w98 .Window__close {\n  margin-left: 2px;\n  background-image: url(\"data:image/gif;base64,R0lGODlhDQALAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAANAAsAAAIUlI+pKwDoVGxvucmwvblqo33MqBQAOw==\"); }\n\n.w98 .Window__restore {\n  background-image: url(\"data:image/gif;base64,R0lGODlhDQALAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAANAAsAAAIZlI9pwK3SnAKI1kjtwTlpyHjV830b9qRHAQA7\"); }\n\n.w98 .Window__minimize {\n  background-image: url(\"data:image/gif;base64,R0lGODlhDQALAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAANAAsAAAIOlI+py+0PozSg2mXvFAUAOw==\"); }\n\n.w98 .Window__maximize {\n  background-image: url(\"data:image/gif;base64,R0lGODlhDQALAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAANAAsAAAIXlI8Jy4wNXzJAznqwsjtPoYFfCDXfWQAAOw==\"); }\n\n.w98 .Window--resizable:after {\n  position: absolute;\n  bottom: 4px;\n  right: 4px;\n  height: 12px;\n  width: 12px;\n  content: \"\";\n  background-image: url(\"data:image/gif;base64,R0lGODlhDAAMAJEAAAAAAP///5mZmf///yH5BAEAAAMALAAAAAAMAAwAAAIbnI8TmSF83IMSKvFWw3dnHnFV+GVGhZZXmaoFADs=\"); }\n\n.w98 .Window--maximized {\n  width: 100%;\n  height: 100%; }\n\n.w98 .Window--drag {\n  background-color: rgba(0, 0, 0, 0);\n  box-shadow: inset -3px -3px 0px #808088, inset 3px 3px 0px #808088; }\n  .w98 .Window--drag > *, .w98 .Window--drag:after {\n    filter: opacity(0.1%); }\n";
-  styleInject(css$l);
+  var css$m = ".w98 .Window__heading {\n  display: flex;\n  background: linear-gradient(to right, #0000a2, #126fc2);\n  font-weight: bold;\n  color: #ffffff;\n  margin-bottom: 1px;\n  padding: 0px 1px 0px 3px;\n  align-items: center;\n  letter-spacing: 1px; }\n  .w98 .Window__heading button {\n    padding: 0px;\n    min-width: initial;\n    width: 16px;\n    height: 14px;\n    margin-left: 1px;\n    image-rendering: pixelated;\n    display: flex;\n    align-items: center;\n    flex-shrink: 0;\n    background-repeat: no-repeat;\n    background-position: 1px 1px; }\n    .w98 .Window__heading button:focus, .w98 .Window__heading button.clicked {\n      outline: none;\n      border: none; }\n    .w98 .Window__heading button:active:focus, .w98 .Window__heading button.clicked {\n      padding: 2px 8px 1px 4px;\n      background-position: 2px 2px; }\n\n.w98 .Window__icon {\n  padding: 8px;\n  display: flex;\n  background-size: 14px;\n  background-repeat: no-repeat;\n  background-position: center; }\n\n.w98 .Window__title {\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  flex-grow: 1;\n  min-width: 0px;\n  user-select: none; }\n\n.w98 .Window__close {\n  margin-left: 2px;\n  background-image: url(\"data:image/gif;base64,R0lGODlhDQALAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAANAAsAAAIUlI+pKwDoVGxvucmwvblqo33MqBQAOw==\"); }\n\n.w98 .Window__restore {\n  background-image: url(\"data:image/gif;base64,R0lGODlhDQALAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAANAAsAAAIZlI9pwK3SnAKI1kjtwTlpyHjV830b9qRHAQA7\"); }\n\n.w98 .Window__minimize {\n  background-image: url(\"data:image/gif;base64,R0lGODlhDQALAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAANAAsAAAIOlI+py+0PozSg2mXvFAUAOw==\"); }\n\n.w98 .Window__maximize {\n  background-image: url(\"data:image/gif;base64,R0lGODlhDQALAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAANAAsAAAIXlI8Jy4wNXzJAznqwsjtPoYFfCDXfWQAAOw==\"); }\n\n.w98 .Window--resizable:after {\n  position: absolute;\n  bottom: 4px;\n  right: 4px;\n  height: 12px;\n  width: 12px;\n  content: \"\";\n  background-image: url(\"data:image/gif;base64,R0lGODlhDAAMAJEAAAAAAP///5mZmf///yH5BAEAAAMALAAAAAAMAAwAAAIbnI8TmSF83IMSKvFWw3dnHnFV+GVGhZZXmaoFADs=\"); }\n\n.w98 .Window--maximized {\n  width: 100%;\n  height: 100%; }\n\n.w98 .Window--drag {\n  background-color: rgba(0, 0, 0, 0);\n  box-shadow: inset -3px -3px 0px #808088, inset 3px 3px 0px #808088; }\n  .w98 .Window--drag > *, .w98 .Window--drag:after {\n    filter: opacity(0.1%); }\n";
+  styleInject(css$m);
 
   var WindowAbstract =
   /*#__PURE__*/
@@ -1648,7 +1669,8 @@
             'Window--maximized': this.state.maximized,
             'Window--resizable': props.resizable,
             'Window--drag': props.changingState
-          })
+          }),
+          ref: props.innerRef
         }, React__default.createElement("div", {
           className: "Window__heading"
         }, props.icon && React__default.createElement("div", {
@@ -1701,8 +1723,8 @@
   };
   WindowAbstract.propTypes = windowProps;
 
-  var css$m = ".WindowAlert {\n  display: inline-flex;\n  flex-direction: column;\n  max-width: 250px; }\n  .WindowAlert__message {\n    display: flex;\n    align-items: center;\n    min-height: 28px;\n    padding: 10px 2px 6px; }\n    .WindowAlert__message.has-icon {\n      background-size: 28px 28px;\n      background-repeat: no-repeat;\n      background-position: 6px 6px;\n      padding: 6px 4px 8px 40px; }\n  .WindowAlert__actions {\n    width: 100%;\n    display: flex;\n    justify-content: center; }\n    .WindowAlert__actions .btn {\n      margin: 0px 4px 8px; }\n";
-  styleInject(css$m);
+  var css$n = ".WindowAlert {\n  display: inline-flex;\n  flex-direction: column;\n  max-width: 250px; }\n  .WindowAlert__message {\n    display: flex;\n    align-items: center;\n    min-height: 28px;\n    padding: 10px 2px 6px; }\n    .WindowAlert__message.has-icon {\n      background-size: 28px 28px;\n      background-repeat: no-repeat;\n      background-position: 6px 6px;\n      padding: 6px 4px 8px 40px; }\n  .WindowAlert__actions {\n    width: 100%;\n    display: flex;\n    justify-content: center; }\n    .WindowAlert__actions .btn {\n      margin: 0px 4px 8px; }\n";
+  styleInject(css$n);
 
   var WindowAlert = function WindowAlert(props) {
     return React__default.createElement(WindowAbstract, {
@@ -1736,8 +1758,8 @@
     icon: PropTypes.string
   });
 
-  var css$n = ".w98 .WindowProgram {\n  display: inline-flex;\n  flex-direction: column; }\n  .w98 .WindowProgram > footer {\n    display: flex; }\n    .w98 .WindowProgram > footer > div {\n      white-space: nowrap;\n      text-overflow: ellipsis;\n      overflow: hidden;\n      min-width: 0px;\n      flex-grow: 1;\n      padding: 2px;\n      height: 12px;\n      box-shadow: inset -1px -1px 0px #ffffff, inset 1px 1px 0px #0c0c0c; }\n      .w98 .WindowProgram > footer > div:not(:last-child) {\n        margin-right: 2px; }\n      .w98 .WindowProgram > footer > div:last-child {\n        padding-right: 12px; }\n  .w98 .WindowProgram > div:last-child {\n    margin-top: 2px; }\n";
-  styleInject(css$n);
+  var css$o = ".w98 .WindowProgram {\n  display: inline-flex;\n  flex-direction: column; }\n  .w98 .WindowProgram > footer {\n    display: flex; }\n    .w98 .WindowProgram > footer > div {\n      white-space: nowrap;\n      text-overflow: ellipsis;\n      overflow: hidden;\n      min-width: 0px;\n      flex-grow: 1;\n      padding: 2px;\n      height: 12px;\n      box-shadow: inset -1px -1px 0px #ffffff, inset 1px 1px 0px #0c0c0c; }\n      .w98 .WindowProgram > footer > div:not(:last-child) {\n        margin-right: 2px; }\n      .w98 .WindowProgram > footer > div:last-child {\n        padding-right: 12px; }\n  .w98 .WindowProgram > div:last-child {\n    margin-top: 2px; }\n";
+  styleInject(css$o);
 
   var insertDefaultFooter = function insertDefaultFooter(customFooterElements) {
     var minimum = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 2;
@@ -1797,7 +1819,8 @@
           onRestore: props.onRestore,
           title: props.title,
           resizable: props.resizable,
-          changingState: props.changingState
+          changingState: props.changingState,
+          maximizeOnOpen: props.maximizeOnOpen
         }, Array.isArray(props.menuOptions) && React__default.createElement(MenuBar, {
           className: "WindowProgram__menu",
           options: props.menuOptions
@@ -1819,8 +1842,8 @@
     footer: PropTypes.arrayOf(PropTypes.shape(footerType))
   });
 
-  var css$o = ".options-list__dropdown {\n  position: absolute;\n  right: 2px;\n  top: 2px;\n  height: calc(100% - 4px); }\n  .options-list__dropdown--empty {\n    display: none; }\n  .options-list__dropdown__button {\n    height: 100%;\n    border: none;\n    background-color: #bbc3c4;\n    background-image: url(\"data:image/gif;base64,R0lGODlhCAAFAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAIAAUAAAIKBCSGebzqoJKtAAA7\");\n    background-repeat: no-repeat;\n    background-position: 2px 3px;\n    padding: 0px 6px;\n    font-size: 0.7rem;\n    user-select: none;\n    letter-spacing: -2px;\n    display: flex;\n    flex-direction: column; }\n    .options-list__dropdown__button:hover {\n      box-shadow: inset -1px -1px 0px #808088, inset 1px 1px 0px #ffffff; }\n    .options-list__dropdown__button:active, .options-list__dropdown__button:focus, .options-list__dropdown__button:active:focus {\n      outline: none;\n      background-position: 3px 4px;\n      box-shadow: inset -1px -1px 0px #ffffff, inset 1px 1px 0px #808088; }\n      .options-list__dropdown__button:active + .options-list__dropdown__list, .options-list__dropdown__button:focus + .options-list__dropdown__list, .options-list__dropdown__button:active:focus + .options-list__dropdown__list {\n        position: absolute;\n        top: 100%;\n        right: 0px;\n        display: block;\n        z-index: 10; }\n  .options-list__dropdown .options-list__dropdown__list {\n    display: none; }\n";
-  styleInject(css$o);
+  var css$p = ".OptionsList {\n  max-height: 40px;\n  z-index: 10; }\n  .OptionsList__large-icons {\n    overflow: hidden; }\n  .OptionsList__dropdown {\n    position: absolute;\n    right: 2px;\n    top: 2px;\n    height: calc(100% - 4px); }\n    .OptionsList__dropdown--empty {\n      display: none; }\n    .OptionsList__dropdown__button {\n      height: 100%;\n      border: none;\n      background-color: #bbc3c4;\n      background-image: url(\"data:image/gif;base64,R0lGODlhCAAFAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAIAAUAAAIKBCSGebzqoJKtAAA7\");\n      background-repeat: no-repeat;\n      background-position: 2px 3px;\n      padding: 0px 6px;\n      font-size: 0.7rem;\n      user-select: none;\n      letter-spacing: -2px;\n      display: flex;\n      flex-direction: column; }\n      .OptionsList__dropdown__button:hover {\n        box-shadow: inset -1px -1px 0px #808088, inset 1px 1px 0px #ffffff; }\n      .OptionsList__dropdown__button:active, .OptionsList__dropdown__button:focus, .OptionsList__dropdown__button:active:focus {\n        outline: none;\n        background-position: 3px 4px;\n        box-shadow: inset -1px -1px 0px #ffffff, inset 1px 1px 0px #808088; }\n        .OptionsList__dropdown__button:active + .OptionsList__dropdown__list, .OptionsList__dropdown__button:focus + .OptionsList__dropdown__list, .OptionsList__dropdown__button:active:focus + .OptionsList__dropdown__list {\n          position: absolute;\n          top: 100%;\n          right: 0px;\n          display: block;\n          z-index: 10; }\n  .OptionsList .OptionsList__dropdown__list {\n    display: none; }\n  .OptionsList .OptionsList__dropdown__button {\n    margin-left: auto; }\n  .OptionsList .StandardMenuItem__button:hover {\n    background-color: #0000a2;\n    color: #ffffff; }\n";
+  styleInject(css$p);
 
   var OptionsListDropdown =
   /*#__PURE__*/
@@ -1853,15 +1876,15 @@
         var _this2 = this;
 
         return React__default.createElement("div", {
-          className: "options-list__dropdown"
+          className: "OptionsList__dropdown"
         }, React__default.createElement("button", {
           ref: function ref(btn) {
             _this2.dropdownButton = btn;
           },
           onClick: this.openList,
-          className: "options-list__dropdown__button"
+          className: "OptionsList__dropdown__button"
         }), React__default.createElement(StandardMenu, {
-          className: "options-list__dropdown__list",
+          className: "OptionsList__dropdown__list",
           options: this.props.options
         }));
       }
@@ -1889,42 +1912,58 @@
       _this3 = _possibleConstructorReturn(this, (_getPrototypeOf3 = _getPrototypeOf(OptionsList)).call.apply(_getPrototypeOf3, [this].concat(args)));
 
       _defineProperty(_assertThisInitialized(_this3), "state", {
-        displayedIcons: [],
-        dropdown: []
+        entriesInView: 8
+      });
+
+      _defineProperty(_assertThisInitialized(_this3), "ref", React__default.createRef());
+
+      _defineProperty(_assertThisInitialized(_this3), "checkWidth", function () {
+        if (!_this3.ref.current) {
+          return;
+        }
+
+        var width = _this3.ref.current.offsetWidth || 200;
+        var entriesInView = (width - 20) / 50;
+
+        if (_this3.state.entriesInView !== entriesInView) {
+          _this3.setState({
+            entriesInView: entriesInView
+          });
+        }
       });
 
       return _this3;
     }
 
     _createClass(OptionsList, [{
-      key: "componentDidMount",
-      value: function componentDidMount() {
-        var entriesInView = (this.section.clientWidth - 20) / 50;
-        this.setState({
-          displayedIcons: this.props.options.slice(0, entriesInView),
-          dropdown: this.props.options.slice(entriesInView)
-        });
-      }
-    }, {
       key: "render",
       value: function render() {
         var _this4 = this;
 
+        var props = this.props,
+            state = this.state;
         return React__default.createElement("menu", {
-          ref: function ref(section) {
-            _this4.section = section;
+          ref: this.ref,
+          onMouseEnter: function onMouseEnter() {
+            return _this4.checkWidth();
           },
-          className: cx(this.props.className, 'options-list')
-        }, this.state.displayedIcons.map(function (option) {
+          className: cx(props.className, 'OptionsList')
+        }, React__default.createElement("div", {
+          className: "OptionsList__large-icons"
+        }, props.options.slice(0, state.entriesInView).map(function (option) {
           return React__default.createElement(ButtonIconLarge, {
             key: "large-button-".concat(option.title),
             icon: option.icon,
             title: option.title,
-            onClick: option.onClick,
+            onClick: function onClick() {
+              return _this4.setState({
+                rand: Math.random()
+              });
+            },
             isDisabled: !option.onClick
           });
-        }), this.state.dropdown.length > 0 && React__default.createElement(OptionsListDropdown, {
-          options: this.state.dropdown
+        })), props.options.slice(state.entriesInView).length > 0 && React__default.createElement(OptionsListDropdown, {
+          options: props.options.slice(state.entriesInView)
         }));
       }
     }]);
@@ -1937,8 +1976,8 @@
     className: PropTypes.string
   });
 
-  var css$p = ".w98 .WindowExplorer {\n  display: inline-flex;\n  flex-direction: column; }\n  .w98 .WindowExplorer__view {\n    min-height: 20px;\n    margin: 2px 0px;\n    flex-grow: 1;\n    background-color: #ffffff;\n    box-shadow: inset -1px -1px 0px #ffffff, inset 1px 1px 0px 0px #808088, inset -2px -2px 0px #bbc3c4, inset 2px 2px 0px 0px #0c0c0c; }\n  .w98 .WindowExplorer__details {\n    display: flex; }\n    .w98 .WindowExplorer__details__section {\n      box-shadow: inset -1px -1px 0px #ffffff, inset 1px 1px 0px #808088;\n      flex-grow: 1;\n      margin-top: 2px;\n      height: 16px; }\n      .w98 .WindowExplorer__details__section:not(:last-child) {\n        margin: 2px; }\n  .w98 .WindowExplorer .window__menu {\n    padding: 2px 2px 2px 12px; }\n  .w98 .WindowExplorer > div + menu {\n    margin-top: 2px;\n    box-shadow: 0px 2px 0px -1px #ffffff, -1px 2px 0px -1px #ffffff, -1px 1px 0px #808088, 0px 1px 0px #808088, inset 0px -1px 0px #808088, inset -1px 0px 0px #808088, inset 0px 0px 0px 1px #ffffff, -1px 0px 0px #808088, 1px 0px 0px #ffffff, -1px 1px 0px 0px #ffffff, 1px 1px 0px 0px #ffffff, -1px -1px 0px #808088, 0px -1px 0px #808088, inset 0px 1px 0px #ffffff, 1px -1px 0px #ffffff; }\n  .w98 .WindowExplorer > menu {\n    position: relative;\n    min-height: 16px;\n    padding-left: 12px;\n    margin: 0px 1px;\n    display: flex;\n    box-shadow: inset 0px -1px 0px #808088, inset -1px 0px 0px #808088, inset 0px 0px 0px 1px #ffffff, -1px 0px 0px #808088, 1px 0px 0px #ffffff, -1px 1px 0px 0px #ffffff, 1px 1px 0px 0px #ffffff; }\n    .w98 .WindowExplorer > menu:before {\n      position: absolute;\n      top: 3px;\n      left: 5px;\n      height: calc(100% - 6px);\n      width: 3px;\n      background-color: #bbc3c4;\n      content: \"\";\n      box-shadow: inset -1px -1px 0px #808088, inset 1px 1px 0px #ffffff; }\n  .w98 .WindowExplorer > footer {\n    display: flex; }\n    .w98 .WindowExplorer > footer > div {\n      white-space: nowrap;\n      text-overflow: ellipsis;\n      overflow: hidden;\n      min-width: 0px;\n      flex-grow: 1;\n      padding: 2px;\n      height: 12px;\n      box-shadow: inset -1px -1px 0px #ffffff, inset 1px 1px 0px #0c0c0c; }\n      .w98 .WindowExplorer > footer > div:not(:last-child) {\n        margin-right: 2px; }\n      .w98 .WindowExplorer > footer > div:last-child {\n        padding-right: 12px; }\n  .w98 .WindowExplorer__address {\n    display: flex;\n    height: 22px;\n    overflow-y: visible; }\n    .w98 .WindowExplorer__address__title {\n      align-self: center;\n      margin-right: 4px; }\n    .w98 .WindowExplorer__address .Select {\n      flex-grow: 1;\n      z-index: 5;\n      margin-right: 4px;\n      margin-top: 1px; }\n  .w98 .WindowExplorer__options {\n    display: flex;\n    padding: 2px 8px 2px 12px; }\n  .w98 .WindowExplorer > div:last-child {\n    margin-top: 2px; }\n";
-  styleInject(css$p);
+  var css$q = ".w98 .WindowExplorer {\n  display: inline-flex;\n  flex-direction: column; }\n  .w98 .WindowExplorer__view {\n    min-height: 20px;\n    margin: 2px 0px;\n    flex-grow: 1;\n    background-color: #ffffff;\n    box-shadow: inset -1px -1px 0px #ffffff, inset 1px 1px 0px 0px #808088, inset -2px -2px 0px #bbc3c4, inset 2px 2px 0px 0px #0c0c0c; }\n  .w98 .WindowExplorer__details {\n    display: flex; }\n    .w98 .WindowExplorer__details__section {\n      box-shadow: inset -1px -1px 0px #ffffff, inset 1px 1px 0px #808088;\n      flex-grow: 1;\n      margin-top: 2px;\n      height: 16px; }\n      .w98 .WindowExplorer__details__section:not(:last-child) {\n        margin: 2px; }\n  .w98 .WindowExplorer .window__menu {\n    padding: 2px 2px 2px 12px; }\n  .w98 .WindowExplorer > div + menu {\n    margin-top: 2px;\n    box-shadow: 0px 2px 0px -1px #ffffff, -1px 2px 0px -1px #ffffff, -1px 1px 0px #808088, 0px 1px 0px #808088, inset 0px -1px 0px #808088, inset -1px 0px 0px #808088, inset 0px 0px 0px 1px #ffffff, -1px 0px 0px #808088, 1px 0px 0px #ffffff, -1px 1px 0px 0px #ffffff, 1px 1px 0px 0px #ffffff, -1px -1px 0px #808088, 0px -1px 0px #808088, inset 0px 1px 0px #ffffff, 1px -1px 0px #ffffff; }\n  .w98 .WindowExplorer > menu {\n    position: relative;\n    min-height: 16px;\n    padding-left: 12px;\n    margin: 0px 1px;\n    display: flex;\n    box-shadow: inset 0px -1px 0px #808088, inset -1px 0px 0px #808088, inset 0px 0px 0px 1px #ffffff, -1px 0px 0px #808088, 1px 0px 0px #ffffff, -1px 1px 0px 0px #ffffff, 1px 1px 0px 0px #ffffff; }\n    .w98 .WindowExplorer > menu:before {\n      position: absolute;\n      top: 3px;\n      left: 5px;\n      height: calc(100% - 6px);\n      width: 3px;\n      background-color: #bbc3c4;\n      content: \"\";\n      box-shadow: inset -1px -1px 0px #808088, inset 1px 1px 0px #ffffff; }\n  .w98 .WindowExplorer > footer {\n    display: flex; }\n    .w98 .WindowExplorer > footer > div {\n      white-space: nowrap;\n      text-overflow: ellipsis;\n      overflow: hidden;\n      min-width: 0px;\n      flex-grow: 1;\n      padding: 2px;\n      height: 12px;\n      box-shadow: inset -1px -1px 0px #ffffff, inset 1px 1px 0px #0c0c0c; }\n      .w98 .WindowExplorer > footer > div:not(:last-child) {\n        margin-right: 2px; }\n      .w98 .WindowExplorer > footer > div:last-child {\n        padding-right: 12px; }\n  .w98 .WindowExplorer__address {\n    display: flex;\n    height: 26px;\n    overflow-y: visible; }\n    .w98 .WindowExplorer__address__title {\n      align-self: center;\n      margin-right: 4px; }\n    .w98 .WindowExplorer__address .FakeSelect {\n      flex-grow: 1;\n      z-index: 5;\n      margin-right: 4px; }\n  .w98 .WindowExplorer__options {\n    display: flex;\n    padding: 2px 8px 2px 12px; }\n  .w98 .WindowExplorer > div:last-child {\n    margin-top: 2px; }\n";
+  styleInject(css$q);
 
   var WindowExplorer =
   /*#__PURE__*/
@@ -1975,8 +2014,9 @@
           className: "WindowExplorer__address"
         }, React__default.createElement("div", {
           className: "WindowExplorer__address__title"
-        }, "Address"), React__default.createElement(Select, {
-          placeholder: React__default.createElement("span", null, "Test"),
+        }, "Address"), props.customSelect ? props.customSelect() : React__default.createElement(FakeSelect, {
+          title: props.title,
+          icon: props.icon,
           isDisabled: true
         })), React__default.createElement("div", {
           className: "WindowExplorer__view"
@@ -1996,8 +2036,8 @@
     explorerOptions: PropTypes.shape(OptionsList.propTypes.options)
   });
 
-  var css$q = ".DetailsSection,\n.window__section {\n  position: relative;\n  border: 1px solid #ffffff;\n  outline: 1px solid #808088;\n  padding: 5px;\n  margin: 16px 8px 8px; }\n  .DetailsSection__title,\n  .window__section__title {\n    position: absolute;\n    top: -10px;\n    padding: 2px 4px;\n    background-color: #bbc3c4; }\n";
-  styleInject(css$q);
+  var css$r = ".DetailsSection,\n.window__section {\n  position: relative;\n  border: 1px solid #ffffff;\n  outline: 1px solid #808088;\n  padding: 5px;\n  margin: 16px 8px 8px; }\n  .DetailsSection__title,\n  .window__section__title {\n    position: absolute;\n    top: -10px;\n    padding: 2px 4px;\n    background-color: #bbc3c4; }\n";
+  styleInject(css$r);
 
   var DetailsSection = function DetailsSection(props) {
     return props.children ? React__default.createElement("section", {
@@ -2028,6 +2068,7 @@
   exports.Radio = Radio;
   exports.InputText = InputText;
   exports.Select = Select;
+  exports.FakeSelect = FakeSelect;
   exports.SelectBox = SelectBox;
   exports.SelectMultipleSimple = SelectMultipleSimple;
   exports.MenuBar = MenuBar;

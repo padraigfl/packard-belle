@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import WindowProgram from './WindowProgram';
-import Select from '../Inputs/Select';
+import Select from '../Inputs/FakeSelect';
 import OptionsList from './OptionsList';
 import './styles/WindowExplorer.scss';
 
@@ -37,7 +37,11 @@ class WindowExplorer extends React.Component {
         )}
         <menu className="WindowExplorer__address">
           <div className="WindowExplorer__address__title">Address</div>
-          <Select placeholder={<span>Test</span>} isDisabled />
+          {props.customSelect ? (
+            props.customSelect()
+          ) : (
+            <Select title={props.title} icon={props.icon} isDisabled />
+          )}
         </menu>
         <div className="WindowExplorer__view">{props.children}</div>
       </WindowProgram>

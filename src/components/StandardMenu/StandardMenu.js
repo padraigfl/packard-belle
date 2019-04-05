@@ -45,6 +45,7 @@ const StandardMenu = props => {
               value={[...props.value, option.title]}
               closeOnClick={props.closeOnClick}
               mouseEnterItem={props.mouseEnterItem}
+              StandardMenu={StandardMenu}
             />
           );
         })
@@ -54,6 +55,7 @@ const StandardMenu = props => {
           className={'StandardMenuItem--empty'}
           mouseEnterItem={props.mouseEnterItem}
           closeOnClick={props.closeOnClick}
+          StandardMenu={StandardMenu}
           isDisabled
         />
       )}

@@ -8,17 +8,19 @@ import './_options-list.scss';
 class OptionsListDropdown extends Component {
   openList = () => {
     this.dropdownButton.focus();
-  }
+  };
   render() {
     return (
-      <div className="options-list__dropdown">
+      <div className="OptionsList__dropdown">
         <button
-          ref={(btn) => { this.dropdownButton = btn; }}
+          ref={btn => {
+            this.dropdownButton = btn;
+          }}
           onClick={this.openList}
-          className="options-list__dropdown__button"
+          className="OptionsList__dropdown__button"
         />
         <StandardMenu
-          className="options-list__dropdown__list"
+          className="OptionsList__dropdown__list"
           options={this.props.options}
         />
       </div>
@@ -30,37 +32,47 @@ class OptionsList extends Component {
   static propTypes = {
     options: PropTypes.arrayOf(PropTypes.shape(ButtonIconLarge.propTypes)),
     className: PropTypes.string,
-  }
+  };
   state = {
-    displayedIcons: [],
-    dropdown: [],
-  }
+    entriesInView: 8,
+  };
 
-  componentDidMount() {
-    const entriesInView = (this.section.clientWidth - 20) / 50;
-    this.setState({
-      displayedIcons: this.props.options.slice(0, entriesInView),
-      dropdown: this.props.options.slice(entriesInView),
-    });
-  }
+  ref = React.createRef();
+
+  checkWidth = () => {
+    if (!this.ref.current) {
+      return;
+    }
+    const width = this.ref.current.offsetWidth || 200;
+    const entriesInView = (width - 20) / 50;
+    if (this.state.entriesInView !== entriesInView) {
+      this.setState({ entriesInView });
+    }
+  };
 
   render() {
+    const { props, state } = this;
     return (
       <menu
-        ref={(section) => { this.section = section; }}
-        className={ cx(this.props.className, 'options-list')}
+        ref={this.ref}
+        onMouseEnter={() => this.checkWidth()}
+        className={cx(props.className, 'OptionsList')}
       >
-        {this.state.displayedIcons.map(option => (
-          <ButtonIconLarge
-            key={`large-button-${option.title}`}
-            icon={option.icon}
-            title={option.title}
-            onClick={option.onClick}
-            isDisabled={!option.onClick}
+        <div className="OptionsList__large-icons">
+          {props.options.slice(0, state.entriesInView).map(option => (
+            <ButtonIconLarge
+              key={`large-button-${option.title}`}
+              icon={option.icon}
+              title={option.title}
+              onClick={() => this.setState({ rand: Math.random() })}
+              isDisabled={!option.onClick}
+            />
+          ))}
+        </div>
+        {props.options.slice(state.entriesInView).length > 0 && (
+          <OptionsListDropdown
+            options={props.options.slice(state.entriesInView)}
           />
-        ))}
-        { this.state.dropdown.length > 0 && (
-          <OptionsListDropdown options={this.state.dropdown} />
         )}
       </menu>
     );
