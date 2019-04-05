@@ -1,14 +1,11 @@
-
 import React from 'react';
-import {
-  mount,
-} from 'enzyme';
-import TaskBar from '..';
+import { mount } from 'enzyme';
+import TaskBar from '../TaskBar';
 
-const menuOptions = (onClick = jest.fn()) => ([
+const menuOptions = (onClick = jest.fn()) => [
   { alt: 'open', onClick, title: 'testButton', icon: 'icon1' },
   { alt: 'find', onClick, title: 'testOption', icon: 'icon2' },
-]);
+];
 
 describe('TaskBar', () => {
   const quickLaunchFunc = jest.fn();

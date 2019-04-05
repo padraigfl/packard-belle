@@ -1,0 +1,95 @@
+@import "../../_scss/w98/var/colors";
+@import "../../_scss/w98/mixins/box-shadows";
+@import "../../_scss/w98/functions/box-shadows";
+@import "../../_scss/w98/var/var";
+
+.SelectBox {
+  position: relative;
+  width: 100%;
+  background-color: #ffffff;
+  padding: 2px;
+
+  &:disabled,
+  &.disabled {
+    pointer-events: none;
+    > div {
+      overflow: hidden;
+    }
+    background-color: $grey;
+    button {
+      // @todo remove important
+      color: $darkgrey !important; // stylelint-disable-line
+    }
+    .icon {
+      filter: grayscale(1);
+    }
+  }
+  > div {
+    position: relative;
+    overflow: auto;
+  }
+
+  &:after {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    @include shadow-input;
+    pointer-events: none;
+    content: "";
+  }
+
+  button:not(.icon) {
+    display: block;
+    outline: none;
+    background: transparent;
+    border: none;
+    white-space: nowrap;
+    overflow: hidden;
+    color: $black;
+    width: 100%;
+    text-align: left;
+    &:after {
+      content: attr(title);
+      position: initial;
+    }
+    &.is-active {
+      background-color: $blue;
+      color: #ffffff;
+      outline-offset: -1px;
+      outline: 1px dotted #ffffff;
+    }
+  }
+
+  &--ExplorerIcon {
+    > div {
+      display: flex;
+      flex-direction: row;
+      overflow-y: hidden;
+      padding-bottom: 20px;
+      .explorer-icon {
+        margin: 2px 8px;
+      }
+    }
+  }
+  .icon--list {
+    margin: 0px;
+    padding: 1px;
+
+    .icon__text {
+      width: initial;
+    }
+
+    // stylelint-disable selector-max-specificity
+    &:focus:not(.is-active),
+    &:active:not(.is-active) {
+      .icon__text {
+        background-color: transparent;
+        color: $black;
+        outline: none;
+        outline-offset: -1px;
+      }
+    }
+  }
+}

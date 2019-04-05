@@ -1,0 +1,44 @@
+@import "../../_scss/w98/_window";
+
+.w98 .Window {
+  &__heading {
+    @include window-heading();
+  }
+  &__icon {
+    @include window-icon();
+  }
+  &__title {
+    @include window-title();
+  }
+  &__close {
+    margin-left: 2px;
+    background-image: url($close);
+  }
+  &__restore {
+    background-image: url($restore);
+  }
+  &__minimize {
+    background-image: url($minimize);
+  }
+  &__maximize {
+    background-image: url($maximize);
+  }
+  &--resizable {
+    &:after {
+      position: absolute;
+      bottom: 4px;
+      right: 4px;
+      height: 12px;
+      width: 12px;
+      content: "";
+      background-image: url($resize);
+    }
+  }
+  &--maximized {
+    @include window-maximized();
+  }
+
+  &--drag {
+    @include window-drag();
+  }
+}

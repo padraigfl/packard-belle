@@ -1,0 +1,63 @@
+@import "../../_scss/w98/functions/box-shadows";
+@import "../../_scss/w98/var/colors";
+@import "../../_scss/w98/var/uris";
+
+.OptionsList {
+  max-height: 40px;
+  z-index: 10;
+  &__large-icons {
+    display: flex;
+    overflow: hidden;
+  }
+  &__dropdown {
+    &--empty {
+      display: none;
+    }
+    position: absolute;
+    right: 2px;
+    top: 2px;
+    height: calc(100% - 4px);
+    &__button {
+      height: 100%;
+      border: none;
+      background-color: $grey;
+      background-image: url($more-options);
+      background-repeat: no-repeat;
+      background-position: 2px 3px;
+      padding: 0px 6px;
+      font-size: 0.7rem;
+      user-select: none;
+      letter-spacing: -2px;
+      display: flex;
+      flex-direction: column;
+      &:hover {
+        box-shadow: dualShadow(#ffffff, $darkgrey);
+      }
+      &:active,
+      &:focus,
+      &:active:focus {
+        outline: none;
+        background-position: 3px 4px;
+        box-shadow: dualShadow($darkgrey, #ffffff);
+        // stylelint-disable-next-line selector-max-specificity
+        + .OptionsList__dropdown__list {
+          position: absolute;
+          top: 100%;
+          right: 0px;
+          display: block;
+          z-index: 10;
+        }
+      }
+    }
+  }
+  .OptionsList__dropdown__list {
+    display: none;
+  }
+  .OptionsList__dropdown__button {
+    margin-left: auto;
+  }
+  .StandardMenuItem__button:hover {
+    background-color: $blue;
+    color: #ffffff;
+  }
+}

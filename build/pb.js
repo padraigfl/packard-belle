@@ -1,14 +1,14 @@
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('react'), require('classnames'), require('prop-types'), require('clone'), require('react-select')) :
-  typeof define === 'function' && define.amd ? define(['exports', 'react', 'classnames', 'prop-types', 'clone', 'react-select'], factory) :
-  (factory((global.PackardBelle = {}),global.React,global.classnames,global.PropTypes,global.clone,global.ReactSelect));
-}(this, (function (exports,React,cx,PropTypes,clone,ReactSelect) { 'use strict';
+  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('react'), require('classnames'), require('prop-types'), require('react-select'), require('clone')) :
+  typeof define === 'function' && define.amd ? define(['exports', 'react', 'classnames', 'prop-types', 'react-select', 'clone'], factory) :
+  (factory((global.PackardBelle = {}),global.React,global.classnames,global.PropTypes,global.ReactSelect,global.clone));
+}(this, (function (exports,React,cx,PropTypes,ReactSelect,clone) { 'use strict';
 
   var React__default = 'default' in React ? React['default'] : React;
   cx = cx && cx.hasOwnProperty('default') ? cx['default'] : cx;
   PropTypes = PropTypes && PropTypes.hasOwnProperty('default') ? PropTypes['default'] : PropTypes;
-  clone = clone && clone.hasOwnProperty('default') ? clone['default'] : clone;
   ReactSelect = ReactSelect && ReactSelect.hasOwnProperty('default') ? ReactSelect['default'] : ReactSelect;
+  clone = clone && clone.hasOwnProperty('default') ? clone['default'] : clone;
 
   function styleInject(css, ref) {
     if ( ref === void 0 ) ref = {};
@@ -358,6 +358,8 @@
 
   });
 
+  var commonButtonPropTypes$1 = AbstractButton.propTypes;
+
   var css$2 = ".btn.ButtonForm {\n  min-width: 48px;\n  outline-width: 1px;\n  outline-offset: -5px;\n  padding: 5px 1px;\n  box-shadow: inset -1px -1px 0px #0c0c0c, inset 1px 1px 0px #ffffff, inset -2px -2px 0px #808088, inset 2px 2px 0px #bbc3c4; }\n  .btn.ButtonForm:focus {\n    outline: #0c0c0c;\n    outline-style: dotted;\n    outline-width: 1px;\n    box-shadow: inset -1px -1px 0px #0c0c0c, inset 1px 1px 0px #0c0c0c, inset -2px -2px 0px #0c0c0c, inset 2px 2px 0px #ffffff; }\n  .btn.ButtonForm:active:focus, .btn.ButtonForm:active, .btn.ButtonForm.active, .btn.ButtonForm.clicked {\n    padding: 6px 0px 4px 2px;\n    box-shadow: inset -1px -1px 0px #0c0c0c, inset 1px 1px 0px #0c0c0c, inset -2px -2px 0px #808088, inset 2px 2px 0px #808088; }\n";
   styleInject(css$2);
 
@@ -370,7 +372,7 @@
     }, props.children);
   };
 
-  AbstractButton.propTypes = _objectSpread({}, commonButtonPropTypes);
+  AbstractButton.propTypes = _objectSpread({}, commonButtonPropTypes$1);
 
   var css$3 = ".btn.ButtonNav {\n  padding: 0px;\n  min-width: initial;\n  width: 16px;\n  height: 14px;\n  margin-left: 1px;\n  margin-top: 1px;\n  margin-bottom: 2px;\n  image-rendering: pixelated;\n  box-shadow: inset -1px -1px 0px #0c0c0c, inset 1px 1px 0px #ffffff, inset -2px -2px 0px #808088, inset 2px 2px 0px #bbc3c4; }\n  .btn.ButtonNav img {\n    height: 14px;\n    width: 14px; }\n  .btn.ButtonNav:focus {\n    outline: none;\n    border: none; }\n  .btn.ButtonNav:active:focus, .btn.ButtonNav.clicked {\n    padding-top: 2px;\n    padding-bottom: 1px;\n    padding-left: 4px;\n    padding-right: 8px;\n    box-shadow: inset -1px -1px 0px #ffffff, inset 1px 1px 0px #0c0c0c, inset -2px -2px 0px #bbc3c4, inset 2px 2px 0px #808088; }\n  .btn.ButtonNav.window__close, .btn.ButtonNav.Window__close {\n    margin-left: 2px; }\n";
   styleInject(css$3);
@@ -384,7 +386,7 @@
     });
   };
 
-  ButtonNav.propTypes = commonButtonPropTypes;
+  ButtonNav.propTypes = commonButtonPropTypes$1;
 
   var css$4 = ".btn.ButtonProgram {\n  flex: 1;\n  margin: 0px 1px;\n  height: 22px;\n  max-width: 140px;\n  min-width: 40px;\n  display: inline-block;\n  width: 100%;\n  padding-top: 1px;\n  padding-left: 22px;\n  padding-right: 3px;\n  text-align: left;\n  overflow: hidden;\n  white-space: nowrap;\n  text-overflow: ellipsis;\n  background-size: 16px;\n  background-repeat: no-repeat;\n  background-position: 4px 4px;\n  box-shadow: inset -1px -1px 0px #0c0c0c, inset 1px 1px 0px #ffffff, inset -2px -2px 0px #808088, inset 2px 2px 0px #bbc3c4; }\n  .btn.ButtonProgram:active:focus, .btn.ButtonProgram.btn--active, .btn.ButtonProgram.clicked {\n    background-position: 5px 5px;\n    box-shadow: inset -1px -1px 0px #ffffff, inset 1px 1px 0px #0c0c0c, inset -2px -2px 0px #bbc3c4, inset 2px 2px 0px #808088;\n    padding-top: 3px;\n    padding-left: 23px;\n    padding-right: 2px; }\n    .btn.ButtonProgram:active:focus:before, .btn.ButtonProgram.btn--active:before, .btn.ButtonProgram.clicked:before {\n      content: \"\";\n      background-size: 2px;\n      z-index: -1;\n      box-shadow: none; }\n  .btn.ButtonProgram.btn--active {\n    background-color: transparent;\n    font-weight: bold; }\n    .btn.ButtonProgram.btn--active:before {\n      content: \"\";\n      background-color: #ffffff;\n      background-image: url(\"data:image/gif;base64,R0lGODlhAgACAJEAAAAAAP///8zMzP///yH5BAEAAAMALAAAAAACAAIAAAID1CYFADs=\"); }\n";
   styleInject(css$4);
@@ -400,7 +402,7 @@
     }, props.children);
   };
 
-  ButtonProgram.propTypes = _objectSpread({}, commonButtonPropTypes, {
+  ButtonProgram.propTypes = _objectSpread({}, commonButtonPropTypes$1, {
     icon: PropTypes.any
   });
 
@@ -416,9 +418,9 @@
     });
   };
 
-  StartButton.propTypes = commonButtonPropTypes;
+  StartButton.propTypes = commonButtonPropTypes$1;
 
-  var css$6 = ".btn.ButtonIconLarge {\n  padding: 2px;\n  width: 48px;\n  min-width: 48px; }\n  .btn.ButtonIconLarge img {\n    display: block;\n    margin: 0 auto;\n    filter: grayscale(1);\n    height: 20px;\n    max-width: 20px;\n    margin-bottom: 2px; }\n  .btn.ButtonIconLarge:disabled, .btn.ButtonIconLarge.disabled {\n    color: #808088; }\n    .btn.ButtonIconLarge:disabled:hover, .btn.ButtonIconLarge.disabled:hover {\n      box-shadow: none; }\n      .btn.ButtonIconLarge:disabled:hover img, .btn.ButtonIconLarge.disabled:hover img {\n        filter: grayscale(1); }\n  .btn.ButtonIconLarge:hover {\n    box-shadow: inset -1px -1px 0px #0c0c0c, inset 1px 1px 0px #ffffff; }\n    .btn.ButtonIconLarge:hover img {\n      filter: grayscale(0); }\n  .btn.ButtonIconLarge:active:focus {\n    box-shadow: inset -1px -1px 0px #ffffff, inset 1px 1px 0px #0c0c0c;\n    padding: 3px 1px 1px 3px; }\n";
+  var css$6 = ".btn.ButtonIconLarge {\n  padding: 2px;\n  width: 48px;\n  min-width: 48px;\n  height: 38px;\n  display: inline-flex;\n  flex-direction: column;\n  align-items: center; }\n  .btn.ButtonIconLarge__text {\n    margin-top: auto; }\n  .btn.ButtonIconLarge img {\n    flex-grow: 1;\n    display: block;\n    filter: grayscale(1);\n    max-height: 20px;\n    max-width: 20px;\n    margin: 1px auto 2px; }\n  .btn.ButtonIconLarge:disabled, .btn.ButtonIconLarge.disabled {\n    color: #808088; }\n    .btn.ButtonIconLarge:disabled:hover, .btn.ButtonIconLarge.disabled:hover {\n      box-shadow: none; }\n      .btn.ButtonIconLarge:disabled:hover img, .btn.ButtonIconLarge.disabled:hover img {\n        filter: grayscale(1); }\n  .btn.ButtonIconLarge:hover {\n    box-shadow: inset -1px -1px 0px #0c0c0c, inset 1px 1px 0px #ffffff; }\n    .btn.ButtonIconLarge:hover img {\n      filter: grayscale(0); }\n  .btn.ButtonIconLarge:active:focus {\n    box-shadow: inset -1px -1px 0px #ffffff, inset 1px 1px 0px #0c0c0c;\n    padding: 3px 1px 1px 3px; }\n";
   styleInject(css$6);
 
   var ButtonIconLarge = function ButtonIconLarge(props) {
@@ -428,7 +430,9 @@
       isDisabled: props.isDisabled
     }, React__default.createElement("img", {
       src: props.icon
-    }), props.title);
+    }), React__default.createElement("div", {
+      className: "ButtonIconLarge__text"
+    }, props.title));
   };
 
   ButtonIconLarge.propTypes = _objectSpread({}, commonButtonPropTypes, {
@@ -450,7 +454,7 @@
     }));
   };
 
-  ButtonIconSmall.propTypes = _objectSpread({}, commonButtonPropTypes, {
+  ButtonIconSmall.propTypes = _objectSpread({}, commonButtonPropTypes$1, {
     icon: PropTypes.string
   });
 
@@ -578,204 +582,7 @@
   };
   StandardMenu.propTypes = standardMenuProps;
 
-  var withContextLogic = function withContextLogic(ContextButton) {
-    var _class, _temp;
-
-    return _temp = _class =
-    /*#__PURE__*/
-    function (_Component) {
-      _inherits(StandardMenuSimple, _Component);
-
-      function StandardMenuSimple() {
-        var _getPrototypeOf2;
-
-        var _this;
-
-        _classCallCheck(this, StandardMenuSimple);
-
-        for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-          args[_key] = arguments[_key];
-        }
-
-        _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(StandardMenuSimple)).call.apply(_getPrototypeOf2, [this].concat(args)));
-
-        _defineProperty(_assertThisInitialized(_this), "state", {
-          options: _this.props.options,
-          isActive: _this.props.isActive,
-          isOpen: false
-        });
-
-        _defineProperty(_assertThisInitialized(_this), "mouseEnterItem", function (e) {
-          if (e.target.value) {
-            var newOptions = _this.updateActive(e.target.value.split(','), clone(_this.props.options), 0);
-
-            _this.setState({
-              options: newOptions
-            });
-          }
-        });
-
-        _defineProperty(_assertThisInitialized(_this), "addBlurListener", function () {
-          document.body.addEventListener('click', _this.handleBlur);
-          document.body.addEventListener('mousedown', _this.handleBlur);
-        });
-
-        _defineProperty(_assertThisInitialized(_this), "removeBlurListener", function () {
-          document.body.removeEventListener('click', _this.handleBlur);
-          document.body.removeEventListener('mousedown', _this.handleBlur);
-        });
-
-        _defineProperty(_assertThisInitialized(_this), "buttonClick", function () {
-          if (_this.state.isOpen) {
-            _this.removeBlurListener();
-
-            _this.setState({
-              isOpen: false,
-              options: _this.props.options
-            });
-          } else {
-            _this.addBlurListener();
-
-            _this.setState({
-              isOpen: true,
-              options: _this.props.options
-            });
-          }
-        });
-
-        _defineProperty(_assertThisInitialized(_this), "handleEvent", function (newState) {
-          return function (onEvent) {
-            return function (e) {
-              if (onEvent) {
-                onEvent(e);
-              }
-
-              if (newState) {
-                _this.setState(newState);
-              }
-            };
-          };
-        });
-
-        _defineProperty(_assertThisInitialized(_this), "handleContextMenu", function (e) {
-          return _this.handleEvent({
-            isOpen: true
-          })(_this.props.onContextMenu)(e);
-        });
-
-        _defineProperty(_assertThisInitialized(_this), "handleBlur", function (e) {
-          if (_this.el && !_this.el.contains(e.target)) {
-            _this.handleEvent({
-              isOpen: false,
-              options: _this.props.options
-            })(_this.props.onBlur)(e);
-          }
-        });
-
-        _defineProperty(_assertThisInitialized(_this), "handleSelectionClose", _this.handleEvent({
-          isOpen: false,
-          options: _this.props.options
-        }));
-
-        return _this;
-      }
-
-      _createClass(StandardMenuSimple, [{
-        key: "updateActive",
-        value: function updateActive(activeFields, newOptions) {
-          var _this2 = this;
-
-          var idx = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 0;
-
-          if (activeFields.length <= idx) {
-            return newOptions;
-          }
-
-          var changeIdx = newOptions.findIndex(function (option, optIdx) {
-            if (Array.isArray(option)) {
-              var subIdx = option.findIndex(function (opt) {
-                return opt.title === activeFields[idx];
-              });
-
-              if (subIdx !== -1) {
-                newOptions[optIdx][subIdx].isActive = true;
-
-                if (newOptions[optIdx][subIdx].options) {
-                  newOptions[optIdx][subIdx].options = _this2.updateActive(activeFields, newOptions[optIdx][subIdx].options, idx + 1);
-                }
-
-                return;
-              }
-            }
-
-            return option.title === activeFields[idx];
-          });
-
-          if (changeIdx !== -1) {
-            newOptions[changeIdx].isActive = true;
-            newOptions[changeIdx].options = this.updateActive(activeFields, newOptions[changeIdx].options, idx + 1);
-          }
-
-          return newOptions;
-        }
-      }, {
-        key: "render",
-        value: function render() {
-          var _this3 = this;
-
-          var renderedMenu = React__default.createElement(StandardMenu, {
-            options: this.state.options,
-            className: "renderedMenu",
-            mouseEnterItem: function mouseEnterItem(e) {
-              return _this3.mouseEnterItem(e);
-            },
-            closeOnClick: this.handleSelectionClose
-          });
-
-          if (ContextButton) {
-            var _this$props = this.props,
-                className = _this$props.className,
-                props = _objectWithoutProperties(_this$props, ["className"]);
-
-            return React__default.createElement("div", {
-              ref: function ref(el) {
-                _this3.el = el;
-              },
-              className: cx('StandardMenuWrapper', className, {
-                active: this.state.isOpen
-              })
-            }, React__default.createElement(ContextButton, _extends({}, props, {
-              onClick: this.buttonClick,
-              className: this.state.isOpen ? 'active' : '',
-              onContextMenu: this.props.onContextMenu && function (e) {
-                return _this3.handleContextMenu(e);
-              }
-            }), props.children), renderedMenu);
-          }
-
-          return renderedMenu;
-        }
-      }], [{
-        key: "getDerivedStateFromProps",
-        value: function getDerivedStateFromProps(nextProps, prevState) {
-          if (nextProps.isActive !== prevState.isActive) {
-            return {
-              options: nextProps.options,
-              isActive: nextProps.isActive
-            };
-          } else return null;
-        }
-      }]);
-
-      return StandardMenuSimple;
-    }(React.Component), _defineProperty(_class, "defaultProps", {
-      value: []
-    }), _defineProperty(_class, "propTypes", _objectSpread({}, standardMenuProps, {
-      onClick: PropTypes.func,
-      onBlur: PropTypes.func,
-      onContextMenu: PropTypes.func
-    })), _temp;
-  };
+  var standardMenuProps$1 = StandardMenu.propTypes;
 
   var AbstractIcon =
   /*#__PURE__*/
@@ -906,6 +713,8 @@
   };
   AbstractIcon.propTypes = iconProps;
 
+  var iconProps$1 = AbstractIcon.propTypes;
+
   var css$a = ".icon.ExplorerIcon {\n  position: relative;\n  display: block;\n  outline: none;\n  background: none;\n  border: none;\n  color: initial;\n  text-decoration: none;\n  padding: 1px 7px 2px;\n  padding: initial;\n  margin: 2px;\n  width: 52px;\n  height: 58px;\n  text-align: center;\n  display: flex;\n  flex-direction: column;\n  align-items: center; }\n  .icon.ExplorerIcon .icon__icon {\n    display: block;\n    background-size: contain;\n    background-position: center;\n    background-repeat: no-repeat; }\n  .icon.ExplorerIcon:focus, .icon.ExplorerIcon:active, .icon.ExplorerIcon:active:focus, .icon.ExplorerIcon.is-active {\n    outline: none; }\n    .icon.ExplorerIcon:focus .icon__icon, .icon.ExplorerIcon:active .icon__icon, .icon.ExplorerIcon:active:focus .icon__icon, .icon.ExplorerIcon.is-active .icon__icon {\n      filter: hue-rotate(70deg) contrast(0.3) saturate(2); }\n    .icon.ExplorerIcon:focus .icon__text, .icon.ExplorerIcon:active .icon__text, .icon.ExplorerIcon:active:focus .icon__text, .icon.ExplorerIcon.is-active .icon__text {\n      background-color: #0000a2;\n      color: #ffffff;\n      outline: 1px dotted #ffffff;\n      outline-offset: -1px; }\n  .icon.ExplorerIcon .icon__icon {\n    width: 32px;\n    height: 32px;\n    margin: 0 3px; }\n  .icon.ExplorerIcon .icon__text {\n    position: absolute;\n    top: 31px;\n    width: 100%;\n    padding: 2px 2px 0px;\n    max-height: 22px;\n    max-width: 100%;\n    overflow-y: hidden;\n    display: inline-block; }\n  .icon.ExplorerIcon:focus .icon__text, .icon.ExplorerIcon:active .icon__text, .icon.ExplorerIcon:active:focus .icon__text, .icon.ExplorerIcon.active .icon__text, .icon.ExplorerIcon.clicked .icon__text {\n    padding: 2px 1px;\n    max-height: initial;\n    z-index: 1; }\n";
   styleInject(css$a);
 
@@ -922,7 +731,7 @@
     });
   };
 
-  ExplorerIcon.propTypes = iconProps;
+  ExplorerIcon.propTypes = iconProps$1;
 
   var css$b = ".icon.ListIcon {\n  position: relative;\n  display: block;\n  outline: none;\n  background: none;\n  border: none;\n  color: initial;\n  text-decoration: none;\n  padding: 1px 7px 2px;\n  height: 18px;\n  margin: 2px;\n  text-align: left;\n  display: flex;\n  align-items: center; }\n  .icon.ListIcon .icon__icon {\n    display: block;\n    background-size: contain;\n    background-position: center;\n    background-repeat: no-repeat; }\n  .icon.ListIcon:focus, .icon.ListIcon:active, .icon.ListIcon:active:focus, .icon.ListIcon.is-active {\n    outline: none; }\n    .icon.ListIcon:focus .icon__icon, .icon.ListIcon:active .icon__icon, .icon.ListIcon:active:focus .icon__icon, .icon.ListIcon.is-active .icon__icon {\n      filter: hue-rotate(70deg) contrast(0.3) saturate(2); }\n    .icon.ListIcon:focus .icon__text, .icon.ListIcon:active .icon__text, .icon.ListIcon:active:focus .icon__text, .icon.ListIcon.is-active .icon__text {\n      background-color: #0000a2;\n      color: #ffffff;\n      outline: 1px dotted #ffffff;\n      outline-offset: -1px; }\n  .icon.ListIcon .icon__icon {\n    display: inline-block;\n    width: 16px;\n    height: 16px;\n    margin-right: 2px; }\n  .icon.ListIcon .icon__text {\n    position: relative;\n    padding: 2px;\n    display: inline-block;\n    overflow: hidden;\n    white-space: nowrap;\n    text-overflow: ellipsis;\n    width: calc(100% - 20px);\n    padding-bottom: 3px; }\n  .icon.ListIcon:focus .icon__text, .icon.ListIcon:active .icon__text, .icon.ListIcon:active:focus .icon__text, .icon.ListIcon.active .icon__text, .icon.ListIcon.clicked .icon__text {\n    max-height: initial; }\n";
   styleInject(css$b);
@@ -1419,26 +1228,203 @@
     }))
   };
 
-  var css$k = ".MenuBar {\n  display: flex;\n  padding: 0px;\n  font-size: 1rem;\n  position: relative;\n  overflow-y: visible;\n  z-index: 20; }\n  .MenuBar > div {\n    position: relative; }\n    .MenuBar > div > button {\n      padding: 0px 4px;\n      outline: none;\n      border: none;\n      user-select: none;\n      color: #0c0c0c;\n      display: inline-block;\n      background-color: rgba(0, 0, 0, 0);\n      width: 100%;\n      overflow: hidden;\n      white-space: nowrap;\n      text-overflow: ellipsis;\n      text-align: left;\n      padding: 3px 6px; }\n      .MenuBar > div > button + div,\n      .MenuBar > div > button + div {\n        z-index: 20;\n        visibility: hidden;\n        position: absolute;\n        max-height: 0px;\n        top: 100%;\n        left: 0px; }\n        @media (min-height: 720px) and (min-width: 960px) {\n          .MenuBar > div > button + div,\n          .MenuBar > div > button + div {\n            transition: max-height linear 750ms; } }\n      .MenuBar > div > button:hover {\n        box-shadow: inset -1px -1px 0px #808088, inset 1px 1px 0px #ffffff; }\n      .MenuBar > div > button:active, .MenuBar > div > button:focus, .MenuBar > div > button:active:focus, .MenuBar > div > button.active, .MenuBar > div > button.clicked {\n        box-shadow: inset -1px -1px 0px #ffffff, inset 1px 1px 0px #808088;\n        padding: 4px 5px 2px 7px; }\n        .MenuBar > div > button:active + div,\n        .MenuBar > div > button:active + div, .MenuBar > div > button:focus + div,\n        .MenuBar > div > button:focus + div, .MenuBar > div > button:active:focus + div,\n        .MenuBar > div > button:active:focus + div, .MenuBar > div > button.active + div,\n        .MenuBar > div > button.active + div, .MenuBar > div > button.clicked + div,\n        .MenuBar > div > button.clicked + div {\n          visibility: visible;\n          max-height: 480px; }\n";
-  styleInject(css$k);
+  var withContextLogic = function withContextLogic(ContextButton) {
+    var _class, _temp;
 
-  var MenuEntry = withContextLogic(AbstractButton);
+    return _temp = _class =
+    /*#__PURE__*/
+    function (_Component) {
+      _inherits(StandardMenuSimple, _Component);
 
-  var MenuBar = function MenuBar(props) {
-    return React__default.createElement("menu", {
-      className: "window__menu MenuBar"
-    }, props.options && props.options.map(function (section) {
-      return React__default.createElement(MenuEntry, {
-        className: cx('MenuBar__section', props.className),
-        key: "menu-bar-section-".concat(section.title),
-        options: section.options
-      }, section.title);
-    }));
-  };
+      function StandardMenuSimple() {
+        var _getPrototypeOf2;
 
-  MenuBar.propTypes = {
-    options: PropTypes.arrayOf(PropTypes.shape()),
-    className: PropTypes.string
+        var _this;
+
+        _classCallCheck(this, StandardMenuSimple);
+
+        for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+          args[_key] = arguments[_key];
+        }
+
+        _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(StandardMenuSimple)).call.apply(_getPrototypeOf2, [this].concat(args)));
+
+        _defineProperty(_assertThisInitialized(_this), "state", {
+          options: _this.props.options,
+          isActive: _this.props.isActive,
+          isOpen: false
+        });
+
+        _defineProperty(_assertThisInitialized(_this), "mouseEnterItem", function (e) {
+          if (e.target.value) {
+            var newOptions = _this.updateActive(e.target.value.split(','), clone(_this.props.options), 0);
+
+            _this.setState({
+              options: newOptions
+            });
+          }
+        });
+
+        _defineProperty(_assertThisInitialized(_this), "addBlurListener", function () {
+          document.body.addEventListener('click', _this.handleBlur);
+          document.body.addEventListener('mousedown', _this.handleBlur);
+        });
+
+        _defineProperty(_assertThisInitialized(_this), "removeBlurListener", function () {
+          document.body.removeEventListener('click', _this.handleBlur);
+          document.body.removeEventListener('mousedown', _this.handleBlur);
+        });
+
+        _defineProperty(_assertThisInitialized(_this), "buttonClick", function () {
+          if (_this.state.isOpen) {
+            _this.removeBlurListener();
+
+            _this.setState({
+              isOpen: false,
+              options: _this.props.options
+            });
+          } else {
+            _this.addBlurListener();
+
+            _this.setState({
+              isOpen: true,
+              options: _this.props.options
+            });
+          }
+        });
+
+        _defineProperty(_assertThisInitialized(_this), "handleEvent", function (newState) {
+          return function (onEvent) {
+            return function (e) {
+              if (onEvent) {
+                onEvent(e);
+              }
+
+              if (newState) {
+                _this.setState(newState);
+              }
+            };
+          };
+        });
+
+        _defineProperty(_assertThisInitialized(_this), "handleContextMenu", function (e) {
+          return _this.handleEvent({
+            isOpen: true
+          })(_this.props.onContextMenu)(e);
+        });
+
+        _defineProperty(_assertThisInitialized(_this), "handleBlur", function (e) {
+          if (_this.el && !_this.el.contains(e.target)) {
+            _this.handleEvent({
+              isOpen: false,
+              options: _this.props.options
+            })(_this.props.onBlur)(e);
+          }
+        });
+
+        _defineProperty(_assertThisInitialized(_this), "handleSelectionClose", _this.handleEvent({
+          isOpen: false,
+          options: _this.props.options
+        }));
+
+        return _this;
+      }
+
+      _createClass(StandardMenuSimple, [{
+        key: "updateActive",
+        value: function updateActive(activeFields, newOptions) {
+          var _this2 = this;
+
+          var idx = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 0;
+
+          if (activeFields.length <= idx) {
+            return newOptions;
+          }
+
+          var changeIdx = newOptions.findIndex(function (option, optIdx) {
+            if (Array.isArray(option)) {
+              var subIdx = option.findIndex(function (opt) {
+                return opt.title === activeFields[idx];
+              });
+
+              if (subIdx !== -1) {
+                newOptions[optIdx][subIdx].isActive = true;
+
+                if (newOptions[optIdx][subIdx].options) {
+                  newOptions[optIdx][subIdx].options = _this2.updateActive(activeFields, newOptions[optIdx][subIdx].options, idx + 1);
+                }
+
+                return;
+              }
+            }
+
+            return option.title === activeFields[idx];
+          });
+
+          if (changeIdx !== -1) {
+            newOptions[changeIdx].isActive = true;
+            newOptions[changeIdx].options = this.updateActive(activeFields, newOptions[changeIdx].options, idx + 1);
+          }
+
+          return newOptions;
+        }
+      }, {
+        key: "render",
+        value: function render() {
+          var _this3 = this;
+
+          var renderedMenu = React__default.createElement(StandardMenu, {
+            options: this.state.options,
+            className: "renderedMenu",
+            mouseEnterItem: function mouseEnterItem(e) {
+              return _this3.mouseEnterItem(e);
+            },
+            closeOnClick: this.handleSelectionClose
+          });
+
+          if (ContextButton) {
+            var _this$props = this.props,
+                className = _this$props.className,
+                props = _objectWithoutProperties(_this$props, ["className"]);
+
+            return React__default.createElement("div", {
+              ref: function ref(el) {
+                _this3.el = el;
+              },
+              className: cx('StandardMenuWrapper', className, {
+                active: this.state.isOpen
+              })
+            }, React__default.createElement(ContextButton, _extends({}, props, {
+              onClick: this.buttonClick,
+              className: this.state.isOpen ? 'active' : '',
+              onContextMenu: this.props.onContextMenu && function (e) {
+                return _this3.handleContextMenu(e);
+              }
+            }), props.children), renderedMenu);
+          }
+
+          return renderedMenu;
+        }
+      }], [{
+        key: "getDerivedStateFromProps",
+        value: function getDerivedStateFromProps(nextProps, prevState) {
+          if (nextProps.isActive !== prevState.isActive) {
+            return {
+              options: nextProps.options,
+              isActive: nextProps.isActive
+            };
+          } else return null;
+        }
+      }]);
+
+      return StandardMenuSimple;
+    }(React.Component), _defineProperty(_class, "defaultProps", {
+      value: []
+    }), _defineProperty(_class, "propTypes", _objectSpread({}, standardMenuProps$1, {
+      onClick: PropTypes.func,
+      onBlur: PropTypes.func,
+      onContextMenu: PropTypes.func
+    })), _temp;
   };
 
   var Started = withContextLogic(StartButton);
@@ -1573,8 +1559,8 @@
     notifiers: []
   };
 
-  var css$l = ".TaskBar {\n  position: fixed;\n  background-color: #bbc3c4;\n  bottom: 0px;\n  left: 0px;\n  width: 100%;\n  max-width: 100%;\n  z-index: 10;\n  box-shadow: 0px -1px 0px #ffffff;\n  padding: 2px 0px;\n  display: flex; }\n  .TaskBar > div,\n  .TaskBar > button {\n    position: relative;\n    height: 22px;\n    margin: 0px 2px; }\n  .TaskBar > div:not(:last-child) {\n    padding: 0px 6px; }\n    .TaskBar > div:not(:last-child):first-child {\n      padding: 0px 3px 0px 0px; }\n    .TaskBar > div:not(:last-child):after {\n      position: absolute;\n      top: 1px;\n      right: 0px;\n      height: calc(100% - 2px);\n      width: 1px;\n      background-color: #808088;\n      content: \"\";\n      box-shadow: 1px 0px 0px #ffffff; }\n    .TaskBar > div:not(:last-child):before {\n      position: absolute;\n      top: 3px;\n      right: -6px;\n      height: calc(100% - 6px);\n      width: 3px;\n      background-color: #bbc3c4;\n      content: \"\";\n      box-shadow: inset -1px -1px 0px #808088, inset 1px 1px 0px #ffffff; }\n  .TaskBar__programs {\n    display: flex;\n    flex-grow: 1;\n    flex-shrink: 1;\n    flex-wrap: nowrap;\n    margin-right: 4px;\n    min-width: 42px; }\n    .TaskBar__programs:before {\n      display: none; }\n  .TaskBar__start {\n    position: relative; }\n    .TaskBar__start > button + div {\n      position: fixed;\n      bottom: 25px;\n      left: 2px;\n      visibility: hidden;\n      max-height: 0px;\n      padding-left: 22px; }\n      @media (min-height: 720px) and (min-width: 960px) {\n        .TaskBar__start > button + div {\n          transition: max-height linear 200ms; } }\n      .TaskBar__start > button + div > .divider:empty,\n      .TaskBar__start > button + div > div:empty {\n        margin-left: 24px;\n        width: calc(100% - 26px); }\n      .TaskBar__start > button + div:after {\n        content: \"\";\n        display: block;\n        position: absolute;\n        left: 3px;\n        top: 3px;\n        height: calc(100% - 6px);\n        width: 20px;\n        background: #0000a2;\n        background: linear-gradient(#0000a2, #126fc2);\n        background: url(\"data:image/gif;base64,R0lGODlhDgBkALMAAAAAAP///wIAsZKSmZKTmpGSmZKTmcjOz8fNzsfOz8fOzv///wAAAAAAAAAAAAAAACH5BAEAAAsALAAAAAAOAGQAAAT/cMk5SUo06CO179wSGEowgEOQBcRUEuqkUaIRd/cCwyvFzyJNS3JQ2Tyt0QLBklgwEqZGQasShr4DQhuilDxgRCWAINgIAkIxFoB2DDJWbmGb2Oq0nJx2dqoCXUEuKl8GMCZRSjpgWAdYEydVkhMJQlVkQR8UTFRgQDhiHkc9QRyfRwRSV5+ZH1KbnodzjEGPCAYFcBIJj5mOk61IkgZSnpKVxpSeYCuegTjCw8Uev1bLPkfXccuY29SSGgmRky2p4b2Jnm5+3LrQ3CsY5Wuk9ZlwcJrv2uzLvWthJgH0cWVAKkMGBjhKws1YQ4cPP1wxUETclUPuBOXRY4mOvmDJafaFFMmKwoEDCspIgnGSC0pYDZvB88YvE7Bd3YABrBlRJs+HN73MiPgq4heQYJAhlYiOhqyUwLhVo7TTWcYlyEZOmAbEYM+I4hape4b0Cg0tDXlVyapVR9UY5h7KaogAg9R1c82ubEohAgA7\") no-repeat bottom 3px center, linear-gradient(#0000a2, #126fc2); }\n      .TaskBar__start > button + div > div {\n        display: flex;\n        align-items: center;\n        margin-left: 20px; }\n        .TaskBar__start > button + div > div > button {\n          height: 32px;\n          padding-left: 32px;\n          background-size: 22px;\n          background-position: 4px center; }\n    .TaskBar__start > button.active, .TaskBar__start > button.clicked {\n      background-position: 3px 2px;\n      outline: 1px dotted #0c0c0c;\n      outline-offset: -4px; }\n      .TaskBar__start > button.active > div, .TaskBar__start > button.clicked > div {\n        visibility: visible;\n        max-height: 100vh;\n        padding: 3px; }\n        .TaskBar__start > button.active > div div, .TaskBar__start > button.clicked > div div {\n          display: flex; }\n    .TaskBar__start.active > div {\n      visibility: visible;\n      max-height: 100vh;\n      padding: 3px; }\n      .TaskBar__start.active > div div {\n        display: flex; }\n  .TaskBar__notifications {\n    background-color: #bbc3c4;\n    display: flex;\n    flex: none;\n    margin-left: auto;\n    align-items: center;\n    height: 22px;\n    padding: 0px 8px 0px 4px;\n    box-shadow: inset -1px -1px 0px #ffffff, inset 1px 1px 0px #808088; }\n    .TaskBar__notifications__time {\n      margin-left: 4px; }\n    .TaskBar__notifications__notifier {\n      height: 16px;\n      width: 16px;\n      background-color: #bbc3c4;\n      background-size: contain;\n      background-position: center;\n      background-repeat: no-repeat;\n      border: none; }\n      .TaskBar__notifications__notifier:active, .TaskBar__notifications__notifier:focus, .TaskBar__notifications__notifier:active:focus, .TaskBar__notifications__notifier.active, .TaskBar__notifications__notifier.clicked {\n        outline: none;\n        border: none; }\n";
-  styleInject(css$l);
+  var css$k = ".TaskBar {\n  position: fixed;\n  background-color: #bbc3c4;\n  bottom: 0px;\n  left: 0px;\n  width: 100%;\n  max-width: 100%;\n  z-index: 10;\n  box-shadow: 0px -1px 0px #ffffff;\n  padding: 2px 0px;\n  display: flex; }\n  .TaskBar > div,\n  .TaskBar > button {\n    position: relative;\n    height: 22px;\n    margin: 0px 2px; }\n  .TaskBar > div:not(:last-child) {\n    padding: 0px 6px; }\n    .TaskBar > div:not(:last-child):first-child {\n      padding: 0px 3px 0px 0px; }\n    .TaskBar > div:not(:last-child):after {\n      position: absolute;\n      top: 1px;\n      right: 0px;\n      height: calc(100% - 2px);\n      width: 1px;\n      background-color: #808088;\n      content: \"\";\n      box-shadow: 1px 0px 0px #ffffff; }\n    .TaskBar > div:not(:last-child):before {\n      position: absolute;\n      top: 3px;\n      right: -6px;\n      height: calc(100% - 6px);\n      width: 3px;\n      background-color: #bbc3c4;\n      content: \"\";\n      box-shadow: inset -1px -1px 0px #808088, inset 1px 1px 0px #ffffff; }\n  .TaskBar__programs {\n    display: flex;\n    flex-grow: 1;\n    flex-shrink: 1;\n    flex-wrap: nowrap;\n    margin-right: 4px;\n    min-width: 42px; }\n    .TaskBar__programs:before {\n      display: none; }\n  .TaskBar__start {\n    position: relative; }\n    .TaskBar__start > button + div {\n      position: fixed;\n      bottom: 25px;\n      left: 2px;\n      visibility: hidden;\n      max-height: 0px;\n      padding-left: 22px; }\n      @media (min-height: 720px) and (min-width: 960px) {\n        .TaskBar__start > button + div {\n          transition: max-height linear 200ms; } }\n      .TaskBar__start > button + div > .divider:empty,\n      .TaskBar__start > button + div > div:empty {\n        margin-left: 24px;\n        width: calc(100% - 26px); }\n      .TaskBar__start > button + div:after {\n        content: \"\";\n        display: block;\n        position: absolute;\n        left: 3px;\n        top: 3px;\n        height: calc(100% - 6px);\n        width: 20px;\n        background: #0000a2;\n        background: linear-gradient(#0000a2, #126fc2);\n        background: url(\"data:image/gif;base64,R0lGODlhDgBkALMAAAAAAP///wIAsZKSmZKTmpGSmZKTmcjOz8fNzsfOz8fOzv///wAAAAAAAAAAAAAAACH5BAEAAAsALAAAAAAOAGQAAAT/cMk5SUo06CO179wSGEowgEOQBcRUEuqkUaIRd/cCwyvFzyJNS3JQ2Tyt0QLBklgwEqZGQasShr4DQhuilDxgRCWAINgIAkIxFoB2DDJWbmGb2Oq0nJx2dqoCXUEuKl8GMCZRSjpgWAdYEydVkhMJQlVkQR8UTFRgQDhiHkc9QRyfRwRSV5+ZH1KbnodzjEGPCAYFcBIJj5mOk61IkgZSnpKVxpSeYCuegTjCw8Uev1bLPkfXccuY29SSGgmRky2p4b2Jnm5+3LrQ3CsY5Wuk9ZlwcJrv2uzLvWthJgH0cWVAKkMGBjhKws1YQ4cPP1wxUETclUPuBOXRY4mOvmDJafaFFMmKwoEDCspIgnGSC0pYDZvB88YvE7Bd3YABrBlRJs+HN73MiPgq4heQYJAhlYiOhqyUwLhVo7TTWcYlyEZOmAbEYM+I4hape4b0Cg0tDXlVyapVR9UY5h7KaogAg9R1c82ubEohAgA7\") no-repeat bottom 3px center, linear-gradient(#0000a2, #126fc2); }\n      .TaskBar__start > button + div > div {\n        display: flex;\n        align-items: center;\n        margin-left: 20px; }\n        .TaskBar__start > button + div > div > button {\n          height: 32px;\n          padding-left: 32px;\n          background-size: 22px;\n          background-position: 4px center; }\n    .TaskBar__start > button.active, .TaskBar__start > button.clicked {\n      background-position: 3px 2px;\n      outline: 1px dotted #0c0c0c;\n      outline-offset: -4px; }\n      .TaskBar__start > button.active > div, .TaskBar__start > button.clicked > div {\n        visibility: visible;\n        max-height: 100vh;\n        padding: 3px; }\n        .TaskBar__start > button.active > div div, .TaskBar__start > button.clicked > div div {\n          display: flex; }\n    .TaskBar__start.active > div {\n      visibility: visible;\n      max-height: 100vh;\n      padding: 3px; }\n      .TaskBar__start.active > div div {\n        display: flex; }\n  .TaskBar__notifications {\n    background-color: #bbc3c4;\n    display: flex;\n    flex: none;\n    margin-left: auto;\n    align-items: center;\n    height: 22px;\n    padding: 0px 8px 0px 4px;\n    box-shadow: inset -1px -1px 0px #ffffff, inset 1px 1px 0px #808088; }\n    .TaskBar__notifications__time {\n      margin-left: 4px; }\n    .TaskBar__notifications__notifier {\n      height: 16px;\n      width: 16px;\n      background-color: #bbc3c4;\n      background-size: contain;\n      background-position: center;\n      background-repeat: no-repeat;\n      border: none; }\n      .TaskBar__notifications__notifier:active, .TaskBar__notifications__notifier:focus, .TaskBar__notifications__notifier:active:focus, .TaskBar__notifications__notifier.active, .TaskBar__notifications__notifier.clicked {\n        outline: none;\n        border: none; }\n";
+  styleInject(css$k);
 
   var TaskBar = function TaskBar(props) {
     return React__default.createElement("div", {
@@ -1612,8 +1598,8 @@
     notifiers: PropTypes.arrayOf(PropTypes.shape(Notifications.propsTypes))
   };
 
-  var css$m = ".w98 .Window__heading {\n  display: flex;\n  background: linear-gradient(to right, #0000a2, #126fc2);\n  font-weight: bold;\n  color: #ffffff;\n  margin-bottom: 1px;\n  padding: 0px 1px 0px 3px;\n  align-items: center;\n  letter-spacing: 1px; }\n  .w98 .Window__heading button {\n    padding: 0px;\n    min-width: initial;\n    width: 16px;\n    height: 14px;\n    margin-left: 1px;\n    image-rendering: pixelated;\n    display: flex;\n    align-items: center;\n    flex-shrink: 0;\n    background-repeat: no-repeat;\n    background-position: 1px 1px; }\n    .w98 .Window__heading button:focus, .w98 .Window__heading button.clicked {\n      outline: none;\n      border: none; }\n    .w98 .Window__heading button:active:focus, .w98 .Window__heading button.clicked {\n      padding: 2px 8px 1px 4px;\n      background-position: 2px 2px; }\n\n.w98 .Window__icon {\n  padding: 8px;\n  display: flex;\n  background-size: 14px;\n  background-repeat: no-repeat;\n  background-position: center; }\n\n.w98 .Window__title {\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  flex-grow: 1;\n  min-width: 0px;\n  user-select: none; }\n\n.w98 .Window__close {\n  margin-left: 2px;\n  background-image: url(\"data:image/gif;base64,R0lGODlhDQALAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAANAAsAAAIUlI+pKwDoVGxvucmwvblqo33MqBQAOw==\"); }\n\n.w98 .Window__restore {\n  background-image: url(\"data:image/gif;base64,R0lGODlhDQALAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAANAAsAAAIZlI9pwK3SnAKI1kjtwTlpyHjV830b9qRHAQA7\"); }\n\n.w98 .Window__minimize {\n  background-image: url(\"data:image/gif;base64,R0lGODlhDQALAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAANAAsAAAIOlI+py+0PozSg2mXvFAUAOw==\"); }\n\n.w98 .Window__maximize {\n  background-image: url(\"data:image/gif;base64,R0lGODlhDQALAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAANAAsAAAIXlI8Jy4wNXzJAznqwsjtPoYFfCDXfWQAAOw==\"); }\n\n.w98 .Window--resizable:after {\n  position: absolute;\n  bottom: 4px;\n  right: 4px;\n  height: 12px;\n  width: 12px;\n  content: \"\";\n  background-image: url(\"data:image/gif;base64,R0lGODlhDAAMAJEAAAAAAP///5mZmf///yH5BAEAAAMALAAAAAAMAAwAAAIbnI8TmSF83IMSKvFWw3dnHnFV+GVGhZZXmaoFADs=\"); }\n\n.w98 .Window--maximized {\n  width: 100%;\n  height: 100%; }\n\n.w98 .Window--drag {\n  background-color: rgba(0, 0, 0, 0);\n  box-shadow: inset -3px -3px 0px #808088, inset 3px 3px 0px #808088; }\n  .w98 .Window--drag > *, .w98 .Window--drag:after {\n    filter: opacity(0.1%); }\n";
-  styleInject(css$m);
+  var css$l = ".w98 .Window__heading {\n  display: flex;\n  background: linear-gradient(to right, #0000a2, #126fc2);\n  font-weight: bold;\n  color: #ffffff;\n  margin-bottom: 1px;\n  padding: 0px 1px 0px 3px;\n  align-items: center;\n  letter-spacing: 1px; }\n  .w98 .Window__heading button {\n    padding: 0px;\n    min-width: initial;\n    width: 16px;\n    height: 14px;\n    margin-left: 1px;\n    image-rendering: pixelated;\n    display: flex;\n    align-items: center;\n    flex-shrink: 0;\n    background-repeat: no-repeat;\n    background-position: 1px 1px; }\n    .w98 .Window__heading button:focus, .w98 .Window__heading button.clicked {\n      outline: none;\n      border: none; }\n    .w98 .Window__heading button:active:focus, .w98 .Window__heading button.clicked {\n      padding: 2px 8px 1px 4px;\n      background-position: 2px 2px; }\n\n.w98 .Window__icon {\n  padding: 8px;\n  display: flex;\n  background-size: 14px;\n  background-repeat: no-repeat;\n  background-position: center; }\n\n.w98 .Window__title {\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  flex-grow: 1;\n  min-width: 0px;\n  user-select: none; }\n\n.w98 .Window__close {\n  margin-left: 2px;\n  background-image: url(\"data:image/gif;base64,R0lGODlhDQALAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAANAAsAAAIUlI+pKwDoVGxvucmwvblqo33MqBQAOw==\"); }\n\n.w98 .Window__restore {\n  background-image: url(\"data:image/gif;base64,R0lGODlhDQALAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAANAAsAAAIZlI9pwK3SnAKI1kjtwTlpyHjV830b9qRHAQA7\"); }\n\n.w98 .Window__minimize {\n  background-image: url(\"data:image/gif;base64,R0lGODlhDQALAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAANAAsAAAIOlI+py+0PozSg2mXvFAUAOw==\"); }\n\n.w98 .Window__maximize {\n  background-image: url(\"data:image/gif;base64,R0lGODlhDQALAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAANAAsAAAIXlI8Jy4wNXzJAznqwsjtPoYFfCDXfWQAAOw==\"); }\n\n.w98 .Window--resizable:after {\n  position: absolute;\n  bottom: 4px;\n  right: 4px;\n  height: 12px;\n  width: 12px;\n  content: \"\";\n  background-image: url(\"data:image/gif;base64,R0lGODlhDAAMAJEAAAAAAP///5mZmf///yH5BAEAAAMALAAAAAAMAAwAAAIbnI8TmSF83IMSKvFWw3dnHnFV+GVGhZZXmaoFADs=\"); }\n\n.w98 .Window--maximized {\n  width: 100%;\n  height: 100%; }\n\n.w98 .Window--drag {\n  background-color: rgba(0, 0, 0, 0);\n  box-shadow: inset -3px -3px 0px #808088, inset 3px 3px 0px #808088; }\n  .w98 .Window--drag > *, .w98 .Window--drag:after {\n    filter: opacity(0.1%); }\n";
+  styleInject(css$l);
 
   var WindowAbstract =
   /*#__PURE__*/
@@ -1723,8 +1709,8 @@
   };
   WindowAbstract.propTypes = windowProps;
 
-  var css$n = ".WindowAlert {\n  display: inline-flex;\n  flex-direction: column;\n  max-width: 250px; }\n  .WindowAlert__message {\n    display: flex;\n    align-items: center;\n    min-height: 28px;\n    padding: 10px 2px 6px; }\n    .WindowAlert__message.has-icon {\n      background-size: 28px 28px;\n      background-repeat: no-repeat;\n      background-position: 6px 6px;\n      padding: 6px 4px 8px 40px; }\n  .WindowAlert__actions {\n    width: 100%;\n    display: flex;\n    justify-content: center; }\n    .WindowAlert__actions .btn {\n      margin: 0px 4px 8px; }\n";
-  styleInject(css$n);
+  var css$m = ".WindowAlert {\n  display: inline-flex;\n  flex-direction: column;\n  max-width: 250px; }\n  .WindowAlert__message {\n    display: flex;\n    align-items: center;\n    min-height: 28px;\n    padding: 10px 2px 6px; }\n    .WindowAlert__message.has-icon {\n      background-size: 28px 28px;\n      background-repeat: no-repeat;\n      background-position: 6px 6px;\n      padding: 6px 4px 8px 40px; }\n  .WindowAlert__actions {\n    width: 100%;\n    display: flex;\n    justify-content: center; }\n    .WindowAlert__actions .btn {\n      margin: 0px 4px 8px; }\n";
+  styleInject(css$m);
 
   var WindowAlert = function WindowAlert(props) {
     return React__default.createElement(WindowAbstract, {
@@ -1757,6 +1743,28 @@
     children: PropTypes.node,
     icon: PropTypes.string
   });
+
+  var css$n = ".MenuBar {\n  display: flex;\n  padding: 0px;\n  font-size: 1rem;\n  position: relative;\n  overflow-y: visible;\n  z-index: 20; }\n  .MenuBar > div {\n    position: relative; }\n    .MenuBar > div > button {\n      padding: 0px 4px;\n      outline: none;\n      border: none;\n      user-select: none;\n      color: #0c0c0c;\n      display: inline-block;\n      background-color: rgba(0, 0, 0, 0);\n      width: 100%;\n      overflow: hidden;\n      white-space: nowrap;\n      text-overflow: ellipsis;\n      text-align: left;\n      padding: 3px 6px; }\n      .MenuBar > div > button + div,\n      .MenuBar > div > button + div {\n        z-index: 20;\n        visibility: hidden;\n        position: absolute;\n        max-height: 0px;\n        top: 100%;\n        left: 0px; }\n        @media (min-height: 720px) and (min-width: 960px) {\n          .MenuBar > div > button + div,\n          .MenuBar > div > button + div {\n            transition: max-height linear 750ms; } }\n      .MenuBar > div > button:hover {\n        box-shadow: inset -1px -1px 0px #808088, inset 1px 1px 0px #ffffff; }\n      .MenuBar > div > button:active, .MenuBar > div > button:focus, .MenuBar > div > button:active:focus, .MenuBar > div > button.active, .MenuBar > div > button.clicked {\n        box-shadow: inset -1px -1px 0px #ffffff, inset 1px 1px 0px #808088;\n        padding: 4px 5px 2px 7px; }\n        .MenuBar > div > button:active + div,\n        .MenuBar > div > button:active + div, .MenuBar > div > button:focus + div,\n        .MenuBar > div > button:focus + div, .MenuBar > div > button:active:focus + div,\n        .MenuBar > div > button:active:focus + div, .MenuBar > div > button.active + div,\n        .MenuBar > div > button.active + div, .MenuBar > div > button.clicked + div,\n        .MenuBar > div > button.clicked + div {\n          visibility: visible;\n          max-height: 480px; }\n";
+  styleInject(css$n);
+
+  var MenuEntry = withContextLogic(AbstractButton);
+
+  var MenuBar = function MenuBar(props) {
+    return React__default.createElement("menu", {
+      className: "window__menu MenuBar"
+    }, props.options && props.options.map(function (section) {
+      return React__default.createElement(MenuEntry, {
+        className: cx('MenuBar__section', props.className),
+        key: "menu-bar-section-".concat(section.title),
+        options: section.options
+      }, section.title);
+    }));
+  };
+
+  MenuBar.propTypes = {
+    options: PropTypes.arrayOf(PropTypes.shape()),
+    className: PropTypes.string
+  };
 
   var css$o = ".w98 .WindowProgram {\n  display: inline-flex;\n  flex-direction: column; }\n  .w98 .WindowProgram > footer {\n    display: flex; }\n    .w98 .WindowProgram > footer > div {\n      white-space: nowrap;\n      text-overflow: ellipsis;\n      overflow: hidden;\n      min-width: 0px;\n      flex-grow: 1;\n      padding: 2px;\n      height: 12px;\n      box-shadow: inset -1px -1px 0px #ffffff, inset 1px 1px 0px #0c0c0c; }\n      .w98 .WindowProgram > footer > div:not(:last-child) {\n        margin-right: 2px; }\n      .w98 .WindowProgram > footer > div:last-child {\n        padding-right: 12px; }\n  .w98 .WindowProgram > div:last-child {\n    margin-top: 2px; }\n";
   styleInject(css$o);
@@ -1842,7 +1850,7 @@
     footer: PropTypes.arrayOf(PropTypes.shape(footerType))
   });
 
-  var css$p = ".OptionsList {\n  max-height: 40px;\n  z-index: 10; }\n  .OptionsList__large-icons {\n    overflow: hidden; }\n  .OptionsList__dropdown {\n    position: absolute;\n    right: 2px;\n    top: 2px;\n    height: calc(100% - 4px); }\n    .OptionsList__dropdown--empty {\n      display: none; }\n    .OptionsList__dropdown__button {\n      height: 100%;\n      border: none;\n      background-color: #bbc3c4;\n      background-image: url(\"data:image/gif;base64,R0lGODlhCAAFAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAIAAUAAAIKBCSGebzqoJKtAAA7\");\n      background-repeat: no-repeat;\n      background-position: 2px 3px;\n      padding: 0px 6px;\n      font-size: 0.7rem;\n      user-select: none;\n      letter-spacing: -2px;\n      display: flex;\n      flex-direction: column; }\n      .OptionsList__dropdown__button:hover {\n        box-shadow: inset -1px -1px 0px #808088, inset 1px 1px 0px #ffffff; }\n      .OptionsList__dropdown__button:active, .OptionsList__dropdown__button:focus, .OptionsList__dropdown__button:active:focus {\n        outline: none;\n        background-position: 3px 4px;\n        box-shadow: inset -1px -1px 0px #ffffff, inset 1px 1px 0px #808088; }\n        .OptionsList__dropdown__button:active + .OptionsList__dropdown__list, .OptionsList__dropdown__button:focus + .OptionsList__dropdown__list, .OptionsList__dropdown__button:active:focus + .OptionsList__dropdown__list {\n          position: absolute;\n          top: 100%;\n          right: 0px;\n          display: block;\n          z-index: 10; }\n  .OptionsList .OptionsList__dropdown__list {\n    display: none; }\n  .OptionsList .OptionsList__dropdown__button {\n    margin-left: auto; }\n  .OptionsList .StandardMenuItem__button:hover {\n    background-color: #0000a2;\n    color: #ffffff; }\n";
+  var css$p = ".OptionsList {\n  max-height: 40px;\n  z-index: 10; }\n  .OptionsList__large-icons {\n    display: flex;\n    overflow: hidden; }\n  .OptionsList__dropdown {\n    position: absolute;\n    right: 2px;\n    top: 2px;\n    height: calc(100% - 4px); }\n    .OptionsList__dropdown--empty {\n      display: none; }\n    .OptionsList__dropdown__button {\n      height: 100%;\n      border: none;\n      background-color: #bbc3c4;\n      background-image: url(\"data:image/gif;base64,R0lGODlhCAAFAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAIAAUAAAIKBCSGebzqoJKtAAA7\");\n      background-repeat: no-repeat;\n      background-position: 2px 3px;\n      padding: 0px 6px;\n      font-size: 0.7rem;\n      user-select: none;\n      letter-spacing: -2px;\n      display: flex;\n      flex-direction: column; }\n      .OptionsList__dropdown__button:hover {\n        box-shadow: inset -1px -1px 0px #808088, inset 1px 1px 0px #ffffff; }\n      .OptionsList__dropdown__button:active, .OptionsList__dropdown__button:focus, .OptionsList__dropdown__button:active:focus {\n        outline: none;\n        background-position: 3px 4px;\n        box-shadow: inset -1px -1px 0px #ffffff, inset 1px 1px 0px #808088; }\n        .OptionsList__dropdown__button:active + .OptionsList__dropdown__list, .OptionsList__dropdown__button:focus + .OptionsList__dropdown__list, .OptionsList__dropdown__button:active:focus + .OptionsList__dropdown__list {\n          position: absolute;\n          top: 100%;\n          right: 0px;\n          display: block;\n          z-index: 10; }\n  .OptionsList .OptionsList__dropdown__list {\n    display: none; }\n  .OptionsList .OptionsList__dropdown__button {\n    margin-left: auto; }\n  .OptionsList .StandardMenuItem__button:hover {\n    background-color: #0000a2;\n    color: #ffffff; }\n";
   styleInject(css$p);
 
   var OptionsListDropdown =
@@ -2060,7 +2068,6 @@
   exports.ButtonIconLarge = ButtonIconLarge;
   exports.ButtonIconSmall = ButtonIconSmall;
   exports.StandardMenu = StandardMenu;
-  exports.withStandardMenuWrapper = withContextLogic;
   exports.ExplorerIcon = ExplorerIcon;
   exports.ListIcon = ListIcon;
   exports.ExplorerView = ExplorerView;
@@ -2070,12 +2077,9 @@
   exports.Select = Select;
   exports.FakeSelect = FakeSelect;
   exports.SelectBox = SelectBox;
-  exports.SelectMultipleSimple = SelectMultipleSimple;
-  exports.MenuBar = MenuBar;
+  exports.SelectBoxSimple = SelectMultipleSimple;
   exports.StartMenu = StartMenu;
   exports.TaskBar = TaskBar;
-  exports.WindowFrame = WindowFrame;
-  exports.WindowAbstract = WindowAbstract;
   exports.WindowAlert = WindowAlert;
   exports.WindowExplorer = WindowExplorer;
   exports.WindowProgram = WindowProgram;

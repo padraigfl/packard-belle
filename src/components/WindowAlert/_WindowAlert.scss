@@ -1,0 +1,5 @@
+@import "../../_scss/w98/_window";
+
+.WindowAlert {
+  @include window-alert();
+}

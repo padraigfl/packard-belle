@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import Window from '../Window/WindowFrame';
+import Frame from '../Frame';
 import StandardMenuItem from './StandardMenuItem';
 
-import './StandardMenu.scss';
+import './_StandardMenu.scss';
 
 const DIVIDER = 'divider';
 
@@ -26,7 +26,7 @@ const StandardMenu = props => {
   const options = flattenWithDividers(props.options);
   const hasOptions = Array.isArray(options);
   return (
-    <Window
+    <Frame
       className={cx('StandardMenu', props.className, props.direction, {
         'StandardMenu--visible': props.isVisible,
       })}
@@ -59,7 +59,7 @@ const StandardMenu = props => {
           isDisabled
         />
       )}
-    </Window>
+    </Frame>
   );
 };
 

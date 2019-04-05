@@ -1,0 +1,32 @@
+@import "../../_scss/w98/var/colors";
+@import "../../_scss/w98/functions/box-shadows";
+@import "../../_scss/w98/mixins/box-shadows";
+@import "../../_scss/w98/var/var";
+
+.w98 .WindowProgram {
+  display: inline-flex;
+  flex-direction: column;
+
+  > footer {
+    display: flex;
+    > div {
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      min-width: 0px; // hack to prevent overflow
+      flex-grow: 1;
+      padding: 2px;
+      height: 12px;
+      box-shadow: dualShadow($black, #ffffff);
+      &:not(:last-child) {
+        margin-right: 2px;
+      }
+      &:last-child {
+        padding-right: 12px;
+      }
+    }
+  }
+  > div:last-child {
+    margin-top: 2px;
+  }
+}

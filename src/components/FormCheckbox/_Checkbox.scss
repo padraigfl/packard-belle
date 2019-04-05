@@ -1,0 +1,8 @@
+@import "../../_scss/w98/_inputs.scss";
+
+.Checkbox {
+  display: inline-block;
+  input[type="checkbox"] {
+    @include checkbox();
+  }
+}

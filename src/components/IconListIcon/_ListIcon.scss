@@ -1,0 +1,5 @@
+@import "../../_scss/w98/_icons";
+
+.icon.ListIcon {
+  @include icon-list();
+}
