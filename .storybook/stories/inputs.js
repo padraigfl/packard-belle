@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { storiesOf } from '@storybook/react';
-import Checkbox from '../../src/components/Inputs/Checkbox';
-import Radio from '../../src/components/Inputs/Radio';
-import InputText from '../../src/components/Inputs/InputText';
-import FakeSelect from '../../src/components/Inputs/FakeSelect';
-import SelectMultiple from '../../src/components/Inputs/SelectMultipleSimple';
-import Select from '../../src/components/Inputs/Select';
-import SelectBox from '../../src/components/Inputs/SelectBox';
-import ListIcon from '../../src/components/Icon/ListIcon';
-import ExplorerIcon from '../../src/components/Icon/ExplorerIcon';
+import Checkbox from '../../src/components/FormCheckbox';
+import Radio from '../../src/components/FormRadio';
+import InputText from '../../src/components/FormInputText';
+import FakeSelect from '../../src/components/FormFakeSelect';
+import SelectMultiple from '../../src/components/FormSelectBoxSimple';
+import Select from '../../src/components/FormSelect';
+import SelectBox from '../../src/components/FormSelectBox';
+import ListIcon from '../../src/components/IconListIcon';
+import ExplorerIcon from '../../src/components/IconExplorerIcon';
 
 import img from './directory_closed.png';
 

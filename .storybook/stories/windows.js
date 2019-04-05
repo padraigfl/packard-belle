@@ -1,11 +1,11 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import WindowFrame from '../../src/components/Window/WindowFrame';
-import AbstractWindow from '../../src/components/Window/WindowAbstract';
-import ExplorerWindow from '../../src/components/Window/WindowExplorer';
-import AlertWindow from '../../src/components/Window/WindowAlert';
-import WindowProgram from '../../src/components/Window/WindowProgram';
-import DetailsSection from '../../src/components/Window/DetailsSection';
+import WindowFrame from '../../src/components/Frame';
+import AbstractWindow from '../../src/components/Window';
+import ExplorerWindow from '../../src/components/WindowExplorer';
+import AlertWindow from '../../src/components/WindowAlert';
+import WindowProgram from '../../src/components/WindowProgram';
+import DetailsSection from '../../src/components/DetailsSection';
 
 import img from './directory_closed.png';
 

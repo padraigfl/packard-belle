@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import ContextMenu from '../../src/components/StandardMenu/StandardMenu';
-import withMenuWrapper from '../../src/components/StandardMenu/withMenuWrapper';
+import ContextMenu from '../../src/components/StandardMenu';
+import withMenuWrapper from '../../src/components/StandardMenuHOC';
 //import ContextMenuWrapper from '../../src/components/ContextMenu/ContextMenuWrapper';
 
 const optionsSample = [
@@ -41,7 +41,7 @@ const optionsSample = [
             },
           ],
         },
-      ]
+      ],
     },
   ],
   {
@@ -50,60 +50,58 @@ const optionsSample = [
   },
 ];
 
-
 const noop = () => {};
 
 const MenuWithLogic = withMenuWrapper();
 
-const notes = 'Hover styling currently controlled by javascript (no styling on CSS only version)';
+const notes =
+  'Hover styling currently controlled by javascript (no styling on CSS only version)';
 
 storiesOf('ContextMenu', module)
-  .add('ContextMenu Single Field', () => (
-    <ContextMenu
-      className="ContextMenu--css"
-      options={[
-        {
-          onClick: noop,
-          title: 'New',
-        },
-        [
-          {
-            onClick: noop,
-            title: 'Open',
-          },
-          {
-            onClick: noop,
-            title: 'Two in section',
-          },
-        ],
-        [
-          {
-            onClick: noop,
-            title: 'Single section',
-          },
-        ],
-        {
-          onClick: noop,
-          title: 'Close',
-        },
-    ]}
-    />
-  ), { notes })
-  .add('ContextMenu with children', () => (
-    <div>
-      <p>
-        Children display handled via CSS :hover
-      </p>
+  .add(
+    'ContextMenu Single Field',
+    () => (
       <ContextMenu
-        className="css"
-        options={optionsSample}
+        className="ContextMenu--css"
+        options={[
+          {
+            onClick: noop,
+            title: 'New',
+          },
+          [
+            {
+              onClick: noop,
+              title: 'Open',
+            },
+            {
+              onClick: noop,
+              title: 'Two in section',
+            },
+          ],
+          [
+            {
+              onClick: noop,
+              title: 'Single section',
+            },
+          ],
+          {
+            onClick: noop,
+            title: 'Close',
+          },
+        ]}
       />
-      <p>
-        Children display handled via JavaScript wrapper component
-      </p>
-      <MenuWithLogic
-        options={optionsSample}
-        isActive
-      />
-    </div>
-  ), { notes });
+    ),
+    { notes }
+  )
+  .add(
+    'ContextMenu with children',
+    () => (
+      <div>
+        <p>Children display handled via CSS :hover</p>
+        <ContextMenu className="css" options={optionsSample} />
+        <p>Children display handled via JavaScript wrapper component</p>
+        <MenuWithLogic options={optionsSample} isActive />
+      </div>
+    ),
+    { notes }
+  );
