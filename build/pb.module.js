@@ -611,9 +611,7 @@ function (_Component) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "checkDoubleClick", function () {
-      if (_this.props.onClick) {
-        _this.props.onClick();
-      }
+      _this.handleClick();
 
       if (!_this.props.onDoubleClick) {
         return;
@@ -662,8 +660,7 @@ function (_Component) {
       var props = this.props;
       var Comp = props.href ? 'a' : 'button';
       var iconProps = {
-        onDoubleClick: props.onDoubleClick,
-        onClick: this.handleClick,
+        onClick: this.checkDoubleClick,
         onContextMenu: this.props.onContextMenu && this.handleContextMenu,
         className: cx('icon', props.className),
         title: props.alt,

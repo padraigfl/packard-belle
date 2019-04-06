@@ -194,17 +194,19 @@ html {
   align-items: center; }
   .btn--large-icon__text {
     margin-top: auto; }
-  .btn--large-icon__icon {
+  .btn--large-icon .ButtonIconLarge__icon {
     flex-grow: 1;
     width: 20px;
     height: 20px;
-    margin: 1px auto 2px;
-    align-content: center; }
+    margin: 1px auto 2px; }
   .btn--large-icon img {
     max-width: 20px;
     max-height: 20px;
     display: block;
-    filter: grayscale(1); }
+    filter: grayscale(1);
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%); }
   .btn--large-icon:disabled, .btn--large-icon.disabled {
     color: #808088; }
     .btn--large-icon:disabled:hover, .btn--large-icon.disabled:hover {
