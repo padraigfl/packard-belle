@@ -48,7 +48,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  overflow-x: hidden;
 
   .icon__icon {
     width: 32px;
@@ -63,7 +62,7 @@
     padding: 2px 2px 0px;
     max-height: 22px;
     max-width: 100%;
-    overflow-y: hidden;
+    overflow: hidden;
     display: inline-block;
   }
 

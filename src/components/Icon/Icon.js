@@ -50,6 +50,7 @@ class AbstractIcon extends Component {
     const iconProps = {
       onClick: this.checkDoubleClick,
       onContextMenu: this.props.onContextMenu && this.handleContextMenu,
+      onTouchEnd: this.props.onDoubleClick || this.props.onClick,
       className: cx('icon', props.className),
       title: props.alt,
       value: props.value,

@@ -382,7 +382,8 @@ html {
   text-align: center;
   display: flex;
   flex-direction: column;
-  align-items: center; }
+  align-items: center;
+  overflow-x: hidden; }
   .icon--explorer .icon__icon {
     display: block;
     background-size: contain;
