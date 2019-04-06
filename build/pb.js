@@ -2082,6 +2082,7 @@
   exports.SelectBoxSimple = SelectMultipleSimple;
   exports.StartMenu = StartMenu;
   exports.TaskBar = TaskBar;
+  exports.Window = WindowAbstract;
   exports.WindowAlert = WindowAlert;
   exports.WindowExplorer = WindowExplorer;
   exports.WindowProgram = WindowProgram;

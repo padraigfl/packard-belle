@@ -2056,5 +2056,5 @@ DetailsSection.propTypes = {
   children: PropTypes.node
 };
 
-export { Theme, ButtonForm, ButtonNav, ButtonProgram, StartButton, ButtonIconLarge, ButtonIconSmall, StandardMenu, ExplorerIcon, ListIcon, ExplorerView, Checkbox, Radio, InputText, Select, FakeSelect, SelectBox, SelectMultipleSimple as SelectBoxSimple, StartMenu, TaskBar, WindowAlert, WindowExplorer, WindowProgram, DetailsSection };
+export { Theme, ButtonForm, ButtonNav, ButtonProgram, StartButton, ButtonIconLarge, ButtonIconSmall, StandardMenu, ExplorerIcon, ListIcon, ExplorerView, Checkbox, Radio, InputText, Select, FakeSelect, SelectBox, SelectMultipleSimple as SelectBoxSimple, StartMenu, TaskBar, WindowAbstract as Window, WindowAlert, WindowExplorer, WindowProgram, DetailsSection };
 //# sourceMappingURL=pb.module.js.map

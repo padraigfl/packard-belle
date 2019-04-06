@@ -382,8 +382,7 @@ html {
   text-align: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  overflow-x: hidden; }
+  align-items: center; }
   .icon--explorer .icon__icon {
     display: block;
     background-size: contain;
@@ -409,7 +408,7 @@ html {
     padding: 2px 2px 0px;
     max-height: 22px;
     max-width: 100%;
-    overflow-y: hidden;
+    overflow: hidden;
     display: inline-block; }
   .icon--explorer:focus .icon__text, .icon--explorer:active .icon__text, .icon--explorer:active:focus .icon__text, .icon--explorer.active .icon__text, .icon--explorer.clicked .icon__text {
     padding: 2px 1px;
