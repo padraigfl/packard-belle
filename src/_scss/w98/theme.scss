@@ -18,13 +18,12 @@
 // sourced from https://github.com/1000hz/winmine-exe/tree/master/static/fonts
 @font-face {
   font-family: "MSSansSerif";
-  src: url("./fonts/MSSansSerif.woff2") format("woff2");
-  font-weight: normal;
+  src: url("./fonts/MSSansSerifBold.woff2");
+  font-weight: bold;
 }
 @font-face {
   font-family: "MSSansSerif";
-  src: url("./fonts/MSSansSerifBold.woff2") format("woff2");
-  font-weight: bold;
+  src: url("./fonts/MSSansSerif.woff2");
 }
 
 @mixin scrollbar-button-shadowing {
