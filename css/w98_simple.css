@@ -198,7 +198,8 @@ html {
     filter: grayscale(1);
     position: relative;
     top: 50%;
-    transform: translateY(-50%); }
+    transform: translateY(-50%);
+    margin: 0 auto; }
   .btn--large-icon:disabled, .btn--large-icon.disabled {
     color: #808088; }
     .btn--large-icon:disabled:hover, .btn--large-icon.disabled:hover {
