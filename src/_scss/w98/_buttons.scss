@@ -82,6 +82,7 @@ $start: "data:image/gif;base64,R0lGODlhNAATAKIAAAAAAP///wAA/wD/AP//AP8AAP///wAAA
     position: relative;
     top: 50%;
     transform: translateY(-50%);
+    margin: 0 auto;
   }
   &:disabled,
   &.disabled {

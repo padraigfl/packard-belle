@@ -24,7 +24,11 @@ const SelectBox = props => {
       <div>
         {props.options.map(option => (
           <Comp
-            key={option.value}
+            key={
+              typeof option.value !== 'object'
+                ? option.value
+                : JSON.stringify(option.value)
+            }
             onClick={() => props.onClick(option.value)}
             alt={props.component ? option.alt : undefined}
             className={cx(option.className, {

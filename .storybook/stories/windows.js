@@ -139,16 +139,18 @@ storiesOf('Windows', module)
             title: 'Forward',
             onClick: noop,
           },
-          {
-            icon: img,
-            title: 'Forward',
-            onClick: noop,
-          },
-          {
-            icon: img,
-            title: 'Forward',
-            onClick: noop,
-          },
+          [
+            {
+              icon: img,
+              title: 'Forward',
+              onClick: noop,
+            },
+            {
+              icon: img,
+              title: 'Forward',
+              onClick: noop,
+            },
+          ],
           {
             icon: img,
             title: 'View',

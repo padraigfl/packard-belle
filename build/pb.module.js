@@ -47,6 +47,20 @@ Theme.propTypes = {
   style: PropTypes.shape()
 };
 
+function _typeof(obj) {
+  if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
+    _typeof = function (obj) {
+      return typeof obj;
+    };
+  } else {
+    _typeof = function (obj) {
+      return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+    };
+  }
+
+  return _typeof(obj);
+}
+
 function _classCallCheck(instance, Constructor) {
   if (!(instance instanceof Constructor)) {
     throw new TypeError("Cannot call a class as a function");
@@ -416,7 +430,7 @@ var StartButton = function StartButton(props) {
 
 StartButton.propTypes = commonButtonPropTypes$1;
 
-var css$6 = ".ButtonIconLarge {\n  padding: 2px;\n  width: 48px;\n  min-width: 48px;\n  height: 38px;\n  display: inline-flex;\n  flex-direction: column;\n  align-items: center; }\n  .ButtonIconLarge__text {\n    margin-top: auto; }\n  .ButtonIconLarge .ButtonIconLarge__icon {\n    flex-grow: 1;\n    width: 20px;\n    height: 20px;\n    margin: 1px auto 2px; }\n  .ButtonIconLarge img {\n    max-width: 20px;\n    max-height: 20px;\n    display: block;\n    filter: grayscale(1);\n    position: relative;\n    top: 50%;\n    transform: translateY(-50%); }\n  .ButtonIconLarge:disabled, .ButtonIconLarge.disabled {\n    color: #808088; }\n    .ButtonIconLarge:disabled:hover, .ButtonIconLarge.disabled:hover {\n      box-shadow: none; }\n      .ButtonIconLarge:disabled:hover img, .ButtonIconLarge.disabled:hover img {\n        filter: grayscale(1); }\n  .ButtonIconLarge:hover {\n    box-shadow: inset -1px -1px 0px #0c0c0c, inset 1px 1px 0px #ffffff; }\n    .ButtonIconLarge:hover img {\n      filter: grayscale(0); }\n  .ButtonIconLarge:active:focus {\n    box-shadow: inset -1px -1px 0px #ffffff, inset 1px 1px 0px #0c0c0c;\n    padding: 3px 1px 1px 3px; }\n  .ButtonIconLarge__icon {\n    flex-grow: 1;\n    width: 20px;\n    height: 20px;\n    margin: 1px auto 2px;\n    align-content: center; }\n";
+var css$6 = ".ButtonIconLarge {\n  padding: 2px;\n  width: 48px;\n  min-width: 48px;\n  height: 38px;\n  display: inline-flex;\n  flex-direction: column;\n  align-items: center; }\n  .ButtonIconLarge__text {\n    margin-top: auto; }\n  .ButtonIconLarge .ButtonIconLarge__icon {\n    flex-grow: 1;\n    width: 20px;\n    height: 20px;\n    margin: 1px auto 2px; }\n  .ButtonIconLarge img {\n    max-width: 20px;\n    max-height: 20px;\n    display: block;\n    filter: grayscale(1);\n    position: relative;\n    top: 50%;\n    transform: translateY(-50%);\n    margin: 0 auto; }\n  .ButtonIconLarge:disabled, .ButtonIconLarge.disabled {\n    color: #808088; }\n    .ButtonIconLarge:disabled:hover, .ButtonIconLarge.disabled:hover {\n      box-shadow: none; }\n      .ButtonIconLarge:disabled:hover img, .ButtonIconLarge.disabled:hover img {\n        filter: grayscale(1); }\n  .ButtonIconLarge:hover {\n    box-shadow: inset -1px -1px 0px #0c0c0c, inset 1px 1px 0px #ffffff; }\n    .ButtonIconLarge:hover img {\n      filter: grayscale(0); }\n  .ButtonIconLarge:active:focus {\n    box-shadow: inset -1px -1px 0px #ffffff, inset 1px 1px 0px #0c0c0c;\n    padding: 3px 1px 1px 3px; }\n  .ButtonIconLarge__icon {\n    flex-grow: 1;\n    width: 20px;\n    height: 20px;\n    margin: 1px auto 2px;\n    align-content: center; }\n";
 styleInject(css$6);
 
 var ButtonIconLarge = function ButtonIconLarge(props) {
@@ -524,7 +538,6 @@ var css$9 = ".StandardMenu {\n  display: inline-flex;\n  flex-direction: column;
 styleInject(css$9);
 
 var DIVIDER = 'divider';
-
 var flattenWithDividers = function flattenWithDividers(options) {
   return options.reduce(function (acc, val, idx) {
     if (!Array.isArray(val)) {
@@ -1098,7 +1111,7 @@ var SelectBox = function SelectBox(props) {
     })
   }, React.createElement("div", null, props.options.map(function (option) {
     return React.createElement(Comp, {
-      key: option.value,
+      key: _typeof(option.value) !== 'object' ? option.value : JSON.stringify(option.value),
       onClick: function onClick() {
         return props.onClick(option.value);
       },
@@ -1849,7 +1862,7 @@ WindowProgram.propTypes = _objectSpread({}, WindowAbstract.propTypes, {
   footer: PropTypes.arrayOf(PropTypes.shape(footerType))
 });
 
-var css$p = ".OptionsList {\n  max-height: 40px;\n  z-index: 10; }\n  .OptionsList__large-icons {\n    display: flex;\n    overflow: hidden; }\n  .OptionsList__dropdown {\n    position: absolute;\n    right: 2px;\n    top: 2px;\n    height: calc(100% - 4px); }\n    .OptionsList__dropdown--empty {\n      display: none; }\n    .OptionsList__dropdown__button {\n      height: 100%;\n      border: none;\n      background-color: #bbc3c4;\n      background-image: url(\"data:image/gif;base64,R0lGODlhCAAFAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAIAAUAAAIKBCSGebzqoJKtAAA7\");\n      background-repeat: no-repeat;\n      background-position: 2px 3px;\n      padding: 0px 6px;\n      font-size: 0.7rem;\n      user-select: none;\n      letter-spacing: -2px;\n      display: flex;\n      flex-direction: column; }\n      .OptionsList__dropdown__button:hover {\n        box-shadow: inset -1px -1px 0px #808088, inset 1px 1px 0px #ffffff; }\n      .OptionsList__dropdown__button:active, .OptionsList__dropdown__button:focus, .OptionsList__dropdown__button:active:focus {\n        outline: none;\n        background-position: 3px 4px;\n        box-shadow: inset -1px -1px 0px #ffffff, inset 1px 1px 0px #808088; }\n        .OptionsList__dropdown__button:active + .OptionsList__dropdown__list, .OptionsList__dropdown__button:focus + .OptionsList__dropdown__list, .OptionsList__dropdown__button:active:focus + .OptionsList__dropdown__list {\n          position: absolute;\n          top: 100%;\n          right: 0px;\n          display: block;\n          z-index: 10; }\n  .OptionsList .OptionsList__dropdown__list {\n    display: none; }\n  .OptionsList .OptionsList__dropdown__button {\n    margin-left: auto; }\n  .OptionsList .StandardMenuItem__button:hover {\n    background-color: #0000a2;\n    color: #ffffff; }\n";
+var css$p = ".OptionsList {\n  max-height: 40px;\n  z-index: 10; }\n  .OptionsList__large-icons {\n    display: flex;\n    overflow: hidden; }\n  .OptionsList__dropdown {\n    position: absolute;\n    right: 2px;\n    top: 2px;\n    height: calc(100% - 4px); }\n    .OptionsList__dropdown--empty {\n      display: none; }\n    .OptionsList__dropdown__button {\n      height: 100%;\n      border: none;\n      background-color: #bbc3c4;\n      background-image: url(\"data:image/gif;base64,R0lGODlhCAAFAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAIAAUAAAIKBCSGebzqoJKtAAA7\");\n      background-repeat: no-repeat;\n      background-position: 2px 3px;\n      padding: 0px 6px;\n      font-size: 0.7rem;\n      user-select: none;\n      letter-spacing: -2px;\n      display: flex;\n      flex-direction: column; }\n      .OptionsList__dropdown__button:hover {\n        box-shadow: inset -1px -1px 0px #808088, inset 1px 1px 0px #ffffff; }\n      .OptionsList__dropdown__button:active, .OptionsList__dropdown__button:focus, .OptionsList__dropdown__button:active:focus {\n        outline: none;\n        background-position: 3px 4px;\n        box-shadow: inset -1px -1px 0px #ffffff, inset 1px 1px 0px #808088; }\n        .OptionsList__dropdown__button:active + .OptionsList__dropdown__list, .OptionsList__dropdown__button:focus + .OptionsList__dropdown__list, .OptionsList__dropdown__button:active:focus + .OptionsList__dropdown__list {\n          position: absolute;\n          top: 100%;\n          right: 0px;\n          display: block;\n          z-index: 10; }\n  .OptionsList .OptionsList__dropdown__list {\n    display: none; }\n  .OptionsList .OptionsList__dropdown__button {\n    margin-left: auto; }\n  .OptionsList .StandardMenuItem__button:hover {\n    background-color: #0000a2;\n    color: #ffffff; }\n  .OptionsList .divider {\n    border-left: 1px solid #808088;\n    border-right: 1px solid #ffffff;\n    width: 1px;\n    margin: 2px 3px; }\n    .OptionsList .divider + .divider {\n      display: none; }\n";
 styleInject(css$p);
 
 var OptionsListDropdown =
@@ -1949,6 +1962,7 @@ function (_Component2) {
 
       var props = this.props,
           state = this.state;
+      var options = flattenWithDividers(props.options);
       return React.createElement("menu", {
         ref: this.ref,
         onMouseEnter: function onMouseEnter() {
@@ -1957,7 +1971,13 @@ function (_Component2) {
         className: cx(props.className, 'OptionsList')
       }, React.createElement("div", {
         className: "OptionsList__large-icons"
-      }, props.options.slice(0, state.entriesInView).map(function (option) {
+      }, options.slice(0, state.entriesInView).map(function (option) {
+        if (option.includes && option.includes('divider')) {
+          return React.createElement("div", {
+            className: "divider ".concat(option)
+          });
+        }
+
         return React.createElement(ButtonIconLarge, {
           key: "large-button-".concat(option.title),
           icon: option.icon,
