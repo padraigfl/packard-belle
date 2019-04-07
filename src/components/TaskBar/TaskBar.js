@@ -15,7 +15,7 @@ const TaskBar = props => (
         {props.quickLaunch.map(qlEntry => (
           <ButtonIconSmall
             key={`${qlEntry.icon}-QuickLaunch`}
-            alt={qlEntry.alt}
+            title={qlEntry.title}
             onClick={qlEntry.onClick}
             icon={qlEntry.icon}
           />

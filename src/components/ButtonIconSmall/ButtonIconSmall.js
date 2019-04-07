@@ -11,6 +11,7 @@ const ButtonIconSmall = props => (
     onClick={props.onClick}
     isDisabled={props.isDisabled}
     isActive={props.isActive}
+    title={props.title}
   >
     <img src={props.icon} />
   </Button>

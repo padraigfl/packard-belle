@@ -9,13 +9,12 @@
 
 @font-face {
   font-family: "MSSansSerif";
-  src: url("./fonts/MSSansSerif.woff2") format("woff2");
-  font-weight: normal; }
+  src: url("./fonts/MSSansSerifBold.woff2");
+  font-weight: bold; }
 
 @font-face {
   font-family: "MSSansSerif";
-  src: url("./fonts/MSSansSerifBold.woff2") format("woff2");
-  font-weight: bold; }
+  src: url("./fonts/MSSansSerif.woff2"); }
 
 html {
   font-size: 11px; }
