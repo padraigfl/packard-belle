@@ -6,6 +6,10 @@ The primary object of this project is to further my knowledge of various browser
 
 Components previewable at http://packard-belle.herokuapp.com/
 
+Demo site previewable https://packard-belle.netlify.com
+
+Demo site source https://github.com/padraigfl/packard-belle-desktop
+
 ## Goals
 
 ### 1. To create a CSS framework that mimics my first home computer
