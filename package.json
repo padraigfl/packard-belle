@@ -35,8 +35,7 @@
   "dependencies": {
     "classnames": "^2.2.6",
     "clone": "^2.1.2",
-    "prop-types": "^15.6.2",
-    "react-select": "^1.2.1"
+    "prop-types": "^15.6.2"
   },
   "devDependencies": {
     "@babel/core": "^7.1.5",
@@ -71,12 +70,14 @@
     "raf": "^3.4.0",
     "react": "~16.7.0",
     "react-dom": "~16.7.0",
+    "react-select": "^1.2.1",
     "react-test-renderer": "~16.7.0",
     "regenerator-runtime": "^0.12.1",
     "rollup": "^0.63.5",
     "rollup-plugin-auto-external": "^2.0.0",
     "rollup-plugin-babel": "^4.0.3",
     "rollup-plugin-commonjs": "^9.1.4",
+    "rollup-plugin-img": "^1.1.0",
     "rollup-plugin-node-resolve": "^3.3.0",
     "rollup-plugin-postcss": "^1.6.2",
     "rollup-plugin-replace": "^2.0.0",

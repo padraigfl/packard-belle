@@ -14,6 +14,8 @@ import img5 from './assets/5.png';
 import './_styles.scss';
 import SelectBox from '../FormSelectBox';
 
+const noop = () => {};
+
 const WindowAction = props => (
   <WindowAbstract
     className="WindowAction"
@@ -59,7 +61,13 @@ const WindowAction = props => (
 );
 
 WindowAction.defaultProps = {
-  onHelp: () => {},
+  onAction: noop,
+  onCancel: noop,
+  onHelp: noop,
+  action: 'Save??',
+  location: 'Desktop',
+  content: null,
+  name: '',
 };
 
 export default WindowAction;

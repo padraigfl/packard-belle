@@ -1,13 +1,12 @@
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('react'), require('classnames'), require('prop-types'), require('react-select'), require('clone')) :
-  typeof define === 'function' && define.amd ? define(['exports', 'react', 'classnames', 'prop-types', 'react-select', 'clone'], factory) :
-  (factory((global.PackardBelle = {}),global.React,global.classnames,global.PropTypes,global.ReactSelect,global.clone));
-}(this, (function (exports,React,cx,PropTypes,ReactSelect,clone) { 'use strict';
+  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('react'), require('classnames'), require('prop-types'), require('clone')) :
+  typeof define === 'function' && define.amd ? define(['exports', 'react', 'classnames', 'prop-types', 'clone'], factory) :
+  (factory((global.PackardBelle = {}),global.React,global.classnames,global.PropTypes,global.clone));
+}(this, (function (exports,React,cx,PropTypes,clone) { 'use strict';
 
   var React__default = 'default' in React ? React['default'] : React;
   cx = cx && cx.hasOwnProperty('default') ? cx['default'] : cx;
   PropTypes = PropTypes && PropTypes.hasOwnProperty('default') ? PropTypes['default'] : PropTypes;
-  ReactSelect = ReactSelect && ReactSelect.hasOwnProperty('default') ? ReactSelect['default'] : ReactSelect;
   clone = clone && clone.hasOwnProperty('default') ? clone['default'] : clone;
 
   function styleInject(css, ref) {
@@ -935,157 +934,8 @@
     onKeyDown: PropTypes.func.isRequired
   };
 
-  var css$g = ".w98 {\n  /* stylelint-disable */ }\n  .w98 .Select {\n    position: relative; }\n    .w98 .Select .Select-control {\n      width: 100%; }\n      .w98 .Select .Select-control .Select-multi-value-wrapper .Select-input,\n      .w98 .Select .Select-control .Select-multi-value-wrapper .Select-placeholder,\n      .w98 .Select .Select-control .Select-multi-value-wrapper .Select-value {\n        width: calc(100% - 4px); }\n      .w98 .Select .Select-control .Select-multi-value-wrapper .Select-input {\n        display: none !important; }\n      .w98 .Select .Select-control .Select-multi-value-wrapper .Select-value,\n      .w98 .Select .Select-control .Select-multi-value-wrapper .Select-placeholder {\n        height: 16px;\n        background-color: #ffffff;\n        border: none;\n        box-shadow: inset -1px -1px 0px #ffffff, inset 1px 1px 0px 0px #808088, inset -2px -2px 0px #bbc3c4, inset 2px 2px 0px 0px #0c0c0c;\n        padding: 2px; }\n        .w98 .Select .Select-control .Select-multi-value-wrapper .Select-value .Select-value-label > div,\n        .w98 .Select .Select-control .Select-multi-value-wrapper .Select-placeholder .Select-value-label > div {\n          margin: 1px;\n          margin-right: 17px;\n          padding-left: 1px;\n          outline: 1px dotted rgba(0, 0, 0, 0); }\n        .w98 .Select .Select-control .Select-multi-value-wrapper .Select-value:active .Select-value-label > div, .w98 .Select .Select-control .Select-multi-value-wrapper .Select-value:focus .Select-value-label > div,\n        .w98 .Select .Select-control .Select-multi-value-wrapper .Select-placeholder:active .Select-value-label > div,\n        .w98 .Select .Select-control .Select-multi-value-wrapper .Select-placeholder:focus .Select-value-label > div {\n          outline: 1px dotted #ffffff;\n          outline-offset: -1px;\n          background-color: #0000a2;\n          color: #ffffff; }\n      .w98 .Select .Select-control .Select-multi-value-wrapper .Select-placeholder {\n        display: flex;\n        align-items: center;\n        padding: 2px 0px 2px 4px; }\n      .w98 .Select .Select-control .Select-arrow-zone {\n        position: absolute;\n        box-shadow: inset -1px -1px 0px #0c0c0c, inset 1px 1px 0px #bbc3c4, inset -2px -2px 0px #808088, inset 2px 2px 0px #ffffff;\n        height: 16px;\n        width: 16px;\n        left: calc(100% - 18px);\n        top: 2px;\n        background-color: #bbc3c4;\n        background-repeat: no-repeat;\n        background-position: center;\n        background-image: url(\"data:image/gif;base64,R0lGODlhBwAEAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAHAAQAAAIIhA+CKWoNmSgAOw==\"); }\n      .w98 .Select .Select-control .Select-clear-zone {\n        display: none; }\n    .w98 .Select .Select-menu-outer {\n      border: 1px solid #0c0c0c;\n      background-color: #ffffff; }\n      .w98 .Select .Select-menu-outer .Select-menu .Select-option {\n        padding: 1px; }\n        .w98 .Select .Select-menu-outer .Select-menu .Select-option:hover {\n          outline: 1px dotted #ffffff;\n          outline-offset: -1px;\n          background-color: #0000a2;\n          color: #ffffff; }\n    .w98 .Select.is-disabled {\n      pointer-events: none; }\n      .w98 .Select.is-disabled .Select-control .Select-multi-value-wrapper .Select-value,\n      .w98 .Select.is-disabled .Select-control .Select-multi-value-wrapper .Select-placeholder {\n        background-color: #bbc3c4; }\n      .w98 .Select.is-disabled .Select-control .Select-arrow-zone:after {\n        background-image: url(\"data:image/gif;base64,R0lGODlhCAAFAJEAAAAAAP///5mZmf///yH5BAEAAAMALAAAAAAIAAUAAAIMlC8zKBF6nIJyqqcKADs=\"); }\n";
+  var css$g = ".FakeSelect {\n  position: relative;\n  display: flex;\n  height: 22px;\n  align-self: center;\n  align-items: center;\n  background-color: #ffffff;\n  overflow: hidden;\n  box-shadow: inset -1px -1px 0px #ffffff, inset 1px 1px 0px 0px #808088, inset -2px -2px 0px #bbc3c4, inset 2px 2px 0px 0px #0c0c0c; }\n  .FakeSelect__icon {\n    margin-left: 6px;\n    height: 16px; }\n  .FakeSelect__children {\n    margin-left: 6px;\n    margin-right: 28px;\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis; }\n  .FakeSelect__arrow {\n    position: absolute;\n    box-shadow: inset -1px -1px 0px #0c0c0c, inset 1px 1px 0px #bbc3c4, inset -2px -2px 0px #808088, inset 2px 2px 0px #ffffff;\n    height: 18px;\n    width: 18px;\n    left: calc(100% - 20px);\n    top: 2px;\n    background-color: #bbc3c4;\n    background-repeat: no-repeat;\n    background-position: center;\n    background-image: url(\"data:image/gif;base64,R0lGODlhBwAEAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAHAAQAAAIIhA+CKWoNmSgAOw==\"); }\n";
   styleInject(css$g);
-
-  var DefaultOptionComponent = function DefaultOptionComponent(props) {
-    return React__default.createElement("div", props);
-  }; // copied straight from react select demos with slight changes
-
-
-  var menuRenderer = function menuRenderer(_ref) {
-    var focusedOption = _ref.focusedOption,
-        focusOption = _ref.focusOption,
-        inputValue = _ref.inputValue,
-        instancePrefix = _ref.instancePrefix,
-        onFocus = _ref.onFocus,
-        onOptionRef = _ref.onOptionRef,
-        onSelect = _ref.onSelect,
-        optionClassName = _ref.optionClassName,
-        optionComponent = _ref.optionComponent,
-        options = _ref.options,
-        removeValue = _ref.removeValue,
-        selectValue = _ref.selectValue,
-        valueArray = _ref.valueArray,
-        valueKey = _ref.valueKey;
-    var Option = optionComponent || DefaultOptionComponent;
-    return options.map(function (option, i) {
-      var isSelected = valueArray && valueArray.some(function (x) {
-        return x[valueKey] === option[valueKey];
-      });
-      var isFocused = option === focusedOption;
-      var optionClass = cx(optionClassName, {
-        'Select-option': true,
-        'Select-option--icon': true,
-        'is-selected': isSelected,
-        'is-focused': isFocused,
-        'is-disabled': option.disabled
-      });
-      return React__default.createElement(Option, {
-        className: optionClass,
-        focusOption: focusOption,
-        inputValue: inputValue,
-        instancePrefix: instancePrefix,
-        isDisabled: option.disabled,
-        isFocused: isFocused,
-        isSelected: isSelected,
-        key: "option-".concat(i, "-").concat(option[valueKey]),
-        onFocus: onFocus,
-        onSelect: onSelect,
-        option: option,
-        optionIndex: i,
-        ref: function ref(_ref2) {
-          onOptionRef(_ref2, isFocused);
-        },
-        removeValue: removeValue,
-        selectValue: selectValue,
-        backgroundImage: option.icon
-      }, React__default.createElement("span", null, option.label));
-    });
-  };
-  menuRenderer.propTypes = {
-    focusedOption: PropTypes.object,
-    inputValue: PropTypes.string,
-    instancePrefix: PropTypes.string,
-    optionClassName: PropTypes.string,
-    options: PropTypes.array,
-    valueArray: PropTypes.array,
-    valueKey: PropTypes.string,
-    focusOption: PropTypes.func,
-    onFocus: PropTypes.func,
-    onOptionRef: PropTypes.func,
-    onSelect: PropTypes.func,
-    optionComponent: PropTypes.func,
-    optionRenderer: PropTypes.func,
-    removeValue: PropTypes.func,
-    selectValue: PropTypes.func
-  };
-
-  var ValueRenderer = function ValueRenderer(props) {
-    return React__default.createElement("div", {
-      style: {
-        backgroundImage: props.icon ? "url('".concat(props.icon, "')") : 'none'
-      }
-    }, props.label);
-  };
-
-  ValueRenderer.propTypes = {
-    icon: PropTypes.string,
-    label: PropTypes.string
-  };
-
-  var Select =
-  /*#__PURE__*/
-  function (_Component) {
-    _inherits(Select, _Component);
-
-    function Select(props) {
-      var _this;
-
-      _classCallCheck(this, Select);
-
-      _this = _possibleConstructorReturn(this, _getPrototypeOf(Select).call(this, props));
-
-      _defineProperty(_assertThisInitialized(_this), "handleChange", function (e) {
-        if (_this.props.onChange) {
-          _this.setState({
-            value: e.value
-          });
-        } else {
-          _this.props.onChange(e);
-        }
-      });
-
-      _this.state = {
-        value: _this.props.onChange ? null : _this.props.value
-      };
-      return _this;
-    }
-
-    _createClass(Select, [{
-      key: "render",
-      value: function render() {
-        var props = this.props;
-        return React__default.createElement(ReactSelect, _extends({}, props, {
-          className: "Select",
-          placeholder: props.placeholder,
-          onChange: this.handleChange,
-          disabled: props.isDisabled,
-          searchable: props.searchable,
-          menuRenderer: props.useIcons ? menuRenderer : undefined,
-          valueRenderer: ValueRenderer,
-          value: this.props.onChange ? this.props.value : this.state.value
-        }));
-      }
-    }]);
-
-    return Select;
-  }(React.Component);
-
-  _defineProperty(Select, "defaultProps", {
-    placeholder: '',
-    searchable: false
-  });
-
-  Select.propTypes = {
-    placeholder: PropTypes.any,
-    isDisabled: PropTypes.bool,
-    searchable: PropTypes.bool,
-    useIcons: PropTypes.bool
-  };
-
-  var css$h = ".FakeSelect {\n  position: relative;\n  display: flex;\n  height: 22px;\n  align-self: center;\n  align-items: center;\n  background-color: #ffffff;\n  overflow: hidden;\n  box-shadow: inset -1px -1px 0px #ffffff, inset 1px 1px 0px 0px #808088, inset -2px -2px 0px #bbc3c4, inset 2px 2px 0px 0px #0c0c0c; }\n  .FakeSelect__icon {\n    margin-left: 6px;\n    height: 16px; }\n  .FakeSelect__children {\n    margin-left: 6px;\n    margin-right: 28px;\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis; }\n  .FakeSelect__arrow {\n    position: absolute;\n    box-shadow: inset -1px -1px 0px #0c0c0c, inset 1px 1px 0px #bbc3c4, inset -2px -2px 0px #808088, inset 2px 2px 0px #ffffff;\n    height: 18px;\n    width: 18px;\n    left: calc(100% - 20px);\n    top: 2px;\n    background-color: #bbc3c4;\n    background-repeat: no-repeat;\n    background-position: center;\n    background-image: url(\"data:image/gif;base64,R0lGODlhBwAEAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAHAAQAAAIIhA+CKWoNmSgAOw==\"); }\n";
-  styleInject(css$h);
 
   var FakeSelect = function FakeSelect(props) {
     return React__default.createElement("div", {
@@ -1102,8 +952,8 @@
     }));
   };
 
-  var css$i = ".SelectBox {\n  position: relative;\n  width: 100%;\n  background-color: #ffffff;\n  padding: 2px; }\n  .SelectBox:disabled, .SelectBox.disabled {\n    pointer-events: none;\n    background-color: #bbc3c4; }\n    .SelectBox:disabled > div, .SelectBox.disabled > div {\n      overflow: hidden; }\n    .SelectBox:disabled button, .SelectBox.disabled button {\n      color: #808088 !important; }\n    .SelectBox:disabled .icon, .SelectBox.disabled .icon {\n      filter: grayscale(1); }\n  .SelectBox > div {\n    position: relative;\n    overflow: auto; }\n  .SelectBox:after {\n    position: absolute;\n    top: 0px;\n    left: 0px;\n    width: 100%;\n    height: 100%;\n    box-shadow: inset -1px -1px 0px #ffffff, inset 1px 1px 0px 0px #808088, inset -2px -2px 0px #bbc3c4, inset 2px 2px 0px 0px #0c0c0c;\n    pointer-events: none;\n    content: \"\"; }\n  .SelectBox button:not(.icon) {\n    display: block;\n    outline: none;\n    background: transparent;\n    border: none;\n    white-space: nowrap;\n    overflow: hidden;\n    color: #0c0c0c;\n    width: 100%;\n    text-align: left; }\n    .SelectBox button:not(.icon):after {\n      content: attr(title);\n      position: initial; }\n    .SelectBox button:not(.icon).is-active {\n      background-color: #0000a2;\n      color: #ffffff;\n      outline-offset: -1px;\n      outline: 1px dotted #ffffff; }\n  .SelectBox--ExplorerIcon > div {\n    display: flex;\n    flex-direction: row;\n    overflow-y: hidden;\n    padding-bottom: 20px; }\n    .SelectBox--ExplorerIcon > div .explorer-icon {\n      margin: 2px 8px; }\n  .SelectBox .icon--list {\n    margin: 0px;\n    padding: 1px; }\n    .SelectBox .icon--list .icon__text {\n      width: initial; }\n    .SelectBox .icon--list:focus:not(.is-active) .icon__text, .SelectBox .icon--list:active:not(.is-active) .icon__text {\n      background-color: transparent;\n      color: #0c0c0c;\n      outline: none;\n      outline-offset: -1px; }\n";
-  styleInject(css$i);
+  var css$h = ".SelectBox {\n  position: relative;\n  width: 100%;\n  background-color: #ffffff;\n  padding: 2px; }\n  .SelectBox:disabled, .SelectBox.disabled {\n    pointer-events: none;\n    background-color: #bbc3c4; }\n    .SelectBox:disabled > div, .SelectBox.disabled > div {\n      overflow: hidden; }\n    .SelectBox:disabled button, .SelectBox.disabled button {\n      color: #808088 !important; }\n    .SelectBox:disabled .icon, .SelectBox.disabled .icon {\n      filter: grayscale(1); }\n  .SelectBox > div {\n    position: relative;\n    overflow: auto; }\n  .SelectBox:after {\n    position: absolute;\n    top: 0px;\n    left: 0px;\n    width: 100%;\n    height: 100%;\n    box-shadow: inset -1px -1px 0px #ffffff, inset 1px 1px 0px 0px #808088, inset -2px -2px 0px #bbc3c4, inset 2px 2px 0px 0px #0c0c0c;\n    pointer-events: none;\n    content: \"\"; }\n  .SelectBox button:not(.icon) {\n    display: block;\n    outline: none;\n    background: transparent;\n    border: none;\n    white-space: nowrap;\n    overflow: hidden;\n    color: #0c0c0c;\n    width: 100%;\n    text-align: left; }\n    .SelectBox button:not(.icon):after {\n      content: attr(title);\n      position: initial; }\n    .SelectBox button:not(.icon).is-active {\n      background-color: #0000a2;\n      color: #ffffff;\n      outline-offset: -1px;\n      outline: 1px dotted #ffffff; }\n  .SelectBox--ExplorerIcon > div {\n    display: flex;\n    flex-direction: row;\n    overflow-y: hidden;\n    padding-bottom: 20px; }\n    .SelectBox--ExplorerIcon > div .explorer-icon {\n      margin: 2px 8px; }\n  .SelectBox .icon--list {\n    margin: 0px;\n    padding: 1px; }\n    .SelectBox .icon--list .icon__text {\n      width: initial; }\n    .SelectBox .icon--list:focus:not(.is-active) .icon__text, .SelectBox .icon--list:active:not(.is-active) .icon__text {\n      background-color: transparent;\n      color: #0c0c0c;\n      outline: none;\n      outline-offset: -1px; }\n";
+  styleInject(css$h);
 
   var isSelected = function isSelected(selected, val) {
     return Array.isArray(selected) ? selected.some(function (selectedEntry) {
@@ -1149,8 +999,8 @@
     }))
   };
 
-  var css$j = ".SelectMultipleSimple select[multiple] {\n  position: relative;\n  border: none;\n  background-color: #ffffff;\n  border-radius: 0px;\n  outline: none;\n  padding: 2px;\n  box-shadow: inset -1px -1px 0px #ffffff, inset 1px 1px 0px 0px #808088, inset -2px -2px 0px #bbc3c4, inset 2px 2px 0px 0px #0c0c0c; }\n  .SelectMultipleSimple select[multiple]:active, .SelectMultipleSimple select[multiple]:focus, .SelectMultipleSimple select[multiple]:active:focus, .SelectMultipleSimple select[multiple].active, .SelectMultipleSimple select[multiple].clicked {\n    outline: none; }\n  .SelectMultipleSimple select[multiple] option:active, .SelectMultipleSimple select[multiple] option:focus, .SelectMultipleSimple select[multiple] option:checked, .SelectMultipleSimple select[multiple] option.checked {\n    outline: 1px dotted #ffffff;\n    outline-offset: -1px;\n    background-color: #0000a2;\n    color: #ffffff; }\n";
-  styleInject(css$j);
+  var css$i = ".SelectMultipleSimple select[multiple] {\n  position: relative;\n  border: none;\n  background-color: #ffffff;\n  border-radius: 0px;\n  outline: none;\n  padding: 2px;\n  box-shadow: inset -1px -1px 0px #ffffff, inset 1px 1px 0px 0px #808088, inset -2px -2px 0px #bbc3c4, inset 2px 2px 0px 0px #0c0c0c; }\n  .SelectMultipleSimple select[multiple]:active, .SelectMultipleSimple select[multiple]:focus, .SelectMultipleSimple select[multiple]:active:focus, .SelectMultipleSimple select[multiple].active, .SelectMultipleSimple select[multiple].clicked {\n    outline: none; }\n  .SelectMultipleSimple select[multiple] option:active, .SelectMultipleSimple select[multiple] option:focus, .SelectMultipleSimple select[multiple] option:checked, .SelectMultipleSimple select[multiple] option.checked {\n    outline: 1px dotted #ffffff;\n    outline-offset: -1px;\n    background-color: #0000a2;\n    color: #ffffff; }\n";
+  styleInject(css$i);
 
   var SelectMultipleSimple =
   /*#__PURE__*/
@@ -1579,8 +1429,8 @@
     notifiers: []
   };
 
-  var css$k = ".TaskBar {\n  position: fixed;\n  background-color: #bbc3c4;\n  bottom: 0px;\n  left: 0px;\n  width: 100%;\n  max-width: 100%;\n  z-index: 10;\n  box-shadow: 0px -1px 0px #ffffff;\n  padding: 2px 0px;\n  display: flex; }\n  .TaskBar > div,\n  .TaskBar > button {\n    position: relative;\n    height: 22px;\n    margin: 0px 2px; }\n  .TaskBar > div:not(:last-child) {\n    padding: 0px 6px; }\n    .TaskBar > div:not(:last-child):first-child {\n      padding: 0px 3px 0px 0px; }\n    .TaskBar > div:not(:last-child):after {\n      position: absolute;\n      top: 1px;\n      right: 0px;\n      height: calc(100% - 2px);\n      width: 1px;\n      background-color: #808088;\n      content: \"\";\n      box-shadow: 1px 0px 0px #ffffff; }\n    .TaskBar > div:not(:last-child):before {\n      position: absolute;\n      top: 3px;\n      right: -6px;\n      height: calc(100% - 6px);\n      width: 3px;\n      background-color: #bbc3c4;\n      content: \"\";\n      box-shadow: inset -1px -1px 0px #808088, inset 1px 1px 0px #ffffff; }\n  .TaskBar__programs {\n    display: flex;\n    flex-grow: 1;\n    flex-shrink: 1;\n    flex-wrap: nowrap;\n    margin-right: 4px;\n    min-width: 42px; }\n    .TaskBar__programs:before {\n      display: none; }\n  .TaskBar__start {\n    position: relative; }\n    .TaskBar__start > button + div {\n      position: fixed;\n      bottom: 25px;\n      left: 2px;\n      visibility: hidden;\n      max-height: 0px;\n      padding-left: 22px; }\n      @media (min-height: 720px) and (min-width: 960px) {\n        .TaskBar__start > button + div {\n          transition: max-height linear 200ms; } }\n      .TaskBar__start > button + div > .divider:empty,\n      .TaskBar__start > button + div > div:empty {\n        margin-left: 24px;\n        width: calc(100% - 26px); }\n      .TaskBar__start > button + div:after {\n        content: \"\";\n        display: block;\n        position: absolute;\n        left: 3px;\n        top: 3px;\n        height: calc(100% - 6px);\n        width: 20px;\n        background: #0000a2;\n        background: linear-gradient(#0000a2, #126fc2);\n        background: url(\"data:image/gif;base64,R0lGODlhDgBkALMAAAAAAP///wIAsZKSmZKTmpGSmZKTmcjOz8fNzsfOz8fOzv///wAAAAAAAAAAAAAAACH5BAEAAAsALAAAAAAOAGQAAAT/cMk5SUo06CO179wSGEowgEOQBcRUEuqkUaIRd/cCwyvFzyJNS3JQ2Tyt0QLBklgwEqZGQasShr4DQhuilDxgRCWAINgIAkIxFoB2DDJWbmGb2Oq0nJx2dqoCXUEuKl8GMCZRSjpgWAdYEydVkhMJQlVkQR8UTFRgQDhiHkc9QRyfRwRSV5+ZH1KbnodzjEGPCAYFcBIJj5mOk61IkgZSnpKVxpSeYCuegTjCw8Uev1bLPkfXccuY29SSGgmRky2p4b2Jnm5+3LrQ3CsY5Wuk9ZlwcJrv2uzLvWthJgH0cWVAKkMGBjhKws1YQ4cPP1wxUETclUPuBOXRY4mOvmDJafaFFMmKwoEDCspIgnGSC0pYDZvB88YvE7Bd3YABrBlRJs+HN73MiPgq4heQYJAhlYiOhqyUwLhVo7TTWcYlyEZOmAbEYM+I4hape4b0Cg0tDXlVyapVR9UY5h7KaogAg9R1c82ubEohAgA7\") no-repeat bottom 3px center, linear-gradient(#0000a2, #126fc2); }\n      .TaskBar__start > button + div > div {\n        display: flex;\n        align-items: center;\n        margin-left: 20px; }\n        .TaskBar__start > button + div > div > button {\n          height: 32px;\n          padding-left: 32px;\n          background-size: 22px;\n          background-position: 4px center; }\n    .TaskBar__start > button.active, .TaskBar__start > button.clicked {\n      background-position: 3px 2px;\n      outline: 1px dotted #0c0c0c;\n      outline-offset: -4px; }\n      .TaskBar__start > button.active > div, .TaskBar__start > button.clicked > div {\n        visibility: visible;\n        max-height: 100vh;\n        padding: 3px; }\n        .TaskBar__start > button.active > div div, .TaskBar__start > button.clicked > div div {\n          display: flex; }\n    .TaskBar__start.active > div {\n      visibility: visible;\n      max-height: 100vh;\n      padding: 3px; }\n      .TaskBar__start.active > div div {\n        display: flex; }\n  .TaskBar__notifications {\n    background-color: #bbc3c4;\n    display: flex;\n    flex: none;\n    margin-left: auto;\n    align-items: center;\n    height: 22px;\n    padding: 0px 8px 0px 4px;\n    box-shadow: inset -1px -1px 0px #ffffff, inset 1px 1px 0px #808088; }\n    .TaskBar__notifications__time {\n      margin-left: 4px; }\n    .TaskBar__notifications__notifier {\n      height: 16px;\n      width: 16px;\n      background-color: #bbc3c4;\n      background-size: contain;\n      background-position: center;\n      background-repeat: no-repeat;\n      border: none; }\n      .TaskBar__notifications__notifier:active, .TaskBar__notifications__notifier:focus, .TaskBar__notifications__notifier:active:focus, .TaskBar__notifications__notifier.active, .TaskBar__notifications__notifier.clicked {\n        outline: none;\n        border: none; }\n";
-  styleInject(css$k);
+  var css$j = ".TaskBar {\n  position: fixed;\n  background-color: #bbc3c4;\n  bottom: 0px;\n  left: 0px;\n  width: 100%;\n  max-width: 100%;\n  z-index: 10;\n  box-shadow: 0px -1px 0px #ffffff;\n  padding: 2px 0px;\n  display: flex; }\n  .TaskBar > div,\n  .TaskBar > button {\n    position: relative;\n    height: 22px;\n    margin: 0px 2px; }\n  .TaskBar > div:not(:last-child) {\n    padding: 0px 6px; }\n    .TaskBar > div:not(:last-child):first-child {\n      padding: 0px 3px 0px 0px; }\n    .TaskBar > div:not(:last-child):after {\n      position: absolute;\n      top: 1px;\n      right: 0px;\n      height: calc(100% - 2px);\n      width: 1px;\n      background-color: #808088;\n      content: \"\";\n      box-shadow: 1px 0px 0px #ffffff; }\n    .TaskBar > div:not(:last-child):before {\n      position: absolute;\n      top: 3px;\n      right: -6px;\n      height: calc(100% - 6px);\n      width: 3px;\n      background-color: #bbc3c4;\n      content: \"\";\n      box-shadow: inset -1px -1px 0px #808088, inset 1px 1px 0px #ffffff; }\n  .TaskBar__programs {\n    display: flex;\n    flex-grow: 1;\n    flex-shrink: 1;\n    flex-wrap: nowrap;\n    margin-right: 4px;\n    min-width: 42px; }\n    .TaskBar__programs:before {\n      display: none; }\n  .TaskBar__start {\n    position: relative; }\n    .TaskBar__start > button + div {\n      position: fixed;\n      bottom: 25px;\n      left: 2px;\n      visibility: hidden;\n      max-height: 0px;\n      padding-left: 22px; }\n      @media (min-height: 720px) and (min-width: 960px) {\n        .TaskBar__start > button + div {\n          transition: max-height linear 200ms; } }\n      .TaskBar__start > button + div > .divider:empty,\n      .TaskBar__start > button + div > div:empty {\n        margin-left: 24px;\n        width: calc(100% - 26px); }\n      .TaskBar__start > button + div:after {\n        content: \"\";\n        display: block;\n        position: absolute;\n        left: 3px;\n        top: 3px;\n        height: calc(100% - 6px);\n        width: 20px;\n        background: #0000a2;\n        background: linear-gradient(#0000a2, #126fc2);\n        background: url(\"data:image/gif;base64,R0lGODlhDgBkALMAAAAAAP///wIAsZKSmZKTmpGSmZKTmcjOz8fNzsfOz8fOzv///wAAAAAAAAAAAAAAACH5BAEAAAsALAAAAAAOAGQAAAT/cMk5SUo06CO179wSGEowgEOQBcRUEuqkUaIRd/cCwyvFzyJNS3JQ2Tyt0QLBklgwEqZGQasShr4DQhuilDxgRCWAINgIAkIxFoB2DDJWbmGb2Oq0nJx2dqoCXUEuKl8GMCZRSjpgWAdYEydVkhMJQlVkQR8UTFRgQDhiHkc9QRyfRwRSV5+ZH1KbnodzjEGPCAYFcBIJj5mOk61IkgZSnpKVxpSeYCuegTjCw8Uev1bLPkfXccuY29SSGgmRky2p4b2Jnm5+3LrQ3CsY5Wuk9ZlwcJrv2uzLvWthJgH0cWVAKkMGBjhKws1YQ4cPP1wxUETclUPuBOXRY4mOvmDJafaFFMmKwoEDCspIgnGSC0pYDZvB88YvE7Bd3YABrBlRJs+HN73MiPgq4heQYJAhlYiOhqyUwLhVo7TTWcYlyEZOmAbEYM+I4hape4b0Cg0tDXlVyapVR9UY5h7KaogAg9R1c82ubEohAgA7\") no-repeat bottom 3px center, linear-gradient(#0000a2, #126fc2); }\n      .TaskBar__start > button + div > div {\n        display: flex;\n        align-items: center;\n        margin-left: 20px; }\n        .TaskBar__start > button + div > div > button {\n          height: 32px;\n          padding-left: 32px;\n          background-size: 22px;\n          background-position: 4px center; }\n    .TaskBar__start > button.active, .TaskBar__start > button.clicked {\n      background-position: 3px 2px;\n      outline: 1px dotted #0c0c0c;\n      outline-offset: -4px; }\n      .TaskBar__start > button.active > div, .TaskBar__start > button.clicked > div {\n        visibility: visible;\n        max-height: 100vh;\n        padding: 3px; }\n        .TaskBar__start > button.active > div div, .TaskBar__start > button.clicked > div div {\n          display: flex; }\n    .TaskBar__start.active > div {\n      visibility: visible;\n      max-height: 100vh;\n      padding: 3px; }\n      .TaskBar__start.active > div div {\n        display: flex; }\n  .TaskBar__notifications {\n    background-color: #bbc3c4;\n    display: flex;\n    flex: none;\n    margin-left: auto;\n    align-items: center;\n    height: 22px;\n    padding: 0px 8px 0px 4px;\n    box-shadow: inset -1px -1px 0px #ffffff, inset 1px 1px 0px #808088; }\n    .TaskBar__notifications__time {\n      margin-left: 4px; }\n    .TaskBar__notifications__notifier {\n      height: 16px;\n      width: 16px;\n      background-color: #bbc3c4;\n      background-size: contain;\n      background-position: center;\n      background-repeat: no-repeat;\n      border: none; }\n      .TaskBar__notifications__notifier:active, .TaskBar__notifications__notifier:focus, .TaskBar__notifications__notifier:active:focus, .TaskBar__notifications__notifier.active, .TaskBar__notifications__notifier.clicked {\n        outline: none;\n        border: none; }\n";
+  styleInject(css$j);
 
   var TaskBar = function TaskBar(props) {
     return React__default.createElement("div", {
@@ -1624,8 +1474,8 @@
     notifiers: PropTypes.arrayOf(PropTypes.shape(Notifications.propsTypes))
   };
 
-  var css$l = ".w98 .Window__heading {\n  display: flex;\n  background: linear-gradient(to right, #0000a2, #126fc2);\n  font-weight: bold;\n  color: #ffffff;\n  margin-bottom: 1px;\n  padding: 0px 1px 0px 3px;\n  align-items: center;\n  letter-spacing: 1px; }\n  .w98 .Window__heading button {\n    padding: 0px;\n    min-width: initial;\n    width: 16px;\n    height: 14px;\n    margin-left: 1px;\n    image-rendering: pixelated;\n    display: flex;\n    align-items: center;\n    flex-shrink: 0;\n    background-repeat: no-repeat;\n    background-position: 1px 1px; }\n    .w98 .Window__heading button:focus, .w98 .Window__heading button.clicked {\n      outline: none;\n      border: none; }\n    .w98 .Window__heading button:active:focus, .w98 .Window__heading button.clicked {\n      padding: 2px 8px 1px 4px;\n      background-position: 2px 2px; }\n\n.w98 .Window__icon {\n  padding: 8px;\n  display: flex;\n  background-size: 14px;\n  background-repeat: no-repeat;\n  background-position: center;\n  margin-right: 4px; }\n\n.w98 .Window__title {\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  flex-grow: 1;\n  min-width: 0px;\n  user-select: none; }\n\n.w98 .Window__close {\n  margin-left: 2px;\n  background-image: url(\"data:image/gif;base64,R0lGODlhDQALAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAANAAsAAAIUlI+pKwDoVGxvucmwvblqo33MqBQAOw==\"); }\n\n.w98 .Window__restore {\n  background-image: url(\"data:image/gif;base64,R0lGODlhDQALAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAANAAsAAAIZlI9pwK3SnAKI1kjtwTlpyHjV830b9qRHAQA7\"); }\n\n.w98 .Window__minimize {\n  background-image: url(\"data:image/gif;base64,R0lGODlhDQALAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAANAAsAAAIOlI+py+0PozSg2mXvFAUAOw==\"); }\n\n.w98 .Window__maximize {\n  background-image: url(\"data:image/gif;base64,R0lGODlhDQALAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAANAAsAAAIXlI8Jy4wNXzJAznqwsjtPoYFfCDXfWQAAOw==\"); }\n\n.w98 .Window__help {\n  background-image: url(\"data:image/gif;base64,R0lGODlhDQALAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAANAAsAAAIUlI9pwKDrBHtTxmcxvJTrn30VqBQAOw==\"); }\n\n.w98 .Window--resizable:after {\n  position: absolute;\n  bottom: 4px;\n  right: 4px;\n  height: 12px;\n  width: 12px;\n  content: \"\";\n  background-image: url(\"data:image/gif;base64,R0lGODlhDAAMAJEAAAAAAP///5mZmf///yH5BAEAAAMALAAAAAAMAAwAAAIbnI8TmSF83IMSKvFWw3dnHnFV+GVGhZZXmaoFADs=\"); }\n\n.w98 .Window--maximized {\n  width: 100%;\n  height: 100%; }\n\n.w98 .Window--drag {\n  background-color: rgba(0, 0, 0, 0);\n  box-shadow: inset -3px -3px 0px #808088, inset 3px 3px 0px #808088; }\n  .w98 .Window--drag > *, .w98 .Window--drag:after {\n    filter: opacity(0.1%); }\n";
-  styleInject(css$l);
+  var css$k = ".w98 .Window__heading {\n  display: flex;\n  background: linear-gradient(to right, #0000a2, #126fc2);\n  font-weight: bold;\n  color: #ffffff;\n  margin-bottom: 1px;\n  padding: 0px 1px 0px 3px;\n  align-items: center;\n  letter-spacing: 1px; }\n  .w98 .Window__heading button {\n    padding: 0px;\n    min-width: initial;\n    width: 16px;\n    height: 14px;\n    margin-left: 1px;\n    image-rendering: pixelated;\n    display: flex;\n    align-items: center;\n    flex-shrink: 0;\n    background-repeat: no-repeat;\n    background-position: 1px 1px; }\n    .w98 .Window__heading button:focus, .w98 .Window__heading button.clicked {\n      outline: none;\n      border: none; }\n    .w98 .Window__heading button:active:focus, .w98 .Window__heading button.clicked {\n      padding: 2px 8px 1px 4px;\n      background-position: 2px 2px; }\n\n.w98 .Window__icon {\n  padding: 8px;\n  display: flex;\n  background-size: 14px;\n  background-repeat: no-repeat;\n  background-position: center;\n  margin-right: 4px; }\n\n.w98 .Window__title {\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  flex-grow: 1;\n  min-width: 0px;\n  user-select: none; }\n\n.w98 .Window__close {\n  margin-left: 2px;\n  background-image: url(\"data:image/gif;base64,R0lGODlhDQALAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAANAAsAAAIUlI+pKwDoVGxvucmwvblqo33MqBQAOw==\"); }\n\n.w98 .Window__restore {\n  background-image: url(\"data:image/gif;base64,R0lGODlhDQALAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAANAAsAAAIZlI9pwK3SnAKI1kjtwTlpyHjV830b9qRHAQA7\"); }\n\n.w98 .Window__minimize {\n  background-image: url(\"data:image/gif;base64,R0lGODlhDQALAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAANAAsAAAIOlI+py+0PozSg2mXvFAUAOw==\"); }\n\n.w98 .Window__maximize {\n  background-image: url(\"data:image/gif;base64,R0lGODlhDQALAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAANAAsAAAIXlI8Jy4wNXzJAznqwsjtPoYFfCDXfWQAAOw==\"); }\n\n.w98 .Window__help {\n  background-image: url(\"data:image/gif;base64,R0lGODlhDQALAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAANAAsAAAIUlI9pwKDrBHtTxmcxvJTrn30VqBQAOw==\"); }\n\n.w98 .Window--resizable:after {\n  position: absolute;\n  bottom: 4px;\n  right: 4px;\n  height: 12px;\n  width: 12px;\n  content: \"\";\n  background-image: url(\"data:image/gif;base64,R0lGODlhDAAMAJEAAAAAAP///5mZmf///yH5BAEAAAMALAAAAAAMAAwAAAIbnI8TmSF83IMSKvFWw3dnHnFV+GVGhZZXmaoFADs=\"); }\n\n.w98 .Window--maximized {\n  width: 100%;\n  height: 100%; }\n\n.w98 .Window--drag {\n  background-color: rgba(0, 0, 0, 0);\n  box-shadow: inset -3px -3px 0px #808088, inset 3px 3px 0px #808088; }\n  .w98 .Window--drag > *, .w98 .Window--drag:after {\n    filter: opacity(0.1%); }\n";
+  styleInject(css$k);
 
   var WindowAbstract =
   /*#__PURE__*/
@@ -1735,8 +1585,8 @@
   };
   WindowAbstract.propTypes = windowProps;
 
-  var css$m = ".WindowAlert {\n  display: inline-flex;\n  flex-direction: column;\n  max-width: 250px; }\n  .WindowAlert__message {\n    display: flex;\n    align-items: center;\n    user-select: none;\n    min-height: 28px;\n    padding: 10px 2px 6px; }\n    .WindowAlert__message.has-icon {\n      background-size: 28px 28px;\n      background-repeat: no-repeat;\n      background-position: 6px 6px;\n      padding: 6px 4px 8px 40px; }\n  .WindowAlert__actions {\n    width: 100%;\n    display: flex;\n    justify-content: center; }\n    .WindowAlert__actions .btn {\n      margin: 0px 4px 8px; }\n";
-  styleInject(css$m);
+  var css$l = ".WindowAlert {\n  display: inline-flex;\n  flex-direction: column;\n  max-width: 250px; }\n  .WindowAlert__message {\n    display: flex;\n    align-items: center;\n    user-select: none;\n    min-height: 28px;\n    padding: 10px 2px 6px; }\n    .WindowAlert__message.has-icon {\n      background-size: 28px 28px;\n      background-repeat: no-repeat;\n      background-position: 6px 6px;\n      padding: 6px 4px 8px 40px; }\n  .WindowAlert__actions {\n    width: 100%;\n    display: flex;\n    justify-content: center; }\n    .WindowAlert__actions .btn {\n      margin: 0px 4px 8px; }\n";
+  styleInject(css$l);
 
   var WindowAlert = function WindowAlert(props) {
     return React__default.createElement(WindowAbstract, {
@@ -1769,6 +1619,93 @@
     children: PropTypes.node,
     icon: PropTypes.string
   });
+
+  var img1 = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAOAgMAAABbQXQZAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAJUExURQAAq////wAAADZqBOUAAAArSURBVAjXY1gFBAwNDAxMDGDW1NDQMIapUbOmQVhTGBjEoCyEGJwFJkDaAGAFGP4kmmZ0AAAAAElFTkSuQmCC";
+
+  var img2 = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAOAgMAAABbQXQZAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAMUExURQAAq////wAAAIeIj/NEB9oAAAAoSURBVAjXY1gFBAwNDAxMDGDW1NDQMIY5mYXLGCaEOobh4AYic0HaAHnVGXeUN3O0AAAAAElFTkSuQmCC";
+
+  var img3 = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAkUExURUdwTAAA/1Ooqf///wAAAIeIj6ipUf//AKoAVwAAqwD///8AABIbKHYAAAABdFJOUwBA5thmAAAAY0lEQVQY012PURKAIAgFHwimdf/7xkMza/92hxkA2GgNH+rFoMRJPaq5QU8VlIAuEiEd6R0M6WMenWFzoBucXupwOAObFdgKxiXYJ6JMZ1Da43MtXldeKusZyYk41QeiPN1+3GTUApb2Wc7EAAAAAElFTkSuQmCC";
+
+  var img4 = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAPAgMAAACQHae8AAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAJUExURUdwTAAAAP//ADvXwAwAAAABdFJOUwBA5thmAAAAOUlEQVQI12NgYGBkgAEwy4GFgTVAUIBBooXFgSE0NESQwaOj04EhSUlRAMRiAbEYQCwGJFZoaCgDADXDC1L2Qw0aAAAAAElFTkSuQmCC";
+
+  var img5 = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAANCAMAAABBwMRzAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAJUExURUdwTP///4eIj4zp4tUAAAABdFJOUwBA5thmAAAAOElEQVQI112OQQ4AIAzCuv7/0WpMcBNO0CwM8IhIa9sXu8AaRmmW283KFOHVOYnh44Q+VmPw+88FZDYBB0ED8bYAAAAASUVORK5CYII=";
+
+  var css$m = ".WindowAction {\n  width: 80%;\n  max-width: 350px;\n  min-width: 280px; }\n  .WindowAction > :not(:first-child) {\n    margin: 4px 5px;\n    width: auto; }\n  .WindowAction .Window__title {\n    text-transform: capitalize; }\n  .WindowAction__location {\n    display: flex;\n    align-items: center;\n    margin: 3px;\n    text-transform: capitalize; }\n    .WindowAction__location .btn {\n      margin-right: 2px; }\n    .WindowAction__location .FakeSelect {\n      flex-grow: 1;\n      margin: auto 4px; }\n  .WindowAction__files {\n    width: initial;\n    margin: 5px 3px; }\n  .WindowAction__footer {\n    margin: 3px;\n    display: flex; }\n  .WindowAction__input {\n    display: flex;\n    align-items: center; }\n    .WindowAction__input .FakeSelect {\n      margin-left: auto;\n      width: 80%;\n      max-width: 180px;\n      min-width: 140px; }\n    .WindowAction__input .InputText {\n      margin-left: auto;\n      width: calc(80% - 6px);\n      max-width: 174px;\n      min-width: 136px; }\n  .WindowAction__action-inputs {\n    flex-grow: 1; }\n  .WindowAction__input,\n  .WindowAction .ButtonForm {\n    margin-top: 4px; }\n  .WindowAction__action-buttons {\n    display: inline-flex;\n    flex-direction: column;\n    margin-left: 8px; }\n    .WindowAction__action-buttons .btn {\n      text-transform: capitalize; }\n";
+  styleInject(css$m);
+
+  var noop = function noop() {};
+
+  var WindowAction = function WindowAction(props) {
+    return React__default.createElement(WindowAbstract, {
+      className: "WindowAction",
+      title: props.action,
+      onClose: props.onCancel,
+      onHelp: props.onHelp,
+      resizable: false
+    }, React__default.createElement("div", {
+      className: "WindowAction__location"
+    }, React__default.createElement("div", null, props.action, " in"), React__default.createElement(FakeSelect, {
+      title: props.location
+    }), React__default.createElement(ButtonIconSmall, {
+      isDisabled: true,
+      hasBorder: true,
+      icon: img5
+    }), React__default.createElement(ButtonIconSmall, {
+      isDisabled: true,
+      hasBorder: true,
+      icon: img4
+    }), React__default.createElement(ButtonIconSmall, {
+      isDisabled: true,
+      hasBorder: true,
+      icon: img3
+    }), React__default.createElement(ButtonIconSmall, {
+      isDisabled: true,
+      hasBorder: true,
+      icon: img2
+    }), React__default.createElement(ButtonIconSmall, {
+      isDisabled: true,
+      hasBorder: true,
+      icon: img1
+    })), Array.isArray(props.content) && React__default.createElement(SelectBox, {
+      options: props.content,
+      className: "WindowAction__files",
+      selected: [],
+      component: ListIcon,
+      onClick: function onClick(val) {
+        return props.onChangeName(val.title);
+      }
+    }), React__default.createElement("div", {
+      className: "WindowAction__footer"
+    }, React__default.createElement("div", {
+      className: "WindowAction__action-inputs"
+    }, React__default.createElement("div", {
+      className: "WindowAction__input"
+    }, "File name:", React__default.createElement(InputText, {
+      onChange: props.onChangeName,
+      value: props.name
+    })), React__default.createElement("div", {
+      className: "WindowAction__input"
+    }, "Type: ", React__default.createElement(FakeSelect, {
+      title: props.type,
+      isDisabled: true
+    }))), React__default.createElement("div", {
+      className: "WindowAction__action-buttons"
+    }, React__default.createElement(ButtonForm, {
+      onClick: props.onAction
+    }, props.action), React__default.createElement(ButtonForm, {
+      onClick: props.onCancel
+    }, "Cancel"))));
+  };
+
+  WindowAction.defaultProps = {
+    onAction: noop,
+    onCancel: noop,
+    onHelp: noop,
+    action: 'Save??',
+    location: 'Desktop',
+    content: null,
+    name: ''
+  };
 
   var css$n = ".MenuBar {\n  display: flex;\n  padding: 0px;\n  font-size: 1rem;\n  position: relative;\n  overflow-y: visible;\n  z-index: 20; }\n  .MenuBar > div {\n    position: relative; }\n    .MenuBar > div > button {\n      padding: 0px 4px;\n      outline: none;\n      border: none;\n      user-select: none;\n      color: #0c0c0c;\n      display: inline-block;\n      background-color: rgba(0, 0, 0, 0);\n      width: 100%;\n      overflow: hidden;\n      white-space: nowrap;\n      text-overflow: ellipsis;\n      text-align: left;\n      padding: 3px 6px;\n      text-transform: capitalize; }\n      .MenuBar > div > button + div,\n      .MenuBar > div > button + div {\n        z-index: 20;\n        visibility: hidden;\n        position: absolute;\n        max-height: 0px;\n        top: 100%;\n        left: 0px; }\n        @media (min-height: 720px) and (min-width: 960px) {\n          .MenuBar > div > button + div,\n          .MenuBar > div > button + div {\n            transition: max-height linear 750ms; } }\n      .MenuBar > div > button:hover {\n        box-shadow: inset -1px -1px 0px #808088, inset 1px 1px 0px #ffffff; }\n      .MenuBar > div > button:active, .MenuBar > div > button:focus, .MenuBar > div > button:active:focus, .MenuBar > div > button.active, .MenuBar > div > button.clicked {\n        box-shadow: inset -1px -1px 0px #ffffff, inset 1px 1px 0px #808088;\n        padding: 4px 5px 2px 7px; }\n        .MenuBar > div > button:active + div,\n        .MenuBar > div > button:active + div, .MenuBar > div > button:focus + div,\n        .MenuBar > div > button:focus + div, .MenuBar > div > button:active:focus + div,\n        .MenuBar > div > button:active:focus + div, .MenuBar > div > button.active + div,\n        .MenuBar > div > button.active + div, .MenuBar > div > button.clicked + div,\n        .MenuBar > div > button.clicked + div {\n          visibility: visible;\n          max-height: 480px; }\n";
   styleInject(css$n);
@@ -2107,7 +2044,6 @@
   exports.Checkbox = Checkbox;
   exports.Radio = Radio;
   exports.InputText = InputText;
-  exports.Select = Select;
   exports.FakeSelect = FakeSelect;
   exports.SelectBox = SelectBox;
   exports.SelectBoxSimple = SelectMultipleSimple;
@@ -2115,6 +2051,7 @@
   exports.TaskBar = TaskBar;
   exports.Window = WindowAbstract;
   exports.WindowAlert = WindowAlert;
+  exports.WindowAction = WindowAction;
   exports.WindowExplorer = WindowExplorer;
   exports.WindowProgram = WindowProgram;
   exports.DetailsSection = DetailsSection;

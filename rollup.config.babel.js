@@ -3,6 +3,7 @@ import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 import replace from 'rollup-plugin-replace';
 import postcss from 'rollup-plugin-postcss';
+import image from 'rollup-plugin-img';
 import autoExternal from 'rollup-plugin-auto-external';
 
 const moduleOptions = {
@@ -35,11 +36,17 @@ export default {
   ],
 
   plugins: [
+    image({
+      output: './build/images', // default the root
+      extensions: /\.(png|jpg|jpeg|gif|svg)$/, // support png|jpg|jpeg|gif|svg, and it's alse the default value
+      limit: 8192, // default 8192(8k)
+      exclude: 'node_modules/**',
+    }),
     postcss({
       // modules: true,
     }),
     resolve({
-      extensions: ['.mjs', '.js', '.json', '.node', '.ttf', '.png'],
+      extensions: ['.mjs', '.js', '.json', '.node', '.ttf'],
     }),
     autoExternal(),
     babel({
