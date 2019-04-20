@@ -3,6 +3,4 @@
 
 .btn.ButtonIconSmall {
   @include button-small-icon();
-  background-repeat: no-repeat;
-  background-position: center;
 }

@@ -39,7 +39,7 @@ export default {
       // modules: true,
     }),
     resolve({
-      extensions: ['.mjs', '.js', '.json', '.node', '.ttf'],
+      extensions: ['.mjs', '.js', '.json', '.node', '.ttf', '.png'],
     }),
     autoExternal(),
     babel({
