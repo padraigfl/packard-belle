@@ -222,7 +222,7 @@ html {
     margin: 3px;
     max-height: 16px;
     max-width: 16px; }
-  .btn--small-icon:hover {
+  .btn--small-icon:hover, .btn--small-icon--hasBorder {
     box-shadow: inset -1px -1px 0px #808088, inset 1px 1px 0px #ffffff; }
   .btn--small-icon:hover:focus:active, .btn--small-icon:hover:active, .btn--small-icon.active, .btn--small-icon.clicked {
     box-shadow: inset -1px -1px 0px #ffffff, inset 1px 1px 0px #808088; }
@@ -765,6 +765,10 @@ select[multiple] {
   .window__maximize,
   .Window__maximize {
     background-image: url("data:image/gif;base64,R0lGODlhDQALAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAANAAsAAAIXlI8Jy4wNXzJAznqwsjtPoYFfCDXfWQAAOw=="); }
+  .window__help,
+  .Window__help {
+    background-image: url("data:image/gif;base64,R0lGODlhDQALAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAANAAsAAAIXlI8Jy4wNXzJAznqwsjtPoYFfCDXfWQAAOw==");
+    background-image: url("data:image/gif;base64,R0lGODlhDQALAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAANAAsAAAIUlI9pwKDrBHtTxmcxvJTrn30VqBQAOw=="); }
   .window__menu,
   .Window__menu {
     display: flex;
@@ -790,7 +794,8 @@ select[multiple] {
         white-space: nowrap;
         text-overflow: ellipsis;
         text-align: left;
-        padding: 3px 6px; }
+        padding: 3px 6px;
+        text-transform: capitalize; }
         .window__menu > div > button + div,
         .window__menu > div > button + div,
         .Window__menu > div > button + div,
