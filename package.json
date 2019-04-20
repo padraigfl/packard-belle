@@ -18,7 +18,9 @@
     "lint": "eslint -c .eslintrc.js --quiet --ext .js './src/**/*.js'",
     "lint:css": "stylelint 'src/**/*.scss'",
     "precommit-build": "npm run build:module && git add build",
-    "index": "node ./.scripts/autoIndex/"
+    "index": "node ./.scripts/autoIndex/",
+    "playroom:start": "playroom start",
+    "playroom:build": "playroom build"
   },
   "keywords": [
     "react",
@@ -64,6 +66,7 @@
     "eslint-plugin-react": "^7.10.0",
     "jest": "^24.1.0",
     "node-sass": "^4.9.2",
+    "playroom": "^0.9.1",
     "pre-commit": "^1.2.2",
     "raf": "^3.4.0",
     "react": "~16.7.0",

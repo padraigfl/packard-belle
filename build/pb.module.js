@@ -1603,6 +1603,12 @@ var TaskBar = function TaskBar(props) {
   }));
 };
 
+TaskBar.defaultProps = {
+  openWindows: [],
+  notifiers: [],
+  quickLaunch: [],
+  options: []
+};
 TaskBar.propTypes = {
   options: PropTypes.array,
   quickLaunch: PropTypes.arrayOf(PropTypes.shape(ButtonIconSmall.propTypes)),
