@@ -1,0 +1,74 @@
+.WindowAction {
+  width: 80%;
+  max-width: 350px;
+  min-width: 280px;
+
+  > :not(:first-child) {
+    margin: 4px 5px;
+  }
+
+  .Window__title {
+    text-transform: capitalize;
+  }
+
+  &__location {
+    display: flex;
+    align-items: center;
+    margin: 3px;
+    text-transform: capitalize;
+
+    .btn {
+      margin-right: 2px;
+    }
+
+    .FakeSelect {
+      flex-grow: 1;
+      margin: auto 4px;
+    }
+  }
+
+  &__files {
+    width: initial;
+    margin: 5px 3px;
+  }
+
+  &__footer {
+    margin: 3px;
+    display: flex;
+  }
+
+  &__input {
+    display: flex;
+    align-items: center;
+    .FakeSelect {
+      margin-left: auto;
+      width: 80%;
+      max-width: 180px;
+      min-width: 140px;
+    }
+    .InputText {
+      margin-left: auto;
+      width: calc(80% - 6px);
+      max-width: 174px;
+      min-width: 136px;
+    }
+  }
+
+  &__action-inputs {
+    flex-grow: 1;
+  }
+
+  &__input,
+  .ButtonForm {
+    margin-top: 4px;
+  }
+
+  &__action-buttons {
+    display: inline-flex;
+    flex-direction: column;
+    margin-left: 8px;
+    .btn {
+      text-transform: capitalize;
+    }
+  }
+}

@@ -106,6 +106,7 @@
       text-overflow: ellipsis;
       text-align: left;
       padding: 3px 6px;
+      text-transform: capitalize;
 
       + div,
       + #{$classname} {

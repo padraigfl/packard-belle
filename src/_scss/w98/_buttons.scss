@@ -117,7 +117,8 @@ $start: "data:image/gif;base64,R0lGODlhNAATAKIAAAAAAP///wAA/wD/AP//AP8AAP///wAAA
     max-width: 16px;
   }
 
-  &:hover {
+  &:hover,
+  &--hasBorder {
     box-shadow: dualShadow(#ffffff, $darkgrey);
   }
   &:hover:focus:active,

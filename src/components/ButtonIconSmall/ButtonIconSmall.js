@@ -7,7 +7,9 @@ import './_ButtonIconSmall.scss';
 
 const ButtonIconSmall = props => (
   <Button
-    className={cx('ButtonIconSmall', props.className)}
+    className={cx('ButtonIconSmall', props.className, {
+      'ButtonIconSmall--hasBorder': props.hasBorder,
+    })}
     onClick={props.onClick}
     isDisabled={props.isDisabled}
     isActive={props.isActive}

@@ -29,7 +29,9 @@ const TaskBar = props => (
             isActive={openWindow.isActive}
             onClick={openWindow.onClick}
             icon={openWindow.icon}
-            key={`${openWindow.icon}-ButtonProgram-${openWindow.title}`}
+            key={`${openWindow.icon}-ButtonProgram-${openWindow.title}-${
+              openWindow.id
+            }`}
           >
             {openWindow.title}
           </ButtonProgram>

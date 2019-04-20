@@ -23,6 +23,9 @@
   &__maximize {
     background-image: url($maximize);
   }
+  &__help {
+    background-image: url($whelp);
+  }
   &--resizable {
     &:after {
       position: absolute;
