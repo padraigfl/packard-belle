@@ -218,6 +218,13 @@ $windowPadding: 3px;
           visibility: visible;
           display: block;
         }
+        > button {
+          background-color: $blue;
+          color: #ffffff;
+          &:after {
+            background-image: url($arrow-right-inverted);
+          }
+        }
       }
     }
   }

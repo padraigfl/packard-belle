@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import cx from 'classnames';
 import PropTypes from 'prop-types';
-import ReactSelect from 'react-select';
 import clone from 'clone';
 
 function styleInject(css, ref) {
@@ -31,7 +30,7 @@ function styleInject(css, ref) {
   }
 }
 
-var css = "/* stylelint-disable selector-pseudo-class-no-unknown */\n@font-face {\n  font-family: \"MSFont\";\n  src: url(\"data:application/octet-stream;base64,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\") format(\"woff2\"); }\n\n@font-face {\n  font-family: \"MSFont11\";\n  src: url(\"./fonts/ms98s11a10d02.ttf\") format(\"woff2\"); }\n\nhtml {\n  font-size: 11px; }\n  html button {\n    font-size: 11px; }\n  html menu {\n    padding: 0px;\n    margin: 0px; }\n  html body {\n    font-family: \"MSFont\", \"MSFont11\", \"Segoe UI\", Tahoma, Geneva, Verdana, sans-serif;\n    min-width: 200px;\n    margin: 0px; }\n  html .disabled {\n    color: #808088; }\n\n.w98 {\n  font-family: \"MSFont\", \"MSFont11\", \"Segoe UI\", Tahoma, Geneva, Verdana, sans-serif;\n  width: 100%;\n  height: 100%;\n  image-rendering: pixelated;\n  position: relative;\n  transform: scale(1);\n  /* stylelint-disable selector-max-specificity */ }\n  .w98 *, .w98 {\n    font-family: \"MSFont\", \"MSFont11\", \"Segoe UI\", Tahoma, Geneva, Verdana, sans-serif;\n    cursor: url(\"data:image/gif;base64,R0lGODlhCwATAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAALABMAAAIrhI4JlhrcBAgvSlrbxPBs7mAU9IlMaV7mwo6jY2zk+Xphh8iWint1tDgUAAA7\"), default; }\n  .w98.x2 {\n    transform: scale(2); }\n    .w98.x2 *, .w98.x2 {\n      cursor: url(\"data:image/gif;base64,R0lGODlhFgAmAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAWACYAAAJzBISpu8b/jINUHgpNCBMrzV1eAm6dV4YjkppiBWyyisazfDIt/ur2zcv8gDQf8ZYT7IDJJfHkZL6izwtVyhpKLVwtssudpZJZ8ZCstE3GvbSrHGxIPue2hW72CfOkNvy9wrbiFjcoGFhnmIjIp4iGcZdQAAA7\"), default; }\n  .w98 ::-webkit-scrollbar {\n    width: 16px;\n    height: 16px;\n    background-color: #ffffff;\n    background-image: url(\"data:image/gif;base64,R0lGODlhAgACAJEAAAAAAP///8zMzP///yH5BAEAAAMALAAAAAACAAIAAAID1CYFADs=\"); }\n    .w98 ::-webkit-scrollbar-track {\n      position: relative; }\n    .w98 ::-webkit-scrollbar-thumb {\n      background: #bbc3c4;\n      box-shadow: inset -1px -1px 0px #808088, inset 1px 1px 0px 0px #ffffff;\n      border: 1px solid #0c0c0c;\n      border-top: 1px solid #bbc3c4;\n      border-left: 1px solid #bbc3c4; }\n    .w98 ::-webkit-scrollbar-button {\n      background: #bbc3c4;\n      box-shadow: inset -1px -1px 0px #808088, inset 1px 1px 0px 0px #ffffff;\n      border: 1px solid #0c0c0c;\n      border-top: 1px solid #bbc3c4;\n      border-left: 1px solid #bbc3c4; }\n      .w98 ::-webkit-scrollbar-button:start:decrement, .w98 ::-webkit-scrollbar-button:end:increment {\n        height: 16px;\n        width: 16px;\n        display: block;\n        background-repeat: no-repeat;\n        background-color: #bbc3c4; }\n        .w98 ::-webkit-scrollbar-button:start:decrement:active, .w98 ::-webkit-scrollbar-button:end:increment:active {\n          border: 1px solid #808088;\n          box-shadow: none;\n          background-color: #bbc3c4; }\n      .w98 ::-webkit-scrollbar-button:horizontal:decrement {\n        background-image: url(\"data:image/gif;base64,R0lGODlhBAAHAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAEAAcAAAIIlHEIy7ppBCgAOw==\");\n        background-position: 4px 3px; }\n        .w98 ::-webkit-scrollbar-button:horizontal:decrement:active {\n          background-position: 5px 4px; }\n      .w98 ::-webkit-scrollbar-button:horizontal:increment {\n        background-image: url(\"data:image/gif;base64,R0lGODlhBAAHAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAEAAcAAAIIhA4maeyrlCgAOw==\");\n        background-position: 5px 3px; }\n        .w98 ::-webkit-scrollbar-button:horizontal:increment:active {\n          background-position: 6px 4px; }\n      .w98 ::-webkit-scrollbar-button:vertical:decrement {\n        background-image: url(\"data:image/gif;base64,R0lGODlhBwAEAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAHAAQAAAIHlGEJq8sOCwA7\");\n        background-position: 3px 5px; }\n        .w98 ::-webkit-scrollbar-button:vertical:decrement:active {\n          background-position: 4px 6px; }\n      .w98 ::-webkit-scrollbar-button:vertical:increment {\n        background-image: url(\"data:image/gif;base64,R0lGODlhBwAEAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAHAAQAAAIIhA+CKWoNmSgAOw==\");\n        background-position: 3px 5px; }\n        .w98 ::-webkit-scrollbar-button:vertical:increment:active {\n          background-position: 4px 6px; }\n    .w98 ::-webkit-scrollbar-corner {\n      /*\n      background-image: url(resources/corner.png);\n      background-repeat: no-repeat;\n      */\n      background-color: #bbc3c4; }\n";
+var css = "/* stylelint-disable selector-pseudo-class-no-unknown */\n@font-face {\n  font-family: MSSansSerif;\n  src: url(\"data:application/octet-stream;base64,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\");\n  font-weight: normal; }\n\n@font-face {\n  font-family: MSSansSerif;\n  src: url(\"data:application/octet-stream;base64,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\");\n  font-weight: bold; }\n\nhtml {\n  font-size: 11px; }\n  html button {\n    font-size: 11px; }\n  html menu {\n    padding: 0px;\n    margin: 0px; }\n  html body {\n    font-family: MSSansSerif, \"Segoe UI\", Tahoma, Geneva, Verdana, sans-serif;\n    min-width: 200px;\n    margin: 0px; }\n  html .disabled {\n    color: #808088; }\n\n.w98 {\n  font-family: MSSansSerif, \"Segoe UI\", Tahoma, Geneva, Verdana, sans-serif;\n  width: 100%;\n  height: 100%;\n  image-rendering: pixelated;\n  position: relative;\n  transform: scale(1);\n  /* stylelint-disable selector-max-specificity */ }\n  .w98 *, .w98 {\n    font-family: MSSansSerif, \"Segoe UI\", Tahoma, Geneva, Verdana, sans-serif;\n    cursor: url(\"data:image/gif;base64,R0lGODlhCwATAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAALABMAAAIrhI4JlhrcBAgvSlrbxPBs7mAU9IlMaV7mwo6jY2zk+Xphh8iWint1tDgUAAA7\"), default;\n    /* stylelint-disable */ }\n    .w98 * .default, .w98 .default {\n      cursor: url(\"data:image/gif;base64,R0lGODlhCwATAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAALABMAAAIrhI4JlhrcBAgvSlrbxPBs7mAU9IlMaV7mwo6jY2zk+Xphh8iWint1tDgUAAA7\"), default; }\n    .w98 * .none, .w98 .none {\n      cursor: none; }\n    .w98 * .help, .w98 .help {\n      cursor: url(./cursors/Hand-min.png), help !important; }\n    .w98 * .pointer, .w98 .pointer {\n      cursor: url(./cursors/HandPointer-min.png), pointer !important; }\n    .w98 * .wait, .w98 .wait {\n      cursor: url(./cursors/Wait-min.png), wait !important; }\n    .w98 * .crosshair, .w98 .crosshair {\n      cursor: url(./cursors/Crosshair-min.png), crosshair !important; }\n    .w98 * .text, .w98 .text {\n      cursor: url(./cursors/Text-min.png), text !important; }\n    .w98 * .vertical-text, .w98 .vertical-text {\n      cursor: url(./cursors/VText-min.png), vertical-text !important; }\n    .w98 * .copy, .w98 .copy {\n      cursor: url(./cursors/Copy-min.png), copy !important; }\n    .w98 * .move, .w98 .move {\n      cursor: url(./cursors/Move-min.png), move !important; }\n    .w98 * .no-drop, .w98 .no-drop {\n      cursor: url(./cursors/NO-min.png), no-drop !important; }\n    .w98 * .not-allowed, .w98 .not-allowed {\n      cursor: url(./cursors/NO-min.png), not-allowed !important; }\n    .w98 * .grab, .w98 .grab {\n      cursor: url(./cursors/Hand-min.png), grab !important; }\n    .w98 * .grabbing, .w98 .grabbing {\n      cursor: url(./cursors/Handsqueezed-min.png), grabbing !important; }\n    .w98 * .col-resize, .w98 .col-resize {\n      cursor: url(./cursors/ColRezise-min.png), col-resize !important; }\n    .w98 * .row-resize, .w98 .row-resize {\n      cursor: url(./cursors/RowResize-min.png), row-resize !important; }\n    .w98 * .n-resize, .w98 .n-resize {\n      cursor: url(./cursors/UpArrow-min.png), n-resize !important; }\n    .w98 * .e-resize, .w98 .e-resize {\n      cursor: url(./cursors/LeftArrow-min.png), e-resize !important; }\n    .w98 * .s-resize, .w98 .s-resize {\n      cursor: url(./cursors/DownArrow-min.png), s-resize !important; }\n    .w98 * .w-resize, .w98 .w-resize {\n      cursor: url(./cursors/RightArrow-min.png), w-resize !important; }\n    .w98 * .ns-resize, .w98 .ns-resize {\n      cursor: url(./cursors/UpDownArrow-min.png), ns-resize !important; }\n    .w98 * .ew-resize, .w98 .ew-resize {\n      cursor: url(./cursors/LeftRightArrow-min.png), ew-resize !important; }\n    .w98 * .ne-resize, .w98 .ne-resize {\n      cursor: url(./cursors/UpRightArrow-min.png), ne-resize !important; }\n    .w98 * .nw-resize, .w98 .nw-resize {\n      cursor: url(./cursors/UpLeftArrow-min.png), nw-resize !important; }\n    .w98 * .se-resize, .w98 .se-resize {\n      cursor: url(./cursors/DownRightArrow-min.png), se-resize !important; }\n    .w98 * .sw-resize, .w98 .sw-resize {\n      cursor: url(./cursors/DownLeftArrow-min.png), sw-resize !important; }\n    .w98 * .nesw-resize, .w98 .nesw-resize {\n      cursor: url(./cursors/AngleUpRight-min.png), nesw-resize !important; }\n    .w98 * .nwse-resize, .w98 .nwse-resize {\n      cursor: url(./cursors/AngleUpLeft-min.png), nwse-resize !important; }\n    .w98 * .zoom-in, .w98 .zoom-in {\n      cursor: url(./cursors/ZoomIn-min.png), zoom-in !important; }\n    .w98 * .zoom-out, .w98 .zoom-out {\n      cursor: url(./cursors/ZoomOut-min.png), zoom-out !important; }\n  .w98.x2 {\n    transform: scale(2); }\n    .w98.x2 *, .w98.x2 {\n      cursor: url(\"data:image/gif;base64,R0lGODlhFgAmAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAWACYAAAJzBISpu8b/jINUHgpNCBMrzV1eAm6dV4YjkppiBWyyisazfDIt/ur2zcv8gDQf8ZYT7IDJJfHkZL6izwtVyhpKLVwtssudpZJZ8ZCstE3GvbSrHGxIPue2hW72CfOkNvy9wrbiFjcoGFhnmIjIp4iGcZdQAAA7\"), default; }\n  .w98 ::-webkit-scrollbar {\n    width: 16px;\n    height: 16px;\n    background-color: #ffffff;\n    background-image: url(\"data:image/gif;base64,R0lGODlhAgACAJEAAAAAAP///8zMzP///yH5BAEAAAMALAAAAAACAAIAAAID1CYFADs=\"); }\n    .w98 ::-webkit-scrollbar-track {\n      position: relative; }\n    .w98 ::-webkit-scrollbar-thumb {\n      background: #bbc3c4;\n      box-shadow: inset -1px -1px 0px #808088, inset 1px 1px 0px 0px #ffffff;\n      border: 1px solid #0c0c0c;\n      border-top: 1px solid #bbc3c4;\n      border-left: 1px solid #bbc3c4; }\n    .w98 ::-webkit-scrollbar-button {\n      background: #bbc3c4;\n      box-shadow: inset -1px -1px 0px #808088, inset 1px 1px 0px 0px #ffffff;\n      border: 1px solid #0c0c0c;\n      border-top: 1px solid #bbc3c4;\n      border-left: 1px solid #bbc3c4; }\n      .w98 ::-webkit-scrollbar-button:start:decrement, .w98 ::-webkit-scrollbar-button:end:increment {\n        height: 16px;\n        width: 16px;\n        display: block;\n        background-repeat: no-repeat;\n        background-color: #bbc3c4; }\n        .w98 ::-webkit-scrollbar-button:start:decrement:active, .w98 ::-webkit-scrollbar-button:end:increment:active {\n          border: 1px solid #808088;\n          box-shadow: none;\n          background-color: #bbc3c4; }\n      .w98 ::-webkit-scrollbar-button:horizontal:decrement {\n        background-image: url(\"data:image/gif;base64,R0lGODlhBAAHAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAEAAcAAAIIlHEIy7ppBCgAOw==\");\n        background-position: 4px 3px; }\n        .w98 ::-webkit-scrollbar-button:horizontal:decrement:active {\n          background-position: 5px 4px; }\n      .w98 ::-webkit-scrollbar-button:horizontal:increment {\n        background-image: url(\"data:image/gif;base64,R0lGODlhBAAHAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAEAAcAAAIIhA4maeyrlCgAOw==\");\n        background-position: 5px 3px; }\n        .w98 ::-webkit-scrollbar-button:horizontal:increment:active {\n          background-position: 6px 4px; }\n      .w98 ::-webkit-scrollbar-button:vertical:decrement {\n        background-image: url(\"data:image/gif;base64,R0lGODlhBwAEAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAHAAQAAAIHlGEJq8sOCwA7\");\n        background-position: 3px 5px; }\n        .w98 ::-webkit-scrollbar-button:vertical:decrement:active {\n          background-position: 4px 6px; }\n      .w98 ::-webkit-scrollbar-button:vertical:increment {\n        background-image: url(\"data:image/gif;base64,R0lGODlhBwAEAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAHAAQAAAIIhA+CKWoNmSgAOw==\");\n        background-position: 3px 5px; }\n        .w98 ::-webkit-scrollbar-button:vertical:increment:active {\n          background-position: 4px 6px; }\n    .w98 ::-webkit-scrollbar-corner {\n      /*\n      background-image: url(resources/corner.png);\n      background-repeat: no-repeat;\n      */\n      background-color: #bbc3c4; }\n  .w98 ::selection {\n    color: #ffffff;\n    background-color: #0000a2; }\n";
 styleInject(css);
 
 var Theme = function Theme(props) {
@@ -46,6 +45,20 @@ Theme.propTypes = {
   className: PropTypes.string,
   style: PropTypes.shape()
 };
+
+function _typeof(obj) {
+  if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
+    _typeof = function (obj) {
+      return typeof obj;
+    };
+  } else {
+    _typeof = function (obj) {
+      return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+    };
+  }
+
+  return _typeof(obj);
+}
 
 function _classCallCheck(instance, Constructor) {
   if (!(instance instanceof Constructor)) {
@@ -327,7 +340,8 @@ function (_Component) {
           return _this2.handleContextMenu(e);
         },
         disabled: props.isDisabled,
-        style: props.style
+        style: props.style,
+        title: props.title
       }, props.children);
     }
   }]);
@@ -337,6 +351,7 @@ function (_Component) {
 
 var commonButtonPropTypes = {
   children: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
+  title: PropTypes.string,
   className: PropTypes.string,
   isActive: PropTypes.bool,
   isDisabled: PropTypes.bool,
@@ -414,7 +429,7 @@ var StartButton = function StartButton(props) {
 
 StartButton.propTypes = commonButtonPropTypes$1;
 
-var css$6 = ".btn.ButtonIconLarge {\n  padding: 2px;\n  width: 48px;\n  min-width: 48px;\n  height: 38px;\n  display: inline-flex;\n  flex-direction: column;\n  align-items: center; }\n  .btn.ButtonIconLarge__text {\n    margin-top: auto; }\n  .btn.ButtonIconLarge img {\n    flex-grow: 1;\n    display: block;\n    filter: grayscale(1);\n    max-height: 20px;\n    max-width: 20px;\n    margin: 1px auto 2px; }\n  .btn.ButtonIconLarge:disabled, .btn.ButtonIconLarge.disabled {\n    color: #808088; }\n    .btn.ButtonIconLarge:disabled:hover, .btn.ButtonIconLarge.disabled:hover {\n      box-shadow: none; }\n      .btn.ButtonIconLarge:disabled:hover img, .btn.ButtonIconLarge.disabled:hover img {\n        filter: grayscale(1); }\n  .btn.ButtonIconLarge:hover {\n    box-shadow: inset -1px -1px 0px #0c0c0c, inset 1px 1px 0px #ffffff; }\n    .btn.ButtonIconLarge:hover img {\n      filter: grayscale(0); }\n  .btn.ButtonIconLarge:active:focus {\n    box-shadow: inset -1px -1px 0px #ffffff, inset 1px 1px 0px #0c0c0c;\n    padding: 3px 1px 1px 3px; }\n";
+var css$6 = ".ButtonIconLarge {\n  padding: 2px;\n  width: 48px;\n  min-width: 48px;\n  height: 38px;\n  display: inline-flex;\n  flex-direction: column;\n  align-items: center; }\n  .ButtonIconLarge__text {\n    margin-top: auto; }\n  .ButtonIconLarge .ButtonIconLarge__icon {\n    flex-grow: 1;\n    width: 20px;\n    height: 20px;\n    margin: 1px auto 2px; }\n  .ButtonIconLarge img {\n    max-width: 20px;\n    max-height: 20px;\n    display: block;\n    filter: grayscale(1);\n    position: relative;\n    top: 50%;\n    transform: translateY(-50%);\n    margin: 0 auto; }\n  .ButtonIconLarge:disabled, .ButtonIconLarge.disabled {\n    color: #808088; }\n    .ButtonIconLarge:disabled:hover, .ButtonIconLarge.disabled:hover {\n      box-shadow: none; }\n      .ButtonIconLarge:disabled:hover img, .ButtonIconLarge.disabled:hover img {\n        filter: grayscale(1); }\n  .ButtonIconLarge:hover {\n    box-shadow: inset -1px -1px 0px #0c0c0c, inset 1px 1px 0px #ffffff; }\n    .ButtonIconLarge:hover img {\n      filter: grayscale(0); }\n  .ButtonIconLarge:active:focus {\n    box-shadow: inset -1px -1px 0px #ffffff, inset 1px 1px 0px #0c0c0c;\n    padding: 3px 1px 1px 3px; }\n  .ButtonIconLarge__icon {\n    flex-grow: 1;\n    width: 20px;\n    height: 20px;\n    margin: 1px auto 2px;\n    align-content: center; }\n";
 styleInject(css$6);
 
 var ButtonIconLarge = function ButtonIconLarge(props) {
@@ -422,9 +437,11 @@ var ButtonIconLarge = function ButtonIconLarge(props) {
     className: cx('ButtonIconLarge', props.className),
     onClick: props.onClick,
     isDisabled: props.isDisabled
+  }, React.createElement("div", {
+    className: "ButtonIconLarge__icon"
   }, React.createElement("img", {
     src: props.icon
-  }), React.createElement("div", {
+  })), React.createElement("div", {
     className: "ButtonIconLarge__text"
   }, props.title));
 };
@@ -434,15 +451,18 @@ ButtonIconLarge.propTypes = _objectSpread({}, commonButtonPropTypes, {
   title: PropTypes.string
 });
 
-var css$7 = ".btn.ButtonIconSmall {\n  height: 22px;\n  width: 22px;\n  padding: 0px; }\n  .btn.ButtonIconSmall img {\n    margin: 3px;\n    max-height: 16px;\n    max-width: 16px; }\n  .btn.ButtonIconSmall:hover {\n    box-shadow: inset -1px -1px 0px #808088, inset 1px 1px 0px #ffffff; }\n  .btn.ButtonIconSmall:hover:focus:active, .btn.ButtonIconSmall:hover:active, .btn.ButtonIconSmall.active, .btn.ButtonIconSmall.clicked {\n    box-shadow: inset -1px -1px 0px #ffffff, inset 1px 1px 0px #808088; }\n    .btn.ButtonIconSmall:hover:focus:active img, .btn.ButtonIconSmall:hover:active img, .btn.ButtonIconSmall.active img, .btn.ButtonIconSmall.clicked img {\n      margin: 4px 2px 2px 4px; }\n  .btn.ButtonIconSmall.btn--disabled img {\n    filter: grayscale(1); }\n";
+var css$7 = ".btn.ButtonIconSmall {\n  height: 22px;\n  width: 22px;\n  padding: 0px; }\n  .btn.ButtonIconSmall img {\n    margin: 3px;\n    max-height: 16px;\n    max-width: 16px; }\n  .btn.ButtonIconSmall:hover, .btn.ButtonIconSmall--hasBorder {\n    box-shadow: inset -1px -1px 0px #808088, inset 1px 1px 0px #ffffff; }\n  .btn.ButtonIconSmall:hover:focus:active, .btn.ButtonIconSmall:hover:active, .btn.ButtonIconSmall.active, .btn.ButtonIconSmall.clicked {\n    box-shadow: inset -1px -1px 0px #ffffff, inset 1px 1px 0px #808088; }\n    .btn.ButtonIconSmall:hover:focus:active img, .btn.ButtonIconSmall:hover:active img, .btn.ButtonIconSmall.active img, .btn.ButtonIconSmall.clicked img {\n      margin: 4px 2px 2px 4px; }\n  .btn.ButtonIconSmall.btn--disabled img {\n    filter: grayscale(1); }\n";
 styleInject(css$7);
 
 var ButtonIconSmall = function ButtonIconSmall(props) {
   return React.createElement(AbstractButton, {
-    className: cx('ButtonIconSmall', props.className),
+    className: cx('ButtonIconSmall', props.className, {
+      'ButtonIconSmall--hasBorder': props.hasBorder
+    }),
     onClick: props.onClick,
     isDisabled: props.isDisabled,
-    isActive: props.isActive
+    isActive: props.isActive,
+    title: props.title
   }, React.createElement("img", {
     src: props.icon
   }));
@@ -471,7 +491,9 @@ var StandardMenuItem = function StandardMenuItem(props) {
   return React.createElement("div", {
     className: cx('StandardMenuItem', props.className, props.type, {
       'StandardMenuItem--has-options': props.options,
-      active: props.isActive
+      active: props.isActive,
+      'StandardMenuItem--radio-selected': props.isSelected,
+      'StandardMenuItem--checked': props.isChecked
     }),
     onMouseEnter: props.mouseEnterItem,
     onTouchStart: props.mouseEnterItem
@@ -513,11 +535,10 @@ StandardMenuItem.propTypes = {
   type: PropTypes.string
 };
 
-var css$9 = ".StandardMenu {\n  display: inline-flex;\n  flex-direction: column;\n  word-wrap: none;\n  white-space: nowrap;\n  text-overflow: clip; }\n  .StandardMenu > div {\n    position: relative; }\n    .StandardMenu > div > button {\n      user-select: none;\n      position: relative;\n      display: block;\n      width: 100%;\n      padding: 0px 20px 0px 28px;\n      text-align: left;\n      background-repeat: no-repeat;\n      background-size: 16px;\n      background-position: 3px center;\n      background-color: rgba(0, 0, 0, 0);\n      border: none;\n      outline: none;\n      height: 20px; }\n      .StandardMenu > div > button:before {\n        content: \"\";\n        position: absolute;\n        left: 0px;\n        top: 0px;\n        height: 16px;\n        width: 16px;\n        background-repeat: no-repeat;\n        background-position: center; }\n      .StandardMenu > div > button .StandardMenu__item__text {\n        padding: 0px 20px 0px 0px; }\n      .StandardMenu > div > button:disabled, .StandardMenu > div > button.disabled {\n        color: #808088; }\n      .StandardMenu > div > button:not(:only-child):after {\n        content: \"\";\n        position: absolute;\n        background-image: url(\"data:image/gif;base64,R0lGODlhBAAHAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAEAAcAAAIIhA4maeyrlCgAOw==\");\n        top: 0px;\n        left: 0px;\n        height: 100%;\n        width: calc(100% - 8px);\n        background-position: right center;\n        background-repeat: no-repeat; }\n    .StandardMenu > div.radio-selected > button:before {\n      background-image: url(\"data:image/gif;base64,R0lGODlhBgAGAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAGAAYAAAIIFA6Gy816RAEAOw==\"); }\n    .StandardMenu > div.checked > button:before {\n      background-image: url(\"data:image/gif;base64,R0lGODlhBwAHAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAHAAcAAAIMlA9nwMj9xGuLIlUAADs=\"); }\n    .StandardMenu > div.checked.disabled > button:before {\n      background-image: url(\"data:image/gif;base64,R0lGODlhBwAHAJEAAAAAAP///5mZmf///yH5BAEAAAMALAAAAAAHAAcAAAIMnC9nwsj9xmuLIlUAADs=\"); }\n    .StandardMenu > div.active, .StandardMenu > div.clicked {\n      color: #ffffff; }\n      .StandardMenu > div.active > button:not(.disabled), .StandardMenu > div.clicked > button:not(.disabled) {\n        color: #ffffff;\n        background-color: #0000a2; }\n        .StandardMenu > div.active > button:not(.disabled):not(:only-child):after, .StandardMenu > div.clicked > button:not(.disabled):not(:only-child):after {\n          background-image: url(\"data:image/gif;base64,R0lGODlhBAAHAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAEAAcAAAIIjB4maeyrlCgAOw==\"); }\n    .StandardMenu > div > .window,\n    .StandardMenu > div > .Frame {\n      position: absolute;\n      visibility: hidden;\n      width: auto; }\n      @media (min-height: 720px) and (min-width: 960px) {\n        .StandardMenu > div > .window,\n        .StandardMenu > div > .Frame {\n          transition: max-width cubic-bezier(0.38, 0.01, 0, 1) 200ms, max-height cubic-bezier(0.38, 0.01, 0, 1) 200ms; } }\n    .StandardMenu > div.active > .window,\n    .StandardMenu > div.active > .Frame {\n      width: auto;\n      visibility: visible; }\n    .StandardMenu > div > .window,\n    .StandardMenu > div > .Frame {\n      left: calc(100% - 3px);\n      top: -3px;\n      max-width: 0%; }\n    .StandardMenu > div:hover > .window,\n    .StandardMenu > div:hover > .Frame, .StandardMenu > div.active > .window,\n    .StandardMenu > div.active > .Frame {\n      max-width: 400%; }\n  .StandardMenu > div:empty:not(:only-child) {\n    position: relative;\n    width: 95%;\n    margin: 2px auto;\n    border-top: 1px solid #808088;\n    border-bottom: 1px solid #ffffff;\n    display: none; }\n  .StandardMenu > div:not(:empty) + div:empty:not(:last-child):not(:first-child) {\n    display: block; }\n  .StandardMenu.css div__sub-menu--top > .window,\n  .StandardMenu.css div__sub-menu--top > .Frame {\n    position: absolute;\n    visibility: hidden;\n    width: auto; }\n    @media (min-height: 720px) and (min-width: 960px) {\n      .StandardMenu.css div__sub-menu--top > .window,\n      .StandardMenu.css div__sub-menu--top > .Frame {\n        transition: max-width cubic-bezier(0.38, 0.01, 0, 1) 200ms, max-height cubic-bezier(0.38, 0.01, 0, 1) 200ms; } }\n  .StandardMenu.css div__sub-menu--top.active > .window,\n  .StandardMenu.css div__sub-menu--top.active > .Frame {\n    width: auto;\n    visibility: visible; }\n  .StandardMenu.css div__sub-menu--top > .window,\n  .StandardMenu.css div__sub-menu--top > .Frame {\n    bottom: calc(100% + $windowPadding);\n    left: 0px;\n    height: 0px;\n    max-height: 0%;\n    max-width: 100%; }\n  .StandardMenu.css div__sub-menu--top:hover > .window,\n  .StandardMenu.css div__sub-menu--top:hover > .Frame, .StandardMenu.css div__sub-menu--top.active > .window,\n  .StandardMenu.css div__sub-menu--top.active > .Frame {\n    height: initial;\n    max-height: 100%; }\n  .StandardMenu.css div__sub-menu--bottom > .window,\n  .StandardMenu.css div__sub-menu--bottom > .Frame {\n    position: absolute;\n    visibility: hidden;\n    width: auto; }\n    @media (min-height: 720px) and (min-width: 960px) {\n      .StandardMenu.css div__sub-menu--bottom > .window,\n      .StandardMenu.css div__sub-menu--bottom > .Frame {\n        transition: max-width cubic-bezier(0.38, 0.01, 0, 1) 200ms, max-height cubic-bezier(0.38, 0.01, 0, 1) 200ms; } }\n  .StandardMenu.css div__sub-menu--bottom.active > .window,\n  .StandardMenu.css div__sub-menu--bottom.active > .Frame {\n    width: auto;\n    visibility: visible; }\n  .StandardMenu.css div__sub-menu--bottom > .window,\n  .StandardMenu.css div__sub-menu--bottom > .Frame {\n    top: calc(100% + $windowPadding);\n    left: 0px;\n    max-height: 0%;\n    max-width: 100%; }\n  .StandardMenu.css div__sub-menu--bottom:hover > .window,\n  .StandardMenu.css div__sub-menu--bottom:hover > .Frame, .StandardMenu.css div__sub-menu--bottom.active > .window,\n  .StandardMenu.css div__sub-menu--bottom.active > .Frame {\n    height: initial;\n    max-height: 100%; }\n  .StandardMenu.css div__sub-menu--left > .window,\n  .StandardMenu.css div__sub-menu--left > .Frame {\n    position: absolute;\n    visibility: hidden;\n    width: auto; }\n    @media (min-height: 720px) and (min-width: 960px) {\n      .StandardMenu.css div__sub-menu--left > .window,\n      .StandardMenu.css div__sub-menu--left > .Frame {\n        transition: max-width cubic-bezier(0.38, 0.01, 0, 1) 200ms, max-height cubic-bezier(0.38, 0.01, 0, 1) 200ms; } }\n  .StandardMenu.css div__sub-menu--left.active > .window,\n  .StandardMenu.css div__sub-menu--left.active > .Frame {\n    width: auto;\n    visibility: visible; }\n  .StandardMenu.css div__sub-menu--left > .window,\n  .StandardMenu.css div__sub-menu--left > .Frame {\n    left: -100%;\n    top: -3px;\n    max-width: 0%; }\n  .StandardMenu.css div__sub-menu--left:hover > .window,\n  .StandardMenu.css div__sub-menu--left:hover > .Frame, .StandardMenu.css div__sub-menu--left.active > .window,\n  .StandardMenu.css div__sub-menu--left.active > .Frame {\n    max-width: 100%; }\n  .StandardMenu.css div:active,\n  .StandardMenu.css div .active {\n    display: none; }\n  .StandardMenu.css div:hover > .window,\n  .StandardMenu.css div:hover > .Frame {\n    width: auto;\n    visibility: visible;\n    display: block; }\n\n.StandardMenuItem--empty .StandardMenuItem__button {\n  text-shadow: 1px 1px #ffffff;\n  text-align: center; }\n";
+var css$9 = ".StandardMenu {\n  display: inline-flex;\n  flex-direction: column;\n  word-wrap: none;\n  white-space: nowrap;\n  text-overflow: clip; }\n  .StandardMenu > div {\n    position: relative; }\n    .StandardMenu > div > button {\n      user-select: none;\n      position: relative;\n      display: block;\n      width: 100%;\n      padding: 0px 20px 0px 28px;\n      text-align: left;\n      background-repeat: no-repeat;\n      background-size: 16px;\n      background-position: 3px center;\n      background-color: rgba(0, 0, 0, 0);\n      border: none;\n      outline: none;\n      height: 20px; }\n      .StandardMenu > div > button:before {\n        content: \"\";\n        position: absolute;\n        left: 0px;\n        top: 0px;\n        height: 16px;\n        width: 16px;\n        background-repeat: no-repeat;\n        background-position: center; }\n      .StandardMenu > div > button .StandardMenu__item__text {\n        padding: 0px 20px 0px 0px; }\n      .StandardMenu > div > button:disabled, .StandardMenu > div > button.disabled {\n        color: #808088; }\n      .StandardMenu > div > button:not(:only-child):after {\n        content: \"\";\n        position: absolute;\n        background-image: url(\"data:image/gif;base64,R0lGODlhBAAHAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAEAAcAAAIIhA4maeyrlCgAOw==\");\n        top: 0px;\n        left: 0px;\n        height: 100%;\n        width: calc(100% - 8px);\n        background-position: right center;\n        background-repeat: no-repeat; }\n    .StandardMenu > div.radio-selected > button:before {\n      background-image: url(\"data:image/gif;base64,R0lGODlhBgAGAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAGAAYAAAIIFA6Gy816RAEAOw==\"); }\n    .StandardMenu > div.checked > button:before {\n      background-image: url(\"data:image/gif;base64,R0lGODlhBwAHAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAHAAcAAAIMlA9nwMj9xGuLIlUAADs=\"); }\n    .StandardMenu > div.checked.disabled > button:before {\n      background-image: url(\"data:image/gif;base64,R0lGODlhBwAHAJEAAAAAAP///5mZmf///yH5BAEAAAMALAAAAAAHAAcAAAIMnC9nwsj9xmuLIlUAADs=\"); }\n    .StandardMenu > div.active, .StandardMenu > div.clicked {\n      color: #ffffff; }\n      .StandardMenu > div.active > button:not(.disabled), .StandardMenu > div.clicked > button:not(.disabled) {\n        color: #ffffff;\n        background-color: #0000a2; }\n        .StandardMenu > div.active > button:not(.disabled):not(:only-child):after, .StandardMenu > div.clicked > button:not(.disabled):not(:only-child):after {\n          background-image: url(\"data:image/gif;base64,R0lGODlhBAAHAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAEAAcAAAIIjB4maeyrlCgAOw==\"); }\n    .StandardMenu > div > .window,\n    .StandardMenu > div > .Frame {\n      position: absolute;\n      visibility: hidden;\n      width: auto; }\n      @media (min-height: 720px) and (min-width: 960px) {\n        .StandardMenu > div > .window,\n        .StandardMenu > div > .Frame {\n          transition: max-width cubic-bezier(0.38, 0.01, 0, 1) 200ms, max-height cubic-bezier(0.38, 0.01, 0, 1) 200ms; } }\n    .StandardMenu > div.active > .window,\n    .StandardMenu > div.active > .Frame {\n      width: auto;\n      visibility: visible; }\n    .StandardMenu > div > .window,\n    .StandardMenu > div > .Frame {\n      left: calc(100% - 3px);\n      top: -3px;\n      max-width: 0%; }\n    .StandardMenu > div:hover > .window,\n    .StandardMenu > div:hover > .Frame, .StandardMenu > div.active > .window,\n    .StandardMenu > div.active > .Frame {\n      max-width: 400%; }\n  .StandardMenu > div:empty:not(:only-child) {\n    position: relative;\n    width: 95%;\n    margin: 2px auto;\n    border-top: 1px solid #808088;\n    border-bottom: 1px solid #ffffff;\n    display: none; }\n  .StandardMenu > div:not(:empty) + div:empty:not(:last-child):not(:first-child) {\n    display: block; }\n  .StandardMenu.css div__sub-menu--top > .window,\n  .StandardMenu.css div__sub-menu--top > .Frame {\n    position: absolute;\n    visibility: hidden;\n    width: auto; }\n    @media (min-height: 720px) and (min-width: 960px) {\n      .StandardMenu.css div__sub-menu--top > .window,\n      .StandardMenu.css div__sub-menu--top > .Frame {\n        transition: max-width cubic-bezier(0.38, 0.01, 0, 1) 200ms, max-height cubic-bezier(0.38, 0.01, 0, 1) 200ms; } }\n  .StandardMenu.css div__sub-menu--top.active > .window,\n  .StandardMenu.css div__sub-menu--top.active > .Frame {\n    width: auto;\n    visibility: visible; }\n  .StandardMenu.css div__sub-menu--top > .window,\n  .StandardMenu.css div__sub-menu--top > .Frame {\n    bottom: calc(100% + $windowPadding);\n    left: 0px;\n    height: 0px;\n    max-height: 0%;\n    max-width: 100%; }\n  .StandardMenu.css div__sub-menu--top:hover > .window,\n  .StandardMenu.css div__sub-menu--top:hover > .Frame, .StandardMenu.css div__sub-menu--top.active > .window,\n  .StandardMenu.css div__sub-menu--top.active > .Frame {\n    height: initial;\n    max-height: 100%; }\n  .StandardMenu.css div__sub-menu--bottom > .window,\n  .StandardMenu.css div__sub-menu--bottom > .Frame {\n    position: absolute;\n    visibility: hidden;\n    width: auto; }\n    @media (min-height: 720px) and (min-width: 960px) {\n      .StandardMenu.css div__sub-menu--bottom > .window,\n      .StandardMenu.css div__sub-menu--bottom > .Frame {\n        transition: max-width cubic-bezier(0.38, 0.01, 0, 1) 200ms, max-height cubic-bezier(0.38, 0.01, 0, 1) 200ms; } }\n  .StandardMenu.css div__sub-menu--bottom.active > .window,\n  .StandardMenu.css div__sub-menu--bottom.active > .Frame {\n    width: auto;\n    visibility: visible; }\n  .StandardMenu.css div__sub-menu--bottom > .window,\n  .StandardMenu.css div__sub-menu--bottom > .Frame {\n    top: calc(100% + $windowPadding);\n    left: 0px;\n    max-height: 0%;\n    max-width: 100%; }\n  .StandardMenu.css div__sub-menu--bottom:hover > .window,\n  .StandardMenu.css div__sub-menu--bottom:hover > .Frame, .StandardMenu.css div__sub-menu--bottom.active > .window,\n  .StandardMenu.css div__sub-menu--bottom.active > .Frame {\n    height: initial;\n    max-height: 100%; }\n  .StandardMenu.css div__sub-menu--left > .window,\n  .StandardMenu.css div__sub-menu--left > .Frame {\n    position: absolute;\n    visibility: hidden;\n    width: auto; }\n    @media (min-height: 720px) and (min-width: 960px) {\n      .StandardMenu.css div__sub-menu--left > .window,\n      .StandardMenu.css div__sub-menu--left > .Frame {\n        transition: max-width cubic-bezier(0.38, 0.01, 0, 1) 200ms, max-height cubic-bezier(0.38, 0.01, 0, 1) 200ms; } }\n  .StandardMenu.css div__sub-menu--left.active > .window,\n  .StandardMenu.css div__sub-menu--left.active > .Frame {\n    width: auto;\n    visibility: visible; }\n  .StandardMenu.css div__sub-menu--left > .window,\n  .StandardMenu.css div__sub-menu--left > .Frame {\n    left: -100%;\n    top: -3px;\n    max-width: 0%; }\n  .StandardMenu.css div__sub-menu--left:hover > .window,\n  .StandardMenu.css div__sub-menu--left:hover > .Frame, .StandardMenu.css div__sub-menu--left.active > .window,\n  .StandardMenu.css div__sub-menu--left.active > .Frame {\n    max-width: 100%; }\n  .StandardMenu.css div:active,\n  .StandardMenu.css div .active {\n    display: none; }\n  .StandardMenu.css div:hover > .window,\n  .StandardMenu.css div:hover > .Frame {\n    width: auto;\n    visibility: visible;\n    display: block; }\n  .StandardMenu.css div:hover > button {\n    background-color: #0000a2;\n    color: #ffffff; }\n    .StandardMenu.css div:hover > button:after {\n      background-image: url(\"data:image/gif;base64,R0lGODlhBAAHAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAEAAcAAAIIjB4maeyrlCgAOw==\"); }\n\n.StandardMenuItem--empty .StandardMenuItem__button {\n  text-shadow: 1px 1px #ffffff;\n  text-align: center; }\n";
 styleInject(css$9);
 
 var DIVIDER = 'divider';
-
 var flattenWithDividers = function flattenWithDividers(options) {
   return options.reduce(function (acc, val, idx) {
     if (!Array.isArray(val)) {
@@ -607,9 +628,7 @@ function (_Component) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "checkDoubleClick", function () {
-      if (_this.props.onClick) {
-        _this.props.onClick();
-      }
+      _this.handleClick();
 
       if (!_this.props.onDoubleClick) {
         return;
@@ -658,9 +677,9 @@ function (_Component) {
       var props = this.props;
       var Comp = props.href ? 'a' : 'button';
       var iconProps = {
-        onDoubleClick: props.onDoubleClick,
-        onClick: this.handleClick,
+        onClick: this.checkDoubleClick,
         onContextMenu: this.props.onContextMenu && this.handleContextMenu,
+        onTouchEnd: this.props.onDoubleClick || this.props.onClick,
         className: cx('icon', props.className),
         title: props.alt,
         value: props.value,
@@ -682,7 +701,9 @@ function (_Component) {
         return React.createElement(Comp, _extends({
           ref: function ref(icon) {
             _this2.icon = icon;
-          }
+          },
+          target: props.external && Comp === 'a' && '_blank',
+          rel: props.external && Comp === 'a' && 'noopener noreferrer'
         }, iconProps), contents);
       }
 
@@ -703,26 +724,27 @@ var iconProps = {
   onClick: PropTypes.func,
   onDoubleClick: PropTypes.func,
   onContextMenu: PropTypes.func,
-  href: PropTypes.string
+  href: PropTypes.string,
+  external: PropTypes.bool
 };
 AbstractIcon.propTypes = iconProps;
 
 var iconProps$1 = AbstractIcon.propTypes;
 
-var css$a = ".icon.ExplorerIcon {\n  position: relative;\n  display: block;\n  outline: none;\n  background: none;\n  border: none;\n  color: initial;\n  text-decoration: none;\n  padding: 1px 7px 2px;\n  padding: initial;\n  margin: 2px;\n  width: 52px;\n  height: 58px;\n  text-align: center;\n  display: flex;\n  flex-direction: column;\n  align-items: center; }\n  .icon.ExplorerIcon .icon__icon {\n    display: block;\n    background-size: contain;\n    background-position: center;\n    background-repeat: no-repeat; }\n  .icon.ExplorerIcon:focus, .icon.ExplorerIcon:active, .icon.ExplorerIcon:active:focus, .icon.ExplorerIcon.is-active {\n    outline: none; }\n    .icon.ExplorerIcon:focus .icon__icon, .icon.ExplorerIcon:active .icon__icon, .icon.ExplorerIcon:active:focus .icon__icon, .icon.ExplorerIcon.is-active .icon__icon {\n      filter: hue-rotate(70deg) contrast(0.3) saturate(2); }\n    .icon.ExplorerIcon:focus .icon__text, .icon.ExplorerIcon:active .icon__text, .icon.ExplorerIcon:active:focus .icon__text, .icon.ExplorerIcon.is-active .icon__text {\n      background-color: #0000a2;\n      color: #ffffff;\n      outline: 1px dotted #ffffff;\n      outline-offset: -1px; }\n  .icon.ExplorerIcon .icon__icon {\n    width: 32px;\n    height: 32px;\n    margin: 0 3px; }\n  .icon.ExplorerIcon .icon__text {\n    position: absolute;\n    top: 31px;\n    width: 100%;\n    padding: 2px 2px 0px;\n    max-height: 22px;\n    max-width: 100%;\n    overflow-y: hidden;\n    display: inline-block; }\n  .icon.ExplorerIcon:focus .icon__text, .icon.ExplorerIcon:active .icon__text, .icon.ExplorerIcon:active:focus .icon__text, .icon.ExplorerIcon.active .icon__text, .icon.ExplorerIcon.clicked .icon__text {\n    padding: 2px 1px;\n    max-height: initial;\n    z-index: 1; }\n";
+var css$a = ".icon.ExplorerIcon {\n  position: relative;\n  display: block;\n  outline: none;\n  background: none;\n  border: none;\n  color: initial;\n  text-decoration: none;\n  padding: 1px 7px 2px;\n  padding: initial;\n  margin: 3px;\n  width: 52px;\n  height: 58px;\n  text-align: center;\n  display: flex;\n  flex-direction: column;\n  align-items: center; }\n  .icon.ExplorerIcon .icon__icon {\n    display: block;\n    background-size: contain;\n    background-position: center;\n    background-repeat: no-repeat; }\n  .icon.ExplorerIcon:focus, .icon.ExplorerIcon:active, .icon.ExplorerIcon:active:focus, .icon.ExplorerIcon.is-active {\n    outline: none; }\n    .icon.ExplorerIcon:focus .icon__icon, .icon.ExplorerIcon:active .icon__icon, .icon.ExplorerIcon:active:focus .icon__icon, .icon.ExplorerIcon.is-active .icon__icon {\n      filter: hue-rotate(70deg) contrast(0.3) saturate(2); }\n    .icon.ExplorerIcon:focus .icon__text, .icon.ExplorerIcon:active .icon__text, .icon.ExplorerIcon:active:focus .icon__text, .icon.ExplorerIcon.is-active .icon__text {\n      background-color: #0000a2;\n      color: #ffffff;\n      outline: 1px dotted #ffffff;\n      outline-offset: -1px; }\n  .icon.ExplorerIcon .icon__icon {\n    width: 32px;\n    height: 32px;\n    margin: 0 3px; }\n  .icon.ExplorerIcon .icon__text {\n    margin: 2px;\n    position: absolute;\n    top: 34px;\n    padding: 2px;\n    max-height: 22px;\n    max-width: 100%;\n    overflow: hidden;\n    display: inline-block; }\n  .icon.ExplorerIcon:focus .icon__text, .icon.ExplorerIcon:active .icon__text, .icon.ExplorerIcon:active:focus .icon__text, .icon.ExplorerIcon.active .icon__text, .icon.ExplorerIcon.clicked .icon__text {\n    padding: 2px 3px;\n    max-height: initial;\n    z-index: 1; }\n";
 styleInject(css$a);
 
 var ExplorerIcon = function ExplorerIcon(props) {
-  return React.createElement(AbstractIcon, {
+  return React.createElement(AbstractIcon, _extends({}, props, {
     onClick: props.onClick,
     onDoubleClick: props.onDoubleClick,
     onContextMenu: props.onContextMenu,
     alt: props.alt,
-    className: cx('ExplorerIcon', props.className),
     icon: props.icon,
     title: props.title,
-    href: props.href
-  });
+    href: props.href,
+    className: cx('ExplorerIcon', props.className)
+  }));
 };
 
 ExplorerIcon.propTypes = iconProps$1;
@@ -731,17 +753,17 @@ var css$b = ".icon.ListIcon {\n  position: relative;\n  display: block;\n  outli
 styleInject(css$b);
 
 var ListIcon = function ListIcon(props) {
-  return React.createElement(AbstractIcon, {
+  return React.createElement(AbstractIcon, _extends({}, props, {
     onClick: props.onClick,
     onDoubleClick: props.onDoubleClick,
     onContextMenu: props.onContextMenu,
     alt: props.alt,
-    className: cx('ListIcon', props.className),
     icon: props.icon,
     title: props.title,
     value: props.value,
-    href: props.href
-  });
+    href: props.href,
+    className: cx('ListIcon', props.className)
+  }));
 };
 
 ListIcon.propTypes = iconProps;
@@ -873,7 +895,7 @@ function (_Component) {
     value: function render() {
       return React.createElement("input", {
         type: "text",
-        className: cx('InputText', this.props.className),
+        className: cx('InputText text', this.props.className),
         value: this.props.initialValue ? this.state.value : this.props.value,
         id: this.props.id,
         disabled: this.props.isDisabled,
@@ -909,157 +931,8 @@ InputText.propTypes = {
   onKeyDown: PropTypes.func.isRequired
 };
 
-var css$g = ".w98 {\n  /* stylelint-disable */ }\n  .w98 .Select {\n    position: relative; }\n    .w98 .Select .Select-control {\n      width: 100%; }\n      .w98 .Select .Select-control .Select-multi-value-wrapper .Select-input,\n      .w98 .Select .Select-control .Select-multi-value-wrapper .Select-placeholder,\n      .w98 .Select .Select-control .Select-multi-value-wrapper .Select-value {\n        width: calc(100% - 4px); }\n      .w98 .Select .Select-control .Select-multi-value-wrapper .Select-input {\n        display: none !important; }\n      .w98 .Select .Select-control .Select-multi-value-wrapper .Select-value,\n      .w98 .Select .Select-control .Select-multi-value-wrapper .Select-placeholder {\n        height: 16px;\n        background-color: #ffffff;\n        border: none;\n        box-shadow: inset -1px -1px 0px #ffffff, inset 1px 1px 0px 0px #808088, inset -2px -2px 0px #bbc3c4, inset 2px 2px 0px 0px #0c0c0c;\n        padding: 2px; }\n        .w98 .Select .Select-control .Select-multi-value-wrapper .Select-value .Select-value-label > div,\n        .w98 .Select .Select-control .Select-multi-value-wrapper .Select-placeholder .Select-value-label > div {\n          margin: 1px;\n          margin-right: 17px;\n          padding-left: 1px;\n          outline: 1px dotted rgba(0, 0, 0, 0); }\n        .w98 .Select .Select-control .Select-multi-value-wrapper .Select-value:active .Select-value-label > div, .w98 .Select .Select-control .Select-multi-value-wrapper .Select-value:focus .Select-value-label > div,\n        .w98 .Select .Select-control .Select-multi-value-wrapper .Select-placeholder:active .Select-value-label > div,\n        .w98 .Select .Select-control .Select-multi-value-wrapper .Select-placeholder:focus .Select-value-label > div {\n          outline: 1px dotted #ffffff;\n          outline-offset: -1px;\n          background-color: #0000a2;\n          color: #ffffff; }\n      .w98 .Select .Select-control .Select-multi-value-wrapper .Select-placeholder {\n        display: flex;\n        align-items: center;\n        padding: 2px 0px 2px 4px; }\n      .w98 .Select .Select-control .Select-arrow-zone {\n        position: absolute;\n        box-shadow: inset -1px -1px 0px #0c0c0c, inset 1px 1px 0px #bbc3c4, inset -2px -2px 0px #808088, inset 2px 2px 0px #ffffff;\n        height: 16px;\n        width: 16px;\n        left: calc(100% - 18px);\n        top: 2px;\n        background-color: #bbc3c4;\n        background-repeat: no-repeat;\n        background-position: center;\n        background-image: url(\"data:image/gif;base64,R0lGODlhBwAEAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAHAAQAAAIIhA+CKWoNmSgAOw==\"); }\n      .w98 .Select .Select-control .Select-clear-zone {\n        display: none; }\n    .w98 .Select .Select-menu-outer {\n      border: 1px solid #0c0c0c;\n      background-color: #ffffff; }\n      .w98 .Select .Select-menu-outer .Select-menu .Select-option {\n        padding: 1px; }\n        .w98 .Select .Select-menu-outer .Select-menu .Select-option:hover {\n          outline: 1px dotted #ffffff;\n          outline-offset: -1px;\n          background-color: #0000a2;\n          color: #ffffff; }\n    .w98 .Select.is-disabled {\n      pointer-events: none; }\n      .w98 .Select.is-disabled .Select-control .Select-multi-value-wrapper .Select-value,\n      .w98 .Select.is-disabled .Select-control .Select-multi-value-wrapper .Select-placeholder {\n        background-color: #bbc3c4; }\n      .w98 .Select.is-disabled .Select-control .Select-arrow-zone:after {\n        background-image: url(\"data:image/gif;base64,R0lGODlhCAAFAJEAAAAAAP///5mZmf///yH5BAEAAAMALAAAAAAIAAUAAAIMlC8zKBF6nIJyqqcKADs=\"); }\n";
+var css$g = ".FakeSelect {\n  position: relative;\n  display: flex;\n  height: 22px;\n  align-self: center;\n  align-items: center;\n  background-color: #ffffff;\n  overflow: hidden;\n  box-shadow: inset -1px -1px 0px #ffffff, inset 1px 1px 0px 0px #808088, inset -2px -2px 0px #bbc3c4, inset 2px 2px 0px 0px #0c0c0c; }\n  .FakeSelect__icon {\n    margin-left: 6px;\n    height: 16px; }\n  .FakeSelect__children {\n    margin-left: 6px;\n    margin-right: 28px;\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis; }\n  .FakeSelect__arrow {\n    position: absolute;\n    box-shadow: inset -1px -1px 0px #0c0c0c, inset 1px 1px 0px #bbc3c4, inset -2px -2px 0px #808088, inset 2px 2px 0px #ffffff;\n    height: 18px;\n    width: 18px;\n    left: calc(100% - 20px);\n    top: 2px;\n    background-color: #bbc3c4;\n    background-repeat: no-repeat;\n    background-position: center;\n    background-image: url(\"data:image/gif;base64,R0lGODlhBwAEAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAHAAQAAAIIhA+CKWoNmSgAOw==\"); }\n";
 styleInject(css$g);
-
-var DefaultOptionComponent = function DefaultOptionComponent(props) {
-  return React.createElement("div", props);
-}; // copied straight from react select demos with slight changes
-
-
-var menuRenderer = function menuRenderer(_ref) {
-  var focusedOption = _ref.focusedOption,
-      focusOption = _ref.focusOption,
-      inputValue = _ref.inputValue,
-      instancePrefix = _ref.instancePrefix,
-      onFocus = _ref.onFocus,
-      onOptionRef = _ref.onOptionRef,
-      onSelect = _ref.onSelect,
-      optionClassName = _ref.optionClassName,
-      optionComponent = _ref.optionComponent,
-      options = _ref.options,
-      removeValue = _ref.removeValue,
-      selectValue = _ref.selectValue,
-      valueArray = _ref.valueArray,
-      valueKey = _ref.valueKey;
-  var Option = optionComponent || DefaultOptionComponent;
-  return options.map(function (option, i) {
-    var isSelected = valueArray && valueArray.some(function (x) {
-      return x[valueKey] === option[valueKey];
-    });
-    var isFocused = option === focusedOption;
-    var optionClass = cx(optionClassName, {
-      'Select-option': true,
-      'Select-option--icon': true,
-      'is-selected': isSelected,
-      'is-focused': isFocused,
-      'is-disabled': option.disabled
-    });
-    return React.createElement(Option, {
-      className: optionClass,
-      focusOption: focusOption,
-      inputValue: inputValue,
-      instancePrefix: instancePrefix,
-      isDisabled: option.disabled,
-      isFocused: isFocused,
-      isSelected: isSelected,
-      key: "option-".concat(i, "-").concat(option[valueKey]),
-      onFocus: onFocus,
-      onSelect: onSelect,
-      option: option,
-      optionIndex: i,
-      ref: function ref(_ref2) {
-        onOptionRef(_ref2, isFocused);
-      },
-      removeValue: removeValue,
-      selectValue: selectValue,
-      backgroundImage: option.icon
-    }, React.createElement("span", null, option.label));
-  });
-};
-menuRenderer.propTypes = {
-  focusedOption: PropTypes.object,
-  inputValue: PropTypes.string,
-  instancePrefix: PropTypes.string,
-  optionClassName: PropTypes.string,
-  options: PropTypes.array,
-  valueArray: PropTypes.array,
-  valueKey: PropTypes.string,
-  focusOption: PropTypes.func,
-  onFocus: PropTypes.func,
-  onOptionRef: PropTypes.func,
-  onSelect: PropTypes.func,
-  optionComponent: PropTypes.func,
-  optionRenderer: PropTypes.func,
-  removeValue: PropTypes.func,
-  selectValue: PropTypes.func
-};
-
-var ValueRenderer = function ValueRenderer(props) {
-  return React.createElement("div", {
-    style: {
-      backgroundImage: props.icon ? "url('".concat(props.icon, "')") : 'none'
-    }
-  }, props.label);
-};
-
-ValueRenderer.propTypes = {
-  icon: PropTypes.string,
-  label: PropTypes.string
-};
-
-var Select =
-/*#__PURE__*/
-function (_Component) {
-  _inherits(Select, _Component);
-
-  function Select(props) {
-    var _this;
-
-    _classCallCheck(this, Select);
-
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(Select).call(this, props));
-
-    _defineProperty(_assertThisInitialized(_this), "handleChange", function (e) {
-      if (_this.props.onChange) {
-        _this.setState({
-          value: e.value
-        });
-      } else {
-        _this.props.onChange(e);
-      }
-    });
-
-    _this.state = {
-      value: _this.props.onChange ? null : _this.props.value
-    };
-    return _this;
-  }
-
-  _createClass(Select, [{
-    key: "render",
-    value: function render() {
-      var props = this.props;
-      return React.createElement(ReactSelect, _extends({}, props, {
-        className: "Select",
-        placeholder: props.placeholder,
-        onChange: this.handleChange,
-        disabled: props.isDisabled,
-        searchable: props.searchable,
-        menuRenderer: props.useIcons ? menuRenderer : undefined,
-        valueRenderer: ValueRenderer,
-        value: this.props.onChange ? this.props.value : this.state.value
-      }));
-    }
-  }]);
-
-  return Select;
-}(Component);
-
-_defineProperty(Select, "defaultProps", {
-  placeholder: '',
-  searchable: false
-});
-
-Select.propTypes = {
-  placeholder: PropTypes.any,
-  isDisabled: PropTypes.bool,
-  searchable: PropTypes.bool,
-  useIcons: PropTypes.bool
-};
-
-var css$h = ".FakeSelect {\n  position: relative;\n  display: flex;\n  height: 22px;\n  align-self: center;\n  align-items: center;\n  background-color: #ffffff;\n  overflow: hidden;\n  box-shadow: inset -1px -1px 0px #ffffff, inset 1px 1px 0px 0px #808088, inset -2px -2px 0px #bbc3c4, inset 2px 2px 0px 0px #0c0c0c; }\n  .FakeSelect__icon {\n    margin-left: 6px;\n    height: 16px; }\n  .FakeSelect__children {\n    margin-left: 6px;\n    margin-right: 28px;\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis; }\n  .FakeSelect__arrow {\n    position: absolute;\n    box-shadow: inset -1px -1px 0px #0c0c0c, inset 1px 1px 0px #bbc3c4, inset -2px -2px 0px #808088, inset 2px 2px 0px #ffffff;\n    height: 18px;\n    width: 18px;\n    left: calc(100% - 20px);\n    top: 2px;\n    background-color: #bbc3c4;\n    background-repeat: no-repeat;\n    background-position: center;\n    background-image: url(\"data:image/gif;base64,R0lGODlhBwAEAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAHAAQAAAIIhA+CKWoNmSgAOw==\"); }\n";
-styleInject(css$h);
 
 var FakeSelect = function FakeSelect(props) {
   return React.createElement("div", {
@@ -1076,8 +949,8 @@ var FakeSelect = function FakeSelect(props) {
   }));
 };
 
-var css$i = ".SelectBox {\n  position: relative;\n  width: 100%;\n  background-color: #ffffff;\n  padding: 2px; }\n  .SelectBox:disabled, .SelectBox.disabled {\n    pointer-events: none;\n    background-color: #bbc3c4; }\n    .SelectBox:disabled > div, .SelectBox.disabled > div {\n      overflow: hidden; }\n    .SelectBox:disabled button, .SelectBox.disabled button {\n      color: #808088 !important; }\n    .SelectBox:disabled .icon, .SelectBox.disabled .icon {\n      filter: grayscale(1); }\n  .SelectBox > div {\n    position: relative;\n    overflow: auto; }\n  .SelectBox:after {\n    position: absolute;\n    top: 0px;\n    left: 0px;\n    width: 100%;\n    height: 100%;\n    box-shadow: inset -1px -1px 0px #ffffff, inset 1px 1px 0px 0px #808088, inset -2px -2px 0px #bbc3c4, inset 2px 2px 0px 0px #0c0c0c;\n    pointer-events: none;\n    content: \"\"; }\n  .SelectBox button:not(.icon) {\n    display: block;\n    outline: none;\n    background: transparent;\n    border: none;\n    white-space: nowrap;\n    overflow: hidden;\n    color: #0c0c0c;\n    width: 100%;\n    text-align: left; }\n    .SelectBox button:not(.icon):after {\n      content: attr(title);\n      position: initial; }\n    .SelectBox button:not(.icon).is-active {\n      background-color: #0000a2;\n      color: #ffffff;\n      outline-offset: -1px;\n      outline: 1px dotted #ffffff; }\n  .SelectBox--ExplorerIcon > div {\n    display: flex;\n    flex-direction: row;\n    overflow-y: hidden;\n    padding-bottom: 20px; }\n    .SelectBox--ExplorerIcon > div .explorer-icon {\n      margin: 2px 8px; }\n  .SelectBox .icon--list {\n    margin: 0px;\n    padding: 1px; }\n    .SelectBox .icon--list .icon__text {\n      width: initial; }\n    .SelectBox .icon--list:focus:not(.is-active) .icon__text, .SelectBox .icon--list:active:not(.is-active) .icon__text {\n      background-color: transparent;\n      color: #0c0c0c;\n      outline: none;\n      outline-offset: -1px; }\n";
-styleInject(css$i);
+var css$h = ".SelectBox {\n  position: relative;\n  width: 100%;\n  background-color: #ffffff;\n  padding: 2px; }\n  .SelectBox:disabled, .SelectBox.disabled {\n    pointer-events: none;\n    background-color: #bbc3c4; }\n    .SelectBox:disabled > div, .SelectBox.disabled > div {\n      overflow: hidden; }\n    .SelectBox:disabled button, .SelectBox.disabled button {\n      color: #808088 !important; }\n    .SelectBox:disabled .icon, .SelectBox.disabled .icon {\n      filter: grayscale(1); }\n  .SelectBox > div {\n    position: relative;\n    overflow: auto; }\n  .SelectBox:after {\n    position: absolute;\n    top: 0px;\n    left: 0px;\n    width: 100%;\n    height: 100%;\n    box-shadow: inset -1px -1px 0px #ffffff, inset 1px 1px 0px 0px #808088, inset -2px -2px 0px #bbc3c4, inset 2px 2px 0px 0px #0c0c0c;\n    pointer-events: none;\n    content: \"\"; }\n  .SelectBox button:not(.icon) {\n    display: block;\n    outline: none;\n    background: transparent;\n    border: none;\n    white-space: nowrap;\n    overflow: hidden;\n    color: #0c0c0c;\n    width: 100%;\n    text-align: left; }\n    .SelectBox button:not(.icon):after {\n      content: attr(title);\n      position: initial; }\n    .SelectBox button:not(.icon).is-active {\n      background-color: #0000a2;\n      color: #ffffff;\n      outline-offset: -1px;\n      outline: 1px dotted #ffffff; }\n  .SelectBox--ExplorerIcon > div {\n    display: flex;\n    flex-direction: row;\n    overflow-y: hidden;\n    padding-bottom: 20px; }\n    .SelectBox--ExplorerIcon > div .explorer-icon {\n      margin: 2px 8px; }\n  .SelectBox .icon--list {\n    margin: 0px;\n    padding: 1px; }\n    .SelectBox .icon--list .icon__text {\n      width: initial; }\n    .SelectBox .icon--list:focus:not(.is-active) .icon__text, .SelectBox .icon--list:active:not(.is-active) .icon__text {\n      background-color: transparent;\n      color: #0c0c0c;\n      outline: none;\n      outline-offset: -1px; }\n";
+styleInject(css$h);
 
 var isSelected = function isSelected(selected, val) {
   return Array.isArray(selected) ? selected.some(function (selectedEntry) {
@@ -1093,7 +966,7 @@ var SelectBox = function SelectBox(props) {
     })
   }, React.createElement("div", null, props.options.map(function (option) {
     return React.createElement(Comp, {
-      key: option.value,
+      key: _typeof(option.value) !== 'object' ? option.value : JSON.stringify(option.value),
       onClick: function onClick() {
         return props.onClick(option.value);
       },
@@ -1123,8 +996,8 @@ SelectBox.propTypes = {
   }))
 };
 
-var css$j = ".SelectMultipleSimple select[multiple] {\n  position: relative;\n  border: none;\n  background-color: #ffffff;\n  border-radius: 0px;\n  outline: none;\n  padding: 2px;\n  box-shadow: inset -1px -1px 0px #ffffff, inset 1px 1px 0px 0px #808088, inset -2px -2px 0px #bbc3c4, inset 2px 2px 0px 0px #0c0c0c; }\n  .SelectMultipleSimple select[multiple]:active, .SelectMultipleSimple select[multiple]:focus, .SelectMultipleSimple select[multiple]:active:focus, .SelectMultipleSimple select[multiple].active, .SelectMultipleSimple select[multiple].clicked {\n    outline: none; }\n  .SelectMultipleSimple select[multiple] option:active, .SelectMultipleSimple select[multiple] option:focus, .SelectMultipleSimple select[multiple] option:checked, .SelectMultipleSimple select[multiple] option.checked {\n    outline: 1px dotted #ffffff;\n    outline-offset: -1px;\n    background-color: #0000a2;\n    color: #ffffff; }\n";
-styleInject(css$j);
+var css$i = ".SelectMultipleSimple select[multiple] {\n  position: relative;\n  border: none;\n  background-color: #ffffff;\n  border-radius: 0px;\n  outline: none;\n  padding: 2px;\n  box-shadow: inset -1px -1px 0px #ffffff, inset 1px 1px 0px 0px #808088, inset -2px -2px 0px #bbc3c4, inset 2px 2px 0px 0px #0c0c0c; }\n  .SelectMultipleSimple select[multiple]:active, .SelectMultipleSimple select[multiple]:focus, .SelectMultipleSimple select[multiple]:active:focus, .SelectMultipleSimple select[multiple].active, .SelectMultipleSimple select[multiple].clicked {\n    outline: none; }\n  .SelectMultipleSimple select[multiple] option:active, .SelectMultipleSimple select[multiple] option:focus, .SelectMultipleSimple select[multiple] option:checked, .SelectMultipleSimple select[multiple] option.checked {\n    outline: 1px dotted #ffffff;\n    outline-offset: -1px;\n    background-color: #0000a2;\n    color: #ffffff; }\n";
+styleInject(css$i);
 
 var SelectMultipleSimple =
 /*#__PURE__*/
@@ -1553,8 +1426,8 @@ Notifications.defaultProps = {
   notifiers: []
 };
 
-var css$k = ".TaskBar {\n  position: fixed;\n  background-color: #bbc3c4;\n  bottom: 0px;\n  left: 0px;\n  width: 100%;\n  max-width: 100%;\n  z-index: 10;\n  box-shadow: 0px -1px 0px #ffffff;\n  padding: 2px 0px;\n  display: flex; }\n  .TaskBar > div,\n  .TaskBar > button {\n    position: relative;\n    height: 22px;\n    margin: 0px 2px; }\n  .TaskBar > div:not(:last-child) {\n    padding: 0px 6px; }\n    .TaskBar > div:not(:last-child):first-child {\n      padding: 0px 3px 0px 0px; }\n    .TaskBar > div:not(:last-child):after {\n      position: absolute;\n      top: 1px;\n      right: 0px;\n      height: calc(100% - 2px);\n      width: 1px;\n      background-color: #808088;\n      content: \"\";\n      box-shadow: 1px 0px 0px #ffffff; }\n    .TaskBar > div:not(:last-child):before {\n      position: absolute;\n      top: 3px;\n      right: -6px;\n      height: calc(100% - 6px);\n      width: 3px;\n      background-color: #bbc3c4;\n      content: \"\";\n      box-shadow: inset -1px -1px 0px #808088, inset 1px 1px 0px #ffffff; }\n  .TaskBar__programs {\n    display: flex;\n    flex-grow: 1;\n    flex-shrink: 1;\n    flex-wrap: nowrap;\n    margin-right: 4px;\n    min-width: 42px; }\n    .TaskBar__programs:before {\n      display: none; }\n  .TaskBar__start {\n    position: relative; }\n    .TaskBar__start > button + div {\n      position: fixed;\n      bottom: 25px;\n      left: 2px;\n      visibility: hidden;\n      max-height: 0px;\n      padding-left: 22px; }\n      @media (min-height: 720px) and (min-width: 960px) {\n        .TaskBar__start > button + div {\n          transition: max-height linear 200ms; } }\n      .TaskBar__start > button + div > .divider:empty,\n      .TaskBar__start > button + div > div:empty {\n        margin-left: 24px;\n        width: calc(100% - 26px); }\n      .TaskBar__start > button + div:after {\n        content: \"\";\n        display: block;\n        position: absolute;\n        left: 3px;\n        top: 3px;\n        height: calc(100% - 6px);\n        width: 20px;\n        background: #0000a2;\n        background: linear-gradient(#0000a2, #126fc2);\n        background: url(\"data:image/gif;base64,R0lGODlhDgBkALMAAAAAAP///wIAsZKSmZKTmpGSmZKTmcjOz8fNzsfOz8fOzv///wAAAAAAAAAAAAAAACH5BAEAAAsALAAAAAAOAGQAAAT/cMk5SUo06CO179wSGEowgEOQBcRUEuqkUaIRd/cCwyvFzyJNS3JQ2Tyt0QLBklgwEqZGQasShr4DQhuilDxgRCWAINgIAkIxFoB2DDJWbmGb2Oq0nJx2dqoCXUEuKl8GMCZRSjpgWAdYEydVkhMJQlVkQR8UTFRgQDhiHkc9QRyfRwRSV5+ZH1KbnodzjEGPCAYFcBIJj5mOk61IkgZSnpKVxpSeYCuegTjCw8Uev1bLPkfXccuY29SSGgmRky2p4b2Jnm5+3LrQ3CsY5Wuk9ZlwcJrv2uzLvWthJgH0cWVAKkMGBjhKws1YQ4cPP1wxUETclUPuBOXRY4mOvmDJafaFFMmKwoEDCspIgnGSC0pYDZvB88YvE7Bd3YABrBlRJs+HN73MiPgq4heQYJAhlYiOhqyUwLhVo7TTWcYlyEZOmAbEYM+I4hape4b0Cg0tDXlVyapVR9UY5h7KaogAg9R1c82ubEohAgA7\") no-repeat bottom 3px center, linear-gradient(#0000a2, #126fc2); }\n      .TaskBar__start > button + div > div {\n        display: flex;\n        align-items: center;\n        margin-left: 20px; }\n        .TaskBar__start > button + div > div > button {\n          height: 32px;\n          padding-left: 32px;\n          background-size: 22px;\n          background-position: 4px center; }\n    .TaskBar__start > button.active, .TaskBar__start > button.clicked {\n      background-position: 3px 2px;\n      outline: 1px dotted #0c0c0c;\n      outline-offset: -4px; }\n      .TaskBar__start > button.active > div, .TaskBar__start > button.clicked > div {\n        visibility: visible;\n        max-height: 100vh;\n        padding: 3px; }\n        .TaskBar__start > button.active > div div, .TaskBar__start > button.clicked > div div {\n          display: flex; }\n    .TaskBar__start.active > div {\n      visibility: visible;\n      max-height: 100vh;\n      padding: 3px; }\n      .TaskBar__start.active > div div {\n        display: flex; }\n  .TaskBar__notifications {\n    background-color: #bbc3c4;\n    display: flex;\n    flex: none;\n    margin-left: auto;\n    align-items: center;\n    height: 22px;\n    padding: 0px 8px 0px 4px;\n    box-shadow: inset -1px -1px 0px #ffffff, inset 1px 1px 0px #808088; }\n    .TaskBar__notifications__time {\n      margin-left: 4px; }\n    .TaskBar__notifications__notifier {\n      height: 16px;\n      width: 16px;\n      background-color: #bbc3c4;\n      background-size: contain;\n      background-position: center;\n      background-repeat: no-repeat;\n      border: none; }\n      .TaskBar__notifications__notifier:active, .TaskBar__notifications__notifier:focus, .TaskBar__notifications__notifier:active:focus, .TaskBar__notifications__notifier.active, .TaskBar__notifications__notifier.clicked {\n        outline: none;\n        border: none; }\n";
-styleInject(css$k);
+var css$j = ".TaskBar {\n  position: fixed;\n  background-color: #bbc3c4;\n  bottom: 0px;\n  left: 0px;\n  width: 100%;\n  max-width: 100%;\n  z-index: 10;\n  box-shadow: 0px -1px 0px #ffffff;\n  padding: 2px 0px;\n  display: flex; }\n  .TaskBar > div,\n  .TaskBar > button {\n    position: relative;\n    height: 22px;\n    margin: 0px 2px; }\n  .TaskBar > div:not(:last-child) {\n    padding: 0px 6px; }\n    .TaskBar > div:not(:last-child):first-child {\n      padding: 0px 3px 0px 0px; }\n    .TaskBar > div:not(:last-child):after {\n      position: absolute;\n      top: 1px;\n      right: 0px;\n      height: calc(100% - 2px);\n      width: 1px;\n      background-color: #808088;\n      content: \"\";\n      box-shadow: 1px 0px 0px #ffffff; }\n    .TaskBar > div:not(:last-child):before {\n      position: absolute;\n      top: 3px;\n      right: -6px;\n      height: calc(100% - 6px);\n      width: 3px;\n      background-color: #bbc3c4;\n      content: \"\";\n      box-shadow: inset -1px -1px 0px #808088, inset 1px 1px 0px #ffffff; }\n  .TaskBar__programs {\n    display: flex;\n    flex-grow: 1;\n    flex-shrink: 1;\n    flex-wrap: nowrap;\n    margin-right: 4px;\n    min-width: 42px; }\n    .TaskBar__programs:before {\n      display: none; }\n  .TaskBar__start {\n    position: relative; }\n    .TaskBar__start > button + div {\n      position: fixed;\n      bottom: 25px;\n      left: 2px;\n      visibility: hidden;\n      max-height: 0px;\n      padding-left: 22px; }\n      @media (min-height: 720px) and (min-width: 960px) {\n        .TaskBar__start > button + div {\n          transition: max-height linear 200ms; } }\n      .TaskBar__start > button + div > .divider:empty,\n      .TaskBar__start > button + div > div:empty {\n        margin-left: 24px;\n        width: calc(100% - 26px); }\n      .TaskBar__start > button + div:after {\n        content: \"\";\n        display: block;\n        position: absolute;\n        left: 3px;\n        top: 3px;\n        height: calc(100% - 6px);\n        width: 20px;\n        background: #0000a2;\n        background: linear-gradient(#0000a2, #126fc2);\n        background: url(\"data:image/gif;base64,R0lGODlhDgBkALMAAAAAAP///wIAsZKSmZKTmpGSmZKTmcjOz8fNzsfOz8fOzv///wAAAAAAAAAAAAAAACH5BAEAAAsALAAAAAAOAGQAAAT/cMk5SUo06CO179wSGEowgEOQBcRUEuqkUaIRd/cCwyvFzyJNS3JQ2Tyt0QLBklgwEqZGQasShr4DQhuilDxgRCWAINgIAkIxFoB2DDJWbmGb2Oq0nJx2dqoCXUEuKl8GMCZRSjpgWAdYEydVkhMJQlVkQR8UTFRgQDhiHkc9QRyfRwRSV5+ZH1KbnodzjEGPCAYFcBIJj5mOk61IkgZSnpKVxpSeYCuegTjCw8Uev1bLPkfXccuY29SSGgmRky2p4b2Jnm5+3LrQ3CsY5Wuk9ZlwcJrv2uzLvWthJgH0cWVAKkMGBjhKws1YQ4cPP1wxUETclUPuBOXRY4mOvmDJafaFFMmKwoEDCspIgnGSC0pYDZvB88YvE7Bd3YABrBlRJs+HN73MiPgq4heQYJAhlYiOhqyUwLhVo7TTWcYlyEZOmAbEYM+I4hape4b0Cg0tDXlVyapVR9UY5h7KaogAg9R1c82ubEohAgA7\") no-repeat bottom 3px center, linear-gradient(#0000a2, #126fc2); }\n      .TaskBar__start > button + div > div {\n        display: flex;\n        align-items: center;\n        margin-left: 20px; }\n        .TaskBar__start > button + div > div > button {\n          height: 32px;\n          padding-left: 32px;\n          background-size: 22px;\n          background-position: 4px center; }\n    .TaskBar__start > button.active, .TaskBar__start > button.clicked {\n      background-position: 3px 2px;\n      outline: 1px dotted #0c0c0c;\n      outline-offset: -4px; }\n      .TaskBar__start > button.active > div, .TaskBar__start > button.clicked > div {\n        visibility: visible;\n        max-height: 100vh;\n        padding: 3px; }\n        .TaskBar__start > button.active > div div, .TaskBar__start > button.clicked > div div {\n          display: flex; }\n    .TaskBar__start.active > div {\n      visibility: visible;\n      max-height: 100vh;\n      padding: 3px; }\n      .TaskBar__start.active > div div {\n        display: flex; }\n  .TaskBar__notifications {\n    background-color: #bbc3c4;\n    display: flex;\n    flex: none;\n    margin-left: auto;\n    align-items: center;\n    height: 22px;\n    padding: 0px 8px 0px 4px;\n    box-shadow: inset -1px -1px 0px #ffffff, inset 1px 1px 0px #808088; }\n    .TaskBar__notifications__time {\n      margin-left: 4px; }\n    .TaskBar__notifications__notifier {\n      height: 16px;\n      width: 16px;\n      background-color: #bbc3c4;\n      background-size: contain;\n      background-position: center;\n      background-repeat: no-repeat;\n      border: none; }\n      .TaskBar__notifications__notifier:active, .TaskBar__notifications__notifier:focus, .TaskBar__notifications__notifier:active:focus, .TaskBar__notifications__notifier.active, .TaskBar__notifications__notifier.clicked {\n        outline: none;\n        border: none; }\n";
+styleInject(css$j);
 
 var TaskBar = function TaskBar(props) {
   return React.createElement("div", {
@@ -1567,7 +1440,7 @@ var TaskBar = function TaskBar(props) {
   }, props.quickLaunch.map(function (qlEntry) {
     return React.createElement(ButtonIconSmall, {
       key: "".concat(qlEntry.icon, "-QuickLaunch"),
-      alt: qlEntry.alt,
+      title: qlEntry.title,
       onClick: qlEntry.onClick,
       icon: qlEntry.icon
     });
@@ -1578,13 +1451,19 @@ var TaskBar = function TaskBar(props) {
       isActive: openWindow.isActive,
       onClick: openWindow.onClick,
       icon: openWindow.icon,
-      key: "".concat(openWindow.icon, "-ButtonProgram-").concat(openWindow.title)
+      key: "".concat(openWindow.icon, "-ButtonProgram-").concat(openWindow.title, "-").concat(openWindow.id)
     }, openWindow.title);
   })), React.createElement(Notifications, {
     notifiers: props.notifiers
   }));
 };
 
+TaskBar.defaultProps = {
+  openWindows: [],
+  notifiers: [],
+  quickLaunch: [],
+  options: []
+};
 TaskBar.propTypes = {
   options: PropTypes.array,
   quickLaunch: PropTypes.arrayOf(PropTypes.shape(ButtonIconSmall.propTypes)),
@@ -1592,8 +1471,8 @@ TaskBar.propTypes = {
   notifiers: PropTypes.arrayOf(PropTypes.shape(Notifications.propsTypes))
 };
 
-var css$l = ".w98 .Window__heading {\n  display: flex;\n  background: linear-gradient(to right, #0000a2, #126fc2);\n  font-weight: bold;\n  color: #ffffff;\n  margin-bottom: 1px;\n  padding: 0px 1px 0px 3px;\n  align-items: center;\n  letter-spacing: 1px; }\n  .w98 .Window__heading button {\n    padding: 0px;\n    min-width: initial;\n    width: 16px;\n    height: 14px;\n    margin-left: 1px;\n    image-rendering: pixelated;\n    display: flex;\n    align-items: center;\n    flex-shrink: 0;\n    background-repeat: no-repeat;\n    background-position: 1px 1px; }\n    .w98 .Window__heading button:focus, .w98 .Window__heading button.clicked {\n      outline: none;\n      border: none; }\n    .w98 .Window__heading button:active:focus, .w98 .Window__heading button.clicked {\n      padding: 2px 8px 1px 4px;\n      background-position: 2px 2px; }\n\n.w98 .Window__icon {\n  padding: 8px;\n  display: flex;\n  background-size: 14px;\n  background-repeat: no-repeat;\n  background-position: center; }\n\n.w98 .Window__title {\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  flex-grow: 1;\n  min-width: 0px;\n  user-select: none; }\n\n.w98 .Window__close {\n  margin-left: 2px;\n  background-image: url(\"data:image/gif;base64,R0lGODlhDQALAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAANAAsAAAIUlI+pKwDoVGxvucmwvblqo33MqBQAOw==\"); }\n\n.w98 .Window__restore {\n  background-image: url(\"data:image/gif;base64,R0lGODlhDQALAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAANAAsAAAIZlI9pwK3SnAKI1kjtwTlpyHjV830b9qRHAQA7\"); }\n\n.w98 .Window__minimize {\n  background-image: url(\"data:image/gif;base64,R0lGODlhDQALAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAANAAsAAAIOlI+py+0PozSg2mXvFAUAOw==\"); }\n\n.w98 .Window__maximize {\n  background-image: url(\"data:image/gif;base64,R0lGODlhDQALAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAANAAsAAAIXlI8Jy4wNXzJAznqwsjtPoYFfCDXfWQAAOw==\"); }\n\n.w98 .Window--resizable:after {\n  position: absolute;\n  bottom: 4px;\n  right: 4px;\n  height: 12px;\n  width: 12px;\n  content: \"\";\n  background-image: url(\"data:image/gif;base64,R0lGODlhDAAMAJEAAAAAAP///5mZmf///yH5BAEAAAMALAAAAAAMAAwAAAIbnI8TmSF83IMSKvFWw3dnHnFV+GVGhZZXmaoFADs=\"); }\n\n.w98 .Window--maximized {\n  width: 100%;\n  height: 100%; }\n\n.w98 .Window--drag {\n  background-color: rgba(0, 0, 0, 0);\n  box-shadow: inset -3px -3px 0px #808088, inset 3px 3px 0px #808088; }\n  .w98 .Window--drag > *, .w98 .Window--drag:after {\n    filter: opacity(0.1%); }\n";
-styleInject(css$l);
+var css$k = ".w98 .Window__heading {\n  display: flex;\n  background: linear-gradient(to right, #0000a2, #126fc2);\n  font-weight: bold;\n  color: #ffffff;\n  margin-bottom: 1px;\n  padding: 0px 1px 0px 3px;\n  align-items: center;\n  letter-spacing: 1px; }\n  .w98 .Window__heading button {\n    padding: 0px;\n    min-width: initial;\n    width: 16px;\n    height: 14px;\n    margin-left: 1px;\n    image-rendering: pixelated;\n    display: flex;\n    align-items: center;\n    flex-shrink: 0;\n    background-repeat: no-repeat;\n    background-position: 1px 1px; }\n    .w98 .Window__heading button:focus, .w98 .Window__heading button.clicked {\n      outline: none;\n      border: none; }\n    .w98 .Window__heading button:active:focus, .w98 .Window__heading button.clicked {\n      padding: 2px 8px 1px 4px;\n      background-position: 2px 2px; }\n\n.w98 .Window__icon {\n  padding: 8px;\n  display: flex;\n  background-size: 14px;\n  background-repeat: no-repeat;\n  background-position: center;\n  margin-right: 4px; }\n\n.w98 .Window__title {\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  flex-grow: 1;\n  min-width: 0px;\n  user-select: none; }\n\n.w98 .Window__close {\n  margin-left: 2px;\n  background-image: url(\"data:image/gif;base64,R0lGODlhDQALAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAANAAsAAAIUlI+pKwDoVGxvucmwvblqo33MqBQAOw==\"); }\n\n.w98 .Window__restore {\n  background-image: url(\"data:image/gif;base64,R0lGODlhDQALAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAANAAsAAAIZlI9pwK3SnAKI1kjtwTlpyHjV830b9qRHAQA7\"); }\n\n.w98 .Window__minimize {\n  background-image: url(\"data:image/gif;base64,R0lGODlhDQALAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAANAAsAAAIOlI+py+0PozSg2mXvFAUAOw==\"); }\n\n.w98 .Window__maximize {\n  background-image: url(\"data:image/gif;base64,R0lGODlhDQALAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAANAAsAAAIXlI8Jy4wNXzJAznqwsjtPoYFfCDXfWQAAOw==\"); }\n\n.w98 .Window__help {\n  background-image: url(\"data:image/gif;base64,R0lGODlhDQALAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAANAAsAAAIUlI9pwKDrBHtTxmcxvJTrn30VqBQAOw==\"); }\n\n.w98 .Window--resizable:after {\n  position: absolute;\n  bottom: 4px;\n  right: 4px;\n  height: 12px;\n  width: 12px;\n  content: \"\";\n  background-image: url(\"data:image/gif;base64,R0lGODlhDAAMAJEAAAAAAP///5mZmf///yH5BAEAAAMALAAAAAAMAAwAAAIbnI8TmSF83IMSKvFWw3dnHnFV+GVGhZZXmaoFADs=\"); }\n\n.w98 .Window--maximized {\n  width: 100%;\n  height: 100%; }\n\n.w98 .Window--drag {\n  background-color: rgba(0, 0, 0, 0);\n  box-shadow: inset -3px -3px 0px #808088, inset 3px 3px 0px #808088; }\n  .w98 .Window--drag > *, .w98 .Window--drag:after {\n    filter: opacity(0.1%); }\n";
+styleInject(css$k);
 
 var WindowAbstract =
 /*#__PURE__*/
@@ -1703,15 +1582,15 @@ var windowProps = {
 };
 WindowAbstract.propTypes = windowProps;
 
-var css$m = ".WindowAlert {\n  display: inline-flex;\n  flex-direction: column;\n  max-width: 250px; }\n  .WindowAlert__message {\n    display: flex;\n    align-items: center;\n    min-height: 28px;\n    padding: 10px 2px 6px; }\n    .WindowAlert__message.has-icon {\n      background-size: 28px 28px;\n      background-repeat: no-repeat;\n      background-position: 6px 6px;\n      padding: 6px 4px 8px 40px; }\n  .WindowAlert__actions {\n    width: 100%;\n    display: flex;\n    justify-content: center; }\n    .WindowAlert__actions .btn {\n      margin: 0px 4px 8px; }\n";
-styleInject(css$m);
+var css$l = ".WindowAlert {\n  display: inline-flex;\n  flex-direction: column;\n  max-width: 250px; }\n  .WindowAlert__message {\n    display: flex;\n    align-items: center;\n    user-select: none;\n    min-height: 28px;\n    padding: 10px 2px 6px; }\n    .WindowAlert__message.has-icon {\n      background-size: 28px 28px;\n      background-repeat: no-repeat;\n      background-position: 6px 6px;\n      padding: 6px 4px 8px 40px; }\n  .WindowAlert__actions {\n    width: 100%;\n    display: flex;\n    justify-content: center; }\n    .WindowAlert__actions .btn {\n      margin: 0px 4px 8px; }\n";
+styleInject(css$l);
 
 var WindowAlert = function WindowAlert(props) {
   return React.createElement(WindowAbstract, {
     className: cx('WindowAlert', props.className),
     onClose: props.onClose,
     onHelp: props.onHelp,
-    title: "Error",
+    title: props.title || 'Error',
     resizable: false
   }, React.createElement("div", {
     className: cx('WindowAlert__message', {
@@ -1738,7 +1617,94 @@ WindowAlert.propTypes = _objectSpread({}, WindowAbstract.propTypes, {
   icon: PropTypes.string
 });
 
-var css$n = ".MenuBar {\n  display: flex;\n  padding: 0px;\n  font-size: 1rem;\n  position: relative;\n  overflow-y: visible;\n  z-index: 20; }\n  .MenuBar > div {\n    position: relative; }\n    .MenuBar > div > button {\n      padding: 0px 4px;\n      outline: none;\n      border: none;\n      user-select: none;\n      color: #0c0c0c;\n      display: inline-block;\n      background-color: rgba(0, 0, 0, 0);\n      width: 100%;\n      overflow: hidden;\n      white-space: nowrap;\n      text-overflow: ellipsis;\n      text-align: left;\n      padding: 3px 6px; }\n      .MenuBar > div > button + div,\n      .MenuBar > div > button + div {\n        z-index: 20;\n        visibility: hidden;\n        position: absolute;\n        max-height: 0px;\n        top: 100%;\n        left: 0px; }\n        @media (min-height: 720px) and (min-width: 960px) {\n          .MenuBar > div > button + div,\n          .MenuBar > div > button + div {\n            transition: max-height linear 750ms; } }\n      .MenuBar > div > button:hover {\n        box-shadow: inset -1px -1px 0px #808088, inset 1px 1px 0px #ffffff; }\n      .MenuBar > div > button:active, .MenuBar > div > button:focus, .MenuBar > div > button:active:focus, .MenuBar > div > button.active, .MenuBar > div > button.clicked {\n        box-shadow: inset -1px -1px 0px #ffffff, inset 1px 1px 0px #808088;\n        padding: 4px 5px 2px 7px; }\n        .MenuBar > div > button:active + div,\n        .MenuBar > div > button:active + div, .MenuBar > div > button:focus + div,\n        .MenuBar > div > button:focus + div, .MenuBar > div > button:active:focus + div,\n        .MenuBar > div > button:active:focus + div, .MenuBar > div > button.active + div,\n        .MenuBar > div > button.active + div, .MenuBar > div > button.clicked + div,\n        .MenuBar > div > button.clicked + div {\n          visibility: visible;\n          max-height: 480px; }\n";
+var img1 = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAOAgMAAABbQXQZAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAJUExURQAAq////wAAADZqBOUAAAArSURBVAjXY1gFBAwNDAxMDGDW1NDQMIapUbOmQVhTGBjEoCyEGJwFJkDaAGAFGP4kmmZ0AAAAAElFTkSuQmCC";
+
+var img2 = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAOAgMAAABbQXQZAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAMUExURQAAq////wAAAIeIj/NEB9oAAAAoSURBVAjXY1gFBAwNDAxMDGDW1NDQMIY5mYXLGCaEOobh4AYic0HaAHnVGXeUN3O0AAAAAElFTkSuQmCC";
+
+var img3 = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAkUExURUdwTAAA/1Ooqf///wAAAIeIj6ipUf//AKoAVwAAqwD///8AABIbKHYAAAABdFJOUwBA5thmAAAAY0lEQVQY012PURKAIAgFHwimdf/7xkMza/92hxkA2GgNH+rFoMRJPaq5QU8VlIAuEiEd6R0M6WMenWFzoBucXupwOAObFdgKxiXYJ6JMZ1Da43MtXldeKusZyYk41QeiPN1+3GTUApb2Wc7EAAAAAElFTkSuQmCC";
+
+var img4 = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAPAgMAAACQHae8AAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAJUExURUdwTAAAAP//ADvXwAwAAAABdFJOUwBA5thmAAAAOUlEQVQI12NgYGBkgAEwy4GFgTVAUIBBooXFgSE0NESQwaOj04EhSUlRAMRiAbEYQCwGJFZoaCgDADXDC1L2Qw0aAAAAAElFTkSuQmCC";
+
+var img5 = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAANCAMAAABBwMRzAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAJUExURUdwTP///4eIj4zp4tUAAAABdFJOUwBA5thmAAAAOElEQVQI112OQQ4AIAzCuv7/0WpMcBNO0CwM8IhIa9sXu8AaRmmW283KFOHVOYnh44Q+VmPw+88FZDYBB0ED8bYAAAAASUVORK5CYII=";
+
+var css$m = ".WindowAction {\n  width: 80%;\n  max-width: 350px;\n  min-width: 280px; }\n  .WindowAction > :not(:first-child) {\n    margin: 4px 5px;\n    width: auto; }\n  .WindowAction .Window__title {\n    text-transform: capitalize; }\n  .WindowAction__location {\n    display: flex;\n    align-items: center;\n    margin: 3px;\n    text-transform: capitalize; }\n    .WindowAction__location .btn {\n      margin-right: 2px; }\n    .WindowAction__location .FakeSelect {\n      flex-grow: 1;\n      margin: auto 4px; }\n  .WindowAction__files {\n    width: initial;\n    margin: 5px 3px; }\n  .WindowAction__footer {\n    margin: 3px;\n    display: flex; }\n  .WindowAction__input {\n    display: flex;\n    align-items: center; }\n    .WindowAction__input .FakeSelect {\n      margin-left: auto;\n      width: 80%;\n      max-width: 180px;\n      min-width: 140px; }\n    .WindowAction__input .InputText {\n      margin-left: auto;\n      width: calc(80% - 6px);\n      max-width: 174px;\n      min-width: 136px; }\n  .WindowAction__action-inputs {\n    flex-grow: 1; }\n  .WindowAction__input,\n  .WindowAction .ButtonForm {\n    margin-top: 4px; }\n  .WindowAction__action-buttons {\n    display: inline-flex;\n    flex-direction: column;\n    margin-left: 8px; }\n    .WindowAction__action-buttons .btn {\n      text-transform: capitalize; }\n";
+styleInject(css$m);
+
+var noop = function noop() {};
+
+var WindowAction = function WindowAction(props) {
+  return React.createElement(WindowAbstract, {
+    className: "WindowAction",
+    title: props.action,
+    onClose: props.onCancel,
+    onHelp: props.onHelp,
+    resizable: false
+  }, React.createElement("div", {
+    className: "WindowAction__location"
+  }, React.createElement("div", null, props.action, " in"), React.createElement(FakeSelect, {
+    title: props.location
+  }), React.createElement(ButtonIconSmall, {
+    isDisabled: true,
+    hasBorder: true,
+    icon: img5
+  }), React.createElement(ButtonIconSmall, {
+    isDisabled: true,
+    hasBorder: true,
+    icon: img4
+  }), React.createElement(ButtonIconSmall, {
+    isDisabled: true,
+    hasBorder: true,
+    icon: img3
+  }), React.createElement(ButtonIconSmall, {
+    isDisabled: true,
+    hasBorder: true,
+    icon: img2
+  }), React.createElement(ButtonIconSmall, {
+    isDisabled: true,
+    hasBorder: true,
+    icon: img1
+  })), Array.isArray(props.content) && React.createElement(SelectBox, {
+    options: props.content,
+    className: "WindowAction__files",
+    selected: [],
+    component: ListIcon,
+    onClick: function onClick(val) {
+      return props.onChangeName(val.title);
+    }
+  }), React.createElement("div", {
+    className: "WindowAction__footer"
+  }, React.createElement("div", {
+    className: "WindowAction__action-inputs"
+  }, React.createElement("div", {
+    className: "WindowAction__input"
+  }, "File name:", React.createElement(InputText, {
+    onChange: props.onChangeName,
+    value: props.name
+  })), React.createElement("div", {
+    className: "WindowAction__input"
+  }, "Type: ", React.createElement(FakeSelect, {
+    title: props.type,
+    isDisabled: true
+  }))), React.createElement("div", {
+    className: "WindowAction__action-buttons"
+  }, React.createElement(ButtonForm, {
+    onClick: props.onAction
+  }, props.action), React.createElement(ButtonForm, {
+    onClick: props.onCancel
+  }, "Cancel"))));
+};
+
+WindowAction.defaultProps = {
+  onAction: noop,
+  onCancel: noop,
+  onHelp: noop,
+  action: 'Save??',
+  location: 'Desktop',
+  content: null,
+  name: ''
+};
+
+var css$n = ".MenuBar {\n  display: flex;\n  padding: 0px;\n  font-size: 1rem;\n  position: relative;\n  overflow-y: visible;\n  z-index: 20; }\n  .MenuBar > div {\n    position: relative; }\n    .MenuBar > div > button {\n      padding: 0px 4px;\n      outline: none;\n      border: none;\n      user-select: none;\n      color: #0c0c0c;\n      display: inline-block;\n      background-color: rgba(0, 0, 0, 0);\n      width: 100%;\n      overflow: hidden;\n      white-space: nowrap;\n      text-overflow: ellipsis;\n      text-align: left;\n      padding: 3px 6px;\n      text-transform: capitalize; }\n      .MenuBar > div > button + div,\n      .MenuBar > div > button + div {\n        z-index: 20;\n        visibility: hidden;\n        position: absolute;\n        max-height: 0px;\n        top: 100%;\n        left: 0px; }\n        @media (min-height: 720px) and (min-width: 960px) {\n          .MenuBar > div > button + div,\n          .MenuBar > div > button + div {\n            transition: max-height linear 750ms; } }\n      .MenuBar > div > button:hover {\n        box-shadow: inset -1px -1px 0px #808088, inset 1px 1px 0px #ffffff; }\n      .MenuBar > div > button:active, .MenuBar > div > button:focus, .MenuBar > div > button:active:focus, .MenuBar > div > button.active, .MenuBar > div > button.clicked {\n        box-shadow: inset -1px -1px 0px #ffffff, inset 1px 1px 0px #808088;\n        padding: 4px 5px 2px 7px; }\n        .MenuBar > div > button:active + div,\n        .MenuBar > div > button:active + div, .MenuBar > div > button:focus + div,\n        .MenuBar > div > button:focus + div, .MenuBar > div > button:active:focus + div,\n        .MenuBar > div > button:active:focus + div, .MenuBar > div > button.active + div,\n        .MenuBar > div > button.active + div, .MenuBar > div > button.clicked + div,\n        .MenuBar > div > button.clicked + div {\n          visibility: visible;\n          max-height: 480px; }\n";
 styleInject(css$n);
 
 var MenuEntry = withContextLogic(AbstractButton);
@@ -1844,7 +1810,7 @@ WindowProgram.propTypes = _objectSpread({}, WindowAbstract.propTypes, {
   footer: PropTypes.arrayOf(PropTypes.shape(footerType))
 });
 
-var css$p = ".OptionsList {\n  max-height: 40px;\n  z-index: 10; }\n  .OptionsList__large-icons {\n    display: flex;\n    overflow: hidden; }\n  .OptionsList__dropdown {\n    position: absolute;\n    right: 2px;\n    top: 2px;\n    height: calc(100% - 4px); }\n    .OptionsList__dropdown--empty {\n      display: none; }\n    .OptionsList__dropdown__button {\n      height: 100%;\n      border: none;\n      background-color: #bbc3c4;\n      background-image: url(\"data:image/gif;base64,R0lGODlhCAAFAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAIAAUAAAIKBCSGebzqoJKtAAA7\");\n      background-repeat: no-repeat;\n      background-position: 2px 3px;\n      padding: 0px 6px;\n      font-size: 0.7rem;\n      user-select: none;\n      letter-spacing: -2px;\n      display: flex;\n      flex-direction: column; }\n      .OptionsList__dropdown__button:hover {\n        box-shadow: inset -1px -1px 0px #808088, inset 1px 1px 0px #ffffff; }\n      .OptionsList__dropdown__button:active, .OptionsList__dropdown__button:focus, .OptionsList__dropdown__button:active:focus {\n        outline: none;\n        background-position: 3px 4px;\n        box-shadow: inset -1px -1px 0px #ffffff, inset 1px 1px 0px #808088; }\n        .OptionsList__dropdown__button:active + .OptionsList__dropdown__list, .OptionsList__dropdown__button:focus + .OptionsList__dropdown__list, .OptionsList__dropdown__button:active:focus + .OptionsList__dropdown__list {\n          position: absolute;\n          top: 100%;\n          right: 0px;\n          display: block;\n          z-index: 10; }\n  .OptionsList .OptionsList__dropdown__list {\n    display: none; }\n  .OptionsList .OptionsList__dropdown__button {\n    margin-left: auto; }\n  .OptionsList .StandardMenuItem__button:hover {\n    background-color: #0000a2;\n    color: #ffffff; }\n";
+var css$p = ".OptionsList {\n  max-height: 40px;\n  z-index: 10; }\n  .OptionsList__large-icons {\n    display: flex;\n    overflow: hidden; }\n  .OptionsList__dropdown {\n    position: absolute;\n    right: 2px;\n    top: 2px;\n    height: calc(100% - 4px); }\n    .OptionsList__dropdown--empty {\n      display: none; }\n    .OptionsList__dropdown__button {\n      height: 100%;\n      border: none;\n      background-color: #bbc3c4;\n      background-image: url(\"data:image/gif;base64,R0lGODlhCAAFAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAIAAUAAAIKBCSGebzqoJKtAAA7\");\n      background-repeat: no-repeat;\n      background-position: 2px 3px;\n      padding: 0px 6px;\n      font-size: 0.7rem;\n      user-select: none;\n      letter-spacing: -2px;\n      display: flex;\n      flex-direction: column; }\n      .OptionsList__dropdown__button:hover {\n        box-shadow: inset -1px -1px 0px #808088, inset 1px 1px 0px #ffffff; }\n      .OptionsList__dropdown__button:active, .OptionsList__dropdown__button:focus, .OptionsList__dropdown__button:active:focus {\n        outline: none;\n        background-position: 3px 4px;\n        box-shadow: inset -1px -1px 0px #ffffff, inset 1px 1px 0px #808088; }\n        .OptionsList__dropdown__button:active + .OptionsList__dropdown__list, .OptionsList__dropdown__button:focus + .OptionsList__dropdown__list, .OptionsList__dropdown__button:active:focus + .OptionsList__dropdown__list {\n          position: absolute;\n          top: 100%;\n          right: 0px;\n          display: block;\n          z-index: 10; }\n  .OptionsList .OptionsList__dropdown__list {\n    display: none; }\n  .OptionsList .OptionsList__dropdown__button {\n    margin-left: auto; }\n  .OptionsList .StandardMenuItem__button:hover {\n    background-color: #0000a2;\n    color: #ffffff; }\n  .OptionsList .divider {\n    border-left: 1px solid #808088;\n    border-right: 1px solid #ffffff;\n    width: 1px;\n    margin: 2px 3px; }\n    .OptionsList .divider + .divider {\n      display: none; }\n";
 styleInject(css$p);
 
 var OptionsListDropdown =
@@ -1944,6 +1910,7 @@ function (_Component2) {
 
       var props = this.props,
           state = this.state;
+      var options = flattenWithDividers(props.options);
       return React.createElement("menu", {
         ref: this.ref,
         onMouseEnter: function onMouseEnter() {
@@ -1952,7 +1919,13 @@ function (_Component2) {
         className: cx(props.className, 'OptionsList')
       }, React.createElement("div", {
         className: "OptionsList__large-icons"
-      }, props.options.slice(0, state.entriesInView).map(function (option) {
+      }, options.slice(0, state.entriesInView).map(function (option) {
+        if (option.includes && option.includes('divider')) {
+          return React.createElement("div", {
+            className: "divider ".concat(option)
+          });
+        }
+
         return React.createElement(ButtonIconLarge, {
           key: "large-button-".concat(option.title),
           icon: option.icon,
@@ -1978,7 +1951,7 @@ _defineProperty(OptionsList, "propTypes", {
   className: PropTypes.string
 });
 
-var css$q = ".w98 .WindowExplorer {\n  display: inline-flex;\n  flex-direction: column; }\n  .w98 .WindowExplorer__view {\n    min-height: 20px;\n    margin: 2px 0px;\n    flex-grow: 1;\n    background-color: #ffffff;\n    box-shadow: inset -1px -1px 0px #ffffff, inset 1px 1px 0px 0px #808088, inset -2px -2px 0px #bbc3c4, inset 2px 2px 0px 0px #0c0c0c; }\n  .w98 .WindowExplorer__details {\n    display: flex; }\n    .w98 .WindowExplorer__details__section {\n      box-shadow: inset -1px -1px 0px #ffffff, inset 1px 1px 0px #808088;\n      flex-grow: 1;\n      margin-top: 2px;\n      height: 16px; }\n      .w98 .WindowExplorer__details__section:not(:last-child) {\n        margin: 2px; }\n  .w98 .WindowExplorer .window__menu {\n    padding: 2px 2px 2px 12px; }\n  .w98 .WindowExplorer > div + menu {\n    margin-top: 2px;\n    box-shadow: 0px 2px 0px -1px #ffffff, -1px 2px 0px -1px #ffffff, -1px 1px 0px #808088, 0px 1px 0px #808088, inset 0px -1px 0px #808088, inset -1px 0px 0px #808088, inset 0px 0px 0px 1px #ffffff, -1px 0px 0px #808088, 1px 0px 0px #ffffff, -1px 1px 0px 0px #ffffff, 1px 1px 0px 0px #ffffff, -1px -1px 0px #808088, 0px -1px 0px #808088, inset 0px 1px 0px #ffffff, 1px -1px 0px #ffffff; }\n  .w98 .WindowExplorer > menu {\n    position: relative;\n    min-height: 16px;\n    padding-left: 12px;\n    margin: 0px 1px;\n    display: flex;\n    box-shadow: inset 0px -1px 0px #808088, inset -1px 0px 0px #808088, inset 0px 0px 0px 1px #ffffff, -1px 0px 0px #808088, 1px 0px 0px #ffffff, -1px 1px 0px 0px #ffffff, 1px 1px 0px 0px #ffffff; }\n    .w98 .WindowExplorer > menu:before {\n      position: absolute;\n      top: 3px;\n      left: 5px;\n      height: calc(100% - 6px);\n      width: 3px;\n      background-color: #bbc3c4;\n      content: \"\";\n      box-shadow: inset -1px -1px 0px #808088, inset 1px 1px 0px #ffffff; }\n  .w98 .WindowExplorer > footer {\n    display: flex; }\n    .w98 .WindowExplorer > footer > div {\n      white-space: nowrap;\n      text-overflow: ellipsis;\n      overflow: hidden;\n      min-width: 0px;\n      flex-grow: 1;\n      padding: 2px;\n      height: 12px;\n      box-shadow: inset -1px -1px 0px #ffffff, inset 1px 1px 0px #0c0c0c; }\n      .w98 .WindowExplorer > footer > div:not(:last-child) {\n        margin-right: 2px; }\n      .w98 .WindowExplorer > footer > div:last-child {\n        padding-right: 12px; }\n  .w98 .WindowExplorer__address {\n    display: flex;\n    height: 26px;\n    overflow-y: visible; }\n    .w98 .WindowExplorer__address__title {\n      align-self: center;\n      margin-right: 4px; }\n    .w98 .WindowExplorer__address .FakeSelect {\n      flex-grow: 1;\n      z-index: 5;\n      margin-right: 4px; }\n  .w98 .WindowExplorer__options {\n    display: flex;\n    padding: 2px 8px 2px 12px; }\n  .w98 .WindowExplorer > div:last-child {\n    margin-top: 2px; }\n";
+var css$q = ".w98 .WindowExplorer {\n  display: inline-flex;\n  flex-direction: column; }\n  .w98 .WindowExplorer__view {\n    min-height: 20px;\n    margin: 2px 0px;\n    flex-grow: 1;\n    background-color: #ffffff;\n    box-shadow: inset -1px -1px 0px #ffffff, inset 1px 1px 0px 0px #808088, inset -2px -2px 0px #bbc3c4, inset 2px 2px 0px 0px #0c0c0c; }\n  .w98 .WindowExplorer__details {\n    display: flex; }\n    .w98 .WindowExplorer__details__section {\n      box-shadow: inset -1px -1px 0px #ffffff, inset 1px 1px 0px #808088;\n      flex-grow: 1;\n      margin-top: 2px;\n      height: 16px; }\n      .w98 .WindowExplorer__details__section:not(:last-child) {\n        margin: 2px; }\n  .w98 .WindowExplorer .window__menu {\n    padding: 2px 2px 2px 12px; }\n  .w98 .WindowExplorer > div + menu {\n    margin-top: 2px;\n    box-shadow: 0px 2px 0px -1px #ffffff, -1px 2px 0px -1px #ffffff, -1px 1px 0px #808088, 0px 1px 0px #808088, inset 0px -1px 0px #808088, inset -1px 0px 0px #808088, inset 0px 0px 0px 1px #ffffff, -1px 0px 0px #808088, 1px 0px 0px #ffffff, -1px 1px 0px 0px #ffffff, 1px 1px 0px 0px #ffffff, -1px -1px 0px #808088, 0px -1px 0px #808088, inset 0px 1px 0px #ffffff, 1px -1px 0px #ffffff; }\n  .w98 .WindowExplorer > menu {\n    position: relative;\n    padding-left: 12px;\n    margin: 0px 1px;\n    display: flex;\n    box-shadow: inset 0px -1px 0px #808088, inset -1px 0px 0px #808088, inset 0px 0px 0px 1px #ffffff, -1px 0px 0px #808088, 1px 0px 0px #ffffff, -1px 1px 0px 0px #ffffff, 1px 1px 0px 0px #ffffff; }\n    .w98 .WindowExplorer > menu:before {\n      position: absolute;\n      top: 3px;\n      left: 5px;\n      height: calc(100% - 6px);\n      width: 3px;\n      background-color: #bbc3c4;\n      content: \"\";\n      box-shadow: inset -1px -1px 0px #808088, inset 1px 1px 0px #ffffff; }\n  .w98 .WindowExplorer > footer {\n    display: flex; }\n    .w98 .WindowExplorer > footer > div {\n      white-space: nowrap;\n      text-overflow: ellipsis;\n      overflow: hidden;\n      min-width: 0px;\n      flex-grow: 1;\n      padding: 2px;\n      height: 12px;\n      box-shadow: inset -1px -1px 0px #ffffff, inset 1px 1px 0px #0c0c0c; }\n      .w98 .WindowExplorer > footer > div:not(:last-child) {\n        margin-right: 2px; }\n      .w98 .WindowExplorer > footer > div:last-child {\n        padding-right: 12px; }\n  .w98 .WindowExplorer__address {\n    display: flex;\n    height: 26px;\n    overflow-y: visible;\n    user-select: none; }\n    .w98 .WindowExplorer__address__title {\n      align-self: center;\n      margin-right: 4px; }\n    .w98 .WindowExplorer__address .FakeSelect {\n      flex-grow: 1;\n      z-index: 5;\n      margin-right: 4px; }\n  .w98 .WindowExplorer__options {\n    display: flex;\n    padding: 2px 8px 2px 12px; }\n  .w98 .WindowExplorer > div:last-child {\n    margin-top: 2px; }\n";
 styleInject(css$q);
 
 var WindowExplorer =
@@ -2054,5 +2027,5 @@ DetailsSection.propTypes = {
   children: PropTypes.node
 };
 
-export { Theme, ButtonForm, ButtonNav, ButtonProgram, StartButton, ButtonIconLarge, ButtonIconSmall, StandardMenu, ExplorerIcon, ListIcon, ExplorerView, Checkbox, Radio, InputText, Select, FakeSelect, SelectBox, SelectMultipleSimple as SelectBoxSimple, StartMenu, TaskBar, WindowAlert, WindowExplorer, WindowProgram, DetailsSection };
+export { Theme, ButtonForm, ButtonNav, ButtonProgram, StartButton, ButtonIconLarge, ButtonIconSmall, StandardMenu, ExplorerIcon, ListIcon, ExplorerView, Checkbox, Radio, InputText, FakeSelect, SelectBox, SelectMultipleSimple as SelectBoxSimple, StartMenu, TaskBar, WindowAbstract as Window, WindowAlert, WindowAction, WindowExplorer, WindowProgram, DetailsSection };
 //# sourceMappingURL=pb.module.js.map

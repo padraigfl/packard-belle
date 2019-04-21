@@ -34,7 +34,7 @@ class InputText extends Component {
     return (
       <input
         type="text"
-        className={cx('InputText', this.props.className)}
+        className={cx('InputText text', this.props.className)}
         value={this.props.initialValue ? this.state.value : this.props.value}
         id={this.props.id}
         disabled={this.props.isDisabled}

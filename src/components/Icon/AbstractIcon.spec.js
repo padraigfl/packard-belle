@@ -22,10 +22,17 @@ describe('AbstractIcon', () => {
 
   it('onDoubleClick if passed in as prop', () => {
     const dblClck = jest.fn();
+    const wrapper = mount(<AbstractIcon onDoubleClick={dblClck} />);
+    wrapper.simulate('click');
+    expect(wrapper.state().doubleReady).toEqual(true);
+    wrapper.simulate('click');
+    expect(dblClck).toHaveBeenCalled();
+  });
+
+  it('onDoubleClick if touchend', () => {
+    const dblClck = jest.fn();
     const wrapper = shallow(<AbstractIcon onDoubleClick={dblClck} />);
-    wrapper.simulate('doubleclick');
-    wrapper.setProps({ onDoubleClick: dblClck });
-    wrapper.simulate('doubleclick');
+    wrapper.simulate('touchend');
     expect(dblClck).toHaveBeenCalled();
   });
 

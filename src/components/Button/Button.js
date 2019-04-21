@@ -67,6 +67,7 @@ class AbstractButton extends Component {
         }
         disabled={props.isDisabled}
         style={props.style}
+        title={props.title}
       >
         {props.children}
       </button>
@@ -77,6 +78,7 @@ class AbstractButton extends Component {
 export const commonButtonPropTypes = {
   children: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
 
+  title: PropTypes.string,
   className: PropTypes.string,
   isActive: PropTypes.bool,
   isDisabled: PropTypes.bool,

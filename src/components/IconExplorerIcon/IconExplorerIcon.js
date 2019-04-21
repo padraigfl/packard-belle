@@ -5,14 +5,15 @@ import './_ExplorerIcon.scss';
 
 const ExplorerIcon = props => (
   <AbstractIcon
+    {...props}
     onClick={props.onClick}
     onDoubleClick={props.onDoubleClick}
     onContextMenu={props.onContextMenu}
     alt={props.alt}
-    className={cx('ExplorerIcon', props.className)}
     icon={props.icon}
     title={props.title}
     href={props.href}
+    className={cx('ExplorerIcon', props.className)}
   />
 );
 

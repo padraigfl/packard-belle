@@ -4,6 +4,7 @@ import cx from 'classnames';
 import ButtonIconLarge from '../ButtonIconLarge';
 import StandardMenu from '../StandardMenu';
 import './_options-list.scss';
+import { flattenWithDividers } from '../StandardMenu/StandardMenu';
 
 class OptionsListDropdown extends Component {
   openList = () => {
@@ -52,6 +53,7 @@ class OptionsList extends Component {
 
   render() {
     const { props, state } = this;
+    const options = flattenWithDividers(props.options);
     return (
       <menu
         ref={this.ref}
@@ -59,15 +61,20 @@ class OptionsList extends Component {
         className={cx(props.className, 'OptionsList')}
       >
         <div className="OptionsList__large-icons">
-          {props.options.slice(0, state.entriesInView).map(option => (
-            <ButtonIconLarge
-              key={`large-button-${option.title}`}
-              icon={option.icon}
-              title={option.title}
-              onClick={() => this.setState({ rand: Math.random() })}
-              isDisabled={!option.onClick}
-            />
-          ))}
+          {options.slice(0, state.entriesInView).map(option => {
+            if (option.includes && option.includes('divider')) {
+              return <div className={`divider ${option}`} />;
+            }
+            return (
+              <ButtonIconLarge
+                key={`large-button-${option.title}`}
+                icon={option.icon}
+                title={option.title}
+                onClick={() => this.setState({ rand: Math.random() })}
+                isDisabled={!option.onClick}
+              />
+            );
+          })}
         </div>
         {props.options.slice(state.entriesInView).length > 0 && (
           <OptionsListDropdown

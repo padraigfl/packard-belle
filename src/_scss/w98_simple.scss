@@ -76,6 +76,10 @@ select[multiple] {
   &__maximize {
     background-image: url($maximize);
   }
+  &__help {
+    background-image: url($maximize);
+    background-image: url($whelp);
+  }
 
   &__menu {
     @include window-menu();

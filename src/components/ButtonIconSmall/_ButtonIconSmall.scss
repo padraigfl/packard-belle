@@ -1,4 +1,5 @@
 @import "../../_scss/w98/_buttons";
+@import "../../_scss/w98/var/uris.scss";
 
 .btn.ButtonIconSmall {
   @include button-small-icon();

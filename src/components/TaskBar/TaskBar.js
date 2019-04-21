@@ -15,7 +15,7 @@ const TaskBar = props => (
         {props.quickLaunch.map(qlEntry => (
           <ButtonIconSmall
             key={`${qlEntry.icon}-QuickLaunch`}
-            alt={qlEntry.alt}
+            title={qlEntry.title}
             onClick={qlEntry.onClick}
             icon={qlEntry.icon}
           />
@@ -29,7 +29,9 @@ const TaskBar = props => (
             isActive={openWindow.isActive}
             onClick={openWindow.onClick}
             icon={openWindow.icon}
-            key={`${openWindow.icon}-ButtonProgram-${openWindow.title}`}
+            key={`${openWindow.icon}-ButtonProgram-${openWindow.title}-${
+              openWindow.id
+            }`}
           >
             {openWindow.title}
           </ButtonProgram>
@@ -38,6 +40,13 @@ const TaskBar = props => (
     <Notifiations notifiers={props.notifiers} />
   </div>
 );
+
+TaskBar.defaultProps = {
+  openWindows: [],
+  notifiers: [],
+  quickLaunch: [],
+  options: [],
+};
 
 TaskBar.propTypes = {
   options: PropTypes.array,

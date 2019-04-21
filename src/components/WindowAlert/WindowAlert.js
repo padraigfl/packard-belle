@@ -11,7 +11,7 @@ const WindowAlert = props => (
     className={cx('WindowAlert', props.className)}
     onClose={props.onClose}
     onHelp={props.onHelp}
-    title="Error"
+    title={props.title || 'Error'}
     resizable={false}
   >
     <div

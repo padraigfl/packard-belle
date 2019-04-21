@@ -4,14 +4,27 @@
 @import "./mixins/box-shadows";
 @import "./var/uris";
 @import "./var/fontBackup";
+@import "./var/cursors.scss";
 
+// @font-face {
+//   font-family: "MSFont";
+//   src: url($ms11) format("woff2");
+// }
+// @font-face {
+//   font-family: "MSFont11";
+//   src: url("./fonts/ms98s11a10d02.ttf") format("ttf");
+// }
+
+// sourced from https://github.com/1000hz/winmine-exe/tree/master/static/fonts
 @font-face {
-  font-family: "MSFont";
-  src: url($ms11) format("woff2");
+  font-family: MSSansSerif;
+  src: url($msSansSerif);
+  font-weight: normal;
 }
 @font-face {
-  font-family: "MSFont11";
-  src: url("./fonts/ms98s11a10d02.ttf") format("woff2");
+  font-family: MSSansSerif;
+  src: url($msSansSerifBold);
+  font-weight: bold;
 }
 
 @mixin scrollbar-button-shadowing {
@@ -35,8 +48,7 @@ html {
   }
 
   body {
-    font-family: "MSFont", "MSFont11", "Segoe UI", Tahoma, Geneva, Verdana,
-      sans-serif;
+    font-family: MSSansSerif, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     min-width: 200px;
     margin: 0px;
   }
@@ -47,8 +59,7 @@ html {
 }
 
 .w98 {
-  font-family: "MSFont", "MSFont11", "Segoe UI", Tahoma, Geneva, Verdana,
-    sans-serif;
+  font-family: MSSansSerif, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   width: 100%;
   height: 100%;
   image-rendering: pixelated;
@@ -56,9 +67,106 @@ html {
   transform: scale(1);
   *,
   & {
-    font-family: "MSFont", "MSFont11", "Segoe UI", Tahoma, Geneva, Verdana,
-      sans-serif;
+    font-family: MSSansSerif, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+
     cursor: url($cursor), default;
+
+    .default {
+      cursor: url($cursor), default;
+    }
+    .none {
+      cursor: none;
+    } /* stylelint-disable */
+    .help {
+      cursor: url(./cursors/Hand-min.png), help !important;
+    }
+    .pointer {
+      cursor: url(./cursors/HandPointer-min.png), pointer !important;
+    }
+    // .progress {
+    //   cursor: url(./cursors/), progress !important;
+    // }
+    .wait {
+      cursor: url(./cursors/Wait-min.png), wait !important;
+    }
+    .crosshair {
+      cursor: url(./cursors/Crosshair-min.png), crosshair !important;
+    }
+    .text {
+      cursor: url(./cursors/Text-min.png), text !important;
+    }
+    .vertical-text {
+      cursor: url(./cursors/VText-min.png), vertical-text !important;
+    }
+    // .alias {
+    //   cursor: url(./cursors/), alias !important;
+    // }
+    .copy {
+      cursor: url(./cursors/Copy-min.png), copy !important;
+    }
+    .move {
+      cursor: url(./cursors/Move-min.png), move !important;
+    }
+    .no-drop {
+      cursor: url(./cursors/NO-min.png), no-drop !important;
+    }
+    .not-allowed {
+      cursor: url(./cursors/NO-min.png), not-allowed !important;
+    }
+    .grab {
+      cursor: url(./cursors/Hand-min.png), grab !important;
+    }
+    .grabbing {
+      cursor: url(./cursors/Handsqueezed-min.png), grabbing !important;
+    }
+    .col-resize {
+      cursor: url(./cursors/ColRezise-min.png), col-resize !important;
+    }
+    .row-resize {
+      cursor: url(./cursors/RowResize-min.png), row-resize !important;
+    }
+    .n-resize {
+      cursor: url(./cursors/UpArrow-min.png), n-resize !important;
+    }
+    .e-resize {
+      cursor: url(./cursors/LeftArrow-min.png), e-resize !important;
+    }
+    .s-resize {
+      cursor: url(./cursors/DownArrow-min.png), s-resize !important;
+    }
+    .w-resize {
+      cursor: url(./cursors/RightArrow-min.png), w-resize !important;
+    }
+    .ns-resize {
+      cursor: url(./cursors/UpDownArrow-min.png), ns-resize !important;
+    }
+    .ew-resize {
+      cursor: url(./cursors/LeftRightArrow-min.png), ew-resize !important;
+    }
+    .ne-resize {
+      cursor: url(./cursors/UpRightArrow-min.png), ne-resize !important;
+    }
+    .nw-resize {
+      cursor: url(./cursors/UpLeftArrow-min.png), nw-resize !important;
+    }
+    .se-resize {
+      cursor: url(./cursors/DownRightArrow-min.png), se-resize !important;
+    }
+    .sw-resize {
+      cursor: url(./cursors/DownLeftArrow-min.png), sw-resize !important;
+    }
+    .nesw-resize {
+      cursor: url(./cursors/AngleUpRight-min.png), nesw-resize !important;
+    }
+    .nwse-resize {
+      cursor: url(./cursors/AngleUpLeft-min.png), nwse-resize !important;
+    }
+    .zoom-in {
+      cursor: url(./cursors/ZoomIn-min.png), zoom-in !important;
+    }
+    .zoom-out {
+      cursor: url(./cursors/ZoomOut-min.png), zoom-out !important;
+    }
   }
   &.x2 {
     *,
@@ -135,5 +243,10 @@ html {
       */
       background-color: $grey;
     }
+  }
+
+  ::selection {
+    color: #ffffff;
+    background-color: $blue;
   }
 }

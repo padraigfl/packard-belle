@@ -60,4 +60,13 @@
     background-color: $blue;
     color: #ffffff;
   }
+  .divider {
+    border-left: 1px solid $darkgrey;
+    border-right: 1px solid #ffffff;
+    width: 1px;
+    margin: 2px 3px;
+    + .divider {
+      display: none;
+    }
+  }
 }

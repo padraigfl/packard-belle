@@ -8,7 +8,7 @@ import './_StandardMenu.scss';
 
 const DIVIDER = 'divider';
 
-const flattenWithDividers = options =>
+export const flattenWithDividers = options =>
   options.reduce((acc, val, idx) => {
     if (!Array.isArray(val)) {
       acc.push(val);

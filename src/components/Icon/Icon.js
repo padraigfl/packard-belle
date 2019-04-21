@@ -12,9 +12,7 @@ class AbstractIcon extends Component {
   };
 
   checkDoubleClick = () => {
-    if (this.props.onClick) {
-      this.props.onClick();
-    }
+    this.handleClick();
 
     if (!this.props.onDoubleClick) {
       return;
@@ -50,9 +48,9 @@ class AbstractIcon extends Component {
     const Comp = props.href ? 'a' : 'button';
 
     const iconProps = {
-      onDoubleClick: props.onDoubleClick,
-      onClick: this.handleClick,
+      onClick: this.checkDoubleClick,
       onContextMenu: this.props.onContextMenu && this.handleContextMenu,
+      onTouchEnd: this.props.onDoubleClick || this.props.onClick,
       className: cx('icon', props.className),
       title: props.alt,
       value: props.value,
@@ -78,6 +76,8 @@ class AbstractIcon extends Component {
           ref={icon => {
             this.icon = icon;
           }}
+          target={props.external && Comp === 'a' && '_blank'}
+          rel={props.external && Comp === 'a' && 'noopener noreferrer'}
           {...iconProps}
         >
           {contents}
@@ -99,6 +99,7 @@ export const iconProps = {
   onDoubleClick: PropTypes.func,
   onContextMenu: PropTypes.func,
   href: PropTypes.string,
+  external: PropTypes.bool,
 };
 
 AbstractIcon.propTypes = iconProps;

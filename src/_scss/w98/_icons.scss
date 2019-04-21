@@ -41,7 +41,7 @@
   @include icon($classname);
 
   padding: initial;
-  margin: 2px;
+  margin: 3px;
   width: 52px;
   height: 58px;
   text-align: center;
@@ -56,13 +56,13 @@
   }
 
   .icon__text {
+    margin: 2px;
     position: absolute;
-    top: 31px;
-    width: 100%;
-    padding: 2px 2px 0px;
+    top: 34px;
+    padding: 2px;
     max-height: 22px;
     max-width: 100%;
-    overflow-y: hidden;
+    overflow: hidden;
     display: inline-block;
   }
 
@@ -72,7 +72,7 @@
   &.active,
   &.clicked {
     .icon__text {
-      padding: 2px 1px;
+      padding: 2px 3px;
       max-height: initial;
       z-index: 1;
     }

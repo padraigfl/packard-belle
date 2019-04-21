@@ -7,6 +7,8 @@ const StandardMenuItem = props => (
     className={cx('StandardMenuItem', props.className, props.type, {
       'StandardMenuItem--has-options': props.options,
       active: props.isActive,
+      'StandardMenuItem--radio-selected': props.isSelected,
+      'StandardMenuItem--checked': props.isChecked,
     })}
     onMouseEnter={props.mouseEnterItem}
     onTouchStart={props.mouseEnterItem}

@@ -8,6 +8,7 @@ import WindowProgram from '../../src/components/WindowProgram';
 import DetailsSection from '../../src/components/DetailsSection';
 
 import img from './directory_closed.png';
+import WindowAction from '../../src/components/WindowAction';
 
 const optionsSample = [
   {
@@ -139,16 +140,18 @@ storiesOf('Windows', module)
             title: 'Forward',
             onClick: noop,
           },
-          {
-            icon: img,
-            title: 'Forward',
-            onClick: noop,
-          },
-          {
-            icon: img,
-            title: 'Forward',
-            onClick: noop,
-          },
+          [
+            {
+              icon: img,
+              title: 'Forward',
+              onClick: noop,
+            },
+            {
+              icon: img,
+              title: 'Forward',
+              onClick: noop,
+            },
+          ],
           {
             icon: img,
             title: 'View',
@@ -175,4 +178,14 @@ storiesOf('Windows', module)
     >
       This is an error message.
     </AlertWindow>
+  ))
+  .add('WindowAction', () => (
+    <WindowAction
+      icon={img}
+      action="save"
+      onClose={noop}
+      onOK={noop}
+      onCancel={noop}
+      content={[{ title: 'Blah', icon: img }, { title: 'Blah2', icon: img }]}
+    />
   ));
