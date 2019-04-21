@@ -27,10 +27,10 @@ class AbstractIcon extends Component {
     }
   };
 
-  handleClick = () => {
+  handleClick = e => {
     this.icon.focus();
     if (this.props.onClick) {
-      this.props.onClick();
+      this.props.onClick(e);
     }
   };
 

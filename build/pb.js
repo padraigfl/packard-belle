@@ -653,11 +653,11 @@
         }
       });
 
-      _defineProperty(_assertThisInitialized(_this), "handleClick", function () {
+      _defineProperty(_assertThisInitialized(_this), "handleClick", function (e) {
         _this.icon.focus();
 
         if (_this.props.onClick) {
-          _this.props.onClick();
+          _this.props.onClick(e);
         }
       });
 
