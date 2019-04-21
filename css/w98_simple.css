@@ -34,21 +34,35 @@ html {
   .w98 *, .w98 {
     font-family: MSSansSerif, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     cursor: url("data:image/gif;base64,R0lGODlhCwATAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAALABMAAAIrhI4JlhrcBAgvSlrbxPBs7mAU9IlMaV7mwo6jY2zk+Xphh8iWint1tDgUAAA7"), default;
+    /* core resizers */
     /* stylelint-disable */ }
     .w98 * .default, .w98 .default {
       cursor: url("data:image/gif;base64,R0lGODlhCwATAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAALABMAAAIrhI4JlhrcBAgvSlrbxPBs7mAU9IlMaV7mwo6jY2zk+Xphh8iWint1tDgUAAA7"), default; }
+    .w98 * .ns-resize, .w98 .ns-resize {
+      cursor: url("data:image/png,base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAcElEQVRYhe2VwQrAIAxDm7H//+XsVBCZg2K1E/LAg1JNDqk1E0KcDElWi7PEhIv72mqiF581gag4ML5C0vBV8MIdKXYRB4CV5TArhFeSHxk410CoC0aBa8+Xt2H/frvf0pLZP2GKidKB9IeRLIQQUzyny2q/gqNGmAAAAABJRU5ErkJggg=="), ns-resize; }
+    .w98 * .ew-resize, .w98 .ew-resize {
+      cursor: url("data:image/png,base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAZdEVYdFNvZnR3YXJlAHBhaW50Lm5ldCA0LjAuMjHxIGmVAAAAaUlEQVRYR+3O4QrAIAgEYN//pTcZF5RkbdN+FPdBlChnQkRE27kAZQOtbi8Fwt0ls35ICcdz+AE8uzO/1MEoXXZO7xgb+vUs+cSIndM7Rx3uBb+ZCSkLvPBZP8WTrlA20Fq3nIiIDiRyAzGq1ipFTm7RAAAAAElFTkSuQmCC"), ew-resize; }
+    .w98 * .nesw-resize, .w98 .nesw-resize {
+      cursor: url("data:image/png,base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAfUlEQVRYhe2UOQ6AMAwEs4j/f3lpQDJHDmKHFOx0pPCMcpCSEEJMBt4BJJkdDlTnr96AXXRbK3SdWALkaJUNCfBGhASQJIDmbQ8NsHLvcVRF1xu/fz+ul15Hd4CV5eTDOIRGGiLvugP2zKcEmIg5OxAZ8epX/NV9E0KIf7EB3G1l2PEHnRoAAAAASUVORK5CYII="), nesw-resize; }
+    .w98 * .nwse-resize, .w98 .nwse-resize {
+      cursor: url("data:image/png,base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAfUlEQVRYhe2UQQrAIAwEk9L/f3l7UZBiJCZqD925KTE7AVWEEEI+Rj1FAGA2UHX1sLi9hb2cgZebK3oQQHr6sMCq8JBACR/ei20CdfLVEp5gvMPKurt/VKyVsKROSkwLhJ9hpb0TEdICAJB5kSmBbLjIxFc8kMi2IISQn/MAfiVl2DaxoY4AAAAASUVORK5CYII="), nwse-resize; }
+    .w98 * .wait,
+    .w98 * .wait *, .w98 .wait,
+    .w98 .wait * {
+      cursor: url("data:image/png,base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAsElEQVRYhe1Wuw7DMBDiqv7/L9OhcuRcLNXgNh56LM4QAeEeMVAo/DtCeJe/4H+qjORnHxHz37U9AcUAAFBIYIr7IRr4OmwDrc75vM0ASUTE6XQg90ATPwiSeJfEFLeT28WEKw54JYhebNADXjMYIN5jyfbskGwfQzeuYTM6nE4CJ/Em3JmRSrE8hhdCMQk5gSyeN6C6kJaasN+ELpb+BXkd32ZgJO6a2H4hqStZofACqCxSMK3nScIAAAAASUVORK5CYII="), wait !important;
+      /* stylelint-disable-line */ }
+    .w98 * .text,
+    .w98 * .text *, .w98 .text,
+    .w98 .text * {
+      cursor: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAASAgMAAAD07hzbAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAJUExURQAAAP///wAAAHPGg3EAAAABdFJOUwBA5thmAAAAIElEQVQI12MIFXVgyNJyYAid6sDAOIGBJAzSA9Yr6gAAtPsMHZZ0H8cAAAAASUVORK5CYII="), text; }
     .w98 * .none, .w98 .none {
       cursor: none; }
     .w98 * .help, .w98 .help {
       cursor: url(./cursors/Hand-min.png), help; }
     .w98 * .pointer, .w98 .pointer {
       cursor: url(./cursors/HandPointer-min.png), pointer; }
-    .w98 * .wait, .w98 .wait {
-      cursor: url(./cursors/Wait-min.png), wait; }
     .w98 * .crosshair, .w98 .crosshair {
       cursor: url(./cursors/Crosshair-min.png), crosshair; }
-    .w98 * .text, .w98 .text {
-      cursor: url(./cursors/Text-min.png), text; }
     .w98 * .vertical-text, .w98 .vertical-text {
       cursor: url(./cursors/VText-min.png), vertical-text; }
     .w98 * .copy, .w98 .copy {
@@ -75,10 +89,6 @@ html {
       cursor: url(./cursors/DownArrow-min.png), s-resize; }
     .w98 * .w-resize, .w98 .w-resize {
       cursor: url(./cursors/RightArrow-min.png), w-resize; }
-    .w98 * .ns-resize, .w98 .ns-resize {
-      cursor: url(./cursors/UpDownArrow-min.png), ns-resize; }
-    .w98 * .ew-resize, .w98 .ew-resize {
-      cursor: url(./cursors/LeftRightArrow-min.png), ew-resize; }
     .w98 * .ne-resize, .w98 .ne-resize {
       cursor: url(./cursors/UpRightArrow-min.png), ne-resize; }
     .w98 * .nw-resize, .w98 .nw-resize {
@@ -87,10 +97,6 @@ html {
       cursor: url(./cursors/DownRightArrow-min.png), se-resize; }
     .w98 * .sw-resize, .w98 .sw-resize {
       cursor: url(./cursors/DownLeftArrow-min.png), sw-resize; }
-    .w98 * .nesw-resize, .w98 .nesw-resize {
-      cursor: url(./cursors/AngleUpRight-min.png), nesw-resize; }
-    .w98 * .nwse-resize, .w98 .nwse-resize {
-      cursor: url(./cursors/AngleUpLeft-min.png), nwse-resize; }
     .w98 * .zoom-in, .w98 .zoom-in {
       cursor: url(./cursors/ZoomIn-min.png), zoom-in; }
     .w98 * .zoom-out, .w98 .zoom-out {

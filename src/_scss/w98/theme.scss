@@ -76,31 +76,37 @@ html {
     }
 
     /* core resizers */
+    /* stylelint-disable */
     .ns-resize {
-      cursor: url($arrowUpDown), ns-resize;
+      cursor: url($arrowUpDown), ns-resize !important;
     }
     .ew-resize {
-      cursor: url($arrowLeftRight), ew-resize;
+      cursor: url($arrowLeftRight), ew-resize !important;
     }
     .nesw-resize {
-      cursor: url($angleUpRight), nesw-resize;
+      cursor: url($angleUpRight), nesw-resize !important;
     }
     .nwse-resize {
-      cursor: url($angleUpLeft), nwse-resize;
+      cursor: url($angleUpLeft), nwse-resize !important;
     }
 
     .wait,
     .wait * {
-      cursor: url($wait), wait !important; /* stylelint-disable-line */
+      cursor: url($wait), wait !important;
+    }
+
+    .wait2,
+    .wait2 * {
+      cursor: url($wait2), wait !important;
     }
     .text,
     .text * {
-      cursor: url($text), text;
+      cursor: url($text), text !important;
     }
-
+    /* stylelint-enable */
     .none {
       cursor: none;
-    } /* stylelint-disable */
+    }
     .help {
       cursor: url(./cursors/Hand-min.png), help;
     }
