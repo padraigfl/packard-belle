@@ -53,15 +53,15 @@ General
 - [ ] Right click actions
 - [ ] State sharing
 - [ ] Loading
-- [ ] Shut down
-- [ ] Font substitution
-- [ ] Scaling display size
+- [x] ~Shut down~
+- [x] ~Font substitution~
+- [x] ~Scaling display size~
 - [ ] Make CSS pseudoclass driven design choices optional
 
 W98 Toolbar
 
 - [x] Interactive start menu, validated inputs
-- [ ] Only one active window
+- [x] ~Only one active window~
 - [ ] Network notifications icon
 
 ## Performance
@@ -76,12 +76,11 @@ W98 Toolbar
 # Necessary Refactorings
 
 - [ ] Decouple CSS build from React build (i.e. style everything within mixins, include where appropriate)
-- [ ] Reimplement CSS Modules
-- [ ] Make dummy Select component for places where aesthetically needed
-- [ ] Group options collections in explorer
+- [x] ~Reimplement CSS Modules~
+- [x] Make dummy Select component for places where aesthetically needed
+- [x] Group options collections in explorer
 - [ ] Pixel near perfect (leave to last)
 - [ ] Switch to react-testing-library
-- [ ] CSS modules
 - [ ] Sematic HTML improvements
 
 ## To fix later
@@ -89,8 +88,8 @@ W98 Toolbar
 - [ ] Use svg filter for icon highlighting (checkered blue pixel)
 - [ ] Refactor various list option groups
 - [ ] Blue selected areas grey when parent not active
-- [ ] Radio and checkbox for Menus
-- [ ] Custom font
+- [x] Radio and checkbox for Menus (via classes)
+- [x] Custom font
 - [ ] Start menu animation on iOS (absolute transitions issue, considering disabling on mobile)
 - [ ] Selected sections grey when not focus
 - [ ] Filter overhauls
@@ -99,7 +98,6 @@ W98 Toolbar
 - [ ] Gradient improvements
 - [ ] Add empty taskbar to core css
 - [ ] Disabled buttons
-- [ ] Single width font
-- [ ] Right clicking
+- [x] ~Single width font~
 - [ ] Firefox outlines issue
 - [ ] PERFORMANCE IMPROVMENTS
