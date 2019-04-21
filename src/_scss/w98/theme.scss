@@ -100,8 +100,9 @@ html {
       cursor: url($wait2), wait !important;
     }
     .text,
-    .text * {
-      cursor: url($text), text !important;
+    input[type="text"],
+    textarea .text * {
+      cursor: url($textSmall), text !important;
     }
     /* stylelint-enable */
     .none {

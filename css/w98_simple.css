@@ -40,13 +40,13 @@ html {
     .w98 * .default, .w98 .default {
       cursor: url("data:image/gif;base64,R0lGODlhCwATAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAALABMAAAIrhI4JlhrcBAgvSlrbxPBs7mAU9IlMaV7mwo6jY2zk+Xphh8iWint1tDgUAAA7"), default; }
     .w98 * .ns-resize, .w98 .ns-resize {
-      cursor: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgAgMAAAAOFJJnAAAACVBMVEVHcEz///8AAADmzmMiAAAAAXRSTlMAQObYZgAAADNJREFUGNNjYKAYMMIYbA5QhtQEKCNrCVTJqpVQRlgoumIiGHBdcHPgJiPsgutiZKAiAABt1wlduKvS4gAAAABJRU5ErkJggg=="), ns-resize !important; }
+      cursor: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAARAgMAAAByem51AAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAJUExURUdwTP///wAAAObOYyIAAAABdFJOUwBA5thmAAAAL0lEQVQI12NgcGBgYJzAwMC2hIFBaiUDQ9YqB4bQqQ5gMXQMEgfJg9SB1IPEgPoBo1IMTmZmZtEAAAAASUVORK5CYII="), ns-resize !important; }
     .w98 * .ew-resize, .w98 .ew-resize {
-      cursor: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgAgMAAAAOFJJnAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAJUExURUdwTP///wAAAObOYyIAAAABdFJOUwBA5thmAAAAMklEQVQY02NgoAsIYHQA04wTGCeAGWwTGJeAGVJTQ1eCGVmrVq1yQBGBq4HrgptDNwAA3noL39U5d4YAAAAASUVORK5CYII="), ew-resize !important; }
+      cursor: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAJAgMAAACphi+fAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAJUExURUdwTP///wAAAObOYyIAAAABdFJOUwBA5thmAAAALklEQVQI12NgCGB0YGBgnMA4gYGBbQLjEgYGqamhKxkYslatWuUAZUPEIWrA6gFBVwvfT0IY5wAAAABJRU5ErkJggg=="), ew-resize !important; }
     .w98 * .nesw-resize, .w98 .nesw-resize {
-      cursor: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgAgMAAAAOFJJnAAAACVBMVEVHcEz///8AAADmzmMiAAAAAXRSTlMAQObYZgAAADpJREFUGNNjYKAFCA2BMrKWQBlSMAYbjCEJY6SkgClWxgkiEBVuDlClM9H1sK2EMVZB1bCGOjDQEgAAeX8JXURu2K4AAAAASUVORK5CYII="), nesw-resize !important; }
+      cursor: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAANAgMAAAAPhQzvAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAJUExURUdwTP///wAAAObOYyIAAAABdFJOUwBA5thmAAAANklEQVQI12NgYA11YGBgWwUkGEEEQxaINQsk5ubAECDJ6MCQkgIUzpwAlWPIArOWAInQEAYGAEgkCk3UfIArAAAAAElFTkSuQmCC"), nesw-resize !important; }
     .w98 * .nwse-resize, .w98 .nwse-resize {
-      cursor: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgAgMAAAAOFJJnAAAACVBMVEVHcEz///8AAADmzmMiAAAAAXRSTlMAQObYZgAAADlJREFUGNNjYKA+EA2FMqRWwhhLYIwJMEYKlCEpCWWIsDkEQFiME2Gq0iag68uCMhhXwRihAQw0BABL5wmNmQHg3wAAAABJRU5ErkJggg=="), nwse-resize !important; }
+      cursor: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAANAgMAAAAPhQzvAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAJUExURUdwTP///wAAAObOYyIAAAABdFJOUwBA5thmAAAAM0lEQVQI12MIDWFgYMhaAiImgAgHIJEJYqWkAIkASUagAJsbkGCc5QCVZ1wFEgMRrKEOAFiMCk2T07A5AAAAAElFTkSuQmCC"), nwse-resize !important; }
     .w98 * .wait,
     .w98 * .wait *, .w98 .wait,
     .w98 .wait * {
@@ -58,7 +58,7 @@ html {
     .w98 * .text,
     .w98 * .text *, .w98 .text,
     .w98 .text * {
-      cursor: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgAgMAAAAOFJJnAAAACVBMVEVHcEz///8AAADmzmMiAAAAAXRSTlMAQObYZgAAACVJREFUGNNjYAgVdWAAgywtKCN0KpTBOIGBbgy4pQhnwBw2kAAA3ykMHS9eK58AAAAASUVORK5CYII="), text !important; }
+      cursor: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAASAgMAAAD07hzbAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAJUExURUdwTP///wAAAObOYyIAAAABdFJOUwBA5thmAAAAIElEQVQI12MIFXVgyNJyYAid6sDAOIGBJBw6FapX1AEAtPsMHfNC+MIAAAAASUVORK5CYII="), text !important; }
     .w98 * .none, .w98 .none {
       cursor: none; }
     .w98 * .help, .w98 .help {
