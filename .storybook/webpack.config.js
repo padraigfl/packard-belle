@@ -10,11 +10,6 @@ module.exports = (baseConfig, env, defaultConfig) => {
     include: path.resolve(__dirname, '../'),
   });
   defaultConfig.module.rules.push({
-    test: /\.png$/,
-    loaders: ['file-loader'],
-    include: path.resolve(__dirname, '../'),
-  });
-  defaultConfig.module.rules.push({
     test: /\.jsx?$/,
     loaders: [require.resolve('@storybook/addon-storysource/loader')],
     enforce: 'pre',

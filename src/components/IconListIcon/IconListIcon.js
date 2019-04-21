@@ -5,15 +5,16 @@ import './_ListIcon.scss';
 
 const ListIcon = props => (
   <AbstractIcon
+    {...props}
     onClick={props.onClick}
     onDoubleClick={props.onDoubleClick}
     onContextMenu={props.onContextMenu}
     alt={props.alt}
-    className={cx('ListIcon', props.className)}
     icon={props.icon}
     title={props.title}
     value={props.value}
     href={props.href}
+    className={cx('ListIcon', props.className)}
   />
 );
 

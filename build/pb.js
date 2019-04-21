@@ -707,7 +707,9 @@
           return React__default.createElement(Comp, _extends({
             ref: function ref(icon) {
               _this2.icon = icon;
-            }
+            },
+            target: props.external && Comp === 'a' && '_blank',
+            rel: props.external && Comp === 'a' && 'noopener noreferrer'
           }, iconProps), contents);
         }
 
@@ -728,7 +730,8 @@
     onClick: PropTypes.func,
     onDoubleClick: PropTypes.func,
     onContextMenu: PropTypes.func,
-    href: PropTypes.string
+    href: PropTypes.string,
+    external: PropTypes.bool
   };
   AbstractIcon.propTypes = iconProps;
 
@@ -738,16 +741,16 @@
   styleInject(css$a);
 
   var ExplorerIcon = function ExplorerIcon(props) {
-    return React__default.createElement(AbstractIcon, {
+    return React__default.createElement(AbstractIcon, _extends({}, props, {
       onClick: props.onClick,
       onDoubleClick: props.onDoubleClick,
       onContextMenu: props.onContextMenu,
       alt: props.alt,
-      className: cx('ExplorerIcon', props.className),
       icon: props.icon,
       title: props.title,
-      href: props.href
-    });
+      href: props.href,
+      className: cx('ExplorerIcon', props.className)
+    }));
   };
 
   ExplorerIcon.propTypes = iconProps$1;
@@ -756,17 +759,17 @@
   styleInject(css$b);
 
   var ListIcon = function ListIcon(props) {
-    return React__default.createElement(AbstractIcon, {
+    return React__default.createElement(AbstractIcon, _extends({}, props, {
       onClick: props.onClick,
       onDoubleClick: props.onDoubleClick,
       onContextMenu: props.onContextMenu,
       alt: props.alt,
-      className: cx('ListIcon', props.className),
       icon: props.icon,
       title: props.title,
       value: props.value,
-      href: props.href
-    });
+      href: props.href,
+      className: cx('ListIcon', props.className)
+    }));
   };
 
   ListIcon.propTypes = iconProps;
