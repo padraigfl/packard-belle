@@ -74,6 +74,30 @@ html {
     .default {
       cursor: url($cursor), default;
     }
+
+    /* core resizers */
+    .ns-resize {
+      cursor: url($arrowUpDown), ns-resize;
+    }
+    .ew-resize {
+      cursor: url($arrowLeftRight), ew-resize;
+    }
+    .nesw-resize {
+      cursor: url($angleUpRight), nesw-resize;
+    }
+    .nwse-resize {
+      cursor: url($angleUpLeft), nwse-resize;
+    }
+
+    .wait,
+    .wait * {
+      cursor: url($wait), wait !important; /* stylelint-disable-line */
+    }
+    .text,
+    .text * {
+      cursor: url($text), text;
+    }
+
     .none {
       cursor: none;
     } /* stylelint-disable */
@@ -86,14 +110,8 @@ html {
     // .progress {
     //   cursor: url(./cursors/), progress;
     // }
-    .wait {
-      cursor: url(./cursors/Wait-min.png), wait;
-    }
     .crosshair {
       cursor: url(./cursors/Crosshair-min.png), crosshair;
-    }
-    .text {
-      cursor: url(./cursors/Text-min.png), text;
     }
     .vertical-text {
       cursor: url(./cursors/VText-min.png), vertical-text;
@@ -137,12 +155,6 @@ html {
     .w-resize {
       cursor: url(./cursors/RightArrow-min.png), w-resize;
     }
-    .ns-resize {
-      cursor: url(./cursors/UpDownArrow-min.png), ns-resize;
-    }
-    .ew-resize {
-      cursor: url(./cursors/LeftRightArrow-min.png), ew-resize;
-    }
     .ne-resize {
       cursor: url(./cursors/UpRightArrow-min.png), ne-resize;
     }
@@ -154,12 +166,6 @@ html {
     }
     .sw-resize {
       cursor: url(./cursors/DownLeftArrow-min.png), sw-resize;
-    }
-    .nesw-resize {
-      cursor: url(./cursors/AngleUpRight-min.png), nesw-resize;
-    }
-    .nwse-resize {
-      cursor: url(./cursors/AngleUpLeft-min.png), nwse-resize;
     }
     .zoom-in {
       cursor: url(./cursors/ZoomIn-min.png), zoom-in;
