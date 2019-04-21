@@ -101,8 +101,9 @@ html {
     }
     .text,
     input[type="text"],
-    textarea .text * {
-      cursor: url($textSmall), text !important;
+    textarea,
+    .text * {
+      cursor: url($text), text !important;
     }
     /* stylelint-enable */
     .none {
