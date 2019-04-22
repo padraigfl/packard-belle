@@ -45,10 +45,9 @@
   }
   > menu {
     position: relative;
-    min-height: 21px;
+    min-height: 22px;
     padding-left: 12px;
     margin: 0px 1px;
-    display: flex;
     box-shadow: nav-box-shadow();
     &:before {
       position: absolute;
@@ -59,6 +58,10 @@
       background-color: $grey;
       content: "";
       box-shadow: dualShadow(#ffffff, $darkgrey);
+    }
+    &.OptionsList {
+      min-height: 40px;
+      display: block;
     }
   }
   > footer {
