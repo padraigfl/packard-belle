@@ -57,9 +57,11 @@ html {
       cursor: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgAgMAAAAOFJJnAAAACVBMVEVHcEz///8AAADmzmMiAAAAAXRSTlMAQObYZgAAAGxJREFUGNO9zbENgzAURdEjOrKHIzGQEaJywx5/CVukcxMpYsoUDivkVU+nuQKgc10dJ+/c0W6pIeVALffZpCNQV0sL1ByPHWou0wl1/wxpm2UNnE2qgd48j0CkWF4BKUbLXEbdXH4yBcD/9wU21iYVpCYHhAAAAABJRU5ErkJggg=="), wait !important; }
     .w98 * .text,
     .w98 * input[type="text"],
-    .w98 * textarea .text *, .w98 .text,
+    .w98 * textarea,
+    .w98 * .text *, .w98 .text,
     .w98 input[type="text"],
-    .w98 textarea .text * {
+    .w98 textarea,
+    .w98 .text * {
       cursor: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAASAgMAAAD07hzbAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAJUExURUdwTP///wAAAObOYyIAAAABdFJOUwBA5thmAAAAIElEQVQI12MIFXVgyNJyYAid6sDAOIGBJBw6FapX1AEAtPsMHfNC+MIAAAAASUVORK5CYII="), text !important; }
     .w98 * .none, .w98 .none {
       cursor: none; }
