@@ -54,7 +54,7 @@ html {
     .w98 * .wait2,
     .w98 * .wait2 *, .w98 .wait2,
     .w98 .wait2 * {
-      cursor: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgAgMAAAAOFJJnAAAACVBMVEVHcEz///8AAADmzmMiAAAAAXRSTlMAQObYZgAAAGxJREFUGNO9zbENgzAURdEjOrKHIzGQEaJywx5/CVukcxMpYsoUDivkVU+nuQKgc10dJ+/c0W6pIeVALffZpCNQV0sL1ByPHWou0wl1/wxpm2UNnE2qgd48j0CkWF4BKUbLXEbdXH4yBcD/9wU21iYVpCYHhAAAAABJRU5ErkJggg=="), wait !important; }
+      cursor: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAATCAMAAACjpw26AAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAJUExURUdwTP///wAAAObOYyIAAAABdFJOUwBA5thmAAAAX0lEQVQY022RUQ4AIAhCjfsfuoaS2OKrvVGgBeIrwM9SYMHwooibD7fzctcJfyzOq4aLAwtMFG5OerH5OyVbTXdXz3nybRspPWySscJQQbluQfh0mDtxbhuc+HGP3zjaO/4BfC812vkAAAAASUVORK5CYII="), wait !important; }
     .w98 * .text,
     .w98 * input[type="text"],
     .w98 * textarea,
