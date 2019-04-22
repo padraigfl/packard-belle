@@ -1634,7 +1634,7 @@ var noop = function noop() {};
 
 var WindowAction = function WindowAction(props) {
   return React.createElement(WindowAbstract, {
-    className: "WindowAction",
+    className: cx('WindowAction', props.className),
     title: props.action,
     onClose: props.onCancel,
     onHelp: props.onHelp,
@@ -1668,9 +1668,7 @@ var WindowAction = function WindowAction(props) {
     className: "WindowAction__files",
     selected: [],
     component: ListIcon,
-    onClick: function onClick(val) {
-      return props.onChangeName(val.title);
-    }
+    onClick: props.onChangeName
   }), React.createElement("div", {
     className: "WindowAction__footer"
   }, React.createElement("div", {

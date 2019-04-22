@@ -1640,7 +1640,7 @@
 
   var WindowAction = function WindowAction(props) {
     return React__default.createElement(WindowAbstract, {
-      className: "WindowAction",
+      className: cx('WindowAction', props.className),
       title: props.action,
       onClose: props.onCancel,
       onHelp: props.onHelp,
@@ -1674,9 +1674,7 @@
       className: "WindowAction__files",
       selected: [],
       component: ListIcon,
-      onClick: function onClick(val) {
-        return props.onChangeName(val.title);
-      }
+      onClick: props.onChangeName
     }), React__default.createElement("div", {
       className: "WindowAction__footer"
     }, React__default.createElement("div", {
