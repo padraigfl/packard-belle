@@ -25,6 +25,7 @@ export { default as SelectBoxSimple } from './components/FormSelectBoxSimple';
 export { default as StartMenu } from './components/StartMenu';
 
 export { default as TaskBar } from './components/TaskBar';
+export { default as MenuBar } from './components/MenuBar';
 export { default as Window } from './components/Window';
 export { default as WindowAlert } from './components/WindowAlert';
 export { default as WindowAction } from './components/WindowAction';

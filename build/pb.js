@@ -1477,8 +1477,30 @@
     notifiers: PropTypes.arrayOf(PropTypes.shape(Notifications.propsTypes))
   };
 
-  var css$k = ".w98 .Window__heading {\n  display: flex;\n  background: linear-gradient(to right, #0000a2, #126fc2);\n  font-weight: bold;\n  color: #ffffff;\n  margin-bottom: 1px;\n  padding: 0px 1px 0px 3px;\n  align-items: center;\n  letter-spacing: 1px; }\n  .w98 .Window__heading button {\n    padding: 0px;\n    min-width: initial;\n    width: 16px;\n    height: 14px;\n    margin-left: 1px;\n    image-rendering: pixelated;\n    display: flex;\n    align-items: center;\n    flex-shrink: 0;\n    background-repeat: no-repeat;\n    background-position: 1px 1px; }\n    .w98 .Window__heading button:focus, .w98 .Window__heading button.clicked {\n      outline: none;\n      border: none; }\n    .w98 .Window__heading button:active:focus, .w98 .Window__heading button.clicked {\n      padding: 2px 8px 1px 4px;\n      background-position: 2px 2px; }\n\n.w98 .Window__icon {\n  padding: 8px;\n  display: flex;\n  background-size: 14px;\n  background-repeat: no-repeat;\n  background-position: center;\n  margin-right: 4px; }\n\n.w98 .Window__title {\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  flex-grow: 1;\n  min-width: 0px;\n  user-select: none; }\n\n.w98 .Window__close {\n  margin-left: 2px;\n  background-image: url(\"data:image/gif;base64,R0lGODlhDQALAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAANAAsAAAIUlI+pKwDoVGxvucmwvblqo33MqBQAOw==\"); }\n\n.w98 .Window__restore {\n  background-image: url(\"data:image/gif;base64,R0lGODlhDQALAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAANAAsAAAIZlI9pwK3SnAKI1kjtwTlpyHjV830b9qRHAQA7\"); }\n\n.w98 .Window__minimize {\n  background-image: url(\"data:image/gif;base64,R0lGODlhDQALAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAANAAsAAAIOlI+py+0PozSg2mXvFAUAOw==\"); }\n\n.w98 .Window__maximize {\n  background-image: url(\"data:image/gif;base64,R0lGODlhDQALAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAANAAsAAAIXlI8Jy4wNXzJAznqwsjtPoYFfCDXfWQAAOw==\"); }\n\n.w98 .Window__help {\n  background-image: url(\"data:image/gif;base64,R0lGODlhDQALAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAANAAsAAAIUlI9pwKDrBHtTxmcxvJTrn30VqBQAOw==\"); }\n\n.w98 .Window--resizable:after {\n  position: absolute;\n  bottom: 4px;\n  right: 4px;\n  height: 12px;\n  width: 12px;\n  content: \"\";\n  background-image: url(\"data:image/gif;base64,R0lGODlhDAAMAJEAAAAAAP///5mZmf///yH5BAEAAAMALAAAAAAMAAwAAAIbnI8TmSF83IMSKvFWw3dnHnFV+GVGhZZXmaoFADs=\"); }\n\n.w98 .Window--maximized {\n  width: 100%;\n  height: 100%; }\n\n.w98 .Window--drag {\n  background-color: rgba(0, 0, 0, 0);\n  box-shadow: inset -3px -3px 0px #808088, inset 3px 3px 0px #808088; }\n  .w98 .Window--drag > *, .w98 .Window--drag:after {\n    filter: opacity(0.1%); }\n";
+  var css$k = ".MenuBar {\n  display: flex;\n  padding: 0px;\n  font-size: 1rem;\n  position: relative;\n  overflow-y: visible;\n  z-index: 20; }\n  .MenuBar > div {\n    position: relative; }\n    .MenuBar > div > button {\n      padding: 0px 4px;\n      outline: none;\n      border: none;\n      user-select: none;\n      color: #0c0c0c;\n      display: inline-block;\n      background-color: rgba(0, 0, 0, 0);\n      width: 100%;\n      overflow: hidden;\n      white-space: nowrap;\n      text-overflow: ellipsis;\n      text-align: left;\n      padding: 3px 6px;\n      text-transform: capitalize; }\n      .MenuBar > div > button + div,\n      .MenuBar > div > button + div {\n        z-index: 20;\n        visibility: hidden;\n        position: absolute;\n        max-height: 0px;\n        top: 100%;\n        left: 0px; }\n        @media (min-height: 720px) and (min-width: 960px) {\n          .MenuBar > div > button + div,\n          .MenuBar > div > button + div {\n            transition: max-height linear 750ms; } }\n      .MenuBar > div > button:hover {\n        box-shadow: inset -1px -1px 0px #808088, inset 1px 1px 0px #ffffff; }\n      .MenuBar > div > button:active, .MenuBar > div > button:focus, .MenuBar > div > button:active:focus, .MenuBar > div > button.active, .MenuBar > div > button.clicked {\n        box-shadow: inset -1px -1px 0px #ffffff, inset 1px 1px 0px #808088;\n        padding: 4px 5px 2px 7px; }\n        .MenuBar > div > button:active + div,\n        .MenuBar > div > button:active + div, .MenuBar > div > button:focus + div,\n        .MenuBar > div > button:focus + div, .MenuBar > div > button:active:focus + div,\n        .MenuBar > div > button:active:focus + div, .MenuBar > div > button.active + div,\n        .MenuBar > div > button.active + div, .MenuBar > div > button.clicked + div,\n        .MenuBar > div > button.clicked + div {\n          visibility: visible;\n          max-height: 480px; }\n";
   styleInject(css$k);
+
+  var MenuEntry = withContextLogic(AbstractButton);
+
+  var MenuBar = function MenuBar(props) {
+    return React__default.createElement("menu", {
+      className: "window__menu MenuBar"
+    }, props.options && props.options.map(function (section) {
+      return React__default.createElement(MenuEntry, {
+        className: cx('MenuBar__section', props.className),
+        key: "menu-bar-section-".concat(section.title),
+        options: section.options
+      }, section.title);
+    }));
+  };
+
+  MenuBar.propTypes = {
+    options: PropTypes.arrayOf(PropTypes.shape()),
+    className: PropTypes.string
+  };
+
+  var css$l = ".w98 .Window__heading {\n  display: flex;\n  background: linear-gradient(to right, #0000a2, #126fc2);\n  font-weight: bold;\n  color: #ffffff;\n  margin-bottom: 1px;\n  padding: 0px 1px 0px 3px;\n  align-items: center;\n  letter-spacing: 1px; }\n  .w98 .Window__heading button {\n    padding: 0px;\n    min-width: initial;\n    width: 16px;\n    height: 14px;\n    margin-left: 1px;\n    image-rendering: pixelated;\n    display: flex;\n    align-items: center;\n    flex-shrink: 0;\n    background-repeat: no-repeat;\n    background-position: 1px 1px; }\n    .w98 .Window__heading button:focus, .w98 .Window__heading button.clicked {\n      outline: none;\n      border: none; }\n    .w98 .Window__heading button:active:focus, .w98 .Window__heading button.clicked {\n      padding: 2px 8px 1px 4px;\n      background-position: 2px 2px; }\n\n.w98 .Window__icon {\n  padding: 8px;\n  display: flex;\n  background-size: 14px;\n  background-repeat: no-repeat;\n  background-position: center;\n  margin-right: 4px; }\n\n.w98 .Window__title {\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  flex-grow: 1;\n  min-width: 0px;\n  user-select: none; }\n\n.w98 .Window__close {\n  margin-left: 2px;\n  background-image: url(\"data:image/gif;base64,R0lGODlhDQALAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAANAAsAAAIUlI+pKwDoVGxvucmwvblqo33MqBQAOw==\"); }\n\n.w98 .Window__restore {\n  background-image: url(\"data:image/gif;base64,R0lGODlhDQALAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAANAAsAAAIZlI9pwK3SnAKI1kjtwTlpyHjV830b9qRHAQA7\"); }\n\n.w98 .Window__minimize {\n  background-image: url(\"data:image/gif;base64,R0lGODlhDQALAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAANAAsAAAIOlI+py+0PozSg2mXvFAUAOw==\"); }\n\n.w98 .Window__maximize {\n  background-image: url(\"data:image/gif;base64,R0lGODlhDQALAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAANAAsAAAIXlI8Jy4wNXzJAznqwsjtPoYFfCDXfWQAAOw==\"); }\n\n.w98 .Window__help {\n  background-image: url(\"data:image/gif;base64,R0lGODlhDQALAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAANAAsAAAIUlI9pwKDrBHtTxmcxvJTrn30VqBQAOw==\"); }\n\n.w98 .Window--resizable:after {\n  position: absolute;\n  bottom: 4px;\n  right: 4px;\n  height: 12px;\n  width: 12px;\n  content: \"\";\n  background-image: url(\"data:image/gif;base64,R0lGODlhDAAMAJEAAAAAAP///5mZmf///yH5BAEAAAMALAAAAAAMAAwAAAIbnI8TmSF83IMSKvFWw3dnHnFV+GVGhZZXmaoFADs=\"); }\n\n.w98 .Window--maximized {\n  width: 100%;\n  height: 100%; }\n\n.w98 .Window--drag {\n  background-color: rgba(0, 0, 0, 0);\n  box-shadow: inset -3px -3px 0px #808088, inset 3px 3px 0px #808088; }\n  .w98 .Window--drag > *, .w98 .Window--drag:after {\n    filter: opacity(0.1%); }\n";
+  styleInject(css$l);
 
   var WindowAbstract =
   /*#__PURE__*/
@@ -1588,8 +1610,8 @@
   };
   WindowAbstract.propTypes = windowProps;
 
-  var css$l = ".WindowAlert {\n  display: inline-flex;\n  flex-direction: column;\n  max-width: 250px; }\n  .WindowAlert__message {\n    display: flex;\n    align-items: center;\n    user-select: none;\n    min-height: 28px;\n    padding: 10px 2px 6px; }\n    .WindowAlert__message.has-icon {\n      background-size: 28px 28px;\n      background-repeat: no-repeat;\n      background-position: 6px 6px;\n      padding: 6px 4px 8px 40px; }\n  .WindowAlert__actions {\n    width: 100%;\n    display: flex;\n    justify-content: center; }\n    .WindowAlert__actions .btn {\n      margin: 0px 4px 8px; }\n";
-  styleInject(css$l);
+  var css$m = ".WindowAlert {\n  display: inline-flex;\n  flex-direction: column;\n  max-width: 250px; }\n  .WindowAlert__message {\n    display: flex;\n    align-items: center;\n    user-select: none;\n    min-height: 28px;\n    padding: 10px 2px 6px; }\n    .WindowAlert__message.has-icon {\n      background-size: 28px 28px;\n      background-repeat: no-repeat;\n      background-position: 6px 6px;\n      padding: 6px 4px 8px 40px; }\n  .WindowAlert__actions {\n    width: 100%;\n    display: flex;\n    justify-content: center; }\n    .WindowAlert__actions .btn {\n      margin: 0px 4px 8px; }\n";
+  styleInject(css$m);
 
   var WindowAlert = function WindowAlert(props) {
     return React__default.createElement(WindowAbstract, {
@@ -1633,8 +1655,8 @@
 
   var img5 = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAANCAMAAABBwMRzAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAJUExURUdwTP///4eIj4zp4tUAAAABdFJOUwBA5thmAAAAOElEQVQI112OQQ4AIAzCuv7/0WpMcBNO0CwM8IhIa9sXu8AaRmmW283KFOHVOYnh44Q+VmPw+88FZDYBB0ED8bYAAAAASUVORK5CYII=";
 
-  var css$m = ".WindowAction {\n  width: 80%;\n  max-width: 350px;\n  min-width: 280px; }\n  .WindowAction > :not(:first-child) {\n    margin: 4px 5px;\n    width: auto; }\n  .WindowAction .Window__title {\n    text-transform: capitalize; }\n  .WindowAction__location {\n    display: flex;\n    align-items: center;\n    margin: 3px;\n    text-transform: capitalize; }\n    .WindowAction__location .btn {\n      margin-right: 2px; }\n    .WindowAction__location .FakeSelect {\n      flex-grow: 1;\n      margin: auto 4px; }\n  .WindowAction__files {\n    width: initial;\n    margin: 5px 3px; }\n  .WindowAction__footer {\n    margin: 3px;\n    display: flex; }\n  .WindowAction__input {\n    display: flex;\n    align-items: center; }\n    .WindowAction__input .FakeSelect {\n      margin-left: auto;\n      width: 75%;\n      max-width: 180px;\n      min-width: 140px; }\n    .WindowAction__input .InputText {\n      margin-left: auto;\n      width: calc(75% - 6px);\n      max-width: 174px;\n      min-width: 136px; }\n  .WindowAction__action-inputs {\n    flex-grow: 1; }\n  .WindowAction__input,\n  .WindowAction .ButtonForm {\n    margin-top: 4px; }\n  .WindowAction__action-buttons {\n    display: inline-flex;\n    flex-direction: column;\n    margin-left: 8px; }\n    .WindowAction__action-buttons .btn {\n      text-transform: capitalize; }\n";
-  styleInject(css$m);
+  var css$n = ".WindowAction {\n  width: 80%;\n  max-width: 350px;\n  min-width: 280px; }\n  .WindowAction > :not(:first-child) {\n    margin: 4px 5px;\n    width: auto; }\n  .WindowAction .Window__title {\n    text-transform: capitalize; }\n  .WindowAction__location {\n    display: flex;\n    align-items: center;\n    margin: 3px;\n    text-transform: capitalize; }\n    .WindowAction__location .btn {\n      margin-right: 2px; }\n    .WindowAction__location .FakeSelect {\n      flex-grow: 1;\n      margin: auto 4px; }\n  .WindowAction__files {\n    width: initial;\n    margin: 5px 3px; }\n  .WindowAction__footer {\n    margin: 3px;\n    display: flex; }\n  .WindowAction__input {\n    display: flex;\n    align-items: center; }\n    .WindowAction__input .FakeSelect {\n      margin-left: auto;\n      width: 75%;\n      max-width: 180px;\n      min-width: 140px; }\n    .WindowAction__input .InputText {\n      margin-left: auto;\n      width: calc(75% - 6px);\n      max-width: 174px;\n      min-width: 136px; }\n  .WindowAction__action-inputs {\n    flex-grow: 1; }\n  .WindowAction__input,\n  .WindowAction .ButtonForm {\n    margin-top: 4px; }\n  .WindowAction__action-buttons {\n    display: inline-flex;\n    flex-direction: column;\n    margin-left: 8px; }\n    .WindowAction__action-buttons .btn {\n      text-transform: capitalize; }\n";
+  styleInject(css$n);
 
   var noop = function noop() {};
 
@@ -1706,28 +1728,6 @@
     location: 'Desktop',
     content: null,
     name: ''
-  };
-
-  var css$n = ".MenuBar {\n  display: flex;\n  padding: 0px;\n  font-size: 1rem;\n  position: relative;\n  overflow-y: visible;\n  z-index: 20; }\n  .MenuBar > div {\n    position: relative; }\n    .MenuBar > div > button {\n      padding: 0px 4px;\n      outline: none;\n      border: none;\n      user-select: none;\n      color: #0c0c0c;\n      display: inline-block;\n      background-color: rgba(0, 0, 0, 0);\n      width: 100%;\n      overflow: hidden;\n      white-space: nowrap;\n      text-overflow: ellipsis;\n      text-align: left;\n      padding: 3px 6px;\n      text-transform: capitalize; }\n      .MenuBar > div > button + div,\n      .MenuBar > div > button + div {\n        z-index: 20;\n        visibility: hidden;\n        position: absolute;\n        max-height: 0px;\n        top: 100%;\n        left: 0px; }\n        @media (min-height: 720px) and (min-width: 960px) {\n          .MenuBar > div > button + div,\n          .MenuBar > div > button + div {\n            transition: max-height linear 750ms; } }\n      .MenuBar > div > button:hover {\n        box-shadow: inset -1px -1px 0px #808088, inset 1px 1px 0px #ffffff; }\n      .MenuBar > div > button:active, .MenuBar > div > button:focus, .MenuBar > div > button:active:focus, .MenuBar > div > button.active, .MenuBar > div > button.clicked {\n        box-shadow: inset -1px -1px 0px #ffffff, inset 1px 1px 0px #808088;\n        padding: 4px 5px 2px 7px; }\n        .MenuBar > div > button:active + div,\n        .MenuBar > div > button:active + div, .MenuBar > div > button:focus + div,\n        .MenuBar > div > button:focus + div, .MenuBar > div > button:active:focus + div,\n        .MenuBar > div > button:active:focus + div, .MenuBar > div > button.active + div,\n        .MenuBar > div > button.active + div, .MenuBar > div > button.clicked + div,\n        .MenuBar > div > button.clicked + div {\n          visibility: visible;\n          max-height: 480px; }\n";
-  styleInject(css$n);
-
-  var MenuEntry = withContextLogic(AbstractButton);
-
-  var MenuBar = function MenuBar(props) {
-    return React__default.createElement("menu", {
-      className: "window__menu MenuBar"
-    }, props.options && props.options.map(function (section) {
-      return React__default.createElement(MenuEntry, {
-        className: cx('MenuBar__section', props.className),
-        key: "menu-bar-section-".concat(section.title),
-        options: section.options
-      }, section.title);
-    }));
-  };
-
-  MenuBar.propTypes = {
-    options: PropTypes.arrayOf(PropTypes.shape()),
-    className: PropTypes.string
   };
 
   var css$o = ".w98 .WindowProgram {\n  display: inline-flex;\n  flex-direction: column; }\n  .w98 .WindowProgram > footer {\n    display: flex; }\n    .w98 .WindowProgram > footer > div {\n      white-space: nowrap;\n      text-overflow: ellipsis;\n      overflow: hidden;\n      min-width: 0px;\n      flex-grow: 1;\n      padding: 2px;\n      height: 12px;\n      box-shadow: inset -1px -1px 0px #ffffff, inset 1px 1px 0px #0c0c0c; }\n      .w98 .WindowProgram > footer > div:not(:last-child) {\n        margin-right: 2px; }\n      .w98 .WindowProgram > footer > div:last-child {\n        padding-right: 12px; }\n  .w98 .WindowProgram > div:last-child {\n    margin-top: 2px; }\n";
@@ -2050,6 +2050,7 @@
   exports.SelectBoxSimple = SelectMultipleSimple;
   exports.StartMenu = StartMenu;
   exports.TaskBar = TaskBar;
+  exports.MenuBar = MenuBar;
   exports.Window = WindowAbstract;
   exports.WindowAlert = WindowAlert;
   exports.WindowAction = WindowAction;
