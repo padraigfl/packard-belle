@@ -225,6 +225,11 @@ $windowPadding: 3px;
             background-image: url($arrow-right-inverted);
           }
         }
+        &.checked {
+          > *:before {
+            background-image: url($menu-checked-disabled);
+          }
+        }
       }
     }
   }

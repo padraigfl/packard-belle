@@ -592,6 +592,8 @@ html {
     color: #ffffff; }
     .standard-menu.css div:hover > button:after {
       background-image: url("data:image/gif;base64,R0lGODlhBAAHAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAEAAcAAAIIjB4maeyrlCgAOw=="); }
+  .standard-menu.css div:hover.checked > *:before {
+    background-image: url("data:image/gif;base64,R0lGODlhBwAHAJEAAAAAAP///5mZmf///yH5BAEAAAMALAAAAAAHAAcAAAIMnC9nwsj9xmuLIlUAADs="); }
 
 input[type="radio"] {
   opacity: 0;
