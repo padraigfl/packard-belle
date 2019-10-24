@@ -2012,7 +2012,7 @@
   });
 
   WindowExplorer.propTypes = _objectSpread({}, WindowProgram.propTypes, {
-    explorerOptions: PropTypes.shape(OptionsList.propTypes.options)
+    explorerOptions: OptionsList.propTypes.options
   });
 
   var css$r = ".DetailsSection,\n.window__section {\n  position: relative;\n  border: 1px solid #ffffff;\n  outline: 1px solid #808088;\n  padding: 5px;\n  margin: 16px 8px 8px; }\n  .DetailsSection__title,\n  .window__section__title {\n    position: absolute;\n    top: -10px;\n    padding: 2px 4px;\n    background-color: #bbc3c4; }\n";

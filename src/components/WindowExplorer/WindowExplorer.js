@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import cx from 'classnames';
 import WindowProgram from '../WindowProgram';
 import Select from '../FormFakeSelect';
@@ -51,7 +50,7 @@ class WindowExplorer extends React.Component {
 
 WindowExplorer.propTypes = {
   ...WindowProgram.propTypes,
-  explorerOptions: PropTypes.shape(OptionsList.propTypes.options),
+  explorerOptions: OptionsList.propTypes.options,
 };
 
 export default WindowExplorer;
