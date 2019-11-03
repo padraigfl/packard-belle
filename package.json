@@ -1,6 +1,6 @@
 {
   "name": "packard-belle",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "Library of components to mimic old desktop",
   "main": "build/pb.js",
   "module": "build/pb.module.js",

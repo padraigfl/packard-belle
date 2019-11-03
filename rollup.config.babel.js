@@ -43,6 +43,7 @@ export default {
       exclude: 'node_modules/**',
     }),
     postcss({
+      plugins: [],
       // modules: true,
     }),
     resolve({

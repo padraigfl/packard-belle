@@ -3,7 +3,8 @@
 @import "../../_scss/w98/var/uris";
 
 .OptionsList {
-  max-height: 40px;
+  display: block;
+  min-height: initial;
   z-index: 10;
   &__large-icons {
     display: flex;

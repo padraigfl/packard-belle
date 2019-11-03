@@ -34,67 +34,81 @@ html {
   .w98 *, .w98 {
     font-family: MSSansSerif, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     cursor: url("data:image/gif;base64,R0lGODlhCwATAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAALABMAAAIrhI4JlhrcBAgvSlrbxPBs7mAU9IlMaV7mwo6jY2zk+Xphh8iWint1tDgUAAA7"), default;
-    /* stylelint-disable */ }
+    /* core resizers */
+    /* stylelint-disable */
+    /* stylelint-enable */ }
     .w98 * .default, .w98 .default {
       cursor: url("data:image/gif;base64,R0lGODlhCwATAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAALABMAAAIrhI4JlhrcBAgvSlrbxPBs7mAU9IlMaV7mwo6jY2zk+Xphh8iWint1tDgUAAA7"), default; }
+    .w98 * .ns-resize, .w98 .ns-resize {
+      cursor: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAARAgMAAAByem51AAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAJUExURUdwTP///wAAAObOYyIAAAABdFJOUwBA5thmAAAAL0lEQVQI12NgcGBgYJzAwMC2hIFBaiUDQ9YqB4bQqQ5gMXQMEgfJg9SB1IPEgPoBo1IMTmZmZtEAAAAASUVORK5CYII="), ns-resize !important; }
+    .w98 * .ew-resize, .w98 .ew-resize {
+      cursor: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAJAgMAAACphi+fAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAJUExURUdwTP///wAAAObOYyIAAAABdFJOUwBA5thmAAAALklEQVQI12NgCGB0YGBgnMA4gYGBbQLjEgYGqamhKxkYslatWuUAZUPEIWrA6gFBVwvfT0IY5wAAAABJRU5ErkJggg=="), ew-resize !important; }
+    .w98 * .nesw-resize, .w98 .nesw-resize {
+      cursor: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAANAgMAAAAPhQzvAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAJUExURUdwTP///wAAAObOYyIAAAABdFJOUwBA5thmAAAANklEQVQI12NgYA11YGBgWwUkGEEEQxaINQsk5ubAECDJ6MCQkgIUzpwAlWPIArOWAInQEAYGAEgkCk3UfIArAAAAAElFTkSuQmCC"), nesw-resize !important; }
+    .w98 * .nwse-resize, .w98 .nwse-resize {
+      cursor: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAANAgMAAAAPhQzvAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAJUExURUdwTP///wAAAObOYyIAAAABdFJOUwBA5thmAAAAM0lEQVQI12MIDWFgYMhaAiImgAgHIJEJYqWkAIkASUagAJsbkGCc5QCVZ1wFEgMRrKEOAFiMCk2T07A5AAAAAElFTkSuQmCC"), nwse-resize !important; }
+    .w98 * .wait,
+    .w98 * .wait *, .w98 .wait,
+    .w98 .wait * {
+      cursor: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgAgMAAAAOFJJnAAAACVBMVEVHcEz///8AAADmzmMiAAAAAXRSTlMAQObYZgAAAFBJREFUGNNjYCATcK1atQLCCA3NQBVhCg1NQGNEzoQywlKhjKlTF0AMWhrWAGFozoIZnYHO0IyCMpZOa4BqD10AtWIquslwu9LSEgg5lSAAAOlfHH2vJ/pDAAAAAElFTkSuQmCC"), wait !important; }
+    .w98 * .wait2,
+    .w98 * .wait2 *, .w98 .wait2,
+    .w98 .wait2 * {
+      cursor: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAATCAMAAACjpw26AAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAJUExURUdwTP///wAAAObOYyIAAAABdFJOUwBA5thmAAAAX0lEQVQY022RUQ4AIAhCjfsfuoaS2OKrvVGgBeIrwM9SYMHwooibD7fzctcJfyzOq4aLAwtMFG5OerH5OyVbTXdXz3nybRspPWySscJQQbluQfh0mDtxbhuc+HGP3zjaO/4BfC812vkAAAAASUVORK5CYII="), wait !important; }
+    .w98 * .text,
+    .w98 * input[type="text"],
+    .w98 * textarea,
+    .w98 * .text *, .w98 .text,
+    .w98 input[type="text"],
+    .w98 textarea,
+    .w98 .text * {
+      cursor: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAASAgMAAAD07hzbAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAJUExURUdwTP///wAAAObOYyIAAAABdFJOUwBA5thmAAAAIElEQVQI12MIFXVgyNJyYAid6sDAOIGBJBw6FapX1AEAtPsMHfNC+MIAAAAASUVORK5CYII="), text !important; }
     .w98 * .none, .w98 .none {
       cursor: none; }
     .w98 * .help, .w98 .help {
-      cursor: url(./cursors/Hand-min.png), help !important; }
+      cursor: url(./cursors/Hand-min.png), help; }
     .w98 * .pointer, .w98 .pointer {
-      cursor: url(./cursors/HandPointer-min.png), pointer !important; }
-    .w98 * .wait, .w98 .wait {
-      cursor: url(./cursors/Wait-min.png), wait !important; }
+      cursor: url(./cursors/HandPointer-min.png), pointer; }
     .w98 * .crosshair, .w98 .crosshair {
-      cursor: url(./cursors/Crosshair-min.png), crosshair !important; }
-    .w98 * .text, .w98 .text {
-      cursor: url(./cursors/Text-min.png), text !important; }
+      cursor: url(./cursors/Crosshair-min.png), crosshair; }
     .w98 * .vertical-text, .w98 .vertical-text {
-      cursor: url(./cursors/VText-min.png), vertical-text !important; }
+      cursor: url(./cursors/VText-min.png), vertical-text; }
     .w98 * .copy, .w98 .copy {
-      cursor: url(./cursors/Copy-min.png), copy !important; }
+      cursor: url(./cursors/Copy-min.png), copy; }
     .w98 * .move, .w98 .move {
-      cursor: url(./cursors/Move-min.png), move !important; }
+      cursor: url(./cursors/Move-min.png), move; }
     .w98 * .no-drop, .w98 .no-drop {
-      cursor: url(./cursors/NO-min.png), no-drop !important; }
+      cursor: url(./cursors/NO-min.png), no-drop; }
     .w98 * .not-allowed, .w98 .not-allowed {
-      cursor: url(./cursors/NO-min.png), not-allowed !important; }
+      cursor: url(./cursors/NO-min.png), not-allowed; }
     .w98 * .grab, .w98 .grab {
-      cursor: url(./cursors/Hand-min.png), grab !important; }
+      cursor: url(./cursors/Hand-min.png), grab; }
     .w98 * .grabbing, .w98 .grabbing {
-      cursor: url(./cursors/Handsqueezed-min.png), grabbing !important; }
+      cursor: url(./cursors/Handsqueezed-min.png), grabbing; }
     .w98 * .col-resize, .w98 .col-resize {
-      cursor: url(./cursors/ColRezise-min.png), col-resize !important; }
+      cursor: url(./cursors/ColRezise-min.png), col-resize; }
     .w98 * .row-resize, .w98 .row-resize {
-      cursor: url(./cursors/RowResize-min.png), row-resize !important; }
+      cursor: url(./cursors/RowResize-min.png), row-resize; }
     .w98 * .n-resize, .w98 .n-resize {
-      cursor: url(./cursors/UpArrow-min.png), n-resize !important; }
+      cursor: url(./cursors/UpArrow-min.png), n-resize; }
     .w98 * .e-resize, .w98 .e-resize {
-      cursor: url(./cursors/LeftArrow-min.png), e-resize !important; }
+      cursor: url(./cursors/LeftArrow-min.png), e-resize; }
     .w98 * .s-resize, .w98 .s-resize {
-      cursor: url(./cursors/DownArrow-min.png), s-resize !important; }
+      cursor: url(./cursors/DownArrow-min.png), s-resize; }
     .w98 * .w-resize, .w98 .w-resize {
-      cursor: url(./cursors/RightArrow-min.png), w-resize !important; }
-    .w98 * .ns-resize, .w98 .ns-resize {
-      cursor: url(./cursors/UpDownArrow-min.png), ns-resize !important; }
-    .w98 * .ew-resize, .w98 .ew-resize {
-      cursor: url(./cursors/LeftRightArrow-min.png), ew-resize !important; }
+      cursor: url(./cursors/RightArrow-min.png), w-resize; }
     .w98 * .ne-resize, .w98 .ne-resize {
-      cursor: url(./cursors/UpRightArrow-min.png), ne-resize !important; }
+      cursor: url(./cursors/UpRightArrow-min.png), ne-resize; }
     .w98 * .nw-resize, .w98 .nw-resize {
-      cursor: url(./cursors/UpLeftArrow-min.png), nw-resize !important; }
+      cursor: url(./cursors/UpLeftArrow-min.png), nw-resize; }
     .w98 * .se-resize, .w98 .se-resize {
-      cursor: url(./cursors/DownRightArrow-min.png), se-resize !important; }
+      cursor: url(./cursors/DownRightArrow-min.png), se-resize; }
     .w98 * .sw-resize, .w98 .sw-resize {
-      cursor: url(./cursors/DownLeftArrow-min.png), sw-resize !important; }
-    .w98 * .nesw-resize, .w98 .nesw-resize {
-      cursor: url(./cursors/AngleUpRight-min.png), nesw-resize !important; }
-    .w98 * .nwse-resize, .w98 .nwse-resize {
-      cursor: url(./cursors/AngleUpLeft-min.png), nwse-resize !important; }
+      cursor: url(./cursors/DownLeftArrow-min.png), sw-resize; }
     .w98 * .zoom-in, .w98 .zoom-in {
-      cursor: url(./cursors/ZoomIn-min.png), zoom-in !important; }
+      cursor: url(./cursors/ZoomIn-min.png), zoom-in; }
     .w98 * .zoom-out, .w98 .zoom-out {
-      cursor: url(./cursors/ZoomOut-min.png), zoom-out !important; }
+      cursor: url(./cursors/ZoomOut-min.png), zoom-out; }
   .w98.x2 {
     transform: scale(2); }
     .w98.x2 *, .w98.x2 {
@@ -578,6 +592,8 @@ html {
     color: #ffffff; }
     .standard-menu.css div:hover > button:after {
       background-image: url("data:image/gif;base64,R0lGODlhBAAHAJEAAAAAAP///////wAAACH5BAEAAAIALAAAAAAEAAcAAAIIjB4maeyrlCgAOw=="); }
+  .standard-menu.css div:hover.checked > *:before {
+    background-image: url("data:image/gif;base64,R0lGODlhBwAHAJEAAAAAAP///5mZmf///yH5BAEAAAMALAAAAAAHAAcAAAIMnC9nwsj9xmuLIlUAADs="); }
 
 input[type="radio"] {
   opacity: 0;

@@ -74,98 +74,112 @@ html {
     .default {
       cursor: url($cursor), default;
     }
-    .none {
-      cursor: none;
-    } /* stylelint-disable */
-    .help {
-      cursor: url(./cursors/Hand-min.png), help !important;
-    }
-    .pointer {
-      cursor: url(./cursors/HandPointer-min.png), pointer !important;
-    }
-    // .progress {
-    //   cursor: url(./cursors/), progress !important;
-    // }
-    .wait {
-      cursor: url(./cursors/Wait-min.png), wait !important;
-    }
-    .crosshair {
-      cursor: url(./cursors/Crosshair-min.png), crosshair !important;
-    }
-    .text {
-      cursor: url(./cursors/Text-min.png), text !important;
-    }
-    .vertical-text {
-      cursor: url(./cursors/VText-min.png), vertical-text !important;
-    }
-    // .alias {
-    //   cursor: url(./cursors/), alias !important;
-    // }
-    .copy {
-      cursor: url(./cursors/Copy-min.png), copy !important;
-    }
-    .move {
-      cursor: url(./cursors/Move-min.png), move !important;
-    }
-    .no-drop {
-      cursor: url(./cursors/NO-min.png), no-drop !important;
-    }
-    .not-allowed {
-      cursor: url(./cursors/NO-min.png), not-allowed !important;
-    }
-    .grab {
-      cursor: url(./cursors/Hand-min.png), grab !important;
-    }
-    .grabbing {
-      cursor: url(./cursors/Handsqueezed-min.png), grabbing !important;
-    }
-    .col-resize {
-      cursor: url(./cursors/ColRezise-min.png), col-resize !important;
-    }
-    .row-resize {
-      cursor: url(./cursors/RowResize-min.png), row-resize !important;
-    }
-    .n-resize {
-      cursor: url(./cursors/UpArrow-min.png), n-resize !important;
-    }
-    .e-resize {
-      cursor: url(./cursors/LeftArrow-min.png), e-resize !important;
-    }
-    .s-resize {
-      cursor: url(./cursors/DownArrow-min.png), s-resize !important;
-    }
-    .w-resize {
-      cursor: url(./cursors/RightArrow-min.png), w-resize !important;
-    }
+
+    /* core resizers */
+    /* stylelint-disable */
     .ns-resize {
-      cursor: url(./cursors/UpDownArrow-min.png), ns-resize !important;
+      cursor: url($arrowUpDown), ns-resize !important;
     }
     .ew-resize {
-      cursor: url(./cursors/LeftRightArrow-min.png), ew-resize !important;
-    }
-    .ne-resize {
-      cursor: url(./cursors/UpRightArrow-min.png), ne-resize !important;
-    }
-    .nw-resize {
-      cursor: url(./cursors/UpLeftArrow-min.png), nw-resize !important;
-    }
-    .se-resize {
-      cursor: url(./cursors/DownRightArrow-min.png), se-resize !important;
-    }
-    .sw-resize {
-      cursor: url(./cursors/DownLeftArrow-min.png), sw-resize !important;
+      cursor: url($arrowLeftRight), ew-resize !important;
     }
     .nesw-resize {
-      cursor: url(./cursors/AngleUpRight-min.png), nesw-resize !important;
+      cursor: url($angleUpRight), nesw-resize !important;
     }
     .nwse-resize {
-      cursor: url(./cursors/AngleUpLeft-min.png), nwse-resize !important;
+      cursor: url($angleUpLeft), nwse-resize !important;
+    }
+
+    .wait,
+    .wait * {
+      cursor: url($wait), wait !important;
+    }
+
+    .wait2,
+    .wait2 * {
+      cursor: url($wait2), wait !important;
+    }
+    .text,
+    input[type="text"],
+    textarea,
+    .text * {
+      cursor: url($text), text !important;
+    }
+    /* stylelint-enable */
+    .none {
+      cursor: none;
+    }
+    .help {
+      cursor: url(./cursors/Hand-min.png), help;
+    }
+    .pointer {
+      cursor: url(./cursors/HandPointer-min.png), pointer;
+    }
+    // .progress {
+    //   cursor: url(./cursors/), progress;
+    // }
+    .crosshair {
+      cursor: url(./cursors/Crosshair-min.png), crosshair;
+    }
+    .vertical-text {
+      cursor: url(./cursors/VText-min.png), vertical-text;
+    }
+    // .alias {
+    //   cursor: url(./cursors/), alias;
+    // }
+    .copy {
+      cursor: url(./cursors/Copy-min.png), copy;
+    }
+    .move {
+      cursor: url(./cursors/Move-min.png), move;
+    }
+    .no-drop {
+      cursor: url(./cursors/NO-min.png), no-drop;
+    }
+    .not-allowed {
+      cursor: url(./cursors/NO-min.png), not-allowed;
+    }
+    .grab {
+      cursor: url(./cursors/Hand-min.png), grab;
+    }
+    .grabbing {
+      cursor: url(./cursors/Handsqueezed-min.png), grabbing;
+    }
+    .col-resize {
+      cursor: url(./cursors/ColRezise-min.png), col-resize;
+    }
+    .row-resize {
+      cursor: url(./cursors/RowResize-min.png), row-resize;
+    }
+    .n-resize {
+      cursor: url(./cursors/UpArrow-min.png), n-resize;
+    }
+    .e-resize {
+      cursor: url(./cursors/LeftArrow-min.png), e-resize;
+    }
+    .s-resize {
+      cursor: url(./cursors/DownArrow-min.png), s-resize;
+    }
+    .w-resize {
+      cursor: url(./cursors/RightArrow-min.png), w-resize;
+    }
+    .ne-resize {
+      cursor: url(./cursors/UpRightArrow-min.png), ne-resize;
+    }
+    .nw-resize {
+      cursor: url(./cursors/UpLeftArrow-min.png), nw-resize;
+    }
+    .se-resize {
+      cursor: url(./cursors/DownRightArrow-min.png), se-resize;
+    }
+    .sw-resize {
+      cursor: url(./cursors/DownLeftArrow-min.png), sw-resize;
     }
     .zoom-in {
-      cursor: url(./cursors/ZoomIn-min.png), zoom-in !important;
+      cursor: url(./cursors/ZoomIn-min.png), zoom-in;
     }
     .zoom-out {
-      cursor: url(./cursors/ZoomOut-min.png), zoom-out !important;
+      cursor: url(./cursors/ZoomOut-min.png), zoom-out;
     }
   }
   &.x2 {

@@ -1,4 +1,5 @@
 import React from 'react';
+import cx from 'classnames';
 import WindowAbstract from '../Window';
 import FakeSelect from '../FormFakeSelect';
 import IconListIcon from '../IconListIcon';
@@ -18,7 +19,7 @@ const noop = () => {};
 
 const WindowAction = props => (
   <WindowAbstract
-    className="WindowAction"
+    className={cx('WindowAction', props.className)}
     title={props.action}
     onClose={props.onCancel}
     onHelp={props.onHelp}
@@ -39,7 +40,7 @@ const WindowAction = props => (
         className="WindowAction__files"
         selected={[]}
         component={IconListIcon}
-        onClick={val => props.onChangeName(val.title)}
+        onClick={props.onChangeName}
       />
     )}
     <div className="WindowAction__footer">
