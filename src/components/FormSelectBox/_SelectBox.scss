@@ -73,17 +73,22 @@
       }
     }
   }
-  .icon--list {
+  .icon--list, .ListIcon {
     margin: 0px;
     padding: 1px;
 
     .icon__text {
       width: initial;
     }
+  }
 
+  .icon--list, .ListIcon, .icon--explorer, .ExplorerIcon {
     // stylelint-disable selector-max-specificity
     &:focus:not(.is-active),
     &:active:not(.is-active) {
+      .icon__icon {
+        filter: none;
+      }
       .icon__text {
         background-color: transparent;
         color: $black;
