@@ -25,7 +25,7 @@
     outline: none;
 
     .icon__icon {
-      filter: hue-rotate(70deg) contrast(0.3) saturate(2);
+      filter: hue-rotate(180deg) contrast(0.5) saturate(2);
     }
 
     .icon__text {
@@ -53,14 +53,12 @@
     width: 32px;
     height: 32px;
     margin: 0 3px;
+    background-size: contain;
   }
 
   .icon__text {
-    margin: 2px;
-    position: absolute;
-    top: 34px;
-    padding: 2px;
     max-height: 22px;
+    padding: 2px 3px;
     max-width: 100%;
     overflow: hidden;
     display: inline-block;
@@ -72,7 +70,6 @@
   &.active,
   &.clicked {
     .icon__text {
-      padding: 2px 3px;
       max-height: initial;
       z-index: 1;
     }
