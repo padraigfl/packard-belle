@@ -7,6 +7,7 @@
 $select-height: 22px;
 
 .FakeSelect {
+  $this: &;
   position: relative;
   display: flex;
   height: $select-height;
@@ -38,5 +39,16 @@ $select-height: 22px;
     background-repeat: no-repeat;
     background-position: center;
     background-image: url($arrow-down);
+  }
+
+  &.disabled {
+    background-color: $grey;
+    color: $darkgrey;
+    #{$this}__icon {
+      filter: grayscale(1);
+    }
+    #{$this}__arrow {
+      opacity: 0.5;
+    }
   }
 }
