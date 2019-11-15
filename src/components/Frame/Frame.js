@@ -3,11 +3,18 @@ import PropTypes from 'prop-types';
 import cx from 'classnames';
 import './_Frame.scss';
 
-const WindowFrame = props => (
-  <div className={cx('Frame', props.className)} ref={props.innerRef}>
-    {props.children}
-  </div>
-);
+const WindowFrame = (props) => {
+  const attributes = Object.keys(props).reduce((attrs, propKey) => {
+    if (propKey.match(/^[a-z]+([a-z-][a-z])*$/)) {
+      return { ...attrs, [propKey]: props[propKey] };
+    }
+  }, {});
+  return (
+    <div {...attributes} className={cx('Frame', props.className)} ref={props.innerRef}>
+      {props.children}
+    </div>
+  );
+};
 
 WindowFrame.propTypes = {
   children: PropTypes.node,

@@ -46,10 +46,11 @@ class WindowProgram extends React.Component {
     onMaximize: () => {},
   };
   render() {
-    const { props } = this;
-    const footer = insertDefaultFooter(props.footer);
+    const { menuOptions, children, footer: footerData, ...props } = this.props;
+    const footer = insertDefaultFooter(footerData);
     return (
       <WindowAbstract
+        {...props}
         className={cx('WindowProgram', props.className)}
         icon={props.icon}
         onClose={props.onClose}
@@ -61,14 +62,14 @@ class WindowProgram extends React.Component {
         changingState={props.changingState}
         maximizeOnOpen={props.maximizeOnOpen}
       >
-        {Array.isArray(props.menuOptions) && (
+        {Array.isArray(menuOptions) && (
           <MenuBar
             className="WindowProgram__menu"
-            options={props.menuOptions}
+            options={menuOptions}
           />
         )}
-        {props.children}
-        {props.footer && <Footer entries={footer} />}
+        {children}
+        {footerData && <Footer entries={footer} />}
       </WindowAbstract>
     );
   }

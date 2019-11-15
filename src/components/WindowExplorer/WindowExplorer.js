@@ -12,9 +12,10 @@ class WindowExplorer extends React.Component {
   };
 
   render() {
-    const { props } = this;
+    const { explorerOptions, children, customSelect, ...props } = this.props;
     return (
       <WindowProgram
+        {...props}
         className={cx('WindowExplorer', props.className)}
         icon={props.icon}
         onClose={props.onClose}
@@ -28,21 +29,21 @@ class WindowExplorer extends React.Component {
         maximizeOnOpen={props.maximizeOnOpen}
         changingState={props.changingState}
       >
-        {props.explorerOptions && (
+        {explorerOptions && (
           <OptionsList
             className="WindowExplorer__options"
-            options={props.explorerOptions}
+            options={explorerOptions}
           />
         )}
         <menu className="WindowExplorer__address">
           <div className="WindowExplorer__address__title">Address</div>
-          {props.customSelect ? (
-            props.customSelect()
+          {customSelect ? (
+            customSelect()
           ) : (
             <Select title={props.title} icon={props.icon} isDisabled />
           )}
         </menu>
-        <div className="WindowExplorer__view">{props.children}</div>
+        <div className="WindowExplorer__view">{children}</div>
       </WindowProgram>
     );
   }

@@ -476,10 +476,15 @@ var css$8 = ".Frame {\n  position: relative;\n  background-color: #bbc3c4;\n  pa
 styleInject(css$8);
 
 var WindowFrame = function WindowFrame(props) {
-  return React.createElement("div", {
+  var attributes = Object.keys(props).reduce(function (attrs, propKey) {
+    if (propKey.match(/^[a-z]+([a-z-][a-z])*$/)) {
+      return _objectSpread({}, attrs, _defineProperty({}, propKey, props[propKey]));
+    }
+  }, {});
+  return React.createElement("div", _extends({}, attributes, {
     className: cx('Frame', props.className),
     ref: props.innerRef
-  }, props.children);
+  }), props.children);
 };
 
 WindowFrame.propTypes = {
@@ -1544,40 +1549,49 @@ function (_Component) {
   _createClass(WindowAbstract, [{
     key: "render",
     value: function render() {
-      var props = this.props;
-      return React.createElement(WindowFrame, {
+      var _this$props = this.props,
+          icon = _this$props.icon,
+          onHelp = _this$props.onHelp,
+          onMaximize = _this$props.onMaximize,
+          onMinimize = _this$props.onMinimize,
+          onRestore = _this$props.onRestore,
+          onClose = _this$props.onClose,
+          children = _this$props.children,
+          props = _objectWithoutProperties(_this$props, ["icon", "onHelp", "onMaximize", "onMinimize", "onRestore", "onClose", "children"]);
+
+      return React.createElement(WindowFrame, _extends({}, props, {
         className: cx('Window', props.className, {
           'Window--maximized': this.state.maximized,
           'Window--resizable': props.resizable,
           'Window--drag': props.changingState
         }),
         ref: props.innerRef
-      }, React.createElement("div", {
+      }), React.createElement("div", {
         className: "Window__heading"
-      }, props.icon && React.createElement("div", {
+      }, icon && React.createElement("div", {
         className: "Window__icon",
         style: {
-          backgroundImage: "url('".concat(props.icon, "')")
+          backgroundImage: "url('".concat(icon, "')")
         }
       }), React.createElement("div", {
         className: "Window__title"
-      }, props.title), props.onHelp && React.createElement(ButtonNav, {
+      }, props.title), onHelp && React.createElement(ButtonNav, {
         className: "Window__help",
-        onClick: props.onHelp
-      }), props.onMinimize && React.createElement(ButtonNav, {
+        onClick: onHelp
+      }), onMinimize && React.createElement(ButtonNav, {
         className: "Window__minimize",
-        onClick: props.onMinimize
+        onClick: onMinimize
       }), this.state.maximized && this.props.resizable && React.createElement(ButtonNav, {
         className: "Window__restore",
         onClick: this.handleRestore
       }), !this.state.maximized && this.props.resizable && React.createElement(ButtonNav, {
         className: "Window__maximize",
         onClick: this.handleMaximize
-      }), (props.onClose || props.onMaximize || props.onRestore || props.onMinimize || props.onHelp) && React.createElement(ButtonNav, {
+      }), (onClose || onMaximize || onRestore || onMinimize || onHelp) && React.createElement(ButtonNav, {
         className: "Window__close",
-        onClick: props.onClose,
-        isDisabled: !props.onClose
-      })), props.children);
+        onClick: onClose,
+        isDisabled: !onClose
+      })), children);
     }
   }]);
 
@@ -1774,9 +1788,14 @@ function (_React$Component) {
   _createClass(WindowProgram, [{
     key: "render",
     value: function render() {
-      var props = this.props;
-      var footer = insertDefaultFooter(props.footer);
-      return React.createElement(WindowAbstract, {
+      var _this$props = this.props,
+          menuOptions = _this$props.menuOptions,
+          children = _this$props.children,
+          footerData = _this$props.footer,
+          props = _objectWithoutProperties(_this$props, ["menuOptions", "children", "footer"]);
+
+      var footer = insertDefaultFooter(footerData);
+      return React.createElement(WindowAbstract, _extends({}, props, {
         className: cx('WindowProgram', props.className),
         icon: props.icon,
         onClose: props.onClose,
@@ -1787,10 +1806,10 @@ function (_React$Component) {
         resizable: props.resizable,
         changingState: props.changingState,
         maximizeOnOpen: props.maximizeOnOpen
-      }, Array.isArray(props.menuOptions) && React.createElement(MenuBar, {
+      }), Array.isArray(menuOptions) && React.createElement(MenuBar, {
         className: "WindowProgram__menu",
-        options: props.menuOptions
-      }), props.children, props.footer && React.createElement(Footer, {
+        options: menuOptions
+      }), children, footerData && React.createElement(Footer, {
         entries: footer
       }));
     }
@@ -1966,8 +1985,13 @@ function (_React$Component) {
   _createClass(WindowExplorer, [{
     key: "render",
     value: function render() {
-      var props = this.props;
-      return React.createElement(WindowProgram, {
+      var _this$props = this.props,
+          explorerOptions = _this$props.explorerOptions,
+          children = _this$props.children,
+          customSelect = _this$props.customSelect,
+          props = _objectWithoutProperties(_this$props, ["explorerOptions", "children", "customSelect"]);
+
+      return React.createElement(WindowProgram, _extends({}, props, {
         className: cx('WindowExplorer', props.className),
         icon: props.icon,
         onClose: props.onClose,
@@ -1980,20 +2004,20 @@ function (_React$Component) {
         menuOptions: props.menuOptions,
         maximizeOnOpen: props.maximizeOnOpen,
         changingState: props.changingState
-      }, props.explorerOptions && React.createElement(OptionsList, {
+      }), explorerOptions && React.createElement(OptionsList, {
         className: "WindowExplorer__options",
-        options: props.explorerOptions
+        options: explorerOptions
       }), React.createElement("menu", {
         className: "WindowExplorer__address"
       }, React.createElement("div", {
         className: "WindowExplorer__address__title"
-      }, "Address"), props.customSelect ? props.customSelect() : React.createElement(FakeSelect, {
+      }, "Address"), customSelect ? customSelect() : React.createElement(FakeSelect, {
         title: props.title,
         icon: props.icon,
         isDisabled: true
       })), React.createElement("div", {
         className: "WindowExplorer__view"
-      }, props.children));
+      }, children));
     }
   }]);
 

@@ -32,9 +32,12 @@ class WindowAbstract extends Component {
   };
 
   render() {
-    const { props } = this;
+    const {
+      icon, onHelp, onMaximize, onMinimize, onRestore, onClose, children, ...props
+    } = this.props;
     return (
       <WindowFrame
+        {...props}
         className={cx('Window', props.className, {
           'Window--maximized': this.state.maximized,
           'Window--resizable': props.resizable,
@@ -43,18 +46,18 @@ class WindowAbstract extends Component {
         ref={props.innerRef}
       >
         <div className="Window__heading">
-          {props.icon && (
+          {icon && (
             <div
               className="Window__icon"
-              style={{ backgroundImage: `url('${props.icon}')` }}
+              style={{ backgroundImage: `url('${icon}')` }}
             />
           )}
           <div className="Window__title">{props.title}</div>
-          {props.onHelp && (
-            <Button className="Window__help" onClick={props.onHelp} />
+          {onHelp && (
+            <Button className="Window__help" onClick={onHelp} />
           )}
-          {props.onMinimize && (
-            <Button className="Window__minimize" onClick={props.onMinimize} />
+          {onMinimize && (
+            <Button className="Window__minimize" onClick={onMinimize} />
           )}
           {this.state.maximized && this.props.resizable && (
             <Button className="Window__restore" onClick={this.handleRestore} />
@@ -65,19 +68,19 @@ class WindowAbstract extends Component {
               onClick={this.handleMaximize}
             />
           )}
-          {(props.onClose ||
-            props.onMaximize ||
-            props.onRestore ||
-            props.onMinimize ||
-            props.onHelp) && (
+          {(onClose ||
+            onMaximize ||
+            onRestore ||
+            onMinimize ||
+            onHelp) && (
             <Button
               className="Window__close"
-              onClick={props.onClose}
-              isDisabled={!props.onClose}
+              onClick={onClose}
+              isDisabled={!onClose}
             />
           )}
         </div>
-        {props.children}
+        {children}
       </WindowFrame>
     );
   }

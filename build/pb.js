@@ -482,10 +482,15 @@
   styleInject(css$8);
 
   var WindowFrame = function WindowFrame(props) {
-    return React__default.createElement("div", {
+    var attributes = Object.keys(props).reduce(function (attrs, propKey) {
+      if (propKey.match(/^[a-z]+([a-z-][a-z])*$/)) {
+        return _objectSpread({}, attrs, _defineProperty({}, propKey, props[propKey]));
+      }
+    }, {});
+    return React__default.createElement("div", _extends({}, attributes, {
       className: cx('Frame', props.className),
       ref: props.innerRef
-    }, props.children);
+    }), props.children);
   };
 
   WindowFrame.propTypes = {
@@ -1550,40 +1555,49 @@
     _createClass(WindowAbstract, [{
       key: "render",
       value: function render() {
-        var props = this.props;
-        return React__default.createElement(WindowFrame, {
+        var _this$props = this.props,
+            icon = _this$props.icon,
+            onHelp = _this$props.onHelp,
+            onMaximize = _this$props.onMaximize,
+            onMinimize = _this$props.onMinimize,
+            onRestore = _this$props.onRestore,
+            onClose = _this$props.onClose,
+            children = _this$props.children,
+            props = _objectWithoutProperties(_this$props, ["icon", "onHelp", "onMaximize", "onMinimize", "onRestore", "onClose", "children"]);
+
+        return React__default.createElement(WindowFrame, _extends({}, props, {
           className: cx('Window', props.className, {
             'Window--maximized': this.state.maximized,
             'Window--resizable': props.resizable,
             'Window--drag': props.changingState
           }),
           ref: props.innerRef
-        }, React__default.createElement("div", {
+        }), React__default.createElement("div", {
           className: "Window__heading"
-        }, props.icon && React__default.createElement("div", {
+        }, icon && React__default.createElement("div", {
           className: "Window__icon",
           style: {
-            backgroundImage: "url('".concat(props.icon, "')")
+            backgroundImage: "url('".concat(icon, "')")
           }
         }), React__default.createElement("div", {
           className: "Window__title"
-        }, props.title), props.onHelp && React__default.createElement(ButtonNav, {
+        }, props.title), onHelp && React__default.createElement(ButtonNav, {
           className: "Window__help",
-          onClick: props.onHelp
-        }), props.onMinimize && React__default.createElement(ButtonNav, {
+          onClick: onHelp
+        }), onMinimize && React__default.createElement(ButtonNav, {
           className: "Window__minimize",
-          onClick: props.onMinimize
+          onClick: onMinimize
         }), this.state.maximized && this.props.resizable && React__default.createElement(ButtonNav, {
           className: "Window__restore",
           onClick: this.handleRestore
         }), !this.state.maximized && this.props.resizable && React__default.createElement(ButtonNav, {
           className: "Window__maximize",
           onClick: this.handleMaximize
-        }), (props.onClose || props.onMaximize || props.onRestore || props.onMinimize || props.onHelp) && React__default.createElement(ButtonNav, {
+        }), (onClose || onMaximize || onRestore || onMinimize || onHelp) && React__default.createElement(ButtonNav, {
           className: "Window__close",
-          onClick: props.onClose,
-          isDisabled: !props.onClose
-        })), props.children);
+          onClick: onClose,
+          isDisabled: !onClose
+        })), children);
       }
     }]);
 
@@ -1780,9 +1794,14 @@
     _createClass(WindowProgram, [{
       key: "render",
       value: function render() {
-        var props = this.props;
-        var footer = insertDefaultFooter(props.footer);
-        return React__default.createElement(WindowAbstract, {
+        var _this$props = this.props,
+            menuOptions = _this$props.menuOptions,
+            children = _this$props.children,
+            footerData = _this$props.footer,
+            props = _objectWithoutProperties(_this$props, ["menuOptions", "children", "footer"]);
+
+        var footer = insertDefaultFooter(footerData);
+        return React__default.createElement(WindowAbstract, _extends({}, props, {
           className: cx('WindowProgram', props.className),
           icon: props.icon,
           onClose: props.onClose,
@@ -1793,10 +1812,10 @@
           resizable: props.resizable,
           changingState: props.changingState,
           maximizeOnOpen: props.maximizeOnOpen
-        }, Array.isArray(props.menuOptions) && React__default.createElement(MenuBar, {
+        }), Array.isArray(menuOptions) && React__default.createElement(MenuBar, {
           className: "WindowProgram__menu",
-          options: props.menuOptions
-        }), props.children, props.footer && React__default.createElement(Footer, {
+          options: menuOptions
+        }), children, footerData && React__default.createElement(Footer, {
           entries: footer
         }));
       }
@@ -1972,8 +1991,13 @@
     _createClass(WindowExplorer, [{
       key: "render",
       value: function render() {
-        var props = this.props;
-        return React__default.createElement(WindowProgram, {
+        var _this$props = this.props,
+            explorerOptions = _this$props.explorerOptions,
+            children = _this$props.children,
+            customSelect = _this$props.customSelect,
+            props = _objectWithoutProperties(_this$props, ["explorerOptions", "children", "customSelect"]);
+
+        return React__default.createElement(WindowProgram, _extends({}, props, {
           className: cx('WindowExplorer', props.className),
           icon: props.icon,
           onClose: props.onClose,
@@ -1986,20 +2010,20 @@
           menuOptions: props.menuOptions,
           maximizeOnOpen: props.maximizeOnOpen,
           changingState: props.changingState
-        }, props.explorerOptions && React__default.createElement(OptionsList, {
+        }), explorerOptions && React__default.createElement(OptionsList, {
           className: "WindowExplorer__options",
-          options: props.explorerOptions
+          options: explorerOptions
         }), React__default.createElement("menu", {
           className: "WindowExplorer__address"
         }, React__default.createElement("div", {
           className: "WindowExplorer__address__title"
-        }, "Address"), props.customSelect ? props.customSelect() : React__default.createElement(FakeSelect, {
+        }, "Address"), customSelect ? customSelect() : React__default.createElement(FakeSelect, {
           title: props.title,
           icon: props.icon,
           isDisabled: true
         })), React__default.createElement("div", {
           className: "WindowExplorer__view"
-        }, props.children));
+        }, children));
       }
     }]);
 
