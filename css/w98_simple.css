@@ -282,12 +282,12 @@ html {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  background-size: 16px;
+  background-size: 14px;
   background-repeat: no-repeat;
-  background-position: 4px 4px;
+  background-position: 4px 2px;
   box-shadow: inset -1px -1px 0px #0c0c0c, inset 1px 1px 0px #ffffff, inset -2px -2px 0px #808088, inset 2px 2px 0px #bbc3c4; }
   .btn--program:active:focus, .btn--program.btn--active, .btn--program.clicked {
-    background-position: 5px 5px;
+    background-position: 5px 3px;
     box-shadow: inset -1px -1px 0px #ffffff, inset 1px 1px 0px #0c0c0c, inset -2px -2px 0px #bbc3c4, inset 2px 2px 0px #808088;
     padding-top: 3px;
     padding-left: 23px;
