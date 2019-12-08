@@ -93,7 +93,6 @@
     position: relative;
 
     > button {
-      padding: 0px 4px;
       outline: none;
       border: none;
       user-select: none;
@@ -105,7 +104,7 @@
       white-space: nowrap;
       text-overflow: ellipsis;
       text-align: left;
-      padding: 3px 6px;
+      padding: 4px 7px;
       text-transform: capitalize;
 
       + div,
@@ -131,7 +130,7 @@
       &.active,
       &.clicked {
         box-shadow: dualShadow($darkgrey, #ffffff);
-        padding: 4px 5px 2px 7px;
+        padding: 5px 6px 3px 8px;
 
         + div,
         + #{$classname} {

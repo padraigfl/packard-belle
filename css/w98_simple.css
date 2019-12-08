@@ -176,7 +176,7 @@ html {
   min-width: 48px;
   outline-width: 1px;
   outline-offset: -5px;
-  padding: 5px 1px;
+  padding: 5px 4px;
   box-shadow: inset -1px -1px 0px #0c0c0c, inset 1px 1px 0px #ffffff, inset -2px -2px 0px #808088, inset 2px 2px 0px #bbc3c4; }
   .btn--form:focus {
     outline: #0c0c0c;
@@ -792,7 +792,6 @@ select[multiple] {
       position: relative; }
       .window__menu > div > button,
       .Window__menu > div > button {
-        padding: 0px 4px;
         outline: none;
         border: none;
         user-select: none;
@@ -804,7 +803,7 @@ select[multiple] {
         white-space: nowrap;
         text-overflow: ellipsis;
         text-align: left;
-        padding: 3px 6px;
+        padding: 4px 7px;
         text-transform: capitalize; }
         .window__menu > div > button + div,
         .window__menu > div > button + div,
@@ -832,7 +831,7 @@ select[multiple] {
         .Window__menu > div > button.active,
         .Window__menu > div > button.clicked {
           box-shadow: inset -1px -1px 0px #ffffff, inset 1px 1px 0px #808088;
-          padding: 4px 5px 2px 7px; }
+          padding: 5px 6px 3px 8px; }
           .window__menu > div > button:active + div,
           .window__menu > div > button:active + div, .window__menu > div > button:focus + div,
           .window__menu > div > button:focus + div, .window__menu > div > button:active:focus + div,
