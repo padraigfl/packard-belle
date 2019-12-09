@@ -201,7 +201,7 @@ html {
     flex-grow: 1;
     width: 20px;
     height: 20px;
-    margin: 1px auto 2px; }
+    margin: 1px auto; }
   .btn--large-icon img {
     max-width: 20px;
     max-height: 20px;
