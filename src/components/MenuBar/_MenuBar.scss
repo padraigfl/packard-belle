@@ -2,4 +2,7 @@
 
 .MenuBar {
   @include window-menu();
+  &__section > .btn {
+    user-select: none;
+  }
 }
