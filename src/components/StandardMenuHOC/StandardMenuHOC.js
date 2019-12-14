@@ -89,8 +89,10 @@ const withContextLogic = ContextButton => {
         this.removeBlurListener();
         this.setState({ isOpen: false, options: this.props.options });
       } else {
-        this.addBlurListener();
-        this.setState({ isOpen: true, options: this.props.options });
+        this.setState(
+          { isOpen: true, options: this.props.options },
+          () => this.state.isOpen ? setTimeout(this.addBlurListener, 50) : null,
+        );
       }
     };
     handleEvent = newState => onEvent => e => {

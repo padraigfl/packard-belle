@@ -1156,11 +1156,11 @@ var withContextLogic = function withContextLogic(ContextButton) {
             options: _this.props.options
           });
         } else {
-          _this.addBlurListener();
-
           _this.setState({
             isOpen: true,
             options: _this.props.options
+          }, function () {
+            return _this.state.isOpen ? setTimeout(_this.addBlurListener, 50) : null;
           });
         }
       });
