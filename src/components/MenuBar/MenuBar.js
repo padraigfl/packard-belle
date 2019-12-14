@@ -5,7 +5,15 @@ import Button from '../Button';
 import withMenuWrapper from '../StandardMenuHOC';
 import './_MenuBar.scss';
 
-const MenuEntry = withMenuWrapper(Button);
+const MenuButton = (props) => (
+  <Button {...props}>
+    <div style={{ pointerEvents: 'none' }}>
+      {props.children}
+    </div>
+  </Button>
+);
+
+const MenuEntry = withMenuWrapper(MenuButton);
 
 const MenuBar = props => {
   const { options, ...otherProps } = props;
