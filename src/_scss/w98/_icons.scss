@@ -62,6 +62,9 @@
     max-width: 100%;
     overflow: hidden;
     display: inline-block;
+    position: absolute;
+    margin-top: 2px;
+    top: 33px;
   }
 
   &:focus,

@@ -411,7 +411,10 @@ html {
     padding: 2px 3px;
     max-width: 100%;
     overflow: hidden;
-    display: inline-block; }
+    display: inline-block;
+    position: absolute;
+    margin-top: 2px;
+    top: 33px; }
   .icon--explorer:focus .icon__text, .icon--explorer:active .icon__text, .icon--explorer:active:focus .icon__text, .icon--explorer.active .icon__text, .icon--explorer.clicked .icon__text {
     max-height: initial;
     z-index: 1; }
