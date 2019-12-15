@@ -318,7 +318,7 @@
         var _this2 = this;
 
         var props = this.props;
-        return React__default.createElement("button", {
+        return React__default.createElement("button", _extends({}, props, {
           ref: function ref(btn) {
             _this2.button = btn;
           },
@@ -348,7 +348,7 @@
           disabled: props.isDisabled,
           style: props.style,
           title: props.title
-        }, props.children);
+        }), props.children);
       }
     }]);
 
@@ -425,12 +425,12 @@
   styleInject(css$5);
 
   var StartButton = function StartButton(props) {
-    return React__default.createElement(AbstractButton, {
+    return React__default.createElement(AbstractButton, _extends({}, props, {
       className: cx('StartButton', props.className),
       onClick: props.onClick,
       onBlur: props.onBlur,
       isActive: props.isActive
-    });
+    }));
   };
 
   StartButton.propTypes = commonButtonPropTypes$1;
@@ -1165,9 +1165,7 @@
             _this.setState({
               isOpen: true,
               options: _this.props.options
-            }, function () {
-              return _this.state.isOpen ? setTimeout(_this.addBlurListener, 50) : null;
-            });
+            }, _this.addBlurListener);
           }
         });
 
@@ -1273,7 +1271,8 @@
                 active: this.state.isOpen
               })
             }, React__default.createElement(ContextButton, _extends({}, props, {
-              onClick: this.buttonClick,
+              onMouseUp: this.buttonClick,
+              onTouchStart: this.buttonClick,
               className: this.state.isOpen ? 'active' : '',
               onContextMenu: this.props.onContextMenu && function (e) {
                 return _this3.handleContextMenu(e);

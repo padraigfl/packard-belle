@@ -91,7 +91,7 @@ const withContextLogic = ContextButton => {
       } else {
         this.setState(
           { isOpen: true, options: this.props.options },
-          () => this.state.isOpen ? setTimeout(this.addBlurListener, 50) : null,
+          this.addBlurListener,
         );
       }
     };
@@ -140,7 +140,8 @@ const withContextLogic = ContextButton => {
           >
             <ContextButton
               {...props}
-              onClick={this.buttonClick}
+              onMouseUp={this.buttonClick}
+              onTouchStart={this.buttonClick}
               className={this.state.isOpen ? 'active' : ''}
               onContextMenu={
                 this.props.onContextMenu && (e => this.handleContextMenu(e))

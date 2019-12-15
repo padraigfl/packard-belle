@@ -312,7 +312,7 @@ function (_Component) {
       var _this2 = this;
 
       var props = this.props;
-      return React.createElement("button", {
+      return React.createElement("button", _extends({}, props, {
         ref: function ref(btn) {
           _this2.button = btn;
         },
@@ -342,7 +342,7 @@ function (_Component) {
         disabled: props.isDisabled,
         style: props.style,
         title: props.title
-      }, props.children);
+      }), props.children);
     }
   }]);
 
@@ -419,12 +419,12 @@ var css$5 = ".btn.StartButton {\n  height: 22px;\n  display: flex;\n  align-cont
 styleInject(css$5);
 
 var StartButton = function StartButton(props) {
-  return React.createElement(AbstractButton, {
+  return React.createElement(AbstractButton, _extends({}, props, {
     className: cx('StartButton', props.className),
     onClick: props.onClick,
     onBlur: props.onBlur,
     isActive: props.isActive
-  });
+  }));
 };
 
 StartButton.propTypes = commonButtonPropTypes$1;
@@ -1159,9 +1159,7 @@ var withContextLogic = function withContextLogic(ContextButton) {
           _this.setState({
             isOpen: true,
             options: _this.props.options
-          }, function () {
-            return _this.state.isOpen ? setTimeout(_this.addBlurListener, 50) : null;
-          });
+          }, _this.addBlurListener);
         }
       });
 
@@ -1267,7 +1265,8 @@ var withContextLogic = function withContextLogic(ContextButton) {
               active: this.state.isOpen
             })
           }, React.createElement(ContextButton, _extends({}, props, {
-            onClick: this.buttonClick,
+            onMouseUp: this.buttonClick,
+            onTouchStart: this.buttonClick,
             className: this.state.isOpen ? 'active' : '',
             onContextMenu: this.props.onContextMenu && function (e) {
               return _this3.handleContextMenu(e);

@@ -6,6 +6,7 @@ import './_StartButton.scss';
 
 const StartButton = props => (
   <Button
+    {...props}
     className={cx('StartButton', props.className)}
     onClick={props.onClick}
     onBlur={props.onBlur}

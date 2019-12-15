@@ -49,6 +49,7 @@ class AbstractButton extends Component {
 
     return (
       <button
+        {...props}
         ref={btn => {
           this.button = btn;
         }}
