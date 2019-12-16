@@ -311,15 +311,26 @@ function (_Component) {
     value: function render() {
       var _this2 = this;
 
-      var props = this.props;
-      return React.createElement("button", _extends({}, props, {
+      var _this$props = this.props,
+          className = _this$props.className,
+          isActive = _this$props.isActive,
+          isDisabled = _this$props.isDisabled,
+          _onMouseDown = _this$props.onMouseDown,
+          _onMouseUp = _this$props.onMouseUp,
+          onContextMenu = _this$props.onContextMenu,
+          style = _this$props.style,
+          title = _this$props.title,
+          children = _this$props.children,
+          otherProps = _objectWithoutProperties(_this$props, ["className", "isActive", "isDisabled", "onMouseDown", "onMouseUp", "onContextMenu", "style", "title", "children"]);
+
+      return React.createElement("button", _extends({}, otherProps, {
         ref: function ref(btn) {
           _this2.button = btn;
         },
-        className: cx('btn', props.className, {
+        className: cx('btn', className, {
           clicked: this.state.mouseDown,
-          'btn--active': props.isActive,
-          'btn--disabled': props.isDisabled
+          'btn--active': isActive,
+          'btn--disabled': isDisabled
         }),
         onClick: function onClick(e) {
           return _this2.handleClick(e);
@@ -328,21 +339,21 @@ function (_Component) {
           return _this2.handleDoubleClick(e);
         },
         onMouseDown: function onMouseDown() {
-          return _this2.handleMouse(props.onMouseDown, true);
+          return _this2.handleMouse(_onMouseDown, true);
         },
         onMouseUp: function onMouseUp() {
-          return _this2.handleMouse(props.onMouseUp, false);
+          return _this2.handleMouse(_onMouseUp, false);
         },
         onBlur: function onBlur(e) {
           return _this2.handleBlur(e);
         },
-        onContextMenu: this.props.onContextMenu && function (e) {
+        onContextMenu: onContextMenu && function (e) {
           return _this2.handleContextMenu(e);
         },
-        disabled: props.isDisabled,
-        style: props.style,
-        title: props.title
-      }), props.children);
+        disabled: isDisabled,
+        style: style,
+        title: title
+      }), children);
     }
   }]);
 
@@ -419,11 +430,17 @@ var css$5 = ".btn.StartButton {\n  height: 22px;\n  display: flex;\n  align-cont
 styleInject(css$5);
 
 var StartButton = function StartButton(props) {
-  return React.createElement(AbstractButton, _extends({}, props, {
-    className: cx('StartButton', props.className),
-    onClick: props.onClick,
-    onBlur: props.onBlur,
-    isActive: props.isActive
+  var className = props.className,
+      isActive = props.isActive,
+      onBlur = props.onBlur,
+      onClick = props.onClick,
+      otherProps = _objectWithoutProperties(props, ["className", "isActive", "onBlur", "onClick"]);
+
+  return React.createElement(AbstractButton, _extends({}, otherProps, {
+    className: cx('StartButton', className),
+    onClick: onClick,
+    onBlur: onBlur,
+    isActive: isActive
   }));
 };
 

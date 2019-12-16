@@ -10,11 +10,10 @@ describe('StartButton', () => {
 
   it('accepts classes passed in', () => {
     const wrapper = shallow(
-      <StartButton className="test" isActive isDisabled />
+      <StartButton className="test" isActive />
     ).render();
     expect(wrapper.hasClass('test')).toBe(true);
     expect(wrapper.hasClass('btn--active')).toBe(true);
-    expect(wrapper.hasClass('btn--disabled')).toBe(false);
   });
 
   it('onclick fires prop', () => {

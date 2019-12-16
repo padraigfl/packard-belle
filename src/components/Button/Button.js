@@ -45,32 +45,43 @@ class AbstractButton extends Component {
   };
 
   render() {
-    const { props } = this;
+    const {
+      className,
+      isActive,
+      isDisabled,
+      onMouseDown,
+      onMouseUp,
+      onContextMenu,
+      style,
+      title,
+      children,
+      ...otherProps
+    } = this.props;
 
     return (
       <button
-        {...props}
+        {...otherProps}
         ref={btn => {
           this.button = btn;
         }}
-        className={cx('btn', props.className, {
+        className={cx('btn', className, {
           clicked: this.state.mouseDown,
-          'btn--active': props.isActive,
-          'btn--disabled': props.isDisabled,
+          'btn--active': isActive,
+          'btn--disabled': isDisabled,
         })}
         onClick={e => this.handleClick(e)}
         onDoubleClick={e => this.handleDoubleClick(e)}
-        onMouseDown={() => this.handleMouse(props.onMouseDown, true)}
-        onMouseUp={() => this.handleMouse(props.onMouseUp, false)}
+        onMouseDown={() => this.handleMouse(onMouseDown, true)}
+        onMouseUp={() => this.handleMouse(onMouseUp, false)}
         onBlur={e => this.handleBlur(e)}
         onContextMenu={
-          this.props.onContextMenu && (e => this.handleContextMenu(e))
+          onContextMenu && (e => this.handleContextMenu(e))
         }
-        disabled={props.isDisabled}
-        style={props.style}
-        title={props.title}
+        disabled={isDisabled}
+        style={style}
+        title={title}
       >
-        {props.children}
+        {children}
       </button>
     );
   }

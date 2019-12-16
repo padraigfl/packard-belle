@@ -4,15 +4,25 @@ import Button, { commonButtonPropTypes } from '../Button';
 
 import './_StartButton.scss';
 
-const StartButton = props => (
-  <Button
-    {...props}
-    className={cx('StartButton', props.className)}
-    onClick={props.onClick}
-    onBlur={props.onBlur}
-    isActive={props.isActive}
-  />
-);
+const StartButton = props => {
+  const {
+    className,
+    isActive,
+    onBlur,
+    onClick,
+    ...otherProps
+  } = props;
+
+  return (
+    <Button
+      {...otherProps}
+      className={cx('StartButton', className)}
+      onClick={onClick}
+      onBlur={onBlur}
+      isActive={isActive}
+    />
+  );
+};
 
 StartButton.propTypes = commonButtonPropTypes;
 
