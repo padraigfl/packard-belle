@@ -78,10 +78,12 @@ const withContextLogic = ContextButton => {
     addBlurListener = () => {
       document.body.addEventListener('click', this.handleBlur);
       document.body.addEventListener('mousedown', this.handleBlur);
+      document.body.addEventListener('touchstart', this.handleBlur);
     };
     removeBlurListener = () => {
       document.body.removeEventListener('click', this.handleBlur);
       document.body.removeEventListener('mousedown', this.handleBlur);
+      document.body.removeEventListener('touchstart', this.handleBlur);
     };
 
     buttonClick = () => {

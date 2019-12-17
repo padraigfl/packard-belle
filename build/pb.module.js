@@ -1157,11 +1157,13 @@ var withContextLogic = function withContextLogic(ContextButton) {
       _defineProperty(_assertThisInitialized(_this), "addBlurListener", function () {
         document.body.addEventListener('click', _this.handleBlur);
         document.body.addEventListener('mousedown', _this.handleBlur);
+        document.body.addEventListener('touchstart', _this.handleBlur);
       });
 
       _defineProperty(_assertThisInitialized(_this), "removeBlurListener", function () {
         document.body.removeEventListener('click', _this.handleBlur);
         document.body.removeEventListener('mousedown', _this.handleBlur);
+        document.body.removeEventListener('touchstart', _this.handleBlur);
       });
 
       _defineProperty(_assertThisInitialized(_this), "buttonClick", function () {
