@@ -52,7 +52,7 @@ $start: "data:image/gif;base64,R0lGODlhNAATAPIFAAAAAAAA/wD/AP//AP8AAAAAAAAAAAAAA
   &:active,
   &.active,
   &.clicked {
-    padding: 6px 0px 4px 2px;
+    padding: 6px 3px 4px 5px;
     box-shadow: dualShadow($black, $black), dualShadow($darkgrey, $darkgrey, 2);
   }
 }
