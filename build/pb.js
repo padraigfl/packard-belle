@@ -1971,10 +1971,11 @@
           className: cx(props.className, 'OptionsList')
         }, React__default.createElement("div", {
           className: "OptionsList__large-icons"
-        }, options.slice(0, state.entriesInView).map(function (option) {
+        }, options.slice(0, state.entriesInView).map(function (option, idx) {
           if (option.includes && option.includes('divider')) {
             return React__default.createElement("div", {
-              className: "divider ".concat(option)
+              className: "divider ".concat(option),
+              key: "".concat(option).concat(idx)
             });
           }
 

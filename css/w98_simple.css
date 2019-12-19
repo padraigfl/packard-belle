@@ -184,7 +184,7 @@ html {
     outline-width: 1px;
     box-shadow: inset -1px -1px 0px #0c0c0c, inset 1px 1px 0px #0c0c0c, inset -2px -2px 0px #0c0c0c, inset 2px 2px 0px #ffffff; }
   .btn--form:active:focus, .btn--form:active, .btn--form.active, .btn--form.clicked {
-    padding: 6px 0px 4px 2px;
+    padding: 6px 3px 4px 5px;
     box-shadow: inset -1px -1px 0px #0c0c0c, inset 1px 1px 0px #0c0c0c, inset -2px -2px 0px #808088, inset 2px 2px 0px #808088; }
 
 .btn--large-icon {

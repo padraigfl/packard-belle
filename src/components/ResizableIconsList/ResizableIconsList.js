@@ -61,9 +61,9 @@ class OptionsList extends Component {
         className={cx(props.className, 'OptionsList')}
       >
         <div className="OptionsList__large-icons">
-          {options.slice(0, state.entriesInView).map(option => {
+          {options.slice(0, state.entriesInView).map((option, idx) => {
             if (option.includes && option.includes('divider')) {
-              return <div className={`divider ${option}`} />;
+              return <div className={`divider ${option}`} key={`${option}${idx}`}/>;
             }
             return (
               <ButtonIconLarge
