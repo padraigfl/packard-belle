@@ -64,4 +64,4 @@ typings/
 /.vscode/
 /.cache/
 /.out/
-
+.out

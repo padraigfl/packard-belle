@@ -1,0 +1,17 @@
+.ExplorerView {
+  display: flex;
+  flex-flow: column wrap;
+  height: 100%;
+  width: 100%;
+  align-content: flex-start;
+}
+.ExplorerView--fixed-width {
+  overflow-y: scroll;
+  height: initial;
+}
+.ExplorerView--fixed-height {
+  overflow-x: scroll;
+  width: initial;
+}
+
+/*# sourceMappingURL=ExplorerView.css.map */

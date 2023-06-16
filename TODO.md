@@ -1,5 +1,12 @@
 # Todo Lists
 
+# Critical
+
+- [x] get rid of node-sass
+- [ ] fix storybook build issues
+- [ ] fix css file build issues
+- [ ] mass upgrade of dependencies
+
 # Initial UI Todo List
 
 Abstract
