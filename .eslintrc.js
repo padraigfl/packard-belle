@@ -1,42 +1,23 @@
 module.exports = {
   env: {
     browser: true,
-    es6: true,
+    es6: true
   },
   parser: 'babel-eslint',
-  extends: [
-    'eslint:recommended',
-    'plugin:react/recommended',
-    'plugin:jest/recommended',
-  ],
+  extends: ['eslint:recommended', 'plugin:react/recommended', 'plugin:jest/recommended', 'plugin:storybook/recommended'],
   parserOptions: {
     ecmaFeatures: {
       experimentalObjectRestSpread: true,
-      jsx: true,
+      jsx: true
     },
-    sourceType: 'module',
+    sourceType: 'module'
   },
   rules: {
-    indent: [
-      'error',
-        2,
-    ],
-    'linebreak-style': [
-      'error',
-      'unix',
-    ],
-    quotes: [
-      'error',
-      'single',
-    ],
-    semi: [
-      'error',
-      'always',
-    ],
-    'comma-dangle': [
-      'error',
-      'always-multiline',
-    ],
-    'react/prop-types': [0], // imported props fail
-  },
+    indent: ['error', 2],
+    'linebreak-style': ['error', 'unix'],
+    quotes: ['error', 'single'],
+    semi: ['error', 'always'],
+    'comma-dangle': ['error', 'always-multiline'],
+    'react/prop-types': [0] // imported props fail
+  }
 };

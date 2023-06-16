@@ -47,7 +47,7 @@ export default {
       // modules: true,
     }),
     resolve({
-      extensions: ['.mjs', '.js', '.json', '.node', '.ttf'],
+      extensions: ['.mjs', '.js', '.jsx', '.json', '.node', '.ttf'],
     }),
     autoExternal(),
     babel({

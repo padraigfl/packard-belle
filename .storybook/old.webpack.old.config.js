@@ -1,6 +1,6 @@
 const path = require('path');
 
-module.exports = (baseConfig, env, defaultConfig) => {
+module.exports = ({ config: defaultConfig }) => {
   // Extend defaultConfig as you need.
 
   // For example, add typescript loader:
