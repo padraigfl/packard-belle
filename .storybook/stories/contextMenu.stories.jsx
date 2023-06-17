@@ -1,8 +1,9 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import ContextMenu from '../../src/components/StandardMenu';
 import withMenuWrapper from '../../src/components/StandardMenuHOC';
 //import ContextMenuWrapper from '../../src/components/ContextMenu/ContextMenuWrapper';
+
+const noop = () => {};
 
 const optionsSample = [
   {
@@ -50,51 +51,47 @@ const optionsSample = [
   },
 ];
 
-const noop = () => {};
-
 const MenuWithLogic = withMenuWrapper();
 
 const notes =
   'Hover styling currently controlled by javascript (no styling on CSS only version)';
 
-storiesOf('ContextMenu', module)
-  .add(
-    'ContextMenu Single Field',
-    () => (
-      <ContextMenu
-        className="ContextMenu--css"
-        options={[
+export const SingleField = {
+  render: () => (
+    <ContextMenu
+      className="ContextMenu--css"
+      options={[
+        {
+          onClick: noop,
+          title: 'New',
+        },
+        [
           {
             onClick: noop,
-            title: 'New',
+            title: 'Open',
           },
-          [
-            {
-              onClick: noop,
-              title: 'Open',
-            },
-            {
-              onClick: noop,
-              title: 'Two in section',
-            },
-          ],
-          [
-            {
-              onClick: noop,
-              title: 'Single section',
-            },
-          ],
           {
             onClick: noop,
-            title: 'Close',
+            title: 'Two in section',
           },
-        ]}
-      />
-    ),
-    { notes }
-  )
-  .add(
-    'ContextMenu with children',
+        ],
+        [
+          {
+            onClick: noop,
+            title: 'Single section',
+          },
+        ],
+        {
+          onClick: noop,
+          title: 'Close',
+        },
+      ]}
+    />
+  ),
+}
+
+export const WithChildren = {
+  render:
     () => (
       <div>
         <p>Children display handled via CSS :hover</p>
@@ -103,5 +100,9 @@ storiesOf('ContextMenu', module)
         <MenuWithLogic options={optionsSample} isActive />
       </div>
     ),
-    { notes }
-  );
+}
+
+const meta = {
+  component: SingleField,
+}
+export default meta;

@@ -1,8 +1,9 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import StartMenu from '../../src/components/StartMenu';
 
 import img from './directory_closed.png';
+
+const noop = () => {};
 
 const optionsSample = [
   {
@@ -54,14 +55,17 @@ const optionsSample = [
   },
 ];
 
-
-const noop = () => {};
-
-storiesOf('StartMenu', module)
-  .add('StartMenu', () => (
+const Start = {
+  render: () => (
     <div style={{ position: 'fixed', bottom: '0px', width: '100%' }}>
       <StartMenu
         options={optionsSample}
       />
     </div>
-  ));
+  )
+};
+
+const meta = {
+  component: Start,
+}
+export default meta;

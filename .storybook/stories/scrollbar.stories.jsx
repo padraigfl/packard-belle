@@ -1,9 +1,7 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 
-storiesOf('Scrollbar', module).add(
-  'scrollbar',
-  () => (
+export const Scrollbar = {
+  render: () => (
     <div style={{ overflow: 'scroll', maxHeight: '200px', maxWidth: '200px' }}>
       <div
         style={{
@@ -20,5 +18,10 @@ storiesOf('Scrollbar', module).add(
       </div>
     </div>
   ),
-  { notes: '~Scrollbar only works correctly on Chrome at the moment' }
-);
+  notes: '~Scrollbar only works correctly on Chrome at the moment',
+};
+
+const meta = {
+  component: Scrollbar,
+}
+export default meta;

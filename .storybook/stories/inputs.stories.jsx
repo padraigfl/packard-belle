@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { storiesOf } from '@storybook/react';
 import Checkbox from '../../src/components/FormCheckbox';
 import Radio from '../../src/components/FormRadio';
 import InputText from '../../src/components/FormInputText';
@@ -145,8 +144,8 @@ class SelectBoxState extends Component {
   }
 }
 
-storiesOf('Inputs', module)
-  .add('checkbox', () => (
+export const checkbox = {
+  render: () => (
     <div className="form">
       <CheckboxTest type="checkbox" label="Checked" id="ID" value="Checked" />
       <br />
@@ -168,8 +167,9 @@ storiesOf('Inputs', module)
         isDisabled
       />
     </div>
-  ))
-  .add('radio', () => (
+  )
+}
+export const radio = { render: () => (
     <div className="form">
       <p>Sample Radio</p>
       <RadioTest
@@ -213,8 +213,9 @@ storiesOf('Inputs', module)
         ]}
       />
     </div>
-  ))
-  .add('text', () => (
+  )
+}
+export const text = { render: () => (
     <div className="form">
       <InputText />: Active
       <br />
@@ -222,8 +223,9 @@ storiesOf('Inputs', module)
       <br />
       <InputText isDisabled />: Disabled
     </div>
-  ))
-  .add('select multiple basic', () => (
+  )
+}
+export const SelectMultipleBasic = { render: () => (
     <div className="form">
       <SelectMultiple
         options={[
@@ -247,10 +249,10 @@ storiesOf('Inputs', module)
         multiple field
       </p>
     </div>
-  ))
-  .add(
-    'select',
-    () => (
+  )
+}
+export const select = {
+  render: () => (
       <div className="form">
         Active select box
         <Select
@@ -306,37 +308,49 @@ storiesOf('Inputs', module)
         />
       </div>
     ),
-    {
-      notes: `*Note*
+  notes: `*Note*
     These select boxes use [https://github.com/JedWatson/react-select](React-Select) v1.2;
     writing, styling and debugger a framework agnostic select field seemed like a lot more work than everything else here combined
     A total rewrite will be required to update.
     Current storybook example is not fully operational.`,
-    }
-  )
-  .add('selectbox simple', () => (
+}
+export const SelectboxSimple = {
+  render: () => (
     <div className="form">
       <SelectBoxState multiple />
       <br />
       Disabled
       <SelectBoxState multiple isDisabled />
     </div>
-  ))
-  .add('selectbox with icons', () => (
+  )
+}
+export const SelectBoxWithIcons = {
+  render: () => (
     <div className="form">
       <SelectBoxState multiple component={ListIcon} />
       <br />
       Disabled
       <SelectBoxState multiple isDisabled component={ListIcon} />
     </div>
-  ))
-  .add('selectbox with other icon type', () => (
+  )
+}
+export const SelectBoxWithOtherIcon = {
+  render: () => (
     <div className="form">
       <SelectBoxState multiple component={ExplorerIcon} />
     </div>
-  ))
-  .add('fake select', () => (
+  )
+}
+export const FakeSelectDropdown = {
+  render: () => (
     <div className="form">
       <FakeSelect title="test" icon={img} />
     </div>
-  ));
+  )
+};
+
+
+const meta = {
+  component: checkbox,
+}
+export default meta;

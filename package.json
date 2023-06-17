@@ -10,14 +10,14 @@
     "watch": "rollup -c rollup.config.babel.js -w",
     "storybook": "storybook dev -p 9001 -c .storybook",
     "build": "storybook build -c .storybook -o .out",
-    "build:css": "echo \"This was a node-sass command and needs to be replaced, it collects all the scss files to make a single stylesheet file\"",
+    "build:css": "sass src/_scss/w98_simple.scss:css/w98_simple.css",
     "test": "jest --env=jsdom",
     "test:watch": "jest --env=jsdom --no-cache --watch",
     "coverage": "jest --env=jsdom --coverage  --coverageReporters=text-lcov ",
     "coveralls": "npm run coverage | coveralls",
     "lint": "eslint -c .eslintrc.js --quiet --ext .js './src/**/*.js'",
     "lint:css": "stylelint 'src/**/*.scss'",
-    "precommit-build": "npm run build:module && git add build",
+    "precommit-build": "npm run build:module && git add build && git add css",
     "index": "node ./.scripts/autoIndex/",
     "playroom:start": "playroom start",
     "playroom:build": "playroom build"
@@ -90,8 +90,8 @@
     "stylelint-scss": "^3.5.3"
   },
   "peerDependencies": {
-    "react": "^16.5.2",
-    "react-dom": "^16.5.2"
+    "react": "^16.8.0 | ^17.0.0",
+    "react-dom": "^16.8.0 | ^17.0.0"
   },
   "pre-commit": [
     "lint",

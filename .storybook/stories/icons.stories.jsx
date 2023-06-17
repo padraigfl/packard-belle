@@ -1,5 +1,4 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import ExplorerIcon from '../../src/components/IconExplorerIcon';
 import ListIcon from '../../src/components/IconListIcon';
 import img from './directory_closed.png';
@@ -12,10 +11,9 @@ const alertIt = () => {
   window.alert('DoubleClick');
 };
 
-storiesOf('Icons', module)
-  .add(
-    'ExplorerIcon',
-    () => (
+
+export const ExplorerIcons = {
+  render: () => (
       <>
         <ExplorerIcon
           className="test"
@@ -34,9 +32,10 @@ storiesOf('Icons', module)
         />
       </>
     ),
-    { notes: 'Click on item to expose full name' }
-  )
-  .add('ListIcon', () => (
+   notes: 'Click on item to expose full name',
+}
+export const ListIcons = {
+  render: () => (
     <div>
       <ListIcon
         className="test"
@@ -72,4 +71,10 @@ storiesOf('Icons', module)
         href="https://www.google.com"
       />
     </div>
-  ));
+  )
+};
+
+const meta = {
+  component: ExplorerIcons,
+}
+export default meta;

@@ -1,5 +1,4 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import Notifications from '../../src/components/TaskBar/Notifications';
 import TaskBar from '../../src/components/TaskBar';
 import img from './directory_closed.png';
@@ -64,8 +63,8 @@ const optionsSample = [
   ],
 ];
 
-storiesOf('TaskBar', module)
-  .add('TaskBar', () => (
+export const TaskBarStory = {
+  render: () => (
     <TaskBar
       quickLaunch={[
         {
@@ -101,5 +100,15 @@ storiesOf('TaskBar', module)
         },
       ]}
     />
-  ))
-  .add('Notifications', () => <Notifications />);
+  ),
+  name: 'TaskBar'
+}
+export const NotificationStory = {
+  render: () => <Notifications />,
+  name: 'Notifications',
+}
+
+const meta = {
+  component: TaskBarStory,
+}
+export default meta;

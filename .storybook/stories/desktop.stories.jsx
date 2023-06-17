@@ -1,5 +1,4 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import ExplorerView from '../../src/components/ExplorerView';
 import img from './directory_closed.png';
 
@@ -30,14 +29,21 @@ const options = [
   { title: 'TestF', onClick: noop, icon: img },
 ];
 
-storiesOf('Desktop', module).add('Desktop sample', () => (
-  <div
-    style={{
-      backgroundColor: 'white',
-      width: '400px',
-      height: '300px',
-    }}
-  >
-    <ExplorerView options={options} />
-  </div>
-));
+const Desktop = {
+  render: () => (
+    <div
+      style={{
+        backgroundColor: 'white',
+        width: '400px',
+        height: '300px',
+      }}
+    >
+      <ExplorerView options={options} />
+    </div>
+  )
+}
+
+const meta = {
+  component: Desktop,
+}
+export default meta;

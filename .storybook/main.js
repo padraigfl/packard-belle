@@ -4,15 +4,15 @@ const main = {
     options: { fastRefresh: true },
   },
   stories: [
-    // './stories/taskbar.js',
+    './stories/taskbar.stories.jsx',
     './stories/buttons.stories.jsx',
-    // './stories/windows.js',
-    // './stories/contextMenu.js',
-    // './stories/icons.js',
-    // './stories/scrollbar.js',
-    // './stories/inputs.js',
-    // './stories/start.js',
-    // './stories/desktop.js',
+    './stories/windows.stories.jsx',
+    './stories/contextMenu.stories.jsx',
+    './stories/icons.stories.jsx',
+    './stories/scrollbar.stories.jsx',
+    './stories/inputs.stories.jsx',
+    './stories/start.stories.jsx',
+    './stories/desktop.stories.jsx',
   ],
   core: {
     builder: {

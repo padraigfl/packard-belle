@@ -1,5 +1,4 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import WindowFrame from '../../src/components/Frame';
 import AbstractWindow from '../../src/components/Window';
 import ExplorerWindow from '../../src/components/WindowExplorer';
@@ -9,6 +8,8 @@ import DetailsSection from '../../src/components/DetailsSection';
 
 import img from './directory_closed.png';
 import WindowAction from '../../src/components/WindowAction';
+
+const noop = () => {};
 
 const optionsSample = [
   {
@@ -56,12 +57,8 @@ const optionsSample = [
   },
 ];
 
-const noop = () => {};
-
-storiesOf('Windows', module)
-  .add('Generic window', () => <WindowFrame>Window</WindowFrame>)
-  .add('Static window', () => (
-    <AbstractWindow
+export const GenericWindow = () => <WindowFrame>Window</WindowFrame>
+export const StaticWindow = () => <AbstractWindow
       title="Title"
       icon={img}
       onClose={noop}
@@ -70,8 +67,7 @@ storiesOf('Windows', module)
     >
       Windows
     </AbstractWindow>
-  ))
-  .add('Window with DetailsSection', () => (
+export const WindowWithDetailsSection = () => (
     <AbstractWindow
       title="Settings w/Sections"
       icon={img}
@@ -86,8 +82,8 @@ storiesOf('Windows', module)
         <p>Here's a load of stuff</p>
       </DetailsSection>
     </AbstractWindow>
-  ))
-  .add('Window Program', () => (
+  )
+export const WindowForProgram = () => (
     <WindowProgram
       title="Window with MenuBar"
       icon={img}
@@ -108,10 +104,9 @@ storiesOf('Windows', module)
     >
       Windows
     </WindowProgram>
-  ))
-  .add(
-    'ExplorerWindow',
-    () => (
+  )
+export const ExplorerWindowStory = {
+  render: () => (
       <ExplorerWindow
         title="ExplorerWindow"
         menuOptions={[
@@ -166,9 +161,10 @@ storiesOf('Windows', module)
         resizable
       />
     ),
-    { notes: 'WIP' }
-  )
-  .add('AlertWindow', () => (
+  notes: 'WIP'
+}
+export const AlertWindowStory = {
+  render: () => (
     <AlertWindow
       title="AlertWindow"
       icon={img}
@@ -178,8 +174,9 @@ storiesOf('Windows', module)
     >
       This is an error message.
     </AlertWindow>
-  ))
-  .add('WindowAction', () => (
+  )
+}
+export const WindowActionStory = () => (
     <WindowAction
       icon={img}
       action="save"
@@ -188,4 +185,9 @@ storiesOf('Windows', module)
       onCancel={noop}
       content={[{ title: 'Blah', icon: img }, { title: 'Blah2', icon: img }]}
     />
-  ));
+  );
+
+const meta = {
+  component: GenericWindow,
+}
+export default meta;
