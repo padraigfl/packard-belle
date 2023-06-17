@@ -1,7 +1,7 @@
 @import "./var/colors";
-@import "src/_scss/w98/mixins/box-shadows";
-@import "src/_scss/w98/var/var";
-@import "src/_scss/w98/var/uris";
+@import "./mixins/box-shadows";
+@import "./var/var";
+@import "./var/uris";
 
 @mixin input-text {
   position: relative;

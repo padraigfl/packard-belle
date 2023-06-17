@@ -1,8 +1,8 @@
-@import "src/_scss/w98/var/colors";
-@import "src/_scss/w98/functions/box-shadows";
-@import "src/_scss/w98/var/var";
-@import "src/_scss/w98/var/uris";
-@import "src/_scss/w98/_menu";
+@import "./var/colors";
+@import "./functions/box-shadows";
+@import "./var/var";
+@import "./var/uris";
+@import "./_menu";
 
 @mixin window-basic {
   position: relative;
