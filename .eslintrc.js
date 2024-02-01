@@ -19,5 +19,10 @@ module.exports = {
     semi: ['error', 'always'],
     'comma-dangle': ['error', 'always-multiline'],
     'react/prop-types': [0] // imported props fail
+  },
+  settings: {
+    react: {
+      version: "detect"
+    }
   }
 };
