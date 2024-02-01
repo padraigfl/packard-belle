@@ -51,35 +51,60 @@
     style: PropTypes.shape()
   };
 
-  function ownKeys(object, enumerableOnly) {
-    var keys = Object.keys(object);
-    if (Object.getOwnPropertySymbols) {
-      var symbols = Object.getOwnPropertySymbols(object);
-      enumerableOnly && (symbols = symbols.filter(function (sym) {
-        return Object.getOwnPropertyDescriptor(object, sym).enumerable;
-      })), keys.push.apply(keys, symbols);
-    }
-    return keys;
+  function _callSuper(t, o, e) {
+    return o = _getPrototypeOf(o), _possibleConstructorReturn(t, _isNativeReflectConstruct() ? Reflect.construct(o, e || [], _getPrototypeOf(t).constructor) : o.apply(t, e));
   }
-  function _objectSpread2(target) {
-    for (var i = 1; i < arguments.length; i++) {
-      var source = null != arguments[i] ? arguments[i] : {};
-      i % 2 ? ownKeys(Object(source), !0).forEach(function (key) {
-        _defineProperty(target, key, source[key]);
-      }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) {
-        Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
+  function _isNativeReflectConstruct() {
+    try {
+      var t = !Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {}));
+    } catch (t) {}
+    return (_isNativeReflectConstruct = function () {
+      return !!t;
+    })();
+  }
+  function ownKeys(e, r) {
+    var t = Object.keys(e);
+    if (Object.getOwnPropertySymbols) {
+      var o = Object.getOwnPropertySymbols(e);
+      r && (o = o.filter(function (r) {
+        return Object.getOwnPropertyDescriptor(e, r).enumerable;
+      })), t.push.apply(t, o);
+    }
+    return t;
+  }
+  function _objectSpread2(e) {
+    for (var r = 1; r < arguments.length; r++) {
+      var t = null != arguments[r] ? arguments[r] : {};
+      r % 2 ? ownKeys(Object(t), !0).forEach(function (r) {
+        _defineProperty(e, r, t[r]);
+      }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) {
+        Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r));
       });
     }
-    return target;
+    return e;
   }
-  function _typeof(obj) {
+  function _toPrimitive(t, r) {
+    if ("object" != typeof t || !t) return t;
+    var e = t[Symbol.toPrimitive];
+    if (void 0 !== e) {
+      var i = e.call(t, r || "default");
+      if ("object" != typeof i) return i;
+      throw new TypeError("@@toPrimitive must return a primitive value.");
+    }
+    return ("string" === r ? String : Number)(t);
+  }
+  function _toPropertyKey(t) {
+    var i = _toPrimitive(t, "string");
+    return "symbol" == typeof i ? i : String(i);
+  }
+  function _typeof(o) {
     "@babel/helpers - typeof";
 
-    return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) {
-      return typeof obj;
-    } : function (obj) {
-      return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
-    }, _typeof(obj);
+    return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) {
+      return typeof o;
+    } : function (o) {
+      return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o;
+    }, _typeof(o);
   }
   function _classCallCheck(instance, Constructor) {
     if (!(instance instanceof Constructor)) {
@@ -160,17 +185,6 @@
     };
     return _setPrototypeOf(o, p);
   }
-  function _isNativeReflectConstruct() {
-    if (typeof Reflect === "undefined" || !Reflect.construct) return false;
-    if (Reflect.construct.sham) return false;
-    if (typeof Proxy === "function") return true;
-    try {
-      Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {}));
-      return true;
-    } catch (e) {
-      return false;
-    }
-  }
   function _objectWithoutPropertiesLoose(source, excluded) {
     if (source == null) return {};
     var target = {};
@@ -212,20 +226,6 @@
     }
     return _assertThisInitialized(self);
   }
-  function _createSuper(Derived) {
-    var hasNativeReflectConstruct = _isNativeReflectConstruct();
-    return function _createSuperInternal() {
-      var Super = _getPrototypeOf(Derived),
-        result;
-      if (hasNativeReflectConstruct) {
-        var NewTarget = _getPrototypeOf(this).constructor;
-        result = Reflect.construct(Super, arguments, NewTarget);
-      } else {
-        result = Super.apply(this, arguments);
-      }
-      return _possibleConstructorReturn(this, result);
-    };
-  }
   function _toConsumableArray(arr) {
     return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread();
   }
@@ -251,34 +251,19 @@
   function _nonIterableSpread() {
     throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
   }
-  function _toPrimitive(input, hint) {
-    if (typeof input !== "object" || input === null) return input;
-    var prim = input[Symbol.toPrimitive];
-    if (prim !== undefined) {
-      var res = prim.call(input, hint || "default");
-      if (typeof res !== "object") return res;
-      throw new TypeError("@@toPrimitive must return a primitive value.");
-    }
-    return (hint === "string" ? String : Number)(input);
-  }
-  function _toPropertyKey(arg) {
-    var key = _toPrimitive(arg, "string");
-    return typeof key === "symbol" ? key : String(key);
-  }
 
   var css_248z$1 = ".btn {\n  border: 0px solid transparent;\n  background-color: #bbc3c4;\n  position: relative;\n  user-select: none;\n}\n.btn:disabled, .btn.disabled {\n  pointer-events: none;\n}\n.btn:active, .btn:focus, .btn:active:focus, .btn.active, .btn.clicked {\n  outline: none;\n  color: inherit;\n}\n.btn:before {\n  position: absolute;\n  display: block;\n  top: 1px;\n  left: 1px;\n  width: calc(100% - 2px);\n  height: calc(100% - 2px);\n}";
   styleInject(css_248z$1);
 
   var AbstractButton = /*#__PURE__*/function (_Component) {
     _inherits(AbstractButton, _Component);
-    var _super = _createSuper(AbstractButton);
     function AbstractButton() {
       var _this;
       _classCallCheck(this, AbstractButton);
       for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
         args[_key] = arguments[_key];
       }
-      _this = _super.call.apply(_super, [this].concat(args));
+      _this = _callSuper(this, AbstractButton, [].concat(args));
       _defineProperty(_assertThisInitialized(_this), "state", {
         mouseDown: false
       });
@@ -518,7 +503,6 @@
     closeOnClick: function closeOnClick() {
       console.error('Menus require a closeOnClick prop to function correctly'); // eslint-disable-line
     },
-
     value: []
   };
   StandardMenuItem.propTypes = {
@@ -596,14 +580,13 @@
 
   var AbstractIcon = /*#__PURE__*/function (_Component) {
     _inherits(AbstractIcon, _Component);
-    var _super = _createSuper(AbstractIcon);
     function AbstractIcon() {
       var _this;
       _classCallCheck(this, AbstractIcon);
       for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
         args[_key] = arguments[_key];
       }
-      _this = _super.call.apply(_super, [this].concat(args));
+      _this = _callSuper(this, AbstractIcon, [].concat(args));
       _defineProperty(_assertThisInitialized(_this), "state", {
         doubleReady: false
       });
@@ -816,14 +799,13 @@
 
   var InputText = /*#__PURE__*/function (_Component) {
     _inherits(InputText, _Component);
-    var _super = _createSuper(InputText);
     function InputText() {
       var _this;
       _classCallCheck(this, InputText);
       for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
         args[_key] = arguments[_key];
       }
-      _this = _super.call.apply(_super, [this].concat(args));
+      _this = _callSuper(this, InputText, [].concat(args));
       _defineProperty(_assertThisInitialized(_this), "state", {
         value: _this.props.initialValue
       });
@@ -946,11 +928,10 @@
 
   var SelectMultipleSimple = /*#__PURE__*/function (_Component) {
     _inherits(SelectMultipleSimple, _Component);
-    var _super = _createSuper(SelectMultipleSimple);
     function SelectMultipleSimple(props) {
       var _this;
       _classCallCheck(this, SelectMultipleSimple);
-      _this = _super.call(this, props);
+      _this = _callSuper(this, SelectMultipleSimple, [props]);
       _defineProperty(_assertThisInitialized(_this), "updateValue", function (value) {
         _this.setState({
           value: value
@@ -1023,17 +1004,16 @@
 
   var _excluded = ["className"];
   var withContextLogic = function withContextLogic(ContextButton) {
-    var _class;
-    return _class = /*#__PURE__*/function (_Component) {
+    var _StandardMenuSimple;
+    return _StandardMenuSimple = /*#__PURE__*/function (_Component) {
       _inherits(StandardMenuSimple, _Component);
-      var _super = _createSuper(StandardMenuSimple);
       function StandardMenuSimple() {
         var _this;
         _classCallCheck(this, StandardMenuSimple);
         for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
           args[_key] = arguments[_key];
         }
-        _this = _super.call.apply(_super, [this].concat(args));
+        _this = _callSuper(this, StandardMenuSimple, [].concat(args));
         _defineProperty(_assertThisInitialized(_this), "state", {
           options: _this.props.options,
           isActive: _this.props.isActive,
@@ -1175,13 +1155,13 @@
         }
       }]);
       return StandardMenuSimple;
-    }(React.Component), _defineProperty(_class, "defaultProps", {
+    }(React.Component), _defineProperty(_StandardMenuSimple, "defaultProps", {
       value: []
-    }), _defineProperty(_class, "propTypes", _objectSpread2(_objectSpread2({}, standardMenuProps$1), {}, {
+    }), _defineProperty(_StandardMenuSimple, "propTypes", _objectSpread2(_objectSpread2({}, standardMenuProps$1), {}, {
       onClick: PropTypes.func,
       onBlur: PropTypes.func,
       onContextMenu: PropTypes.func
-    })), _class;
+    })), _StandardMenuSimple;
   };
 
   var _excluded$1 = ["className"];
@@ -1228,14 +1208,13 @@
   };
   var Time = /*#__PURE__*/function (_React$Component) {
     _inherits(Time, _React$Component);
-    var _super = _createSuper(Time);
     function Time() {
       var _this;
       _classCallCheck(this, Time);
       for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
         args[_key] = arguments[_key];
       }
-      _this = _super.call.apply(_super, [this].concat(args));
+      _this = _callSuper(this, Time, [].concat(args));
       _defineProperty(_assertThisInitialized(_this), "state", {
         time: _this.props.time ? new Date(_this.props.time) : new Date()
       });
@@ -1363,14 +1342,13 @@
 
   var WindowAbstract = /*#__PURE__*/function (_Component) {
     _inherits(WindowAbstract, _Component);
-    var _super = _createSuper(WindowAbstract);
     function WindowAbstract() {
       var _this;
       _classCallCheck(this, WindowAbstract);
       for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
         args[_key] = arguments[_key];
       }
-      _this = _super.call.apply(_super, [this].concat(args));
+      _this = _callSuper(this, WindowAbstract, [].concat(args));
       _defineProperty(_assertThisInitialized(_this), "state", {
         maximized: _this.props.maximizeOnOpen
       });
@@ -1602,10 +1580,9 @@
   };
   var WindowProgram = /*#__PURE__*/function (_React$Component) {
     _inherits(WindowProgram, _React$Component);
-    var _super = _createSuper(WindowProgram);
     function WindowProgram() {
       _classCallCheck(this, WindowProgram);
-      return _super.apply(this, arguments);
+      return _callSuper(this, WindowProgram, arguments);
     }
     _createClass(WindowProgram, [{
       key: "render",
@@ -1646,14 +1623,13 @@
 
   var OptionsListDropdown = /*#__PURE__*/function (_Component) {
     _inherits(OptionsListDropdown, _Component);
-    var _super = _createSuper(OptionsListDropdown);
     function OptionsListDropdown() {
       var _this;
       _classCallCheck(this, OptionsListDropdown);
       for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
         args[_key] = arguments[_key];
       }
-      _this = _super.call.apply(_super, [this].concat(args));
+      _this = _callSuper(this, OptionsListDropdown, [].concat(args));
       _defineProperty(_assertThisInitialized(_this), "openList", function () {
         _this.dropdownButton.focus();
       });
@@ -1681,14 +1657,13 @@
   }(React.Component);
   var OptionsList = /*#__PURE__*/function (_Component2) {
     _inherits(OptionsList, _Component2);
-    var _super2 = _createSuper(OptionsList);
     function OptionsList() {
       var _this3;
       _classCallCheck(this, OptionsList);
       for (var _len2 = arguments.length, args = new Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
         args[_key2] = arguments[_key2];
       }
-      _this3 = _super2.call.apply(_super2, [this].concat(args));
+      _this3 = _callSuper(this, OptionsList, [].concat(args));
       _defineProperty(_assertThisInitialized(_this3), "state", {
         entriesInView: 8
       });
@@ -1756,10 +1731,9 @@
 
   var WindowExplorer = /*#__PURE__*/function (_React$Component) {
     _inherits(WindowExplorer, _React$Component);
-    var _super = _createSuper(WindowExplorer);
     function WindowExplorer() {
       _classCallCheck(this, WindowExplorer);
-      return _super.apply(this, arguments);
+      return _callSuper(this, WindowExplorer, arguments);
     }
     _createClass(WindowExplorer, [{
       key: "render",

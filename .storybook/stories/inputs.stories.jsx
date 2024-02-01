@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import Checkbox from '../../src/components/FormCheckbox';
 import Radio from '../../src/components/FormRadio';
 import InputText from '../../src/components/FormInputText';
 import FakeSelect from '../../src/components/FormFakeSelect';
 import SelectMultiple from '../../src/components/FormSelectBoxSimple';
-import Select from '../../src/components/FormSelect';
+import Select from '../../src/components/FormSelectDISABLED';
 import SelectBox from '../../src/components/FormSelectBox';
 import ListIcon from '../../src/components/IconListIcon';
 import ExplorerIcon from '../../src/components/IconExplorerIcon';
@@ -251,33 +251,39 @@ export const SelectMultipleBasic = { render: () => (
     </div>
   )
 }
+
+const selectOptions = [
+  {
+    label: 'option1',
+    value: 'option1',
+  },
+  {
+    label: 'option2',
+    value: 'option2',
+  },
+  {
+    label: 'option3',
+    value: 'option3',
+  },
+  {
+    label: 'Option4',
+    value: 'option4',
+  },
+]
 export const select = {
-  render: () => (
+  render: () => {
+    const [val, setVal] = useState('')
+    return (
+    <>
+      <strong>This component needs extensive refactoring and has been disabled</strong>
       <div className="form">
         Active select box
         <Select
-          options={[
-            {
-              label: 'option1',
-              value: 'option1',
-            },
-            {
-              label: 'option2',
-              value: 'option2',
-            },
-            {
-              label: 'option3',
-              value: 'option3',
-            },
-            {
-              label: 'Option4',
-              value: 'option4',
-            },
-          ]}
+          options={selectOptions}
           onChange={value => {
-            selectValue = value;
+            setVal(val)
           }}
-          value={selectValue}
+          value={selectOptions.find(o => o.value === val)}
           useIcons
         />
         <br />
@@ -307,9 +313,11 @@ export const select = {
           isDisabled
         />
       </div>
-    ),
+    </>
+    )
+  },
   notes: `*Note*
-    These select boxes use [https://github.com/JedWatson/react-select](React-Select) v1.2;
+    These select boxes used [https://github.com/JedWatson/react-select](React-Select) v1.2;
     writing, styling and debugger a framework agnostic select field seemed like a lot more work than everything else here combined
     A total rewrite will be required to update.
     Current storybook example is not fully operational.`,

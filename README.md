@@ -54,7 +54,7 @@ Thanks to @cryiography for the script to autogenerate these
 | FormFakeSelect      | N/A                                         | [source dir](src/components/FormFakeSelect)      | [/index.js](src/components/FormFakeSelect/index.js)                               |
 | FormInputText       | N/A                                         | [source dir](src/components/FormInputText)       | [/index.js](src/components/FormInputText/index.js)                                |
 | FormRadio           | N/A                                         | [source dir](src/components/FormRadio)           | [/index.js](src/components/FormRadio/index.js)                                    |
-| FormSelect          | [DOCS](src/components/FormSelect/README.md) | [source dir](src/components/FormSelect)          | [/index.js](src/components/FormSelect/index.js)                                   |
+| FormSelect          | [DOCS](src/components/FormSelectDISABLED/README.md) | [source dir](src/components/FormSelectDISABLED)          | [/index.js](src/components/FormSelectDISABLED/index.js)                                   |
 | FormSelectBox       | N/A                                         | [source dir](src/components/FormSelectBox)       | [/index.js](src/components/FormSelectBox/index.js)                                |
 | FormSelectBoxSimple | N/A                                         | [source dir](src/components/FormSelectBoxSimple) | [/index.js](src/components/FormSelectBoxSimple/index.js)                          |
 | FormToggle          | N/A                                         | [source dir](src/components/FormToggle)          | [/index.js](src/components/FormToggle/index.js)                                   |

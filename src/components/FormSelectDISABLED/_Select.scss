@@ -27,6 +27,18 @@
 
   $select-height: 16px;
 
+  .Select-arrow-zone {
+    position: absolute;
+    box-shadow: dualShadow($grey, $black), dualShadow(#ffffff, $darkgrey, 2);
+    height: $select-height;
+    width: $select-height;
+    left: calc(100% - 18px);
+    top: 2px;
+    background-color: $grey;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url($arrow-down);
+  }
   /* stylelint-disable */
   .Select {
     position: relative;
@@ -66,18 +78,6 @@
           align-items: center;
           padding: 2px 0px 2px 4px;
         }
-      }
-      .Select-arrow-zone {
-        position: absolute;
-        box-shadow: dualShadow($grey, $black), dualShadow(#ffffff, $darkgrey, 2);
-        height: $select-height;
-        width: $select-height;
-        left: calc(100% - 18px);
-        top: 2px;
-        background-color: $grey;
-        background-repeat: no-repeat;
-        background-position: center;
-        background-image: url($arrow-down);
       }
       .Select-clear-zone {
         display: none;
