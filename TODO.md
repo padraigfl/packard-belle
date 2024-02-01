@@ -3,9 +3,11 @@
 # Critical
 
 - [x] get rid of node-sass
-- [ ] fix storybook build issues
-- [ ] fix css file build issues
-- [ ] mass upgrade of dependencies
+- [x] fix storybook build issues
+- [x] fix css file build issues
+- [x] mass upgrade of key dependencies
+- [ ] either fix tests or delete them
+- [ ] remove unused things such as playroom and arguably stylelint 
 
 # Initial UI Todo List
 
@@ -76,7 +78,6 @@ W98 Toolbar
 - [ ] Tests
 - [ ] CI
 - [ ] Coverage
-- [ ] Snapshots (only when finished with core components)
 - [x] Linting
 - [x] PropTypes
 
